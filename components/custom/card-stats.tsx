@@ -396,7 +396,9 @@ export function CardStatProgress({
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <div className="flex items-baseline justify-between gap-2">
-          <p className="text-2xl font-semibold tracking-tight">{displayValue}</p>
+          <p className="text-2xl font-semibold tracking-tight">
+            {displayValue}
+          </p>
           <span className="shrink-0 text-sm text-muted-foreground">
             / {displayGoal}
           </span>
@@ -547,7 +549,9 @@ export function CardStatComparison({
             <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
               {currentLabel}
             </p>
-            <p className="text-2xl font-semibold tracking-tight">{f(current)}</p>
+            <p className="text-2xl font-semibold tracking-tight">
+              {f(current)}
+            </p>
           </div>
           <div className="flex flex-col gap-0.5 border-l pl-4">
             <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
@@ -813,7 +817,8 @@ const highlightVariants = cva(
         emerald: "bg-success text-success-foreground",
         amber: "bg-warning text-warning-foreground",
         rose: "bg-destructive text-white",
-        violet: "bg-[var(--highlight-violet)] text-[var(--highlight-violet-foreground)]",
+        violet:
+          "bg-[var(--highlight-violet)] text-[var(--highlight-violet-foreground)]",
         sky: "bg-[var(--highlight-sky)] text-[var(--highlight-sky-foreground)]",
       },
     },

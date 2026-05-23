@@ -61,9 +61,21 @@ const ITEM_ROUNDED: Record<string, string> = {
 }
 
 const ITEM_HEIGHT: Record<string, number> = { sm: 32, md: 36, lg: 40 }
-const ITEM_TEXT: Record<string, string> = { sm: "text-xs", md: "text-sm", lg: "text-base" }
-const SEARCH_HEIGHT: Record<string, string> = { sm: "h-8", md: "h-9", lg: "h-10" }
-const SEARCH_TEXT: Record<string, string> = { sm: "text-xs", md: "text-sm", lg: "text-base" }
+const ITEM_TEXT: Record<string, string> = {
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-base",
+}
+const SEARCH_HEIGHT: Record<string, string> = {
+  sm: "h-8",
+  md: "h-9",
+  lg: "h-10",
+}
+const SEARCH_TEXT: Record<string, string> = {
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-base",
+}
 const HEADER_HEIGHT = 28
 const LIST_MAX_HEIGHT = 300
 const OVERSCAN = 6
@@ -219,7 +231,11 @@ function DropdownContent({
             onChange={(e) => onQueryChange(e.target.value)}
             onKeyDown={onKeyDown}
             placeholder={searchPlaceholder}
-            className={cn("flex w-full bg-transparent py-3 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed", SEARCH_HEIGHT[size], SEARCH_TEXT[size])}
+            className={cn(
+              "flex w-full bg-transparent py-3 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed",
+              SEARCH_HEIGHT[size],
+              SEARCH_TEXT[size]
+            )}
             autoComplete="off"
             spellCheck={false}
           />
@@ -311,7 +327,10 @@ function DropdownContent({
                   aria-disabled={option.disabled || undefined}
                   style={itemStyle}
                   className={cn(
-                    cn("flex cursor-default items-center gap-2 px-2 font-medium transition-colors select-none", ITEM_TEXT[size]),
+                    cn(
+                      "flex cursor-default items-center gap-2 px-2 font-medium transition-colors select-none",
+                      ITEM_TEXT[size]
+                    ),
                     ITEM_ROUNDED[rounded] ?? ITEM_ROUNDED.md,
                     isActive &&
                       !option.disabled &&
