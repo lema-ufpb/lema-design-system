@@ -1,0 +1,43 @@
+name: "📝 Nova Task"
+description: "Crie uma nova tarefa ou atividade a ser realizada"
+title: "[Task] "
+labels: ["task"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este template para descrever uma tarefa ou atividade interna do projeto.
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: "Descrição da tarefa"
+      description: "Explique claramente o que precisa ser feito"
+      placeholder: "Ex: Refatorar função de autenticação"
+    validations:
+      required: true
+
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: "Objetivo"
+      description: "Qual resultado se espera dessa tarefa?"
+      placeholder: "Ex: Melhorar a performance do login"
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: "Checklist de passos"
+      description: "Liste as etapas necessárias"
+      placeholder: |
+        - [ ] Etapa 1
+        - [ ] Etapa 2
+        - [ ] Etapa 3
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: "Informações adicionais"
+      description: "Anexe links, prints ou detalhes úteis"

@@ -1,0 +1,196 @@
+name: AI PR Review (app-programacao-fiscal)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: self-hosted
+
+    steps:
+      - name: 📦 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📋 Gerar diff do PR, histórico de commits e arquivos modificados
+        run: |
+          git fetch origin ${{ github.base_ref }}
+
+          # Diff do PR
+          git diff origin/${{ github.base_ref }}...HEAD | head -c 50000 \
+            > /tmp/pr_${{ github.run_id }}.diff
+
+          # Histórico de commits
+          git log origin/${{ github.base_ref }}...HEAD --pretty=format:"- %s" \
+            > /tmp/commits_${{ github.run_id }}.txt
+
+          # Arquivos TypeScript/React modificados em src/
+          echo "" > /tmp/src_files_${{ github.run_id }}.txt
+          echo "=========================================================" >> /tmp/src_files_${{ github.run_id }}.txt
+          echo "ARQUIVOS TS/TSX MODIFICADOS EM src/" >> /tmp/src_files_${{ github.run_id }}.txt
+          echo "=========================================================" >> /tmp/src_files_${{ github.run_id }}.txt
+
+          for file in $(git diff origin/${{ github.base_ref }}...HEAD --name-only | grep -E "^src/.*\.(ts|tsx)$" | head -20); do
+            echo "" >> /tmp/src_files_${{ github.run_id }}.txt
+            echo "### $file" >> /tmp/src_files_${{ github.run_id }}.txt
+            echo "---------------------------------------------------------" >> /tmp/src_files_${{ github.run_id }}.txt
+            git diff origin/${{ github.base_ref }}...HEAD -- "$file" | head -100 >> /tmp/src_files_${{ github.run_id }}.txt
+          done
+
+      - name: 🧩 Montar prompt com skill + diff
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          printf '%s\n' \
+            "Você é um revisor sênior do design system LEMA-DS, especializado em shadcn/ui, Tailwind CSS v4, CVA, TypeScript e boas práticas de design system (escala tipográfica, espaçamento, tokens de cor, proporções de componentes)." \
+            "Use EXCLUSIVAMENTE o conteúdo da skill abaixo como critério de avaliação — não invente regras ausentes nela." \
+            "Responda em português brasileiro. Seja direto e objetivo: sem introduções, sem preâmbulos e sem repetir trechos do diff." \
+            "" \
+            "=========================================================" \
+            "TÍTULO DO PR" \
+            "=========================================================" \
+            > /tmp/prompt_${{ github.run_id }}.txt
+
+          printf '%s\n' "- ${PR_TITLE}" >> /tmp/prompt_${{ github.run_id }}.txt
+
+          printf '%s\n' \
+            "" \
+            "=========================================================" \
+            "MENSAGENS DE COMMIT (CONTEXTO DA INTENÇÃO)" \
+            "=========================================================" \
+            >> /tmp/prompt_${{ github.run_id }}.txt
+
+          cat /tmp/commits_${{ github.run_id }}.txt >> /tmp/prompt_${{ github.run_id }}.txt
+
+          if [ -f ".agents/skills/shadcn/SKILL.md" ]; then
+            printf '%s\n' \
+              "" \
+              "=========================================================" \
+              "SKILL: shadcn" \
+              "=========================================================" \
+              >> /tmp/prompt_${{ github.run_id }}.txt
+            cat .agents/skills/shadcn/SKILL.md >> /tmp/prompt_${{ github.run_id }}.txt
+          fi
+
+          if [ -f ".agents/skills/design-system/SKILL.md" ]; then
+            printf '%s\n' \
+              "" \
+              "=========================================================" \
+              "SKILL: design-system (estende shadcn — tem precedência em regras mais específicas)" \
+              "=========================================================" \
+              >> /tmp/prompt_${{ github.run_id }}.txt
+            cat .agents/skills/design-system/SKILL.md >> /tmp/prompt_${{ github.run_id }}.txt
+          fi
+
+          printf '%s\n' \
+            "" \
+            "=========================================================" \
+            "ARQUIVOS TS/TSX MODIFICADOS EM components/ hooks/ providers/ lib/" \
+            "(Análise OBRIGATÓRIA - não ignore)" \
+            "=========================================================" \
+            >> /tmp/prompt_${{ github.run_id }}.txt
+
+          cat /tmp/src_files_${{ github.run_id }}.txt >> /tmp/prompt_${{ github.run_id }}.txt
+
+          printf '%s\n' \
+            "" \
+            "=========================================================" \
+            "INSTRUÇÕES DE AVALIAÇÃO" \
+            "=========================================================" \
+            "" \
+            "Regras para evitar falsos positivos:" \
+            "1. OBRIGATÓRIO: inspecione todos os arquivos .ts/.tsx listados acima — jamais diga 'não há código para revisar'." \
+            "2. Só reporte um problema se ele violar EXPLICITAMENTE um critério da skill — não invente problemas." \
+            "3. Não exija estruturas completas se apenas componentes individuais foram modificados." \
+            "4. Não reporte ausência de padrão a menos que o PR introduza uma funcionalidade completa que o exigiria." \
+            "" \
+            "Formato de cada problema encontrado:" \
+            "**<arquivo>:<linha aprox.>** | 🔴 crítico / 🟡 atenção / 🟢 sugestão" \
+            "Problema: <descrição objetiva>" \
+            "Correção: <orientação baseada na skill>" \
+            "" \
+            "Estruture sua resposta com exatamente estas seções:" \
+            "" \
+            "## Resumo" \
+            "(2–3 frases sobre a qualidade geral do PR)" \
+            "" \
+            "## Problemas encontrados" \
+            "(ordenados: críticos → atenção → sugestões; se não houver, escreva 'Nenhum problema encontrado.')" \
+            "" \
+            "## Checklist da Skill" \
+            "| Critério | Status |" \
+            "| -------- | ------ |" \
+            "| <item da skill> | ✅ aprovado / ❌ reprovado / ⬜ não avaliado |" \
+            "" \
+            "=========================================================" \
+            "DIFF DO PR" \
+            "=========================================================" \
+            >> /tmp/prompt_${{ github.run_id }}.txt
+
+          cat /tmp/pr_${{ github.run_id }}.diff >> /tmp/prompt_${{ github.run_id }}.txt
+
+      - name: 🤖 Rodar review com opencode (modelo free auto-selecionado)
+        run: |
+          FREE_MODELS=(
+            "opencode/deepseek-v4-flash-free"
+            "opencode/nemotron-3-super-free"
+            "opencode/big-pickle"
+          )
+
+          START=$((RANDOM % ${#FREE_MODELS[@]}))
+          REVIEW_DONE=false
+
+          for i in "${!FREE_MODELS[@]}"; do
+            idx=$(( (i + START) % ${#FREE_MODELS[@]} ))
+            MODEL="${FREE_MODELS[$idx]}"
+            echo "🎲 Tentando modelo: $MODEL"
+            if opencode run \
+              --model "$MODEL" \
+              --dangerously-skip-permissions \
+              < /tmp/prompt_${{ github.run_id }}.txt \
+              > /tmp/review_${{ github.run_id }}.md; then
+              echo "$MODEL" > /tmp/model_${{ github.run_id }}.txt
+              echo "✅ Review concluído com: $MODEL"
+              REVIEW_DONE=true
+              break
+            fi
+            echo "⚠️ Falhou com $MODEL, tentando próximo..."
+          done
+
+          if [ "$REVIEW_DONE" = false ]; then
+            echo "❌ Todos os modelos falharam"
+            exit 1
+          fi
+
+      - name: 💬 Postar comentário no PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const review = fs.readFileSync('/tmp/review_${{ github.run_id }}.md', 'utf8');
+            const model = fs.readFileSync('/tmp/model_${{ github.run_id }}.txt', 'utf8').trim();
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## 🤖 AI Code Review — Next.js App (app-programacao-fiscal)\n\n${review}\n\n---\n*opencode · ${model} · self-hosted*`
+            });
+
+      - name: 🧹 Limpar arquivos temporários
+        if: always()
+        run: |
+          rm -f \
+            /tmp/pr_${{ github.run_id }}.diff \
+            /tmp/commits_${{ github.run_id }}.txt \
+            /tmp/prompt_${{ github.run_id }}.txt \
+            /tmp/review_${{ github.run_id }}.md \
+            /tmp/src_files_${{ github.run_id }}.txt \
+            /tmp/model_${{ github.run_id }}.txt

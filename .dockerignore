@@ -1,0 +1,29 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build outputs
+.next
+storybook-static
+out
+build
+dist
+
+# Editor and system files
+.DS_Store
+.vscode
+.claude
+.agents
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Tests and Coverage
+coverage
+playwright-report
+test-results

@@ -1,0 +1,91 @@
+name: "🚀 CD - Build and Deploy Docker Image"
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+env:
+  KUSTOMIZATION_PATH: k8s/overlays/prod/lema-ufpb/kustomization.yml
+
+jobs:
+  build-and-push:
+    runs-on: self-hosted
+    if: |
+      startsWith(github.ref, 'refs/tags/v') &&
+      github.ref_type == 'tag'
+    outputs:
+      image_tag: ${{ steps.set-tag.outputs.image_tag }}
+    steps:
+      - name: "📥 Checkout repository (commit da tag)"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "🔑 Log in to GitHub Container Registry"
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+
+      - name: "🐳 Set up Docker Buildx"
+        uses: docker/setup-buildx-action@v3
+
+      - name: "🏷️ Set image tag"
+        id: set-tag
+        run: |
+          IMAGE_TAG=${GITHUB_REF#refs/tags/}
+          echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
+          echo "✨ Tag da imagem definida: $IMAGE_TAG"
+
+      - name: "🚀 Build and push Docker image"
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          no-cache: true
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ steps.set-tag.outputs.image_tag }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  update-argocd:
+    needs: build-and-push
+    runs-on: self-hosted
+    if: |
+      startsWith(github.ref, 'refs/tags/v') &&
+      github.ref_type == 'tag'
+    steps:
+      - name: "📥 Checkout argocd-apps repository"
+        uses: actions/checkout@v4
+        with:
+          repository: lema-ufpb/argocd-apps
+          token: ${{ secrets.GHCR_PAT }} # Assuming GHCR_PAT has access to the argocd-apps repo
+          path: argocd-apps
+
+      - name: "⚙️ Setup Kustomize"
+        uses: imranismail/setup-kustomize@v2
+
+      - name: "🔄 Update Kustomize image tag"
+        run: |
+          echo "🔄 Atualizando a tag da imagem no Kustomize (prod e dev)..."
+          cd argocd-apps/apps/design-system/overlays/prod
+          kustomize edit set image ghcr.io/${{ github.repository }}=ghcr.io/${{ github.repository }}:${{ needs.build-and-push.outputs.image_tag }}
+          cd ../dev
+          kustomize edit set image ghcr.io/${{ github.repository }}=ghcr.io/${{ github.repository }}:${{ needs.build-and-push.outputs.image_tag }}
+          echo "✅ Kustomize atualizado com sucesso!"
+
+      - name: "📤 Commit and push changes"
+        run: |
+          echo "📤 Preparando para fazer o commit no ArgoCD repo..."
+          cd argocd-apps
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "chore(design-system): update image to ${{ needs.build-and-push.outputs.image_tag }} 🚀"
+          git push origin main
+          echo "🎉 Deploy configurado com sucesso!"

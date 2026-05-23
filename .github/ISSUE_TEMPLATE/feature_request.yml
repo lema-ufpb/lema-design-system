@@ -1,0 +1,32 @@
+name: "✨ Feature Request"
+description: "Sugira uma nova funcionalidade"
+title: "[Feature] "
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sugerir uma ideia! Preencha as informações abaixo.
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: "Descrição da melhoria"
+      description: "Explique a funcionalidade desejada"
+      placeholder: "Ex: Adicionar suporte a exportação em CSV"
+    validations:
+      required: true
+
+  - type: textarea
+    id: justificativa
+    attributes:
+      label: "Justificativa"
+      description: "Por que essa funcionalidade é importante?"
+
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: "Alternativas consideradas"
+      description: "Liste soluções alternativas que você já pensou"
