@@ -26,7 +26,12 @@ const ThemeDecorator = ({
   useEffect(() => {
     const root = document.documentElement
 
-    root.classList.add(inter.variable, fontMono.variable, "font-sans", "antialiased")
+    root.classList.add(
+      inter.variable,
+      fontMono.variable,
+      "font-sans",
+      "antialiased"
+    )
 
     root.classList.remove("blue", "green", "violet")
     if (colorTheme && colorTheme !== "default") {
