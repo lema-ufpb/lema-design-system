@@ -3,21 +3,47 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 
+export type ColorTheme = "default" | "blue" | "green" | "violet"
+
+const ColorThemeContext = React.createContext<{
+  colorTheme: ColorTheme
+  setColorTheme: (theme: ColorTheme) => void
+}>({
+  colorTheme: "default",
+  setColorTheme: () => null,
+})
+
+export function useColorTheme() {
+  return React.useContext(ColorThemeContext)
+}
+
 function ThemeProvider({
   children,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
+  const [colorTheme, setColorTheme] = React.useState<ColorTheme>("default")
+
+  React.useEffect(() => {
+    const root = document.documentElement
+    root.classList.remove("blue", "green", "violet")
+    if (colorTheme !== "default") {
+      root.classList.add(colorTheme)
+    }
+  }, [colorTheme])
+
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-      {...props}
-    >
-      <ThemeHotkey />
-      {children}
-    </NextThemesProvider>
+    <ColorThemeContext.Provider value={{ colorTheme, setColorTheme }}>
+      <NextThemesProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+        {...props}
+      >
+        <ThemeHotkey />
+        {children}
+      </NextThemesProvider>
+    </ColorThemeContext.Provider>
   )
 }
 
