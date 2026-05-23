@@ -7,7 +7,6 @@ import "./storybook.css"
 import MockDate from "mockdate"
 import { initialize, mswLoader } from "msw-storybook-addon"
 
-import { mswHandlers } from "./msw-handlers"
 
 initialize({ onUnhandledRequest: "bypass" })
 
@@ -94,7 +93,6 @@ const preview: Preview = {
   ],
   loaders: [mswLoader],
   parameters: {
-    msw: { handlers: mswHandlers },
     controls: {
       matchers: {
         color: /(background|color)$/i,
