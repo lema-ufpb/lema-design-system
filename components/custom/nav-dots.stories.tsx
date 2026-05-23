@@ -1,0 +1,273 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite"
+import { fn } from "storybook/test"
+import { NavDots } from "./nav-dots"
+
+// ── Shared data ────────────────────────────────────────────────────────────
+
+const sections = [
+  { id: "s-intro", label: "Introduction" },
+  { id: "s-process", label: "Process" },
+  { id: "s-features", label: "Features" },
+  { id: "s-tips", label: "Tips" },
+]
+
+const SECTION_COLORS = [
+  "bg-blue-50 dark:bg-blue-950",
+  "bg-emerald-50 dark:bg-emerald-950",
+  "bg-amber-50 dark:bg-amber-950",
+  "bg-purple-50 dark:bg-purple-950",
+]
+
+// ── Scrollable section renderer ────────────────────────────────────────────
+
+/**
+ * Renders tall coloured sections inside a scrollable container.
+ * The container itself is the scroll root, so IntersectionObserver works
+ * inside the Storybook canvas iframe.
+ */
+function ScrollDemo({
+  children,
+  height = 400,
+  navPosition = "before",
+}: {
+  children: React.ReactNode
+  height?: number
+  /** "before" renders nav above sections (sticky top/side), "after" renders below (sticky bottom) */
+  navPosition?: "before" | "after"
+}) {
+  const sectionElements = sections.map((s, i) => (
+    <section
+      key={s.id}
+      id={s.id}
+      className={`flex min-h-[400px] items-center justify-center ${SECTION_COLORS[i % SECTION_COLORS.length]}`}
+    >
+      <p className="text-xl font-semibold text-foreground">{s.label}</p>
+    </section>
+  ))
+
+  return (
+    <div
+      className="relative overflow-auto rounded-xl border border-border"
+      style={{ height }}
+    >
+      {navPosition === "before" && children}
+      {sectionElements}
+      {navPosition === "after" && children}
+    </div>
+  )
+}
+
+// ── Meta ────────────────────────────────────────────────────────────────────
+
+const meta: Meta<typeof NavDots> = {
+  title: "Navigation/NavDots",
+  component: NavDots,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: [
+          "Dot-based section navigation with automatic scroll tracking and shadcn Tooltip labels.",
+          "",
+          "Tracks which section is visible via `IntersectionObserver` — works inside any scrollable container, not just the viewport.",
+          "",
+          "## Orientations",
+          "- **vertical** — pinned to the left or right edge (default)",
+          "- **horizontal** — pinned to the bottom center",
+          "",
+          "## Scroll detection",
+          "The component walks up the DOM to find the nearest scrollable ancestor and uses it as the `IntersectionObserver` root. Override with `scrollContainer`.",
+        ].join("\n"),
+      },
+    },
+  },
+  argTypes: {
+    orientation: {
+      control: "radio",
+      options: ["vertical", "horizontal"],
+    },
+    position: {
+      control: "radio",
+      options: ["left", "right"],
+    },
+    active: {
+      control: "number",
+    },
+    scrollOnClick: {
+      control: "boolean",
+    },
+    onActiveChange: { table: { disable: true } },
+    scrollContainer: { table: { disable: true } },
+    sections: { table: { disable: true } },
+  },
+}
+
+export default meta
+type Story = StoryObj<typeof NavDots>
+
+// ── Stories ─────────────────────────────────────────────────────────────────
+
+/**
+ * Default vertical navigation — scroll the container below to see the
+ * active dot change automatically.
+ */
+export const Default: Story = {
+  args: {
+    sections,
+    position: "right",
+    orientation: "vertical",
+  },
+  render: (args) => (
+    <ScrollDemo>
+      <NavDots
+        {...args}
+        className="sticky top-1/2 right-3 z-50 ml-auto -translate-y-1/2"
+        style={{ position: "sticky", right: 12, float: "right" }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/**
+ * Horizontal orientation — dots appear at the bottom center.
+ * Scroll the container to see state changes.
+ */
+export const Horizontal: Story = {
+  args: {
+    sections,
+    orientation: "horizontal",
+    position: "right",
+  },
+  render: (args) => (
+    <ScrollDemo navPosition="before">
+      <NavDots
+        {...args}
+        className="sticky top-3 left-1/2 z-50 -translate-x-1/2"
+        style={{ position: "sticky", top: 12 }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/** Pinned to the left side of the container */
+export const LeftPosition: Story = {
+  args: {
+    sections,
+    position: "left",
+    orientation: "vertical",
+  },
+  render: (args) => (
+    <ScrollDemo>
+      <NavDots
+        {...args}
+        className="sticky top-1/2 left-3 z-50 -translate-y-1/2"
+        style={{ position: "sticky", left: 12, float: "left" }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/** Initial active section set to index 2 (Features) */
+export const WithActive: Story = {
+  args: {
+    sections,
+    active: 2,
+  },
+  render: (args) => (
+    <ScrollDemo>
+      <NavDots
+        {...args}
+        className="sticky top-1/2 right-3 z-50 ml-auto -translate-y-1/2"
+        style={{ position: "sticky", right: 12, float: "right" }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/** Fires `onActiveChange` callback logged in the Actions panel */
+export const WithCallback: Story = {
+  args: {
+    sections,
+    onActiveChange: fn(),
+  },
+  render: (args) => (
+    <ScrollDemo>
+      <NavDots
+        {...args}
+        className="sticky top-1/2 right-3 z-50 ml-auto -translate-y-1/2"
+        style={{ position: "sticky", right: 12, float: "right" }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/** Dots are display-only — clicking does not scroll */
+export const DisabledScroll: Story = {
+  args: {
+    sections,
+    scrollOnClick: false,
+  },
+  render: (args) => (
+    <ScrollDemo>
+      <NavDots
+        {...args}
+        className="sticky top-1/2 right-3 z-50 ml-auto -translate-y-1/2"
+        style={{ position: "sticky", right: 12, float: "right" }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/** pt-BR locale example */
+export const LocalePTBR: Story = {
+  args: {
+    sections: sections.map((s) => ({
+      ...s,
+      label:
+        s.id === "s-intro"
+          ? "Introdução"
+          : s.id === "s-process"
+            ? "Processo"
+            : s.id === "s-features"
+              ? "Recursos"
+              : "Dicas",
+    })),
+    position: "right",
+    orientation: "vertical",
+    locale: "pt-BR",
+  },
+  render: (args) => (
+    <ScrollDemo>
+      <NavDots
+        {...args}
+        className="sticky top-1/2 right-3 z-50 ml-auto -translate-y-1/2"
+        style={{ position: "sticky", right: 12, float: "right" }}
+      />
+    </ScrollDemo>
+  ),
+}
+
+/** Side-by-side comparison of all active states */
+export const AllStates: Story = {
+  args: {
+    sections,
+  },
+  render: () => (
+    <div className="flex flex-wrap gap-8">
+      {sections.map((_, idx) => (
+        <div key={idx} className="flex flex-col items-center gap-2">
+          <p className="text-xs text-muted-foreground">Active: {idx}</p>
+          <NavDots
+            sections={sections}
+            active={idx}
+            scrollOnClick={false}
+            orientation="vertical"
+            className="relative"
+            style={{ position: "relative" }}
+          />
+        </div>
+      ))}
+    </div>
+  ),
+}
