@@ -1,0 +1,111 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite"
+import { EmailInput } from "./input-email"
+
+const meta = {
+  title: "Forms/EmailInput",
+  component: EmailInput,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: [
+          "An email text field component pre-configured with a native email keyboard layout, validation states, and a semantic mail suffix icon.",
+          "",
+          "Supports various size variants (`sm`, `default`, `lg`), border radius presets (`pill`, `rounded`, `square`), disabled styles, and standard error invalid states.",
+          "",
+          "## Design Tokens & Semantic Variables",
+          "",
+          "| Element | CSS Variable | Purpose |",
+          "| --- | --- | --- |",
+          "| **Boundary border** | `--input` | Default outer border line color |",
+          "| **Focus ring outline** | `--ring` | Keyboard interaction highlighting boundary |",
+          "| **Mail indicator icon** | `--muted-foreground` | Icon stroke color inside the text field |",
+          "| **Error state border** | `--destructive` | Red outer boundary ring for validation failure |",
+          "| **Error focus ring** | `--destructive/20` | Subtle red focus ring for invalid validation inputs |",
+          "| **Disabled background** | `--muted` | Light background fill indicating read-only / disabled state |",
+        ].join("\n"),
+      },
+    },
+  },
+  argTypes: {
+    disabled: {
+      control: "boolean",
+    },
+    placeholder: {
+      control: "text",
+    },
+    size: {
+      control: "select",
+      options: ["sm", "default", "lg"],
+    },
+    radius: {
+      control: "select",
+      options: ["pill", "rounded", "square"],
+    },
+  },
+} satisfies Meta<typeof EmailInput>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    placeholder: "e.g., user@example.com",
+  },
+}
+
+export const Small: Story = {
+  args: {
+    size: "sm",
+    placeholder: "e.g., user@example.com",
+  },
+}
+
+export const Large: Story = {
+  args: {
+    size: "lg",
+    placeholder: "e.g., user@example.com",
+  },
+}
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex w-72 flex-col gap-3">
+      <EmailInput size="sm" placeholder="Small" />
+      <EmailInput size="default" placeholder="Default" />
+      <EmailInput size="lg" placeholder="Large" />
+    </div>
+  ),
+}
+
+export const AllRadius: Story = {
+  render: () => (
+    <div className="flex w-72 flex-col gap-3">
+      <EmailInput radius="pill" placeholder="Pill" />
+      <EmailInput radius="rounded" placeholder="Rounded" />
+      <EmailInput radius="square" placeholder="Square" />
+    </div>
+  ),
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    placeholder: "e.g., user@example.com",
+    value: "disabled.user@example.com",
+  },
+}
+
+export const WithValue: Story = {
+  args: {
+    value: "support@lema.ufpb.br",
+  },
+}
+
+export const Invalid: Story = {
+  args: {
+    "aria-invalid": true,
+    placeholder: "e.g., user@example.com",
+  },
+}
