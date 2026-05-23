@@ -5,6 +5,7 @@
   "description": "A fully custom SVG box-and-whisker chart with ResizeObserver for responsive layout, notch support, and outlier plotting.",
   "dependencies": [],
   "registryDependencies": [
+    "skeleton",
     "ui-i18n"
   ],
   "files": [

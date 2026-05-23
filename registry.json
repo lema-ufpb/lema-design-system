@@ -114,6 +114,8 @@
       "title": "Command",
       "description": "A fast, searchable command palette and menu list interface driven by keyboard navigation.",
       "registryDependencies": [
+        "dialog",
+        "input-group",
         "ui-i18n"
       ],
       "files": [
@@ -130,6 +132,7 @@
       "title": "Dialog",
       "description": "A modal overlay that interrupts the user with critical information or requires direct interaction.",
       "registryDependencies": [
+        "button",
         "ui-i18n"
       ],
       "files": [
@@ -188,7 +191,9 @@
       "title": "Input Group",
       "description": "An integrated form row that groups related inputs, text labels, prefix/suffix icons, keyboard shortcuts, and button actions.",
       "registryDependencies": [
-        "input"
+        "button",
+        "input",
+        "textarea"
       ],
       "files": [
         {
@@ -1042,6 +1047,7 @@
       "title": "Progress Bar",
       "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, and semantic color intents. Built on the Radix UI Progress primitive.",
       "registryDependencies": [
+        "skeleton",
         "tooltip"
       ],
       "files": [
@@ -1074,6 +1080,7 @@
       "title": "Risk Level Bar",
       "description": "A segmented progress bar with a movable marker. Uses semantic tokens (--risk-1 to --risk-4) for flexible theming.",
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1110,6 +1117,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1127,6 +1135,7 @@
       "description": "A fully custom SVG box-and-whisker chart with ResizeObserver for responsive layout, notch support, and outlier plotting.",
       "dependencies": [],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1147,6 +1156,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1166,6 +1176,7 @@
         "react-simple-maps"
       ],
       "registryDependencies": [
+        "skeleton",
         "tooltip"
       ],
       "files": [
@@ -1185,6 +1196,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1205,6 +1217,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1225,6 +1238,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1245,6 +1259,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1265,6 +1280,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1285,6 +1301,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1305,6 +1322,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "skeleton",
         "ui-i18n"
       ],
       "files": [
@@ -1446,8 +1464,10 @@
       "title": "Nav User",
       "description": "A user profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.",
       "registryDependencies": [
+        "button",
         "dropdown-menu",
-        "avatar"
+        "avatar",
+        "skeleton"
       ],
       "files": [
         {
@@ -1487,7 +1507,7 @@
       ],
       "registryDependencies": [
         "popover",
-        "spinner"
+        "spinner-ui"
       ],
       "files": [
         {

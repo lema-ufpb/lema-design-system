@@ -4,6 +4,7 @@
   "title": "Progress Bar",
   "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, and semantic color intents. Built on the Radix UI Progress primitive.",
   "registryDependencies": [
+    "skeleton",
     "tooltip"
   ],
   "files": [

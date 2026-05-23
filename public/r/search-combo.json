@@ -8,7 +8,7 @@
   ],
   "registryDependencies": [
     "popover",
-    "spinner"
+    "spinner-ui"
   ],
   "files": [
     {
