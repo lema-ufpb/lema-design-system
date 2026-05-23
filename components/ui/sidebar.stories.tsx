@@ -159,48 +159,48 @@ export const Default: Story = {
 function SidebarInsetDemo() {
   return (
     <TooltipProvider>
-    <div className="flex h-screen">
-      <SidebarProvider defaultOpen>
-        <Sidebar variant="inset" collapsible="icon">
-          <SidebarHeader>
-            <SidebarInput placeholder="Search..." />
-          </SidebarHeader>
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton tooltip="Dashboard" isActive>
-                      <HomeIcon />
-                      <span>Dashboard</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton tooltip="Inbox">
-                      <InboxIcon />
-                      <span>Inbox</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton tooltip="Search">
-                      <SearchIcon />
-                      <span>Search</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-          <SidebarRail />
-        </Sidebar>
-        <main className="flex flex-1 flex-col bg-background p-6">
-          <SidebarTrigger />
-          <div className="mt-6 flex flex-1 items-center justify-center rounded-2xl border border-dashed text-sm text-muted-foreground">
-            Inset Variant Content
-          </div>
-        </main>
-      </SidebarProvider>
-    </div>
+      <div className="flex h-screen">
+        <SidebarProvider defaultOpen>
+          <Sidebar variant="inset" collapsible="icon">
+            <SidebarHeader>
+              <SidebarInput placeholder="Search..." />
+            </SidebarHeader>
+            <SidebarContent>
+              <SidebarGroup>
+                <SidebarGroupContent>
+                  <SidebarMenu>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton tooltip="Dashboard" isActive>
+                        <HomeIcon />
+                        <span>Dashboard</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton tooltip="Inbox">
+                        <InboxIcon />
+                        <span>Inbox</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton tooltip="Search">
+                        <SearchIcon />
+                        <span>Search</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+            </SidebarContent>
+            <SidebarRail />
+          </Sidebar>
+          <main className="flex flex-1 flex-col bg-background p-6">
+            <SidebarTrigger />
+            <div className="mt-6 flex flex-1 items-center justify-center rounded-2xl border border-dashed text-sm text-muted-foreground">
+              Inset Variant Content
+            </div>
+          </main>
+        </SidebarProvider>
+      </div>
     </TooltipProvider>
   )
 }
