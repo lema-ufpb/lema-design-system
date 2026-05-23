@@ -7,7 +7,6 @@ import "./storybook.css"
 import MockDate from "mockdate"
 import { initialize, mswLoader } from "msw-storybook-addon"
 
-
 initialize({ onUnhandledRequest: "bypass" })
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
