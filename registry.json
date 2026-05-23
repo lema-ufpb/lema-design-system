@@ -1,0 +1,1578 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "LEMA-UFPB Design System",
+  "homepage": "https://ds.lema.ufpb.br",
+  "versao": "1.0.0",
+  "items": [
+    {
+      "name": "ui-i18n",
+      "type": "registry:lib",
+      "title": "UI i18n",
+      "description": "Shared locale-based i18n dictionary with en-US, pt-PR, es-ES, and fr-FR support for UI components.",
+      "files": [
+        {
+          "path": "lib/ui-i18n.ts",
+          "type": "registry:lib",
+          "target": "lib/ui-i18n.ts"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An image element representing a user or entity, with a fallback display for when the image fails to load.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A small visual indicator for categorization, counts, or status labels.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "An interactive button control used to trigger actions, submit forms, or navigate.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A versatile card container with sub-components for header, title, action buttons, descriptions, body content, and footer actions.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "An autocomplete combobox built on @base-ui/react with search, groups, multi-select chips, and keyboard navigation.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/combobox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "A fast, searchable command palette and menu list interface driven by keyboard navigation.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal overlay that interrupts the user with critical information or requires direct interaction.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A slide-over panel built on vaul, supporting bottom, left, right, and top directions with drag-to-dismiss gestures.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A popover style menu listing choices or operations that is triggered by a button control.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A fundamental form text input element styling standard inputs such as text, passwords, emails, numbers, search bars, and files.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "An integrated form row that groups related inputs, text labels, prefix/suffix icons, keyboard shortcuts, and button actions.",
+      "registryDependencies": [
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A rich information bubble popover displaying contextual content triggered by focus/click events.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A simple progress bar indicator designed to show status completion values.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "A custom scroll wrapper that replaces browser scrollbars with cross-browser consistent, styling-flexible scroll rails.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-area.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A placeholder loading state component shaped as elements to outline UI containers during data fetching lifecycle phases.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "An animated loader icon used to represent background processing, async submission delays, or loading data sequences.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/spinner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spinner.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A multi-line text input field supporting dynamic sizing, transition glows, and custom invalid validation borders.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A lightweight popup hint displaying auxiliary text descriptions when a cursor hovers over or focus lands on trigger targets.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A responsive table component built using native HTML table elements styled with Tailwind CSS.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "A semantic pagination component built with native <nav> and <ul> elements, prev/next links, and ellipsis.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A modal dialog that interrupts users with urgent information, actions, or confirmation prompts.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A contextual notification banner for displaying feedback messages with title, description, and optional action.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "A wrapper that maintains a consistent aspect ratio for its child content.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/aspect-ratio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/aspect-ratio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "A navigation aid showing the user's location in a hierarchical page structure with separators and ellipsis.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "A container that groups related buttons or inputs with connected or separated styling.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A date picker with day selection, range support, and dropdown navigation.",
+      "dependencies": [
+        "react-day-picker",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A sliding carousel for cycling through elements with previous/next navigation using Embla.",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "A charting container with config-driven tooltips, legends, and CSS variable styling integration for Recharts.",
+      "dependencies": [
+        "recharts"
+      ],
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A form control for selecting one or more options from a set.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "An expandable/collapsible section with trigger and content regions.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/collapsible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A right-click context menu with items, submenus, checkboxes, radio items, and separators.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/context-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "Direction",
+      "description": "A provider component for setting text direction (LTR/RTL) using Radix UI Direction.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/direction.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/direction.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "A placeholder component for empty states with icon, title, description, and content slots.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/empty.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/empty.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A form field wrapper with label, description, error messages, and horizontal/vertical orientation variants.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A popover card that appears when hovering over a trigger element.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/hover-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input Otp",
+      "description": "A one-time password input with individual slot groups and separators.",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-otp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "A list item component with media, content, title, description, actions, and size variants.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "components/ui/item.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/item.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "A keyboard key indicator for displaying keyboard shortcuts.",
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/kbd.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A form label element built on Radix UI Label primitive.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A horizontal menu bar with dropdown menus, checkboxes, radio items, and submenus.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/menubar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "A styled native HTML select element with optgroup and option sub-components.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/native-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/native-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A responsive navigation menu with trigger, content, viewport, and indicator sub-components.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/navigation-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/navigation-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "A set of radio buttons for single-selection from a list of options.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Resizable panel layouts with drag handles for adjustable split views.",
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "files": [
+        {
+          "path": "components/ui/resizable.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/resizable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A dropdown select component with groups, labels, scroll buttons, and item selection.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A visual divider for separating content sections horizontally or vertically.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A slide-in panel (drawer) from any side of the screen with header, footer, and close button.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A responsive collapsible sidebar with menu, groups, tooltips, and mobile sheet support.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A range slider for numeric input with single or multiple thumb handles.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "A toast notification provider using the Sonner library with theme-aware styling.",
+      "dependencies": [
+        "next-themes",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sonner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sonner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A toggle switch control for binary settings with size variants.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "A tabbed interface with list, trigger, and content panels supporting default and line variants.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state button for on/off toggling with variants and sizes.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A group of toggle buttons for multi-selection with connected or separated styling.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toggle-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "combobox-ui",
+      "type": "registry:ui",
+      "title": "Combobox UI",
+      "description": "A batteries-included combobox with virtual scrolling, search, single/multi-select, groups, and custom option rendering.",
+      "dependencies": [
+        "@tanstack/react-virtual"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "popover",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/combobox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer-ui",
+      "type": "registry:ui",
+      "title": "Drawer UI",
+      "description": "A full-featured drawer wrapper with optional header, scrollable body, footer, and direction-aware close button.",
+      "registryDependencies": [
+        "drawer"
+      ],
+      "files": [
+        {
+          "path": "components/custom/drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon Button",
+      "description": "An icon-only button with optional tooltip, loading state, size and rounded variants built on the Button and Tooltip primitives.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/custom/icon-button.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/icon-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashbox",
+      "type": "registry:ui",
+      "title": "Dashbox",
+      "description": "A structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, status badge, and configurable body padding.",
+      "registryDependencies": [
+        "tooltip",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/dashbox.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/dashbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashrow",
+      "type": "registry:ui",
+      "title": "Dashrow",
+      "description": "Responsive layout container for dashboard panels with resizable split ratios and N-child support.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/dashrow.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/dashrow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-stats",
+      "type": "registry:ui",
+      "title": "Card Stats",
+      "description": "A portfolio of statistical display cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, and CardStatHeatbar.",
+      "registryDependencies": [
+        "card",
+        "progress",
+        "tooltip",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/card-stats.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/card-stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar",
+      "type": "registry:ui",
+      "title": "Progress Bar",
+      "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, and semantic color intents. Built on the Radix UI Progress primitive.",
+      "registryDependencies": [
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/custom/progress-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/progress-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-circular",
+      "type": "registry:ui",
+      "title": "Progress Circular",
+      "description": "Displays progress as a circular gauge with an animated stroke and centered value.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/progress-circular.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/progress-circular.tsx"
+        }
+      ]
+    },
+    {
+      "name": "risk-level-bar",
+      "type": "registry:ui",
+      "title": "Risk Level Bar",
+      "description": "A segmented progress bar with a movable marker. Uses semantic tokens (--risk-1 to --risk-4) for flexible theming.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/risk-level-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/risk-level-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "step-progress",
+      "type": "registry:ui",
+      "title": "Step Progress",
+      "description": "A visual guide through a sequential multi-step process with horizontal and vertical orientations.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/step-progress.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/step-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:ui",
+      "title": "Bar Chart",
+      "description": "A fully featured bar chart with tooltips, legend, stacking, rounded corners, and brush zoom.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/bar-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/bar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "boxplot-chart",
+      "type": "registry:ui",
+      "title": "Boxplot Chart",
+      "description": "A fully custom SVG box-and-whisker chart with ResizeObserver for responsive layout, notch support, and outlier plotting.",
+      "dependencies": [],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/boxplot-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/boxplot-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "candlestick-chart",
+      "type": "registry:ui",
+      "title": "Candlestick Chart",
+      "description": "A financial candlestick chart with volume bars, moving averages, reference lines, and brush zoom.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/candlestick-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/candlestick-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "geomap-chart",
+      "type": "registry:ui",
+      "title": "Geomap Chart",
+      "description": "A geographic map component for rendering GeoJSON/TopoJSON data with tooltips, zooming, choropleth, and point markers.",
+      "dependencies": [
+        "react-simple-maps"
+      ],
+      "registryDependencies": [
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/custom/geomap-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/geomap-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "heatmap-chart",
+      "type": "registry:ui",
+      "title": "Heatmap Chart",
+      "description": "A responsive heatmap chart built with pure CSS grid and color-mix for smooth color interpolation.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/heatmap-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/heatmap-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:ui",
+      "title": "Line Chart",
+      "description": "A responsive line chart with plain lines, gradient area fills, stacked areas, reference lines, and brush zoom.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/line-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/line-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pie-chart",
+      "type": "registry:ui",
+      "title": "Pie Chart",
+      "description": "A responsive pie and donut chart with interactive center label, legend, and outer slice labels.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/pie-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/pie-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radar-chart",
+      "type": "registry:ui",
+      "title": "Radar Chart",
+      "description": "A responsive radar (spider) chart for comparing multiple entities across the same set of dimensions.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/radar-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/radar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radial-chart",
+      "type": "registry:ui",
+      "title": "Radial Chart",
+      "description": "A responsive radial bar chart with concentric rings, single-metric gauge mode, and legend support.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/radial-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/radial-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scatter-chart",
+      "type": "registry:ui",
+      "title": "Scatter Chart",
+      "description": "A responsive scatter and bubble chart with trend lines, multi-series, and brush zoom.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/scatter-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/scatter-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "treemap-chart",
+      "type": "registry:ui",
+      "title": "Treemap Chart",
+      "description": "A responsive treemap chart with hierarchical drill-down, breadcrumb navigation, and aspect ratio control.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/treemap-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/treemap-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "counter",
+      "type": "registry:ui",
+      "title": "Counter",
+      "description": "A precision numeric input with button controls and direct keyboard entry support.",
+      "registryDependencies": [
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/counter.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/counter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-email",
+      "type": "registry:ui",
+      "title": "Input Email",
+      "description": "An email input field with a built-in mail icon and customizable size and radius variants.",
+      "registryDependencies": [
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/custom/input-email.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/input-email.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-password",
+      "type": "registry:ui",
+      "title": "Input Password",
+      "description": "A secure password input field with a toggle visibility button and custom size/radius options.",
+      "registryDependencies": [
+        "input",
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/input-password.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/input-password.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-list",
+      "type": "registry:ui",
+      "title": "Select List",
+      "description": "A searchable list of items with selection state, support for groups, icons and virtual scrolling behavior.",
+      "dependencies": [
+        "@tanstack/react-virtual"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "badge",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/select-list.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/select-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-menu",
+      "type": "registry:ui",
+      "title": "Footer Menu",
+      "description": "A responsive footer navigation that displays in columns on desktop and as an accordion on mobile.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/footer-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/footer-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "header-search",
+      "type": "registry:ui",
+      "title": "Header Search",
+      "description": "An expandable search button for use in page headers with smooth transition animations.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/header-search.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/header-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-dots",
+      "type": "registry:ui",
+      "title": "Nav Dots",
+      "description": "Dot-based section navigation with automatic scroll tracking and tooltips.",
+      "registryDependencies": [
+        "tooltip",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/nav-dots.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/nav-dots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-user",
+      "type": "registry:ui",
+      "title": "Nav User",
+      "description": "A user profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.",
+      "registryDependencies": [
+        "dropdown-menu",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "components/custom/nav-user.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/nav-user.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-theme",
+      "type": "registry:ui",
+      "title": "Toggle Theme",
+      "description": "A dropdown button to switch between light, dark, and system themes. Re-exports ThemeProvider for app-level setup.",
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "components/custom/toggle-theme.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/toggle-theme.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search-combo",
+      "type": "registry:block",
+      "title": "Search Combo",
+      "description": "A search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.",
+      "dependencies": [
+        "@tanstack/react-virtual"
+      ],
+      "registryDependencies": [
+        "popover",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "components/custom/search-combo/index.tsx",
+          "type": "registry:component",
+          "target": "components/custom/search-combo/index.tsx"
+        },
+        {
+          "path": "components/custom/search-combo/types.ts",
+          "type": "registry:component",
+          "target": "components/custom/search-combo/types.ts"
+        },
+        {
+          "path": "components/custom/search-combo/variants.ts",
+          "type": "registry:component",
+          "target": "components/custom/search-combo/variants.ts"
+        },
+        {
+          "path": "components/custom/search-combo/hooks/use-speech-recognition.ts",
+          "type": "registry:component",
+          "target": "components/custom/search-combo/hooks/use-speech-recognition.ts"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "A high-performance virtualized data table with built-in toolbar, pagination, and sorting capabilities.",
+      "dependencies": [
+        "@tanstack/react-table",
+        "@tanstack/react-virtual",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton",
+        "pagination"
+      ],
+      "files": [
+        {
+          "path": "components/custom/data-table.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/data-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spinner-ui",
+      "type": "registry:ui",
+      "title": "Spinner UI",
+      "description": "An animated loader with locale-aware aria-labels, built on lucide-react Loader2Icon.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/spinner.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/spinner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination-ui",
+      "type": "registry:ui",
+      "title": "Pagination UI",
+      "description": "A pagination component with locale-aware aria labels, prev/next links, and ellipsis support.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/custom/pagination.tsx"
+        }
+      ]
+    }
+  ]
+}
