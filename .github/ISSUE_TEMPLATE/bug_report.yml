@@ -1,0 +1,46 @@
+name: "🐞 Bug Report"
+description: "Use este template para reportar bugs"
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar um bug! Preencha as informações abaixo.
+
+  - type: input
+    id: sistema
+    attributes:
+      label: "Sistema Operacional"
+      description: "Qual sistema você está usando?"
+      placeholder: "Ex: Ubuntu 22.04, Windows 11"
+
+  - type: input
+    id: versao
+    attributes:
+      label: "Versão"
+      description: "Versão do projeto onde ocorreu o bug"
+      placeholder: "Ex: v1.0.2"
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Passos para reproduzir"
+      description: "Explique como podemos reproduzir o problema"
+      placeholder: "1. Vá em...\n2. Clique em...\n3. Veja o erro"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Comportamento esperado"
+      placeholder: "O que você esperava que acontecesse?"
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: "Informações adicionais"
+      placeholder: "Logs, prints de tela, etc."

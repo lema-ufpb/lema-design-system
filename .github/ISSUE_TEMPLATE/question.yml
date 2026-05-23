@@ -1,0 +1,21 @@
+name: "❓ Pergunta/Dúvida"
+description: "Use este template para perguntas gerais"
+title: "[Question] "
+labels: ["question"]
+assignees: []
+
+body:
+  - type: textarea
+    id: pergunta
+    attributes:
+      label: "Qual é a sua dúvida?"
+      description: "Explique detalhadamente sua pergunta"
+      placeholder: "Escreva aqui sua dúvida"
+    validations:
+      required: true
+
+  - type: textarea
+    id: contexto
+    attributes:
+      label: "Contexto adicional"
+      description: "Se necessário, adicione prints, links ou explicações extras"
