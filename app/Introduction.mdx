@@ -1,0 +1,173 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Introduction" />
+
+# Welcome to LEMA-DS 🚀
+
+**LEMA-DS** is the official design system and component library for the [Laboratório de Economia e Modelagem Aplicada (LEMA)](https://lema.ufpb.br) at Universidade Federal da Paraíba (UFPB). It provides a modern, accessible, and themeable set of React components built on shadcn/ui and Radix UI Primitives.
+
+## 🛠️ The Stack
+
+- **[React 19](https://react.dev/)**: Core UI library.
+- **[Next.js 16](https://nextjs.org/)**: Application framework.
+- **[TypeScript](https://www.typescriptlang.org/)**: End-to-end type safety.
+- **[Tailwind CSS v4](https://tailwindcss.com/)**: Utility-first styling engine.
+- **[Radix UI](https://www.radix-ui.com/)**: Headless accessibility primitives.
+- **[shadcn/ui](https://ui.shadcn.com/)**: Base component layer.
+- **[class-variance-authority](https://cva.style/)**: Type-safe component variants.
+- **[Storybook](https://storybook.js.org/)**: Component documentation.
+- **[Vitest](https://vitest.dev/)**: Unit testing.
+
+---
+
+## 🏗️ Library Structure
+
+The library is organized into three layers:
+
+### 1. Foundation
+
+The core "DNA" of the design system — semantic tokens, typography, color palette, and theme configuration.
+
+- **Color Tokens**: `--background`, `--foreground`, `--primary`, `--muted`, `--border`, and their dark-mode counterparts.
+- **Risk Tokens**: Custom semantic tokens (`--risk-1` to `--risk-4`) for data visualization and risk indicators.
+- **Theme Support**: Seamless switching between Light, Dark, and System modes via `ToggleTheme`.
+- **Internationalization (i18n)**: All UI strings are centralized in `lib/ui-i18n.ts` and localized via an optional `locale` prop (`"en-US"`, `"pt-PR"`, `"es-ES"`, `"fr-FR"`). Each component auto-installs the i18n dictionary as a registry dependency.
+
+### 2. Shadcn UI Primitives
+
+Atomic, accessible base components installed via the shadcn CLI — used as building blocks for the custom layer above.
+
+- **Form**: [Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Input Group](/docs/shadcn-ui-inputgroup--docs), [Textarea](/docs/shadcn-ui-textarea--docs), [Badge](/docs/shadcn-ui-badge--docs)
+- **Overlay**: [Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Dropdown Menu](/docs/shadcn-ui-dropdownmenu--docs), [Popover](/docs/shadcn-ui-popover--docs), [Tooltip](/docs/shadcn-ui-tooltip--docs)
+- **Display**: [Avatar](/docs/shadcn-ui-avatar--docs), [Accordion](/docs/shadcn-ui-accordion--docs), [Card](/docs/shadcn-ui-card--docs), [Progress](/docs/shadcn-ui-progress--docs), [Skeleton](/docs/shadcn-ui-skeleton--docs), [Spinner](/docs/shadcn-ui-spinner--docs), [Table](/docs/shadcn-ui-table--docs)
+- **Layout**: [Scroll Area](/docs/shadcn-ui-scrollarea--docs), [Command](/docs/shadcn-ui-command--docs)
+- **Navigation**: [Pagination](/docs/shadcn-ui-pagination--docs)
+
+### 3. Custom UI Components
+
+All custom components live in `components/custom/` and follow the shadcn single-file pattern. Each is individually installable via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
+
+#### Layout & Containers
+
+- **[Dashrow](/docs/ui-dashrow--docs)**: Responsive layout container for dashboard panels with resizable split ratios and N-child support.
+- **[Dashbox](/docs/ui-dashbox--docs)**: Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, and status badge.
+- **[DrawerUI](/docs/ui-drawerui--docs)**: Full-featured drawer wrapper with header, scrollable body, footer, and direction-aware close button. Supports bottom, left, right, and top directions.
+- **[IconButton](/docs/ui-iconbutton--docs)**: Icon-only button with optional tooltip, loading state, and configurable size and rounding.
+
+#### Data Display & Progress
+
+- **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar.
+- **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, and sorting capabilities.
+- **[ProgressBar](/docs/data-display-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
+- **[ProgressCircular](/docs/data-display-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
+- **[RiskLevelBar](/docs/data-display-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
+- **[StepProgress](/docs/navigation-stepprogress--docs)**: Multi-step process guide with status indicators in horizontal or vertical orientations.
+
+#### Charts
+
+Data visualization components built on Recharts (and pure SVG for Boxplot) and tailored for the LEMA design system.
+
+- **[BarChart](/docs/data-display-barchart--docs)**: Bar chart with tooltips, legend, stacking, rounded corners, and brush zoom.
+- **[BoxplotChart](/docs/data-display-boxplotchart--docs)**: Custom SVG box-and-whisker chart with notch support and outlier plotting.
+- **[CandlestickChart](/docs/data-display-candlestickchart--docs)**: Financial candlestick chart with volume, moving averages, reference lines, and brush.
+- **[GeomapChart](/docs/data-display-geomapchart--docs)**: Interactive geographic map for rendering GeoJSON/TopoJSON data with tooltips, zoom, choropleth, and markers.
+- **[HeatmapChart](/docs/data-display-heatmapchart--docs)**: Heatmap matrix with CSS grid and color-mix for smooth interpolation.
+- **[LineChart](/docs/data-display-linechart--docs)**: Line chart with gradient areas, stacked areas, reference lines, and brush.
+- **[PieChart](/docs/data-display-piechart--docs)**: Pie/donut chart with interactive center label, legend, and outer slice labels.
+- **[RadarChart](/docs/data-display-radarchart--docs)**: Radar/spider chart for multivariate data with polygon or circular grid.
+- **[RadialChart](/docs/data-display-radialchart--docs)**: Radial bar chart with concentric rings and semicircular gauge mode.
+- **[ScatterChart](/docs/data-display-scatterchart--docs)**: Scatter/bubble chart with trend lines, multi-series, and brush.
+- **[TreemapChart](/docs/data-display-treemapchart--docs)**: Treemap with hierarchical drill-down, breadcrumb navigation, and aspect ratio control.
+
+#### Feedback
+
+- **[Spinner](/docs/feedback-spinner--docs)**: Animated loading indicator with localized `aria-label` via `locale` prop.
+
+#### Navigation
+
+- **[NavDots](/docs/navigation-navdots--docs)**: Dot-based section navigation with automatic scroll tracking and tooltips.
+- **[NavUser](/docs/navigation-navuser--docs)**: User profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.
+- **[HeaderSearch](/docs/navigation-headersearch--docs)**: Smoothly expanding search bar for page headers.
+- **[FooterMenu](/docs/navigation-footermenu--docs)**: Responsive footer — columns on desktop, accordion on mobile.
+- **[Pagination](/docs/navigation-pagination--docs)**: Semantic pagination with `locale` prop for "Anterior"/"Próxima" labels.
+- **[ToggleTheme](/docs/navigation-toggletheme--docs)**: Dropdown button to switch between light, dark, and system themes.
+
+#### Forms
+
+- **[Counter](/docs/forms-counter--docs)**: Numeric input with +/− button controls and controlled/uncontrolled value support.
+- **[Input Email](/docs/forms-emailinput--docs)**: Email field with a built-in mail icon and size/radius variants.
+- **[Input Password](/docs/forms-passwordinput--docs)**: Password field with a toggle visibility button and size/radius variants.
+- **[Combobox](/docs/ui-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, and group support, built on @base-ui/react.
+- **[ComboboxUI](/docs/ui-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, and full search.
+- **[SelectList](/docs/forms-selectlist--docs)**: Searchable list with selection state, groups, icons, and virtual scrolling for large data sets.
+
+#### Blocks
+
+High-complexity components maintained in `components/blocks/` with independent support files.
+
+- **[SearchCombo](/docs/navigation-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.
+
+---
+
+## 📦 Installing Components
+
+Any component can be added directly to your project via the shadcn CLI:
+
+```bash
+npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json <component-name>
+
+# Examples:
+npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json dashbox
+npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json progress-bar
+npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json search-combo
+```
+
+> The shared i18n dictionary (`lib/ui-i18n.ts`) is automatically installed as a registry dependency for every locale-aware component.
+
+---
+
+## 🌐 Internationalization
+
+Components display UI labels (tooltips, aria-labels, status text, empty state messages) based on the `locale` prop. The dictionary supports four locales:
+
+| Code  | Language           |
+| :---- | :----------------- |
+| en-US | English (default)  |
+| pt-PR | Português (Brasil) |
+| es-ES | Español            |
+| fr-FR | Français           |
+
+```tsx
+import { Dashbox } from "@/components/custom/dashbox"
+import { Counter } from "@/components/custom/counter"
+
+<Dashbox title="Status" locale="pt-PR" status="live" />
+{/* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */}
+
+<Counter locale="es-ES" defaultValue={5} />
+{/* → aria-label: "Contador", buttons: "Disminuir valor" / "Aumentar valor" */}
+```
+
+The `locale` prop defaults to `"en-US"` when omitted. Extending to additional locales requires only adding a new entry to `UI_I18N` in `lib/ui-i18n.ts`.
+
+---
+
+## 🌟 Key Features
+
+- **Accessibility (a11y)**: Every component follows WAI-ARIA guidelines with full keyboard navigation support.
+- **Dark / Light themes**: All colors use shadcn semantic tokens and adapt automatically via CSS variables.
+- **Responsiveness**: Mobile-first approach — complex components like `FooterMenu` switch layouts based on viewport.
+- **Type Safety**: 100% TypeScript with CVA-powered variant props for a bulletproof developer experience.
+- **Registry-ready**: Each component ships as a single file, installable in any shadcn project without copying the repo.
+
+---
+
+## 🚀 Getting Started
+
+Browse the documentation in the sidebar. Each component page includes:
+
+- **Interactive Playground**: Test all variants and props in real-time.
+- **Code Examples**: Copy-paste ready snippets.
+- **API Documentation**: Every prop, type, and default value.
+
+Enjoy building with **LEMA-DS**!
