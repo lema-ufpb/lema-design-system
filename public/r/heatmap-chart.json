@@ -7,6 +7,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
+    "skeleton",
     "ui-i18n"
   ],
   "files": [

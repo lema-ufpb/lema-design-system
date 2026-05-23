@@ -4,8 +4,10 @@
   "title": "Nav User",
   "description": "A user profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.",
   "registryDependencies": [
+    "button",
     "dropdown-menu",
-    "avatar"
+    "avatar",
+    "skeleton"
   ],
   "files": [
     {

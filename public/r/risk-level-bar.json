@@ -4,6 +4,7 @@
   "title": "Risk Level Bar",
   "description": "A segmented progress bar with a movable marker. Uses semantic tokens (--risk-1 to --risk-4) for flexible theming.",
   "registryDependencies": [
+    "skeleton",
     "ui-i18n"
   ],
   "files": [

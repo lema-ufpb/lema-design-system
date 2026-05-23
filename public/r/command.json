@@ -4,6 +4,8 @@
   "title": "Command",
   "description": "A fast, searchable command palette and menu list interface driven by keyboard navigation.",
   "registryDependencies": [
+    "dialog",
+    "input-group",
     "ui-i18n"
   ],
   "files": [

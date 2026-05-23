@@ -4,6 +4,7 @@
   "title": "Dialog",
   "description": "A modal overlay that interrupts the user with critical information or requires direct interaction.",
   "registryDependencies": [
+    "button",
     "ui-i18n"
   ],
   "files": [
