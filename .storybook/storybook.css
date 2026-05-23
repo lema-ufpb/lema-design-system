@@ -1,0 +1,16 @@
+[data-radix-popper-content-wrapper] {
+  font-family: "Inter", sans-serif;
+}
+
+html.dark .sbdocs-preview {
+  background-color: var(--background) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark .sbdocs-preview .docs-story {
+  background-color: var(--background) !important;
+}
+
+html.dark {
+  color-scheme: dark;
+}

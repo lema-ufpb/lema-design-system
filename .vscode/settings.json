@@ -1,0 +1,8 @@
+{
+  "css.customData": [".vscode/tailwindcss.json"],
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/storybook-static": true
+  }
+}
