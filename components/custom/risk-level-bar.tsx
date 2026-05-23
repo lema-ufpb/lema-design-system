@@ -134,9 +134,24 @@ const skeletonDims: Record<
   RiskLevelBarSize,
   { labelLeft: string; labelRight: string; value: string; track: string }
 > = {
-  sm: { labelLeft: "h-3 w-24", labelRight: "h-3 w-16", value: "h-5 w-12", track: "h-2" },
-  md: { labelLeft: "h-4 w-28", labelRight: "h-4 w-20", value: "h-6 w-14", track: "h-3" },
-  lg: { labelLeft: "h-5 w-32", labelRight: "h-5 w-24", value: "h-7 w-16", track: "h-4" },
+  sm: {
+    labelLeft: "h-3 w-24",
+    labelRight: "h-3 w-16",
+    value: "h-5 w-12",
+    track: "h-2",
+  },
+  md: {
+    labelLeft: "h-4 w-28",
+    labelRight: "h-4 w-20",
+    value: "h-6 w-14",
+    track: "h-3",
+  },
+  lg: {
+    labelLeft: "h-5 w-32",
+    labelRight: "h-5 w-24",
+    value: "h-7 w-16",
+    track: "h-4",
+  },
 }
 
 // ── RiskLevelBar ───────────────────────────────────────────────────────────
@@ -144,8 +159,16 @@ const skeletonDims: Record<
 const DEFAULT_SEGMENTS: RiskSegment[] = [
   { color: "var(--color-risk-1)", range: [0, 0.25], textClass: "text-white" },
   { color: "var(--color-risk-2)", range: [0.25, 0.5], textClass: "text-white" },
-  { color: "var(--color-risk-3)", range: [0.5, 0.75], textClass: "text-foreground" },
-  { color: "var(--color-risk-4)", range: [0.75, 1], textClass: "text-foreground" },
+  {
+    color: "var(--color-risk-3)",
+    range: [0.5, 0.75],
+    textClass: "text-foreground",
+  },
+  {
+    color: "var(--color-risk-4)",
+    range: [0.75, 1],
+    textClass: "text-foreground",
+  },
 ]
 
 export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
@@ -176,10 +199,14 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
             <Skeleton className={skeletonDims[size].labelLeft} />
             <div className="flex items-center gap-2">
               <Skeleton className={skeletonDims[size].labelRight} />
-              <Skeleton className={cn(skeletonDims[size].value, "rounded-md")} />
+              <Skeleton
+                className={cn(skeletonDims[size].value, "rounded-md")}
+              />
             </div>
           </div>
-          <Skeleton className={cn("mt-6 w-full rounded-full", skeletonDims[size].track)} />
+          <Skeleton
+            className={cn("mt-6 w-full rounded-full", skeletonDims[size].track)}
+          />
         </div>
       )
     }
@@ -208,10 +235,17 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
             {labelLeft}
           </span>
           <div className={riskLevelLabelVariants({ side: "right", size })}>
-            <span className={riskLevelSubtitleVariants({ size })}>{labelRight}</span>
+            <span className={riskLevelSubtitleVariants({ size })}>
+              {labelRight}
+            </span>
             <span
-              className={cn(riskLevelValueVariants({ size }), currentSegment?.textClass)}
-              style={{ backgroundColor: currentSegment?.color || "var(--color-muted)" }}
+              className={cn(
+                riskLevelValueVariants({ size }),
+                currentSegment?.textClass
+              )}
+              style={{
+                backgroundColor: currentSegment?.color || "var(--color-muted)",
+              }}
             >
               {percentageLabel}
             </span>
