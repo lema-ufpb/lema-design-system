@@ -88,20 +88,54 @@ jobs:
 
       - name: "🔄 Update Kustomize image tag"
         run: |
-          echo "🔄 Atualizando a tag da imagem no Kustomize (prod e dev)..."
-          cd argocd-apps/apps/design-system/overlays/prod
-          kustomize edit set image ghcr.io/${{ github.repository }}=ghcr.io/${{ github.repository }}:${{ needs.build-and-push.outputs.image_tag }}
-          cd ../dev
-          kustomize edit set image ghcr.io/${{ github.repository }}=ghcr.io/${{ github.repository }}:${{ needs.build-and-push.outputs.image_tag }}
+          IMAGE_TAG="${{ needs.build-and-push.outputs.image_tag }}"
+          IMAGE_NAME="ghcr.io/${{ github.repository }}"
+          echo "🔄 Atualizando tag da imagem para ${IMAGE_NAME}:${IMAGE_TAG}..."
+
+          for overlay in prod dev; do
+            dir="argocd-apps/apps/design-system/overlays/${overlay}"
+            kustomization="${dir}/kustomization.yml"
+            mkdir -p "$dir"
+
+            if [ ! -f "$kustomization" ]; then
+              echo "  → Criando ${kustomization}..."
+              cat > "$kustomization" <<-YAMLEOF
+				apiVersion: kustomize.config.k8s.io/v1beta1
+				kind: Kustomization
+				resources: []
+				images:
+				  - name: ${IMAGE_NAME}
+				    newTag: ${IMAGE_TAG}
+				YAMLEOF
+              echo "  ✅ Criado ${overlay} com newTag: ${IMAGE_TAG}"
+            else
+              echo "  → Atualizando ${overlay}..."
+              if grep -q "name: ${IMAGE_NAME}" "$kustomization"; then
+                (cd "$dir" && kustomize edit set image "${IMAGE_NAME}=${IMAGE_NAME}:${IMAGE_TAG}")
+                echo "  ✅ newTag atualizado via kustomize (${overlay})"
+              else
+                awk -v name="${IMAGE_NAME}" -v tag="${IMAGE_TAG}" '
+                  /^images:/ { print; print "  - name: " name; print "    newTag: " tag; next }
+                  { print }
+                ' "$kustomization" > "${kustomization}.tmp" && \
+                  mv "${kustomization}.tmp" "$kustomization"
+                echo "  ✅ Image adicionado via awk (${overlay})"
+              fi
+            fi
+          done
           echo "✅ Kustomize atualizado com sucesso!"
 
       - name: "📤 Commit and push changes"
         run: |
-          echo "📤 Preparando para fazer o commit no ArgoCD repo..."
           cd argocd-apps
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add .
-          git commit -m "chore(design-system): update image to ${{ needs.build-and-push.outputs.image_tag }} 🚀"
-          git push origin main
-          echo "🎉 Deploy configurado com sucesso!"
+          if git diff --cached --quiet; then
+            echo "⚠️ Nenhuma alteração detectada. Kustomization já está atualizado."
+          else
+            echo "📤 Commitando alterações..."
+            git commit -m "chore(design-system): update image to ${{ needs.build-and-push.outputs.image_tag }}"
+            git push origin main
+            echo "🎉 Deploy configurado com sucesso!"
+          fi
