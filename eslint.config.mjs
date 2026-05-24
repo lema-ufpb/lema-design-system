@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Generated file — do not lint
     "public/mockServiceWorker.js",
+    "storybook-static/**",
   ]),
   ...storybook.configs["flat/recommended"]
 ]);

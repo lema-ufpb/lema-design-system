@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format typecheck storybook build-storybook test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry
 
 # ANSI Colors
 CYAN=\033[0;36m
@@ -12,12 +12,10 @@ help:
 	@echo ""
 	@echo "🚀 $(CYAN)Comandos disponíveis:$(RESET)"
 	@echo "  📥 $(GREEN)make install$(RESET)          - Instala as dependências do projeto"
-	@echo "  💻 $(GREEN)make dev$(RESET)              - Inicia o servidor local Next.js"
-	@echo "  🏗️  $(GREEN)make build$(RESET)            - Faz o build da aplicação Next.js"
-	@echo "  🏃 $(GREEN)make start$(RESET)            - Inicia o servidor de produção"
+	@echo "  💻 $(GREEN)make dev$(RESET)              - Inicia o servidor local do Storybook"
 	@echo "  🧹 $(GREEN)make lint$(RESET)             - Executa o ESLint e a verificação do TypeScript"
 	@echo "  💅 $(GREEN)make format$(RESET)           - Formata o código com o Prettier"
-	@echo "  📚 $(GREEN)make storybook$(RESET)        - Inicia o servidor local do Storybook"
+	@echo "  🔍 $(GREEN)make format-check$(RESET)     - Verifica se o código está formatado"
 	@echo "  📦 $(GREEN)make build-storybook$(RESET)  - Faz o build estático do Storybook"
 	@echo "  🧪 $(GREEN)make test$(RESET)             - Roda os testes (inclui acessibilidade)"
 	@echo "  👀 $(GREEN)make test-watch$(RESET)       - Roda os testes em modo watch"
@@ -29,7 +27,7 @@ help:
 	@echo "  📥 $(GREEN)make shadcn-add-all$(RESET)   - Adiciona todos os componentes do shadcn (sobrescreve)"
 	@echo "  🧪 $(GREEN)make shadcn-add-all-dry$(RESET) - Simula a adição de todos os componentes"
 	@echo ""
-	@echo "💡 $(YELLOW)Dica: Rode 'make dev' ou 'make storybook' para começar a brincar!$(RESET)"
+	@echo "💡 $(YELLOW)Dica: Rode 'make dev' para começar a brincar!$(RESET)"
 
 install:
 	@echo "📦 $(CYAN)Baixando as caixas... Instalando dependências (isso pode levar uns minutinhos)$(RESET)"
@@ -37,20 +35,12 @@ install:
 	@echo "🎉 $(GREEN)Dependências instaladas com sucesso!$(RESET)"
 
 dev:
-	@echo "💻 $(CYAN)Ligando as turbinas! Iniciando o servidor de desenvolvimento Next.js...$(RESET)"
-	npm run dev
-
-build:
-	@echo "🏗️  $(MAGENTA)Construindo o foguete... Fazendo o build otimizado da aplicação!$(RESET)"
-	npm run build
-	@echo "✅ $(GREEN)Build finalizado! Pronto para decolar!$(RESET)"
-
-start:
-	@echo "🚀 $(CYAN)Ignificão! Iniciando o servidor de produção...$(RESET)"
-	npm run start
+	@echo "📚 $(MAGENTA)Abrindo o livro de histórias... Iniciando o servidor do Storybook!$(RESET)"
+	npm run storybook
 
 lint:
-	@echo "🕵️‍♂️ $(YELLOW)O inspetor está de olho... Rodando o ESLint e TypeCheck!$(RESET)"
+	@echo "🕵️‍♂️ $(YELLOW)O inspetor está de olho... Rodando o ESLint, TypeCheck e Prettier!$(RESET)"
+	npm run format:check
 	npm run lint
 	@echo "✨ $(GREEN)Tudo limpo! Seu código está brilhando!$(RESET)"
 
@@ -59,9 +49,11 @@ format:
 	npm run format
 	@echo "🌺 $(GREEN)Código formatado e maravilhoso!$(RESET)"
 
-storybook:
-	@echo "📚 $(MAGENTA)Abrindo o livro de histórias... Iniciando o servidor do Storybook!$(RESET)"
-	npm run storybook
+format-check:
+	@echo "🔍 $(CYAN)Verificando se o código está seguindo os padrões do Prettier...$(RESET)"
+	npm run format:check
+	@echo "✨ $(GREEN)Código devidamente formatado!$(RESET)"
+
 
 build-storybook:
 	@echo "📦 $(YELLOW)Empacotando as histórias... Gerando o build estático do Storybook!$(RESET)"

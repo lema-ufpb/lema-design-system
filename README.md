@@ -411,12 +411,11 @@ O sistema usa CSS variables para theming:
 ## Scripts
 
 ```bash
-make dev              # Servidor dev (porta 3000)
+make dev              # Inicia o servidor local do Storybook (porta 6006)
 make build            # Build produção
 make start            # Servidor produção
 make lint             # ESLint e typecheck
 make format           # Prettier
-make storybook        # Storybook (porta 6006)
 make build-storybook  # Build Storybook estático
 make test             # Vitest
 make coverage         # Coverage com Vitest

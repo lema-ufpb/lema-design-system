@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 
 type Size = "sm" | "default" | "lg"
 type Radius = "pill" | "rounded" | "square"
+type Variant = "default" | "white"
 
 const sizeConfig: Record<
   Size,
@@ -26,12 +27,18 @@ const radiusConfig: Record<Radius, string> = {
   square: "rounded-none",
 }
 
+const variantConfig: Record<Variant, string> = {
+  default: "",
+  white: "bg-white border-border dark:bg-input/50",
+}
+
 interface PasswordInputProps extends Omit<
   React.ComponentProps<"input">,
   "type" | "size"
 > {
   size?: Size
   radius?: Radius
+  variant?: Variant
   locale?: UILocale
 }
 
@@ -39,6 +46,7 @@ function PasswordInput({
   className,
   size = "default",
   radius = "pill",
+  variant = "default",
   locale = "en-US",
   ...props
 }: PasswordInputProps) {
@@ -49,7 +57,12 @@ function PasswordInput({
     <div className="relative">
       <Input
         type={showPassword ? "text" : "password"}
-        className={cn(inputClass, radiusConfig[radius], className)}
+        className={cn(
+          inputClass,
+          radiusConfig[radius],
+          variantConfig[variant],
+          className
+        )}
         {...props}
       />
       <Button

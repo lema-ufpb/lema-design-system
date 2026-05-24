@@ -49,6 +49,7 @@ const meta = {
     loading: { control: "boolean" },
     showMaximize: { control: "boolean" },
     showMinimize: { control: "boolean" },
+    showHeader: { control: "boolean" },
     title: { control: "text" },
     description: { control: "text" },
     locale: {
@@ -73,6 +74,18 @@ export const Default: Story = {
     children: (
       <p className="text-muted-foreground">
         Place any content here — charts, tables, metrics.
+      </p>
+    ),
+  },
+}
+
+export const NoHeader: Story = {
+  args: {
+    showHeader: false,
+    title: "My Dashbox",
+    children: (
+      <p className="text-muted-foreground">
+        Content without header or toolbar.
       </p>
     ),
   },

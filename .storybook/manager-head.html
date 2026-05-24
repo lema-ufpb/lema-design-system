@@ -1,1 +1,12 @@
+<meta name="description" content="Design System LEMA-UFPB — componentes, tokens e documentação" />
+<meta property="og:title" content="LEMA-UFPB Design System" />
+<meta property="og:description" content="Design System LEMA-UFPB — componentes, tokens e documentação" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" href="/favicon.ico" />
+<script>
+  document.title = "LEMA-UFPB Design System"
+  new MutationObserver(() => {
+    if (document.title !== "LEMA-UFPB Design System")
+      document.title = "LEMA-UFPB Design System"
+  }).observe(document.querySelector("title"), { characterData: true, childList: true, subtree: true })
+</script>

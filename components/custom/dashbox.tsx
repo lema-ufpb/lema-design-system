@@ -42,6 +42,8 @@ export interface DashboxProps
   showMinimize?: boolean
   /** @default true */
   showToolbar?: boolean
+  /** @default true */
+  showHeader?: boolean
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -212,6 +214,7 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
       statusLabels,
       onRefresh,
       showToolbar = true,
+      showHeader = true,
       showMaximize = true,
       showMinimize = true,
       className,
@@ -242,82 +245,84 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
           )}
           {...props}
         >
-          <div className={dashboxHeaderVariants()}>
-            <div className="flex min-w-0 flex-1 flex-col">
-              <div className="flex items-center gap-2">
-                {title && (
-                  <span
-                    className={dashboxTitleVariants({ size })}
-                    title={title}
-                  >
-                    {title}
+          {showHeader && (
+            <div className={dashboxHeaderVariants()}>
+              <div className="flex min-w-0 flex-1 flex-col">
+                <div className="flex items-center gap-2">
+                  {title && (
+                    <span
+                      className={dashboxTitleVariants({ size })}
+                      title={title}
+                    >
+                      {title}
+                    </span>
+                  )}
+                  {status && (
+                    <DashboxStatusBadge
+                      status={status}
+                      locale={locale}
+                      statusLabels={statusLabels}
+                    />
+                  )}
+                </div>
+                {description && (
+                  <span className={dashboxDescriptionVariants({ size })}>
+                    {description}
                   </span>
                 )}
-                {status && (
-                  <DashboxStatusBadge
-                    status={status}
-                    locale={locale}
-                    statusLabels={statusLabels}
-                  />
-                )}
               </div>
-              {description && (
-                <span className={dashboxDescriptionVariants({ size })}>
-                  {description}
-                </span>
+
+              {showToolbar && (
+                <div className={cn(dashboxToolbarVariants(), "shrink-0")}>
+                  {toolbar}
+
+                  {onRefresh && (
+                    <ToolbarButton label={tl.refresh} onClick={handleRefresh}>
+                      <RefreshCw
+                        className={cn("size-3.5", refreshing && "animate-spin")}
+                      />
+                    </ToolbarButton>
+                  )}
+
+                  {showMinimize &&
+                    !maximized &&
+                    (minimized ? (
+                      <ToolbarButton
+                        label={tl.expand}
+                        onClick={() => setMinimized(false)}
+                      >
+                        <Plus className="size-3.5" />
+                      </ToolbarButton>
+                    ) : (
+                      <ToolbarButton
+                        label={tl.collapse}
+                        onClick={() => setMinimized(true)}
+                      >
+                        <Minus className="size-3.5" />
+                      </ToolbarButton>
+                    ))}
+
+                  {showMaximize &&
+                    !minimized &&
+                    (maximized ? (
+                      <ToolbarButton
+                        label={tl.restore}
+                        onClick={() => setMaximized(false)}
+                      >
+                        <Shrink className="size-3.5" />
+                      </ToolbarButton>
+                    ) : (
+                      <ToolbarButton
+                        label={tl.fullscreen}
+                        onClick={() => setMaximized(true)}
+                      >
+                        <Maximize2 className="size-3.5" />
+                      </ToolbarButton>
+                    ))}
+                </div>
               )}
             </div>
-
-            {showToolbar && (
-              <div className={cn(dashboxToolbarVariants(), "shrink-0")}>
-                {toolbar}
-
-                {onRefresh && (
-                  <ToolbarButton label={tl.refresh} onClick={handleRefresh}>
-                    <RefreshCw
-                      className={cn("size-3.5", refreshing && "animate-spin")}
-                    />
-                  </ToolbarButton>
-                )}
-
-                {showMinimize &&
-                  !maximized &&
-                  (minimized ? (
-                    <ToolbarButton
-                      label={tl.expand}
-                      onClick={() => setMinimized(false)}
-                    >
-                      <Plus className="size-3.5" />
-                    </ToolbarButton>
-                  ) : (
-                    <ToolbarButton
-                      label={tl.collapse}
-                      onClick={() => setMinimized(true)}
-                    >
-                      <Minus className="size-3.5" />
-                    </ToolbarButton>
-                  ))}
-
-                {showMaximize &&
-                  !minimized &&
-                  (maximized ? (
-                    <ToolbarButton
-                      label={tl.restore}
-                      onClick={() => setMaximized(false)}
-                    >
-                      <Shrink className="size-3.5" />
-                    </ToolbarButton>
-                  ) : (
-                    <ToolbarButton
-                      label={tl.fullscreen}
-                      onClick={() => setMaximized(true)}
-                    >
-                      <Maximize2 className="size-3.5" />
-                    </ToolbarButton>
-                  ))}
-              </div>
-            )}
-          </div>
+          )}
 
           {!minimized && (
             <div className={cn(dashboxBodyVariants({ padding: bodyPadding }))}>
