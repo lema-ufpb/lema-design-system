@@ -12,8 +12,11 @@ RUN npm ci --ignore-scripts --legacy-peer-deps
 # Copy the rest of the source code
 COPY . .
 
+# Accept version from build arg (injected by CD workflow)
+ARG APP_VERSION
+
 # Build the storybook static files
-RUN npm run build-storybook
+RUN APP_VERSION=$APP_VERSION npm run build-storybook
 
 # Stage 2: Serve
 FROM nginx:alpine AS runner
