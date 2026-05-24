@@ -3,6 +3,17 @@ name: "🛠️ CI - Pull Request Checks"
 on:
   pull_request:
     branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+# Cancela runs antigos no mesmo PR/branch quando há novo push.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Princípio do menor privilégio: jobs de CI só precisam ler o repo.
+permissions:
+  contents: read
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -14,23 +25,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: "📥 Checkout do código"
-        uses: actions/checkout@v4
-        
-      - name: "⚙️ Configurando Node.js"
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-          cache: "npm"
-          
-      - name: "🧹 Clean install dependencies"
-        run: |
-          echo "🗑️ Limpando a casa (node_modules e package-lock.json)..."
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
-          echo "📦 Instalando dependências novinhas em folha..."
-          npm install --legacy-peer-deps
-          echo "✅ Dependências instaladas com sucesso!"
-          
+        uses: actions/checkout@v5
+
+      - name: "🧰 Setup Node + Deps"
+        uses: ./.github/actions/setup-node-deps
+
       - name: "📦 Run Build (Storybook)"
         run: |
           echo "🚀 Iniciando o processo de build..."
@@ -42,29 +41,17 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: "📥 Checkout do código"
-        uses: actions/checkout@v4
-        
-      - name: "⚙️ Configurando Node.js"
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-          cache: "npm"
-          
-      - name: "🧹 Clean install dependencies"
-        run: |
-          echo "🗑️ Limpando cache e dependências antigas..."
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
-          echo "📦 Instalando as bibliotecas..."
-          npm install --legacy-peer-deps
-          echo "✅ Instalação finalizada!"
-          
+        uses: actions/checkout@v5
+
+      - name: "🧰 Setup Node + Deps"
+        uses: ./.github/actions/setup-node-deps
+
       - name: "💅 Run formatter check"
         run: |
           echo "🔍 Verificando formatação do código..."
           npm run format:check
           echo "✨ Formatação aprovada!"
-          
+
       - name: "✨ Run linter"
         run: |
           echo "🕵️‍♂️ O inspetor de código entrou em ação!"
@@ -76,23 +63,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: "📥 Checkout do código"
-        uses: actions/checkout@v4
-        
-      - name: "⚙️ Configurando Node.js"
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-          cache: "npm"
-          
-      - name: "🧹 Clean install dependencies"
-        run: |
-          echo "🗑️ Limpando cache e dependências antigas..."
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
-          echo "📦 Instalando as bibliotecas..."
-          npm install --legacy-peer-deps
-          echo "✅ Instalação finalizada!"
-          
+        uses: actions/checkout@v5
+
+      - name: "🧰 Setup Node + Deps"
+        uses: ./.github/actions/setup-node-deps
+
       - name: "📸 Run Visual Tests"
         run: |
           echo "📸 Executando testes visuais com Playwright..."
