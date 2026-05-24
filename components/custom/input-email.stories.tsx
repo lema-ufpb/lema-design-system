@@ -106,13 +106,13 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     placeholder: "e.g., user@example.com",
-    value: "disabled.user@example.com",
+    defaultValue: "disabled.user@example.com",
   },
 }
 
 export const WithValue: Story = {
   args: {
-    value: "support@lema.ufpb.br",
+    defaultValue: "support@lema.ufpb.br",
   },
 }
 
