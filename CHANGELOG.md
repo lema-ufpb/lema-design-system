@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.1](https://github.com/lema-ufpb/design-system/compare/v1.0.0...v1.0.1) (2026-05-24)
+
+
+### 🐛 Bug Fixes
+
+* **charts:** use index fallback for legend key to avoid React warnings ([3257587](https://github.com/lema-ufpb/design-system/commit/32575872ef84e662daac0326ac02589f91f8ce42))
+* inject APP_VERSION via build arg for correct version in Docker builds ([effede7](https://github.com/lema-ufpb/design-system/commit/effede7fba963f82ad173b1aafe1e0f86a1a9d14))
+* **stories:** use defaultValue instead of value for uncontrolled inputs ([09cd0bb](https://github.com/lema-ufpb/design-system/commit/09cd0bb08ace9c5f9888d5bc1a5b8dfad866883c))
+* **storybook:** restore missing mockServiceWorker.js for MSW ([869d817](https://github.com/lema-ufpb/design-system/commit/869d81747a0d7e3e4b4286b0e95e17e705a62428))
+
+
+### 📚 Documentation
+
+* update RELEASE_RUNBOOK.md and README.md to reflect current CI/CD state ([c6a3e0a](https://github.com/lema-ufpb/design-system/commit/c6a3e0acb166d02bc17ba864018738748263a1cd))
+
 ## [1.0.0](https://github.com/lema-ufpb/design-system/compare/v1.0.0...v1.0.0) (2026-05-24)
 
 
