@@ -1,0 +1,18 @@
+name: "🧰 Setup Node + Deps"
+description: "Configura Node.js 24 com cache npm e instala as dependências do projeto com npm ci."
+
+runs:
+  using: "composite"
+  steps:
+    - name: "⚙️ Configurando Node.js"
+      uses: actions/setup-node@v4
+      with:
+        node-version: "24"
+        cache: "npm"
+
+    - name: "📦 Install dependencies (npm ci)"
+      shell: bash
+      run: |
+        echo "📦 Instalando dependências a partir do lockfile..."
+        npm ci --legacy-peer-deps
+        echo "✅ Dependências instaladas com sucesso!"
