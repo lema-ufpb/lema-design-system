@@ -120,7 +120,7 @@ jobs:
           path: argocd-apps
 
       - name: "⚙️ Setup Kustomize"
-        uses: imranismail/setup-kustomize@v2
+        uses: imranismail/setup-kustomize@v3
 
       - name: "🔄 Update Kustomize image tag"
         run: |
