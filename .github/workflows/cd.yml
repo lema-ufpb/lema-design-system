@@ -94,34 +94,8 @@ jobs:
 
           for overlay in prod dev; do
             dir="argocd-apps/apps/design-system/overlays/${overlay}"
-            kustomization="${dir}/kustomization.yml"
-            mkdir -p "$dir"
-
-            if [ ! -f "$kustomization" ]; then
-              echo "  → Criando ${kustomization}..."
-              cat > "$kustomization" <<-YAMLEOF
-				apiVersion: kustomize.config.k8s.io/v1beta1
-				kind: Kustomization
-				resources: []
-				images:
-				  - name: ${IMAGE_NAME}
-				    newTag: ${IMAGE_TAG}
-				YAMLEOF
-              echo "  ✅ Criado ${overlay} com newTag: ${IMAGE_TAG}"
-            else
-              echo "  → Atualizando ${overlay}..."
-              if grep -q "name: ${IMAGE_NAME}" "$kustomization"; then
-                (cd "$dir" && kustomize edit set image "${IMAGE_NAME}=${IMAGE_NAME}:${IMAGE_TAG}")
-                echo "  ✅ newTag atualizado via kustomize (${overlay})"
-              else
-                awk -v name="${IMAGE_NAME}" -v tag="${IMAGE_TAG}" '
-                  /^images:/ { print; print "  - name: " name; print "    newTag: " tag; next }
-                  { print }
-                ' "$kustomization" > "${kustomization}.tmp" && \
-                  mv "${kustomization}.tmp" "$kustomization"
-                echo "  ✅ Image adicionado via awk (${overlay})"
-              fi
-            fi
+            (cd "$dir" && kustomize edit set image "${IMAGE_NAME}=${IMAGE_NAME}:${IMAGE_TAG}")
+            echo "  ✅ newTag atualizado (${overlay})"
           done
           echo "✅ Kustomize atualizado com sucesso!"
 
@@ -132,10 +106,12 @@ jobs:
           git config --global user.email "actions@github.com"
           git add .
           if git diff --cached --quiet; then
-            echo "⚠️ Nenhuma alteração detectada. Kustomization já está atualizado."
+            echo "⚠️ Kustomization já está atualizado com a tag ${{ needs.build-and-push.outputs.image_tag }}."
+            echo "📤 Criando commit vazio para forçar reconciliação no ArgoCD..."
+            git commit --allow-empty -m "chore(design-system): reconcile image ${{ needs.build-and-push.outputs.image_tag }} [no-op]"
           else
             echo "📤 Commitando alterações..."
             git commit -m "chore(design-system): update image to ${{ needs.build-and-push.outputs.image_tag }}"
-            git push origin main
-            echo "🎉 Deploy configurado com sucesso!"
           fi
+          git push origin main
+          echo "🎉 Deploy configurado com sucesso!"
