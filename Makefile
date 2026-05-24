@@ -85,14 +85,14 @@ clean:
 	@echo "✨ $(GREEN)Tudo limpo! A casa está cheirosa!$(RESET)"
 
 docker-build:
-	@echo "🐳 $(CYAN)Chamando a baleia... Construindo a imagem Docker (lema-ds:local)!$(RESET)"
-	docker build -t lema-ds:local .
+	@echo "🐳 $(CYAN)Chamando a baleia... Construindo a imagem Docker (design-system:local)!$(RESET)"
+	docker build -t design-system:local .
 	@echo "✅ $(GREEN)Imagem Docker construída com sucesso!$(RESET)"
 
 docker-run:
 	@echo "🚢 $(MAGENTA)Soltando as amarras... Rodando o container na porta 8080!$(RESET)"
 	@echo "🔑 $(YELLOW)Token de acesso: http://localhost:8080/r/registry.json?token=$${REGISTRY_TOKEN}$(RESET)"
-	docker run --rm -p 8080:80 -e REGISTRY_TOKEN=test-token lema-ds:local
+	docker run --rm -p 8080:80 -e REGISTRY_TOKEN=test-token design-system:local
 
 shadcn-add-all:
 	@echo "📥 $(YELLOW)Atenção: Sobrescrevendo tudo! Adicionando TODOS os componentes do shadcn/ui...$(RESET)"
