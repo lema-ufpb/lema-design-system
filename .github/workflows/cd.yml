@@ -43,19 +43,40 @@ jobs:
           REPO: ${{ github.repository }}
           SHA: ${{ steps.resolve.outputs.sha }}
         run: |
-          echo "🔎 Consultando status do CI para $SHA..."
-          CONCLUSION=$(curl -sSL \
+          echo "🔎 Consultando check-suites do GitHub Actions para $SHA..."
+          # Usa /commits/{sha}/check-suites: cobre runs tanto de push quanto
+          # check-suites herdados de PRs merged neste commit.
+          API_RESPONSE=$(curl -sSL \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/$REPO/actions/runs?head_sha=$SHA&status=completed&per_page=20" \
-            | jq -r '[.workflow_runs[] | select(.name | test("CI"))] | first | .conclusion // "none"')
-          echo "📊 Conclusão do CI: $CONCLUSION"
-          if [ "$CONCLUSION" != "success" ]; then
-            echo "❌ CI não está verde neste commit. Abortando deploy."
-            exit 1
-          fi
-          echo "✅ CI verde — liberando deploy."
+            "https://api.github.com/repos/$REPO/commits/$SHA/check-suites?per_page=20")
+
+          # Filtra check-suites do GitHub Actions; se ALGUM falhou, aborta.
+          STATUS=$(echo "$API_RESPONSE" | jq -r '
+            [.check_suites[] | select(.app.slug == "github-actions" and .status == "completed")]
+            | if length == 0 then "no-runs"
+              elif all(.[]; .conclusion == "success") then "success"
+              else "failed" end
+          ')
+          echo "📊 Status agregado dos check-suites: $STATUS"
+
+          case "$STATUS" in
+            success)
+              echo "✅ Todos os check-suites do Actions estão verdes — liberando deploy."
+              ;;
+            no-runs)
+              echo "⚠️ Nenhum check-suite encontrado para este commit."
+              echo "   Possível causa: CI ainda rodando, ou commit nunca foi validado."
+              echo "❌ Abortando deploy."
+              exit 1
+              ;;
+            *)
+              echo "❌ Pelo menos um check-suite falhou neste commit. Abortando deploy."
+              echo "$API_RESPONSE" | jq -r '.check_suites[] | "  - " + (.app.slug // "?") + ": " + (.conclusion // "pending")'
+              exit 1
+              ;;
+          esac
 
   build-and-push:
     name: "🐳 Build & Push Docker Image"

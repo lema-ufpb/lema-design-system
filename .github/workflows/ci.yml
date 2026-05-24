@@ -3,6 +3,10 @@ name: "🛠️ CI - Pull Request Checks"
 on:
   pull_request:
     branches: [develop, main]
+  # Roda também em push para main (merges via release-please) para que
+  # o gate de CI no cd.yml encontre o run no SHA do merge commit.
+  push:
+    branches: [main]
 
 # Cancela runs antigos no mesmo PR/branch quando há novo push.
 concurrency:
