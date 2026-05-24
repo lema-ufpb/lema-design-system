@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/lema-ufpb/design-system/compare/v1.1.0...v1.2.0) (2026-05-24)
+
+
+### ✨ Features
+
+* setup CI/CD modernization ([58486dd](https://github.com/lema-ufpb/design-system/commit/58486ddb5883525be5102eb630f83fd30b399be6))
+
+
+### 🐛 Bug Fixes
+
+* **ci:** use check-suites API and re-enable push on main for CD gate ([41701ca](https://github.com/lema-ufpb/design-system/commit/41701cacdc2bca348b36c4b9aeec70ff4da15e00))
+
 ## [1.1.0](https://github.com/lema-ufpb/design-system/compare/v1.0.0...v1.1.0) (2026-05-24)
 
 
