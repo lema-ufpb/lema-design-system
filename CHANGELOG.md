@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/lema-ufpb/design-system/compare/v1.0.0...v1.1.0) (2026-05-24)
+
+
+### ✨ Features
+
+* setup CI/CD modernization ([d9b2bfc](https://github.com/lema-ufpb/design-system/commit/d9b2bfc851380d266277e21f1443af4dfcfadb8e))
+
+
+### 🐛 Bug Fixes
+
+* **ci:** replace gh cli with curl in CD gate (gh not installed on runner) ([3eb203c](https://github.com/lema-ufpb/design-system/commit/3eb203c4f4094f008e676ebe9f2c6a6867721eb5))
+
 ## 1.0.0 (2026-05-24)
 
 
