@@ -21,10 +21,19 @@ env:
   NPM_CONFIG_CACHE: /mnt/dados/actions-runner/npm-cache
   PLAYWRIGHT_BROWSERS_PATH: /mnt/dados/playwright-browsers
 
+# Pipeline sequencial: lint → test → build.
+# Cada job é independente (status check próprio em branch protection) e
+# executa em ordem via `needs:`. Fail-fast: se lint quebra, test e build
+# não rodam — economiza tempo de runner em PRs com erros simples.
+#
+# Exclusão explícita: PRs do release-please nunca rodam CI (já são filtrados
+# pelo trigger `branches: [develop]`, pois release-please PRs vão para main —
+# mas a guarda explícita protege contra mudanças futuras no trigger).
 jobs:
-  checks:
-    name: "🛠️ Lint → Test → Build"
+  lint:
+    name: "🕵️‍♂️ Lint"
     runs-on: self-hosted
+    if: ${{ !startsWith(github.head_ref, 'release-please--') }}
     steps:
       - name: "📥 Checkout do código"
         uses: actions/checkout@v5
@@ -32,7 +41,6 @@ jobs:
       - name: "🧰 Setup Node + Deps"
         uses: ./.github/actions/setup-node-deps
 
-      # 1️⃣ LINT — barato e fail-fast: pega erros de formato/estilo em ~30s.
       - name: "💅 Run formatter check"
         run: |
           echo "🔍 Verificando formatação do código..."
@@ -45,14 +53,34 @@ jobs:
           npm run lint
           echo "🌺 Linter aprovado! Seu código está lindo!"
 
-      # 2️⃣ TEST — onde mora a lógica: vitest em browser mode (Playwright/Chromium).
+  test:
+    name: "🧪 Test"
+    needs: lint
+    runs-on: self-hosted
+    steps:
+      - name: "📥 Checkout do código"
+        uses: actions/checkout@v5
+
+      - name: "🧰 Setup Node + Deps"
+        uses: ./.github/actions/setup-node-deps
+
       - name: "📸 Run Visual Tests (Playwright)"
         run: |
           echo "📸 Executando testes visuais com Playwright..."
           npm run test
           echo "✅ Testes visuais concluídos com sucesso!"
 
-      # 3️⃣ BUILD — caro e quase nunca falha se test passou.
+  build:
+    name: "📦 Build"
+    needs: test
+    runs-on: self-hosted
+    steps:
+      - name: "📥 Checkout do código"
+        uses: actions/checkout@v5
+
+      - name: "🧰 Setup Node + Deps"
+        uses: ./.github/actions/setup-node-deps
+
       - name: "📦 Run Build (Storybook)"
         run: |
           echo "🚀 Iniciando o processo de build..."
