@@ -61,12 +61,12 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 
 ### Locais suportados
 
-| Código  | Idioma                |
-| :------ | :-------------------- |
-| en-US   | English (default)     |
-| pt-PR   | Português (Brasil)    |
-| es-ES   | Español               |
-| fr-FR   | Français              |
+| Código | Idioma             |
+| :----- | :----------------- |
+| en-US  | English (default)  |
+| pt-PR  | Português (Brasil) |
+| es-ES  | Español            |
+| fr-FR  | Français           |
 
 ### Uso
 
@@ -157,27 +157,27 @@ O template cobre: propósito de uso, API completa com tipos, variantes CVA por s
 
 Componentes base instalados via shadcn CLI, sem modificações:
 
-| Componente        | Descrição                                                            |
-| :---------------- | :------------------------------------------------------------------- |
-| **Accordion**     | Conjunto de painéis empilhados e colapsáveis.                        |
-| **Avatar**        | Elemento visual para representar usuários com fallback de iniciais.  |
-| **Badge**         | Pequeno rótulo indicador de status ou categoria.                     |
-| **Button**        | Botão interativo com variantes (default, destructive, outline, etc). |
-| **Card**          | Container versátil com header, título, ação, descrição e footer.     |
+| Componente        | Descrição                                                                                          |
+| :---------------- | :------------------------------------------------------------------------------------------------- |
+| **Accordion**     | Conjunto de painéis empilhados e colapsáveis.                                                      |
+| **Avatar**        | Elemento visual para representar usuários com fallback de iniciais.                                |
+| **Badge**         | Pequeno rótulo indicador de status ou categoria.                                                   |
+| **Button**        | Botão interativo com variantes (default, destructive, outline, etc).                               |
+| **Card**          | Container versátil com header, título, ação, descrição e footer.                                   |
 | **Combobox**      | Autocomplete com busca, navegação por teclado e suporte a grupos, construído sobre @base-ui/react. |
-| **Command**       | Menu de comandos rápido e acessível com busca integrada.             |
-| **Dialog**        | Modal sobreposto para interações críticas.                           |
-| **Dropdown Menu** | Menu flutuante acionado por um botão.                                |
-| **Drawer**        | Painel deslizante com suporte a 4 direções e gestos de arrastar.     |
-| **Input**         | Campo de entrada de texto padrão.                                    |
-| **Input Group**   | Conjunto de inputs agrupados com ícones ou botões.                   |
-| **Popover**       | Conteúdo flutuante ancorado a um elemento.                           |
-| **Progress**      | Barra de progresso linear simples.                                   |
-| **Scroll Area**   | Área de rolagem customizada e acessível.                             |
-| **Skeleton**      | Placeholder de carregamento para estados vazios.                     |
-| **Table**         | Componente responsivo de tabela com suporte a rolagem horizontal.    |
-| **Textarea**      | Campo de entrada de texto multilinha.                                |
-| **Tooltip**       | Breve descrição exibida ao passar o mouse.                           |
+| **Command**       | Menu de comandos rápido e acessível com busca integrada.                                           |
+| **Dialog**        | Modal sobreposto para interações críticas.                                                         |
+| **Dropdown Menu** | Menu flutuante acionado por um botão.                                                              |
+| **Drawer**        | Painel deslizante com suporte a 4 direções e gestos de arrastar.                                   |
+| **Input**         | Campo de entrada de texto padrão.                                                                  |
+| **Input Group**   | Conjunto de inputs agrupados com ícones ou botões.                                                 |
+| **Popover**       | Conteúdo flutuante ancorado a um elemento.                                                         |
+| **Progress**      | Barra de progresso linear simples.                                                                 |
+| **Scroll Area**   | Área de rolagem customizada e acessível.                                                           |
+| **Skeleton**      | Placeholder de carregamento para estados vazios.                                                   |
+| **Table**         | Componente responsivo de tabela com suporte a rolagem horizontal.                                  |
+| **Textarea**      | Campo de entrada de texto multilinha.                                                              |
+| **Tooltip**       | Breve descrição exibida ao passar o mouse.                                                         |
 
 Para adicionar novos componentes shadcn ao projeto:
 
@@ -191,12 +191,12 @@ Todos os componentes abaixo vivem em `components/custom/`.
 
 #### Layout
 
-| Componente  | Descrição                                                                                                |
-| :---------- | :------------------------------------------------------------------------------------------------------- |
-| **Dashbox** | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge. |
-| **Dashrow** | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
-| **Drawer** | Drawer completo com header, body scrollável, footer e botão de fechar adaptável à direção.              |
-| **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.     |
+| Componente     | Descrição                                                                                                |
+| :------------- | :------------------------------------------------------------------------------------------------------- |
+| **Dashbox**    | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge. |
+| **Dashrow**    | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
+| **Drawer**     | Drawer completo com header, body scrollável, footer e botão de fechar adaptável à direção.               |
+| **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.       |
 
 ```tsx
 import { Dashbox } from "@/components/custom/dashbox"
@@ -219,9 +219,9 @@ import { Drawer } from "@/components/custom/drawer"
 
 #### Feedback
 
-| Componente     | Descrição                                                                                        |
-| :------------- | :----------------------------------------------------------------------------------------------- |
-| **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                 |
+| Componente  | Descrição                                                                        |
+| :---------- | :------------------------------------------------------------------------------- |
+| **Spinner** | Indicador de carregamento animado com `aria-label` localizada via `locale` prop. |
 
 ```tsx
 import { Spinner } from "@/components/custom/spinner"
@@ -232,14 +232,14 @@ import { Spinner } from "@/components/custom/spinner"
 
 #### Progresso & Exibição de Dados
 
-| Componente           | Descrição                                                                                                |
-| :------------------- | :------------------------------------------------------------------------------------------------------- |
+| Componente           | Descrição                                                                                                                                                                       |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. |
-| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, colunas sticky, redimensionamento e seleção de linhas. |
-| **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis. |
-| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                 |
-| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.               |
-| **StepProgress**     | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical. |
+| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, colunas sticky, redimensionamento e seleção de linhas.                                        |
+| **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                                        |
+| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                        |
+| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                                      |
+| **StepProgress**     | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical.                                                |
 
 ```tsx
 import { CardStatCompact, CardStatProgress } from "@/components/custom/card-stats"
@@ -260,19 +260,19 @@ import { DataTable } from "@/components/custom/data-table"
 
 Componentes de visualização de dados construídos sobre Recharts e otimizados para o LEMA.
 
-| Componente | Descrição |
-| :--- | :--- |
-| **BarChart** | Gráfico de barras com tooltips, legendas, empilhamento, cantos arredondados e brush zoom. |
-| **BoxplotChart** | Gráfico estatístico boxplot com SVG custom, suporte a notch e plotting de outliers. |
-| **CandlestickChart** | Gráfico financeiro (candlestick) com volume, médias móveis, linhas de referência e brush. |
-| **GeomapChart** | Mapa geográfico interativo para renderizar GeoJSON/TopoJSON com tooltips, zoom, coropletas e marcadores. |
-| **HeatmapChart** | Matriz de calor com CSS grid e color-mix para interpolação suave de cores. |
-| **LineChart** | Gráfico de linhas com áreas gradientes, áreas empilhadas, linhas de referência e brush. |
-| **PieChart** | Gráfico de pizza/donut com label central interativa, legendas e labels externas. |
-| **RadarChart** | Gráfico de radar/teia para dados multivariados com grid poligonal ou circular. |
-| **RadialChart** | Gráfico de barras radiais com anéis concêntricos e modo gauge semicircular. |
-| **ScatterChart** | Gráfico de dispersão/bolha com linhas de tendência, multi-séries e brush. |
-| **TreemapChart** | Gráfico treemap com drill-down hierárquico, breadcrumb e controle de aspect ratio. |
+| Componente           | Descrição                                                                                                |
+| :------------------- | :------------------------------------------------------------------------------------------------------- |
+| **BarChart**         | Gráfico de barras com tooltips, legendas, empilhamento, cantos arredondados e brush zoom.                |
+| **BoxplotChart**     | Gráfico estatístico boxplot com SVG custom, suporte a notch e plotting de outliers.                      |
+| **CandlestickChart** | Gráfico financeiro (candlestick) com volume, médias móveis, linhas de referência e brush.                |
+| **GeomapChart**      | Mapa geográfico interativo para renderizar GeoJSON/TopoJSON com tooltips, zoom, coropletas e marcadores. |
+| **HeatmapChart**     | Matriz de calor com CSS grid e color-mix para interpolação suave de cores.                               |
+| **LineChart**        | Gráfico de linhas com áreas gradientes, áreas empilhadas, linhas de referência e brush.                  |
+| **PieChart**         | Gráfico de pizza/donut com label central interativa, legendas e labels externas.                         |
+| **RadarChart**       | Gráfico de radar/teia para dados multivariados com grid poligonal ou circular.                           |
+| **RadialChart**      | Gráfico de barras radiais com anéis concêntricos e modo gauge semicircular.                              |
+| **ScatterChart**     | Gráfico de dispersão/bolha com linhas de tendência, multi-séries e brush.                                |
+| **TreemapChart**     | Gráfico treemap com drill-down hierárquico, breadcrumb e controle de aspect ratio.                       |
 
 ```tsx
 import { BarChart } from "@/components/custom/bar-chart"
@@ -282,14 +282,14 @@ import { BarChart } from "@/components/custom/bar-chart"
 
 #### Formulários
 
-| Componente        | Descrição                                                                              |
-| :---------------- | :------------------------------------------------------------------------------------- |
-| **Counter**       | Input numérico com controles +/− e suporte a valor controlado/não-controlado.          |
-| **InputEmail**    | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                     |
-| **InputPassword** | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                |
-| **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.             |
-| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips e renderização customizada.     |
-| **SelectList**    | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes. |
+| Componente               | Descrição                                                                                          |
+| :----------------------- | :------------------------------------------------------------------------------------------------- |
+| **Counter**              | Input numérico com controles +/− e suporte a valor controlado/não-controlado.                      |
+| **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                 |
+| **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                            |
+| **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.          |
+| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips e renderização customizada. |
+| **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.             |
 
 ```tsx
 import { Counter } from "@/components/custom/counter"
@@ -309,14 +309,14 @@ import { InputPassword } from "@/components/custom/input-password"
 
 #### Navegação
 
-| Componente       | Descrição                                                                       |
-| :--------------- | :------------------------------------------------------------------------------ |
-| **HeaderSearch** | Botão de busca expansível com animação suave para headers de página.            |
+| Componente       | Descrição                                                                         |
+| :--------------- | :-------------------------------------------------------------------------------- |
+| **HeaderSearch** | Botão de busca expansível com animação suave para headers de página.              |
 | **FooterMenu**   | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase. |
 | **NavDots**      | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips. |
-| **NavUser**      | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar. |
-| **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR. |
-| **ToggleTheme**  | Botão dropdown para alternar entre temas claro, escuro e sistema.               |
+| **NavUser**      | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.   |
+| **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR.  |
+| **ToggleTheme**  | Botão dropdown para alternar entre temas claro, escuro e sistema.                 |
 
 ```tsx
 import { HeaderSearch } from "@/components/custom/header-search"
@@ -422,13 +422,121 @@ make coverage         # Coverage com Vitest
 make clean            # Limpar artefatos
 ```
 
-## Contribution
+## Release & Deploy
+
+O projeto usa um fluxo **GitFlow** com versionamento automático via [release-please](https://github.com/googleapis/release-please) e deploy contínuo para Kubernetes via ArgoCD.
+
+### Branches
+
+| Branch    | Propósito                                                           |
+| :-------- | :------------------------------------------------------------------ |
+| `develop` | Branch de integração — todo PR de feature/fix entra aqui            |
+| `main`    | Branch de release — recebe merge de `develop` quando pronto p/ ship |
+
+### Fluxo completo (do commit ao deploy)
+
+```
+feature/* ──PR──▶ develop ──PR──▶ main ──┐
+                                          │ (release-please observa)
+                                          ▼
+                              chore(release): vX.Y.Z (PR aberto pelo bot)
+                                          │
+                                          ▼ merge
+                              tag vX.Y.Z + GitHub Release criados
+                                          │
+                                          ▼ (release.published)
+                              CD: build Docker → GHCR → argocd-apps → prod
+```
+
+### CI (`.github/workflows/ci.yml`)
+
+Dispara em **PR e push** para `develop` e `main`. Roda 3 jobs em paralelo no self-hosted runner:
+
+- 🏗️ **build** — `npm run build-storybook`
+- 🕵️ **lint** — `npm run format:check` + `npm run lint`
+- 🎭 **test** — `npm run test` (vitest browser mode)
+
+Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Instalação usa `npm ci --legacy-peer-deps` com cache (composite action em `.github/actions/setup-node-deps`).
+
+### Release automatizada (`.github/workflows/release-please.yml`)
+
+Dispara em **push para `main`**. O bot do release-please:
+
+1. Lê os commits desde a última tag e calcula a próxima versão (regras [Conventional Commits](https://www.conventionalcommits.org))
+2. Abre/atualiza um PR `chore(release): vX.Y.Z` contendo:
+   - Bump em `package.json`
+   - `CHANGELOG.md` gerado com seções por tipo (✨ Features, 🐛 Bug Fixes, etc.)
+   - Bump em `.release-please-manifest.json`
+3. Quando o PR é mergeado → cria a tag `vX.Y.Z` + GitHub Release automaticamente
+
+**Estado de versionamento** (não editar à mão):
+
+- `.release-please-manifest.json` — versão atual rastreada pelo bot
+- `package.json` `version` — sobrescrito pelo bot em cada release
+- `release-please-config.json` — configuração das seções do CHANGELOG
+
+### CD (`.github/workflows/cd.yml`)
+
+Dispara em **`release: published`** (criada pelo release-please). O fluxo:
+
+1. **Gate de CI verde** — valida via `gh api` que o commit da tag tem CI bem-sucedido. Se não tiver, aborta antes de buildar.
+2. **Build Docker** — imagem multi-stage com Nginx servindo o Storybook estático. Antes do `docker build`, o `jq` injeta a versão da tag em `public/r/registry.json` (manifesto consumido por projetos downstream via shadcn).
+3. **Push para GHCR** — duas tags: `:latest` e `:vX.Y.Z`.
+4. **Update argocd-apps** — commita o bump da tag nos overlays `prod` e `dev` do repo [lema-ufpb/argocd-apps](https://github.com/lema-ufpb/argocd-apps). ArgoCD sincroniza e aplica no cluster.
+
+### Mecânica de versão (single source of truth: git tag)
+
+A versão exibida na documentação Storybook é injetada em tempo de build via `git describe --tags --abbrev=0` em `.storybook/main.ts`. O fluxo é:
+
+```
+git tag vX.Y.Z  ──▶  __APP_VERSION__ (Vite define)  ──▶  lib/version.ts  ──▶  app/Introduction.mdx
+```
+
+Para builds locais (sem tag), a versão exibida é `0.0.0`.
+
+### Recovery quando algo falha no CD
+
+- **Antes (fluxo antigo)**: corrigir em develop → merge main → `git tag -d` local → `git push --delete` remoto → recriar tag manualmente.
+- **Agora**: abrir PR de fix em `develop` → merge para `main`. O release-please atualiza o próximo PR de release automaticamente (ou abre um novo). Merge desse PR → nova tag patch (`vX.Y.Z+1`) criada limpa. **Zero `git tag -d`**.
+
+## Contribuindo
+
+### Setup
 
 1. Fork o repositório
-2. Crie uma branch (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'feat: adiciona novo componente'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+2. Clone e instale: `git clone ... && cd design-system && npm install --legacy-peer-deps`
+3. Crie uma branch a partir de `develop`: `git checkout develop && git checkout -b feature/minha-feature`
+
+### Conventional Commits (obrigatório)
+
+Para que o release-please calcule corretamente a próxima versão e gere o `CHANGELOG.md`, **todos os commits devem seguir o padrão [Conventional Commits](https://www.conventionalcommits.org)**:
+
+| Prefixo                                  | Bump (pre-1.0)                  | Aparece no CHANGELOG |
+| :--------------------------------------- | :------------------------------ | :------------------- |
+| `feat:`                                  | minor (`0.X.0`)                 | ✨ Features          |
+| `fix:`                                   | patch (`0.0.X`)                 | 🐛 Bug Fixes         |
+| `perf:`                                  | patch                           | ⚡ Performance       |
+| `refactor:`                              | patch                           | ♻️ Refactor          |
+| `docs:`                                  | patch                           | 📚 Documentation     |
+| `revert:`                                | patch                           | ⏪ Reverts           |
+| `feat!:` / `BREAKING CHANGE:`            | minor (pre-1.0 não pula p/ 1.0) | 💥 Breaking          |
+| `chore:` `style:` `test:` `build:` `ci:` | — (sem bump)                    | oculto               |
+
+**Exemplos:**
+
+```bash
+git commit -m "feat(dashbox): add fullscreen toggle"
+git commit -m "fix(progress-bar): correct color on intent='warning'"
+git commit -m "docs(readme): update installation instructions"
+git commit -m "refactor(card-stats)!: rename CardStat to CardStatBase"  # breaking
+```
+
+### Pull Request
+
+1. Push da sua branch: `git push origin feature/minha-feature`
+2. Abra PR contra `develop` — CI dispara automaticamente
+3. Após aprovação e merge em `develop`, eventualmente um PR `develop → main` agrega features prontas para release
+4. Merge em `main` → o bot do release-please abre `chore(release): vX.Y.Z` → revisar → merge → deploy automático
 
 ## Licença
 
