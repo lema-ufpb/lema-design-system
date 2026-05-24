@@ -450,13 +450,15 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
 
 ### CI (`.github/workflows/ci.yml`)
 
-Dispara em **PR e push** para `develop` e `main`. Roda 3 jobs em paralelo no self-hosted runner:
+Dispara **apenas em PR** contra `develop` ou `main`. Roda 3 jobs em paralelo no self-hosted runner:
 
 - 🏗️ **build** — `npm run build-storybook`
 - 🕵️ **lint** — `npm run format:check` + `npm run lint`
-- 🎭 **test** — `npm run test` (vitest browser mode)
+- 🎭 **test** — `npm run test` (vitest browser mode, usa Chromium em `PLAYWRIGHT_BROWSERS_PATH=/mnt/dados/playwright-browsers`)
 
 Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Instalação usa `npm ci --legacy-peer-deps` com cache (composite action em `.github/actions/setup-node-deps`).
+
+> ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + status checks verdes + branch atualizada antes do merge.
 
 ### Release automatizada (`.github/workflows/release-please.yml`)
 
