@@ -1,3 +1,4 @@
+import React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Switch } from "./switch"
 
@@ -60,6 +61,20 @@ export const Sizes: Story = {
       <Switch size="default" defaultChecked />
     </div>
   ),
+}
+
+export const Controlled: Story = {
+  render: function Render() {
+    const [checked, setChecked] = React.useState(false)
+    return (
+      <div className="flex items-center gap-4">
+        <Switch checked={checked} onCheckedChange={setChecked} />
+        <span className="text-sm text-muted-foreground">
+          Value: {checked ? "true" : "false"}
+        </span>
+      </div>
+    )
+  },
 }
 
 export const States: Story = {

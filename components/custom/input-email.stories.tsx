@@ -43,6 +43,10 @@ const meta = {
       control: "select",
       options: ["pill", "rounded", "square"],
     },
+    variant: {
+      control: "select",
+      options: ["default", "white"],
+    },
   },
 } satisfies Meta<typeof EmailInput>
 
@@ -85,6 +89,15 @@ export const AllRadius: Story = {
       <EmailInput radius="pill" placeholder="Pill" />
       <EmailInput radius="rounded" placeholder="Rounded" />
       <EmailInput radius="square" placeholder="Square" />
+    </div>
+  ),
+}
+
+export const Variants: Story = {
+  render: () => (
+    <div className="flex w-72 flex-col gap-3">
+      <EmailInput variant="default" placeholder="Default" />
+      <EmailInput variant="white" placeholder="White" />
     </div>
   ),
 }

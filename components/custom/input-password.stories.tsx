@@ -44,6 +44,10 @@ const meta = {
       control: "select",
       options: ["pill", "rounded", "square"],
     },
+    variant: {
+      control: "select",
+      options: ["default", "white"],
+    },
   },
 } satisfies Meta<typeof PasswordInput>
 
@@ -93,6 +97,15 @@ export const AllRadius: Story = {
       <PasswordInput radius="pill" placeholder="Pill" />
       <PasswordInput radius="rounded" placeholder="Rounded" />
       <PasswordInput radius="square" placeholder="Square" />
+    </div>
+  ),
+}
+
+export const Variants: Story = {
+  render: () => (
+    <div className="flex w-72 flex-col gap-3">
+      <PasswordInput variant="default" placeholder="Default" />
+      <PasswordInput variant="white" placeholder="White" />
     </div>
   ),
 }

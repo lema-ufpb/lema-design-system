@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite"
+import { execSync } from "child_process"
 
 const config: StorybookConfig = {
   stories: [
@@ -15,5 +16,17 @@ const config: StorybookConfig = {
   ],
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public", "../app"],
+  viteFinal: async (config) => {
+    const version = execSync(
+      "git describe --tags --abbrev=0 2>/dev/null || echo '0.0.0'"
+    )
+      .toString()
+      .trim()
+    config.define = {
+      ...config.define,
+      __APP_VERSION__: JSON.stringify(version),
+    }
+    return config
+  },
 }
 export default config

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 
 type Size = "sm" | "default" | "lg"
 type Radius = "pill" | "rounded" | "square"
+type Variant = "default" | "white"
 
 const sizeConfig: Record<Size, { inputClass: string; iconClass: string }> = {
   sm: { inputClass: "h-8 px-2.5 text-xs pr-7", iconClass: "right-2 size-3.5" },
@@ -18,18 +19,25 @@ const radiusConfig: Record<Radius, string> = {
   square: "rounded-none",
 }
 
+const variantConfig: Record<Variant, string> = {
+  default: "bg-input/50",
+  white: "bg-white border-border dark:bg-input/50",
+}
+
 interface EmailInputProps extends Omit<
   React.ComponentProps<"input">,
   "type" | "size"
 > {
   size?: Size
   radius?: Radius
+  variant?: Variant
 }
 
 function EmailInput({
   className,
   size = "default",
   radius = "pill",
+  variant = "default",
   ...props
 }: EmailInputProps) {
   const { inputClass, iconClass } = sizeConfig[size]
@@ -38,7 +46,12 @@ function EmailInput({
     <div className="relative">
       <Input
         type="email"
-        className={cn(inputClass, radiusConfig[radius], className)}
+        className={cn(
+          inputClass,
+          radiusConfig[radius],
+          variantConfig[variant],
+          className
+        )}
         {...props}
       />
       <Mail
