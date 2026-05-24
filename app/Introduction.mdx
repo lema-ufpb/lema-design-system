@@ -112,15 +112,43 @@ High-complexity components maintained in `components/blocks/` with independent s
 
 ## 📦 Installing Components
 
-Any component can be added directly to your project via the shadcn CLI:
+### Via `@lema-ufpb/ds-sync` (recommended for UFPB projects)
+
+For institutional projects, use our dedicated CLI on [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) with auth, lockfile, drift detection, and CI support:
 
 ```bash
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json <component-name>
+npm install -D @lema-ufpb/ds-sync
+```
+
+Configure in `.env.local`:
+
+```env
+LEMA_DS_TOKEN=<your-token>
+LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
+```
+
+Common commands:
+
+```bash
+npx lema-ds add dashbox bar-chart        # Install component(s)
+npx lema-ds update progress-bar          # Update component(s)
+npx lema-ds verify                       # Drift detection
+npx lema-ds sync --all --yes             # CI mode
+```
+
+> 🔑 Token provided by LEMA's NOC. Lockfile `lema-ds.lock.json` is auto-generated and **must be committed**.
+
+### Via shadcn CLI
+
+Any component can also be added directly via the standard shadcn CLI:
+
+```bash
+npx lema-ds add <component-name>
 
 # Examples:
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json dashbox
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json progress-bar
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json search-combo
+npx lema-ds add dashbox
+npx lema-ds add progress-bar
+npx lema-ds add search-combo
 ```
 
 > The shared i18n dictionary (`lib/ui-i18n.ts`) is automatically installed as a registry dependency for every locale-aware component.

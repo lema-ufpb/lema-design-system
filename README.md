@@ -40,20 +40,50 @@ npm install
 make dev
 ```
 
+## Uso via CLI dedicada — `@lema-ufpb/ds-sync` 📦
+
+Para projetos institucionais da UFPB, disponibilizamos uma CLI dedicada no [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) que estende o shadcn CLI com autenticação, lockfile, drift detection e modo CI:
+
+```bash
+npm install -D @lema-ufpb/ds-sync
+```
+
+Configure no `.env.local`:
+
+```env
+LEMA_DS_TOKEN=<seu-token>
+LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
+```
+
+> 🔑 O token é fornecido pelo NOC do LEMA. O registry padrão aponta para produção.
+
+### Comandos principais
+
+| Comando                          | Descrição                       |
+| :------------------------------- | :------------------------------ |
+| `npx lema-ds add dashbox`        | Instala componente(s)           |
+| `npx lema-ds update dashbox`     | Atualiza componente(s)          |
+| `npx lema-ds list`               | Lista componentes disponíveis   |
+| `npx lema-ds verify`             | Verifica drift vs lockfile      |
+| `npx lema-ds diff dashbox`       | Diff local vs remoto            |
+| `npx lema-ds sync --all --yes`   | Sincronização completa (CI)     |
+| `npx lema-ds sync-tokens`        | Força refetch dos tokens CSS    |
+| `npx lema-ds whoami`             | Valida o token de autenticação  |
+
+O lockfile `lema-ds.lock.json` é gerado automaticamente e **deve ser versionado** — é a fonte da verdade para reprodutibilidade e detecção de drift.
+
 ## Uso via Registry (shadcn CLI)
 
 Você pode instalar qualquer componente deste design system em seu próprio projeto usando o link do registro oficial:
 
 ```bash
 # Adicionar um componente específico
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json <component-name>
+npx lema-ds add <component-name>
 
 # Exemplos:
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json dashbox
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json progress-bar
+npx lema-ds add dashbox
+npx lema-ds add progress-bar
 ```
-
-> O arquivo `lib/ui-i18n.ts` (dicionário i18n) é instalado automaticamente como dependência de registro para todos os componentes que suportam locale. Não é necessário instalá-lo manualmente.
 
 ## Internacionalização (i18n)
 
@@ -67,6 +97,10 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 | pt-PR  | Português (Brasil) |
 | es-ES  | Español            |
 | fr-FR  | Français           |
+
+
+> O arquivo `lib/ui-i18n.ts` (dicionário i18n) é instalado automaticamente como dependência de registro para todos os componentes que suportam locale. Não é necessário instalá-lo manualmente.
+
 
 ### Uso
 
@@ -85,13 +119,13 @@ O dicionário `ui-i18n` está publicado como `registry:lib` no registro oficial:
 
 ```bash
 # Instalação manual (se necessário)
-npx shadcn@latest add https://ds.lema.ufpb.br/r/registry.json ui-i18n
+npx lema-ds add ui-i18n
 ```
 
 ## Estrutura do Projeto
 
 ```
-lema-ds/
+design-system/
 ├── app/
 │   ├── globals.css         # Tokens CSS e temas
 │   └── layout.tsx          # Layout raiz com ThemeProvider
@@ -182,7 +216,7 @@ Componentes base instalados via shadcn CLI, sem modificações:
 Para adicionar novos componentes shadcn ao projeto:
 
 ```bash
-npx shadcn@latest add <componente>
+npx lema-ds add <componente>
 ```
 
 ### Componentes customizados
