@@ -99,26 +99,27 @@ jobs:
 
             if [ ! -f "$kustomization" ]; then
               echo "  → Criando ${kustomization}..."
-              cat > "$kustomization" <<-EOF
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources: []
-images:
-  - name: ${IMAGE_NAME}
-    newTag: ${IMAGE_TAG}
-EOF
+              cat > "$kustomization" <<-YAMLEOF
+				apiVersion: kustomize.config.k8s.io/v1beta1
+				kind: Kustomization
+				resources: []
+				images:
+				  - name: ${IMAGE_NAME}
+				    newTag: ${IMAGE_TAG}
+				YAMLEOF
               echo "  ✅ Criado ${overlay} com newTag: ${IMAGE_TAG}"
             else
               echo "  → Atualizando ${overlay}..."
               if grep -q "name: ${IMAGE_NAME}" "$kustomization"; then
-                cd "$dir"
-                kustomize edit set image "${IMAGE_NAME}=${IMAGE_NAME}:${IMAGE_TAG}"
+                (cd "$dir" && kustomize edit set image "${IMAGE_NAME}=${IMAGE_NAME}:${IMAGE_TAG}")
                 echo "  ✅ newTag atualizado via kustomize (${overlay})"
               else
-                sed -i "/^images:/a\\
-  - name: ${IMAGE_NAME}\\
-    newTag: ${IMAGE_TAG}" "$kustomization"
-                echo "  ✅ Image adicionado via sed (${overlay})"
+                awk -v name="${IMAGE_NAME}" -v tag="${IMAGE_TAG}" '
+                  /^images:/ { print; print "  - name: " name; print "    newTag: " tag; next }
+                  { print }
+                ' "$kustomization" > "${kustomization}.tmp" && \
+                  mv "${kustomization}.tmp" "$kustomization"
+                echo "  ✅ Image adicionado via awk (${overlay})"
               fi
             fi
           done
