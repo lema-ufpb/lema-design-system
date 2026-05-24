@@ -43,12 +43,9 @@ jobs:
 
       - name: "📝 Update registry.json version"
         run: |
-          node -e "
-            const fs = require('fs')
-            const reg = JSON.parse(fs.readFileSync('registry.json', 'utf-8'))
-            reg.version = '${{ steps.set-tag.outputs.image_tag }}'
-            fs.writeFileSync('registry.json', JSON.stringify(reg, null, 2) + '\n')
-          "
+          jq --arg v "${{ steps.set-tag.outputs.image_tag }}" \
+            '.version = $v' registry.json > registry.json.tmp && \
+            mv registry.json.tmp registry.json
           echo "✅ registry.json version updated to ${{ steps.set-tag.outputs.image_tag }}"
 
       - name: "🚀 Build and push Docker image"
