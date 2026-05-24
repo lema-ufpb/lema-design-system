@@ -352,11 +352,11 @@ function ChartLegend({
           : "flex-wrap items-center justify-center gap-x-4 pt-3"
       )}
     >
-      {payload.map((entry) => {
+      {payload.map((entry, i) => {
         const hidden = hiddenSeries?.has(entry.value)
         return (
           <div
-            key={entry.value}
+            key={entry.value ?? i}
             role="button"
             tabIndex={0}
             aria-pressed={hidden}

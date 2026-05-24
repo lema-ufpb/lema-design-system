@@ -667,12 +667,12 @@ function ChartLegend({
       ))}
 
       {/* Toggleable MA line items */}
-      {maItems.map((entry) => {
+      {maItems.map((entry, i) => {
         const isDashed = !!entry.payload?.strokeDasharray
         const hidden = hiddenSeries?.has(entry.value)
         return (
           <div
-            key={entry.value}
+            key={entry.value ?? i}
             role="button"
             tabIndex={0}
             aria-pressed={hidden}
