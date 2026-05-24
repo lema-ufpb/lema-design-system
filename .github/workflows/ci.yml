@@ -1,12 +1,11 @@
 name: "🛠️ CI - Pull Request Checks"
 
 on:
+  # CI roda apenas em PR contra develop — única vez que código novo é introduzido.
+  # PRs develop→main e PRs do release-please não rodam CI (são promoção/version bump).
+  # Branch protection em develop garante que código quebrado nunca chega em main.
   pull_request:
-    branches: [develop, main]
-  # Roda também em push para main (merges via release-please) para que
-  # o gate de CI no cd.yml encontre o run no SHA do merge commit.
-  push:
-    branches: [main]
+    branches: [develop]
 
 # Cancela runs antigos no mesmo PR/branch quando há novo push.
 concurrency:
@@ -23,8 +22,8 @@ env:
   PLAYWRIGHT_BROWSERS_PATH: /mnt/dados/playwright-browsers
 
 jobs:
-  build:
-    name: "🏗️ Check Project Build"
+  checks:
+    name: "🛠️ Lint → Test → Build"
     runs-on: self-hosted
     steps:
       - name: "📥 Checkout do código"
@@ -33,22 +32,7 @@ jobs:
       - name: "🧰 Setup Node + Deps"
         uses: ./.github/actions/setup-node-deps
 
-      - name: "📦 Run Build (Storybook)"
-        run: |
-          echo "🚀 Iniciando o processo de build..."
-          npm run build-storybook
-          echo "🎉 Build concluído sem erros!"
-
-  lint:
-    name: "🕵️‍♂️ Check Code Standards (Lint)"
-    runs-on: self-hosted
-    steps:
-      - name: "📥 Checkout do código"
-        uses: actions/checkout@v5
-
-      - name: "🧰 Setup Node + Deps"
-        uses: ./.github/actions/setup-node-deps
-
+      # 1️⃣ LINT — barato e fail-fast: pega erros de formato/estilo em ~30s.
       - name: "💅 Run formatter check"
         run: |
           echo "🔍 Verificando formatação do código..."
@@ -61,18 +45,16 @@ jobs:
           npm run lint
           echo "🌺 Linter aprovado! Seu código está lindo!"
 
-  test:
-    name: "🎭 Visual Tests (Playwright)"
-    runs-on: self-hosted
-    steps:
-      - name: "📥 Checkout do código"
-        uses: actions/checkout@v5
-
-      - name: "🧰 Setup Node + Deps"
-        uses: ./.github/actions/setup-node-deps
-
-      - name: "📸 Run Visual Tests"
+      # 2️⃣ TEST — onde mora a lógica: vitest em browser mode (Playwright/Chromium).
+      - name: "📸 Run Visual Tests (Playwright)"
         run: |
           echo "📸 Executando testes visuais com Playwright..."
           npm run test
           echo "✅ Testes visuais concluídos com sucesso!"
+
+      # 3️⃣ BUILD — caro e quase nunca falha se test passou.
+      - name: "📦 Run Build (Storybook)"
+        run: |
+          echo "🚀 Iniciando o processo de build..."
+          npm run build-storybook
+          echo "🎉 Build concluído sem erros!"

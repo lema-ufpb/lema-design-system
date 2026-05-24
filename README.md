@@ -450,13 +450,15 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
 
 ### CI (`.github/workflows/ci.yml`)
 
-Dispara em **PR contra `develop` ou `main`** e em **push para `main`** (esse último alimenta o gate do CD com o run no SHA exato do merge commit que vira tag). Roda 3 jobs em paralelo no self-hosted runner:
+Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código novo é introduzido. PRs `develop → main` e PRs do release-please **não rodam CI** (são promoção e version bump, respectivamente — mesmo código já validado). Roda 3 jobs em paralelo no self-hosted runner:
 
 - 🏗️ **build** — `npm run build-storybook`
 - 🕵️ **lint** — `npm run format:check` + `npm run lint`
 - 🎭 **test** — `npm run test` (vitest browser mode, usa Chromium em `PLAYWRIGHT_BROWSERS_PATH=/mnt/dados/playwright-browsers`)
 
 Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Instalação usa `npm ci --legacy-peer-deps` com cache (composite action em `.github/actions/setup-node-deps`).
+
+**Por que CI roda apenas uma vez por ciclo de release:** o invariante é "se `develop` está verde, `main` está verde". Branch protection em `develop` exige CI verde antes de merge → todo código que entra em `develop` foi validado. `develop → main` é promoção sem código novo. release-please PR só altera `package.json`, `CHANGELOG.md` e `.release-please-manifest.json` — nenhum desses afeta build/lint/test. Resultado: 1 run de CI por mudança real, não 4.
 
 > ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + status checks verdes + branch atualizada antes do merge.
 
@@ -481,10 +483,11 @@ Dispara em **push para `main`**. O bot do release-please:
 
 Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
-1. **Gate de CI verde** — valida via `gh api` que o commit da tag tem CI bem-sucedido. Se não tiver, aborta antes de buildar.
-2. **Build Docker** — imagem multi-stage com Nginx servindo o Storybook estático. Antes do `docker build`, o `jq` injeta a versão da tag em `public/r/registry.json` (manifesto consumido por projetos downstream via shadcn).
-3. **Push para GHCR** — duas tags: `:latest` e `:vX.Y.Z`.
-4. **Update argocd-apps** — commita o bump da tag nos overlays `prod` e `dev` do repo [lema-ufpb/argocd-apps](https://github.com/lema-ufpb/argocd-apps). ArgoCD sincroniza e aplica no cluster.
+1. **Build Docker** — imagem multi-stage com Nginx servindo o Storybook estático. Antes do `docker build`, o `jq` injeta a versão da tag em `public/r/registry.json` (manifesto consumido por projetos downstream via shadcn).
+2. **Push para GHCR** — duas tags: `:latest` e `:vX.Y.Z`.
+3. **Update argocd-apps** — commita o bump da tag nos overlays `prod` e `dev` do repo [lema-ufpb/argocd-apps](https://github.com/lema-ufpb/argocd-apps). ArgoCD sincroniza e aplica no cluster.
+
+> 🔒 **Garantia de qualidade**: a tag só nasce de um PR de release-please mergeado em `main`. Como branch protection exige CI verde pra mergear, todo commit que vira tag **já foi validado** pelo CI. Não existe gate adicional no CD — a confiança vem da branch protection upstream.
 
 ### Mecânica de versão (single source of truth: git tag)
 
@@ -498,8 +501,12 @@ Para builds locais (sem tag), a versão exibida é `0.0.0`.
 
 ### Recovery quando algo falha no CD
 
+Caminho default (90% dos casos): **roll-forward**.
+
 - **Antes (fluxo antigo)**: corrigir em develop → merge main → `git tag -d` local → `git push --delete` remoto → recriar tag manualmente.
 - **Agora**: abrir PR de fix em `develop` → merge para `main`. O release-please atualiza o próximo PR de release automaticamente (ou abre um novo). Merge desse PR → nova tag patch (`vX.Y.Z+1`) criada limpa. **Zero `git tag -d`**.
+
+Para cenários menos comuns (versão errada calculada, release por engano, rollback urgente em prod, manifest inconsistente), consulte **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — roteiro detalhado com comandos prontos para cada situação.
 
 ## Contribuindo
 
