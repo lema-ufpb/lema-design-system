@@ -1,4 +1,4 @@
-name: AI PR Review (app-programacao-fiscal)
+name: AI PR Review
 
 on:
   pull_request:
@@ -11,6 +11,8 @@ permissions:
 jobs:
   review:
     runs-on: self-hosted
+    # Pula PRs automáticos (Dependabot/release-please) para evitar ruído e gasto de tokens.
+    if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]'
 
     steps:
       - name: 📦 Checkout
@@ -181,7 +183,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `## 🤖 AI Code Review — Next.js App (app-programacao-fiscal)\n\n${review}\n\n---\n*opencode · ${model} · self-hosted*`
+              body: `## 🤖 AI Code Review — LEMA-DS\n\n${review}\n\n---\n*opencode · ${model} · self-hosted*`
             });
 
       - name: 🧹 Limpar arquivos temporários
