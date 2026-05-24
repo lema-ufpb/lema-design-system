@@ -18,6 +18,7 @@ permissions:
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_CONFIG_CACHE: /mnt/dados/actions-runner/npm-cache
+  PLAYWRIGHT_BROWSERS_PATH: /mnt/dados/playwright-browsers
 
 jobs:
   build:
