@@ -114,13 +114,13 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     placeholder: "Enter your password...",
-    value: "super_secret_password",
+    defaultValue: "super_secret_password",
   },
 }
 
 export const WithValue: Story = {
   args: {
-    value: "secret_password_123",
+    defaultValue: "secret_password_123",
   },
 }
 
