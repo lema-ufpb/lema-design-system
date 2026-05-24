@@ -12,7 +12,7 @@ jobs:
   review:
     runs-on: self-hosted
     # Pula PRs automáticos (Dependabot/release-please) para evitar ruído e gasto de tokens.
-    if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]'
+    if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]' && !startsWith(github.head_ref, 'release-please--')
 
     steps:
       - name: 📦 Checkout
