@@ -63,7 +63,7 @@ jobs:
       image_tag: ${{ steps.set-tag.outputs.image_tag }}
     steps:
       - name: "📥 Checkout repository (commit da tag)"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: ${{ needs.verify-ci.outputs.sha }}
@@ -113,7 +113,7 @@ jobs:
     environment: prod
     steps:
       - name: "📥 Checkout argocd-apps repository"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: lema-ufpb/argocd-apps
           token: ${{ secrets.GHCR_PAT }} # Assuming GHCR_PAT has access to the argocd-apps repo
