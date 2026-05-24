@@ -3,6 +3,7 @@ name: AI PR Review
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    branches: [develop]
 
 permissions:
   contents: read
@@ -11,8 +12,8 @@ permissions:
 jobs:
   review:
     runs-on: self-hosted
-    # Pula PRs automáticos (Dependabot/release-please) para evitar ruído e gasto de tokens.
-    if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]' && !startsWith(github.head_ref, 'release-please--')
+    # Pula PRs automáticos (Dependabot) para evitar ruído e gasto de tokens.
+    if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]'
 
     steps:
       - name: 📦 Checkout

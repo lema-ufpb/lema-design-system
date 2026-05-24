@@ -51,6 +51,8 @@ tag vX.Y.Z criada → CD dispara → deploy
 - Docker image **NÃO** está em GHCR OU `argocd-apps` **NÃO** foi atualizado
 - ArgoCD em prod ainda roda a versão anterior
 
+> ℹ️ **"nothing to commit" no argocd-apps não acontece mais** — o step verifica se houve mudança via `git diff --cached --quiet`. Se não houve, faz `git commit --allow-empty` para forçar reconciliação no ArgoCD. O step também cria overlays do zero e adiciona image entries ausentes (primeira release).
+
 ### Análise: rollback vs roll-forward?
 
 | Pergunta | Se SIM → roll-forward | Se NÃO → rollback |
@@ -75,6 +77,13 @@ gh pr create --base main --head develop --title "fix: ..." --body "Fix do CD"
 
 # 3. release-please vai abrir chore(release): X.Y.Z+1 automaticamente
 #    Mergear esse PR → tag X.Y.Z+1 → CD roda → deploy chega em prod
+
+# Alternativa: re-release da mesma versão (quando o conteúdo está correto e
+# só o pipeline falhou — ex.: falha de infra, runner offline)
+# Não delete tags manualmente. Siga:
+# 1. Corrigir o workflow em develop e mergear para main
+# 2. release-please re-abre o PR da versão (ou abre X.Y.Z+1)
+# 3. Mergear → tag criada pelo bot → CD roda com o workflow corrigido
 ```
 
 ### Comandos — Rollback completo (se conteúdo está ruim)
@@ -281,8 +290,10 @@ Com CI rodando **apenas em PR contra `develop`**, configurar "Require status che
 **Em `develop`** (Settings → Branches → Add rule):
 - ✅ Require a pull request before merging
 - ✅ Require status checks to pass
-  - Selecionar: `🏗️ Check Project Build`, `🕵️‍♂️ Check Code Standards (Lint)`, `🎭 Visual Tests (Playwright)`
+  - Selecionar: `🕵️‍♂️ Lint`, `🧪 Test`, `📦 Build`
 - ✅ Require branches to be up to date before merging
+
+> ⚠️ **Estado atual:** `develop` está com `required_status_checks.contexts: []` (nenhum check exigido). É recomendado adicionar `🕵️‍♂️ Lint`, `🧪 Test` e `📦 Build` para garantir que código quebrado não entre.
 
 **Em `main`** (Settings → Branches → Add rule):
 - ✅ Require a pull request before merging
@@ -299,12 +310,17 @@ gh api repos/lema-ufpb/design-system/branches/main/protection --jq '.required_st
 # Settings → Branches → Edit rule de main → desmarcar "Require status checks to pass"
 
 # 2. Confirmar config de develop (deve ter os 3 checks reais do CI)
-gh api repos/lema-ufpb/design-system/branches/develop/protection --jq '.required_status_checks.contexts'
-# Esperado: ["🏗️ Check Project Build", "🕵️‍♂️ Check Code Standards (Lint)", "🎭 Visual Tests (Playwright)"]
+gh api repos/lema-ufpb/design-system/branches/develop/protection --jq '.required_status_checks'
+# Se contexts == []: Settings → Branches → develop → editar → marcar "Require status checks"
+#   e selecionar: 🕵️‍♂️ Lint, 🧪 Test, 📦 Build
 
 # 3. Resolver "single maintainer cannot approve own PR":
 # Settings → Branches → Allow specified actors to bypass required pull requests
 # Adicionar seu user (pragmático em time de 1)
+
+# 4. Verificar tag mais recente e branches
+git log --oneline --decorate -10
+git tag -l --sort=-v:refname | head -5
 ```
 
 ### Verificação
@@ -331,7 +347,12 @@ gh run view <RUN_ID> --log-failed
 
 # Estado atual no argocd-apps
 cd /caminho/argocd-apps
-cat apps/design-system/overlays/prod/kustomization.yaml | grep newTag
+grep newTag apps/design-system/overlays/prod/kustomization.yml
+
+# Verificar branches e tags locais vs remoto
+git branch -vv
+git log --oneline --decorate -10
+git ls-remote --tags origin
 ```
 
 ### Limpeza segura
