@@ -450,7 +450,7 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
 
 ### CI (`.github/workflows/ci.yml`)
 
-Dispara **apenas em PR** contra `develop` ou `main`. Roda 3 jobs em paralelo no self-hosted runner:
+Dispara em **PR contra `develop` ou `main`** e em **push para `main`** (esse último alimenta o gate do CD com o run no SHA exato do merge commit que vira tag). Roda 3 jobs em paralelo no self-hosted runner:
 
 - 🏗️ **build** — `npm run build-storybook`
 - 🕵️ **lint** — `npm run format:check` + `npm run lint`
