@@ -450,17 +450,36 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
 
 ### CI (`.github/workflows/ci.yml`)
 
-Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código novo é introduzido. PRs `develop → main` e PRs do release-please **não rodam CI** (são promoção e version bump, respectivamente — mesmo código já validado). Roda 3 jobs em paralelo no self-hosted runner:
+Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código novo é introduzido. PRs `develop → main` e PRs do release-please **não rodam CI** (são promoção e version bump, respectivamente — mesmo código já validado). Pipeline **sequencial** com fail-fast (3 jobs encadeados via `needs:`) no self-hosted runner:
 
-- 🏗️ **build** — `npm run build-storybook`
-- 🕵️ **lint** — `npm run format:check` + `npm run lint`
-- 🎭 **test** — `npm run test` (vitest browser mode, usa Chromium em `PLAYWRIGHT_BROWSERS_PATH=/mnt/dados/playwright-browsers`)
+```
+lint → test → build
+```
+
+| Job | Nome | Comando |
+|-----|------|---------|
+| 1º | `🕵️‍♂️ Lint` | `npm run format:check` + `npm run lint` |
+| 2º | `🧪 Test` | `npm run test` (vitest browser mode, Chromium) |
+| 3º | `📦 Build` | `npm run build-storybook` |
+
+PRs do release-please são **explicitamente ignorados** no job `lint` via `if: ${{ !startsWith(github.head_ref, 'release-please--') }}`.
 
 Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Instalação usa `npm ci --legacy-peer-deps` com cache (composite action em `.github/actions/setup-node-deps`).
 
-**Por que CI roda apenas uma vez por ciclo de release:** o invariante é "se `develop` está verde, `main` está verde". Branch protection em `develop` exige CI verde antes de merge → todo código que entra em `develop` foi validado. `develop → main` é promoção sem código novo. release-please PR só altera `package.json`, `CHANGELOG.md` e `.release-please-manifest.json` — nenhum desses afeta build/lint/test. Resultado: 1 run de CI por mudança real, não 4.
+**Por que CI roda apenas uma vez por ciclo de release:** o invariante é "se `develop` está verde, `main` está verde". Branch protection em `develop` exige PR antes de merge → todo código que entra em `develop` foi validado. `develop → main` é promoção sem código novo. release-please PR só altera `package.json`, `CHANGELOG.md` e `.release-please-manifest.json` — nenhum desses afeta build/lint/test. Resultado: 1 run de CI por mudança real, não 4.
 
-> ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + status checks verdes + branch atualizada antes do merge.
+> ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + branch atualizada antes do merge. Atualmente **nenhuma branch exige status checks** (`contexts: []`) — considere adicionar `🕵️‍♂️ Lint`, `🧪 Test` e `📦 Build` como required checks em `develop`.
+
+### AI Review (`.github/workflows/ai-review.yml`)
+
+Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Dependabot e do `github-actions[bot]`. O fluxo:
+
+1. Gera o diff do PR, histórico de commits e conteúdo dos arquivos `.ts`/`.tsx` modificados
+2. Monta um prompt com as skills do design system (`.agents/skills/shadcn/SKILL.md` + `.agents/skills/design-system/SKILL.md`)
+3. Roda o review via `opencode` com modelos free em rodízio (fallback automático entre modelos)
+4. Posta o resultado como comentário no PR com seções: **Resumo**, **Problemas encontrados** e **Checklist da Skill**
+
+PRs do release-please nunca disparam este workflow — eles vão contra `main`, não `develop`.
 
 ### Release automatizada (`.github/workflows/release-please.yml`)
 
@@ -485,9 +504,14 @@ Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
 1. **Build Docker** — imagem multi-stage com Nginx servindo o Storybook estático. Antes do `docker build`, o `jq` injeta a versão da tag em `public/r/registry.json` (manifesto consumido por projetos downstream via shadcn).
 2. **Push para GHCR** — duas tags: `:latest` e `:vX.Y.Z`.
-3. **Update argocd-apps** — commita o bump da tag nos overlays `prod` e `dev` do repo [lema-ufpb/argocd-apps](https://github.com/lema-ufpb/argocd-apps). ArgoCD sincroniza e aplica no cluster.
+3. **Update argocd-apps** — atualiza a tag da imagem nos overlays `prod` e `dev` do repo [lema-ufpb/argocd-apps](https://github.com/lema-ufpb/argocd-apps):
+   - Cria o overlay + `kustomization.yml` do zero se não existir
+   - Se o image já existe no `images:`, usa `kustomize edit set image`
+   - Se o image **não** existe, adiciona via `awk` (primeira release)
+   - Se já está na tag correta, faz `git commit --allow-empty` para forçar reconciliação no ArgoCD
+4. ArgoCD sincroniza e aplica no cluster.
 
-> 🔒 **Garantia de qualidade**: a tag só nasce de um PR de release-please mergeado em `main`. Como branch protection exige CI verde pra mergear, todo commit que vira tag **já foi validado** pelo CI. Não existe gate adicional no CD — a confiança vem da branch protection upstream.
+> 🔒 **Garantia de qualidade**: a tag só nasce de um PR de release-please mergeado em `main`. Como o CI validou o código em `develop` e branch protection exige PR + branch atualizada, todo commit que vira tag já passou pelo pipeline. Não existe gate adicional no CD — a confiança vem do fluxo upstream.
 
 ### Mecânica de versão (single source of truth: git tag)
 
@@ -503,10 +527,11 @@ Para builds locais (sem tag), a versão exibida é `0.0.0`.
 
 Caminho default (90% dos casos): **roll-forward**.
 
-- **Antes (fluxo antigo)**: corrigir em develop → merge main → `git tag -d` local → `git push --delete` remoto → recriar tag manualmente.
-- **Agora**: abrir PR de fix em `develop` → merge para `main`. O release-please atualiza o próximo PR de release automaticamente (ou abre um novo). Merge desse PR → nova tag patch (`vX.Y.Z+1`) criada limpa. **Zero `git tag -d`**.
+- **Abrir PR de fix em `develop`** → merge para `main`. O release-please atualiza o próximo PR de release automaticamente (ou abre um novo). Merge desse PR → nova tag patch (`vX.Y.Z+1`) criada limpa. **Zero `git tag -d`**.
 
-Para cenários menos comuns (versão errada calculada, release por engano, rollback urgente em prod, manifest inconsistente), consulte **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — roteiro detalhado com comandos prontos para cada situação.
+> 💡 O step de `update-argocd` é resiliente: cria overlays do zero, adiciona image se ausente, e usa `git commit --allow-empty` quando já está na tag correta. Mesmo se o CD falhar parcialmente, o fix é sempre roll-forward.
+
+Para cenários menos comuns (versão errada calculada, release por engano, rollback urgente em prod, manifest inconsistente, branch protection bloqueando), consulte **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — roteiro detalhado com comandos prontos para cada situação.
 
 ## Contribuindo
 

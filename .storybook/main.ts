@@ -17,11 +17,14 @@ const config: StorybookConfig = {
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public", "../app"],
   viteFinal: async (config) => {
-    const version = execSync(
-      "git describe --tags --abbrev=0 2>/dev/null || echo '0.0.0'"
-    )
-      .toString()
-      .trim()
+    const version = (
+      process.env.APP_VERSION ||
+      execSync(
+        "git describe --tags --abbrev=0 2>/dev/null || echo '0.0.0'"
+      )
+        .toString()
+        .trim()
+    ).replace(/^v/, "")
     config.define = {
       ...config.define,
       __APP_VERSION__: JSON.stringify(version),
