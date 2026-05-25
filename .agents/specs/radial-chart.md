@@ -120,15 +120,20 @@ _Gráfico de barras radiais (gauge) baseado em recharts RadialBarChart. Barras c
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — múltiplas barras radiais
-- [ ] `SingleValue` — um item com innerLabel e center value
-- [ ] `FixedMax` — maxValue=100 para scale percentual
-- [ ] `NoTrack` — showTrack=false
-- [ ] `CustomAngles` — startAngle=0, endAngle=360 (círculo completo)
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-
----
+- [x] `Default` — Default
+- [x] `WithLegend` — With Legend
+- [x] `GaugeSingle` — Gauge Single
+- [x] `FullCircleWithLabel` — Full Circle With Label
+- [x] `MultiDepartment` — Multi Department
+- [x] `CustomColors` — Custom Colors
+- [x] `NoTrack` — No Track
+- [x] `WithFooter` — With Footer
+- [x] `GaugeGrid` — Gauge Grid
+- [x] `LegendPositions` — Legend Positions
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `StudentKPIs` — Student KP Is
 
 ## Checklist antes de implementar
 

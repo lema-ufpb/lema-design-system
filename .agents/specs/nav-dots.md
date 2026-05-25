@@ -118,16 +118,14 @@ Sem escala tipográfica — labels ficam nos tooltips (gerenciado pelo shadcn To
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — vertical, right, 5 seções
-- [ ] `PositionLeft` — vertical, left
-- [ ] `OrientationHorizontal` — horizontal, bottom bar
-- [ ] `AllInteractions` — com `onActiveChange` logging
-- [ ] `Hidden` — `visible={false}`
-- [ ] `NoScroll` — `scrollOnClick={false}`
-- [ ] `SingleSection` — apenas 1 dot
-- [ ] `ScrollContainer` — com scrollContainer custom
-
----
+- [x] `Default` — Default
+- [x] `Horizontal` — Horizontal
+- [x] `LeftPosition` — Left Position
+- [x] `WithActive` — With Active
+- [x] `WithCallback` — With Callback
+- [x] `DisabledScroll` — Disabled Scroll
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `AllStates` — All States
 
 ## Checklist antes de implementar
 

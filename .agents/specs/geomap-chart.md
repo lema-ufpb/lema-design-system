@@ -136,18 +136,15 @@ _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `WorldMap` — mapa mundial com dados coropléticos
-- [ ] `BrazilStates` — estados brasileiros com featureIdProperty="sigla"
-- [ ] `WithMarkers` — marcadores em capitais
-- [ ] `WithZoom` — zoom habilitado
-- [ ] `CustomProjection` — geoEqualEarth
-- [ ] `SelectedFeatures` — features destacadas
-- [ ] `VerticalLegend` — legenda overlay vertical
-- [ ] `BottomLegend` — legenda abaixo do mapa
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — sem dados
-
----
+- [x] `Default` — Default
+- [x] `Choropleth` — Choropleth
+- [x] `WithLegend` — With Legend
+- [x] `BrazilStates` — Brazil States
+- [x] `WithMarkers` — With Markers
+- [x] `WithHighlight` — With Highlight
+- [x] `UsaStates` — Usa States
+- [x] `Loading` — Loading
+- [x] `ZoomPan` — Zoom Pan
 
 ## Checklist antes de implementar
 

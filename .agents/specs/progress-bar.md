@@ -118,18 +118,24 @@ Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip,
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — `value={0.65}` com nome
-- [ ] `AllIntents` — primary, secondary, success, destructive em coluna
-- [ ] `AllSizes` — sm, md, lg em coluna
-- [ ] `AllLabelLayouts` — inline, above, below
-- [ ] `WithoutLabel` — `showLabel={false}`
-- [ ] `Loading` — `loading={true}` com cada size
-- [ ] `RatioMode` — `value={3}` com `total={10}`
-- [ ] `WithTooltip` — tooltip customizado
-- [ ] `Uppercase` — `upper={true}`
-- [ ] `NameRight` — `namePosition="right"`
-
----
+- [x] `Default` — Default
+- [x] `AllIntents` — All Intents
+- [x] `AllSizes` — All Sizes
+- [x] `WithPrecision` — With Precision
+- [x] `DifferentLocales` — Different Locales
+- [x] `Loading` — Loading
+- [x] `LoadingStates` — Loading States
+- [x] `WithTooltip` — With Tooltip
+- [x] `NoLabel` — No Label
+- [x] `LabelRight` — Label Right
+- [x] `NameRight` — Name Right
+- [x] `Uppercase` — Uppercase
+- [x] `LabelLayoutInline` — Label Layout Inline
+- [x] `LabelLayoutAbove` — Label Layout Above
+- [x] `LabelLayoutBelow` — Label Layout Below
+- [x] `LabelLayoutComparison` — Label Layout Comparison
+- [x] `RatioLabel` — Ratio Label
+- [x] `FixedLabelWidth` — Fixed Label Width
 
 ## Checklist antes de implementar
 

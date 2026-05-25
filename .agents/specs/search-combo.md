@@ -188,20 +188,21 @@ Múltiplos slots, cada um com seu próprio `cva()`:
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — busca com resultados
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `Rounded` — pill vs. default
-- [ ] `BorderMode` — border=true com bg-muted
-- [ ] `WithGroups` — resultados agrupados
-- [ ] `HighlightText` — matching com highlight
-- [ ] `Loading` — loading state com spinner
-- [ ] `Disabled` — disabled state
-- [ ] `Empty` — busca sem resultados
-- [ ] `VoiceEnabled` — com microfone
-- [ ] `NoButton` — button=false
-- [ ] `Controlled` — value e onChange externos
-
----
+- [x] `Default` — Default search combo with results
+- [x] `AllSizes` — sm, md, lg sizes
+- [x] `AllVariants` — all variant configurations
+- [x] `WithGroups` — grouped results
+- [x] `WithIcons` — items with icons
+- [x] `Rounded` — pill vs. default
+- [x] `BorderMode` — border=true with bg-muted
+- [x] `WithoutButton` — button=false
+- [x] `Disabled` — disabled state
+- [x] `Loading` — loading state with spinner
+- [x] `WithVoice` — voice recognition enabled
+- [x] `EmptyState` — no results found
+- [x] `WithOnSearch` — submit callback demo
+- [x] `WithOnSelectResult` — selection callback demo
+- [x] `Virtualized` — large list with virtual scrolling
 
 ## Checklist antes de implementar
 

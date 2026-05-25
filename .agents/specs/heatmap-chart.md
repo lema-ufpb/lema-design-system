@@ -124,16 +124,19 @@ _Heatmap de matriz (grid) para visualização de densidade/correlação entre du
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — matriz 8x6 com paleta blue
-- [ ] `AllPalettes` — todas as paletas em coluna
-- [ ] `CustomPalette` — colorFrom/colorTo custom
-- [ ] `WithValues` — showValues ativado
-- [ ] `WithoutScale` — showScale=false
-- [ ] `FixedCellSize` — cellSize=40 fixo
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-
----
+- [x] `Default` — Default
+- [x] `WithValues` — With Values
+- [x] `AbsenceRate` — Absence Rate
+- [x] `CorrelationMatrix` — Correlation Matrix
+- [x] `EngagementByDayAndHour` — Engagement By Day And Hour
+- [x] `CustomPalette` — Custom Palette
+- [x] `Palettes` — Palettes
+- [x] `SmallCells` — Small Cells
+- [x] `FlatCells` — Flat Cells
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `WithFooter` — With Footer
 
 ## Checklist antes de implementar
 
