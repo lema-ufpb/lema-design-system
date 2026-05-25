@@ -99,9 +99,9 @@ O Calendar é um seletor de data completo construído sobre `react-day-picker` v
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — `text-sm` (dias), `text-[0.8rem]` (weekday), `text-xs` (sub-labels)
-- [ ] Tokens semânticos — `background`, `muted`, `primary`, `primary-foreground`, `muted-foreground`, `popover`, `ring`
-- [ ] Tamanho de célula — `--cell-size: --spacing(8)` customizável
-- [ ] Raio de célula — `--cell-radius: var(--radius-4xl)` para aparência arredondada
-- [ ] Responsivo — `md:flex-row` para múltiplos meses lado a lado
-- [ ] Focus management — Foco programático no dia via `useEffect`
+- [x] Escala tipográfica — `text-sm` (dias), `text-[0.8rem]` (weekday), `text-xs` (sub-labels)
+- [x] Tokens semânticos — `background`, `muted`, `primary`, `primary-foreground`, `muted-foreground`, `popover`, `ring`
+- [x] Tamanho de célula — `--cell-size: --spacing(8)` customizável
+- [x] Raio de célula — `--cell-radius: var(--radius-4xl)` para aparência arredondada
+- [x] Responsivo — `md:flex-row` para múltiplos meses lado a lado
+- [x] Focus management — Foco programático no dia via `useEffect`

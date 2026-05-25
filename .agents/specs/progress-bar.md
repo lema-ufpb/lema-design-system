@@ -149,4 +149,4 @@ Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip,
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)
-- [ ] Prop `locale` integrada via `UI_I18N` — usa `Intl.NumberFormat` com locale prop
+- [x] Prop `locale` integrada via `UI_I18N` — usa `Intl.NumberFormat` com locale prop

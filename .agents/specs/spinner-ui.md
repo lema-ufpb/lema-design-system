@@ -77,8 +77,8 @@
 
 ## Checklist
 
-- [ ] Componente exporta `Spinner`
-- [ ] `role="status"` + `aria-label` localizado
-- [ ] Suporte a locale (en-US, pt-BR, etc.)
-- [ ] Herda cor via `currentColor`
-- [ ] Tamanho ajustável via className
+- [x] Componente exporta `Spinner`
+- [x] `role="status"` + `aria-label` localizado
+- [x] Suporte a locale (en-US, pt-BR, etc.)
+- [x] Herda cor via `currentColor`
+- [x] Tamanho ajustável via className

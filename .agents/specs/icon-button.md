@@ -127,13 +127,13 @@ Tamanhos de botão e ícone gerenciados pelo shadcn `Button` via prop `size` (`i
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — N/A (delega ao shadcn Button)
+- [x] Escala tipográfica — N/A (delega ao shadcn Button)
 - [x] Tokens semânticos — N/A (delega ao shadcn Button)
-- [ ] `cva()` — N/A (usa buttonVariants do shadcn)
+- [x] `cva()` — N/A (usa buttonVariants do shadcn)
 - [x] Loading usa spinner do lucide com `animate-spin` + `aria-busy`
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A
 - [x] `aria-label` obrigatório
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values
-- [ ] Prop `locale` — N/A (label é prop string)
+- [x] Prop `locale` — N/A (label é prop string)

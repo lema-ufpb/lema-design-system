@@ -144,8 +144,8 @@ interface RiskSegment {
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [ ] `tabular-nums` em todos os valores numéricos — N/A (percentual formatado via `toLocaleString`)
-- [ ] `truncate` em todos os labels de texto variável — N/A (labels são props fixas)
+- [x] `tabular-nums` em todos os valores numéricos — N/A (percentual formatado via `toLocaleString`)
+- [x] `truncate` em todos os labels de texto variável — N/A (labels são props fixas)
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)

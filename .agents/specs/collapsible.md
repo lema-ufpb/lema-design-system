@@ -91,8 +91,8 @@ O Collapsible é um componente de disclosure simples que permite expandir/recolh
 
 ## Checklist antes de implementar
 
-- [ ] Estado — `open`, `defaultOpen`, `onOpenChange` gerenciados pela Radix
-- [ ] Trigger — `asChild` para composição com Button, IconButton, etc.
-- [ ] Animação — Chevron rotaciona `180deg` via `group-data-open/collapsible:rotate-180`
-- [ ] Estilo — Nenhum estilo próprio no componente; consumidor gerencia aparência
-- [ ] Semântica — `data-slot` em cada subcomponente para rastreamento
+- [x] Estado — `open`, `defaultOpen`, `onOpenChange` gerenciados pela Radix
+- [x] Trigger — `asChild` para composição com Button, IconButton, etc.
+- [x] Animação — Chevron rotaciona `180deg` via `group-data-open/collapsible:rotate-180`
+- [x] Estilo — Nenhum estilo próprio no componente; consumidor gerencia aparência
+- [x] Semântica — `data-slot` em cada subcomponente para rastreamento

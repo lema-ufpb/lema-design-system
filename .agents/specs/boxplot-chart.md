@@ -119,17 +119,17 @@ _Gráfico de box plot (caixa e bigodes) para visualização de distribuições e
 
 ## Stories obrigatórias no Storybook
 
-- [x] `Default` — Default
-- [x] `Horizontal` — Horizontal
-- [x] `Notched` — Notched
-- [x] `SemesterComparison` — Semester Comparison
-- [x] `ApiResponseTime` — Api Response Time
-- [x] `NoMeanNoOutliers` — No Mean No Outliers
-- [x] `NotchedHorizontal` — Notched Horizontal
-- [x] `LocalePTBR` — Locale PTBR
-- [x] `Loading` — Loading
-- [x] `EmptyState` — Empty State
-- [x] `WithFooter` — With Footer
+- [x] `Default` — Estado padrão com box plots verticais de notas por turma, média e outliers
+- [x] `Horizontal` — Box plots horizontais para categorias com nomes longos (disciplinas)
+- [x] `Notched` — Box plots com entalhe (notch) representando IC de 95% em torno da mediana
+- [x] `SemesterComparison` — Comparação de horas de estudo entre 3 semestres
+- [x] `ApiResponseTime` — Latência de API por endpoint com outliers e footer de alerta SLA
+- [x] `NoMeanNoOutliers` — Visualização minimalista sem média nem outliers, apenas 5 números
+- [x] `NotchedHorizontal` — Notched combinado com orientação horizontal
+- [x] `LocalePTBR` — Localização pt-BR com formatação numérica
+- [x] `Loading` — Estado de carregamento com skeleton animado
+- [x] `EmptyState` — Estado vazio com placeholder de borda tracejada
+- [x] `WithFooter` — Box plot com rodapé customizado
 
 ## Checklist antes de implementar
 

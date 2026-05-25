@@ -110,9 +110,9 @@ O Button é o componente de ação primária do design system LEMA, construído 
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — `text-sm` (default), `text-xs` (xs size)
-- [ ] Tokens semânticos — `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `border`, `background`, `muted`, `destructive`, `ring`
-- [ ] Borda arredondada — `rounded-4xl` para formato pill
-- [ ] Ícones — `size-4` (default), `size-3` (xs/icon-xs) via `[&_svg:not([class*='size-'])]`
-- [ ] Padding automático — `has-data-[icon=inline-start]:pl-2.5` e similar
-- [ ] Active state — `active:not-aria-haspopup:translate-y-px`
+- [x] Escala tipográfica — `text-sm` (default), `text-xs` (xs size)
+- [x] Tokens semânticos — `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `border`, `background`, `muted`, `destructive`, `ring`
+- [x] Borda arredondada — `rounded-4xl` para formato pill
+- [x] Ícones — `size-4` (default), `size-3` (xs/icon-xs) via `[&_svg:not([class*='size-'])]`
+- [x] Padding automático — `has-data-[icon=inline-start]:pl-2.5` e similar
+- [x] Active state — `active:not-aria-haspopup:translate-y-px`

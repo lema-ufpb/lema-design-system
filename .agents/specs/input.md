@@ -84,7 +84,7 @@ Input de texto estilizado para formulários, suportando diversos tipos (text, pa
 
 ## Checklist
 
-- [ ] Suporte a todos os tipos HTML nativos
-- [ ] Estados: default, focus, disabled, invalid, file
-- [ ] Transição suave de cores via `transition-[color,box-shadow,background-color]`
-- [ ] Placeholder estilizado com `--muted-foreground`
+- [x] Suporte a todos os tipos HTML nativos
+- [x] Estados: default, focus, disabled, invalid, file
+- [x] Transição suave de cores via `transition-[color,box-shadow,background-color]`
+- [x] Placeholder estilizado com `--muted-foreground`

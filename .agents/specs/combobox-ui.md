@@ -137,13 +137,13 @@ interface ComboboxOption {
 
 ## Checklist
 
-- [ ] Virtual scrolling com @tanstack/react-virtual
-- [ ] Suporte single e multi-select
-- [ ] Busca client-side com filtro case-insensitive
-- [ ] Botão clear no trigger + toolbar clear no multi
-- [ ] Skeleton loading state
-- [ ] Grupos automáticos via `option.group`
-- [ ] renderOption para conteúdo customizado
-- [ ] Controlado e não-controlado
-- [ ] Três tamanhos (sm/md/lg) e três arredondamentos (full/md/none)
-- [ ] i18n: placeholder, searchPlaceholder, emptyText, noOptionsText
+- [x] Virtual scrolling com @tanstack/react-virtual
+- [x] Suporte single e multi-select
+- [x] Busca client-side com filtro case-insensitive
+- [x] Botão clear no trigger + toolbar clear no multi
+- [x] Skeleton loading state
+- [x] Grupos automáticos via `option.group`
+- [x] renderOption para conteúdo customizado
+- [x] Controlado e não-controlado
+- [x] Três tamanhos (sm/md/lg) e três arredondamentos (full/md/none)
+- [x] i18n: placeholder, searchPlaceholder, emptyText, noOptionsText

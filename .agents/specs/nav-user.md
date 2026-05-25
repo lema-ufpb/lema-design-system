@@ -121,13 +121,13 @@ Nenhuma. O componente não usa `cva()` — delega variantes visuais ao `Button` 
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — N/A (usa shadcn Button/Avatar)
+- [x] Escala tipográfica — N/A (usa shadcn Button/Avatar)
 - [x] Tokens semânticos usados (text-muted-foreground, text-destructive)
-- [ ] `cva()` — N/A (sem variantes próprias)
+- [x] `cva()` — N/A (sem variantes próprias)
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [ ] `tabular-nums` — N/A
+- [x] `tabular-nums` — N/A
 - [x] `truncate` em name e email
-- [ ] `aria-label` — N/A (shadcn gerencia)
+- [x] `aria-label` — N/A (shadcn gerencia)
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values
-- [ ] Prop `locale` — N/A (sem i18n interna)
+- [x] Prop `locale` — N/A (sem i18n interna)

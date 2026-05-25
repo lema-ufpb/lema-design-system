@@ -107,9 +107,9 @@ O Breadcrumb ajuda o usuário a entender sua posição em uma hierarquia de pág
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — `text-sm` para todos os elementos
-- [ ] Tokens semânticos — `muted-foreground`, `foreground`
-- [ ] Espaçamento — `gap-1.5` (mobile) / `gap-2.5` (sm:) entre itens
-- [ ] Ícones — `size-3.5` para separador, `size-4` para ellipsis
-- [ ] asChild — `BreadcrumbLink` usa `Slot.Root` para Next.js Link
-- [ ] Word break — `wrap-break-word` na lista para evitar overflow
+- [x] Escala tipográfica — `text-sm` para todos os elementos
+- [x] Tokens semânticos — `muted-foreground`, `foreground`
+- [x] Espaçamento — `gap-1.5` (mobile) / `gap-2.5` (sm:) entre itens
+- [x] Ícones — `size-3.5` para separador, `size-4` para ellipsis
+- [x] asChild — `BreadcrumbLink` usa `Slot.Root` para Next.js Link
+- [x] Word break — `wrap-break-word` na lista para evitar overflow

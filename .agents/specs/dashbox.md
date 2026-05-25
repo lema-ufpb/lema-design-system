@@ -148,7 +148,7 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [ ] `tabular-nums` — N/A (sem valores numéricos diretos)
+- [x] `tabular-nums` — N/A (sem valores numéricos diretos)
 - [x] `truncate` — N/A (título usa `title` attr)
 - [x] `aria-label` ou label visível em toolbar buttons
 - [x] `cn()` para classes condicionais

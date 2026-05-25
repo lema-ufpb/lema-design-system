@@ -133,9 +133,9 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 - [x] Todos os tokens são semânticos (sem raw Tailwind)
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A (links não truncam)
+- [x] Loading — N/A (sem estado loading)
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A (links não truncam)
 - [x] `aria-label` no `<nav>`
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values

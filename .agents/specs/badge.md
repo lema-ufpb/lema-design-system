@@ -93,9 +93,9 @@ O Badge é um elemento de interface compacto que comunica status, categorias ou 
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — `text-xs font-medium`
-- [ ] Tokens semânticos — `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `destructive`, `border`, `muted`, `muted-foreground`
-- [ ] Altura fixa — `h-5` com `px-2 py-0.5`
-- [ ] Ícones — `size-3!` para SVGs, padding automático via `data-icon`
-- [ ] Borda arredondada — `rounded-3xl` para aparência de pill
-- [ ] Focus ring — `focus-visible:border-ring focus-visible:ring-[3px]`
+- [x] Escala tipográfica — `text-xs font-medium`
+- [x] Tokens semânticos — `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `destructive`, `border`, `muted`, `muted-foreground`
+- [x] Altura fixa — `h-5` com `px-2 py-0.5`
+- [x] Ícones — `size-3!` para SVGs, padding automático via `data-icon`
+- [x] Borda arredondada — `rounded-3xl` para aparência de pill
+- [x] Focus ring — `focus-visible:border-ring focus-visible:ring-[3px]`

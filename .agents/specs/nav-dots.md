@@ -129,13 +129,13 @@ Sem escala tipográfica — labels ficam nos tooltips (gerenciado pelo shadcn To
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — N/A (tooltip gerencia texto)
+- [x] Escala tipográfica — N/A (tooltip gerencia texto)
 - [x] Tokens semânticos usados
 - [x] `cva()` com `defaultVariants`
 - [x] `*Variants` exportados
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
+- [x] Loading — N/A (sem estado loading)
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A
 - [x] `aria-label` no container e cada dot
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values

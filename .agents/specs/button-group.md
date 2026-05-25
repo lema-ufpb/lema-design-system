@@ -96,8 +96,8 @@ O ButtonGroup agrupa múltiplos botões e inputs relacionados em um único bloco
 
 ## Checklist antes de implementar
 
-- [ ] Bordas mescladas — first-child `rounded-l-4xl`, last-child `rounded-r-4xl`; `border-l-0` nos seguintes
-- [ ] Orientação vertical — análogo com `rounded-t-4xl`/`rounded-b-4xl` e `border-t-0`
-- [ ] Focus stacking — `focus-visible:relative focus-visible:z-10` para evitar corte do ring
-- [ ] Separator — `self-stretch` com `bg-input` e margens automáticas `mx-px`/`my-px`
-- [ ] Text segment — `rounded-4xl border bg-muted` com `text-sm font-medium`
+- [x] Bordas mescladas — first-child `rounded-l-4xl`, last-child `rounded-r-4xl`; `border-l-0` nos seguintes
+- [x] Orientação vertical — análogo com `rounded-t-4xl`/`rounded-b-4xl` e `border-t-0`
+- [x] Focus stacking — `focus-visible:relative focus-visible:z-10` para evitar corte do ring
+- [x] Separator — `self-stretch` com `bg-input` e margens automáticas `mx-px`/`my-px`
+- [x] Text segment — `rounded-4xl border bg-muted` com `text-sm font-medium`

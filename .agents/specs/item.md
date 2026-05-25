@@ -96,11 +96,11 @@ Componente composable para construir linhas de lista, cards ou entradas selecion
 
 ## Checklist
 
-- [ ] Três variantes: default, outline, muted
-- [ ] Três tamanhos: default, sm, xs
-- [ ] Media com variantes: default, icon, image
-- [ ] Content com title e description
-- [ ] Actions para botões de ação
-- [ ] ItemGroup com separador
-- [ ] Header e Footer para cabeçalho/rodapé do grupo
-- [ ] `asChild` para composition via Slot
+- [x] Três variantes: default, outline, muted
+- [x] Três tamanhos: default, sm, xs
+- [x] Media com variantes: default, icon, image
+- [x] Content com title e description
+- [x] Actions para botões de ação
+- [x] ItemGroup com separador
+- [x] Header e Footer para cabeçalho/rodapé do grupo
+- [x] `asChild` para composition via Slot

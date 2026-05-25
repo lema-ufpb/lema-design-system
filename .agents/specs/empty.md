@@ -80,7 +80,7 @@ Componente de estado vazio que exibe uma mensagem amigável com ícone, título 
 
 ## Checklist
 
-- [ ] Subcomponentes: Header, Media (com variant `default`/`icon`), Title, Description, Content
-- [ ] Layout centralizado com `flex-col items-center`
-- [ ] Media com variante `icon` para ícones com fundo
-- [ ] Content para ações adicionais
+- [x] Subcomponentes: Header, Media (com variant `default`/`icon`), Title, Description, Content
+- [x] Layout centralizado com `flex-col items-center`
+- [x] Media com variante `icon` para ícones com fundo
+- [x] Content para ações adicionais

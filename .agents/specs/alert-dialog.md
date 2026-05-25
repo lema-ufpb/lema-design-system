@@ -108,9 +108,9 @@ Props padrão de `div` (ou `AlertDialogPrimitive.Title`/`Description`) com `clas
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — título `text-lg font-medium font-heading`, descrição `text-sm`
-- [ ] Tokens semânticos — `popover`, `popover-foreground`, `muted`, `muted-foreground`, `font-heading`
-- [ ] Overlay — suporte a `backdrop-blur-sm` via `supports-backdrop-filter`
-- [ ] Animações — `animate-in`/`animate-out` com `fade-in-0`/`zoom-in-95`
-- [ ] Responsividade — header centralizado em mobile, alinhado à esquerda em desktop (size default)
-- [ ] Botões — `AlertDialogAction` e `AlertDialogCancel` usam `Button` com `asChild`
+- [x] Escala tipográfica — título `text-lg font-medium font-heading`, descrição `text-sm`
+- [x] Tokens semânticos — `popover`, `popover-foreground`, `muted`, `muted-foreground`, `font-heading`
+- [x] Overlay — suporte a `backdrop-blur-sm` via `supports-backdrop-filter`
+- [x] Animações — `animate-in`/`animate-out` com `fade-in-0`/`zoom-in-95`
+- [x] Responsividade — header centralizado em mobile, alinhado à esquerda em desktop (size default)
+- [x] Botões — `AlertDialogAction` e `AlertDialogCancel` usam `Button` com `asChild`

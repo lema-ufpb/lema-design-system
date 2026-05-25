@@ -78,7 +78,7 @@ O AspectRatio é um wrapper puramente funcional que garante que seu conteúdo fi
 
 ## Checklist antes de implementar
 
-- [ ] Proporção padrão — `ratio={1}` quando não especificado
-- [ ] Responsivo — Funciona com qualquer largura de contêiner pai
-- [ ] Tokens — Nenhum token semântico aplicado
-- [ ] Filho — `AspectRatio` apenas calcula altura; conteúdo filho deve gerenciar `size-full` e `object-cover`
+- [x] Proporção padrão — `ratio={1}` quando não especificado
+- [x] Responsivo — Funciona com qualquer largura de contêiner pai
+- [x] Tokens — Nenhum token semântico aplicado
+- [x] Filho — `AspectRatio` apenas calcula altura; conteúdo filho deve gerenciar `size-full` e `object-cover`

@@ -104,8 +104,8 @@ O Alert fornece um contêiner estilizado com função de `role="alert"` para com
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — título `font-medium` (sem escala definida), descrição `text-sm`
-- [ ] Tokens semânticos — `card`, `card-foreground`, `destructive`, `muted-foreground`
-- [ ] Grid responsivo — ícone como primeiro filho ativa grid, `row-span-2` para o ícone
-- [ ] Espaçamento — `px-4 py-3` com `gap-0.5`, ação posicionada em `top-2.5 right-3`
-- [ ] Borda — `rounded-2xl border` no container
+- [x] Escala tipográfica — título `font-medium` (sem escala definida), descrição `text-sm`
+- [x] Tokens semânticos — `card`, `card-foreground`, `destructive`, `muted-foreground`
+- [x] Grid responsivo — ícone como primeiro filho ativa grid, `row-span-2` para o ícone
+- [x] Espaçamento — `px-4 py-3` com `gap-0.5`, ação posicionada em `top-2.5 right-3`
+- [x] Borda — `rounded-2xl border` no container

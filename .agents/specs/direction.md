@@ -73,6 +73,6 @@ Provider que define a direção de texto (esquerda-para-direita ou direita-para-
 
 ## Checklist
 
-- [ ] Provider aceita `dir` e `direction` como alias
-- [ ] Hook `useDirection` exportado para consumo
-- [ ] Suporte a LTR e RTL
+- [x] Provider aceita `dir` e `direction` como alias
+- [x] Hook `useDirection` exportado para consumo
+- [x] Suporte a LTR e RTL

@@ -77,8 +77,8 @@ Elemento inline que exibe atalhos de teclado (ex.: ⌘K, ⌘S) em menus, tooltip
 
 ## Checklist
 
-- [ ] Elemento semântico `<kbd>`
-- [ ] Adaptação contextual para InputGroup e Tooltip
-- [ ] KbdGroup para agrupar múltiplas teclas
-- [ ] Tamanho fixo (`h-5.5 w-fit min-w-5.5`)
-- [ ] Fonte monospace (padrão do `<kbd>`)
+- [x] Elemento semântico `<kbd>`
+- [x] Adaptação contextual para InputGroup e Tooltip
+- [x] KbdGroup para agrupar múltiplas teclas
+- [x] Tamanho fixo (`h-5.5 w-fit min-w-5.5`)
+- [x] Fonte monospace (padrão do `<kbd>`)
