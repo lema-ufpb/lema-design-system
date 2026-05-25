@@ -25,7 +25,7 @@ export type CardStatHighlightVariant =
   | "violet"
   | "sky"
 
-const highlightVariants = cva(
+export const cardStatHighlightVariants = cva(
   "relative overflow-hidden shadow-lg ring-0 dark:shadow-none",
   {
     variants: {
@@ -34,9 +34,8 @@ const highlightVariants = cva(
         emerald: "bg-success text-success-foreground",
         amber: "bg-warning text-warning-foreground",
         rose: "bg-destructive text-white",
-        violet:
-          "bg-[var(--highlight-violet)] text-[var(--highlight-violet-foreground)]",
-        sky: "bg-[var(--highlight-sky)] text-[var(--highlight-sky-foreground)]",
+        violet: "bg-highlight-violet text-highlight-violet-foreground",
+        sky: "bg-highlight-sky text-highlight-sky-foreground",
       },
     },
     defaultVariants: { variant: "primary" },
@@ -44,7 +43,7 @@ const highlightVariants = cva(
 )
 
 export interface CardStatHighlightProps
-  extends FmtProps, VariantProps<typeof highlightVariants> {
+  extends FmtProps, VariantProps<typeof cardStatHighlightVariants> {
   label: string
   value: string | number
   description?: string
@@ -88,7 +87,10 @@ export function CardStatHighlight({
 
   if (loading) {
     return (
-      <Card size="sm" className={cn(highlightVariants({ variant }), className)}>
+      <Card
+        size="sm"
+        className={cn(cardStatHighlightVariants({ variant }), className)}
+      >
         {decorativeCircles}
         <CardHeader className="relative flex flex-row items-start justify-between">
           <Skeleton className="h-3 w-24 bg-white/20" />
@@ -104,7 +106,10 @@ export function CardStatHighlight({
 
   if (empty) {
     return (
-      <Card size="sm" className={cn(highlightVariants({ variant }), className)}>
+      <Card
+        size="sm"
+        className={cn(cardStatHighlightVariants({ variant }), className)}
+      >
         {decorativeCircles}
         <CardHeader className="relative flex flex-row items-start justify-between">
           <span className={cn("opacity-75", s.label)}>{label}</span>
@@ -138,7 +143,10 @@ export function CardStatHighlight({
   const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
 
   return (
-    <Card size="sm" className={cn(highlightVariants({ variant }), className)}>
+    <Card
+      size="sm"
+      className={cn(cardStatHighlightVariants({ variant }), className)}
+    >
       {decorativeCircles}
 
       <CardHeader className="relative flex flex-row items-start justify-between">
