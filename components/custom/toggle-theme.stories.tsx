@@ -36,6 +36,7 @@ const meta = {
     labels: {
       control: "object",
       description: "Override menu item and trigger labels",
+      table: { defaultValue: { summary: "{}" } },
     },
   },
 } satisfies Meta<typeof ToggleTheme>
@@ -45,6 +46,14 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {},
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default theme toggle with system/light/dark options and English labels.",
+      },
+    },
+  },
 }
 
 export const Portuguese: Story = {
@@ -56,11 +65,25 @@ export const Portuguese: Story = {
       trigger: "Alternar tema",
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) labels for theme options — Claro, Escuro, and Sistema.",
+      },
+    },
+  },
 }
 
 export const InHeader: Story = {
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        story:
+          "Theme toggle rendered inside a mock header layout with navigation links.",
+      },
+    },
   },
   render: (args) => (
     <header className="flex h-16 w-full items-center justify-between border-b bg-background px-6">

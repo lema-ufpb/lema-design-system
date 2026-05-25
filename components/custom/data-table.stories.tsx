@@ -84,16 +84,48 @@ const meta = {
     },
   },
   argTypes: {
-    size: { control: "radio", options: ["default", "compact"] },
-    textSize: { control: "select", options: ["xs", "sm", "md", "lg"] },
-    height: { control: { type: "range", min: 200, max: 800, step: 20 } },
-    loading: { control: "boolean" },
-    showSearch: { control: "boolean" },
-    showDownload: { control: "boolean" },
-    pagination: { control: "boolean" },
-    selectRows: { control: "boolean" },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    size: {
+      control: "radio",
+      options: ["default", "compact"],
+      table: { defaultValue: { summary: "default" } },
+    },
+    textSize: {
+      control: "select",
+      options: ["xs", "sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
+    height: {
+      control: { type: "range", min: 200, max: 800, step: 20 },
+      table: { defaultValue: { summary: "400" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showSearch: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showDownload: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    pagination: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    selectRows: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     columns: { table: { disable: true } },
     footer: { table: { disable: true } },
@@ -383,6 +415,14 @@ const base = {
 
 export const Default: Story = {
   args: { ...base },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default data table with simple column definitions and 20 student records.",
+      },
+    },
+  },
 }
 
 export const TitleAndSubtitle: Story = {
@@ -391,6 +431,14 @@ export const TitleAndSubtitle: Story = {
     ...base,
     title: "Enrolled Students",
     subtitle: "Academic term 2025.1 — Department of Computing · UFPB",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Data table with title and subtitle text displayed above the table.",
+      },
+    },
   },
 }
 
@@ -471,6 +519,14 @@ export const SearchAndPagination: Story = {
     pageSizeOptions: [5, 8, 15, 20],
     height: 380,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combined global search and pagination — filtering resets the page index on each keystroke.",
+      },
+    },
+  },
 }
 
 export const WithCustomCells: Story = {
@@ -544,6 +600,14 @@ export const ClickableRows: Story = {
       </div>
     )
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Row click handler — clicking a row displays the selected student's details below the table.",
+      },
+    },
+  },
 }
 
 export const CompactSize: Story = {
@@ -555,6 +619,14 @@ export const CompactSize: Story = {
     showSearch: true,
     height: 380,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Compact table variant with tighter padding — ideal for dashboards and sidebars.",
+      },
+    },
+  },
 }
 
 export const WithDownload: Story = {
@@ -565,6 +637,14 @@ export const WithDownload: Story = {
     showDownload: true,
     showSearch: true,
     onDownload: () => alert("Exporting..."),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Download button in the toolbar that triggers an onDownload callback.",
+      },
+    },
   },
 }
 

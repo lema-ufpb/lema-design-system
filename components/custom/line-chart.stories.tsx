@@ -52,29 +52,63 @@ const meta = {
     variant: {
       control: "select",
       options: ["line", "area", "area-stacked"],
+      table: { defaultValue: { summary: "line" } },
     },
     curve: {
       control: "select",
       options: ["linear", "smooth", "step"],
+      table: { defaultValue: { summary: "smooth" } },
     },
     dots: {
       control: "select",
       options: ["none", "hover", "always"],
+      table: { defaultValue: { summary: "hover" } },
     },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showGrid: { control: "boolean" },
-    showLegend: { control: "boolean" },
-    showTooltip: { control: "boolean" },
-    showBrush: { control: "boolean" },
-    connectNulls: { control: "boolean" },
-    height: { control: { type: "range", min: 150, max: 600, step: 10 } },
-    title: { control: "text" },
-    subtitle: { control: "text" },
-    xAxisLabel: { control: "text" },
-    yAxisLabel: { control: "text" },
+    showGrid: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showBrush: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    connectNulls: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    height: {
+      control: { type: "range", min: 150, max: 600, step: 10 },
+      table: { defaultValue: { summary: "280" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    xAxisLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    yAxisLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     dataKeys: { table: { disable: true } },
     referenceLines: { table: { disable: true } },
@@ -141,6 +175,14 @@ const stepData = [
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default smooth line chart showing weekly active user growth over 8 weeks with hover-activated dots.",
+      },
+    },
+  },
   args: {
     title: "Weekly Active Users",
     subtitle: "Platform engagement over 8 weeks",
@@ -156,6 +198,14 @@ export const Default: Story = {
 }
 
 export const Area: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Line chart with a gradient area fill using `var(--chart-1)` for emphasizing the magnitude beneath the curve.",
+      },
+    },
+  },
   args: {
     title: "Weekly Active Users",
     subtitle: "Gradient area fill using var(--chart-1)",
@@ -202,6 +252,14 @@ export const WithAxisLabels: Story = {
 }
 
 export const AreaStacked: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Stacked area chart comparing undergraduate, graduate, and distance learning enrollment trends with a legend.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Stacked area — total and breakdown per program type",
@@ -222,6 +280,14 @@ export const AreaStacked: Story = {
 }
 
 export const MultiSeries: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-series line chart comparing three enrollment program trends side by side with a legend for identification.",
+      },
+    },
+  },
   args: {
     title: "Enrollment Trends",
     subtitle: "Three programs compared side-by-side",
@@ -242,6 +308,14 @@ export const MultiSeries: Story = {
 }
 
 export const WithReferenceLines: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "API response time line chart with P50, P95, and P99 latency series and dashed SLA threshold reference lines.",
+      },
+    },
+  },
   args: {
     title: "API Response Time",
     subtitle: "P50 · P95 · P99 latency — with SLA thresholds",
@@ -277,6 +351,14 @@ export const WithReferenceLines: Story = {
 }
 
 export const DashedForecast: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Line chart combining a solid actual revenue line with a dashed forecast line and null-gap connection for missing data points.",
+      },
+    },
+  },
   args: {
     title: "Revenue vs. Forecast",
     subtitle: "Solid line = actual · Dashed line = forecast",
@@ -303,6 +385,14 @@ export const DashedForecast: Story = {
 }
 
 export const StepCurve: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Step-curve area chart showing the admission funnel from applied through enrolled with always-visible data points.",
+      },
+    },
+  },
   args: {
     title: "Admission Funnel",
     subtitle: "Step curve — discrete stage transitions",
@@ -319,6 +409,14 @@ export const StepCurve: Story = {
 }
 
 export const DotsAlways: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-series line chart with data points set to always visible for precise value reading across two programs.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Data points always visible",
@@ -339,6 +437,14 @@ export const DotsAlways: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Area chart with a custom footer showing growth percentage and a scheduled maintenance dip annotation.",
+      },
+    },
+  },
   args: {
     title: "Weekly Active Users",
     subtitle: "Last 8 weeks",
@@ -367,6 +473,14 @@ export const WithFooter: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four line charts demonstrating all four legend positions (top, right, bottom, left) with enrollment data.",
+      },
+    },
+  },
   args: {
     data: enrollmentTrend,
     dataKeys: ["undergraduate", "graduate", "distance"],
@@ -414,6 +528,14 @@ const weeklyPlatformUsage = Array.from({ length: 52 }, (_, i) => {
 })
 
 export const WithBrush: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-series area chart with a brush slider for interactive zoom across 52 weeks of login and download data.",
+      },
+    },
+  },
   args: {
     title: "Platform Usage — Full Academic Year",
     subtitle: "Drag the handles to zoom in on any stretch of weeks",
@@ -434,6 +556,14 @@ export const WithBrush: Story = {
 }
 
 export const WithBrushArea: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Stacked area chart with a brush slider combining area-stacked series and interactive range zoom for weekly totals.",
+      },
+    },
+  },
   args: {
     title: "Stacked Area + Brush",
     subtitle: "showBrush + area-stacked — scroll to explore weekly totals",
@@ -454,6 +584,14 @@ export const WithBrushArea: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Line chart with Portuguese locale displaying weekly active users and platform engagement in localized format.",
+      },
+    },
+  },
   args: {
     title: "Usuários Ativos Semanais",
     subtitle: "Engajamento na plataforma — 8 semanas",
@@ -498,6 +636,14 @@ function LoadingDemo(props: React.ComponentProps<typeof LineChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the line chart with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Weekly Active Users",
     subtitle: "Platform engagement over 8 weeks",
@@ -513,6 +659,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the line chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Weekly Active Users",
     subtitle: "Platform engagement over 8 weeks",
@@ -524,6 +678,14 @@ export const EmptyState: Story = {
 }
 
 export const NegativeTrend: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Area chart showing a declining dropout rate with a dashed target reference line and a footer confirming the target was reached.",
+      },
+    },
+  },
   args: {
     title: "Dropout Rate",
     subtitle: "Monthly dropout percentage — target below 5%",

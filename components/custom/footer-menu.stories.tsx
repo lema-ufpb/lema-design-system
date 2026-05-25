@@ -27,10 +27,14 @@ const meta = {
     },
   },
   argTypes: {
-    upper: { control: "boolean" },
+    upper: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
     },
   },
 } satisfies Meta<typeof FooterMenu>
@@ -88,6 +92,14 @@ export const Default: Story = {
       <FooterMenu {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default footer menu with four columns (Product, Company, Resources, Social) in uppercase mode.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -118,11 +130,27 @@ export const LocalePTBR: Story = {
       <FooterMenu {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) localization — two-column layout with translated headings.",
+      },
+    },
+  },
 }
 
 export const Simple: Story = {
   args: {
     data: footerData.slice(0, 2),
     size: "lg",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Simplified footer menu with two columns and large size preset, no uppercase toggle.",
+      },
+    },
   },
 }

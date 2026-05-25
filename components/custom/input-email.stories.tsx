@@ -31,21 +31,26 @@ const meta = {
   argTypes: {
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     placeholder: {
       control: "text",
+      table: { defaultValue: { summary: "" } },
     },
     size: {
       control: "select",
       options: ["sm", "default", "lg"],
+      table: { defaultValue: { summary: "default" } },
     },
     radius: {
       control: "select",
       options: ["pill", "rounded", "square"],
+      table: { defaultValue: { summary: "pill" } },
     },
     variant: {
       control: "select",
       options: ["default", "white"],
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof EmailInput>
@@ -57,6 +62,14 @@ export const Default: Story = {
   args: {
     placeholder: "e.g., user@example.com",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default email input with pill border radius and a placeholder example.",
+      },
+    },
+  },
 }
 
 export const Small: Story = {
@@ -64,12 +77,26 @@ export const Small: Story = {
     size: "sm",
     placeholder: "e.g., user@example.com",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Email input in small size with compact padding.",
+      },
+    },
+  },
 }
 
 export const Large: Story = {
   args: {
     size: "lg",
     placeholder: "e.g., user@example.com",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Email input in large size with spacious padding.",
+      },
+    },
   },
 }
 
@@ -81,6 +108,13 @@ export const AllSizes: Story = {
       <EmailInput size="lg" placeholder="Large" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, default, and lg.",
+      },
+    },
+  },
 }
 
 export const AllRadius: Story = {
@@ -91,6 +125,14 @@ export const AllRadius: Story = {
       <EmailInput radius="square" placeholder="Square" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all three border radius presets — pill, rounded, and square.",
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
@@ -100,6 +142,13 @@ export const Variants: Story = {
       <EmailInput variant="white" placeholder="White" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of default and white background variants.",
+      },
+    },
+  },
 }
 
 export const Disabled: Story = {
@@ -108,11 +157,26 @@ export const Disabled: Story = {
     placeholder: "e.g., user@example.com",
     defaultValue: "disabled.user@example.com",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Disabled state — input is non-interactive with muted background styling.",
+      },
+    },
+  },
 }
 
 export const WithValue: Story = {
   args: {
     defaultValue: "support@lema.ufpb.br",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Email input pre-filled with a default email address.",
+      },
+    },
   },
 }
 
@@ -120,5 +184,13 @@ export const Invalid: Story = {
   args: {
     "aria-invalid": true,
     placeholder: "e.g., user@example.com",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Invalid state with aria-invalid attribute triggering red border and focus ring styling.",
+      },
+    },
   },
 }

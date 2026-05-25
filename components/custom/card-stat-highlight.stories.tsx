@@ -46,6 +46,11 @@ const meta = {
     description: { control: "text" },
     loading: { control: "boolean" },
     empty: { control: "boolean" },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
   },
@@ -64,6 +69,15 @@ export const Default: Story = {
     description: "vs last quarter",
     icon: DollarSignIcon,
     variant: "primary",
+    size: "md",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard hero KPI card with primary variant showing total revenue, up trend, and quarterly comparison.",
+      },
+    },
   },
 }
 
@@ -73,6 +87,14 @@ export const Loading: Story = {
     value: 0,
     loading: true,
     variant: "primary",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying six CardStatHighlight placeholders across all color variants while data is being fetched.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -130,6 +152,14 @@ export const EmptyState: Story = {
     variant: "primary",
     icon: DollarSignIcon,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing six hero cards across all color variants with dash placeholders when no data is available.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       <CardStatHighlight
@@ -178,10 +208,77 @@ export const EmptyState: Story = {
   ),
 }
 
+export const AllSizes: Story = {
+  args: { label: "Metric", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStatHighlight component with primary, emerald, and violet variants.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <CardStatHighlight
+              label="Total Revenue"
+              value={2400000}
+              format="currency"
+              trend="up"
+              trendValue="+18%"
+              description="vs last quarter"
+              icon={DollarSignIcon}
+              variant="primary"
+              size={size}
+            />
+            <CardStatHighlight
+              label="Customer Satisfaction"
+              value={96.4}
+              format="percent"
+              decimals={1}
+              trend="up"
+              trendValue="+2.1pts"
+              description="NPS this month"
+              icon={HeartIcon}
+              variant="emerald"
+              size={size}
+            />
+            <CardStatHighlight
+              label="Active Subscriptions"
+              value={12847}
+              format="integer"
+              trend="up"
+              trendValue="+847"
+              description="new this month"
+              icon={StarIcon}
+              variant="violet"
+              size={size}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const AllVariants: Story = {
   args: {
     label: "Metric",
     value: 0,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates all six built-in color variants — primary, emerald, violet, sky, amber, and rose — side by side.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -261,5 +358,13 @@ export const BannerKPI: Story = {
     description: "ahead of forecast",
     icon: TrendingUpIcon,
     variant: "emerald",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full-width hero KPI in emerald variant showing Q4 total revenue with 18% year-over-year growth and a trend description.",
+      },
+    },
   },
 }

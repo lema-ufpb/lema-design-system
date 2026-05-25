@@ -51,18 +51,38 @@ const meta = {
     palette: {
       control: "select",
       options: ["blue", "green", "orange", "purple", "red", "custom"],
+      table: { defaultValue: { summary: "blue" } },
     },
-    showValues: { control: "boolean" },
-    showScale: { control: "boolean" },
-    cellSize: { control: { type: "range", min: 24, max: 96, step: 4 } },
+    showValues: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showScale: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    cellSize: {
+      control: { type: "range", min: 24, max: 96, step: 4 },
+      table: { defaultValue: { summary: "" } },
+    },
     cellHeight: {
       control: { type: "range", min: 16, max: 96, step: 4 },
       description:
         "Cell height in px — overrides the square aspect-ratio. Works with or without cellSize.",
+      table: { defaultValue: { summary: "" } },
     },
-    gap: { control: { type: "range", min: 1, max: 12, step: 1 } },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    gap: {
+      control: { type: "range", min: 1, max: 12, step: 1 },
+      table: { defaultValue: { summary: "3" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     footer: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
@@ -217,6 +237,14 @@ const engagementData = days.flatMap((y) =>
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default blue-palette heatmap showing average grades across five subjects and four class groups with a color scale legend.",
+      },
+    },
+  },
   args: {
     title: "Average Grade by Subject & Class Group",
     subtitle: "Flat cells (default) — hover a cell for details",
@@ -228,6 +256,14 @@ export const Default: Story = {
 }
 
 export const WithValues: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Heatmap with numeric grade values printed inside each cell for precise comparison across subjects and class groups.",
+      },
+    },
+  },
   args: {
     title: "Average Grade by Subject & Class Group",
     subtitle: "Values printed inside each cell",
@@ -239,6 +275,14 @@ export const WithValues: Story = {
 }
 
 export const AbsenceRate: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Red-palette heatmap showing rising absence rates across subjects from February to June with percentage values and a warning tone.",
+      },
+    },
+  },
   args: {
     title: "Absence Rate by Subject & Month",
     subtitle: "Darker red = higher absence — a warning signal",
@@ -251,6 +295,14 @@ export const AbsenceRate: Story = {
 }
 
 export const CorrelationMatrix: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Purple-palette correlation matrix displaying Pearson r values for five academic indicators with a 0–1 range and fixed cell size.",
+      },
+    },
+  },
   args: {
     title: "Indicator Correlation Matrix",
     subtitle: "Pearson r — values closer to 1 indicate stronger co-movement",
@@ -266,6 +318,14 @@ export const CorrelationMatrix: Story = {
 }
 
 export const EngagementByDayAndHour: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Green-palette heatmap showing platform login density across days of the week and hourly time blocks with a login count formatter.",
+      },
+    },
+  },
   args: {
     title: "Platform Logins — Day × Hour",
     subtitle: "Weekly aggregate · darker = more active sessions",
@@ -278,6 +338,14 @@ export const EngagementByDayAndHour: Story = {
 }
 
 export const CustomPalette: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Heatmap using `palette="custom"` with `colorFrom` and `colorTo` set to `var(--card)` and `var(--destructive)` for full control.',
+      },
+    },
+  },
   args: {
     title: "Average Grade — Custom Palette",
     subtitle: 'palette="custom" · colorFrom / colorTo as CSS values',
@@ -291,6 +359,14 @@ export const CustomPalette: Story = {
 }
 
 export const Palettes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of five heatmaps displaying all built-in color palettes (blue, green, orange, purple, red) side by side for comparison.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
       {(["blue", "green", "orange", "purple", "red"] as const).map((p) => (
@@ -309,6 +385,14 @@ export const Palettes: Story = {
 }
 
 export const SmallCells: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Compact heatmap with `cellSize=28` and reduced gap for a dense day-by-hour engagement density visualization.",
+      },
+    },
+  },
   args: {
     title: "Platform Logins — Compact View",
     subtitle: "cellSize=28 · week × hour density map",
@@ -342,6 +426,14 @@ export const FlatCells: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Heatmap with Portuguese locale displaying average grade data with localized number formatting.",
+      },
+    },
+  },
   args: {
     title: "Nota Média por Disciplina & Turma",
     subtitle: "Semestre 2025.1 — passe o mouse sobre as células",
@@ -382,6 +474,14 @@ function LoadingDemo(props: React.ComponentProps<typeof HeatmapChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the heatmap with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Average Grade by Subject & Class",
     subtitle: "Semester 2025.1",
@@ -394,6 +494,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the heatmap renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Average Grade by Subject & Class",
     subtitle: "Semester 2025.1",
@@ -402,6 +510,14 @@ export const EmptyState: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Orange-palette heatmap showing absence rate trends with a custom footer highlighting the upward trend and best-performing subject.",
+      },
+    },
+  },
   args: {
     title: "Absence Rate — Semester 2025.1",
     subtitle: "Month-over-month trend per subject",
