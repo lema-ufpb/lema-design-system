@@ -112,4 +112,4 @@ O Breadcrumb ajuda o usuário a entender sua posição em uma hierarquia de pág
 - [x] Espaçamento — `gap-1.5` (mobile) / `gap-2.5` (sm:) entre itens
 - [x] Ícones — `size-3.5` para separador, `size-4` para ellipsis
 - [x] asChild — `BreadcrumbLink` usa `Slot.Root` para Next.js Link
-- [x] Word break — `wrap-break-word` na lista para evitar overflow
+- [x] Word break — `break-words` na lista para evitar overflow
