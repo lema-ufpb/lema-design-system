@@ -1035,9 +1035,48 @@
       ],
       "files": [
         {
+          "path": "components/custom/card-stats-shared.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-compact.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-progress.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-comparison.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-sparkline.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-highlight.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-list.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-gauge.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/custom/card-stat-heatbar.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "components/custom/card-stats.tsx",
-          "type": "registry:ui",
-          "target": "components/custom/card-stats.tsx"
+          "type": "registry:ui"
         }
       ]
     },
