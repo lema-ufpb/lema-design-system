@@ -112,8 +112,8 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 
 ## Checklist antes de implementar
 
-- [x] Escala tipográfica — fallback `text-sm` (default/lg), `text-xs` (sm)
+- [x] Escala tipográfica — fallback `text-sm` (default), `text-xs` (sm), `text-base` (lg)
 - [x] Tokens semânticos — `border`, `muted`, `muted-foreground`, `primary`, `primary-foreground`, `background`
 - [x] Badge — tamanhos proporcionais ao avatar (`size-2` sm, `size-2.5` default, `size-3` lg)
-- [x] Grupo — `-space-x-2` com `ring-2` para efeito de sobreposição
+- [x] Grupo — `[&>:not(:first-child)]:-ml-2` com `ring-2` para efeito de sobreposição (overlap negativo via `ml` individual em vez de `space-x` proibido)
 - [x] Borda overlay — `after:absolute after:inset-0 after:rounded-full after:border` com suporte a dark mode via `mix-blend-mode`
