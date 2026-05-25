@@ -1,16 +1,18 @@
 # Spec: Drawer
 
+> Painel deslizante com suporte a múltiplas direções e gestos de arrastar.
+
 ---
 
 ## Propósito
 
-Drawer slide-in com suporte a 4 direções (bottom, left, right, top), header opcional (título + descrição + close button), body scrollável e footer. Envolve o `Drawer` do shadcn (vaul) com API simplificada.
+Painel que desliza de uma das quatro bordas da tela (inferior, superior, esquerda, direita), com suporte a gestos de arrastar para fechar e conteúdo scrollável.
 
-**Usar quando:** Painel lateral ou bottom sheet com conteúdo que precisa de header, scroll e ações no footer.
+**Usar quando:** É necessário exibir conteúdo complementar ou formulários sem perder o contexto da página, especialmente em mobile.
 
-**Não usar quando:** Modal/dialog centralizado (usar `Dialog` shadcn). Drawer sem header personalizado (usar `Drawer` shadcn direto).
+**Não usar quando:** A ação requer confirmação crítica (use AlertDialog). Para menus de ação, use DropdownMenu ou Sheet.
 
-**Alternativa se não se aplicar:** `Dialog`, `Sheet` shadcn, `Drawer` raw (vaul).
+**Alternativa se não se aplicar:** `Sheet` (Radix UI) para painéis laterais sem gesto de arrastar; `Dialog` para modais centrados.
 
 ---
 
@@ -18,10 +20,10 @@ Drawer slide-in com suporte a 4 direções (bottom, left, right, top), header op
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/drawer.tsx` |
-| Tipo | `registry:component` (name: `drawer-ui`) |
-| Categoria | `Feedback` / `Layout` |
-| Depende de | `Drawer`, `DrawerClose`, `DrawerDescription`, `DrawerFooter`, `DrawerHeader`, `DrawerOverlay`, `DrawerPortal`, `DrawerTitle`, `DrawerTrigger` (shadcn/vaul), `X` (lucide-react) |
+| Arquivo | `components/ui/drawer.tsx` |
+| Tipo | `registry:ui` (name: `drawer`) |
+| Categoria | Painel / Sobreposição |
+| Depende de | `vaul` |
 
 ---
 
@@ -29,112 +31,76 @@ Drawer slide-in com suporte a 4 direções (bottom, left, right, top), header op
 
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
 |------|------|--------|-------------|-----------|
-| `direction` | `"bottom" \| "left" \| "right" \| "top"` | `"bottom"` | | De onde o drawer desliza |
-| `title` | `ReactNode` | — | | Título no header (DrawerTitle) |
-| `description` | `ReactNode` | — | | Descrição no header (DrawerDescription) |
-| `trigger` | `ReactNode` | — | | Elemento que abre o drawer |
-| `footer` | `ReactNode` | — | | Conteúdo do footer |
-| `children` | `ReactNode` | — | | Conteúdo do body |
-| `showCloseButton` | `boolean` | `true` | | Exibe botão X no header |
-| `open` | `boolean` | — | | Controle externalizado de abertura |
-| `onOpenChange` | `(open: boolean) => void` | — | | Callback de toggle |
-
----
-
-## Variantes CVA
-
-Nenhuma. O componente não usa `cva()` — a direção é controlada por `data-vaul-drawer-direction` do vaul com CSS condicional.
+| `Drawer` | `DrawerPrimitive.Root.Props` | — | — | Root do drawer |
+| `DrawerTrigger` | `DrawerPrimitive.Trigger.Props` | — | — | Gatilho para abrir |
+| `DrawerPortal` | `DrawerPrimitive.Portal.Props` | — | — | Portal |
+| `DrawerClose` | `DrawerPrimitive.Close.Props` | — | — | Fechamento |
+| `DrawerOverlay` | `DrawerPrimitive.Overlay.Props` | — | — | Overlay semitransparente |
+| `DrawerContent` | `DrawerPrimitive.Content.Props` | — | — | Conteúdo do painel |
+| `DrawerHeader` | `React.ComponentProps<"div">` | — | — | Cabeçalho |
+| `DrawerFooter` | `React.ComponentProps<"div">` | — | — | Rodapé |
+| `DrawerTitle` | `DrawerPrimitive.Title.Props` | — | — | Título |
+| `DrawerDescription` | `DrawerPrimitive.Description.Props` | — | — | Descrição |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `bg-popover` | fundo do drawer |
-| `text-popover-foreground` | texto do drawer |
-| `border-border` | borda do drawer, footer top |
-| `bg-muted` | drag handle |
-| `bg-secondary/80` | close button fundo |
-| `text-muted-foreground` | close button ícone |
-| `hover:text-foreground` | close button hover |
-| `bg-secondary` | close button hover fundo |
-| `ring-ring` | close button focus |
-| `ring-offset-background` | close button focus offset |
-
----
-
-## Escala tipográfica e de tamanho
-
-| Slot | Valor |
-|------|-------|
-| Close button | `size-7` (container), `size-3.5` (ícone X) |
-| Drag handle | `h-1.5 w-14 rounded-full` |
-| Horizontal drawer width | `w-3/4 sm:max-w-sm` |
-| Vertical drawer max-height | `max-h-[80vh]` |
-| Body padding | `px-4` + `py-4` / `pb-4` / `pt-4` |
+| Token | Slot |
+|-------|------|
+| `--popover` | `DrawerContent` (fundo do painel) |
+| `--popover-foreground` | Texto do `DrawerTitle` |
+| `--muted-foreground` | `DrawerDescription` |
+| `--muted` | Drag handle (pill) |
+| `--border` | Borda do painel (`before:border-border`) |
+| `bg-black/30` + backdrop-blur | `DrawerOverlay` |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `direction="bottom"` | Inset-x-0, bottom-0, rounded-t-2xl, drag handle no topo |
-| `direction="top"` | Inset-x-0, top-0, rounded-b-2xl, drag handle no fim |
-| `direction="left"` | Inset-y-0, left-0, w-3/4 sm:max-w-sm, rounded-r-2xl |
-| `direction="right"` | Inset-y-0, right-0, w-3/4 sm:max-w-sm, rounded-l-2xl |
-| Sem `trigger` | Drawer sem gatilho visível (aberto programaticamente via `open`) |
-| `open` controlado | Componente controlado via `open` + `onOpenChange` |
-| Sem título/descrição | Header não renderizado |
-| `showCloseButton={false}` | Botão X oculto |
-| Sem footer | DrawerFooter não renderizado |
-| Direção horizontal (left/right) | Footer `flex-col gap-2` (empilhado) |
-| Direção vertical (bottom/top) | Footer `flex-row justify-end gap-2` |
+| Estado | Comportamento |
+|--------|---------------|
+| **Aberto** | Painel desliza da direção configurada com overlay |
+| **Fechado** | Arrastar para baixo (bottom), Escape, clique no overlay |
+| **Bottom (padrão)** | `inset-x-0 bottom-0 mt-24 max-h-[80vh]`, com drag handle |
+| **Left** | `inset-y-0 left-0 w-3/4 sm:max-w-sm` |
+| **Right** | `inset-y-0 right-0 w-3/4 sm:max-w-sm` |
+| **Top** | `inset-x-0 top-0 mb-24 max-h-[80vh]` |
+| **Drag handle** | Pill horizontal `bg-muted` visível apenas em bottom/top |
 
 ---
 
 ## Acessibilidade
 
 | Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | DrawerPrimitive.Content com `data-slot="drawer-ui"` |
-| Título | `DrawerTitle` do vaul |
-| Descrição | `DrawerDescription` do vaul |
-| Overlay | `DrawerOverlay` (fecha ao clicar fora) |
-| Close button | `DrawerClose` com `sr-only` "Fechar" (hardcoded, sem i18n) |
-| Drag handle | `aria-hidden` em ambos os handles |
-| Focus | `focus-visible:ring-2` no close button |
-| Teclado | Vaul gerencia Escape para fechar |
-
-> **Nota:** Close button "Fechar" está hardcoded em português. Idealmente deveria usar i18n.
+|-----------|---------------|
+| Gestos | Arrastar para fechar gerenciado pelo `vaul` |
+| Fechamento | Escape, clique overlay, DrawerClose |
+| ARIA | Gerenciado pelo `vaul` (dialog role) |
+| Focus trap | Gerenciado pelo `vaul` |
 
 ---
 
-## Stories obrigatórias no Storybook
+## Stories obrigatórias
 
-- [ ] `Default` — bottom, com trigger, título, descrição, footer
-- [ ] `DirectionTop` — top
-- [ ] `DirectionLeft` — left
-- [ ] `DirectionRight` — right
-- [ ] `Controlled` — open/onOpenChange controlado externamente
-- [ ] `NoCloseButton` — `showCloseButton={false}`
-- [ ] `NoHeader` — sem title nem description
-- [ ] `NoFooter` — sem footer
-- [ ] `CustomTrigger` — trigger customizado
-- [ ] `LongContent` — conteúdo extenso com scroll
+- [x] `Default` — Default
+- [x] `FromLeft` — From Left
+- [x] `FromRight` — From Right
+- [x] `FromTop` — From Top
+- [x] `Confirmation` — Confirmation
+- [x] `ScrollableContent` — Scrollable Content
+- [x] `NoHeader` — No Header
+- [x] `NoCloseButton` — No Close Button
+- [x] `ProgrammaticControl` — Programmatic Control
 
----
+## Checklist
 
-## Checklist antes de implementar
-
-- [ ] Escala tipográfica — N/A (delega ao shadcn Drawer)
-- [x] Tokens semânticos usados
-- [ ] `cva()` — N/A (sem variantes próprias)
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
-- [ ] `aria-label` — N/A (shadcn/vaul gerencia)
-- [x] `cn()` para classes condicionais
-- [x] Spacing sem arbitrary values
-- [ ] Prop `locale` — N/A (close button hardcoded em português — considerar i18n)
+- [ ] Suporte a 4 direções: bottom, top, left, right
+- [ ] Drag handle visível em bottom/top
+- [ ] Overlay com backdrop-blur
+- [ ] Header e footer como subcomponentes
+- [ ] Estado controlado via `open`/`onOpenChange`
+- [ ] Gesto de arrastar para fechar (bottom)
+- [ ] Conteúdo scrollável
+- [ ] Responsivo (w-3/4 em mobile, sm:max-w-sm em desktop para laterais)

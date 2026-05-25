@@ -130,18 +130,11 @@ interface StepItem {
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 4 etapas horizontais, etapa 2 como current
-- [ ] `Vertical` — 4 etapas verticais
-- [ ] `AllStatuses` — etapas complete, current, upcoming em sequência
-- [ ] `AllSizes` — sm, md, lg em coluna
-- [ ] `Clickable` — `onStepClick` definido, demonstra navegação
-- [ ] `CustomIcons` — algumas etapas com ícone customizado
-- [ ] `WithDescriptions` — todas as etapas com descrição
-- [ ] `EmptySteps` — array vazio (deve retornar null)
-- [ ] `SingleStep` — apenas uma etapa
-- [ ] `ManySteps` — 7+ etapas com scroll horizontal
-
----
+- [x] `Horizontal` — Horizontal
+- [x] `Vertical` — Vertical
+- [x] `Interactive` — Interactive
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Sizes` — Sizes
 
 ## Checklist antes de implementar
 

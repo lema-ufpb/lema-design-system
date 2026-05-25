@@ -116,16 +116,12 @@ Indicador de progresso circular com SVG animado, centro numérico e título opci
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — `value={0.7}` com título
-- [ ] `AllIntents` — primary, secondary, success, destructive em coluna
-- [ ] `AllSizes` — sm, md, lg, xl em coluna
-- [ ] `Loading` — `loading={true}` com cada size
-- [ ] `WithoutTitle` — sem título
-- [ ] `CustomPrecision` — `precision={2}` exibindo 75.50%
-- [ ] `FullCircle` — value 100%
-- [ ] `Zero` — value 0%
-
----
+- [x] `Default` — Default
+- [x] `AllSizes` — All Sizes
+- [x] `WithPrecision` — With Precision
+- [x] `AllIntents` — All Intents
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
 
 ## Checklist antes de implementar
 

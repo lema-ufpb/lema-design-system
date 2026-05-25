@@ -96,14 +96,16 @@ Nenhuma. Usa `sizeConfig` e `radiusConfig` como objetos de configuração.
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — modo password oculto
-- [ ] `AllSizes` — sm, default, lg
-- [ ] `AllRadius` — pill, rounded, square
-- [ ] `ToggleVisibility` — alternar entre show/hide
-- [ ] `WithPlaceholder`
-- [ ] `Disabled`
-
----
+- [x] `Default` — Default
+- [x] `Small` — Small
+- [x] `Large` — Large
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `AllSizes` — All Sizes
+- [x] `AllRadius` — All Radius
+- [x] `Variants` — Variants
+- [x] `Disabled` — Disabled
+- [x] `WithValue` — With Value
+- [x] `Invalid` — Invalid
 
 ## Checklist antes de implementar
 

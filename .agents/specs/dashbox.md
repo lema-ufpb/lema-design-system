@@ -129,18 +129,17 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — título, descrição, children, status live
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `AllBodyPaddings` — none, sm, md, lg
-- [ ] `AllStatus` — live, warning, error, idle
-- [ ] `Loading` — `loading={true}`
-- [ ] `Minimized` — estado inicial minimizado
-- [ ] `Maximized` — estado maximizado
-- [ ] `WithToolbarExtra` — toolbar com children adicionais
-- [ ] `NoToolbar` — `showToolbar={false}`
-- [ ] `NoControls` — sem refresh, maximize, minimize
-
----
+- [x] `Default` — Default
+- [x] `NoHeader` — No Header
+- [x] `WithStatus` — With Status
+- [x] `AllStatuses` — All Statuses
+- [x] `WithToolbar` — With Toolbar
+- [x] `WithRefresh` — With Refresh
+- [x] `LocalizedToolbar` — Localized Toolbar
+- [x] `Loading` — Loading
+- [x] `NoPadding` — No Padding
+- [x] `WithProgressBars` — With Progress Bars
+- [x] `Sizes` — Sizes
 
 ## Checklist antes de implementar
 

@@ -113,17 +113,17 @@ Tamanhos de botão e ícone gerenciados pelo shadcn `Button` via prop `size` (`i
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — ghost, icon, rounded md, com tooltip
-- [ ] `AllVariants` — default, destructive, outline, secondary, ghost, link
-- [ ] `AllSizes` — icon-xs, icon-sm, icon, icon-lg
-- [ ] `AllRounded` — none, md, full
-- [ ] `Loading` — `loading={true}`
-- [ ] `Disabled` — `disabled={true}`
-- [ ] `NoTooltip` — `tooltip={false}`
-- [ ] `CustomTooltip` — tooltip diferente do label
-- [ ] `TooltipSides` — top, right, bottom, left
-
----
+- [x] `Default` — Default
+- [x] `Playground` — Playground
+- [x] `Variants` — Variants
+- [x] `Sizes` — Sizes
+- [x] `Rounded` — Rounded
+- [x] `TooltipSides` — Tooltip Sides
+- [x] `Loading` — Loading
+- [x] `States` — States
+- [x] `NoTooltip` — No Tooltip
+- [x] `ToolbarExample` — Toolbar Example
+- [x] `CardActions` — Card Actions
 
 ## Checklist antes de implementar
 

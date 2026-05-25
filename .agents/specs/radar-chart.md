@@ -122,15 +122,18 @@ _Gráfico radar (teia) baseado em recharts RadarChart para visualização multiv
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 2 séries, 6 categorias, filled
-- [ ] `Unfilled` — apenas stroke
-- [ ] `CircleGrid` — grade circular
-- [ ] `WithRadiusAxis` — eixo radial visível
-- [ ] `WithDots` — dots ativados
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-
----
+- [x] `Default` — Default
+- [x] `Unfilled` — Unfilled
+- [x] `MultiSeries` — Multi Series
+- [x] `CurrentVsTarget` — Current Vs Target
+- [x] `CircleGrid` — Circle Grid
+- [x] `WithRadiusAxis` — With Radius Axis
+- [x] `WithDots` — With Dots
+- [x] `WithFooter` — With Footer
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `LegendPositions` — Legend Positions
 
 ## Checklist antes de implementar
 

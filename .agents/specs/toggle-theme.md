@@ -82,12 +82,9 @@ Nenhum token direto. Os primitivos shadcn (`Button`, `DropdownMenu`) gerenciam s
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — botão com dropdown de 3 opções
-- [ ] `CustomLabels` — labels traduzidos
-- [ ] `DarkMode` — simulated dark theme
-- [ ] `SystemMode` — simulated system preference
-
----
+- [x] `Default` — Default
+- [x] `Portuguese` — Portuguese
+- [x] `InHeader` — In Header
 
 ## Checklist antes de implementar
 

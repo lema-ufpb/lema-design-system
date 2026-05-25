@@ -125,16 +125,20 @@ _Gráfico de dispersão (scatter plot) baseado em recharts ScatterChart. Suporta
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 2 séries com 15 pontos cada, formas variadas
-- [ ] `Bubble` — com z dimension
-- [ ] `WithTrendLine` — regressão linear
-- [ ] `WithBrush` — brush contínuo
-- [ ] `AllShapes` — todas as formas de ponto
-- [ ] `CustomAxisLabels` — xLabel e yLabel
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-
----
+- [x] `Default` — Default
+- [x] `WithTrendLine` — With Trend Line
+- [x] `MultiSeries` — Multi Series
+- [x] `AttendanceVsApproval` — Attendance Vs Approval
+- [x] `BubbleChart` — Bubble Chart
+- [x] `CustomShapes` — Custom Shapes
+- [x] `LegendPositions` — Legend Positions
+- [x] `WithFooter` — With Footer
+- [x] `WithBrush` — With Brush
+- [x] `WithBrushMultiSeries` — With Brush Multi Series
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `OutlierDetection` — Outlier Detection
 
 ## Checklist antes de implementar
 

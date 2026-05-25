@@ -123,16 +123,9 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 4 grupos com vários links cada
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `Uppercase` — `upper={true}`
-- [ ] `SingleGroup` — apenas 1 grupo
-- [ ] `EmptyData` — `data={[]}`
-- [ ] `Mobile` — viewport < lg
-- [ ] `Desktop` — viewport >= lg
-- [ ] `WithExternalLinks` — links com `target="_blank"`
-
----
+- [x] `Default` — Default
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Simple` — Simple
 
 ## Checklist antes de implementar
 

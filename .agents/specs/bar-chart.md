@@ -131,16 +131,22 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — estado padrão com dados de vendas mensais, 3 séries
-- [ ] `Horizontal` — orientação horizontal com categorias
-- [ ] `Stacked` — barras empilhadas
-- [ ] `WithBrush` — brush habilitado para zoom
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-- [ ] `WithCustomFormatter` — valueFormatter formatando como moeda
-- [ ] `CustomSizes` — altura customizada
-
----
+- [x] `Default` — Default
+- [x] `Horizontal` — Horizontal
+- [x] `MultiSeries` — Multi Series
+- [x] `MultiSeriesHorizontal` — Multi Series Horizontal
+- [x] `Stacked` — Stacked
+- [x] `StackedHorizontal` — Stacked Horizontal
+- [x] `WithFooter` — With Footer
+- [x] `CustomColors` — Custom Colors
+- [x] `NoDecoration` — No Decoration
+- [x] `WithAxisLabels` — With Axis Labels
+- [x] `WithBrush` — With Brush
+- [x] `WithBrushStacked` — With Brush Stacked
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `LegendPositions` — Legend Positions
 
 ## Checklist antes de implementar
 

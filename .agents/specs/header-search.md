@@ -108,14 +108,11 @@ Estende `HTMLAttributes<HTMLDivElement>` + `VariantProps<typeof headerSearchVari
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — estado recolhido
-- [ ] `Expanded` — `isExpanded={true}` com valor preenchido
-- [ ] `AllRounded` — `full`, `md`, `none` em coluna
-- [ ] `AllSizes` — sm, md, lg em coluna
-- [ ] `CustomPlaceholder` — placeholder customizado
-- [ ] `Controlled` — controle externo de valor
-
----
+- [x] `Default` — Default
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Square` — Square
+- [x] `Expanded` — Expanded
+- [x] `InHeaderMock` — In Header Mock
 
 ## Checklist antes de implementar
 

@@ -258,21 +258,55 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `CardStatDefault` — CardStat padrão com valor formatado
-- [ ] `CardStatAllFormats` — currency, percent, integer, float
-- [ ] `CardStatTrend` — up, down, neutral
-- [ ] `CardStatLoading` — loading em todos os sub-componentes
-- [ ] `CardStatEmpty` — empty em todos os sub-componentes
-- [ ] `CardStatCompactDefault`
-- [ ] `CardStatProgressDefault` — com e sem goal
-- [ ] `CardStatComparisonDefault` — positivo, negativo, neutro
-- [ ] `CardStatSparklineDefault` — com data, sem data, trend
-- [ ] `CardStatHighlightAllVariants` — todas as 6 variantes
-- [ ] `CardStatListDefault` — múltiplos itens
-- [ ] `CardStatGaugeDefault` — diferentes valores nas zonas
-- [ ] `CardStatHeatbarDefault` — diferentes valores com tooltip
-
----
+- [x] `CardStatDefault` — CardStat padrão com valor formatado
+- [x] `CardStatAllFormats (AllTrends)` — currency, percent, integer, float
+- [x] `CardStatAllSizes` — sm, md, lg sizes
+- [x] `CardStatAllTrends` — up, down, neutral trends
+- [x] `CardStatLoading` — loading em todos os sub-componentes
+- [x] `CardStatEmpty` — empty em todos os sub-componentes
+- [x] `CardStatLocales` — locale-aware formatting (pt-BR, de-DE, en-US)
+- [x] `CardStatCompactDefault`
+- [x] `CardStatCompactAllSizes`
+- [x] `CardStatCompactAllVariants`
+- [x] `CardStatCompactLoading`
+- [x] `CardStatCompactEmpty`
+- [x] `CardStatProgressDefault` — com e sem goal
+- [x] `CardStatProgressAllSizes`
+- [x] `CardStatProgressAllGoals`
+- [x] `CardStatProgressLoading`
+- [x] `CardStatProgressEmpty`
+- [x] `CardStatComparisonDefault` — positivo, negativo, neutro
+- [x] `CardStatComparisonAllSizes`
+- [x] `CardStatComparisonAllComparisons`
+- [x] `CardStatComparisonLoading`
+- [x] `CardStatComparisonEmpty`
+- [x] `CardStatSparklineDefault` — com data, sem data, trend
+- [x] `CardStatSparklineAllSizes`
+- [x] `CardStatSparklineAllMetrics`
+- [x] `CardStatSparklineLoading`
+- [x] `CardStatSparklineEmpty`
+- [x] `CardStatHighlightDefault`
+- [x] `CardStatHighlightAllVariants` — todas as 6 variantes
+- [x] `CardStatHighlightAllSizes`
+- [x] `CardStatHighlightBannerKPI`
+- [x] `CardStatHighlightLoading`
+- [x] `CardStatHighlightEmpty`
+- [x] `CardStatListDefault` — múltiplos itens
+- [x] `CardStatListAllSizes`
+- [x] `CardStatListTopChannels`
+- [x] `CardStatListLoading`
+- [x] `CardStatListEmpty`
+- [x] `CardStatGaugeDefault` — diferentes valores nas zonas
+- [x] `CardStatGaugeAllSizes`
+- [x] `CardStatGaugeAllGauges`
+- [x] `CardStatGaugeLoading`
+- [x] `CardStatGaugeEmpty`
+- [x] `CardStatHeatbarDefault` — diferentes valores com tooltip
+- [x] `CardStatHeatbarAllSizes`
+- [x] `CardStatHeatbarAllHeatbars`
+- [x] `CardStatHeatbarLoading`
+- [x] `CardStatHeatbarEmpty`
+- [x] `CardStatsDashboard` — dashboard com múltiplos cards
 
 ## Checklist antes de implementar
 

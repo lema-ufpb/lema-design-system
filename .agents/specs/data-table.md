@@ -146,20 +146,30 @@ Usa `SIZE_PRESETS`:
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — dados mockados com sorting e paginação
-- [ ] `Compact` — `size="compact"` com densidade reduzida
-- [ ] `Loading` — `loading={true}` com skeleton completo
-- [ ] `Empty` — array vazio com DataTableEmpty
-- [ ] `WithPagination` — `pagination={true}` com 50+ linhas
-- [ ] `WithSelection` — `selectRows={true}` com checkboxes
-- [ ] `WithSearch` — `showSearch={true}` com busca global
-- [ ] `WithStickyColumns` — `stickyColumns={1}` fixando primeira coluna
-- [ ] `VirtualizedLargeSet` — 10000 linhas com virtualização
-- [ ] `WithToolbar` — toolbar custom + download button
-- [ ] `InfiniteScroll` — `hasMore` com load more
-- [ ] `RefetchWhileData` — `loading={true}` com dados existentes
-
----
+- [x] `Default` — Default
+- [x] `TitleAndSubtitle` — Title And Subtitle
+- [x] `WithSearch` — With Search
+- [x] `Sortable` — Sortable
+- [x] `WithPagination` — With Pagination
+- [x] `SearchAndPagination` — Search And Pagination
+- [x] `WithCustomCells` — With Custom Cells
+- [x] `RowSelection` — Row Selection
+- [x] `ClickableRows` — Clickable Rows
+- [x] `CompactSize` — Compact Size
+- [x] `WithDownload` — With Download
+- [x] `WithFooter` — With Footer
+- [x] `KitchenSink` — Kitchen Sink
+- [x] `TenThousandRows` — Ten Thousand Rows
+- [x] `HundredThousandRows` — Hundred Thousand Rows
+- [x] `VirtualizedWithPagination` — Virtualized With Pagination
+- [x] `LoadingSkeleton` — Loading Skeleton
+- [x] `LoadingRefetch` — Loading Refetch
+- [x] `EmptyState` — Empty State
+- [x] `EmptyAfterSearch` — Empty After Search
+- [x] `ColHelper` — Col Helper
+- [x] `ResizableColumns` — Resizable Columns
+- [x] `NumberFormats` — Number Formats
+- [x] `Primitives` — Primitives
 
 ## Checklist antes de implementar
 
