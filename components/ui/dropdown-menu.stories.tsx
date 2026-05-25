@@ -60,6 +60,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dropdown menu with account-related actions (profile, billing, settings, logout), icons, and keyboard shortcuts.",
+      },
+    },
+  },
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -97,6 +105,14 @@ export const Default: Story = {
 }
 
 export const WithSubmenus: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dropdown menu with a nested submenu for invite methods (email or message) via DropdownMenuSub.",
+      },
+    },
+  },
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

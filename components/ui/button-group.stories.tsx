@@ -48,6 +48,7 @@ const meta = {
       control: "select",
       options: ["horizontal", "vertical"],
       description: "Layout direction of the group",
+      table: { defaultValue: { summary: "horizontal" } },
     },
   },
 } satisfies Meta<typeof ButtonGroup>
@@ -56,6 +57,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal button group with outline buttons for bold, italic, and underline formatting actions.",
+      },
+    },
+  },
   render: ({ orientation }) => (
     <ButtonGroup orientation={orientation}>
       <Button variant="outline" size="sm">
@@ -78,6 +87,14 @@ export const Default: Story = {
 }
 
 export const WithSeparator: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two tool groups (alignment and formatting) separated by a visual divider.",
+      },
+    },
+  },
   render: () => (
     <ButtonGroup>
       <Button variant="outline" size="sm">
@@ -104,6 +121,14 @@ export const WithSeparator: Story = {
 }
 
 export const Vertical: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertically stacked button group with search, settings, and user icon buttons.",
+      },
+    },
+  },
   render: () => (
     <div className="flex justify-center">
       <ButtonGroup orientation="vertical">
@@ -122,6 +147,14 @@ export const Vertical: Story = {
 }
 
 export const WithTextSegment: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Button group combining a static text label segment with an actionable button.",
+      },
+    },
+  },
   render: () => (
     <ButtonGroup>
       <ButtonGroupText>Label</ButtonGroupText>
@@ -133,6 +166,14 @@ export const WithTextSegment: Story = {
 }
 
 export const IconOnly: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Compact icon-only button group using icon-sm size, suitable for toolbars.",
+      },
+    },
+  },
   render: () => (
     <ButtonGroup>
       <Button variant="outline" size="icon-sm">

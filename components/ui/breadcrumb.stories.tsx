@@ -45,6 +45,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Three-level breadcrumb trail with Home, Components links and the current Breadcrumb page.",
+      },
+    },
+  },
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>
@@ -65,6 +73,14 @@ export const Default: Story = {
 }
 
 export const WithEllipsis: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Breadcrumb using BreadcrumbEllipsis to collapse intermediate navigation levels.",
+      },
+    },
+  },
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>
@@ -89,6 +105,14 @@ export const WithEllipsis: Story = {
 }
 
 export const WithCustomSeparator: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Breadcrumb with a custom text separator ("/") instead of the default icon-based separator.',
+      },
+    },
+  },
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>
@@ -109,6 +133,14 @@ export const WithCustomSeparator: Story = {
 }
 
 export const WithDropdown: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Interactive breadcrumb with a DropdownMenu for collapsed navigation, showing nested page options.",
+      },
+    },
+  },
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>

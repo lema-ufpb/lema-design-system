@@ -43,6 +43,7 @@ const meta = {
         "ghost",
         "link",
       ],
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof Badge>
@@ -55,9 +56,25 @@ export const Default: Story = {
     children: "Badge",
     variant: "default",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Primary variant badge with the label "Badge" for standard categorization.',
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "All six badge variants (default, secondary, destructive, outline, ghost, link) displayed side by side.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Badge variant="default">Default</Badge>
@@ -71,6 +88,14 @@ export const Variants: Story = {
 }
 
 export const WithIcon: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Badges with inline-start and inline-end icon positions across different variants.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Badge variant="default">
@@ -90,6 +115,14 @@ export const WithIcon: Story = {
 }
 
 export const AsChild: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Badge rendered as an anchor link using the `asChild` composition pattern.",
+      },
+    },
+  },
   render: () => (
     <Badge asChild>
       <a href="#">Link Badge</a>

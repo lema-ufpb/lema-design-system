@@ -46,6 +46,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Select dropdown with four fruit options and a placeholder, using the default trigger and content positioning.",
+      },
+    },
+  },
   render: () => (
     <Select>
       <SelectTrigger className="w-48">
@@ -87,6 +95,14 @@ export const Sizes: Story = {
 }
 
 export const WithGroups: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Select dropdown with options grouped into Fruits and Vegetables categories, separated by a divider.",
+      },
+    },
+  },
   render: () => (
     <Select>
       <SelectTrigger className="w-56">

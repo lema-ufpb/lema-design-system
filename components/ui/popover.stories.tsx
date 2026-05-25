@@ -41,6 +41,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Popover with a header containing title and description, plus additional content below, triggered by an outline button.",
+      },
+    },
+  },
   render: () => (
     <Popover>
       <PopoverTrigger asChild>

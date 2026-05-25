@@ -70,6 +70,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bottom drawer with title, description, submit button, and cancel action via DrawerClose.",
+      },
+    },
+  },
   render: () => (
     <Drawer>
       <DrawerTrigger asChild>
@@ -92,6 +100,14 @@ export const Default: Story = {
 }
 
 export const WithForm: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bottom drawer containing form inputs for profile editing with save and cancel actions.",
+      },
+    },
+  },
   render: () => (
     <Drawer>
       <DrawerTrigger asChild>
@@ -120,6 +136,14 @@ export const WithForm: Story = {
 }
 
 export const ScrollableContent: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bottom drawer with scrollable long-form content limited to 60% viewport height.",
+      },
+    },
+  },
   render: () => (
     <Drawer>
       <DrawerTrigger asChild>
@@ -157,6 +181,14 @@ export const ScrollableContent: Story = {
 }
 
 export const Confirmation: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Destructive confirmation drawer for account deletion with cancel and delete actions.",
+      },
+    },
+  },
   render: () => (
     <Drawer>
       <DrawerTrigger asChild>
@@ -182,6 +214,14 @@ export const Confirmation: Story = {
 
 export const FromLeft: Story = {
   name: "Direction — Left",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Drawer sliding in from the left edge with navigation items for sidebar-style panels.",
+      },
+    },
+  },
   render: () => (
     <Drawer direction="left">
       <DrawerTrigger asChild>
@@ -211,6 +251,14 @@ export const FromLeft: Story = {
 
 export const FromRight: Story = {
   name: "Direction — Right",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Drawer sliding in from the right edge with notification cards displaying recent activity.",
+      },
+    },
+  },
   render: () => (
     <Drawer direction="right">
       <DrawerTrigger asChild>
@@ -247,6 +295,14 @@ export const FromRight: Story = {
 
 export const FromTop: Story = {
   name: "Direction — Top",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Drawer sliding from the top with a grid of quick action buttons for contextual commands.",
+      },
+    },
+  },
   render: () => (
     <Drawer direction="top">
       <DrawerTrigger asChild>
@@ -278,6 +334,14 @@ export const FromTop: Story = {
 
 export const Controlled: Story = {
   name: "Controlled State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Drawer open state managed externally via buttons with visual open/close indicators, no DrawerTrigger needed.",
+      },
+    },
+  },
   render: function Render() {
     const [open, setOpen] = React.useState(false)
     return (

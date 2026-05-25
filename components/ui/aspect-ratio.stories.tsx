@@ -35,6 +35,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "16:9 widescreen aspect ratio applied to a landscape image inside a 400px container.",
+      },
+    },
+  },
   render: () => (
     <div className="w-[400px]">
       <AspectRatio ratio={16 / 9}>
@@ -50,6 +58,14 @@ export const Default: Story = {
 }
 
 export const Square: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "1:1 square aspect ratio in a compact 200px container for profile images or thumbnails.",
+      },
+    },
+  },
   render: () => (
     <div className="w-[200px]">
       <AspectRatio ratio={1}>
@@ -65,6 +81,14 @@ export const Square: Story = {
 }
 
 export const Wide: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "21:9 ultrawide aspect ratio in a 600px container for cinematic banners and hero images.",
+      },
+    },
+  },
   render: () => (
     <div className="w-[600px]">
       <AspectRatio ratio={21 / 9}>

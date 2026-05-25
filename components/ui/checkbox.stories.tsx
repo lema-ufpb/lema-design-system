@@ -35,9 +35,11 @@ const meta = {
       control: "select",
       options: [true, false, "indeterminate"],
       description: "The controlled checked state",
+      table: { defaultValue: { summary: "false" } },
     },
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
   },
 } satisfies Meta<typeof Checkbox>
@@ -46,6 +48,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Controlled checkbox with label and state management showing unchecked and checked states.",
+      },
+    },
+  },
   render: () => {
     const [checked, setChecked] = useState<boolean>(false)
     return (
@@ -62,6 +72,14 @@ export const Default: Story = {
 }
 
 export const Checked: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Checkbox pre-checked by default to demonstrate the checked visual state.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-2">
       <Checkbox id="checked-demo" checked />
@@ -71,6 +89,14 @@ export const Checked: Story = {
 }
 
 export const Indeterminate: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Checkbox in indeterminate state indicating a partial selection within a group.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-2">
       <Checkbox id="indeterminate-demo" checked="indeterminate" />
@@ -80,6 +106,14 @@ export const Indeterminate: Story = {
 }
 
 export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Disabled checkboxes in both unchecked and checked states with dimmed label styling.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-2">
@@ -99,6 +133,14 @@ export const Disabled: Story = {
 }
 
 export const WithLabel: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Simple uncontrolled checkbox paired with a label using the `htmlFor` attribute.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-2">
       <Checkbox id="label-demo" />

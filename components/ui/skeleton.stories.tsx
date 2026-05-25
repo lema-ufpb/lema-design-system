@@ -32,6 +32,14 @@ export const Default: Story = {
   args: {
     className: "h-4 w-20",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Small rectangular skeleton placeholder with animate-pulse to indicate loading content.",
+      },
+    },
+  },
 }
 
 export const Variants: Story = {

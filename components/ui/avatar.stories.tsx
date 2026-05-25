@@ -37,6 +37,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single avatar with a successfully loaded image and initials fallback for accessibility.",
+      },
+    },
+  },
   render: () => (
     <Avatar>
       <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -46,6 +54,14 @@ export const Default: Story = {
 }
 
 export const Fallback: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Avatar with an empty image source URL, demonstrating the initials fallback display.",
+      },
+    },
+  },
   render: () => (
     <Avatar>
       <AvatarImage src="" alt="@shadcn" />
@@ -55,6 +71,14 @@ export const Fallback: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Three avatars at 32px (sm), 48px (md), and 64px (lg) showcasing size customization via className.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Avatar className="size-8">

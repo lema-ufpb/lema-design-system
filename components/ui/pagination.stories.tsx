@@ -39,6 +39,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pagination with five page links, page 2 marked as active, previous/next arrows, and an ellipsis indicator for truncated pages.",
+      },
+    },
+  },
   render: () => (
     <Pagination>
       <PaginationContent>
@@ -71,6 +79,14 @@ export const Default: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two pagination examples demonstrating small and default page link sizes with custom previous/next labels.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-col gap-6">
       <Pagination>

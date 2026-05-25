@@ -33,6 +33,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radio group with three options, the first selected by default, demonstrating standard single-selection behavior.",
+      },
+    },
+  },
   render: () => (
     <RadioGroup defaultValue="option-1">
       <div className="flex items-center gap-2">
@@ -52,6 +60,14 @@ export const Default: Story = {
 }
 
 export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radio group comparing an enabled option against a disabled option with muted label styling.",
+      },
+    },
+  },
   render: () => (
     <RadioGroup defaultValue="option-1">
       <div className="flex items-center gap-2">

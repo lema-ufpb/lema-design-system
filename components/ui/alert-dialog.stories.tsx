@@ -48,6 +48,7 @@ const meta = {
       control: "select",
       options: ["default", "sm"],
       description: "Content sizing preset — affects header/footer layout",
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof AlertDialogContent>
@@ -56,6 +57,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default-sized confirmation dialog with a warning icon media area, cancel and delete actions.",
+      },
+    },
+  },
   render: ({ size }) => (
     <AlertDialog defaultOpen>
       <AlertDialogTrigger asChild>
@@ -85,6 +94,14 @@ export const Default: Story = {
 }
 
 export const WithoutMedia: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Confirmation dialog without the media icon section, reducing visual weight for simpler confirmations.",
+      },
+    },
+  },
   render: () => (
     <AlertDialog defaultOpen>
       <AlertDialogTrigger asChild>
@@ -107,6 +124,14 @@ export const WithoutMedia: Story = {
 }
 
 export const Small: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Compact dialog with `size="sm"` for shorter confirmation flows that require less vertical space.',
+      },
+    },
+  },
   render: () => (
     <AlertDialog defaultOpen>
       <AlertDialogTrigger asChild>
