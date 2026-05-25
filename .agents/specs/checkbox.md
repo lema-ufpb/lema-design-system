@@ -93,9 +93,9 @@ O Checkbox é um campo de formulário de dois estados (marcado/desmarcado) const
 
 ## Checklist antes de implementar
 
-- [ ] Escala — `size-4` (16px) com `rounded-[5px]`
-- [ ] Tokens semânticos — `input`, `primary`, `primary-foreground`, `ring`, `destructive`
-- [ ] Ícone — `CheckIcon` com `size-3.5` via `[&>svg]:size-3.5`
-- [ ] Focus ring — `after:-inset-x-3 after:-inset-y-2` para área de clique expandida
-- [ ] Indeterminate — `checked="indeterminate"` com suporte Radix
-- [ ] Field integration — `group-has-disabled/field:opacity-50` para desabilitação contextual
+- [x] Escala — `size-4` (16px) com `rounded-[5px]`
+- [x] Tokens semânticos — `input`, `primary`, `primary-foreground`, `ring`, `destructive`
+- [x] Ícone — `CheckIcon` com `size-3.5` via `[&>svg]:size-3.5`
+- [x] Focus ring — `after:-inset-x-3 after:-inset-y-2` para área de clique expandida
+- [x] Indeterminate — `checked="indeterminate"` com suporte Radix
+- [x] Field integration — `group-has-disabled/field:opacity-50` para desabilitação contextual

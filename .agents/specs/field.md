@@ -95,9 +95,9 @@ Wrapper de campo de formulário que compõe label, input, descrição e mensagen
 
 ## Checklist
 
-- [ ] Três orientações: vertical, horizontal, responsive
-- [ ] FieldError com deduplicação de erros
-- [ ] FieldSet + FieldLegend para agrupamento semântico
-- [ ] FieldSeparator com texto opcional
-- [ ] Suporte a `data-invalid` para estado de erro
-- [ ] Container queries para orientação responsiva
+- [x] Três orientações: vertical, horizontal, responsive
+- [x] FieldError com deduplicação de erros
+- [x] FieldSet + FieldLegend para agrupamento semântico
+- [x] FieldSeparator com texto opcional
+- [x] Suporte a `data-invalid` para estado de erro
+- [x] Container queries para orientação responsiva

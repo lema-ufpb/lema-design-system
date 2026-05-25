@@ -107,8 +107,8 @@ O Accordion expõe 4 subcomponentes. As props refletem diretamente as da Radix U
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — trigger usa `text-sm font-medium`, conteúdo usa `text-sm`
-- [ ] Tokens semânticos — `border`, `muted`, `muted-foreground`, `foreground`
-- [ ] Animações — `accordion-down`/`accordion-up` definidas no `globals.css`
-- [ ] Espaçamento — `gap-6` entre trigger-icon, `p-4` no trigger, `px-4` no content
-- [ ] Ícones — ChevronDownIcon (fechado) / ChevronUpIcon (aberto), troca via `group-aria-expanded`
+- [x] Escala tipográfica — trigger usa `text-sm font-medium`, conteúdo usa `text-sm`
+- [x] Tokens semânticos — `border`, `muted`, `muted-foreground`, `foreground`
+- [x] Animações — `accordion-down`/`accordion-up` definidas no `globals.css`
+- [x] Espaçamento — `gap-6` entre trigger-icon, `p-4` no trigger, `px-4` no content
+- [x] Ícones — ChevronDownIcon (fechado) / ChevronUpIcon (aberto), troca via `group-aria-expanded`

@@ -87,9 +87,9 @@ Campo de entrada segmentado para códigos de verificação, PINs e autenticaçã
 
 ## Checklist
 
-- [ ] Slots individuais com índice posicional
-- [ ] Grupos de slots com bordas arredondadas nas extremidades
-- [ ] Separador visual com ícone Minus
-- [ ] Caret animado no slot ativo vazio
-- [ ] Estados: default, active, filled, invalid, disabled
-- [ ] Suporte a `maxLength` e `containerClassName`
+- [x] Slots individuais com índice posicional
+- [x] Grupos de slots com bordas arredondadas nas extremidades
+- [x] Separador visual com ícone Minus
+- [x] Caret animado no slot ativo vazio
+- [x] Estados: default, active, filled, invalid, disabled
+- [x] Suporte a `maxLength` e `containerClassName`

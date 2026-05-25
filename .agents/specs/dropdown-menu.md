@@ -103,12 +103,12 @@ Menu flutuante que exibe uma lista de ações ou opções quando acionado por cl
 
 ## Checklist
 
-- [ ] Trigger personalizável via `asChild`
-- [ ] Itens com variante `default` e `destructive`
-- [ ] Suporte a `inset` para alinhamento visual
-- [ ] Checkbox items com `CheckIcon`
-- [ ] Radio items com grupo
-- [ ] Submenus aninhados
-- [ ] Labels e separadores
-- [ ] Shortcuts nos itens
-- [ ] Animações de entrada/saída
+- [x] Trigger personalizável via `asChild`
+- [x] Itens com variante `default` e `destructive`
+- [x] Suporte a `inset` para alinhamento visual
+- [x] Checkbox items com `CheckIcon`
+- [x] Radio items com grupo
+- [x] Submenus aninhados
+- [x] Labels e separadores
+- [x] Shortcuts nos itens
+- [x] Animações de entrada/saída

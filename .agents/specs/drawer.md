@@ -96,11 +96,11 @@ Painel que desliza de uma das quatro bordas da tela (inferior, superior, esquerd
 
 ## Checklist
 
-- [ ] Suporte a 4 direções: bottom, top, left, right
-- [ ] Drag handle visível em bottom/top
-- [ ] Overlay com backdrop-blur
-- [ ] Header e footer como subcomponentes
-- [ ] Estado controlado via `open`/`onOpenChange`
-- [ ] Gesto de arrastar para fechar (bottom)
-- [ ] Conteúdo scrollável
-- [ ] Responsivo (w-3/4 em mobile, sm:max-w-sm em desktop para laterais)
+- [x] Suporte a 4 direções: bottom, top, left, right
+- [x] Drag handle visível em bottom/top
+- [x] Overlay com backdrop-blur
+- [x] Header e footer como subcomponentes
+- [x] Estado controlado via `open`/`onOpenChange`
+- [x] Gesto de arrastar para fechar (bottom)
+- [x] Conteúdo scrollável
+- [x] Responsivo (w-3/4 em mobile, sm:max-w-sm em desktop para laterais)

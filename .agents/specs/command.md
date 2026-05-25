@@ -93,9 +93,9 @@ Interface de paleta de comandos que permite busca e seleção de ações, atalho
 
 ## Checklist
 
-- [ ] Renderização inline (`Command`) e modal (`CommandDialog`)
-- [ ] Busca com filtro automático via `cmdk`
-- [ ] Grupos com headings e separadores
-- [ ] Shortcuts exibidos nos itens
-- [ ] Estado empty quando sem resultados
-- [ ] CheckIcon em itens com `data-checked`
+- [x] Renderização inline (`Command`) e modal (`CommandDialog`)
+- [x] Busca com filtro automático via `cmdk`
+- [x] Grupos com headings e separadores
+- [x] Shortcuts exibidos nos itens
+- [x] Estado empty quando sem resultados
+- [x] CheckIcon em itens com `data-checked`

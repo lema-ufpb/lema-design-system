@@ -77,7 +77,7 @@ Popup rico que exibe conteúdo adicional (como perfil, preview, detalhes) quando
 
 ## Checklist
 
-- [ ] Trigger customizável via `asChild`
-- [ ] Content com `align` e `sideOffset` configuráveis
-- [ ] Animação de entrada/saída
-- [ ] Portal para evitar overflow
+- [x] Trigger customizável via `asChild`
+- [x] Content com `align` e `sideOffset` configuráveis
+- [x] Animação de entrada/saída
+- [x] Portal para evitar overflow

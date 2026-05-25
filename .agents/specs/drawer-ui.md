@@ -100,11 +100,11 @@ Painel slide-over que abre de qualquer borda da tela, combinando header opcional
 
 ## Checklist
 
-- [ ] 4 direções: bottom, top, left, right
-- [ ] Drag handle apenas em bottom/top
-- [ ] Header com title + description + close button opcional
-- [ ] Footer com divisória visual
-- [ ] Body scrollável
-- [ ] Controlado via open/onOpenChange
-- [ ] Responsivo (w-3/4 mobile, sm:max-w-sm desktop laterais)
-- [ ] Overlay com backdrop-blur
+- [x] 4 direções: bottom, top, left, right
+- [x] Drag handle apenas em bottom/top
+- [x] Header com title + description + close button opcional
+- [x] Footer com divisória visual
+- [x] Body scrollável
+- [x] Controlado via open/onOpenChange
+- [x] Responsivo (w-3/4 mobile, sm:max-w-sm desktop laterais)
+- [x] Overlay com backdrop-blur

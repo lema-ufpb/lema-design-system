@@ -94,10 +94,10 @@ Container que agrupa um input (ou textarea) com addons visuais como ícones, lab
 
 ## Checklist
 
-- [ ] Suporte a addons inline (esquerda/direita) e block (acima/abaixo)
-- [ ] Botão com variantes de tamanho (xs, sm, icon-xs, icon-sm)
-- [ ] Input sem bordas acoplado ao container
-- [ ] Textarea sem bordas acoplada
-- [ ] Texto não-interativo (InputGroupText)
-- [ ] Propagação de estado disabled/invalid
-- [ ] Foco do addon no input ao clicar
+- [x] Suporte a addons inline (esquerda/direita) e block (acima/abaixo)
+- [x] Botão com variantes de tamanho (xs, sm, icon-xs, icon-sm)
+- [x] Input sem bordas acoplado ao container
+- [x] Textarea sem bordas acoplada
+- [x] Texto não-interativo (InputGroupText)
+- [x] Propagação de estado disabled/invalid
+- [x] Foco do addon no input ao clicar

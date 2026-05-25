@@ -111,10 +111,10 @@ O Chart é a camada de integração entre Recharts e o sistema de tokens do LEMA
 
 ## Checklist antes de implementar
 
-- [ ] ChartConfig — Tipo que aceita `color` fixa ou `theme` light/dark
-- [ ] ChartStyle — Injeção dinâmica de `<style>` com variáveis `--color-<key>`
-- [ ] Aspect ratio — `aspect-video` padrão, customizável via className
-- [ ] TooltipContent — Suporte a `hideLabel`, `hideIndicator`, `indicator` (dot/line/dashed)
-- [ ] LegendContent — Suporte a `hideIcon` e ícone custom via config
-- [ ] Grid lines — `stroke-border/50` para linhas do Recharts
-- [ ] Tokens — `muted-foreground`, `border`, `muted`, `popover`, `foreground`
+- [x] ChartConfig — Tipo que aceita `color` fixa ou `theme` light/dark
+- [x] ChartStyle — Injeção dinâmica de `<style>` com variáveis `--color-<key>`
+- [x] Aspect ratio — `aspect-video` padrão, customizável via className
+- [x] TooltipContent — Suporte a `hideLabel`, `hideIndicator`, `indicator` (dot/line/dashed)
+- [x] LegendContent — Suporte a `hideIcon` e ícone custom via config
+- [x] Grid lines — `stroke-border/50` para linhas do Recharts
+- [x] Tokens — `muted-foreground`, `border`, `muted`, `popover`, `foreground`

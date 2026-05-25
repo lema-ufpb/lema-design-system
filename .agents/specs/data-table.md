@@ -173,14 +173,14 @@ Usa `SIZE_PRESETS`:
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base`
+- [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base`
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [ ] Todo `cva()` tem `defaultVariants` declarado — N/A (usa SIZE_PRESETS)
-- [ ] Todos os `*Variants` são exportados — N/A
+- [x] Todo `cva()` tem `defaultVariants` declarado — N/A (usa SIZE_PRESETS)
+- [x] Todos os `*Variants` são exportados — N/A
 - [x] Loading usa `<Skeleton>` com dimensões corretas (DataTableSkeleton)
-- [ ] `tabular-nums` em todos os valores numéricos — N/A (formatado via Intl)
+- [x] `tabular-nums` em todos os valores numéricos — N/A (formatado via Intl)
 - [x] `truncate` em todos os labels de texto variável
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)
-- [ ] Prop `locale` integrada via `UI_I18N` se houver strings fixas — usa `labels` props customizáveis
+- [x] Prop `locale` integrada via `UI_I18N` se houver strings fixas — usa `labels` props customizáveis

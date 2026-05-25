@@ -121,10 +121,10 @@ Componente de entrada que combina campo de texto com lista suspensa para seleç�
 
 ## Checklist
 
-- [ ] Componente exporta todas as partes: Root, Input, Content, List, Item, Group, Label, Empty, Separator, Chips, Chip, ChipsInput, Trigger, Value, Collection
-- [ ] Suporta seleção única e múltipla
-- [ ] Popup posicionado dinamicamente com âncora
-- [ ] Botão de limpar (showClear) e trigger (showTrigger) configuráveis
-- [ ] Estados: default, disabled, empty, invalid
-- [ ] Animações de entrada/saída no popup
-- [ ] Chips com botão de remover opcional
+- [x] Componente exporta todas as partes: Root, Input, Content, List, Item, Group, Label, Empty, Separator, Chips, Chip, ChipsInput, Trigger, Value, Collection
+- [x] Suporta seleção única e múltipla
+- [x] Popup posicionado dinamicamente com âncora
+- [x] Botão de limpar (showClear) e trigger (showTrigger) configuráveis
+- [x] Estados: default, disabled, empty, invalid
+- [x] Animações de entrada/saída no popup
+- [x] Chips com botão de remover opcional

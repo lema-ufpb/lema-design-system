@@ -100,8 +100,8 @@ Wrapper `<nav>` com `aria-label` via i18n.
 
 ## Checklist
 
-- [ ] Componentes exportados: Pagination, PaginationContent, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis, PaginationItem
-- [ ] `aria-label` localizado via i18n
-- [ ] Texto customizável em Previous/Next
-- [ ] Suporte a `isActive` em PaginationLink
-- [ ] `data-slot` em todos os sub-componentes
+- [x] Componentes exportados: Pagination, PaginationContent, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis, PaginationItem
+- [x] `aria-label` localizado via i18n
+- [x] Texto customizável em Previous/Next
+- [x] Suporte a `isActive` em PaginationLink
+- [x] `data-slot` em todos os sub-componentes

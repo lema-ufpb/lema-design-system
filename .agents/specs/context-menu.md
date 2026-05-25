@@ -105,12 +105,12 @@ Menu flutuante exibido ao clicar com o botão direito em um elemento, oferecendo
 
 ## Checklist
 
-- [ ] Trigger com clique direito
-- [ ] Itens com variante `default` e `destructive`
-- [ ] Suporte a inset para alinhamento visual
-- [ ] Checkbox items com indicador de seleção
-- [ ] Radio items com grupo
-- [ ] Submenus aninhados
-- [ ] Labels e separadores entre grupos
-- [ ] Shortcuts exibidos nos itens
-- [ ] Animações de entrada/saída
+- [x] Trigger com clique direito
+- [x] Itens com variante `default` e `destructive`
+- [x] Suporte a inset para alinhamento visual
+- [x] Checkbox items com indicador de seleção
+- [x] Radio items com grupo
+- [x] Submenus aninhados
+- [x] Labels e separadores entre grupos
+- [x] Shortcuts exibidos nos itens
+- [x] Animações de entrada/saída

@@ -98,9 +98,9 @@ Aceitam `className` e `children` padrão de `div`.
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — título `text-base font-medium font-heading`, descrição `text-sm`, conteúdo `text-sm`
-- [ ] Tokens semânticos — `card`, `card-foreground`, `foreground`, `muted-foreground`, `font-heading`
-- [ ] Sombra — `shadow-md ring-1 ring-foreground/5`
-- [ ] Imagens — `has-[>img:first-child]:pt-0` com cantos arredondados
-- [ ] Container query — `@container/card-header` para responsividade do header
-- [ ] Espaçamento — `gap-6` (default) / `gap-4` (sm), `rounded-4xl`
+- [x] Escala tipográfica — título `text-base font-medium font-heading`, descrição `text-sm`, conteúdo `text-sm`
+- [x] Tokens semânticos — `card`, `card-foreground`, `foreground`, `muted-foreground`, `font-heading`
+- [x] Sombra — `shadow-md ring-1 ring-foreground/5`
+- [x] Imagens — `has-[>img:first-child]:pt-0` com cantos arredondados
+- [x] Container query — `@container/card-header` para responsividade do header
+- [x] Espaçamento — `gap-6` (default) / `gap-4` (sm), `rounded-4xl`

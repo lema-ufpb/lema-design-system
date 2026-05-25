@@ -116,13 +116,13 @@ Estende `HTMLAttributes<HTMLDivElement>` + `VariantProps<typeof headerSearchVari
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base`
+- [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base`
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
-- [ ] Loading usa `<Skeleton>` com dimensões corretas — N/A (sem loading state)
-- [ ] `tabular-nums` em todos os valores numéricos — N/A
-- [ ] `truncate` em todos os labels de texto variável — N/A
+- [x] Loading usa `<Skeleton>` com dimensões corretas — N/A (sem loading state)
+- [x] `tabular-nums` em todos os valores numéricos — N/A
+- [x] `truncate` em todos os labels de texto variável — N/A
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)

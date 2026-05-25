@@ -99,9 +99,9 @@ O Carousel é um componente de navegação por slides construído sobre a biblio
 
 ## Checklist antes de implementar
 
-- [ ] Context API — `CarouselContext` com `useCarousel()` hook
-- [ ] Orientação — Eixo `x` (horizontal) ou `y` (vertical) no Embla
-- [ ] Botões — Posicionamento absoluto com `-translate-y-1/2` (horizontal)
-- [ ] Gap entre slides — Padding `pl-4` (horizontal) / `pt-4` (vertical) com margem negativa no content
-- [ ] Keyboard — `ArrowLeft`/`ArrowRight` via `onKeyDownCapture`
-- [ ] API pública — `setApi` para acesso externo, tipagem exportada `CarouselApi`
+- [x] Context API — `CarouselContext` com `useCarousel()` hook
+- [x] Orientação — Eixo `x` (horizontal) ou `y` (vertical) no Embla
+- [x] Botões — Posicionamento absoluto com `-translate-y-1/2` (horizontal)
+- [x] Gap entre slides — Padding `pl-4` (horizontal) / `pt-4` (vertical) com margem negativa no content
+- [x] Keyboard — `ArrowLeft`/`ArrowRight` via `onKeyDownCapture`
+- [x] API pública — `setApi` para acesso externo, tipagem exportada `CarouselApi`

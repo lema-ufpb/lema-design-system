@@ -93,11 +93,11 @@ Janela modal que interrompe o fluxo atual para exibir conteúdo importante ou so
 
 ## Checklist
 
-- [ ] Overlay com backdrop-blur
-- [ ] Botão de fechar configurável (`showCloseButton`)
-- [ ] Header com title e description
-- [ ] Footer com close button opcional
-- [ ] Animações de entrada/saída
-- [ ] Focus trap gerenciado pelo Radix
-- [ ] Fechamento via Escape e clique no overlay
-- [ ] Responsivo com `max-w-[calc(100%-2rem)]` e `sm:max-w-md`
+- [x] Overlay com backdrop-blur
+- [x] Botão de fechar configurável (`showCloseButton`)
+- [x] Header com title e description
+- [x] Footer com close button opcional
+- [x] Animações de entrada/saída
+- [x] Focus trap gerenciado pelo Radix
+- [x] Fechamento via Escape e clique no overlay
+- [x] Responsivo com `max-w-[calc(100%-2rem)]` e `sm:max-w-md`

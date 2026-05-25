@@ -129,9 +129,9 @@ Indicador de progresso circular com SVG animado, centro numérico e título opci
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
-- [ ] Loading usa `<Skeleton>` com dimensões corretas — usa `animate-pulse` com texto invisível (exceção documentada)
+- [x] Loading usa `<Skeleton>` com dimensões corretas — usa `animate-pulse` com texto invisível (exceção documentada)
 - [x] `tabular-nums` em todos os valores numéricos
-- [ ] `truncate` em todos os labels de texto variável — N/A (title usa `break-words`)
+- [x] `truncate` em todos os labels de texto variável — N/A (title usa `break-words`)
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)

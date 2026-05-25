@@ -131,13 +131,13 @@ Sem escala tipográfica — Dashrow é puramente layout. Não há texto próprio
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — N/A (sem texto)
+- [x] Escala tipográfica — N/A (sem texto)
 - [x] Tokens semânticos usados
 - [x] `cva()` com `defaultVariants`
 - [x] `*Variants` exportados
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
+- [x] Loading — N/A (sem estado loading)
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A
 - [x] `aria-label` nos divisores
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values
