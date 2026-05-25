@@ -216,15 +216,17 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 
 | Slot | sm | md | lg |
 |------|----|----|----|
-| Label (uppercase) | `text-xs font-semibold tracking-wide` | — | — |
-| Valor compact | `text-xl font-semibold tracking-tight` | — | — |
-| Valor progress/gauge/heatbar | `text-2xl font-semibold tracking-tight` | — | — |
-| Valor highlight | `text-3xl font-semibold tracking-tight` | — | — |
-| Ícone decorativo | `size-4` / `size-5` | — | — |
-| Trend badge | `text-xs font-semibold` | — | — |
-| Card size | `size="sm"` (Card do shadcn) | — | — |
+| Label (uppercase) | `text-xs font-medium tracking-wide` | `text-sm font-medium tracking-wide` | `text-base font-medium tracking-wide` |
+| Valor compact | `text-lg font-semibold tracking-tight tabular-nums` | `text-xl font-semibold tracking-tight tabular-nums` | `text-2xl font-semibold tracking-tight tabular-nums` |
+| Valor progress/gauge/heatbar | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| Valor highlight | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| Header icon | `size-3.5` | `size-4` | `size-5` |
+| Content icon | `size-4` | `size-5` | `size-6` |
+| Badge padding | `px-1.5 py-0.5` | `px-2 py-0.5` | `px-2.5 py-1` |
+| Track height | `h-1.5` | `h-2` | `h-3` |
+| Gap | `gap-2` | `gap-3` | `gap-4` |
 
-> CardStats não possui variante `size` própria — todos os sub-componentes usam `Card size="sm"` internamente.
+> Todos os sub-componentes aceitam `size` (`"sm" | "md" | "lg"`, padrão `"md"`) e aplicam a escala correspondente.
 
 ---
 
