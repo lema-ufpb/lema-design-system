@@ -950,7 +950,7 @@
         {
           "path": "components/custom/combobox.tsx",
           "type": "registry:ui",
-          "target": "components/custom/combobox.tsx"
+          "target": "components/ui/combobox-ui.tsx"
         }
       ]
     },
@@ -966,7 +966,7 @@
         {
           "path": "components/custom/drawer.tsx",
           "type": "registry:ui",
-          "target": "components/custom/drawer.tsx"
+          "target": "components/ui/drawer-ui.tsx"
         }
       ]
     },
@@ -983,7 +983,7 @@
         {
           "path": "components/custom/icon-button.tsx",
           "type": "registry:ui",
-          "target": "components/custom/icon-button.tsx"
+          "target": "components/ui/icon-button.tsx"
         }
       ]
     },
@@ -1001,7 +1001,7 @@
         {
           "path": "components/custom/dashbox.tsx",
           "type": "registry:ui",
-          "target": "components/custom/dashbox.tsx"
+          "target": "components/ui/dashbox.tsx"
         }
       ]
     },
@@ -1017,7 +1017,7 @@
         {
           "path": "components/custom/dashrow.tsx",
           "type": "registry:ui",
-          "target": "components/custom/dashrow.tsx"
+          "target": "components/ui/dashrow.tsx"
         }
       ]
     },
@@ -1036,47 +1036,58 @@
       "files": [
         {
           "path": "components/custom/card-stats-shared.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stats-shared.tsx"
         },
         {
           "path": "components/custom/card-stat.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat.tsx"
         },
         {
           "path": "components/custom/card-stat-compact.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-compact.tsx"
         },
         {
           "path": "components/custom/card-stat-progress.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-progress.tsx"
         },
         {
           "path": "components/custom/card-stat-comparison.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-comparison.tsx"
         },
         {
           "path": "components/custom/card-stat-sparkline.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-sparkline.tsx"
         },
         {
           "path": "components/custom/card-stat-highlight.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-highlight.tsx"
         },
         {
           "path": "components/custom/card-stat-list.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-list.tsx"
         },
         {
           "path": "components/custom/card-stat-gauge.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-gauge.tsx"
         },
         {
           "path": "components/custom/card-stat-heatbar.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stat-heatbar.tsx"
         },
         {
           "path": "components/custom/card-stats.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card-stats.tsx"
         }
       ]
     },
@@ -1093,7 +1104,7 @@
         {
           "path": "components/custom/progress-bar.tsx",
           "type": "registry:ui",
-          "target": "components/custom/progress-bar.tsx"
+          "target": "components/ui/progress-bar.tsx"
         }
       ]
     },
@@ -1109,7 +1120,7 @@
         {
           "path": "components/custom/progress-circular.tsx",
           "type": "registry:ui",
-          "target": "components/custom/progress-circular.tsx"
+          "target": "components/ui/progress-circular.tsx"
         }
       ]
     },
@@ -1126,7 +1137,7 @@
         {
           "path": "components/custom/risk-level-bar.tsx",
           "type": "registry:ui",
-          "target": "components/custom/risk-level-bar.tsx"
+          "target": "components/ui/risk-level-bar.tsx"
         }
       ]
     },
@@ -1142,7 +1153,7 @@
         {
           "path": "components/custom/step-progress.tsx",
           "type": "registry:ui",
-          "target": "components/custom/step-progress.tsx"
+          "target": "components/ui/step-progress.tsx"
         }
       ]
     },
@@ -1163,7 +1174,7 @@
         {
           "path": "components/custom/bar-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/bar-chart.tsx"
+          "target": "components/ui/bar-chart.tsx"
         }
       ]
     },
@@ -1181,7 +1192,7 @@
         {
           "path": "components/custom/boxplot-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/boxplot-chart.tsx"
+          "target": "components/ui/boxplot-chart.tsx"
         }
       ]
     },
@@ -1202,7 +1213,7 @@
         {
           "path": "components/custom/candlestick-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/candlestick-chart.tsx"
+          "target": "components/ui/candlestick-chart.tsx"
         }
       ]
     },
@@ -1222,7 +1233,7 @@
         {
           "path": "components/custom/geomap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/geomap-chart.tsx"
+          "target": "components/ui/geomap-chart.tsx"
         }
       ]
     },
@@ -1242,7 +1253,7 @@
         {
           "path": "components/custom/heatmap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/heatmap-chart.tsx"
+          "target": "components/ui/heatmap-chart.tsx"
         }
       ]
     },
@@ -1263,7 +1274,7 @@
         {
           "path": "components/custom/line-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/line-chart.tsx"
+          "target": "components/ui/line-chart.tsx"
         }
       ]
     },
@@ -1284,7 +1295,7 @@
         {
           "path": "components/custom/pie-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/pie-chart.tsx"
+          "target": "components/ui/pie-chart.tsx"
         }
       ]
     },
@@ -1305,7 +1316,7 @@
         {
           "path": "components/custom/radar-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/radar-chart.tsx"
+          "target": "components/ui/radar-chart.tsx"
         }
       ]
     },
@@ -1326,7 +1337,7 @@
         {
           "path": "components/custom/radial-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/radial-chart.tsx"
+          "target": "components/ui/radial-chart.tsx"
         }
       ]
     },
@@ -1347,7 +1358,7 @@
         {
           "path": "components/custom/scatter-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/scatter-chart.tsx"
+          "target": "components/ui/scatter-chart.tsx"
         }
       ]
     },
@@ -1368,7 +1379,7 @@
         {
           "path": "components/custom/treemap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/custom/treemap-chart.tsx"
+          "target": "components/ui/treemap-chart.tsx"
         }
       ]
     },
@@ -1385,7 +1396,7 @@
         {
           "path": "components/custom/counter.tsx",
           "type": "registry:ui",
-          "target": "components/custom/counter.tsx"
+          "target": "components/ui/counter.tsx"
         }
       ]
     },
@@ -1401,7 +1412,7 @@
         {
           "path": "components/custom/input-email.tsx",
           "type": "registry:ui",
-          "target": "components/custom/input-email.tsx"
+          "target": "components/ui/input-email.tsx"
         }
       ]
     },
@@ -1419,7 +1430,7 @@
         {
           "path": "components/custom/input-password.tsx",
           "type": "registry:ui",
-          "target": "components/custom/input-password.tsx"
+          "target": "components/ui/input-password.tsx"
         }
       ]
     },
@@ -1442,7 +1453,7 @@
         {
           "path": "components/custom/select-list.tsx",
           "type": "registry:ui",
-          "target": "components/custom/select-list.tsx"
+          "target": "components/ui/select-list.tsx"
         }
       ]
     },
@@ -1458,7 +1469,7 @@
         {
           "path": "components/custom/footer-menu.tsx",
           "type": "registry:ui",
-          "target": "components/custom/footer-menu.tsx"
+          "target": "components/ui/footer-menu.tsx"
         }
       ]
     },
@@ -1476,7 +1487,7 @@
         {
           "path": "components/custom/header-search.tsx",
           "type": "registry:ui",
-          "target": "components/custom/header-search.tsx"
+          "target": "components/ui/header-search.tsx"
         }
       ]
     },
@@ -1493,7 +1504,7 @@
         {
           "path": "components/custom/nav-dots.tsx",
           "type": "registry:ui",
-          "target": "components/custom/nav-dots.tsx"
+          "target": "components/ui/nav-dots.tsx"
         }
       ]
     },
@@ -1512,7 +1523,7 @@
         {
           "path": "components/custom/nav-user.tsx",
           "type": "registry:ui",
-          "target": "components/custom/nav-user.tsx"
+          "target": "components/ui/nav-user.tsx"
         }
       ]
     },
@@ -1532,7 +1543,7 @@
         {
           "path": "components/custom/toggle-theme.tsx",
           "type": "registry:ui",
-          "target": "components/custom/toggle-theme.tsx"
+          "target": "components/ui/toggle-theme.tsx"
         }
       ]
     },
@@ -1552,22 +1563,22 @@
         {
           "path": "components/custom/search-combo/index.tsx",
           "type": "registry:component",
-          "target": "components/custom/search-combo/index.tsx"
+          "target": "components/ui/search-combo/index.tsx"
         },
         {
           "path": "components/custom/search-combo/types.ts",
           "type": "registry:component",
-          "target": "components/custom/search-combo/types.ts"
+          "target": "components/ui/search-combo/types.ts"
         },
         {
           "path": "components/custom/search-combo/variants.ts",
           "type": "registry:component",
-          "target": "components/custom/search-combo/variants.ts"
+          "target": "components/ui/search-combo/variants.ts"
         },
         {
           "path": "components/custom/search-combo/hooks/use-speech-recognition.ts",
           "type": "registry:component",
-          "target": "components/custom/search-combo/hooks/use-speech-recognition.ts"
+          "target": "components/ui/search-combo/hooks/use-speech-recognition.ts"
         }
       ]
     },
@@ -1590,7 +1601,7 @@
         {
           "path": "components/custom/data-table.tsx",
           "type": "registry:ui",
-          "target": "components/custom/data-table.tsx"
+          "target": "components/ui/data-table.tsx"
         }
       ]
     },
@@ -1609,7 +1620,7 @@
         {
           "path": "components/custom/spinner.tsx",
           "type": "registry:ui",
-          "target": "components/custom/spinner.tsx"
+          "target": "components/ui/spinner-ui.tsx"
         }
       ]
     },
@@ -1629,7 +1640,7 @@
         {
           "path": "components/custom/pagination.tsx",
           "type": "registry:ui",
-          "target": "components/custom/pagination.tsx"
+          "target": "components/ui/pagination-ui.tsx"
         }
       ]
     }
