@@ -36,6 +36,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Basic tooltip displaying 'Add to library' when hovering over the trigger button.",
+      },
+    },
+  },
   render: () => (
     <TooltipProvider>
       <Tooltip>

@@ -35,12 +35,15 @@ const meta = {
       control: "select",
       options: ["default", "sm"],
       description: "Switch size preset",
+      table: { defaultValue: { summary: "default" } },
     },
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     defaultChecked: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
   },
 } satisfies Meta<typeof Switch>
@@ -52,9 +55,25 @@ export const Default: Story = {
   args: {
     size: "default",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Toggle switch in the default size preset, demonstrating the unchecked state.",
+      },
+    },
+  },
 }
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two toggled-on switches comparing the small and default size presets side by side.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-6">
       <Switch size="sm" defaultChecked />

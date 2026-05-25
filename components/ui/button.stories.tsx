@@ -45,6 +45,7 @@ const meta = {
         "link",
       ],
       description: "Visual style variant",
+      table: { defaultValue: { summary: "default" } },
     },
     size: {
       control: "select",
@@ -59,9 +60,11 @@ const meta = {
         "icon-lg",
       ],
       description: "Size and padding",
+      table: { defaultValue: { summary: "default" } },
     },
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     asChild: {
       table: { disable: true },
@@ -78,9 +81,25 @@ export const Default: Story = {
     variant: "default",
     size: "default",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Primary variant with default size and the label "Button" for standard action triggers.',
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "All six button variants (default, outline, secondary, ghost, destructive, link) displayed together.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button variant="default">Default</Button>
@@ -94,6 +113,14 @@ export const Variants: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Button size presets from xs to lg compared side by side with text labels.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Button size="xs">Extra Small</Button>
@@ -105,6 +132,14 @@ export const Sizes: Story = {
 }
 
 export const IconSizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Icon-only buttons at icon-xs, icon-sm, icon, and icon-lg sizes with an outline variant.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Button size="icon-xs" variant="outline">
@@ -124,6 +159,14 @@ export const IconSizes: Story = {
 }
 
 export const Icons: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Buttons with icons positioned at inline-start and inline-end of the text label.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button>
@@ -139,6 +182,14 @@ export const Icons: Story = {
 }
 
 export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Disabled state demonstrated across default, outline, and secondary variants.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button disabled>Disabled</Button>
@@ -153,6 +204,14 @@ export const Disabled: Story = {
 }
 
 export const Loading: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading state with an animated spinner icon positioned inline-start, shown in default, outline, and disabled variants.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button>
@@ -172,6 +231,14 @@ export const Loading: Story = {
 }
 
 export const AsChild: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Button component rendered as an anchor element using the `asChild` composition API.",
+      },
+    },
+  },
   render: () => (
     <Button asChild>
       <a href="#">Link as Button</a>

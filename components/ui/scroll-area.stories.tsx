@@ -30,6 +30,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Custom scroll area with long lorem ipsum text, demonstrating custom scrollbar styling and keyboard focus support.",
+      },
+    },
+  },
   render: () => (
     <ScrollArea className="h-40 w-full rounded-lg border p-4">
       <p>

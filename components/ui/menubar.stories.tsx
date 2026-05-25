@@ -52,6 +52,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal menubar with File, Edit, and View menus featuring items, keyboard shortcuts, a destructive item, checkbox items, and a submenu with radio group options.",
+      },
+    },
+  },
   render: () => (
     <Menubar className="w-fit">
       <MenubarMenu>

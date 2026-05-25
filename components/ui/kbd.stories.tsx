@@ -36,6 +36,14 @@ export const Default: Story = {
   args: {
     children: "⌘K",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single keyboard shortcut ⌘K rendered as an inline kbd element with muted background styling.",
+      },
+    },
+  },
 }
 
 export const Group: Story = {

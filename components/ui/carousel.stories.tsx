@@ -35,6 +35,7 @@ const meta = {
       control: "select",
       options: ["horizontal", "vertical"],
       description: "Scroll direction",
+      table: { defaultValue: { summary: "horizontal" } },
     },
     opts: {
       table: { disable: true },
@@ -56,6 +57,14 @@ const slideStyles = [
 ]
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal carousel with responsive slide widths (1/2 on md, 1/3 on lg) and navigation arrows.",
+      },
+    },
+  },
   render: ({ orientation }) => (
     <Carousel className="mx-16" orientation={orientation}>
       <CarouselContent>
@@ -75,6 +84,14 @@ export const Default: Story = {
 }
 
 export const SingleSlide: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Carousel showing one full slide at a time with navigation arrows for browsing.",
+      },
+    },
+  },
   render: () => (
     <Carousel className="mx-16">
       <CarouselContent>
@@ -91,6 +108,14 @@ export const SingleSlide: Story = {
 }
 
 export const Vertical: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertically oriented carousel with constrained 320px height for sidebar-like layouts.",
+      },
+    },
+  },
   render: () => (
     <div className="flex justify-center">
       <Carousel orientation="vertical" className="h-80 w-64">
@@ -109,6 +134,14 @@ export const Vertical: Story = {
 }
 
 export const WithCustomOpts: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Carousel configured with start-aligned slides and infinite looping enabled via opts.",
+      },
+    },
+  },
   render: () => (
     <Carousel className="mx-16" opts={{ align: "start", loop: true }}>
       <CarouselContent>
