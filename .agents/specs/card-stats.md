@@ -126,7 +126,7 @@ Estende `FmtProps`.
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
 
-Estende `FmtProps` + `VariantProps<typeof highlightVariants>`.
+Estende `FmtProps` + `VariantProps<typeof cardStatHighlightVariants>`.
 
 ### CardStatList
 
@@ -179,13 +179,9 @@ Estende `FmtProps`. `CardStatHeatbarZone`: `{ label: string, color: string, max:
 
 ## Variantes CVA
 
-### highlightVariants (apenas CardStatHighlight)
+### cardStatHighlightVariants (apenas CardStatHighlight)
 
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `variant` | `primary`, `emerald`, `amber`, `rose`, `violet`, `sky` | `primary` |
-
-Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. Os outros sub-componentes não usam CVA — usam classes diretas via `cn()`.
+Slots: sem sub-variantes, apenas `cardStatHighlightVariants` para o wrapper do cartão. Os outros sub-componentes não usam CVA — usam classes diretas via `cn()`.
 
 ---
 
@@ -223,7 +219,7 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 | Header icon | `size-3.5` | `size-4` | `size-5` |
 | Content icon | `size-4` | `size-5` | `size-6` |
 | Badge padding | `px-1.5 py-0.5` | `px-2 py-0.5` | `px-2.5 py-1` |
-| Track height | `h-1.5` | `h-2` | `h-3` |
+| Track height | `h-2` | `h-3` | `h-4` |
 | Gap | `gap-2` | `gap-3` | `gap-4` |
 
 > Todos os sub-componentes aceitam `size` (`"sm" | "md" | "lg"`, padrão `"md"`) e aplicam a escala correspondente.
@@ -314,8 +310,8 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 
 - [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base` (aplicado nos slots internos)
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [x] `defaultVariants` declarado em `highlightVariants`
-- [x] Todos os `*Variants` são exportados (`highlightVariants`)
+- [x] `defaultVariants` declarado em `cardStatHighlightVariants`
+- [x] Todos os `*Variants` são exportados (`cardStatHighlightVariants`)
 - [x] Loading usa `<Skeleton>` com dimensões corretas
 - [x] `tabular-nums` em valores percentuais
 - [x] `truncate` em labels
