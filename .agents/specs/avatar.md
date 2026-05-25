@@ -85,7 +85,7 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 | Imagem falhou/nula | Exibe `AvatarFallback` com iniciais |
 | Tamanho sm | `size-6` (24px), fallback `text-xs` |
 | Tamanho default | `size-8` (32px), fallback `text-sm` |
-| Tamanho lg | `size-10` (40px), fallback `text-sm` |
+| Tamanho lg | `size-10` (40px), fallback `text-base` |
 | AvatarGroup | Avatares sobrepostos com `-space-x-2` e `ring-2 ring-background` |
 | AvatarBadge | Posicionado `absolute right-0 bottom-0` com `ring-2 ring-background` |
 
