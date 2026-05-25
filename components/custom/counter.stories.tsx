@@ -36,17 +36,37 @@ const meta = {
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
     },
     variant: {
       control: "select",
       options: ["default", "ghost", "outline"],
+      table: { defaultValue: { summary: "default" } },
     },
-    disabled: { control: "boolean" },
-    loading: { control: "boolean" },
-    min: { control: "number" },
-    max: { control: "number" },
-    step: { control: "number" },
-    maxWidth: { control: "text" },
+    disabled: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    min: {
+      control: "number",
+      table: { defaultValue: { summary: "-Infinity" } },
+    },
+    max: {
+      control: "number",
+      table: { defaultValue: { summary: "Infinity" } },
+    },
+    step: {
+      control: "number",
+      table: { defaultValue: { summary: "1" } },
+    },
+    maxWidth: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
   },
 } satisfies Meta<typeof Counter>
 
@@ -59,6 +79,13 @@ export const Default: Story = {
     min: 0,
     max: 10,
     step: 1,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Default counter with min=0, max=10, and step=1 constraints.",
+      },
+    },
   },
 }
 
@@ -86,6 +113,13 @@ export const LocalePTBR: Story = {
     max: 10,
     step: 1,
     locale: "pt-BR",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Portuguese (pt-BR) locale applied to the counter.",
+      },
+    },
   },
 }
 
@@ -140,6 +174,14 @@ export const Controlled: Story = {
       </div>
     )
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Controlled counter — value managed externally with an onChange handler.",
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
@@ -155,6 +197,14 @@ export const Variants: Story = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all three border variants — default, ghost, and outline.",
+      },
+    },
+  },
 }
 
 export const Sizes: Story = {
@@ -170,6 +220,13 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
 }
 
 export const Disabled: Story = {
@@ -177,6 +234,14 @@ export const Disabled: Story = {
     disabled: true,
     defaultValue: 5,
     maxWidth: "320px",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Disabled state preventing user interaction with the increment and decrement buttons.",
+      },
+    },
   },
 }
 

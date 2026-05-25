@@ -36,10 +36,12 @@ const meta = {
     orientation: {
       control: "select",
       options: ["horizontal", "vertical"],
+      table: { defaultValue: { summary: "horizontal" } },
     },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
     },
   },
 } satisfies Meta<typeof StepProgress>
@@ -76,10 +78,26 @@ const steps = [
 
 export const Horizontal: Story = {
   args: { steps, currentStepId: "2", orientation: "horizontal" },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal step progress with step 2 (Payment) as the current active step.",
+      },
+    },
+  },
 }
 
 export const Vertical: Story = {
   args: { steps, currentStepId: "2", orientation: "vertical" },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertical step progress with step 2 (Payment) as the current active step.",
+      },
+    },
+  },
 }
 
 export const Interactive: Story = {
@@ -123,6 +141,14 @@ export const Interactive: Story = {
       </div>
     )
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Interactive step progress with Previous/Next buttons to navigate between steps.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -157,6 +183,14 @@ export const LocalePTBR: Story = {
     orientation: "horizontal",
     locale: "pt-BR",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) localization with translated step titles and descriptions.",
+      },
+    },
+  },
 }
 
 export const Sizes: Story = {
@@ -177,4 +211,11 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
 }

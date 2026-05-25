@@ -53,20 +53,51 @@ const meta = {
     },
   },
   argTypes: {
-    showVolume: { control: "boolean" },
-    showGrid: { control: "boolean" },
-    showLegend: { control: "boolean" },
-    showTooltip: { control: "boolean" },
-    showBrush: { control: "boolean" },
+    showVolume: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showGrid: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showBrush: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    height: { control: { type: "range", min: 200, max: 600, step: 10 } },
-    positiveColor: { control: "color" },
-    negativeColor: { control: "color" },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    height: {
+      control: { type: "range", min: 200, max: 600, step: 10 },
+      table: { defaultValue: { summary: "360" } },
+    },
+    positiveColor: {
+      control: "color",
+      table: { defaultValue: { summary: "#22c55e" } },
+    },
+    negativeColor: {
+      control: "color",
+      table: { defaultValue: { summary: "#ef4444" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     movingAverages: { table: { disable: true } },
     referenceLines: { table: { disable: true } },
@@ -458,6 +489,14 @@ const longSeries = (() => {
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default OHLC candlestick chart showing equity price action with hollow bullish and filled bearish candles.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — OHLC",
     subtitle: "January 2025 · hollow = bullish · filled = bearish",
@@ -469,6 +508,14 @@ export const Default: Story = {
 }
 
 export const WithVolume: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Candlestick chart with color-coded volume bars in the lower section — green for bullish sessions, red for bearish.",
+      },
+    },
+  },
   args: {
     title: "Equity Price with Volume",
     subtitle:
@@ -482,6 +529,14 @@ export const WithVolume: Story = {
 }
 
 export const WithMovingAverages: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Candlestick chart overlaying MA 7 and MA 14 lines with a dashed style for the longer period and a legend.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — MA 7 & MA 14",
     subtitle: "Hover a candle to see MA values at that date",
@@ -498,6 +553,14 @@ export const WithMovingAverages: Story = {
 }
 
 export const FullFeatured: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full-featured candlestick view combining volume bars, MA 7 and MA 20 lines, and support and resistance reference lines.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — Full Feature View",
     subtitle: "Volume · MA 7 · MA 20 · support and resistance reference lines",
@@ -524,6 +587,14 @@ export const FullFeatured: Story = {
 }
 
 export const CryptoVolatility: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "BTC/USD candlestick chart showing high-volatility sessions with large wicks, volume confirmation, and a USD value formatter.",
+      },
+    },
+  },
   args: {
     title: "BTC/USD — High-Volatility Session",
     subtitle: "Large wicks signal indecision — volume confirms breakout",
@@ -541,6 +612,14 @@ export const CryptoVolatility: Story = {
 }
 
 export const BearishTrend: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bearish breakdown candlestick chart with increasing volume confirmation, a support reference line, and a footer analyzing the price action.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — Bearish Breakdown",
     subtitle: "Downtrend confirmed by increasing volume on down days",
@@ -563,6 +642,14 @@ export const BearishTrend: Story = {
 }
 
 export const WithReferenceLines: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Candlestick chart with three reference lines marking support, mid target, and resistance levels at key price points.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — Support & Resistance",
     subtitle: "Reference lines highlight key price levels to watch",
@@ -589,6 +676,14 @@ export const WithReferenceLines: Story = {
 }
 
 export const WithBrush: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "60-day candlestick chart with a brush slider for interactive zoom and pan across a long price series with moving averages.",
+      },
+    },
+  },
   args: {
     title: "60-Day Chart — Drag to Zoom",
     subtitle:
@@ -608,6 +703,14 @@ export const WithBrush: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four candlestick charts demonstrating all four legend positions with MA 5 lines and the first ten trading sessions.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
       {(["top", "right", "bottom", "left"] as const).map((pos) => (
@@ -631,6 +734,14 @@ export const LegendPositions: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Candlestick chart with Portuguese locale displaying equity OHLC data with localized date and number formatting.",
+      },
+    },
+  },
   args: {
     title: "Preço de Ações — OHLC",
     subtitle: "Janeiro 2025 · vazado = alta · preenchido = baixa",
@@ -671,6 +782,14 @@ function LoadingDemo(props: React.ComponentProps<typeof CandlestickChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the candlestick chart with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — OHLC",
     subtitle: "January 2025 · hollow = bullish · filled = bearish",
@@ -683,6 +802,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — OHLC",
     subtitle: "January 2025",
@@ -692,6 +819,14 @@ export const EmptyState: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Candlestick chart with volume, moving averages, and a footer summarizing the period return and key pullback events.",
+      },
+    },
+  },
   args: {
     title: "Equity Price — January 2025",
     subtitle: "20 trading sessions · OHLC + volume",

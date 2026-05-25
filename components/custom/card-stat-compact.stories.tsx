@@ -38,6 +38,11 @@ const meta = {
     trendValue: { control: "text" },
     loading: { control: "boolean" },
     empty: { control: "boolean" },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
   },
@@ -54,6 +59,15 @@ export const Default: Story = {
     trend: "up",
     trendValue: "+26.8%",
     icon: DollarSignIcon,
+    size: "md",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard horizontal compact card showing total revenue with currency value and trend badge.",
+      },
+    },
   },
 }
 
@@ -62,6 +76,14 @@ export const Loading: Story = {
     label: "Total Revenue",
     value: 0,
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying four CardStatCompact placeholders while data is being fetched.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -80,6 +102,14 @@ export const EmptyState: Story = {
     empty: true,
     icon: DollarSignIcon,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing four compact cards with dash placeholders when no data is available.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <CardStatCompact
@@ -95,10 +125,80 @@ export const EmptyState: Story = {
   ),
 }
 
+export const AllSizes: Story = {
+  args: { label: "Metric", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStatCompact component with multiple metrics.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <CardStatCompact
+              label="Total Revenue"
+              value={124500}
+              format="currency"
+              trend="up"
+              trendValue="+26.8%"
+              icon={DollarSignIcon}
+              size={size}
+            />
+            <CardStatCompact
+              label="Active Users"
+              value={57891}
+              format="integer"
+              trend="up"
+              trendValue="+12.4%"
+              icon={UsersIcon}
+              size={size}
+            />
+            <CardStatCompact
+              label="Orders"
+              value={1847}
+              format="integer"
+              trend="neutral"
+              trendValue="0.0%"
+              icon={ShoppingCartIcon}
+              size={size}
+            />
+            <CardStatCompact
+              label="Churn Rate"
+              value={2.4}
+              format="percent"
+              decimals={1}
+              trend="down"
+              trendValue="-0.8%"
+              icon={ActivityIcon}
+              size={size}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const AllVariants: Story = {
   args: {
     label: "Metric",
     value: 0,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates all available variant configurations side by side — revenue, users, orders, and churn rate.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">

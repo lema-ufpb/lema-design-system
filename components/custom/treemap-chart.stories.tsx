@@ -49,12 +49,30 @@ const meta = {
     },
   },
   argTypes: {
-    showLabels: { control: "boolean" },
-    showTooltip: { control: "boolean" },
-    height: { control: { type: "range", min: 160, max: 600, step: 10 } },
-    aspectRatio: { control: { type: "range", min: 0.5, max: 4, step: 0.1 } },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    showLabels: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    height: {
+      control: { type: "range", min: 160, max: 600, step: 10 },
+      table: { defaultValue: { summary: "360" } },
+    },
+    aspectRatio: {
+      control: { type: "range", min: 0.5, max: 4, step: 0.1 },
+      table: { defaultValue: { summary: "1.33" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     footer: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
@@ -145,6 +163,14 @@ const researchOutput = [
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Flat treemap showing budget allocation percentages across five spending categories with labels and tooltips.",
+      },
+    },
+  },
   args: {
     title: "Budget Allocation",
     subtitle: "Fiscal year 2025 — percentage of total",
@@ -156,6 +182,14 @@ export const Default: Story = {
 }
 
 export const Hierarchical: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-level treemap of enrollment by school with click-to-explore drill-down into individual programs.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by School",
     subtitle: "Click any school to explore its programs",
@@ -168,6 +202,14 @@ export const Hierarchical: Story = {
 }
 
 export const CustomColors: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Treemap using semantic color tokens for approved, recovering, and failing student status categories.",
+      },
+    },
+  },
   args: {
     title: "Course Completion Rate",
     subtitle:
@@ -180,6 +222,14 @@ export const CustomColors: Story = {
 }
 
 export const NoLabels: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Treemap with labels hidden, relying entirely on tooltip interaction for identifying research output categories.",
+      },
+    },
+  },
   args: {
     title: "Research Output",
     subtitle: "Hover cells to see details — labels hidden",
@@ -191,6 +241,14 @@ export const NoLabels: Story = {
 }
 
 export const DenseData: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Treemap displaying seven research output categories where labels only appear on larger cells to avoid overcrowding.",
+      },
+    },
+  },
   args: {
     title: "Research Output by Type",
     subtitle: "Many categories — labels appear only on larger cells",
@@ -202,6 +260,14 @@ export const DenseData: Story = {
 }
 
 export const WideAspectRatio: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Treemap with `aspectRatio={2}` producing wider, shorter cells for an alternative layout of budget allocation data.",
+      },
+    },
+  },
   args: {
     title: "Budget Allocation",
     subtitle: "aspectRatio={2} — wider, shorter cells",
@@ -215,6 +281,14 @@ export const WideAspectRatio: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Hierarchical treemap with a footer showing total enrollment, school count, and year-over-year growth percentage.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by School",
     subtitle: "Semester 2025.1 — 9,740 students total",
@@ -245,6 +319,14 @@ export const WithFooter: Story = {
 }
 
 export const FlatComparison: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four treemaps comparing different aspect ratios and label visibility settings side by side for the same budget data.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
       <TreeMapChart
@@ -293,6 +375,14 @@ export const FlatComparison: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Treemap with Portuguese locale displaying budget allocation with localized percentage formatting.",
+      },
+    },
+  },
   args: {
     title: "Alocação Orçamentária",
     subtitle: "Ano fiscal 2025 — percentual do total",
@@ -333,6 +423,14 @@ function LoadingDemo(props: React.ComponentProps<typeof TreeMapChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the treemap with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Budget Allocation",
     subtitle: "Fiscal year 2025 — percentage of total",
@@ -345,6 +443,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the treemap renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Budget Allocation",
     subtitle: "Fiscal year 2025",
@@ -354,6 +460,14 @@ export const EmptyState: Story = {
 }
 
 export const DrillDown: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Hierarchical enrollment treemap with explicit breadcrumb navigation for drill-down exploration through schools and programs.",
+      },
+    },
+  },
   render: () => (
     <div className="flex w-full max-w-2xl flex-col gap-2">
       <p className="text-xs text-muted-foreground">

@@ -49,20 +49,51 @@ const meta = {
     },
   },
   argTypes: {
-    showTrack: { control: "boolean" },
-    showLegend: { control: "boolean" },
+    showTrack: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showTooltip: { control: "boolean" },
-    height: { control: { type: "range", min: 160, max: 500, step: 10 } },
-    maxValue: { control: { type: "number" } },
-    startAngle: { control: { type: "range", min: -360, max: 360, step: 10 } },
-    endAngle: { control: { type: "range", min: -360, max: 360, step: 10 } },
-    innerLabel: { control: "text" },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    height: {
+      control: { type: "range", min: 160, max: 500, step: 10 },
+      table: { defaultValue: { summary: "320" } },
+    },
+    maxValue: {
+      control: { type: "number" },
+      table: { defaultValue: { summary: "" } },
+    },
+    startAngle: {
+      control: { type: "range", min: -360, max: 360, step: 10 },
+      table: { defaultValue: { summary: "90" } },
+    },
+    endAngle: {
+      control: { type: "range", min: -360, max: 360, step: 10 },
+      table: { defaultValue: { summary: "-270" } },
+    },
+    innerLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     footer: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
@@ -102,6 +133,14 @@ const customColorMetrics = [
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Four concentric radial bars showing approval rate, attendance, completion, and satisfaction on a 0–100 scale with track and tooltip.",
+      },
+    },
+  },
   args: {
     title: "Semester Performance",
     subtitle: "Key indicators — 0–100 scale",
@@ -114,6 +153,14 @@ export const Default: Story = {
 }
 
 export const WithLegend: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radial chart with an interactive legend allowing show/hide toggle for each semester performance metric.",
+      },
+    },
+  },
   args: {
     title: "Semester Performance",
     subtitle: "Click a legend item to hide / show its bar",
@@ -127,6 +174,14 @@ export const WithLegend: Story = {
 }
 
 export const GaugeSingle: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single-metric semicircular gauge showing attendance rate with a center label, track background, and compact height.",
+      },
+    },
+  },
   args: {
     title: "Attendance Rate",
     subtitle: "Semester 2025.1",
@@ -143,6 +198,14 @@ export const GaugeSingle: Story = {
 }
 
 export const FullCircleWithLabel: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full-circle radial gauge displaying a single attendance metric with center label, track, and a custom color.",
+      },
+    },
+  },
   args: {
     title: "Overall Attendance",
     subtitle: "Full-circle gauge — single metric",
@@ -157,6 +220,14 @@ export const FullCircleWithLabel: Story = {
 }
 
 export const MultiDepartment: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Five-bar radial chart comparing average grades across schools with a legend for identification and tooltips.",
+      },
+    },
+  },
   args: {
     title: "Average Grade by School",
     subtitle: "All departments · Semester 2025.1",
@@ -171,6 +242,14 @@ export const MultiDepartment: Story = {
 }
 
 export const CustomColors: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radial chart using semantic color tokens for completed, in-progress, and dropped course status with a legend.",
+      },
+    },
+  },
   args: {
     title: "Course Completion",
     subtitle:
@@ -185,6 +264,14 @@ export const CustomColors: Story = {
 }
 
 export const NoTrack: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radial chart with background tracks hidden, displaying only the active colored bars for a cleaner look.",
+      },
+    },
+  },
   args: {
     title: "Semester Metrics",
     subtitle: "showTrack={false} — bars only",
@@ -197,6 +284,14 @@ export const NoTrack: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Five-bar radial chart with a footer showing the top-performing department and overall average score.",
+      },
+    },
+  },
   args: {
     title: "Department Performance",
     subtitle: "Semester 2025.1 average scores",
@@ -223,6 +318,14 @@ export const WithFooter: Story = {
 }
 
 export const GaugeGrid: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four semicircular gauges showing approval, attendance, completion, and satisfaction as independent KPI widgets.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
       {[
@@ -250,6 +353,14 @@ export const GaugeGrid: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four radial charts demonstrating all four legend positions (top, right, bottom, left) for semester metrics.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
       {(["top", "right", "bottom", "left"] as const).map((pos) => (
@@ -272,6 +383,14 @@ export const LegendPositions: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radial chart with Portuguese locale displaying semester performance indicators in localized number format.",
+      },
+    },
+  },
   args: {
     title: "Desempenho Semestral",
     subtitle: "Indicadores principais — escala 0–100",
@@ -313,6 +432,14 @@ function LoadingDemo(props: React.ComponentProps<typeof RadialChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the radial chart with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Semester Performance",
     subtitle: "Key indicators — 0–100 scale",
@@ -326,6 +453,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the radial chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Semester Performance",
     subtitle: "Key indicators — 0–100 scale",
@@ -335,6 +470,14 @@ export const EmptyState: Story = {
 }
 
 export const StudentKPIs: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashboard of four semicircular gauges showing approval rate, attendance, completion, and dropout risk as independent RadialChart instances.",
+      },
+    },
+  },
   render: () => (
     <div className="flex w-full max-w-lg flex-col gap-1">
       <p className="mb-2 text-sm font-semibold text-foreground">

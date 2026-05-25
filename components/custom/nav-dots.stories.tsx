@@ -86,16 +86,20 @@ const meta: Meta<typeof NavDots> = {
     orientation: {
       control: "radio",
       options: ["vertical", "horizontal"],
+      table: { defaultValue: { summary: "vertical" } },
     },
     position: {
       control: "radio",
       options: ["left", "right"],
+      table: { defaultValue: { summary: "right" } },
     },
     active: {
       control: "number",
+      table: { defaultValue: { summary: "0" } },
     },
     scrollOnClick: {
       control: "boolean",
+      table: { defaultValue: { summary: "true" } },
     },
     onActiveChange: { table: { disable: true } },
     scrollContainer: { table: { disable: true } },
@@ -127,6 +131,14 @@ export const Default: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertical dot navigation on the right side — scroll the container to see active dot tracking.",
+      },
+    },
+  },
 }
 
 /**
@@ -148,6 +160,14 @@ export const Horizontal: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal dot navigation at the top center — active state changes as sections scroll into view.",
+      },
+    },
+  },
 }
 
 /** Pinned to the left side of the container */
@@ -166,6 +186,14 @@ export const LeftPosition: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertical dot navigation pinned to the left edge of the scrollable container.",
+      },
+    },
+  },
 }
 
 /** Initial active section set to index 2 (Features) */
@@ -183,6 +211,14 @@ export const WithActive: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dot navigation with initial active section set to index 2 (Features).",
+      },
+    },
+  },
 }
 
 /** Fires `onActiveChange` callback logged in the Actions panel */
@@ -200,6 +236,14 @@ export const WithCallback: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dot navigation that fires an onActiveChange callback logged in the Actions panel.",
+      },
+    },
+  },
 }
 
 /** Dots are display-only — clicking does not scroll */
@@ -217,6 +261,14 @@ export const DisabledScroll: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dot navigation with scrollOnClick={false} — dots are display-only without scroll behavior.",
+      },
+    },
+  },
 }
 
 /** pt-BR locale example */
@@ -246,6 +298,14 @@ export const LocalePTBR: Story = {
       />
     </ScrollDemo>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) localization — section labels and tooltip text translated.",
+      },
+    },
+  },
 }
 
 /** Side-by-side comparison of all active states */
@@ -270,4 +330,12 @@ export const AllStates: Story = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Side-by-side comparison of all active states (0–3) in a single view.",
+      },
+    },
+  },
 }

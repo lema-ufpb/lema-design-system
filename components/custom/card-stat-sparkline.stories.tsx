@@ -45,6 +45,11 @@ const meta = {
     loading: { control: "boolean" },
     empty: { control: "boolean" },
     data: { table: { disable: true } },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
   },
@@ -62,6 +67,15 @@ export const Default: Story = {
     trend: "up",
     trendValue: "+5.2% vs last week",
     icon: EyeIcon,
+    size: "md",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard sparkline card showing weekly sessions with an upward Catmull-Rom SVG line chart and trend badge.",
+      },
+    },
   },
 }
 
@@ -70,6 +84,14 @@ export const Loading: Story = {
     label: "Weekly Sessions",
     value: 0,
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying four CardStatSparkline placeholders while data is being fetched.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -108,6 +130,14 @@ export const EmptyState: Story = {
     empty: true,
     icon: EyeIcon,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing four sparkline cards with dash placeholders when no data is available.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <CardStatSparkline
@@ -138,11 +168,85 @@ export const EmptyState: Story = {
   ),
 }
 
+export const AllSizes: Story = {
+  args: { label: "Metric", value: 0, data: [] },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStatSparkline component with sessions, revenue, orders, and bounce rate.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <CardStatSparkline
+              label="Weekly Sessions"
+              value={57891}
+              format="integer"
+              data={WEEKLY_SESSIONS}
+              trend="up"
+              trendValue="+5.2% vs last week"
+              icon={EyeIcon}
+              size={size}
+            />
+            <CardStatSparkline
+              label="Revenue"
+              value={31750}
+              format="currency"
+              data={WEEKLY_REVENUE}
+              trend="up"
+              trendValue="+11.8% vs last week"
+              icon={DollarSignIcon}
+              size={size}
+            />
+            <CardStatSparkline
+              label="Orders"
+              value={521}
+              format="integer"
+              data={WEEKLY_ORDERS}
+              trend="up"
+              trendValue="+15.2% vs last week"
+              icon={ShoppingCartIcon}
+              size={size}
+            />
+            <CardStatSparkline
+              label="Bounce Rate"
+              value={32.4}
+              format="percent"
+              decimals={1}
+              data={WEEKLY_BOUNCE}
+              trend="down"
+              trendValue="−5.9% vs last week"
+              icon={ActivityIcon}
+              size={size}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const AllMetrics: Story = {
   args: {
     label: "Metric",
     value: 0,
     data: [],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates four sparkline metrics — weekly sessions, revenue, orders, and bounce rate — with up and down trends.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -48,23 +48,52 @@ const meta = {
     },
   },
   argTypes: {
-    filled: { control: "boolean" },
-    fillOpacity: { control: { type: "range", min: 0, max: 1, step: 0.05 } },
-    dots: { control: "boolean" },
+    filled: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    fillOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.05 },
+      table: { defaultValue: { summary: "0.18" } },
+    },
+    dots: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     gridShape: {
       control: "radio",
       options: ["polygon", "circle"],
+      table: { defaultValue: { summary: "polygon" } },
     },
-    showRadiusAxis: { control: "boolean" },
-    showLegend: { control: "boolean" },
+    showRadiusAxis: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showTooltip: { control: "boolean" },
-    height: { control: { type: "range", min: 200, max: 600, step: 10 } },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    height: {
+      control: { type: "range", min: 200, max: 600, step: 10 },
+      table: { defaultValue: { summary: "300" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     dataKeys: { table: { disable: true } },
     footer: { table: { disable: true } },
@@ -114,6 +143,14 @@ const semesterComparison = [
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default filled radar chart showing a single student's performance profile across six academic subjects.",
+      },
+    },
+  },
   args: {
     title: "Student Performance Profile",
     subtitle: "Alice — semester 2025.1 scores",
@@ -126,6 +163,14 @@ export const Default: Story = {
 }
 
 export const Unfilled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Outline-only radar chart with dots at each vertex for a clean, minimal single-series comparison.",
+      },
+    },
+  },
   args: {
     title: "Student Performance Profile",
     subtitle: "Outline-only — no fill",
@@ -139,6 +184,14 @@ export const Unfilled: Story = {
 }
 
 export const MultiSeries: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Three-series radar chart comparing Alice, Bob, and Carol across six academic subjects with a legend.",
+      },
+    },
+  },
   args: {
     title: "Student Comparison",
     subtitle: "Three students across six subjects",
@@ -157,6 +210,14 @@ export const MultiSeries: Story = {
 }
 
 export const CurrentVsTarget: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radar chart combining a filled current-level series with an outlined target series for competency gap analysis.",
+      },
+    },
+  },
   args: {
     title: "Competency Assessment",
     subtitle: "Current level vs. target — filled baseline, outline target",
@@ -184,6 +245,14 @@ export const CurrentVsTarget: Story = {
 }
 
 export const CircleGrid: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radar chart with circular grid lines comparing three departments across five capability dimensions.",
+      },
+    },
+  },
   args: {
     title: "Department Capability",
     subtitle: 'gridShape="circle" — smooth circular grid',
@@ -203,6 +272,14 @@ export const CircleGrid: Story = {
 }
 
 export const WithRadiusAxis: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radar chart with radial axis tick values enabled, comparing semester 1 and semester 2 scores across subjects.",
+      },
+    },
+  },
   args: {
     title: "Semester Comparison",
     subtitle: "showRadiusAxis — tick values on the radial axis",
@@ -221,6 +298,14 @@ export const WithRadiusAxis: Story = {
 }
 
 export const WithDots: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two-series radar chart with visible vertex dots for precise value comparison across department capabilities.",
+      },
+    },
+  },
   args: {
     title: "Department Capability",
     subtitle: "Dots visible at each vertex",
@@ -239,6 +324,14 @@ export const WithDots: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single-series radar chart with a footer showing the top score and average performance across all subjects.",
+      },
+    },
+  },
   args: {
     title: "Student Performance Profile",
     subtitle: "Alice · Semester 2025.1",
@@ -263,6 +356,14 @@ export const WithFooter: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Radar chart with Portuguese locale displaying a student performance profile in localized number format.",
+      },
+    },
+  },
   args: {
     title: "Perfil de Desempenho do Aluno",
     subtitle: "Alice — semestre 2025.1",
@@ -304,6 +405,14 @@ function LoadingDemo(props: React.ComponentProps<typeof RadarChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the radar chart with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Student Performance Profile",
     subtitle: "Alice — semester 2025.1 scores",
@@ -317,6 +426,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the radar chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Student Performance Profile",
     subtitle: "Alice — semester 2025.1 scores",
@@ -328,6 +445,14 @@ export const EmptyState: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four radar charts demonstrating all four legend positions with semester comparison data.",
+      },
+    },
+  },
   args: {
     data: semesterComparison,
     dataKeys: ["sem1", "sem2"],

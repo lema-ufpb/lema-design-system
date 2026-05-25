@@ -34,18 +34,56 @@ const meta = {
     },
   },
   argTypes: {
-    size: { control: "select", options: ["sm", "md", "lg"] },
-    rounded: { control: "select", options: ["full", "md", "none"] },
-    disabled: { control: "boolean" },
-    loading: { control: "boolean" },
-    clearable: { control: "boolean" },
-    searchable: { control: "boolean" },
-    multiple: { control: "boolean" },
-    placeholder: { control: "text" },
-    searchPlaceholder: { control: "text" },
-    emptyText: { control: "text" },
-    noOptionsText: { control: "text" },
-    maxWidth: { control: "text" },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
+    rounded: {
+      control: "select",
+      options: ["full", "md", "none"],
+      table: { defaultValue: { summary: "md" } },
+    },
+    disabled: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    clearable: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    searchable: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    multiple: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    placeholder: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    searchPlaceholder: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    emptyText: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    noOptionsText: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    maxWidth: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
   },
 } satisfies Meta<typeof Combobox>
 
@@ -94,6 +132,14 @@ export const Default: Story = {
     options: FRAMEWORKS,
     placeholder: "Select a framework…",
     maxWidth: "320px",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default single-select combobox with search bar and a list of framework options.",
+      },
+    },
   },
 }
 
@@ -188,6 +234,14 @@ export const MultiWithGroups: RenderStory = {
         </p>
       </div>
     )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-select combobox with grouped options — groups auto-label sections in the dropdown.",
+      },
+    },
   },
 }
 
@@ -288,6 +342,13 @@ export const LocalePTBR: Story = {
     maxWidth: "320px",
     locale: "pt-BR",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Portuguese (pt-BR) localization applied to the combobox.",
+      },
+    },
+  },
 }
 
 export const Sizes: RenderStory = {
@@ -305,6 +366,13 @@ export const Sizes: RenderStory = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
 }
 
 export const Disabled: Story = {
@@ -313,6 +381,14 @@ export const Disabled: Story = {
     defaultValue: "next",
     disabled: true,
     maxWidth: "320px",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Disabled state preventing the user from opening the combobox or changing the value.",
+      },
+    },
   },
 }
 
