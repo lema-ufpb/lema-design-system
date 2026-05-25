@@ -111,7 +111,7 @@ export function CardStatProgress({
     pct >= 100
       ? "text-success"
       : pct >= 75
-        ? "text-[var(--highlight-sky)]"
+        ? "text-highlight-sky"
         : pct >= 50
           ? "text-warning"
           : "text-muted-foreground"
@@ -120,7 +120,7 @@ export function CardStatProgress({
     pct >= 100
       ? "[&>[data-slot=progress-indicator]]:bg-success"
       : pct >= 75
-        ? "[&>[data-slot=progress-indicator]]:bg-[var(--highlight-sky)]"
+        ? "[&>[data-slot=progress-indicator]]:bg-highlight-sky"
         : pct >= 50
           ? "[&>[data-slot=progress-indicator]]:bg-warning"
           : ""

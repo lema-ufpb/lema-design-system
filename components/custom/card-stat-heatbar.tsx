@@ -190,6 +190,11 @@ export function CardStatHeatbar({
             <TooltipTrigger asChild>
               <div className="relative cursor-default pb-10 select-none">
                 <div
+                  role="progressbar"
+                  aria-valuenow={value}
+                  aria-valuemin={min}
+                  aria-valuemax={max}
+                  aria-label={label}
                   className={cn("flex overflow-hidden rounded-full", s.trackH)}
                 >
                   {zones.map((zone, i) => {
