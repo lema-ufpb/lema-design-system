@@ -34,6 +34,7 @@ const meta = {
       control: "select",
       options: ["default", "destructive"],
       description: "Visual style variant",
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof Alert>
@@ -54,9 +55,25 @@ export const Default: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default alert with terminal icon, a title, and a brief description for general notifications.",
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Side-by-side comparison of the default and destructive alert variants.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-col gap-4">
       <Alert variant="default">
@@ -76,6 +93,14 @@ export const Variants: Story = {
 }
 
 export const WithAction: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default alert with an action slot — a ghost close button positioned at the top-right corner.",
+      },
+    },
+  },
   render: () => (
     <Alert variant="default">
       <TerminalIcon />
@@ -106,9 +131,25 @@ export const Destructive: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Destructive variant with a triangle alert icon, used to communicate errors or critical issues.",
+      },
+    },
+  },
 }
 
 export const WithoutIcon: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default alert rendered without a leading icon, showing only the title and description.",
+      },
+    },
+  },
   render: () => (
     <Alert variant="default">
       <AlertTitle>No icon alert</AlertTitle>

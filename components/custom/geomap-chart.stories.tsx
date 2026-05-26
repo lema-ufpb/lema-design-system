@@ -61,13 +61,34 @@ const meta = {
     geoData: "/geojson/world.geojson",
   },
   argTypes: {
-    height: { control: { type: "range", min: 200, max: 700, step: 20 } },
-    enableZoom: { control: "boolean" },
-    showTooltip: { control: "boolean" },
-    showLegend: { control: "boolean" },
-    title: { control: "text" },
-    subtitle: { control: "text" },
-    legendLabel: { control: "text" },
+    height: {
+      control: { type: "range", min: 200, max: 700, step: 20 },
+      table: { defaultValue: { summary: "400" } },
+    },
+    enableZoom: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    legendLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     projection: {
       control: "select",
       options: [
@@ -77,6 +98,7 @@ const meta = {
         "geoAlbersUsa",
         "geoOrthographic",
       ],
+      table: { defaultValue: { summary: "geoMercator" } },
     },
     legendPosition: {
       control: "select",
@@ -87,10 +109,12 @@ const meta = {
         "bottom-right",
         "bottom",
       ],
+      table: { defaultValue: { summary: "bottom-right" } },
     },
     legendOrientation: {
       control: "select",
       options: ["horizontal", "vertical"],
+      table: { defaultValue: { summary: "horizontal" } },
     },
     geoData: { table: { disable: true } },
     data: { table: { disable: true } },
@@ -110,6 +134,14 @@ type Story = StoryObj<typeof meta>
 
 /** World map — neutral, no data overlay */
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Neutral world map using the Natural Earth projection with a muted fill and no tooltip or data overlay.",
+      },
+    },
+  },
   args: {
     title: "World Map",
     subtitle: "Neutral — no data overlay",
@@ -126,6 +158,14 @@ export const Default: Story = {
  * GeoJSON: world.geojson — feature.id = ISO Alpha-3.
  */
 export const Choropleth: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "South America choropleth map coloring countries by active student enrollment with a vertical color legend and footer summary.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Country",
     subtitle: "Active students — South America 2025",
@@ -166,6 +206,14 @@ export const Choropleth: Story = {
  * Use the controls panel to try all combinations.
  */
 export const WithLegend: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Brazil states choropleth demonstrating configurable legend position and orientation via the Controls panel.",
+      },
+    },
+  },
   args: {
     title: "Legend — position & orientation",
     subtitle:
@@ -200,6 +248,14 @@ export const WithLegend: Story = {
  * featureIdProperty="postal" maps UF codes (SP, RJ, MG…).
  */
 export const BrazilStates: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full Brazil states choropleth with enrollment data using feature ID mapping to postal codes and a green color gradient.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by State — Brazil",
     subtitle: "Active students 2025",
@@ -253,6 +309,14 @@ export const BrazilStates: Story = {
 
 /** Point markers on the world map, zoomed to Brazil */
 export const WithMarkers: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "World map zoomed to Brazil showing six campus location markers with tooltip values and interactive marker clicks.",
+      },
+    },
+  },
   args: {
     title: "Campus Locations",
     subtitle: "Distribution of physical campuses",
@@ -312,6 +376,14 @@ export const WithMarkers: Story = {
 
 /** Feature highlight on Brazil states */
 export const WithHighlight: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Brazil states choropleth with SP, MG, and RJ highlighted using `selectedFeatureIds` and a custom primary stroke color.",
+      },
+    },
+  },
   args: {
     title: "Selected States",
     subtitle: "SP, MG and RJ highlighted — control via selectedFeatureIds",
@@ -342,6 +414,14 @@ export const WithHighlight: Story = {
  * full color gradient is visible across all states.
  */
 export const UsaStates: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "US states choropleth using the geoAlbersUsa projection with median household income data and an amber color gradient.",
+      },
+    },
+  },
   args: {
     title: "Median Household Income — US States",
     subtitle: "Estimated annual income (USD thousands) — 2023",
@@ -444,6 +524,14 @@ function LoadingDemo(props: React.ComponentProps<typeof GeoMapChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the geo map with an animated skeleton that mirrors the title and subtitle structure.",
+      },
+    },
+  },
   args: {
     title: "World Map",
     subtitle: "Neutral — no data overlay",
@@ -458,6 +546,14 @@ export const Loading: Story = {
 
 /** Zoom and pan on Brazil states */
 export const ZoomPan: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Brazil states choropleth with scroll-to-zoom and drag-to-pan enabled for interactive map exploration.",
+      },
+    },
+  },
   args: {
     title: "Zoom & Pan enabled",
     subtitle: "Scroll to zoom · drag to pan",

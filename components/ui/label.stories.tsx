@@ -32,6 +32,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Form label associated with an email input field using htmlFor to demonstrate proper accessibility linking.",
+      },
+    },
+  },
   render: () => (
     <div className="grid w-60 gap-2">
       <Label htmlFor="email">Email</Label>

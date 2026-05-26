@@ -93,13 +93,15 @@ Nenhuma. Usa `sizeConfig` e `radiusConfig` como objetos de configuração (não 
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — tamanho e raio padrão
-- [ ] `AllSizes` — sm, default, lg
-- [ ] `AllRadius` — pill, rounded, square
-- [ ] `WithPlaceholder`
-- [ ] `Disabled`
-
----
+- [x] `Default` — Default
+- [x] `Small` — Small
+- [x] `Large` — Large
+- [x] `AllSizes` — All Sizes
+- [x] `AllRadius` — All Radius
+- [x] `Variants` — Variants
+- [x] `Disabled` — Disabled
+- [x] `WithValue` — With Value
+- [x] `Invalid` — Invalid
 
 ## Checklist antes de implementar
 

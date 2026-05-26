@@ -52,22 +52,46 @@ const meta = {
     variant: {
       control: "radio",
       options: ["pie", "donut"],
+      table: { defaultValue: { summary: "pie" } },
     },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showLegend: { control: "boolean" },
-    showTooltip: { control: "boolean" },
-    showLabels: { control: "boolean" },
-    paddingAngle: { control: { type: "range", min: 0, max: 8, step: 1 } },
-    height: { control: { type: "range", min: 160, max: 500, step: 10 } },
-    title: { control: "text" },
-    innerLabel: { control: "text" },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLabels: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    paddingAngle: {
+      control: { type: "range", min: 0, max: 8, step: 1 },
+      table: { defaultValue: { summary: "0" } },
+    },
+    height: {
+      control: { type: "range", min: 160, max: 500, step: 10 },
+      table: { defaultValue: { summary: "280" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    innerLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     locale: {
       control: "text",
       description:
         "Locale used for formatting numbers and percentages (e.g. pt-BR, en-US).",
+      table: { defaultValue: { summary: "en-US" } },
     },
     data: { table: { disable: true } },
     footer: { table: { disable: true } },
@@ -114,6 +138,14 @@ const formatPct = (v: number) => `${v}%`
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard pie chart showing enrollment distribution across four program types with legend and tooltip.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Semester 2025.1 — 7,540 students total",
@@ -126,6 +158,14 @@ export const Default: Story = {
 }
 
 export const Donut: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart with an interactive center label showing the total student count; hover a slice to see its breakdown.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Hover a slice to see its breakdown in the center",
@@ -139,6 +179,14 @@ export const Donut: Story = {
 }
 
 export const DonutBudget: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart showing budget allocation percentages with a Budget center label and percentage value formatter.",
+      },
+    },
+  },
   args: {
     title: "Budget Allocation",
     subtitle: "Fiscal year 2025 — percentage of total",
@@ -153,6 +201,14 @@ export const DonutBudget: Story = {
 }
 
 export const WithSliceLabels: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pie chart with percentage labels rendered outside each slice showing the breakdown of absence reasons.",
+      },
+    },
+  },
   args: {
     title: "Absences by Reason",
     subtitle: "Labels show percentage per category",
@@ -166,6 +222,14 @@ export const WithSliceLabels: Story = {
 }
 
 export const DonutWithLabels: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart combining a center label with outer slice labels for a comprehensive absence reason breakdown.",
+      },
+    },
+  },
   args: {
     title: "Absences by Reason",
     subtitle: "Donut + outer labels — both at once",
@@ -180,6 +244,14 @@ export const DonutWithLabels: Story = {
 }
 
 export const PaddedSlices: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart with `paddingAngle={4}` creating visible gaps between enrollment program slices for visual separation.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "paddingAngle={4} — visible gap between slices",
@@ -194,6 +266,14 @@ export const PaddedSlices: Story = {
 }
 
 export const CustomColors: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart using semantic color tokens for completed, in-progress, and dropped course status with padding between slices.",
+      },
+    },
+  },
   args: {
     title: "Course Completion Rate",
     subtitle:
@@ -209,6 +289,14 @@ export const CustomColors: Story = {
 }
 
 export const NoLegend: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pie chart relying solely on tooltips for slice identification, with the legend hidden for a cleaner presentation.",
+      },
+    },
+  },
   args: {
     title: "Budget Allocation",
     subtitle: "Tooltip only — no legend",
@@ -221,6 +309,14 @@ export const NoLegend: Story = {
 }
 
 export const WithLocale: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pie chart using Portuguese locale to format percentage values with a comma as the decimal separator and outer labels.",
+      },
+    },
+  },
   args: {
     title: "Budget (BR Locale)",
     subtitle: "locale='pt-BR' formats percentages with a comma",
@@ -235,6 +331,14 @@ export const WithLocale: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four donut charts placing the legend at top, right, bottom, and left positions for comparison.",
+      },
+    },
+  },
   args: { data: enrollmentByProgram },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
@@ -285,6 +389,14 @@ function LoadingDemo(props: React.ComponentProps<typeof PieChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the pie chart with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Semester 2025.1 — 7,540 students total",
@@ -298,6 +410,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the pie chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Semester 2025.1",
@@ -308,6 +428,14 @@ export const EmptyState: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart with a footer showing total enrollment count, number of courses, and an update timestamp.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Program",
     subtitle: "Semester 2025.1",

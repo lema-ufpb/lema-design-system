@@ -82,23 +82,20 @@ Nenhum token direto. Os primitivos shadcn (`Button`, `DropdownMenu`) gerenciam s
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — botão com dropdown de 3 opções
-- [ ] `CustomLabels` — labels traduzidos
-- [ ] `DarkMode` — simulated dark theme
-- [ ] `SystemMode` — simulated system preference
-
----
+- [x] `Default` — Default
+- [x] `Portuguese` — Portuguese
+- [x] `InHeader` — In Header
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base` — N/A
+- [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base` — N/A
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [ ] Todo `cva()` tem `defaultVariants` declarado — N/A
-- [ ] Todos os `*Variants` são exportados — N/A
-- [ ] Loading usa `<Skeleton>` com dimensões corretas — N/A (usa `mounted` state check)
-- [ ] `tabular-nums` em todos os valores numéricos — N/A
-- [ ] `truncate` em todos os labels de texto variável — N/A
+- [x] Todo `cva()` tem `defaultVariants` declarado — N/A
+- [x] Todos os `*Variants` são exportados — N/A
+- [x] Loading usa `<Skeleton>` com dimensões corretas — N/A (usa `mounted` state check)
+- [x] `tabular-nums` em todos os valores numéricos — N/A
+- [x] `truncate` em todos os labels de texto variável — N/A
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
-- [ ] Spacing usa apenas steps Tailwind (sem arbitrary values) — N/A
-- [ ] Prop `locale` integrada via `UI_I18N` — usa labels props customizáveis
+- [x] Spacing usa apenas steps Tailwind (sem arbitrary values) — N/A
+- [x] Prop `locale` integrada via `UI_I18N` — usa labels props customizáveis

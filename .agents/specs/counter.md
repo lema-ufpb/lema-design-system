@@ -132,16 +132,16 @@ Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange">` + `VariantProps<typeo
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — uncontrolled com defaultValue
-- [ ] `Controlled` — controlado externamente
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `AllVariants` — default, ghost, outline
-- [ ] `WithMinMax` — limites definidos
-- [ ] `Loading` — loading state
-- [ ] `Disabled` — disabled state
-- [ ] `KeyboardNavigation` — interação via teclado
-
----
+- [x] `Default` — Default
+- [x] `MaxWidth` — Max Width
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `FluidWidth` — Fluid Width
+- [x] `Controlled` — Controlled
+- [x] `Variants` — Variants
+- [x] `Sizes` — Sizes
+- [x] `Disabled` — Disabled
+- [x] `Loading` — Loading
+- [x] `SimulatedLoading` — Simulated Loading
 
 ## Checklist antes de implementar
 

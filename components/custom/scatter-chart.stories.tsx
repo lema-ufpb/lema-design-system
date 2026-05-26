@@ -50,20 +50,51 @@ const meta = {
     },
   },
   argTypes: {
-    showGrid: { control: "boolean" },
-    showLegend: { control: "boolean" },
-    showBrush: { control: "boolean" },
+    showGrid: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showBrush: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showTooltip: { control: "boolean" },
-    showTrendLine: { control: "boolean" },
-    height: { control: { type: "range", min: 160, max: 600, step: 10 } },
-    xLabel: { control: "text" },
-    yLabel: { control: "text" },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showTrendLine: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    height: {
+      control: { type: "range", min: 160, max: 600, step: 10 },
+      table: { defaultValue: { summary: "320" } },
+    },
+    xLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    yLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     series: { table: { disable: true } },
     footer: { table: { disable: true } },
     xFormatter: { table: { disable: true } },
@@ -173,6 +204,14 @@ const humanities = [
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default scatter plot of study hours versus final grade with each dot representing one student and axis labels.",
+      },
+    },
+  },
   args: {
     title: "Study Hours vs. Final Grade",
     subtitle: "Each dot represents one student — semester 2025.1",
@@ -186,6 +225,14 @@ export const Default: Story = {
 }
 
 export const WithTrendLine: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Scatter plot with a dashed linear regression line revealing a strong positive correlation between study hours and grades.",
+      },
+    },
+  },
   args: {
     title: "Study Hours vs. Final Grade",
     subtitle:
@@ -201,6 +248,14 @@ export const WithTrendLine: Story = {
 }
 
 export const MultiSeries: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two-series scatter plot comparing male and female study patterns with separate trend lines and an interactive legend.",
+      },
+    },
+  },
   args: {
     title: "Study Hours vs. Grade — by Gender",
     subtitle: "Click a legend item to hide or show a series",
@@ -219,6 +274,14 @@ export const MultiSeries: Story = {
 }
 
 export const AttendanceVsApproval: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Scatter plot showing the positive correlation between attendance rate and approval rate with percentage axis formatters.",
+      },
+    },
+  },
   args: {
     title: "Attendance Rate vs. Approval Rate",
     subtitle: "Class groups — each dot is a course section",
@@ -241,6 +304,14 @@ export const AttendanceVsApproval: Story = {
 }
 
 export const BubbleChart: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bubble chart encoding faculty count as bubble area for three schools compared by research output and teaching score.",
+      },
+    },
+  },
   args: {
     title: "Research Output vs. Teaching Score",
     subtitle: "Bubble size = faculty count · 3 schools compared",
@@ -260,6 +331,14 @@ export const BubbleChart: Story = {
 }
 
 export const CustomShapes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four scatter plots demonstrating circle, diamond, triangle, and square point marker shapes with custom colors.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
       {(
@@ -285,6 +364,14 @@ export const CustomShapes: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four scatter plots placing the legend at top, right, bottom, and left for series identification.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-6">
       {(["top", "right", "bottom", "left"] as const).map((pos) => (
@@ -308,6 +395,14 @@ export const LegendPositions: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two-series scatter plot with trend lines and a footer showing the correlation coefficient and sample size.",
+      },
+    },
+  },
   args: {
     title: "Study Hours vs. Final Grade",
     subtitle: "Semester 2025.1 — 20 students sampled",
@@ -348,6 +443,14 @@ const lowAbsence = absenceVsGrade.filter((p) => p.x <= 75)
 const highAbsence = absenceVsGrade.filter((p) => p.x > 75)
 
 export const WithBrush: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Scatter plot with a brush slider for interactive zoom on an 80-student absence versus grade dataset with trend line.",
+      },
+    },
+  },
   args: {
     title: "Absences vs. Final Grade",
     subtitle:
@@ -366,6 +469,14 @@ export const WithBrush: Story = {
 }
 
 export const WithBrushMultiSeries: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two-series scatter plot with brush showing low-absence versus high-absence student clusters with separate trend lines.",
+      },
+    },
+  },
   args: {
     title: "Absences vs. Grade — Low vs. High Absenteeism",
     subtitle:
@@ -386,6 +497,14 @@ export const WithBrushMultiSeries: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Scatter plot with Portuguese locale displaying study hours versus final grade in localized number format.",
+      },
+    },
+  },
   args: {
     title: "Horas de Estudo vs. Nota Final",
     subtitle: "Cada ponto representa um aluno — semestre 2025.1",
@@ -428,6 +547,14 @@ function LoadingDemo(props: React.ComponentProps<typeof ScatterChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the scatter chart with an animated skeleton that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Study Hours vs. Final Grade",
     subtitle: "Each dot represents one student — semester 2025.1",
@@ -442,6 +569,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `series` is an empty array, the scatter chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Study Hours vs. Final Grade",
     subtitle: "Each dot represents one student",
@@ -453,6 +588,14 @@ export const EmptyState: Story = {
 }
 
 export const OutlierDetection: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Scatter plot with deliberate outlier points added and flagged in the footer, demonstrating trend-line-based outlier detection.",
+      },
+    },
+  },
   args: {
     title: "Outlier Detection — Study vs. Grade",
     subtitle: "Trend line makes outliers (low study, high grade) easy to spot",

@@ -50,6 +50,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full-featured context menu with edit actions, sharing options, a submenu, and a destructive delete item.",
+      },
+    },
+  },
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-32 w-80 items-center justify-center rounded-3xl border-2 border-dashed border-border bg-muted/30 text-sm text-muted-foreground">
@@ -87,6 +95,14 @@ export const Default: Story = {
 }
 
 export const CheckboxItems: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Context menu with toggleable checkbox items for showing sidebar, toolbar, and status bar.",
+      },
+    },
+  },
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-32 w-80 items-center justify-center rounded-3xl border-2 border-dashed border-border bg-muted/30 text-sm text-muted-foreground">
@@ -102,6 +118,14 @@ export const CheckboxItems: Story = {
 }
 
 export const RadioItems: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Context menu with a radio group for selecting a sort order (name, date, or size).",
+      },
+    },
+  },
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-32 w-80 items-center justify-center rounded-3xl border-2 border-dashed border-border bg-muted/30 text-sm text-muted-foreground">

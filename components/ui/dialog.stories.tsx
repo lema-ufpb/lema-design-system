@@ -45,6 +45,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Modal dialog with header, form inputs, and a footer containing cancel and save buttons.",
+      },
+    },
+  },
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -71,6 +79,14 @@ export const Default: Story = {
 }
 
 export const WithoutCloseButton: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dialog with the close button hidden via `showCloseButton={false}` for non-dismissible modals.",
+      },
+    },
+  },
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -90,6 +106,14 @@ export const WithoutCloseButton: Story = {
 }
 
 export const Large: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Wide dialog with `max-w-2xl` providing extra horizontal space for forms with multiple fields.",
+      },
+    },
+  },
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -118,6 +142,14 @@ export const Large: Story = {
 }
 
 export const Confirmation: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Destructive confirmation dialog for delete actions with danger-styled buttons and warning text.",
+      },
+    },
+  },
   render: () => (
     <Dialog>
       <DialogTrigger asChild>

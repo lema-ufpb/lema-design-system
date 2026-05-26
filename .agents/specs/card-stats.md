@@ -126,7 +126,7 @@ Estende `FmtProps`.
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
 
-Estende `FmtProps` + `VariantProps<typeof highlightVariants>`.
+Estende `FmtProps` + `VariantProps<typeof cardStatHighlightVariants>`.
 
 ### CardStatList
 
@@ -179,13 +179,9 @@ Estende `FmtProps`. `CardStatHeatbarZone`: `{ label: string, color: string, max:
 
 ## Variantes CVA
 
-### highlightVariants (apenas CardStatHighlight)
+### cardStatHighlightVariants (apenas CardStatHighlight)
 
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `variant` | `primary`, `emerald`, `amber`, `rose`, `violet`, `sky` | `primary` |
-
-Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. Os outros sub-componentes não usam CVA — usam classes diretas via `cn()`.
+Slots: sem sub-variantes, apenas `cardStatHighlightVariants` para o wrapper do cartão. Os outros sub-componentes não usam CVA — usam classes diretas via `cn()`.
 
 ---
 
@@ -216,15 +212,17 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 
 | Slot | sm | md | lg |
 |------|----|----|----|
-| Label (uppercase) | `text-xs font-semibold tracking-wide` | — | — |
-| Valor compact | `text-xl font-semibold tracking-tight` | — | — |
-| Valor progress/gauge/heatbar | `text-2xl font-semibold tracking-tight` | — | — |
-| Valor highlight | `text-3xl font-semibold tracking-tight` | — | — |
-| Ícone decorativo | `size-4` / `size-5` | — | — |
-| Trend badge | `text-xs font-semibold` | — | — |
-| Card size | `size="sm"` (Card do shadcn) | — | — |
+| Label (uppercase) | `text-xs font-medium tracking-wide` | `text-sm font-medium tracking-wide` | `text-base font-medium tracking-wide` |
+| Valor compact | `text-lg font-semibold tracking-tight tabular-nums` | `text-xl font-semibold tracking-tight tabular-nums` | `text-2xl font-semibold tracking-tight tabular-nums` |
+| Valor progress/gauge/heatbar | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| Valor highlight | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| Header icon | `size-3.5` | `size-4` | `size-5` |
+| Content icon | `size-4` | `size-5` | `size-6` |
+| Badge padding | `px-1.5 py-0.5` | `px-2 py-0.5` | `px-2.5 py-1` |
+| Track height | `h-2` | `h-3` | `h-4` |
+| Gap | `gap-2` | `gap-3` | `gap-4` |
 
-> CardStats não possui variante `size` própria — todos os sub-componentes usam `Card size="sm"` internamente.
+> Todos os sub-componentes aceitam `size` (`"sm" | "md" | "lg"`, padrão `"md"`) e aplicam a escala correspondente.
 
 ---
 
@@ -258,28 +256,62 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `CardStatDefault` — CardStat padrão com valor formatado
-- [ ] `CardStatAllFormats` — currency, percent, integer, float
-- [ ] `CardStatTrend` — up, down, neutral
-- [ ] `CardStatLoading` — loading em todos os sub-componentes
-- [ ] `CardStatEmpty` — empty em todos os sub-componentes
-- [ ] `CardStatCompactDefault`
-- [ ] `CardStatProgressDefault` — com e sem goal
-- [ ] `CardStatComparisonDefault` — positivo, negativo, neutro
-- [ ] `CardStatSparklineDefault` — com data, sem data, trend
-- [ ] `CardStatHighlightAllVariants` — todas as 6 variantes
-- [ ] `CardStatListDefault` — múltiplos itens
-- [ ] `CardStatGaugeDefault` — diferentes valores nas zonas
-- [ ] `CardStatHeatbarDefault` — diferentes valores com tooltip
-
----
+- [x] `CardStatDefault` — CardStat padrão com valor formatado
+- [x] `CardStatAllFormats (AllTrends)` — currency, percent, integer, float
+- [x] `CardStatAllSizes` — sm, md, lg sizes
+- [x] `CardStatAllTrends` — up, down, neutral trends
+- [x] `CardStatLoading` — loading em todos os sub-componentes
+- [x] `CardStatEmpty` — empty em todos os sub-componentes
+- [x] `CardStatLocales` — locale-aware formatting (pt-BR, de-DE, en-US)
+- [x] `CardStatCompactDefault`
+- [x] `CardStatCompactAllSizes`
+- [x] `CardStatCompactAllVariants`
+- [x] `CardStatCompactLoading`
+- [x] `CardStatCompactEmpty`
+- [x] `CardStatProgressDefault` — com e sem goal
+- [x] `CardStatProgressAllSizes`
+- [x] `CardStatProgressAllGoals`
+- [x] `CardStatProgressLoading`
+- [x] `CardStatProgressEmpty`
+- [x] `CardStatComparisonDefault` — positivo, negativo, neutro
+- [x] `CardStatComparisonAllSizes`
+- [x] `CardStatComparisonAllComparisons`
+- [x] `CardStatComparisonLoading`
+- [x] `CardStatComparisonEmpty`
+- [x] `CardStatSparklineDefault` — com data, sem data, trend
+- [x] `CardStatSparklineAllSizes`
+- [x] `CardStatSparklineAllMetrics`
+- [x] `CardStatSparklineLoading`
+- [x] `CardStatSparklineEmpty`
+- [x] `CardStatHighlightDefault`
+- [x] `CardStatHighlightAllVariants` — todas as 6 variantes
+- [x] `CardStatHighlightAllSizes`
+- [x] `CardStatHighlightBannerKPI`
+- [x] `CardStatHighlightLoading`
+- [x] `CardStatHighlightEmpty`
+- [x] `CardStatListDefault` — múltiplos itens
+- [x] `CardStatListAllSizes`
+- [x] `CardStatListTopChannels`
+- [x] `CardStatListLoading`
+- [x] `CardStatListEmpty`
+- [x] `CardStatGaugeDefault` — diferentes valores nas zonas
+- [x] `CardStatGaugeAllSizes`
+- [x] `CardStatGaugeAllGauges`
+- [x] `CardStatGaugeLoading`
+- [x] `CardStatGaugeEmpty`
+- [x] `CardStatHeatbarDefault` — diferentes valores com tooltip
+- [x] `CardStatHeatbarAllSizes`
+- [x] `CardStatHeatbarAllHeatbars`
+- [x] `CardStatHeatbarLoading`
+- [x] `CardStatHeatbarEmpty`
+- [x] `CardStatsDashboard` — dashboard com múltiplos cards
 
 ## Checklist antes de implementar
 
 - [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base` (aplicado nos slots internos)
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [x] `defaultVariants` declarado em `highlightVariants`
-- [x] Todos os `*Variants` são exportados (`highlightVariants`)
+- [x] `defaultVariants` declarado em `cardStatHighlightVariants`
+- [x] Todos os `*Variants` são exportados (`cardStatHighlightVariants`)
 - [x] Loading usa `<Skeleton>` com dimensões corretas
 - [x] `tabular-nums` em valores percentuais
 - [x] `truncate` em labels

@@ -43,6 +43,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Basic input group wrapping a single input field without any addons or buttons attached.",
+      },
+    },
+  },
   render: () => (
     <InputGroup>
       <InputGroupInput placeholder="Enter text..." />

@@ -43,13 +43,21 @@ const meta = {
     intent: {
       control: "select",
       options: ["default", "primary", "secondary", "destructive"],
+      table: { defaultValue: { summary: "primary" } },
     },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
     },
-    loading: { control: "boolean" },
-    disabled: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    disabled: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
   },
 } satisfies Meta<typeof SelectList>
 
@@ -101,6 +109,13 @@ export const Default: Story = {
     height: 350,
     onSelect: (item) => console.log("Selected:", item),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Default select list with five user entries and a search bar.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -133,6 +148,14 @@ export const LocalePTBR: Story = {
     locale: "pt-BR",
     onSelect: (item) => console.log("Selecionado:", item),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) localization with translated user data and placeholder.",
+      },
+    },
+  },
 }
 
 export const Controlled: Story = {
@@ -149,6 +172,14 @@ export const Controlled: Story = {
         />
       </div>
     )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Controlled select list — selectedId managed externally with onChange handler.",
+      },
+    },
   },
 }
 
@@ -174,14 +205,38 @@ export const Intents: Story = {
       )}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all four intent colors — default, primary, secondary, and destructive.",
+      },
+    },
+  },
 }
 
 export const Loading: Story = {
   args: { data: [], loading: true, height: 300, onSelect: () => {} },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading state with skeleton placeholders in place of list rows.",
+      },
+    },
+  },
 }
 
 export const Empty: Story = {
   args: { data: [], loading: false, height: 200, onSelect: () => {} },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state displayed when no data is provided and loading is false.",
+      },
+    },
+  },
 }
 
 export const Virtualized: Story = {
@@ -265,5 +320,13 @@ export const InModal: Story = {
         </DialogContent>
       </Dialog>
     )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Select list rendered inside a Dialog modal for user selection workflows.",
+      },
+    },
   },
 }

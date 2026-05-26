@@ -34,14 +34,17 @@ const meta = {
       control: "select",
       options: ["default", "outline"],
       description: "Visual style variant",
+      table: { defaultValue: { summary: "default" } },
     },
     size: {
       control: "select",
       options: ["default", "sm", "lg"],
       description: "Size and padding preset",
+      table: { defaultValue: { summary: "default" } },
     },
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
   },
 } satisfies Meta<typeof Toggle>
@@ -55,9 +58,25 @@ export const Default: Story = {
     variant: "default",
     size: "default",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default variant toggle button in standard size with a text label.",
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default and outline toggle variants displayed side by side for visual comparison.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Toggle variant="default" aria-label="Toggle default">
@@ -71,6 +90,14 @@ export const Variants: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Toggle buttons in small, default, and large sizes to demonstrate the three size presets.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Toggle size="sm" aria-label="Small toggle">
@@ -119,6 +146,14 @@ export const Pressed: Story = {
 }
 
 export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Toggle buttons in disabled state across default and outline variants, including a disabled pressed state.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Toggle disabled variant="default" aria-label="Disabled default">

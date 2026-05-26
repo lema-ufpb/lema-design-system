@@ -28,6 +28,7 @@ const meta = {
       control: "select",
       options: ["ltr", "rtl"],
       description: "Text direction",
+      table: { defaultValue: { summary: "ltr" } },
     },
   },
 } satisfies Meta<typeof DirectionProvider>
@@ -44,6 +45,14 @@ export const Default: Story = {
       </div>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Left-to-right direction context wrapping a simple text element for LTR language layouts.",
+      },
+    },
+  },
 }
 
 export const RTL: Story = {
@@ -54,5 +63,13 @@ export const RTL: Story = {
         محتوى باتجاه من اليمين إلى اليسار.
       </div>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Right-to-left direction context with Arabic text content for RTL language support.",
+      },
+    },
   },
 }

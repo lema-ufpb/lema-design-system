@@ -32,21 +32,26 @@ const meta = {
   argTypes: {
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     placeholder: {
       control: "text",
+      table: { defaultValue: { summary: "" } },
     },
     size: {
       control: "select",
       options: ["sm", "default", "lg"],
+      table: { defaultValue: { summary: "default" } },
     },
     radius: {
       control: "select",
       options: ["pill", "rounded", "square"],
+      table: { defaultValue: { summary: "pill" } },
     },
     variant: {
       control: "select",
       options: ["default", "white"],
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof PasswordInput>
@@ -58,12 +63,27 @@ export const Default: Story = {
   args: {
     placeholder: "Enter your password...",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default password input with pill border radius and a visibility toggle button.",
+      },
+    },
+  },
 }
 
 export const Small: Story = {
   args: {
     size: "sm",
     placeholder: "Enter your password...",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Password input in small size with compact padding.",
+      },
+    },
   },
 }
 
@@ -72,12 +92,27 @@ export const Large: Story = {
     size: "lg",
     placeholder: "Enter your password...",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Password input in large size with spacious padding.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
   args: {
     placeholder: "Digite sua senha...",
     locale: "pt-BR",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) localization — toggle button aria-label translated.",
+      },
+    },
   },
 }
 
@@ -89,6 +124,13 @@ export const AllSizes: Story = {
       <PasswordInput size="lg" placeholder="Large" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, default, and lg.",
+      },
+    },
+  },
 }
 
 export const AllRadius: Story = {
@@ -99,6 +141,14 @@ export const AllRadius: Story = {
       <PasswordInput radius="square" placeholder="Square" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all three border radius presets — pill, rounded, and square.",
+      },
+    },
+  },
 }
 
 export const Variants: Story = {
@@ -108,6 +158,13 @@ export const Variants: Story = {
       <PasswordInput variant="white" placeholder="White" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of default and white background variants.",
+      },
+    },
+  },
 }
 
 export const Disabled: Story = {
@@ -116,11 +173,27 @@ export const Disabled: Story = {
     placeholder: "Enter your password...",
     defaultValue: "super_secret_password",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Disabled state — input is non-interactive with muted background styling.",
+      },
+    },
+  },
 }
 
 export const WithValue: Story = {
   args: {
     defaultValue: "secret_password_123",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Password input pre-filled with a default password value — initially hidden.",
+      },
+    },
   },
 }
 
@@ -128,5 +201,13 @@ export const Invalid: Story = {
   args: {
     "aria-invalid": true,
     placeholder: "Enter your password...",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Invalid state with aria-invalid attribute triggering red border and focus ring.",
+      },
+    },
   },
 }

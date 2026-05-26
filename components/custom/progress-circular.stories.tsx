@@ -9,21 +9,30 @@ const meta = {
     value: {
       control: { type: "range", min: 0, max: 100, step: 1 },
       description: "Progress value (0-1 or 0-100)",
+      table: { defaultValue: { summary: "0" } },
     },
     intent: {
       control: "select",
       options: ["primary", "secondary", "success", "destructive"],
+      table: { defaultValue: { summary: "primary" } },
     },
     size: {
       control: "select",
       options: ["sm", "md", "lg", "xl"],
+      table: { defaultValue: { summary: "md" } },
     },
-    loading: { control: "boolean" },
-    title: { control: "text" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     precision: {
       control: { type: "number", min: 0, max: 5 },
       description: "Number of decimal places to display",
-      defaultValue: 0,
+      table: { defaultValue: { summary: "0" } },
     },
   },
   parameters: {
@@ -62,6 +71,14 @@ export const Default: Story = {
     size: "md",
     intent: "primary",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default circular progress at 75% with primary intent and medium size.",
+      },
+    },
+  },
 }
 
 export const AllSizes: Story = {
@@ -74,6 +91,13 @@ export const AllSizes: Story = {
       <ProgressCircular value={75} size="xl" title="Extra Large" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all four size presets — sm, md, lg, and xl.",
+      },
+    },
+  },
 }
 
 export const WithPrecision: Story = {
@@ -100,6 +124,14 @@ export const WithPrecision: Story = {
       />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Circular progress with varying decimal precision — 2, 1, and 0 decimal places.",
+      },
+    },
+  },
 }
 
 export const AllIntents: Story = {
@@ -112,6 +144,14 @@ export const AllIntents: Story = {
       <ProgressCircular value={90} intent="destructive" title="Destructive" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all four intent colors — primary, secondary, success, and destructive.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -123,6 +163,14 @@ export const LocalePTBR: Story = {
     precision: 2,
     locale: "pt-BR",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) locale formatting applied to the progress value.",
+      },
+    },
+  },
 }
 
 export const Loading: Story = {
@@ -130,5 +178,12 @@ export const Loading: Story = {
     value: 0,
     loading: true,
     title: "Computing...",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Loading state with skeleton circle replacing the progress arc.",
+      },
+    },
   },
 }

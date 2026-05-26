@@ -42,6 +42,7 @@ const meta = {
       control: "select",
       options: ["default", "sm"],
       description: "Controls the card's internal padding and gap sizing.",
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof Card>
@@ -77,6 +78,14 @@ export const Default: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard card with header, title, description, body content, and a footer action button.",
+      },
+    },
+  },
 }
 
 export const Small: Story = {
@@ -104,6 +113,14 @@ export const Small: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Compact card with `size="sm"` for reduced padding, suitable for dashboard widgets.',
+      },
+    },
+  },
 }
 
 export const WithAction: Story = {
@@ -129,6 +146,14 @@ export const WithAction: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Card with a contextual action button positioned in the top-right corner of the header via CardAction.",
+      },
+    },
+  },
 }
 
 export const StatusBadge: Story = {
@@ -153,5 +178,13 @@ export const StatusBadge: Story = {
         </CardContent>
       </>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Card header with an inline status badge next to the title for indicating live state.",
+      },
+    },
   },
 }
