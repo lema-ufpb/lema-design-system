@@ -129,16 +129,19 @@ _Gráfico de candles (velas) para visualização financeira de preços OHLC (Ope
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 30 dias de dados OHLC com variação
-- [ ] `WithVolume` — volume bars visíveis
-- [ ] `WithMovingAverages` — 2 médias móveis (9 e 21 períodos)
-- [ ] `WithReferenceLines` — suporte e resistência
-- [ ] `WithBrush` — brush habilitado
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-- [ ] `AllBearish` — tendência de baixa
-
----
+- [x] `Default` — Default
+- [x] `WithVolume` — With Volume
+- [x] `WithMovingAverages` — With Moving Averages
+- [x] `FullFeatured` — Full Featured
+- [x] `CryptoVolatility` — Crypto Volatility
+- [x] `BearishTrend` — Bearish Trend
+- [x] `WithReferenceLines` — With Reference Lines
+- [x] `WithBrush` — With Brush
+- [x] `LegendPositions` — Legend Positions
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `WithFooter` — With Footer
 
 ## Checklist antes de implementar
 

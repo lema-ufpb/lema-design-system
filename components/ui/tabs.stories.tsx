@@ -35,10 +35,12 @@ const meta = {
       control: "select",
       options: ["horizontal", "vertical"],
       description: "Layout direction of tabs vs content",
+      table: { defaultValue: { summary: "horizontal" } },
     },
     defaultValue: {
       control: "text",
       description: "Default active tab value",
+      table: { defaultValue: { summary: "" } },
     },
   },
 } satisfies Meta<typeof Tabs>
@@ -47,6 +49,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal tabs with three sections (Account, Password, Notifications) and corresponding content panels.",
+      },
+    },
+  },
   render: () => (
     <Tabs defaultValue="tab-1" className="w-full max-w-md">
       <TabsList>
@@ -89,6 +99,14 @@ export const Variants: Story = {
 }
 
 export const Vertical: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Tabs arranged vertically with the list on the left and content panels on the right.",
+      },
+    },
+  },
   render: () => (
     <Tabs defaultValue="tab-1" orientation="vertical" className="max-w-sm">
       <TabsList>

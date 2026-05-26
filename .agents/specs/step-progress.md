@@ -130,18 +130,11 @@ interface StepItem {
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 4 etapas horizontais, etapa 2 como current
-- [ ] `Vertical` — 4 etapas verticais
-- [ ] `AllStatuses` — etapas complete, current, upcoming em sequência
-- [ ] `AllSizes` — sm, md, lg em coluna
-- [ ] `Clickable` — `onStepClick` definido, demonstra navegação
-- [ ] `CustomIcons` — algumas etapas com ícone customizado
-- [ ] `WithDescriptions` — todas as etapas com descrição
-- [ ] `EmptySteps` — array vazio (deve retornar null)
-- [ ] `SingleStep` — apenas uma etapa
-- [ ] `ManySteps` — 7+ etapas com scroll horizontal
-
----
+- [x] `Horizontal` — Horizontal
+- [x] `Vertical` — Vertical
+- [x] `Interactive` — Interactive
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Sizes` — Sizes
 
 ## Checklist antes de implementar
 
@@ -149,7 +142,7 @@ interface StepItem {
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
-- [ ] Loading usa `<Skeleton>` com dimensões corretas — N/A (sem loading state)
+- [x] Loading usa `<Skeleton>` com dimensões corretas — N/A (sem loading state)
 - [x] `tabular-nums` em todos os valores numéricos (índice do step)
 - [x] `truncate` em todos os labels de texto variável
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos

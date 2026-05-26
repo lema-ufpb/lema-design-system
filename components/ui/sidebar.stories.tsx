@@ -153,6 +153,14 @@ function SidebarContentDemo() {
 }
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full-featured sidebar with search input, grouped navigation menus, footer links, and a collapsible rail.",
+      },
+    },
+  },
   render: () => <SidebarContentDemo />,
 }
 

@@ -37,6 +37,14 @@ export const Default: Story = {
     max: 100,
     min: 0,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single-thumb slider at value 50 within a 0–100 range for selecting one value.",
+      },
+    },
+  },
 }
 
 export const Range: Story = {
@@ -45,6 +53,14 @@ export const Range: Story = {
     max: 100,
     min: 0,
     step: 1,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dual-thumb slider with values at 25 and 75 for selecting a range between two points.",
+      },
+    },
   },
 }
 
@@ -63,5 +79,13 @@ export const Disabled: Story = {
     max: 100,
     min: 0,
     disabled: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single-thumb slider at value 40 in a disabled state, preventing user interaction.",
+      },
+    },
   },
 }

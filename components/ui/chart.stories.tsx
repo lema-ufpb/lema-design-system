@@ -99,6 +99,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const BarChartStory: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bar chart comparing monthly revenue and expenses with dot indicator tooltip and legend.",
+      },
+    },
+  },
   render: () => (
     <ChartContainer config={barConfig}>
       <BarChart data={monthlyData} accessibilityLayer>
@@ -131,6 +139,14 @@ export const BarChartStory: Story = {
 }
 
 export const LineChartStory: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Line chart tracking profit trends over six months with monotone interpolation and no dots.",
+      },
+    },
+  },
   render: () => (
     <ChartContainer config={barConfig}>
       <LineChart data={monthlyData} accessibilityLayer>
@@ -160,6 +176,14 @@ export const LineChartStory: Story = {
 }
 
 export const PieChartStory: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Donut chart showing category distribution with custom inner radius and color-coded cells.",
+      },
+    },
+  },
   render: () => (
     <div className="flex justify-center">
       <ChartContainer
@@ -192,6 +216,14 @@ export const PieChartStory: Story = {
 }
 
 export const DashedIndicator: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bar chart using the dashed line indicator style in the tooltip for visual distinction.",
+      },
+    },
+  },
   render: () => (
     <ChartContainer config={barConfig}>
       <BarChart data={monthlyData} accessibilityLayer>
@@ -224,6 +256,14 @@ export const DashedIndicator: Story = {
 }
 
 export const HideLabel: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bar chart tooltip configured with `hideLabel` to display values only without the series label.",
+      },
+    },
+  },
   render: () => (
     <ChartContainer config={barConfig}>
       <BarChart data={monthlyData} accessibilityLayer>

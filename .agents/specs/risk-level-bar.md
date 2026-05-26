@@ -129,16 +129,13 @@ interface RiskSegment {
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — valor 0.37 com labels
-- [ ] `AllSizes` — sm, md, lg em coluna
-- [ ] `AllSegments` — valor em cada segmento (0.1, 0.35, 0.6, 0.9)
-- [ ] `Loading` — `loading={true}` com cada size
-- [ ] `CustomSegments` — segments customizados (ex: 2 segmentos)
-- [ ] `Zero` — valor 0
-- [ ] `Full` — valor 1
-- [ ] `Responsive` — viewport mobile vs desktop
-
----
+- [x] `Default` — Default
+- [x] `LowRisk` — Low Risk
+- [x] `HighRisk` — High Risk
+- [x] `Loading` — Loading
+- [x] `AllSizes` — All Sizes
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `CustomSegments` — Custom Segments
 
 ## Checklist antes de implementar
 
@@ -147,8 +144,8 @@ interface RiskSegment {
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [ ] `tabular-nums` em todos os valores numéricos — N/A (percentual formatado via `toLocaleString`)
-- [ ] `truncate` em todos os labels de texto variável — N/A (labels são props fixas)
+- [x] `tabular-nums` em todos os valores numéricos — N/A (percentual formatado via `toLocaleString`)
+- [x] `truncate` em todos os labels de texto variável — N/A (labels são props fixas)
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)

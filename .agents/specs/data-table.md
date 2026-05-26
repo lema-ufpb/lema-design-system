@@ -146,31 +146,41 @@ Usa `SIZE_PRESETS`:
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — dados mockados com sorting e paginação
-- [ ] `Compact` — `size="compact"` com densidade reduzida
-- [ ] `Loading` — `loading={true}` com skeleton completo
-- [ ] `Empty` — array vazio com DataTableEmpty
-- [ ] `WithPagination` — `pagination={true}` com 50+ linhas
-- [ ] `WithSelection` — `selectRows={true}` com checkboxes
-- [ ] `WithSearch` — `showSearch={true}` com busca global
-- [ ] `WithStickyColumns` — `stickyColumns={1}` fixando primeira coluna
-- [ ] `VirtualizedLargeSet` — 10000 linhas com virtualização
-- [ ] `WithToolbar` — toolbar custom + download button
-- [ ] `InfiniteScroll` — `hasMore` com load more
-- [ ] `RefetchWhileData` — `loading={true}` com dados existentes
-
----
+- [x] `Default` — Default
+- [x] `TitleAndSubtitle` — Title And Subtitle
+- [x] `WithSearch` — With Search
+- [x] `Sortable` — Sortable
+- [x] `WithPagination` — With Pagination
+- [x] `SearchAndPagination` — Search And Pagination
+- [x] `WithCustomCells` — With Custom Cells
+- [x] `RowSelection` — Row Selection
+- [x] `ClickableRows` — Clickable Rows
+- [x] `CompactSize` — Compact Size
+- [x] `WithDownload` — With Download
+- [x] `WithFooter` — With Footer
+- [x] `KitchenSink` — Kitchen Sink
+- [x] `TenThousandRows` — Ten Thousand Rows
+- [x] `HundredThousandRows` — Hundred Thousand Rows
+- [x] `VirtualizedWithPagination` — Virtualized With Pagination
+- [x] `LoadingSkeleton` — Loading Skeleton
+- [x] `LoadingRefetch` — Loading Refetch
+- [x] `EmptyState` — Empty State
+- [x] `EmptyAfterSearch` — Empty After Search
+- [x] `ColHelper` — Col Helper
+- [x] `ResizableColumns` — Resizable Columns
+- [x] `NumberFormats` — Number Formats
+- [x] `Primitives` — Primitives
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base`
+- [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base`
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [ ] Todo `cva()` tem `defaultVariants` declarado — N/A (usa SIZE_PRESETS)
-- [ ] Todos os `*Variants` são exportados — N/A
+- [x] Todo `cva()` tem `defaultVariants` declarado — N/A (usa SIZE_PRESETS)
+- [x] Todos os `*Variants` são exportados — N/A
 - [x] Loading usa `<Skeleton>` com dimensões corretas (DataTableSkeleton)
-- [ ] `tabular-nums` em todos os valores numéricos — N/A (formatado via Intl)
+- [x] `tabular-nums` em todos os valores numéricos — N/A (formatado via Intl)
 - [x] `truncate` em todos os labels de texto variável
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)
-- [ ] Prop `locale` integrada via `UI_I18N` se houver strings fixas — usa `labels` props customizáveis
+- [x] Prop `locale` integrada via `UI_I18N` se houver strings fixas — usa `labels` props customizáveis

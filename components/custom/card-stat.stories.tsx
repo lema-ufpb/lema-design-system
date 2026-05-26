@@ -51,6 +51,11 @@ const meta = {
     description: { control: "text" },
     loading: { control: "boolean" },
     empty: { control: "boolean" },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
   },
@@ -67,6 +72,15 @@ export const Default: Story = {
     description: "+20.1% from last month",
     trend: "up",
     icon: DollarSignIcon,
+    size: "md",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard configuration showing the CardStat component with revenue data, currency formatting, up trend, and a description.",
+      },
+    },
   },
 }
 
@@ -75,6 +89,14 @@ export const Loading: Story = {
     label: "Revenue",
     value: 0,
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying four placeholder CardStat cards while data is being fetched.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -93,6 +115,14 @@ export const EmptyState: Story = {
     empty: true,
     icon: DollarSignIcon,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing four CardStat cards with dash placeholders when no data is available.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
       <CardStat label="Revenue" value={0} empty icon={DollarSignIcon} />
@@ -107,6 +137,14 @@ export const Locales: Story = {
   args: {
     label: "Revenue",
     value: 0,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates locale-aware formatting with Brazilian Portuguese (pt-BR), German (de-DE), and English (en-US) locales.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -142,10 +180,50 @@ export const Locales: Story = {
   ),
 }
 
+export const AllSizes: Story = {
+  args: { label: "Revenue", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStat component.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <CardStat
+            label="Total Revenue"
+            value={45231.89}
+            format="currency"
+            description="+20.1% from last month"
+            trend="up"
+            icon={DollarSignIcon}
+            size={size}
+          />
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const AllTrends: Story = {
   args: {
     label: "Metric",
     value: 0,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates all trend directions — up, down, and neutral — side by side with different metrics.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">

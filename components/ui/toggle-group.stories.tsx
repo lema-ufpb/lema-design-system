@@ -41,22 +41,27 @@ const meta = {
       control: "select",
       options: ["single", "multiple"],
       description: "Selection behavior",
+      table: { defaultValue: { summary: "single" } },
     },
     orientation: {
       control: "select",
       options: ["horizontal", "vertical"],
+      table: { defaultValue: { summary: "horizontal" } },
     },
     spacing: {
       control: "number",
       description: "Gap between items (0 = connected/segmented)",
+      table: { defaultValue: { summary: "2" } },
     },
     variant: {
       control: "select",
       options: ["default", "outline"],
+      table: { defaultValue: { summary: "default" } },
     },
     size: {
       control: "select",
       options: ["default", "sm", "lg"],
+      table: { defaultValue: { summary: "default" } },
     },
   },
 } satisfies Meta<typeof ToggleGroup>
@@ -65,6 +70,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal toggle group with multiple selection enabled and three formatting icon buttons.",
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { type: "multiple" } as any,
   render: () => (
@@ -120,6 +133,14 @@ export const Variants: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Toggle groups in small and large sizes demonstrating the size presets with alignment icons.",
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { type: "multiple" } as any,
   render: () => (
@@ -175,6 +196,14 @@ export const Segmented: Story = {
 }
 
 export const Vertical: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Toggle group arranged vertically with multiple selection for formatting options.",
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { type: "multiple" } as any,
   render: () => (

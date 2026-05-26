@@ -35,24 +35,29 @@ const meta = {
       options: ["left", "right", "equal"],
       description:
         "Width ratio between children on desktop. `left` = 60/40, `right` = 40/60, `equal` = 50/50.",
+      table: { defaultValue: { summary: "left" } },
     },
     gap: {
       control: "radio",
       options: ["none", "sm", "md", "lg"],
       description: "Gap between panels.",
+      table: { defaultValue: { summary: "md" } },
     },
     padding: {
       control: "radio",
       options: ["none", "sm", "md", "lg"],
       description: "Outer padding of the row container.",
+      table: { defaultValue: { summary: "none" } },
     },
     resizable: {
       control: "boolean",
       description: "Whether the draggable divider is shown.",
+      table: { defaultValue: { summary: "true" } },
     },
     storageKey: {
       control: "text",
       description: "Persist resize state in sessionStorage under this key.",
+      table: { defaultValue: { summary: "" } },
     },
     children: { table: { disable: true } },
     className: { table: { disable: true } },
@@ -95,6 +100,14 @@ export const Default: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default Dashrow with left-aligned split between main and side panels.",
+      },
+    },
+  },
 }
 
 export const AllAlignments: Story = {
@@ -118,6 +131,14 @@ export const AllAlignments: Story = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all three alignment presets — left (60/40), right (40/60), and equal (50/50).",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -139,6 +160,13 @@ export const LocalePTBR: Story = {
       </>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Portuguese (pt-BR) locale applied to the drag-resize tooltips.",
+      },
+    },
+  },
 }
 
 export const EqualHeightStretch: Story = {
@@ -154,6 +182,14 @@ export const EqualHeightStretch: Story = {
         </Dashbox>
       </>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashrow automatically stretches the shorter panel to match the taller sibling's height.",
+      },
+    },
   },
 }
 
@@ -278,6 +314,14 @@ export const WithRealContent: Story = {
       </Dashbox>
     </Dashrow>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashrow with live content — progress bars, status badges, and refresh actions inside Dashbox panels.",
+      },
+    },
+  },
 }
 
 export const GapVariants: Story = {
@@ -301,6 +345,13 @@ export const GapVariants: Story = {
       ))}
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all four gap presets — none, sm, md, and lg.",
+      },
+    },
+  },
 }
 
 export const Mobile: Story = {

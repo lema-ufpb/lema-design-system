@@ -52,14 +52,36 @@ const meta = {
     orientation: {
       control: "radio",
       options: ["vertical", "horizontal"],
+      table: { defaultValue: { summary: "vertical" } },
     },
-    showGrid: { control: "boolean" },
-    showMean: { control: "boolean" },
-    showOutliers: { control: "boolean" },
-    notched: { control: "boolean" },
-    height: { control: { type: "range", min: 180, max: 600, step: 10 } },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    showGrid: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showMean: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showOutliers: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    notched: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    height: {
+      control: { type: "range", min: 180, max: 600, step: 10 },
+      table: { defaultValue: { summary: "320" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     footer: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
@@ -252,6 +274,14 @@ const responseTimes = [
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default vertical box plot showing grade distribution across four class groups with mean diamonds and outlier dots.",
+      },
+    },
+  },
   args: {
     title: "Final Exam Grades — by Class Group",
     subtitle: "Hover a box for the five-number summary",
@@ -264,6 +294,14 @@ export const Default: Story = {
 }
 
 export const Horizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal box plots comparing grade distribution by subject, ideal for long category labels that benefit from horizontal layout.",
+      },
+    },
+  },
   args: {
     title: "Grade Distribution by Subject",
     subtitle: "Horizontal orientation — easier to read long category labels",
@@ -277,6 +315,14 @@ export const Horizontal: Story = {
 }
 
 export const Notched: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Notched box plots where the waist width represents a 95% confidence interval around the median for significance comparison.",
+      },
+    },
+  },
   args: {
     title: "Final Exam Grades — Notched Boxes",
     subtitle:
@@ -291,6 +337,14 @@ export const Notched: Story = {
 }
 
 export const SemesterComparison: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Box plots tracking weekly study hours distribution across three semesters with a custom hours value formatter.",
+      },
+    },
+  },
   args: {
     title: "Weekly Study Hours — Semester Trend",
     subtitle:
@@ -305,6 +359,14 @@ export const SemesterComparison: Story = {
 }
 
 export const ApiResponseTime: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "API response time box plot showing latency distribution across endpoints with outliers flagged and a footer warning about SLA violations.",
+      },
+    },
+  },
   args: {
     title: "API Response Time Distribution",
     subtitle: "P50 box · whiskers = min/max · circles = outliers",
@@ -324,6 +386,14 @@ export const ApiResponseTime: Story = {
 }
 
 export const NoMeanNoOutliers: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Minimal horizontal box plot with mean diamonds and outlier dots disabled, showing only the clean five-number summary.",
+      },
+    },
+  },
   args: {
     title: "Grade Distribution — Minimal View",
     subtitle:
@@ -338,6 +408,14 @@ export const NoMeanNoOutliers: Story = {
 }
 
 export const NotchedHorizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Notched box plots in horizontal orientation combining confidence-interval visualization with publication-style layout.",
+      },
+    },
+  },
   args: {
     title: "Grade Distribution by Subject — Notched Horizontal",
     subtitle:
@@ -353,9 +431,17 @@ export const NotchedHorizontal: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Box plot chart with Portuguese locale displaying exam grades by class group with localized number formatting.",
+      },
+    },
+  },
   args: {
     title: "Notas do Exame Final — por Turma",
-    subtitle: "Passe o鼠标 sobre um box para ver o resumo",
+    subtitle: "Passe o mouse sobre um box para ver o resumo",
     data: gradesByClass,
     showGrid: true,
     showMean: true,
@@ -394,6 +480,14 @@ function LoadingDemo(props: React.ComponentProps<typeof BoxPlotChart>) {
 
 export const Loading: Story = {
   name: "Loading State",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass `loading={true}` to replace the box plot with an animated skeleton layout that mirrors the title, subtitle, and footer structure.",
+      },
+    },
+  },
   args: {
     title: "Final Exam Grades — by Class Group",
     subtitle: "Hover a box for the five-number summary",
@@ -407,6 +501,14 @@ export const Loading: Story = {
 }
 
 export const EmptyState: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When `data` is an empty array, the chart renders a dashed-border placeholder while preserving the title and subtitle for context.",
+      },
+    },
+  },
   args: {
     title: "Final Exam Grades — by Class Group",
     subtitle: "Hover a box for the five-number summary",
@@ -416,6 +518,14 @@ export const EmptyState: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Box plot chart with a custom footer highlighting Class D's low median and prompting intervention analysis.",
+      },
+    },
+  },
   args: {
     title: "Final Exam Grades — by Class Group",
     subtitle: "Semester 2025.1 · 4 class groups",

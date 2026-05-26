@@ -46,6 +46,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state with an inbox icon, title, and description prompting the user to create their first item.",
+      },
+    },
+  },
   render: () => (
     <Empty>
       <EmptyHeader>
@@ -63,6 +71,14 @@ export const Default: Story = {
 }
 
 export const WithContent: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state with an additional action link below the description for clearing filters or retrying.",
+      },
+    },
+  },
   render: () => (
     <Empty>
       <EmptyHeader>

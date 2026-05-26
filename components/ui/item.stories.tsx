@@ -46,11 +46,13 @@ const meta = {
       control: "select",
       options: ["default", "outline", "muted"],
       description: "Visual style variant",
+      table: { defaultValue: { summary: "default" } },
     },
     size: {
       control: "select",
       options: ["default", "sm", "xs"],
       description: "Size preset",
+      table: { defaultValue: { summary: "default" } },
     },
     asChild: {
       table: { disable: true },
@@ -62,6 +64,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "List of two items with icon media, title, description, and a ghost action button.",
+      },
+    },
+  },
   render: () => (
     <ItemGroup className="max-w-md">
       <Item>

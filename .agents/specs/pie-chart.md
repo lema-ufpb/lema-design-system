@@ -126,16 +126,19 @@ _Gráfico de pizza/donut baseado em recharts PieChart. Suporta variantes pie e d
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — pizza com 5 categorias
-- [ ] `Donut` — variante donut com center label
-- [ ] `WithExternalLabels` — labels percentuais visíveis
-- [ ] `WithCustomFormatter` — formatando como moeda
-- [ ] `AllSizes` — altura variável
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-- [ ] `SingleSlice` — apenas um item
-
----
+- [x] `Default` — Default
+- [x] `Donut` — Donut
+- [x] `DonutBudget` — Donut Budget
+- [x] `WithSliceLabels` — With Slice Labels
+- [x] `DonutWithLabels` — Donut With Labels
+- [x] `PaddedSlices` — Padded Slices
+- [x] `CustomColors` — Custom Colors
+- [x] `NoLegend` — No Legend
+- [x] `WithLocale` — With Locale
+- [x] `LegendPositions` — Legend Positions
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `WithFooter` — With Footer
 
 ## Checklist antes de implementar
 

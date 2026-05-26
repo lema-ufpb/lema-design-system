@@ -39,6 +39,7 @@ const meta = {
       control: "boolean",
       description:
         "Whether to render the animated viewport indicator for the active dropdown",
+      table: { defaultValue: { summary: "true" } },
     },
   },
 } satisfies Meta<typeof NavigationMenu>
@@ -70,6 +71,14 @@ const ListItem = ({
 export const Default: Story = {
   args: {
     viewport: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Navigation menu with two dropdown panels (Getting Started and Components) and a direct Documentation link, with the viewport indicator enabled.",
+      },
+    },
   },
   render: (args) => (
     <NavigationMenu {...args}>

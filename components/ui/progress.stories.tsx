@@ -28,6 +28,7 @@ const meta = {
     value: {
       control: { type: "range", min: 0, max: 100, step: 1 },
       description: "Progress value",
+      table: { defaultValue: { summary: "0" } },
     },
   },
 } satisfies Meta<typeof Progress>
@@ -38,6 +39,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     value: 50,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Determinate progress bar at 50% value with a filled track and rounded styling.",
+      },
+    },
   },
 }
 
@@ -53,6 +62,14 @@ export const States: Story = {
 }
 
 export const Indeterminate: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bar with no set value, displaying an indeterminate animated pulse to indicate ongoing activity.",
+      },
+    },
+  },
   render: () => (
     <div className="w-full max-w-md">
       <Progress value={undefined} />

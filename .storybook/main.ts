@@ -19,9 +19,7 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     const version = (
       process.env.APP_VERSION ||
-      execSync(
-        "git describe --tags --abbrev=0 2>/dev/null || echo '0.0.0'"
-      )
+      execSync("git describe --tags --abbrev=0 2>/dev/null || echo '0.0.0'")
         .toString()
         .trim()
     ).replace(/^v/, "")

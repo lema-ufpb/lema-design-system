@@ -124,6 +124,14 @@ export const Default: Story = {
       <NavUser {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default NavUser with full avatar, name, email, and dropdown action groups.",
+      },
+    },
+  },
 }
 
 export const WithoutAvatar: Story = {
@@ -136,6 +144,14 @@ export const WithoutAvatar: Story = {
       <NavUser {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "NavUser without an avatar URL — uses initials fallback instead.",
+      },
+    },
+  },
 }
 
 export const DashboardMock: Story = {
@@ -162,4 +178,12 @@ export const DashboardMock: Story = {
       <NavUser {...args} />
     </header>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "NavUser rendered inside a mock dashboard header with navigation links.",
+      },
+    },
+  },
 }

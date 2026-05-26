@@ -33,11 +33,16 @@ const meta = {
     value: {
       control: { type: "range", min: 0, max: 1, step: 0.01 },
       description: "Risk value from 0 to 1",
+      table: { defaultValue: { summary: "0" } },
     },
-    loading: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "sm" } },
     },
   },
 } satisfies Meta<typeof RiskLevelBar>
@@ -51,6 +56,13 @@ export const Default: Story = {
     labelRight: "Current Score",
     value: 0.65,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Default risk level bar at 0.65 with four risk segments.",
+      },
+    },
+  },
 }
 
 export const LowRisk: Story = {
@@ -58,6 +70,14 @@ export const LowRisk: Story = {
     labelLeft: "Project Health",
     labelRight: "Status",
     value: 0.15,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Low risk value (0.15) — marker positioned near the left (low-risk) end of the bar.",
+      },
+    },
   },
 }
 
@@ -67,6 +87,14 @@ export const HighRisk: Story = {
     labelRight: "Severity",
     value: 0.9,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "High risk value (0.9) — marker positioned near the right (high-risk) end of the bar.",
+      },
+    },
+  },
 }
 
 export const Loading: Story = {
@@ -75,6 +103,14 @@ export const Loading: Story = {
     labelRight: "Current Score",
     value: 0.65,
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading state with skeleton placeholder replacing the bar and labels.",
+      },
+    },
   },
 }
 
@@ -91,6 +127,13 @@ export const AllSizes: Story = {
     labelRight: "Current Score",
     value: 0.65,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -99,6 +142,13 @@ export const LocalePTBR: Story = {
     labelRight: "Pontuação",
     value: 0.65,
     locale: "pt-BR",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Portuguese (pt-BR) localization applied to labels.",
+      },
+    },
   },
 }
 
@@ -111,5 +161,13 @@ export const CustomSegments: Story = {
       { color: "oklch(0.6 0.2 250)", range: [0, 0.5] },
       { color: "oklch(0.6 0.2 150)", range: [0.5, 1] },
     ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Custom two-segment configuration with blue and green color overrides.",
+      },
+    },
   },
 }
