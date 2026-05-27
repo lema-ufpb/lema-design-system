@@ -18,7 +18,7 @@ import {
 } from "./card-stats-shared"
 
 // ── Variants ──
-const cardStatHighlightBoxVariants = cva("", {
+export const cardStatHighlightBoxVariants = cva("", {
   variants: {
     size: {
       sm: "size-8 rounded-lg",
@@ -29,7 +29,7 @@ const cardStatHighlightBoxVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatHighlightIconVariants = cva("", {
+export const cardStatHighlightIconVariants = cva("", {
   variants: {
     size: {
       sm: "size-4",
@@ -40,7 +40,7 @@ const cardStatHighlightIconVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatHighlightValueVariants = cva("", {
+export const cardStatHighlightValueVariants = cva("", {
   variants: {
     size: {
       sm: "text-2xl font-semibold tracking-tight tabular-nums",
@@ -51,12 +51,23 @@ const cardStatHighlightValueVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatHighlightDescVariants = cva("", {
+export const cardStatHighlightDescVariants = cva("", {
   variants: {
     size: {
       sm: "text-xs",
       md: "text-sm",
       lg: "text-base",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatHighlightTrendIconVariants = cva("", {
+  variants: {
+    size: {
+      sm: "size-3.5",
+      md: "size-5",
+      lg: "size-6",
     },
   },
   defaultVariants: { size: "md" },
@@ -142,7 +153,7 @@ export function CardStatHighlight({
     </>
   )
 
-  const skeletonOverlay = isWhiteVariant ? "" : overlayBg
+  const skeletonBg = isWhiteVariant ? undefined : "bg-white/20"
 
   if (loading) {
     return (
@@ -152,17 +163,14 @@ export function CardStatHighlight({
       >
         {decorativeCircles}
         <CardHeader className="relative flex flex-row items-start justify-between">
-          <Skeleton className={cn("h-3 w-24", skeletonOverlay)} />
+          <Skeleton className={cn("h-3 w-24", skeletonBg)} />
           <Skeleton
-            className={cn(
-              cardStatHighlightBoxVariants({ size }),
-              skeletonOverlay
-            )}
+            className={cn(cardStatHighlightBoxVariants({ size }), skeletonBg)}
           />
         </CardHeader>
         <CardContent className="relative flex flex-col gap-2">
-          <Skeleton className={cn("h-9 w-40", skeletonOverlay)} />
-          <Skeleton className={cn("h-5 w-32", skeletonOverlay)} />
+          <Skeleton className={cn("h-9 w-40", skeletonBg)} />
+          <Skeleton className={cn("h-5 w-32", skeletonBg)} />
         </CardContent>
       </Card>
     )
@@ -244,7 +252,15 @@ export function CardStatHighlight({
               cardStatHighlightDescVariants({ size })
             )}
           >
-            {TrendIcon && <TrendIcon className="size-5 shrink-0" aria-hidden />}
+            {TrendIcon && (
+              <TrendIcon
+                className={cn(
+                  cardStatHighlightTrendIconVariants({ size }),
+                  "shrink-0"
+                )}
+                aria-hidden
+              />
+            )}
             {trendValue && <span className="font-semibold">{trendValue}</span>}
             {description && <span>{description}</span>}
           </p>

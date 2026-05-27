@@ -16,7 +16,7 @@ import {
 } from "./card-stats-shared"
 
 // ── Variants ──
-const cardStatGaugeMaxWVariants = cva("", {
+export const cardStatGaugeMaxWVariants = cva("", {
   variants: {
     size: {
       sm: "max-w-[130px]",
@@ -27,7 +27,7 @@ const cardStatGaugeMaxWVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatGaugeValueVariants = cva("", {
+export const cardStatGaugeValueVariants = cva("", {
   variants: {
     size: {
       sm: "text-2xl font-semibold tracking-tight tabular-nums",
