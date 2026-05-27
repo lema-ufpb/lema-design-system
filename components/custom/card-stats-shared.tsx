@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva } from "class-variance-authority"
 import { TrendingUpIcon, TrendingDownIcon, MinusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -10,82 +11,84 @@ export type CardStatFormat = "currency" | "percent" | "integer" | "float"
 export type CardStatTrend = "up" | "down" | "neutral"
 export type CardStatSize = "sm" | "md" | "lg"
 
-// ── Size tokens ───────────────────────────────────────────────────────────────
+// ── CVA variants ───────────────────────────────────────────────────────────────
 
-export const SIZE = {
-  sm: {
-    label: "text-xs font-medium tracking-wide uppercase",
-    value: "text-xl font-semibold tracking-tight tabular-nums",
-    description: "text-xs",
-    headerIcon: "size-3.5",
-    contentIcon: "size-4",
-    badgeText: "text-xs font-semibold",
-    badgeIcon: "size-2.5",
-    badgePadding: "px-1.5 py-0.5",
-    iconBox: "size-9 rounded-xl",
-    iconInner: "size-4",
-    highlightBox: "size-8 rounded-lg",
-    highlightIcon: "size-4",
-    highlightValue: "text-2xl font-semibold tracking-tight tabular-nums",
-    highlightDesc: "text-xs",
-    trackH: "h-2",
-    gaugeMaxW: "max-w-[130px]",
-    gaugeValue: "text-2xl font-semibold tracking-tight tabular-nums",
-    listRowPy: "py-2",
-    listText: "text-xs",
-    listValue: "text-xs font-semibold tabular-nums",
-    contentGap: "gap-2",
-    compactValue: "text-lg font-semibold tracking-tight tabular-nums",
+export const cardStatLabelVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-xs font-medium tracking-wide uppercase",
+      md: "text-sm font-medium tracking-wide uppercase",
+      lg: "text-base font-medium tracking-wide uppercase",
+    },
   },
-  md: {
-    label: "text-sm font-medium tracking-wide uppercase",
-    value: "text-2xl font-semibold tracking-tight tabular-nums",
-    description: "text-xs",
-    headerIcon: "size-4",
-    contentIcon: "size-5",
-    badgeText: "text-xs font-semibold",
-    badgeIcon: "size-3",
-    badgePadding: "px-2 py-0.5",
-    iconBox: "size-10 rounded-2xl",
-    iconInner: "size-5",
-    highlightBox: "size-9 rounded-xl",
-    highlightIcon: "size-5",
-    highlightValue: "text-3xl font-semibold tracking-tight tabular-nums",
-    highlightDesc: "text-sm",
-    trackH: "h-3",
-    gaugeMaxW: "max-w-[160px]",
-    gaugeValue: "text-3xl font-semibold tracking-tight tabular-nums",
-    listRowPy: "py-2.5",
-    listText: "text-sm",
-    listValue: "text-sm font-semibold tabular-nums",
-    contentGap: "gap-3",
-    compactValue: "text-xl font-semibold tracking-tight tabular-nums",
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatValueVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-xl font-semibold tracking-tight tabular-nums",
+      md: "text-2xl font-semibold tracking-tight tabular-nums",
+      lg: "text-3xl font-semibold tracking-tight tabular-nums",
+    },
   },
-  lg: {
-    label: "text-base font-medium tracking-wide uppercase",
-    value: "text-3xl font-semibold tracking-tight tabular-nums",
-    description: "text-sm",
-    headerIcon: "size-5",
-    contentIcon: "size-6",
-    badgeText: "text-sm font-semibold",
-    badgeIcon: "size-3.5",
-    badgePadding: "px-2.5 py-1",
-    iconBox: "size-12 rounded-2xl",
-    iconInner: "size-6",
-    highlightBox: "size-11 rounded-xl",
-    highlightIcon: "size-6",
-    highlightValue: "text-4xl font-semibold tracking-tight tabular-nums",
-    highlightDesc: "text-base",
-    trackH: "h-4",
-    gaugeMaxW: "max-w-[200px]",
-    gaugeValue: "text-4xl font-semibold tracking-tight tabular-nums",
-    listRowPy: "py-3",
-    listText: "text-base",
-    listValue: "text-base font-semibold tabular-nums",
-    contentGap: "gap-4",
-    compactValue: "text-2xl font-semibold tracking-tight tabular-nums",
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatDescriptionVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "text-xs",
+      lg: "text-sm",
+    },
   },
-} as const satisfies Record<CardStatSize, Record<string, string>>
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatHeaderIconVariants = cva("", {
+  variants: {
+    size: {
+      sm: "size-3.5",
+      md: "size-4",
+      lg: "size-5",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatContentGapVariants = cva("", {
+  variants: {
+    size: {
+      sm: "gap-2",
+      md: "gap-3",
+      lg: "gap-4",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatBadgePaddingVariants = cva("", {
+  variants: {
+    size: {
+      sm: "px-1.5 py-0.5",
+      md: "px-2 py-0.5",
+      lg: "px-2.5 py-1",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatBadgeTextVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-xs font-semibold",
+      md: "text-xs font-semibold",
+      lg: "text-sm font-semibold",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
 
 // ── Shared helpers ────────────────────────────────────────────────────────────
 
@@ -177,12 +180,11 @@ export function TrendBadge({
   size?: CardStatSize
 }) {
   const Icon = TREND_ICONS[trend]
-  const s = SIZE[size]
   return (
     <Badge
       className={cn(
-        s.badgePadding,
-        s.badgeText,
+        cardStatBadgePaddingVariants({ size }),
+        cardStatBadgeTextVariants({ size }),
         "font-semibold",
         trend === "up" && "bg-success/10 text-success",
         trend === "down" && "bg-destructive/10 text-destructive",
