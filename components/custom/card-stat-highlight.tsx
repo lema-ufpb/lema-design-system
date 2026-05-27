@@ -69,6 +69,7 @@ export type CardStatHighlightVariant =
   | "rose"
   | "violet"
   | "sky"
+  | "white"
 
 export const cardStatHighlightVariants = cva(
   "relative overflow-hidden shadow-lg ring-0 dark:shadow-none",
@@ -81,6 +82,7 @@ export const cardStatHighlightVariants = cva(
         rose: "bg-destructive text-white",
         violet: "bg-highlight-violet text-highlight-violet-foreground",
         sky: "bg-highlight-sky text-highlight-sky-foreground",
+        white: "bg-white text-foreground",
       },
     },
     defaultVariants: { variant: "primary" },
@@ -115,18 +117,32 @@ export function CardStatHighlight({
   empty,
   ...fmt
 }: CardStatHighlightProps) {
+  const isWhiteVariant = variant === "white"
+
+  const overlayBg = isWhiteVariant ? "bg-muted/10" : "bg-white/20"
+  const circleBg = isWhiteVariant ? "bg-muted/10" : "bg-white/10"
+  const circleBg2 = isWhiteVariant ? "bg-muted/5" : "bg-white/5"
+
   const decorativeCircles = (
     <>
       <span
         aria-hidden
-        className="pointer-events-none absolute -top-8 -right-8 size-32 rounded-full bg-white/10"
+        className={cn(
+          "pointer-events-none absolute -top-8 -right-8 size-32 rounded-full",
+          circleBg
+        )}
       />
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-4 -bottom-12 size-40 rounded-full bg-white/5"
+        className={cn(
+          "pointer-events-none absolute -right-4 -bottom-12 size-40 rounded-full",
+          circleBg2
+        )}
       />
     </>
   )
+
+  const skeletonOverlay = isWhiteVariant ? "" : overlayBg
 
   if (loading) {
     return (
@@ -136,17 +152,17 @@ export function CardStatHighlight({
       >
         {decorativeCircles}
         <CardHeader className="relative flex flex-row items-start justify-between">
-          <Skeleton className="h-3 w-24 bg-white/20" />
+          <Skeleton className={cn("h-3 w-24", skeletonOverlay)} />
           <Skeleton
             className={cn(
               cardStatHighlightBoxVariants({ size }),
-              "bg-white/20"
+              skeletonOverlay
             )}
           />
         </CardHeader>
         <CardContent className="relative flex flex-col gap-2">
-          <Skeleton className="h-9 w-40 bg-white/20" />
-          <Skeleton className="h-5 w-32 bg-white/20" />
+          <Skeleton className={cn("h-9 w-40", skeletonOverlay)} />
+          <Skeleton className={cn("h-5 w-32", skeletonOverlay)} />
         </CardContent>
       </Card>
     )
@@ -167,8 +183,9 @@ export function CardStatHighlight({
             <CardAction>
               <div
                 className={cn(
-                  "flex items-center justify-center bg-white/20",
-                  cardStatHighlightBoxVariants({ size })
+                  "flex items-center justify-center",
+                  cardStatHighlightBoxVariants({ size }),
+                  overlayBg
                 )}
               >
                 <Icon className={cardStatHighlightIconVariants({ size })} />
@@ -181,7 +198,7 @@ export function CardStatHighlight({
             icon={BarChart2Icon}
             message="No spotlight yet"
             sub="Your headline KPI will appear here"
-            inverted
+            inverted={!isWhiteVariant}
           />
         </CardContent>
       </Card>
@@ -207,8 +224,9 @@ export function CardStatHighlight({
           <CardAction>
             <div
               className={cn(
-                "flex items-center justify-center bg-white/20",
-                cardStatHighlightBoxVariants({ size })
+                "flex items-center justify-center",
+                cardStatHighlightBoxVariants({ size }),
+                overlayBg
               )}
             >
               <Icon className={cardStatHighlightIconVariants({ size })} />
