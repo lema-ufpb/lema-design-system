@@ -48,6 +48,7 @@ Estende `FmtProps` + `VariantProps<typeof cardStatHighlightVariants>`.
 | `cardStatHighlightIconVariants` | `size-4` | `size-5` | `size-6` |
 | `cardStatHighlightValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
 | `cardStatHighlightDescVariants` | `text-xs` | `text-sm` | `text-base` |
+| `cardStatHighlightTrendIconVariants` | `size-3.5` | `size-5` | `size-6` |
 
 Compartilhada: `cardStatLabelVariants`.
 

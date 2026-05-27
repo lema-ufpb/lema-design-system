@@ -29,6 +29,7 @@
 | `cardStatListRowPyVariants` | `py-2` | `py-2.5` | `py-3` |
 | `cardStatListTextVariants` | `text-xs` | `text-sm` | `text-base` |
 | `cardStatListValueVariants` | `text-xs font-semibold tabular-nums` | `text-sm font-semibold tabular-nums` | `text-base font-semibold tabular-nums` |
+| `cardStatListBadgeIconVariants` | `size-2.5` | `size-3` | `size-3.5` |
 
 Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`.
 
