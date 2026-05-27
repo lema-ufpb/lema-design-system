@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva } from "class-variance-authority"
 import { ActivityIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -9,11 +10,45 @@ import {
   type CardStatTrend,
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
   resolveTrend,
   TrendBadge,
+  cardStatDescriptionVariants,
 } from "./card-stats-shared"
+
+// ── Variants ──
+const cardStatCompactValueVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-lg font-semibold tracking-tight tabular-nums",
+      md: "text-xl font-semibold tracking-tight tabular-nums",
+      lg: "text-2xl font-semibold tracking-tight tabular-nums",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const cardStatIconBoxVariants = cva("", {
+  variants: {
+    size: {
+      sm: "size-9 rounded-xl",
+      md: "size-10 rounded-2xl",
+      lg: "size-12 rounded-2xl",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const cardStatIconInnerVariants = cva("", {
+  variants: {
+    size: {
+      sm: "size-4",
+      md: "size-5",
+      lg: "size-6",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
 
 export interface CardStatCompactProps extends FmtProps {
   label: string
@@ -39,13 +74,13 @@ export function CardStatCompact({
   empty,
   ...fmt
 }: CardStatCompactProps) {
-  const s = SIZE[size]
-
   if (loading) {
     return (
       <Card size="sm" className={className}>
         <CardContent className="flex items-center gap-3 py-4">
-          <Skeleton className={cn(s.iconBox, "shrink-0")} />
+          <Skeleton
+            className={cn(cardStatIconBoxVariants({ size }), "shrink-0")}
+          />
           <div className="flex min-w-0 flex-1 flex-col gap-1.5">
             <Skeleton className="h-2.5 w-20 rounded-md" />
             <Skeleton className="h-6 w-28" />
@@ -63,11 +98,14 @@ export function CardStatCompact({
           <div
             className={cn(
               "flex shrink-0 items-center justify-center bg-muted/50",
-              s.iconBox
+              cardStatIconBoxVariants({ size })
             )}
           >
             <ActivityIcon
-              className={cn(s.iconInner, "text-muted-foreground/30")}
+              className={cn(
+                cardStatIconInnerVariants({ size }),
+                "text-muted-foreground/30"
+              )}
               aria-hidden
             />
           </div>
@@ -75,14 +113,26 @@ export function CardStatCompact({
             <p
               className={cn(
                 "truncate font-medium text-muted-foreground",
-                s.description
+                cardStatDescriptionVariants({ size })
               )}
             >
               {label}
             </p>
-            <p className={cn(s.compactValue, "text-muted-foreground/25")}>—</p>
+            <p
+              className={cn(
+                cardStatCompactValueVariants({ size }),
+                "text-muted-foreground/25"
+              )}
+            >
+              —
+            </p>
           </div>
-          <span className={cn(s.description, "text-muted-foreground/30")}>
+          <span
+            className={cn(
+              cardStatDescriptionVariants({ size }),
+              "text-muted-foreground/30"
+            )}
+          >
             No data
           </span>
         </CardContent>
@@ -100,7 +150,7 @@ export function CardStatCompact({
           <div
             className={cn(
               "flex shrink-0 items-center justify-center transition-colors",
-              s.iconBox,
+              cardStatIconBoxVariants({ size }),
               trendDir === "up" && "bg-success/10",
               trendDir === "down" && "bg-destructive/10",
               !trendDir && "bg-muted"
@@ -108,7 +158,7 @@ export function CardStatCompact({
           >
             <Icon
               className={cn(
-                s.iconInner,
+                cardStatIconInnerVariants({ size }),
                 trendDir === "up" && "text-success",
                 trendDir === "down" && "text-destructive",
                 !trendDir && "text-muted-foreground"
@@ -120,12 +170,12 @@ export function CardStatCompact({
           <p
             className={cn(
               "truncate font-medium text-muted-foreground",
-              s.description
+              cardStatDescriptionVariants({ size })
             )}
           >
             {label}
           </p>
-          <p className={s.compactValue}>{display}</p>
+          <p className={cardStatCompactValueVariants({ size })}>{display}</p>
         </div>
         {trendDir && trendValue && (
           <TrendBadge trend={trendDir} value={trendValue} size={size} />

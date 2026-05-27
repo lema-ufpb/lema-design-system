@@ -8,10 +8,13 @@ import {
   type CardStatTrend,
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
   resolveTrend,
   TrendBadge,
+  cardStatLabelVariants,
+  cardStatValueVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
 } from "./card-stats-shared"
 
 function toSvgPts(
@@ -164,7 +167,6 @@ export function CardStatSparkline({
   empty,
   ...fmt
 }: CardStatSparklineProps) {
-  const s = SIZE[size]
   const sparklineW = size === "sm" ? 90 : size === "lg" ? 150 : 120
   const sparklineH = size === "sm" ? 32 : size === "lg" ? 56 : 44
 
@@ -173,7 +175,9 @@ export function CardStatSparkline({
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
         <CardContent className="flex items-end justify-between gap-4">
           <div className="flex flex-col gap-1.5">
@@ -193,19 +197,36 @@ export function CardStatSparkline({
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
         <CardContent className="flex items-end justify-between gap-4">
           <div className="flex flex-col gap-1.5">
-            <p className={cn(s.value, "text-muted-foreground/25")}>—</p>
-            <p className={cn("text-muted-foreground/40", s.description)}>
+            <p
+              className={cn(
+                cardStatValueVariants({ size }),
+                "text-muted-foreground/25"
+              )}
+            >
+              —
+            </p>
+            <p
+              className={cn(
+                "text-muted-foreground/40",
+                cardStatDescriptionVariants({ size })
+              )}
+            >
               No history yet
             </p>
           </div>
@@ -221,22 +242,32 @@ export function CardStatSparkline({
   return (
     <Card size="sm" className={className}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
       <CardContent className="flex items-end justify-between gap-4">
         <div className="flex flex-col gap-1.5">
-          <p className={s.value}>{display}</p>
+          <p className={cardStatValueVariants({ size })}>{display}</p>
           {trendDir && trendValue ? (
             <TrendBadge trend={trendDir} value={trendValue} size={size} />
           ) : description ? (
-            <p className={cn("text-muted-foreground", s.description)}>
+            <p
+              className={cn(
+                "text-muted-foreground",
+                cardStatDescriptionVariants({ size })
+              )}
+            >
               {description}
             </p>
           ) : null}
