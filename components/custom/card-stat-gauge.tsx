@@ -15,13 +15,34 @@ import {
   cardStatBadgePaddingVariants,
 } from "./card-stats-shared"
 
+// ── Types ──
+export interface CardStatGaugeZone {
+  label: string
+  color: string
+  max: number
+}
+
+export interface CardStatGaugeProps extends FmtProps {
+  label: string
+  value: number
+  min?: number
+  max?: number
+  description?: string
+  zones?: CardStatGaugeZone[]
+  icon?: React.ElementType
+  size?: CardStatSize
+  className?: string
+  loading?: boolean
+  empty?: boolean
+}
+
 // ── Variants ──
 export const cardStatGaugeMaxWVariants = cva("", {
   variants: {
     size: {
-      sm: "max-w-[130px]",
-      md: "max-w-[160px]",
-      lg: "max-w-[200px]",
+      sm: "max-w-32",
+      md: "max-w-40",
+      lg: "max-w-48",
     },
   },
   defaultVariants: { size: "md" },
@@ -38,12 +59,7 @@ export const cardStatGaugeValueVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-export interface CardStatGaugeZone {
-  label: string
-  color: string
-  max: number
-}
-
+// ── Helpers ──
 const DEFAULT_GAUGE_ZONES: CardStatGaugeZone[] = [
   { label: "Poor", color: "var(--color-risk-1)", max: 25 },
   { label: "Fair", color: "var(--color-risk-2)", max: 50 },
@@ -128,20 +144,7 @@ function GaugeSvg({
   )
 }
 
-export interface CardStatGaugeProps extends FmtProps {
-  label: string
-  value: number
-  min?: number
-  max?: number
-  description?: string
-  zones?: CardStatGaugeZone[]
-  icon?: React.ElementType
-  size?: CardStatSize
-  className?: string
-  loading?: boolean
-  empty?: boolean
-}
-
+// ── Component ──
 export function CardStatGauge({
   label,
   value,
