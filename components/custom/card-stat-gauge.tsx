@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
@@ -7,9 +8,35 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
+  cardStatLabelVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
+  cardStatBadgePaddingVariants,
 } from "./card-stats-shared"
+
+// ── Variants ──
+const cardStatGaugeMaxWVariants = cva("", {
+  variants: {
+    size: {
+      sm: "max-w-[130px]",
+      md: "max-w-[160px]",
+      lg: "max-w-[200px]",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const cardStatGaugeValueVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-2xl font-semibold tracking-tight tabular-nums",
+      md: "text-3xl font-semibold tracking-tight tabular-nums",
+      lg: "text-4xl font-semibold tracking-tight tabular-nums",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
 
 export interface CardStatGaugeZone {
   label: string
@@ -129,18 +156,18 @@ export function CardStatGauge({
   empty,
   ...fmt
 }: CardStatGaugeProps) {
-  const s = SIZE[size]
-
   if (loading) {
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-24 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
         <CardContent className="flex flex-col items-center gap-2 pb-3">
           <Skeleton
-            className={cn("w-full", s.gaugeMaxW)}
+            className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}
             style={{
               aspectRatio: "2/1",
               borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
@@ -158,27 +185,37 @@ export function CardStatGauge({
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
         <CardContent className="flex flex-col items-center gap-1 pb-3">
-          <div className={cn("w-full", s.gaugeMaxW)}>
+          <div className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}>
             <GaugeSvg percent={0} zones={zones} />
           </div>
-          <p className={cn("-mt-1 text-muted-foreground/25", s.gaugeValue)}>
+          <p
+            className={cn(
+              "-mt-1 text-muted-foreground/25",
+              cardStatGaugeValueVariants({ size })
+            )}
+          >
             —
           </p>
           <span
             className={cn(
               "rounded-full bg-muted/50 font-semibold text-muted-foreground/40",
-              s.badgePadding,
-              s.description
+              cardStatBadgePaddingVariants({ size }),
+              cardStatDescriptionVariants({ size })
             )}
           >
             No reading
@@ -187,7 +224,7 @@ export function CardStatGauge({
             <p
               className={cn(
                 "mt-1 text-center text-muted-foreground/40",
-                s.description
+                cardStatDescriptionVariants({ size })
               )}
             >
               {description}
@@ -205,25 +242,32 @@ export function CardStatGauge({
   return (
     <Card size="sm" className={className}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-1 pb-3">
-        <div className={cn("w-full", s.gaugeMaxW)}>
+        <div className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}>
           <GaugeSvg percent={pct} zones={zones} />
         </div>
-        <p className={cn("-mt-1", s.gaugeValue)}>{display}</p>
+        <p className={cn("-mt-1", cardStatGaugeValueVariants({ size }))}>
+          {display}
+        </p>
         <span
           className={cn(
             "rounded-full font-semibold text-white",
-            s.badgePadding,
-            s.description
+            cardStatBadgePaddingVariants({ size }),
+            cardStatDescriptionVariants({ size })
           )}
           style={{ backgroundColor: activeZone.color }}
         >
@@ -233,7 +277,7 @@ export function CardStatGauge({
           <p
             className={cn(
               "mt-1 text-center text-muted-foreground",
-              s.description
+              cardStatDescriptionVariants({ size })
             )}
           >
             {description}

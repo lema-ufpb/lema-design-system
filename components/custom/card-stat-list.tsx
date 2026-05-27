@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva } from "class-variance-authority"
 import { InboxIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -9,12 +10,48 @@ import {
   type CardStatTrend,
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
   resolveTrend,
   TREND_ICONS,
   CardStatEmptySlot,
+  cardStatLabelVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
 } from "./card-stats-shared"
+
+// ── Variants ──
+const cardStatListRowPyVariants = cva("", {
+  variants: {
+    size: {
+      sm: "py-2",
+      md: "py-2.5",
+      lg: "py-3",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const cardStatListTextVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "text-sm",
+      lg: "text-base",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const cardStatListValueVariants = cva("", {
+  variants: {
+    size: {
+      sm: "text-xs font-semibold tabular-nums",
+      md: "text-sm font-semibold tabular-nums",
+      lg: "text-base font-semibold tabular-nums",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
 
 export interface CardStatListItem extends FmtProps {
   label: string
@@ -44,14 +81,14 @@ export function CardStatList({
   loading,
   empty,
 }: CardStatListProps) {
-  const s = SIZE[size]
-
   if (loading) {
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
         <CardContent className="p-0">
           <ul>
@@ -60,7 +97,7 @@ export function CardStatList({
                 key={i}
                 className={cn(
                   "flex items-center justify-between gap-3 px-4",
-                  s.listRowPy,
+                  cardStatListRowPyVariants({ size }),
                   i !== 0 && "border-t border-border/50"
                 )}
               >
@@ -81,12 +118,17 @@ export function CardStatList({
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
@@ -104,12 +146,17 @@ export function CardStatList({
   return (
     <Card size="sm" className={className}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
@@ -131,31 +178,33 @@ export function CardStatList({
                 key={`${item.label}-${i}`}
                 className={cn(
                   "flex items-center justify-between gap-3 px-4",
-                  s.listRowPy,
+                  cardStatListRowPyVariants({ size }),
                   "transition-colors hover:bg-muted/40",
                   i !== 0 && "border-t border-border/50"
                 )}
               >
                 <span
-                  className={cn("truncate text-muted-foreground", s.listText)}
+                  className={cn(
+                    "truncate text-muted-foreground",
+                    cardStatListTextVariants({ size })
+                  )}
                 >
                   {item.label}
                 </span>
                 <div className="flex shrink-0 items-center gap-2">
-                  <span className={s.listValue}>{display}</span>
+                  <span className={cardStatListValueVariants({ size })}>
+                    {display}
+                  </span>
                   {trendDir && (
                     <span
                       className={cn(
                         "flex items-center gap-0.5",
-                        s.description,
+                        cardStatDescriptionVariants({ size }),
                         trendCls
                       )}
                     >
                       {TrendIcon && (
-                        <TrendIcon
-                          className={cn(s.badgeIcon, "shrink-0")}
-                          aria-hidden
-                        />
+                        <TrendIcon className="size-3 shrink-0" aria-hidden />
                       )}
                       {item.trendValue && (
                         <span className="font-medium">{item.trendValue}</span>
