@@ -179,9 +179,54 @@ Estende `FmtProps`. `CardStatHeatbarZone`: `{ label: string, color: string, max:
 
 ## Variantes CVA
 
-### cardStatHighlightVariants (apenas CardStatHighlight)
+Toda a família card-stat usa CVA para tokens dimensionais. O antigo objeto `SIZE` (ad-hoc lookup table) foi removido — cada dimensão é agora uma variante CVA individual.
 
-Slots: sem sub-variantes, apenas `cardStatHighlightVariants` para o wrapper do cartão. Os outros sub-componentes não usam CVA — usam classes diretas via `cn()`.
+### Compartilhadas (definidas em `card-stats-shared.tsx`)
+
+| Variant | sm | md | lg |
+|---------|----|----|----|
+| `cardStatLabelVariants` | `text-xs font-medium tracking-wide uppercase` | `text-sm font-medium tracking-wide uppercase` | `text-base font-medium tracking-wide uppercase` |
+| `cardStatValueVariants` | `text-xl font-semibold tracking-tight tabular-nums` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` |
+| `cardStatDescriptionVariants` | `text-xs` | `text-xs` | `text-sm` |
+| `cardStatHeaderIconVariants` | `size-3.5` | `size-4` | `size-5` |
+| `cardStatContentGapVariants` | `gap-2` | `gap-3` | `gap-4` |
+| `cardStatBadgePaddingVariants` | `px-1.5 py-0.5` | `px-2 py-0.5` | `px-2.5 py-1` |
+| `cardStatBadgeTextVariants` | `text-xs font-semibold` | `text-xs font-semibold` | `text-sm font-semibold` |
+
+### Específicas por componente
+
+| Componente | Variant | sm | md | lg |
+|------------|---------|----|----|----|
+| highlight | `cardStatHighlightBoxVariants` | `size-8 rounded-lg` | `size-9 rounded-xl` | `size-11 rounded-xl` |
+| highlight | `cardStatHighlightIconVariants` | `size-4` | `size-5` | `size-6` |
+| highlight | `cardStatHighlightValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| highlight | `cardStatHighlightDescVariants` | `text-xs` | `text-sm` | `text-base` |
+| gauge | `cardStatGaugeMaxWVariants` | `max-w-[130px]` | `max-w-[160px]` | `max-w-[200px]` |
+| gauge | `cardStatGaugeValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| progress | `cardStatTrackHVariants` | `h-2` | `h-3` | `h-4` |
+| heatbar | `cardStatTrackHVariants` | `h-2` | `h-3` | `h-4` |
+| list | `cardStatListRowPyVariants` | `py-2` | `py-2.5` | `py-3` |
+| list | `cardStatListTextVariants` | `text-xs` | `text-sm` | `text-base` |
+| list | `cardStatListValueVariants` | `text-xs font-semibold tabular-nums` | `text-sm font-semibold tabular-nums` | `text-base font-semibold tabular-nums` |
+| compact | `cardStatCompactValueVariants` | `text-lg font-semibold tracking-tight tabular-nums` | `text-xl font-semibold tracking-tight tabular-nums` | `text-2xl font-semibold tracking-tight tabular-nums` |
+| compact | `cardStatIconBoxVariants` | `size-9 rounded-xl` | `size-10 rounded-2xl` | `size-12 rounded-2xl` |
+| compact | `cardStatIconInnerVariants` | `size-4` | `size-5` | `size-6` |
+
+### cardStatHighlightVariants (wrapper do cartão highlight)
+
+| Variant | Classes |
+|---------|---------|
+| `primary` | `bg-primary text-primary-foreground` |
+| `emerald` | `bg-success text-success-foreground` |
+| `amber` | `bg-warning text-warning-foreground` |
+| `rose` | `bg-destructive text-white` |
+| `violet` | `bg-highlight-violet text-highlight-violet-foreground` |
+| `sky` | `bg-highlight-sky text-highlight-sky-foreground` |
+| `white` | `bg-white text-foreground` |
+
+### TrendBadge
+
+`TrendBadge` (em `card-stats-shared.tsx`) usa `cardStatBadgePaddingVariants` + `cardStatBadgeTextVariants` para dimensionamento responsivo.
 
 ---
 
@@ -284,7 +329,7 @@ Slots: sem sub-variantes, apenas `cardStatHighlightVariants` para o wrapper do c
 - [x] `CardStatSparklineLoading`
 - [x] `CardStatSparklineEmpty`
 - [x] `CardStatHighlightDefault`
-- [x] `CardStatHighlightAllVariants` — todas as 6 variantes
+- [x] `CardStatHighlightAllVariants` — todas as 7 variantes
 - [x] `CardStatHighlightAllSizes`
 - [x] `CardStatHighlightBannerKPI`
 - [x] `CardStatHighlightLoading`
@@ -310,8 +355,8 @@ Slots: sem sub-variantes, apenas `cardStatHighlightVariants` para o wrapper do c
 
 - [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base` (aplicado nos slots internos)
 - [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [x] `defaultVariants` declarado em `cardStatHighlightVariants`
-- [x] Todos os `*Variants` são exportados (`cardStatHighlightVariants`)
+- [x] `defaultVariants` declarado em todas as variantes CVA
+- [x] Todos os `*Variants` são exportados quando compartilhados (`card-stats-shared.tsx`)
 - [x] Loading usa `<Skeleton>` com dimensões corretas
 - [x] `tabular-nums` em valores percentuais
 - [x] `truncate` em labels
