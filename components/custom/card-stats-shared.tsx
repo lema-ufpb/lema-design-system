@@ -185,7 +185,6 @@ export function TrendBadge({
       className={cn(
         cardStatBadgePaddingVariants({ size }),
         cardStatBadgeTextVariants({ size }),
-        "font-semibold",
         trend === "up" && "bg-success/10 text-success",
         trend === "down" && "bg-destructive/10 text-destructive",
         trend === "neutral" && "bg-muted text-muted-foreground"
