@@ -20,7 +20,7 @@ import {
 } from "./card-stats-shared"
 
 // ── Variants ──
-const cardStatListRowPyVariants = cva("", {
+export const cardStatListRowPyVariants = cva("", {
   variants: {
     size: {
       sm: "py-2",
@@ -31,7 +31,7 @@ const cardStatListRowPyVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatListTextVariants = cva("", {
+export const cardStatListTextVariants = cva("", {
   variants: {
     size: {
       sm: "text-xs",
@@ -42,12 +42,23 @@ const cardStatListTextVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatListValueVariants = cva("", {
+export const cardStatListValueVariants = cva("", {
   variants: {
     size: {
       sm: "text-xs font-semibold tabular-nums",
       md: "text-sm font-semibold tabular-nums",
       lg: "text-base font-semibold tabular-nums",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatListBadgeIconVariants = cva("", {
+  variants: {
+    size: {
+      sm: "size-2.5",
+      md: "size-3",
+      lg: "size-3.5",
     },
   },
   defaultVariants: { size: "md" },
@@ -204,7 +215,13 @@ export function CardStatList({
                       )}
                     >
                       {TrendIcon && (
-                        <TrendIcon className="size-3 shrink-0" aria-hidden />
+                        <TrendIcon
+                          className={cn(
+                            cardStatListBadgeIconVariants({ size }),
+                            "shrink-0"
+                          )}
+                          aria-hidden
+                        />
                       )}
                       {item.trendValue && (
                         <span className="font-medium">{item.trendValue}</span>

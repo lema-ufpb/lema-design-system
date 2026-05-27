@@ -17,7 +17,7 @@ import {
 } from "./card-stats-shared"
 
 // ── Variants ──
-const cardStatCompactValueVariants = cva("", {
+export const cardStatCompactValueVariants = cva("", {
   variants: {
     size: {
       sm: "text-lg font-semibold tracking-tight tabular-nums",
@@ -28,7 +28,7 @@ const cardStatCompactValueVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatIconBoxVariants = cva("", {
+export const cardStatIconBoxVariants = cva("", {
   variants: {
     size: {
       sm: "size-9 rounded-xl",
@@ -39,7 +39,7 @@ const cardStatIconBoxVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-const cardStatIconInnerVariants = cva("", {
+export const cardStatIconInnerVariants = cva("", {
   variants: {
     size: {
       sm: "size-4",
