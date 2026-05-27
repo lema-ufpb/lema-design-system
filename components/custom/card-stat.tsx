@@ -9,12 +9,18 @@ import {
   type CardStatFormat,
   type CardStatTrend,
   type CardStatSize,
-  SIZE,
   applyFmt,
   resolveTrend,
   TREND_ICONS,
   TREND_COLORS,
+  cardStatLabelVariants,
+  cardStatValueVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
+  cardStatContentGapVariants,
 } from "./card-stats-shared"
+
+// ── Component ──
 
 export interface CardStatProps {
   label: string
@@ -49,16 +55,18 @@ export function CardStat({
   loading,
   empty,
 }: CardStatProps) {
-  const s = SIZE[size]
-
   if (loading) {
     return (
-      <Card size="sm" className={cn(className)}>
+      <Card size="sm" className={cn(className)} data-slot="card-stat">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-24 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <Skeleton className="h-7 w-40" />
           <Skeleton className="h-3 w-32 rounded-md" />
         </CardContent>
@@ -68,29 +76,40 @@ export function CardStat({
 
   if (empty) {
     return (
-      <Card size="sm" className={cn(className)}>
+      <Card size="sm" className={cn(className)} data-slot="card-stat">
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground/40">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
-          <p className={cn(s.value, "text-muted-foreground/25")}>—</p>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
+          <p
+            className={cn(
+              cardStatValueVariants({ size }),
+              "text-muted-foreground/25"
+            )}
+          >
+            —
+          </p>
           <p
             className={cn(
               "flex items-center gap-1 text-muted-foreground/50",
-              s.description
+              cardStatDescriptionVariants({ size })
             )}
           >
-            <BarChart2Icon
-              className={cn(s.badgeIcon, "shrink-0")}
-              aria-hidden
-            />
+            <BarChart2Icon className="size-2.5 shrink-0" aria-hidden />
             Nothing to measure yet
           </p>
         </CardContent>
@@ -110,29 +129,36 @@ export function CardStat({
   const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
 
   return (
-    <Card size="sm" className={cn(className)}>
+    <Card size="sm" className={cn(className)} data-slot="card-stat">
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
-      <CardContent className={cn("flex flex-col", s.contentGap)}>
-        <p className={s.value}>{displayValue}</p>
+      <CardContent
+        className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+      >
+        <p className={cardStatValueVariants({ size })}>{displayValue}</p>
         {description && (
           <p
             className={cn(
               "flex items-center gap-1",
-              s.description,
+              cardStatDescriptionVariants({ size }),
               trendDir ? TREND_COLORS[trendDir] : "text-muted-foreground"
             )}
           >
             {TrendIcon && (
-              <TrendIcon className={cn(s.badgeIcon, "shrink-0")} aria-hidden />
+              <TrendIcon className="size-2.5 shrink-0" aria-hidden />
             )}
             {description}
           </p>
