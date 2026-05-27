@@ -23,30 +23,12 @@ import {
   cardStatBadgePaddingVariants,
 } from "./card-stats-shared"
 
-// ── Variants ──
-export const cardStatTrackHVariants = cva("", {
-  variants: {
-    size: {
-      sm: "h-2",
-      md: "h-3",
-      lg: "h-4",
-    },
-  },
-  defaultVariants: { size: "md" },
-})
-
+// ── Types ──
 export interface CardStatHeatbarZone {
   label: string
   color: string
   max: number
 }
-
-const DEFAULT_HEATBAR_ZONES: CardStatHeatbarZone[] = [
-  { label: "Poor", color: "var(--color-risk-1)", max: 25 },
-  { label: "Fair", color: "var(--color-risk-2)", max: 50 },
-  { label: "Good", color: "var(--color-risk-3)", max: 75 },
-  { label: "Excellent", color: "var(--color-risk-4)", max: 100 },
-]
 
 export interface CardStatHeatbarProps extends FmtProps {
   label: string
@@ -61,6 +43,37 @@ export interface CardStatHeatbarProps extends FmtProps {
   loading?: boolean
   empty?: boolean
 }
+
+// ── Variants ──
+export const cardStatTrackHVariants = cva("", {
+  variants: {
+    size: {
+      sm: "h-2",
+      md: "h-3",
+      lg: "h-4",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatMarkerTopVariants = cva("", {
+  variants: {
+    size: {
+      sm: "top-1.5",
+      md: "top-2.5",
+      lg: "top-3",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+// ── Helpers ──
+const DEFAULT_HEATBAR_ZONES: CardStatHeatbarZone[] = [
+  { label: "Poor", color: "var(--color-risk-1)", max: 25 },
+  { label: "Fair", color: "var(--color-risk-2)", max: 50 },
+  { label: "Good", color: "var(--color-risk-3)", max: 75 },
+  { label: "Excellent", color: "var(--color-risk-4)", max: 100 },
+]
 
 export function CardStatHeatbar({
   label,
@@ -274,11 +287,11 @@ export function CardStatHeatbar({
                 </div>
 
                 <div
-                  className="absolute -translate-x-1/2 pt-0.5"
-                  style={{
-                    top: `${size === "sm" ? 6 : size === "lg" ? 12 : 10}px`,
-                    left: `${pct}%`,
-                  }}
+                  className={cn(
+                    "absolute -translate-x-1/2 pt-0.5",
+                    cardStatMarkerTopVariants({ size })
+                  )}
+                  style={{ left: `${pct}%` }}
                 >
                   <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden>
                     <polygon

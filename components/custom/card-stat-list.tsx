@@ -34,9 +34,9 @@ export const cardStatListRowPyVariants = cva("", {
 export const cardStatListTextVariants = cva("", {
   variants: {
     size: {
-      sm: "text-xs",
-      md: "text-sm",
-      lg: "text-base",
+      sm: "text-xs font-medium",
+      md: "text-sm font-medium",
+      lg: "text-base font-medium",
     },
   },
   defaultVariants: { size: "md" },

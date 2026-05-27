@@ -66,8 +66,8 @@ export const cardStatHighlightTrendIconVariants = cva("", {
   variants: {
     size: {
       sm: "size-3.5",
-      md: "size-5",
-      lg: "size-6",
+      md: "size-4",
+      lg: "size-5",
     },
   },
   defaultVariants: { size: "md" },
@@ -93,7 +93,7 @@ export const cardStatHighlightVariants = cva(
         rose: "bg-destructive text-white",
         violet: "bg-highlight-violet text-highlight-violet-foreground",
         sky: "bg-highlight-sky text-highlight-sky-foreground",
-        white: "bg-white text-foreground",
+        white: "bg-highlight-white text-highlight-white-foreground",
       },
     },
     defaultVariants: { variant: "primary" },

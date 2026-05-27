@@ -16,6 +16,19 @@ import {
   cardStatDescriptionVariants,
 } from "./card-stats-shared"
 
+// ── Types ──
+export interface CardStatCompactProps extends FmtProps {
+  label: string
+  value: string | number
+  trend?: CardStatTrend | boolean
+  trendValue?: string
+  icon?: React.ElementType
+  size?: CardStatSize
+  className?: string
+  loading?: boolean
+  empty?: boolean
+}
+
 // ── Variants ──
 export const cardStatCompactValueVariants = cva("", {
   variants: {
@@ -49,18 +62,6 @@ export const cardStatIconInnerVariants = cva("", {
   },
   defaultVariants: { size: "md" },
 })
-
-export interface CardStatCompactProps extends FmtProps {
-  label: string
-  value: string | number
-  trend?: CardStatTrend | boolean
-  trendValue?: string
-  icon?: React.ElementType
-  size?: CardStatSize
-  className?: string
-  loading?: boolean
-  empty?: boolean
-}
 
 export function CardStatCompact({
   label,

@@ -1,6 +1,5 @@
 import * as React from "react"
 import { BarChart2Icon } from "lucide-react"
-import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
@@ -14,68 +13,12 @@ import {
   resolveTrend,
   TREND_ICONS,
   TREND_COLORS,
+  cardStatLabelVariants,
+  cardStatValueVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
+  cardStatContentGapVariants,
 } from "./card-stats-shared"
-
-// ── Variants ──
-// Value scale (text-xl/text-2xl/text-3xl) is intentionally larger than the
-// standard typography table (text-xs/text-sm/text-base) because CardStat
-// displays prominent KPI/card values that need visual emphasis at the top
-// of dashboard views.
-
-export const cardStatLabelVariants = cva("", {
-  variants: {
-    size: {
-      sm: "text-xs font-medium tracking-wide uppercase",
-      md: "text-sm font-medium tracking-wide uppercase",
-      lg: "text-base font-medium tracking-wide uppercase",
-    },
-  },
-  defaultVariants: { size: "md" },
-})
-
-export const cardStatValueVariants = cva("", {
-  variants: {
-    size: {
-      sm: "text-xl font-semibold tracking-tight tabular-nums",
-      md: "text-2xl font-semibold tracking-tight tabular-nums",
-      lg: "text-3xl font-semibold tracking-tight tabular-nums",
-    },
-  },
-  defaultVariants: { size: "md" },
-})
-
-export const cardStatDescriptionVariants = cva("", {
-  variants: {
-    size: {
-      sm: "text-xs",
-      md: "text-xs",
-      lg: "text-sm",
-    },
-  },
-  defaultVariants: { size: "md" },
-})
-
-export const cardStatHeaderIconVariants = cva("", {
-  variants: {
-    size: {
-      sm: "size-3.5",
-      md: "size-4",
-      lg: "size-5",
-    },
-  },
-  defaultVariants: { size: "md" },
-})
-
-export const cardStatContentGapVariants = cva("", {
-  variants: {
-    size: {
-      sm: "gap-2",
-      md: "gap-3",
-      lg: "gap-4",
-    },
-  },
-  defaultVariants: { size: "md" },
-})
 
 // ── Component ──
 
