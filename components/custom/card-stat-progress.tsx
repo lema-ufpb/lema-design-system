@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
@@ -8,9 +9,25 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
+  cardStatLabelVariants,
+  cardStatValueVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
+  cardStatContentGapVariants,
 } from "./card-stats-shared"
+
+// ── Variants ──
+export const cardStatTrackHVariants = cva("", {
+  variants: {
+    size: {
+      sm: "h-2",
+      md: "h-3",
+      lg: "h-4",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
 
 export interface CardStatProgressProps extends FmtProps {
   label: string
@@ -38,21 +55,25 @@ export function CardStatProgress({
   empty,
   ...fmt
 }: CardStatProgressProps) {
-  const s = SIZE[size]
-
   if (loading) {
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <div className="flex items-baseline justify-between gap-2">
             <Skeleton className="h-7 w-24" />
             <Skeleton className="h-4 w-16 rounded-md" />
           </div>
-          <Skeleton className={cn(s.trackH, "rounded-full")} />
+          <Skeleton
+            className={cn(cardStatTrackHVariants({ size }), "rounded-full")}
+          />
           <div className="flex items-center justify-between">
             <Skeleton className="h-3 w-32 rounded-md" />
             <Skeleton className="h-3 w-8 rounded-md" />
@@ -66,34 +87,51 @@ export function CardStatProgress({
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <div className="flex items-baseline justify-between gap-2">
-            <p className={cn(s.value, "text-muted-foreground/25")}>—</p>
+            <p
+              className={cn(
+                cardStatValueVariants({ size }),
+                "text-muted-foreground/25"
+              )}
+            >
+              —
+            </p>
             <span
-              className={cn("shrink-0 text-muted-foreground/25", s.description)}
+              className={cn(
+                "shrink-0 text-muted-foreground/25",
+                cardStatDescriptionVariants({ size })
+              )}
             >
               / —
             </span>
           </div>
           <div
             className={cn(
-              s.trackH,
+              cardStatTrackHVariants({ size }),
               "w-full rounded-full border border-dashed border-muted-foreground/20"
             )}
           />
           <p
             className={cn(
               "text-center text-muted-foreground/50",
-              s.description
+              cardStatDescriptionVariants({ size })
             )}
           >
             No goal set yet
@@ -128,26 +166,46 @@ export function CardStatProgress({
   return (
     <Card size="sm" className={className}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
-      <CardContent className={cn("flex flex-col", s.contentGap)}>
+      <CardContent
+        className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+      >
         <div className="flex items-baseline justify-between gap-2">
-          <p className={s.value}>{displayValue}</p>
-          <span className={cn("shrink-0 text-muted-foreground", s.description)}>
+          <p className={cardStatValueVariants({ size })}>{displayValue}</p>
+          <span
+            className={cn(
+              "shrink-0 text-muted-foreground",
+              cardStatDescriptionVariants({ size })
+            )}
+          >
             / {displayGoal}
           </span>
         </div>
-        <Progress value={pct} className={cn(s.trackH, barColor)} />
+        <Progress
+          value={pct}
+          className={cn(cardStatTrackHVariants({ size }), barColor)}
+        />
         <div className="flex items-center justify-between">
           {description && (
-            <p className={cn("text-muted-foreground", s.description)}>
+            <p
+              className={cn(
+                "text-muted-foreground",
+                cardStatDescriptionVariants({ size })
+              )}
+            >
               {description}
             </p>
           )}
@@ -155,7 +213,7 @@ export function CardStatProgress({
             <p
               className={cn(
                 "ml-auto font-semibold tabular-nums",
-                s.description,
+                cardStatDescriptionVariants({ size }),
                 pctColor
               )}
             >

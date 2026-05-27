@@ -1,0 +1,53 @@
+# Spec: CardStat
+
+> Cartão de estatística principal com label, valor formatado, ícone, tendência e descrição.
+
+**Arquivo:** `components/custom/card-stat.tsx`
+
+---
+
+## Props
+
+| Prop | Tipo | Padrão | Obrigatória | Descrição |
+|------|------|--------|-------------|-----------|
+| `label` | `string` | — | ✓ | Rótulo do cartão |
+| `value` | `string \| number` | — | ✓ | Valor principal |
+| `size` | `CardStatSize` | `"md"` | | Tamanho do cartão |
+| `description` | `string` | — | | Descrição/rodapé |
+| `trend` | `CardStatTrend \| boolean` | `false` | | Direção da tendência |
+| `icon` | `React.ElementType` | — | | Ícone decorativo no header |
+| `className` | `string` | — | | Classes extras |
+| `loading` | `boolean` | `false` | | Estado de carregamento |
+| `empty` | `boolean` | `false` | | Estado vazio |
+
+Estende `FmtProps` (`format`, `decimals`, `locale`, `currency`, `valueFormatter`).
+
+---
+
+## CVA variants locais
+
+Nenhuma — usa apenas as variantes compartilhadas de `card-stats-shared.tsx`:
+- `cardStatLabelVariants`
+- `cardStatValueVariants`
+- `cardStatDescriptionVariants`
+- `cardStatHeaderIconVariants`
+- `cardStatContentGapVariants`
+
+---
+
+## Estados
+
+| Estado | Comportamento |
+|--------|---------------|
+| `loading` | Skeletons para label, headerIcon, value, description |
+| `empty` | Label atenuado, "—" no valor, "Nothing to measure yet" |
+| Normal | Label + valor formatado + ícone + tendência + descrição |
+
+## Stories
+
+- [x] Default — CardStat padrão com valor formatado
+- [x] AllTrends — currency, percent, integer, float
+- [x] AllSizes — sm, md, lg
+- [x] Loading
+- [x] Empty
+- [x] Locales — pt-BR, de-DE, en-US

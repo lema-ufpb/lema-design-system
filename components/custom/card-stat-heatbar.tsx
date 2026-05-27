@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
@@ -13,22 +14,21 @@ import {
 import {
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
+  cardStatLabelVariants,
+  cardStatValueVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
+  cardStatContentGapVariants,
+  cardStatBadgePaddingVariants,
 } from "./card-stats-shared"
 
+// ── Types ──
 export interface CardStatHeatbarZone {
   label: string
   color: string
   max: number
 }
-
-const DEFAULT_HEATBAR_ZONES: CardStatHeatbarZone[] = [
-  { label: "Poor", color: "var(--color-risk-1)", max: 25 },
-  { label: "Fair", color: "var(--color-risk-2)", max: 50 },
-  { label: "Good", color: "var(--color-risk-3)", max: 75 },
-  { label: "Excellent", color: "var(--color-risk-4)", max: 100 },
-]
 
 export interface CardStatHeatbarProps extends FmtProps {
   label: string
@@ -44,6 +44,37 @@ export interface CardStatHeatbarProps extends FmtProps {
   empty?: boolean
 }
 
+// ── Variants ──
+export const cardStatTrackHVariants = cva("", {
+  variants: {
+    size: {
+      sm: "h-2",
+      md: "h-3",
+      lg: "h-4",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export const cardStatMarkerTopVariants = cva("", {
+  variants: {
+    size: {
+      sm: "top-1.5",
+      md: "top-2.5",
+      lg: "top-3",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+// ── Helpers ──
+const DEFAULT_HEATBAR_ZONES: CardStatHeatbarZone[] = [
+  { label: "Poor", color: "var(--color-risk-1)", max: 25 },
+  { label: "Fair", color: "var(--color-risk-2)", max: 50 },
+  { label: "Good", color: "var(--color-risk-3)", max: 75 },
+  { label: "Excellent", color: "var(--color-risk-4)", max: 100 },
+]
+
 export function CardStatHeatbar({
   label,
   value,
@@ -58,22 +89,26 @@ export function CardStatHeatbar({
   empty,
   ...fmt
 }: CardStatHeatbarProps) {
-  const s = SIZE[size]
-
   if (loading) {
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <div className="flex items-baseline justify-between">
             <Skeleton className="h-7 w-28" />
             <Skeleton className="h-5 w-20 rounded-full" />
           </div>
           <div className="flex flex-col gap-2 pb-6">
-            <Skeleton className={cn(s.trackH, "rounded-full")} />
+            <Skeleton
+              className={cn(cardStatTrackHVariants({ size }), "rounded-full")}
+            />
             <div className="flex justify-between px-0.5">
               {[...Array(4)].map((_, i) => (
                 <Skeleton key={i} className="h-2 w-8 rounded" />
@@ -90,30 +125,49 @@ export function CardStatHeatbar({
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <div className="flex items-baseline justify-between">
-            <p className={cn(s.value, "text-muted-foreground/25")}>—</p>
+            <p
+              className={cn(
+                cardStatValueVariants({ size }),
+                "text-muted-foreground/25"
+              )}
+            >
+              —
+            </p>
             <span
               className={cn(
                 "rounded-full bg-muted/40 font-semibold text-muted-foreground/40",
-                s.badgePadding,
-                s.description
+                cardStatBadgePaddingVariants({ size }),
+                cardStatDescriptionVariants({ size })
               )}
             >
               Pending
             </span>
           </div>
           <div className="relative pb-10">
-            <div className={cn("flex overflow-hidden rounded-full", s.trackH)}>
+            <div
+              className={cn(
+                "flex overflow-hidden rounded-full",
+                cardStatTrackHVariants({ size })
+              )}
+            >
               {zones.map((zone, i) => {
                 const prevMax = i === 0 ? 0 : zones[i - 1].max
                 const segW = zone.max - prevMax
@@ -136,7 +190,7 @@ export function CardStatHeatbar({
                   key={z.label}
                   className={cn(
                     "leading-none text-muted-foreground/40",
-                    s.description
+                    cardStatDescriptionVariants({ size })
                   )}
                 >
                   {z.label}
@@ -145,7 +199,12 @@ export function CardStatHeatbar({
             </div>
           </div>
           {description && (
-            <p className={cn("text-muted-foreground/40", s.description)}>
+            <p
+              className={cn(
+                "text-muted-foreground/40",
+                cardStatDescriptionVariants({ size })
+              )}
+            >
               {description}
             </p>
           )}
@@ -161,23 +220,30 @@ export function CardStatHeatbar({
   return (
     <Card size="sm" className={className}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
-      <CardContent className={cn("flex flex-col", s.contentGap)}>
+      <CardContent
+        className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+      >
         <div className="flex items-baseline justify-between">
-          <p className={s.value}>{display}</p>
+          <p className={cardStatValueVariants({ size })}>{display}</p>
           <span
             className={cn(
               "rounded-full font-semibold text-white",
-              s.badgePadding,
-              s.description
+              cardStatBadgePaddingVariants({ size }),
+              cardStatDescriptionVariants({ size })
             )}
             style={{ backgroundColor: activeZone.color }}
           >
@@ -195,7 +261,10 @@ export function CardStatHeatbar({
                   aria-valuemin={min}
                   aria-valuemax={max}
                   aria-label={label}
-                  className={cn("flex overflow-hidden rounded-full", s.trackH)}
+                  className={cn(
+                    "flex overflow-hidden rounded-full",
+                    cardStatTrackHVariants({ size })
+                  )}
                 >
                   {zones.map((zone, i) => {
                     const prevMax = i === 0 ? 0 : zones[i - 1].max
@@ -218,11 +287,11 @@ export function CardStatHeatbar({
                 </div>
 
                 <div
-                  className="absolute -translate-x-1/2 pt-0.5"
-                  style={{
-                    top: `${size === "sm" ? 6 : size === "lg" ? 12 : 10}px`,
-                    left: `${pct}%`,
-                  }}
+                  className={cn(
+                    "absolute -translate-x-1/2 pt-0.5",
+                    cardStatMarkerTopVariants({ size })
+                  )}
+                  style={{ left: `${pct}%` }}
                 >
                   <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden>
                     <polygon
@@ -238,7 +307,7 @@ export function CardStatHeatbar({
                       key={z.label}
                       className={cn(
                         "leading-none text-muted-foreground",
-                        s.description
+                        cardStatDescriptionVariants({ size })
                       )}
                     >
                       {z.label}
@@ -254,7 +323,12 @@ export function CardStatHeatbar({
         </TooltipProvider>
 
         {description && (
-          <p className={cn("text-muted-foreground", s.description)}>
+          <p
+            className={cn(
+              "text-muted-foreground",
+              cardStatDescriptionVariants({ size })
+            )}
+          >
             {description}
           </p>
         )}

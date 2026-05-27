@@ -20,7 +20,7 @@ const meta = {
       description: {
         component: [
           "Hero KPI card with a solid coloured background.",
-          "Six built-in variants — `primary`, `emerald`, `amber`, `rose`, `violet`, `sky`.",
+          "Seven built-in variants — `primary`, `emerald`, `amber`, `rose`, `violet`, `sky`, `white`.",
           "Two decorative circles add depth. Trend and description appear below the value.",
         ].join("\n"),
       },
@@ -33,7 +33,15 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ["primary", "emerald", "amber", "rose", "violet", "sky"],
+      options: [
+        "primary",
+        "emerald",
+        "amber",
+        "rose",
+        "violet",
+        "sky",
+        "white",
+      ],
     },
     trend: {
       control: "select",
@@ -97,7 +105,7 @@ export const Loading: Story = {
     },
   },
   render: () => (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <CardStatHighlight
         label="Total Revenue"
         value={0}
@@ -139,6 +147,13 @@ export const Loading: Story = {
         loading
         variant="rose"
         icon={ActivityIcon}
+      />
+      <CardStatHighlight
+        label="Net Profit"
+        value={0}
+        loading
+        variant="white"
+        icon={TrendingUpIcon}
       />
     </div>
   ),
@@ -276,12 +291,12 @@ export const AllVariants: Story = {
     docs: {
       description: {
         story:
-          "Demonstrates all six built-in color variants — primary, emerald, violet, sky, amber, and rose — side by side.",
+          "Demonstrates all seven built-in variants — primary, emerald, violet, sky, amber, rose, and white — side by side.",
       },
     },
   },
   render: () => (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <CardStatHighlight
         label="Total Revenue"
         value={2400000}
@@ -343,6 +358,16 @@ export const AllVariants: Story = {
         description="needs attention"
         icon={ActivityIcon}
         variant="rose"
+      />
+      <CardStatHighlight
+        label="Net Profit"
+        value={420000}
+        format="currency"
+        trend="up"
+        trendValue="+12%"
+        description="YTD performance"
+        icon={TrendingUpIcon}
+        variant="white"
       />
     </div>
   ),

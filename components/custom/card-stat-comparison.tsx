@@ -10,9 +10,13 @@ import {
   type CardStatTrend,
   type CardStatSize,
   type FmtProps,
-  SIZE,
   applyFmt,
   TrendBadge,
+  cardStatLabelVariants,
+  cardStatValueVariants,
+  cardStatDescriptionVariants,
+  cardStatHeaderIconVariants,
+  cardStatContentGapVariants,
 } from "./card-stats-shared"
 
 export interface CardStatComparisonProps extends FmtProps {
@@ -45,16 +49,19 @@ export function CardStatComparison({
   const uiLocale = (fmtLocale ?? "en-US") as UILocale
   currentLabel ??= UI_I18N[uiLocale].cardStats.thisPeriod
   previousLabel ??= UI_I18N[uiLocale].cardStats.lastPeriod
-  const s = SIZE[size]
 
   if (loading) {
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
-          <Skeleton className={cn(s.headerIcon, "rounded-md")} />
+          <Skeleton
+            className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
+          />
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <div className="grid grid-cols-2">
             <div className="flex flex-col gap-1.5 pr-4">
               <Skeleton className="h-2.5 w-20 rounded-md" />
@@ -75,28 +82,59 @@ export function CardStatComparison({
     return (
       <Card size="sm" className={className}>
         <CardHeader className="flex flex-row items-center justify-between">
-          <span className={cn("truncate text-muted-foreground", s.label)}>
+          <span
+            className={cn(
+              "truncate text-muted-foreground",
+              cardStatLabelVariants({ size })
+            )}
+          >
             {label}
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={s.headerIcon} />
+              <Icon className={cardStatHeaderIconVariants({ size })} />
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className={cn("flex flex-col", s.contentGap)}>
+        <CardContent
+          className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        >
           <div className="grid grid-cols-2">
             <div className="flex flex-col gap-0.5 pr-4">
-              <p className={cn("text-muted-foreground", s.label)}>
+              <p
+                className={cn(
+                  "text-muted-foreground",
+                  cardStatLabelVariants({ size })
+                )}
+              >
                 {currentLabel}
               </p>
-              <p className={cn(s.value, "text-muted-foreground/25")}>—</p>
+              <p
+                className={cn(
+                  cardStatValueVariants({ size }),
+                  "text-muted-foreground/25"
+                )}
+              >
+                —
+              </p>
             </div>
             <div className="flex flex-col gap-0.5 border-l pl-4">
-              <p className={cn("text-muted-foreground", s.label)}>
+              <p
+                className={cn(
+                  "text-muted-foreground",
+                  cardStatLabelVariants({ size })
+                )}
+              >
                 {previousLabel}
               </p>
-              <p className={cn(s.value, "text-muted-foreground/20")}>—</p>
+              <p
+                className={cn(
+                  cardStatValueVariants({ size }),
+                  "text-muted-foreground/20"
+                )}
+              >
+                —
+              </p>
             </div>
           </div>
           <div className="flex items-center justify-center gap-2 rounded-xl bg-muted/30 px-3 py-2">
@@ -104,7 +142,12 @@ export function CardStatComparison({
               className="size-3 text-muted-foreground/40"
               aria-hidden
             />
-            <span className={cn("text-muted-foreground/50", s.description)}>
+            <span
+              className={cn(
+                "text-muted-foreground/50",
+                cardStatDescriptionVariants({ size })
+              )}
+            >
               {UI_I18N[uiLocale].cardStats.noComparison}
             </span>
           </div>
@@ -123,35 +166,62 @@ export function CardStatComparison({
   return (
     <Card size="sm" className={className}>
       <CardHeader className="flex flex-row items-center justify-between">
-        <span className={cn("truncate text-muted-foreground", s.label)}>
+        <span
+          className={cn(
+            "truncate text-muted-foreground",
+            cardStatLabelVariants({ size })
+          )}
+        >
           {label}
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={s.headerIcon} />
+            <Icon className={cardStatHeaderIconVariants({ size })} />
           </CardAction>
         )}
       </CardHeader>
-      <CardContent className={cn("flex flex-col", s.contentGap)}>
+      <CardContent
+        className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+      >
         <div className="grid grid-cols-2">
           <div className="flex flex-col gap-0.5 pr-4">
-            <p className={cn("text-muted-foreground", s.label)}>
+            <p
+              className={cn(
+                "text-muted-foreground",
+                cardStatLabelVariants({ size })
+              )}
+            >
               {currentLabel}
             </p>
-            <p className={s.value}>{f(current)}</p>
+            <p className={cardStatValueVariants({ size })}>{f(current)}</p>
           </div>
           <div className="flex flex-col gap-0.5 border-l pl-4">
-            <p className={cn("text-muted-foreground", s.label)}>
+            <p
+              className={cn(
+                "text-muted-foreground",
+                cardStatLabelVariants({ size })
+              )}
+            >
               {previousLabel}
             </p>
-            <p className={cn(s.value, "text-muted-foreground/60")}>
+            <p
+              className={cn(
+                cardStatValueVariants({ size }),
+                "text-muted-foreground/60"
+              )}
+            >
               {f(previous)}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-2 rounded-xl bg-muted/50 px-3 py-2">
           <TrendBadge trend={trendDir} value={deltaLabel} size={size} />
-          <span className={cn("text-muted-foreground", s.description)}>
+          <span
+            className={cn(
+              "text-muted-foreground",
+              cardStatDescriptionVariants({ size })
+            )}
+          >
             vs {previousLabel.toLowerCase()}
           </span>
         </div>
