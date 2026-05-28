@@ -382,6 +382,8 @@ interface ComboboxBaseProps extends VariantProps<
   className?: string
   locale?: UILocale
   renderOption?: (option: ComboboxOption, selected: boolean) => React.ReactNode
+  "aria-label"?: string
+  "aria-labelledby"?: string
 }
 
 interface ComboboxSingleProps extends ComboboxBaseProps {
@@ -418,6 +420,8 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
       className,
       locale = "en-US",
       renderOption,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledBy,
     } = props
 
     const i18n = UI_I18N[locale].combobox
@@ -627,6 +631,8 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
               role="combobox"
               aria-expanded={open}
               aria-haspopup="listbox"
+              aria-label={ariaLabel}
+              aria-labelledby={ariaLabelledBy}
               disabled={disabled}
               className={cn(
                 comboboxTriggerVariants({ size, rounded }),
