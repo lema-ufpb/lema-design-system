@@ -56,7 +56,7 @@ export interface ScoreRowProps extends HTMLAttributes<HTMLElement> {
 export const scoreRowVariants = cva(
   [
     "flex w-full flex-col border-b border-border",
-    "transition-colors duration-150",
+    "motion-safe:transition-colors motion-safe:duration-150",
   ],
   {
     variants: {
@@ -96,9 +96,9 @@ const SCORE_GAP: Record<ScoreRowSize, string> = {
 }
 
 const PROGRESS_HEIGHT: Record<ScoreRowSize, string> = {
-  sm: "h-1",
-  md: "h-1.5",
-  lg: "h-2",
+  sm: "h-2",
+  md: "h-3",
+  lg: "h-4",
 }
 
 export const scoreRowIconContainerVariants = cva(
@@ -317,11 +317,12 @@ export function ScoreRow({
 
   if (loading) {
     return (
-      <div
-        className={cn(scoreRowVariants({ size }), className)}
-        aria-busy="true"
-        aria-label={t.loading}
-      >
+        <div
+          data-slot="score-row"
+          className={cn(scoreRowVariants({ size }), className)}
+          aria-busy="true"
+          aria-label={t.loading}
+        >
         <div
           className={cn(
             "flex w-full items-center justify-between",
@@ -498,6 +499,7 @@ export function ScoreRow({
     return (
       <button
         type="button"
+        data-slot="score-row"
         onClick={onClick}
         className={cn(
           scoreRowVariants({ size, interactive: true }),
@@ -512,7 +514,7 @@ export function ScoreRow({
   }
 
   return (
-    <div className={cn(scoreRowVariants({ size }), className)} {...props}>
+    <div data-slot="score-row" className={cn(scoreRowVariants({ size }), className)} {...props}>
       {inner}
     </div>
   )
@@ -536,6 +538,7 @@ export function ScoreRowList({
 }: ScoreRowListProps) {
   return (
     <div
+      data-slot="score-row-list"
       role="list"
       className={cn(
         "w-full",
