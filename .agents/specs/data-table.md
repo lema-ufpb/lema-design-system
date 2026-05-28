@@ -1,13 +1,6 @@
 # Spec: DataTable
 
-> Preencha este template ANTES de escrever qualquer código.
-> Mova o arquivo preenchido para `.agents/specs/[nome-componente].md` ao finalizar.
-
----
-
-## Propósito
-
-Tabela de dados rica com sorting, filtragem global, paginação, seleção de linhas, colunas sticky, redimensionamento de colunas e virtualização para grandes volumes. Usar quando o consumidor precisa de uma tabela interativa mutável. Não usar quando uma simples `<table>` HTML ou lista resolve.
+Tabela de dados rica com sorting, filtragem global, paginação, seleção de linhas, colunas sticky, redimensionamento de colunas e virtualização para grandes volumes.
 
 **Usar quando:** exibir dados tabulares com suporte a sorting, filtro, paginação, seleção ou virtualização  
 **Não usar quando:** dados estáticos sem interação (preferir Table primitives exportadas)  
@@ -40,6 +33,7 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | `width` | `string \| number` | — | | Largura da tabela |
 | `size` | `"compact" \| "default"` | `"default"` | | Densidade de padding |
 | `textSize` | `"xs" \| "sm" \| "md" \| "lg"` | — | | Tamanho de fonte (deriva de `size` se omitido) |
+| `rounded` | `boolean` | `true` | | Remove cantos arredondados quando `false` |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `showSearch` | `boolean` | `false` | | Exibe campo de busca global |
 | `pagination` | `boolean` | `false` | | Habilita paginação |
@@ -79,20 +73,19 @@ Este componente não usa `cva()`. Usa um `SIZE_PRESETS` objeto para mapear taman
 
 | Token | Slot onde é usado |
 |-------|------------------|
-| `bg-muted` | TableHeader, skeleton header, empty state circle |
+| `bg-muted` | TableHeader, header sticky, skeleton header, empty state circle, hover sticky body cells |
 | `bg-muted/30` | Células de coluna ordenada (não sticky) |
-| `bg-muted/40` | Hover em linhas, linhas selecionadas |
-| `bg-card` | Wrapper da tabela, pagination bar, linha sticky |
+| `bg-card` | Wrapper da tabela, pagination bar, body sticky cells (base) |
 | `bg-background` | Input de busca, select de page size |
 | `bg-primary` | Skeleton shimmer, refetch bar |
-| `bg-primary/5` | Linha selecionada |
-| `bg-primary/10` | Hover em cabeçalho sortable |
+| `bg-primary/5` | Linha selecionada, sticky cell selected |
+| `bg-primary/10` | Sticky selection column selected |
 | `bg-primary/15` | Cabeçalho ordenado |
 | `bg-primary/20` | Pagination link ativo hover |
 | `border-border` | Linhas divisórias, wrapper, input |
 | `border-border/40` | Linhas de dados |
-| `text-foreground` | Células, título, labels primários |
-| `text-muted-foreground` | Subtítulo, cabeçalhos, placeholder, metadados |
+| `text-foreground` | Células, título, header sticky, labels primários |
+| `text-muted-foreground` | Subtítulo, cabeçalhos não-sticky, placeholder, metadados |
 | `text-primary` | Cabeçalho ordenado, pagination ativo |
 | `accent-primary` | Checkbox de seleção |
 | `ring-ring` | Focus states |
@@ -122,7 +115,7 @@ Usa `SIZE_PRESETS`:
 | `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2 e mensagem "No data found" |
 | Paginação | `PaginationBar` com page range, ellipsis, previous/next, page size selector |
 | Seleção | Checkbox `accent-primary` no header (select all) e cada linha |
-| Colunas sticky | `sticky z-20` para cabeçalho, `sticky z-10 bg-card` para células |
+| Colunas sticky | Header: `z-20 bg-muted text-foreground` / Selection: `z-30 bg-muted` / Body sticky: `z-10 bg-card` com `group-hover:bg-muted` sólido (sem `/40`) para evitar overlap no scroll horizontal |
 | Infinite scroll | Scroll detection (últimos 5 itens) dispara `onLoadMore` |
 | Resize de coluna | Colunas com `width` definido recebem resizer handle |
 | Sorting | Sort indicators: `ArrowUp`/`ArrowDown`/`ChevronsUpDown` na ordem atual |
@@ -170,6 +163,9 @@ Usa `SIZE_PRESETS`:
 - [x] `ResizableColumns` — Resizable Columns
 - [x] `NumberFormats` — Number Formats
 - [x] `Primitives` — Primitives
+- [x] `StickyColumns` — Sticky Columns (First Two)
+- [x] `StickyColumnsWithSelection` — Sticky Columns + Row Selection
+- [x] `SquareBorders` — Square Borders (no rounded corners)
 
 ## Checklist antes de implementar
 
