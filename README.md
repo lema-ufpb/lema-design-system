@@ -143,6 +143,7 @@ design-system/
 │       │   ├── index.tsx
 │       │   ├── types.ts
 │       │   ├── variants.ts
+│       │   ├── search-combo.stories.tsx
 │       │   └── hooks/
 │       └── ...
 ├── lib/
