@@ -1142,6 +1142,29 @@
       ]
     },
     {
+      "name": "score-row",
+      "type": "registry:ui",
+      "title": "Score Row",
+      "description": "A scored list item pairing icon + label with a fractional score and optional progress bar. Includes ScoreRowList container for grouped items.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "progress",
+        "skeleton",
+        "tooltip",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/score-row.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/score-row.tsx"
+        }
+      ]
+    },
+    {
       "name": "step-progress",
       "type": "registry:ui",
       "title": "Step Progress",
