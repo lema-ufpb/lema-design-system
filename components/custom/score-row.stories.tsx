@@ -66,7 +66,7 @@ const meta = {
     },
     showProgress: {
       control: "boolean",
-      table: { defaultValue: { summary: "false" } },
+      table: { defaultValue: { summary: "true" } },
     },
     loading: {
       control: "boolean",
@@ -302,7 +302,7 @@ export const WithoutProgressBar: Story = {
     docs: {
       description: {
         story:
-          "When `showProgress` is `false` (the default), the progress bar at the bottom of the row is not rendered. This keeps the row more compact — useful for dense lists where the progress bar adds visual noise.",
+          "When `showProgress` is `false`, the progress bar at the bottom of the row is not rendered. This keeps the row more compact — useful for dense lists where the progress bar adds visual noise.",
       },
     },
   },

@@ -113,7 +113,7 @@ export const scoreRowIconContainerVariants = cva(
       status: {
         default: "bg-muted text-muted-foreground",
         success: "bg-success/10 text-success",
-        warning: "bg-warning/15 text-warning-foreground",
+        warning: "bg-warning/15 text-warning",
         destructive: "bg-destructive/10 text-destructive",
       },
     },
@@ -172,7 +172,7 @@ export const scoreRowCurrentVariants = cva("font-semibold tabular-nums", {
     status: {
       default: "text-foreground",
       success: "text-success",
-      warning: "text-warning-foreground",
+      warning: "text-warning",
       destructive: "text-destructive",
     },
   },
@@ -341,25 +341,25 @@ export function ScoreRow({
                 size === "sm" ? "size-7" : size === "lg" ? "size-10" : "size-8"
               )}
             />
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-0.5">
               <Skeleton
                 className={cn(
                   "rounded",
                   size === "sm"
-                    ? "h-2.5 w-28"
+                    ? "h-3 w-28"
                     : size === "lg"
-                      ? "h-4 w-40"
-                      : "h-3 w-32"
+                      ? "h-5 w-40"
+                      : "h-4 w-32"
                 )}
               />
               <Skeleton
                 className={cn(
                   "rounded",
                   size === "sm"
-                    ? "h-2 w-20"
+                    ? "h-3 w-20"
                     : size === "lg"
-                      ? "h-3 w-28"
-                      : "h-2.5 w-24"
+                      ? "h-5 w-28"
+                      : "h-4 w-24"
                 )}
               />
             </div>
@@ -368,10 +368,10 @@ export function ScoreRow({
             className={cn(
               "shrink-0 rounded",
               size === "sm"
-                ? "h-2.5 w-12"
+                ? "h-3 w-12"
                 : size === "lg"
-                  ? "h-4 w-16"
-                  : "h-3 w-14"
+                  ? "h-5 w-16"
+                  : "h-4 w-14"
             )}
           />
         </div>
