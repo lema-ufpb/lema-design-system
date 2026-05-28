@@ -20,12 +20,12 @@ Campo de busca com dropdown de resultados, virtual scrolling, destaque de texto 
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/search-combo/index.tsx` |
-| Arquivos auxiliares | `components/custom/search-combo/types.ts`, `components/custom/search-combo/variants.ts` |
-| Hook | `components/custom/search-combo/hooks/use-speech-recognition` |
-| Tipo | `registry:component` |
-| Categoria | `Form` |
-| Depende de | `PopoverPrimitive` (Radix), `Spinner` (custom), `useSpeechRecognition` (hook local) |
+| Arquivo | `components/custom/search-combo.tsx` |
+| Arquivos auxiliares | `components/custom/search-combo.stories.tsx` |
+| Hook | `@/hooks/use-speech-recognition` (compartilhado) |
+| Tipo | `registry:ui` |
+| Categoria | `Navigation` |
+| Depende de | `radix-ui`, `@tanstack/react-virtual`, `Spinner` (custom), `useSpeechRecognition` (hook compartilhado) |
 
 ---
 
@@ -98,7 +98,7 @@ Múltiplos slots, cada um com seu próprio `cva()`:
 | Dimensão | Valores | Padrão |
 |----------|---------|--------|
 | `size` | `sm`, `md`, `lg` | `md` |
-| `rounded` | `true`, `false` | `false` |
+| `rounded` | `true`, `false` (ambos `rounded-none`) | `false` |
 
 ### searchComboResultItemVariants
 | Dimensão | Valores | Padrão |
