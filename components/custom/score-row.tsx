@@ -102,7 +102,7 @@ const PROGRESS_HEIGHT: Record<ScoreRowSize, string> = {
 }
 
 export const scoreRowIconContainerVariants = cva(
-  "flex shrink-0 items-center justify-center rounded-md",
+  ["flex shrink-0 items-center justify-center rounded-md"],
   {
     variants: {
       size: {
@@ -134,7 +134,7 @@ export const scoreRowIconVariants = cva("shrink-0", {
 })
 
 export const scoreRowTitleVariants = cva(
-  "truncate leading-tight font-medium text-foreground",
+  ["truncate leading-tight font-medium text-foreground"],
   {
     variants: {
       size: {
