@@ -358,8 +358,8 @@ export function ScoreRow({
                   size === "sm"
                     ? "h-3 w-20"
                     : size === "lg"
-                      ? "h-5 w-28"
-                      : "h-4 w-24"
+                      ? "h-4 w-28"
+                      : "h-3 w-24"
                 )}
               />
             </div>
