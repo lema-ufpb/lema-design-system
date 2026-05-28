@@ -111,6 +111,7 @@ export interface DataTableProps<
   width?: string | number
   size?: "compact" | "default"
   textSize?: "xs" | "sm" | "md" | "lg"
+  rounded?: boolean
 
   // Features
   loading?: boolean
@@ -325,6 +326,7 @@ interface DataTableSkeletonProps {
   showSearch?: boolean
   hasToolbar?: boolean
   pagination?: boolean
+  rounded?: boolean
   className?: string
 }
 
@@ -337,6 +339,7 @@ function DataTableSkeleton({
   showSearch,
   hasToolbar,
   pagination,
+  rounded = true,
   className,
 }: DataTableSkeletonProps) {
   return (
@@ -377,7 +380,12 @@ function DataTableSkeleton({
         </div>
       )}
 
-      <div className="w-full overflow-hidden rounded-xl border border-border shadow-sm">
+      <div
+        className={cn(
+          "w-full overflow-hidden border border-border shadow-sm",
+          rounded && "rounded-xl"
+        )}
+      >
         {/* Header */}
         <div className="flex border-b border-border bg-muted px-1">
           {columns.map((col, i) => (
@@ -676,6 +684,7 @@ export function DataTable<TData extends object>({
   width,
   size = "default",
   textSize: _textSize,
+  rounded = true,
   showSearch = false,
   pagination = false,
   defaultPageSize = 10,
@@ -865,6 +874,7 @@ export function DataTable<TData extends object>({
         showSearch={showSearch}
         hasToolbar={!!(toolbar || showDownload)}
         pagination={pagination}
+        rounded={rounded}
         className={className}
       />
     )
@@ -934,12 +944,20 @@ export function DataTable<TData extends object>({
 
       {/* ── Table wrapper ── */}
       <div
-        className="relative w-full overflow-hidden rounded-xl border border-border bg-card shadow-sm"
+        className={cn(
+          "relative w-full overflow-hidden border border-border bg-card shadow-sm",
+          rounded && "rounded-xl"
+        )}
         style={{ width: width ?? "100%" }}
       >
         {/* Refetch progress bar */}
         {loading && data.length > 0 && (
-          <div className="absolute inset-x-0 top-0 z-50 h-0.5 overflow-hidden rounded-t-xl">
+          <div
+            className={cn(
+              "absolute inset-x-0 top-0 z-50 h-0.5 overflow-hidden",
+              rounded && "rounded-t-xl"
+            )}
+          >
             <div className="h-full animate-[shimmer_1.4s_ease-in-out_infinite] bg-primary opacity-70" />
           </div>
         )}
@@ -988,7 +1006,10 @@ export function DataTable<TData extends object>({
                           meta?.align === "right" && "justify-end text-right",
                           canSort &&
                             "cursor-pointer hover:bg-primary/10 hover:text-foreground",
-                          isSticky && "sticky z-20",
+                          isSticky &&
+                            !isSelect &&
+                            "sticky z-20 bg-muted text-foreground",
+                          isSelect && "sticky z-30 bg-muted",
                           isSorted &&
                             "border-b-2 border-primary bg-primary/15 text-primary"
                         )}
@@ -1105,7 +1126,10 @@ export function DataTable<TData extends object>({
                             meta?.align === "right" && "justify-end text-right",
                             isCellSorted && !isSticky && "bg-muted/30",
                             isSticky &&
-                              "sticky z-10 bg-card group-hover:bg-muted/40 group-data-[selected]:bg-primary/5",
+                              !isSelect &&
+                              "sticky z-10 bg-card group-hover:bg-muted group-data-selected:bg-primary/5",
+                            isSelect &&
+                              "sticky z-20 bg-card group-hover:bg-muted group-data-selected:bg-primary/10",
                             meta?.wrap &&
                               "h-auto items-start py-3 leading-relaxed break-words whitespace-normal"
                           )}
