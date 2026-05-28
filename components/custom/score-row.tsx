@@ -317,12 +317,12 @@ export function ScoreRow({
 
   if (loading) {
     return (
-        <div
-          data-slot="score-row"
-          className={cn(scoreRowVariants({ size }), className)}
-          aria-busy="true"
-          aria-label={t.loading}
-        >
+      <div
+        data-slot="score-row"
+        className={cn(scoreRowVariants({ size }), className)}
+        aria-busy="true"
+        aria-label={t.loading}
+      >
         <div
           className={cn(
             "flex w-full items-center justify-between",
@@ -514,7 +514,11 @@ export function ScoreRow({
   }
 
   return (
-    <div data-slot="score-row" className={cn(scoreRowVariants({ size }), className)} {...props}>
+    <div
+      data-slot="score-row"
+      className={cn(scoreRowVariants({ size }), className)}
+      {...props}
+    >
       {inner}
     </div>
   )
