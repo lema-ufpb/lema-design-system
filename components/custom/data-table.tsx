@@ -1131,7 +1131,7 @@ export function DataTable<TData extends object>({
                             isSelect &&
                               "sticky z-20 bg-card group-hover:bg-muted group-data-selected:bg-primary/10",
                             meta?.wrap &&
-                              "h-auto items-start py-3 leading-relaxed wrap-break-word whitespace-normal"
+                              "h-auto items-start py-3 leading-relaxed break-words whitespace-normal"
                           )}
                           style={{
                             ...(isSelect
