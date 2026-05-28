@@ -50,6 +50,7 @@ export const UI_I18N: Record<
     emptyState: { noData: string; dataWillAppear: string }
     cardStats: { thisPeriod: string; lastPeriod: string; noComparison: string }
     pieChart: { total: string }
+    scoreRow: { loading: string; scoreLabel: string }
   }
 > = {
   "en-US": {
@@ -132,6 +133,7 @@ export const UI_I18N: Record<
       noComparison: "No comparison data",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Loading", scoreLabel: "Score" },
   },
   "pt-BR": {
     dialog: { close: "Fechar" },
@@ -216,6 +218,7 @@ export const UI_I18N: Record<
       noComparison: "Sem dados de comparação",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Carregando", scoreLabel: "Pontuação" },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -297,6 +300,7 @@ export const UI_I18N: Record<
       noComparison: "Sin datos de comparación",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Cargando", scoreLabel: "Puntuación" },
   },
   "fr-FR": {
     dialog: { close: "Fermer" },
@@ -385,5 +389,6 @@ export const UI_I18N: Record<
       noComparison: "Aucune donnée de comparaison",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Chargement", scoreLabel: "Score" },
   },
 }
