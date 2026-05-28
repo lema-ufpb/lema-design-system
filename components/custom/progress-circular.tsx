@@ -93,7 +93,7 @@ export const progressCircularValueVariants = cva(
 )
 
 export const progressCircularTitleVariants = cva(
-  "mt-3 min-h-5 w-full text-center font-medium break-words text-muted-foreground",
+  "mt-3 min-h-5 w-full text-center font-medium wrap-break-word text-muted-foreground",
   {
     variants: {
       loading: { true: "animate-pulse opacity-50" },
