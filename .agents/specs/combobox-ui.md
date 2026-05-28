@@ -52,6 +52,8 @@ Componente de entrada que combina trigger de seleção com popover contendo list
 | `maxDisplayed` | `number` | `3` | Não | Chips visíveis no multi-select |
 | `locale` | `UILocale` | `"en-US"` | Não | Localização dos textos |
 | `renderOption` | `(option, selected) => ReactNode` | — | Não | Slot de renderização customizada |
+| `aria-label` | `string` | — | Não | Nome acessível para o trigger (quando não há label visível) |
+| `aria-labelledby` | `string` | — | Não | ID do elemento que nomeia o trigger |
 
 ### Types
 
@@ -106,7 +108,7 @@ interface ComboboxOption {
 
 | Requisito | Implementação |
 |-----------|---------------|
-| Trigger | `role="combobox"`, `aria-expanded`, `aria-haspopup="listbox"` |
+| Trigger | `role="combobox"`, `aria-expanded`, `aria-haspopup="listbox"`, `aria-label`/`aria-labelledby` opcionais via props |
 | Listbox | `role="listbox"`, `aria-multiselectable` (multi), `aria-selected`/`aria-disabled` por item |
 | Foco | Auto-focus na busca ao abrir; lista focada se sem busca |
 | Teclado | ↑↓ Enter Escape Tab gerenciados manualmente |
