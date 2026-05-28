@@ -76,7 +76,7 @@ Todas com `defaultVariants` declarados.
 | `text-muted-foreground` | Container ícone (default), descrição, score total, separador `/` |
 | `text-foreground` | Título, score current (default) |
 | `bg-success/10` / `text-success` | Container ícone e score (success) |
-| `bg-warning/15` / `text-warning-foreground` | Container ícone e score (warning) |
+| `bg-warning/15` / `text-warning` | Container ícone e score (warning) |
 | `bg-destructive/10` / `text-destructive` | Container ícone e score (destructive) |
 | `bg-primary` | Indicador da barra de progresso (status default) |
 | `bg-success` | Indicador da barra de progresso (success) |
@@ -100,7 +100,7 @@ Todas com `defaultVariants` declarados.
 | Descrição | `text-xs` | `text-xs` | `text-sm` |
 | Score current | `text-xs font-semibold` | `text-sm font-semibold` | `text-base font-semibold` |
 | Score total | `text-xs` | `text-sm` | `text-base` |
-| Progress bar | `h-1` | `h-1.5` | `h-2` |
+| Progress bar | `h-2` | `h-3` | `h-4` |
 
 ---
 
