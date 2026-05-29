@@ -1,6 +1,6 @@
-# Spec: CardStats
+# Spec: CardStats (família)
 
-> Família de cartões de estatística com 9 sub-variantes. Cada variante resolve um caso de uso específico de exibição de métricas.
+> Família de 9 cartões de estatística. Cada variante resolve um caso de uso específico de exibição de métricas.
 
 ---
 
@@ -12,237 +12,82 @@ Exibir métricas e indicadores em formato de cartão, com suporte a formatação
 
 **Não usar quando:** O conteúdo não é uma métrica ou indicador; usar `Card` simples.
 
-**Alternativa se não se aplicar:** `Card` do shadcn com conteúdo customizado.
-
 ---
 
 ## Localização
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/card-stats.tsx` |
+| Arquivo barrel | `components/custom/card-stats.tsx` |
+| Módulo compartilhado | `components/custom/card-stats-shared.tsx` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Card`, `CardAction`, `CardContent`, `CardHeader` (shadcn/ui/card), `Progress`, `Skeleton`, `Tooltip`, `TooltipContent`, `TooltipProvider` |
+| Depende de | `Card`, `CardAction`, `CardContent`, `CardHeader` (shadcn/ui/card), `Progress`, `Skeleton`, `Tooltip`, `TooltipContent`, `TooltipProvider`, `Badge` |
 
 ---
 
-## API — Props
+## Sub-componentes
 
-### CardStat (original)
+| Componente | Arquivo | Spec |
+|------------|---------|------|
+| `CardStat` | `card-stat.tsx` | [card-stat.md](card-stat.md) |
+| `CardStatCompact` | `card-stat-compact.tsx` | [card-stat-compact.md](card-stat-compact.md) |
+| `CardStatComparison` | `card-stat-comparison.tsx` | [card-stat-comparison.md](card-stat-comparison.md) |
+| `CardStatProgress` | `card-stat-progress.tsx` | [card-stat-progress.md](card-stat-progress.md) |
+| `CardStatSparkline` | `card-stat-sparkline.tsx` | [card-stat-sparkline.md](card-stat-sparkline.md) |
+| `CardStatHighlight` | `card-stat-highlight.tsx` | [card-stat-highlight.md](card-stat-highlight.md) |
+| `CardStatList` | `card-stat-list.tsx` | [card-stat-list.md](card-stat-list.md) |
+| `CardStatGauge` | `card-stat-gauge.tsx` | [card-stat-gauge.md](card-stat-gauge.md) |
+| `CardStatHeatbar` | `card-stat-heatbar.tsx` | [card-stat-heatbar.md](card-stat-heatbar.md) |
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `label` | `string` | — | ✓ | Rótulo do cartão |
-| `value` | `string \| number` | — | ✓ | Valor principal |
-| `format` | `CardStatFormat` | — | | Formato de exibição |
-| `decimals` | `number` | — | | Casas decimais |
-| `locale` | `string` | — | | Locale para formatação |
-| `currency` | `string` | — | | Moeda para formato currency |
-| `description` | `string` | — | | Descrição/rodapé |
-| `trend` | `CardStatTrend \| boolean` | `false` | | Direção da tendência |
-| `icon` | `React.ElementType` | — | | Ícone decorativo |
-| `valueFormatter` | `(v: number \| string) => string` | — | | Formatador customizado |
-| `className` | `string` | — | | Classes extras |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
-| `empty` | `boolean` | `false` | | Estado vazio |
-
-### CardStatCompact
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `string \| number` | — | ✓ |
-| `trend` | `CardStatTrend \| boolean` | — | |
-| `trendValue` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps` (`format`, `decimals`, `locale`, `currency`, `valueFormatter`).
-
-### CardStatProgress
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `number` | — | ✓ |
-| `goal` | `number` | — | ✓ |
-| `description` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `showPercent` | `boolean` | `true` | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps`.
-
-### CardStatComparison
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `current` | `number` | — | ✓ |
-| `previous` | `number` | — | ✓ |
-| `currentLabel` | `string` | i18n `thisPeriod` | |
-| `previousLabel` | `string` | i18n `lastPeriod` | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps`.
-
-### CardStatSparkline
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `string \| number` | — | ✓ |
-| `data` | `number[]` | `[]` | |
-| `trend` | `CardStatTrend \| boolean` | — | |
-| `trendValue` | `string` | — | |
-| `description` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps`.
-
-### CardStatHighlight
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `string \| number` | — | ✓ |
-| `variant` | `CardStatHighlightVariant` | `"primary"` | |
-| `description` | `string` | — | |
-| `trend` | `CardStatTrend \| boolean` | — | |
-| `trendValue` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps` + `VariantProps<typeof highlightVariants>`.
-
-### CardStatList
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `items` | `CardStatListItem[]` | — | ✓ |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-`CardStatListItem`: `{ label, value, trend?, trendValue?, format?, decimals?, locale?, currency?, valueFormatter? }`
-
-### CardStatGauge
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `number` | — | ✓ |
-| `min` | `number` | `0` | |
-| `max` | `number` | `100` | |
-| `zones` | `CardStatGaugeZone[]` | DEFAULT_GAUGE_ZONES | |
-| `description` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps`. `CardStatGaugeZone`: `{ label: string, color: string, max: number }`.
-
-### CardStatHeatbar
-
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `number` | — | ✓ |
-| `min` | `number` | `0` | |
-| `max` | `number` | `100` | |
-| `zones` | `CardStatHeatbarZone[]` | DEFAULT_HEATBAR_ZONES | |
-| `description` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-
-Estende `FmtProps`. `CardStatHeatbarZone`: `{ label: string, color: string, max: number }`.
+Todos os sub-componentes aceitam `size` (`"sm" | "md" | "lg"`, padrão `"md"`) e aplicam a escala CVA correspondente.
 
 ---
 
-## Variantes CVA
+## Tipos compartilhados
 
-### highlightVariants (apenas CardStatHighlight)
+Definidos em `card-stats-shared.tsx`:
 
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `variant` | `primary`, `emerald`, `amber`, `rose`, `violet`, `sky` | `primary` |
-
-Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. Os outros sub-componentes não usam CVA — usam classes diretas via `cn()`.
-
----
-
-## Tokens de design utilizados
-
-| Token | Slot onde é usado |
-|-------|------------------|
-| `bg-muted` / `bg-muted/50` / `bg-muted/30` | ícone decorativo, badge neutral, fundo de rodapé |
-| `text-muted-foreground` | labels, descrições, valores secundários |
-| `text-foreground` | valor principal |
-| `text-success` / `bg-success/10` | trend up, badge success, pct >= 100% |
-| `text-destructive` / `bg-destructive/10` | trend down, badge destructive |
-| `bg-muted/60` / `text-muted-foreground/50` | empty state |
-| `text-muted-foreground/25` | placeholder "—" em empty state |
-| `border-border/50` | divisores entre itens de lista |
-| `bg-primary` / `text-primary-foreground` | highlight variant primary |
-| `bg-success` / `text-success-foreground` | highlight variant emerald |
-| `bg-warning` / `text-warning-foreground` | highlight variant amber |
-| `bg-destructive` / `text-white` | highlight variant rose |
-| `var(--highlight-violet)` / `var(--highlight-sky)` | highlight variant violet/sky |
-| `var(--color-risk-1)` a `var(--color-risk-4)` | zonas gauge/heatbar |
-| `var(--highlight-sky)` | pct >= 75% |
-| `text-warning` | pct >= 50% |
+| Tipo | Valores |
+|------|---------|
+| `CardStatFormat` | `"currency" \| "percent" \| "integer" \| "float"` |
+| `CardStatTrend` | `"up" \| "down" \| "neutral"` |
+| `CardStatSize` | `"sm" \| "md" \| "lg"` |
+| `FmtProps` | `{ format?, decimals?, locale?, currency?, valueFormatter? }` |
 
 ---
 
-## Escala tipográfica e de tamanho
+## Variantes CVA compartilhadas
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Label (uppercase) | `text-xs font-semibold tracking-wide` | — | — |
-| Valor compact | `text-xl font-semibold tracking-tight` | — | — |
-| Valor progress/gauge/heatbar | `text-2xl font-semibold tracking-tight` | — | — |
-| Valor highlight | `text-3xl font-semibold tracking-tight` | — | — |
-| Ícone decorativo | `size-4` / `size-5` | — | — |
-| Trend badge | `text-xs font-semibold` | — | — |
-| Card size | `size="sm"` (Card do shadcn) | — | — |
+Definidas em `card-stats-shared.tsx`:
 
-> CardStats não possui variante `size` própria — todos os sub-componentes usam `Card size="sm"` internamente.
-
----
-
-## Comportamentos e estados
-
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<Skeleton>` com dimensões correspondentes ao conteúdo real de cada sub-variante |
-| `empty={true}` | Mensagem "—" para valores, ícones atenuados, textos como "No data", "No goal set yet", "No history yet", "Nothing to measure yet", "List is empty", "No reading" |
-| Valor mínimo/máximo (gauge/heatbar) | Clamping via `Math.min(100, Math.max(0, ...))` |
-| Progress pct | `Math.min(100, Math.round((value / goal) * 100))` |
-| Overflow de texto | `truncate` em labels e valores |
-| Divisores em lista | `border-t border-border/50` entre itens, `last:border-b-0` |
-| Gauge/Heatbar zones | Encontra zona ativa via `zones.find(z => pct <= z.max)` |
+| Variant | sm | md | lg |
+|---------|----|----|----|
+| `cardStatLabelVariants` | `text-xs font-medium tracking-wide uppercase` | `text-sm font-medium tracking-wide uppercase` | `text-base font-medium tracking-wide uppercase` |
+| `cardStatValueVariants` | `text-xl font-semibold tracking-tight tabular-nums` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` |
+| `cardStatDescriptionVariants` | `text-xs` | `text-xs` | `text-sm` |
+| `cardStatHeaderIconVariants` | `size-3.5` | `size-4` | `size-5` |
+| `cardStatContentGapVariants` | `gap-2` | `gap-3` | `gap-4` |
+| `cardStatBadgePaddingVariants` | `px-1.5 py-0.5` | `px-2 py-0.5` | `px-2.5 py-1` |
+| `cardStatBadgeTextVariants` | `text-xs font-semibold` | `text-xs font-semibold` | `text-sm font-semibold` |
 
 ---
 
-## Acessibilidade
+## Helpers compartilhados
+
+| Export | Descrição |
+|--------|-----------|
+| `formatValue(value, format?, opts?)` | Formata valor conforme `CardStatFormat` usando `Intl.NumberFormat` |
+| `applyFmt(value, opts)` | Aplica `valueFormatter` customizado ou `formatValue` |
+| `resolveTrend(trend)` | Resolve `boolean \| CardStatTrend` para `CardStatTrend \| false` |
+| `TREND_ICONS` | `{ up: TrendingUpIcon, down: TrendingDownIcon, neutral: MinusIcon }` |
+| `TREND_COLORS` | `{ up: "text-success", down: "text-destructive", neutral: "text-muted-foreground" }` |
+| `TrendBadge` | Badge com ícone de tendência + valor, dimensionado via `cardStatBadge*Variants` |
+| `CardStatEmptySlot` | Slot vazio padronizado com ícone, mensagem e subtítulo |
+
+---
+
+## Acessibilidade (família)
 
 | Requisito | Implementação |
 |-----------|--------------|
@@ -256,34 +101,13 @@ Slots: sem sub-variantes, apenas `highlightVariants` para o wrapper do cartão. 
 
 ---
 
-## Stories obrigatórias no Storybook
+## Checklist geral
 
-- [ ] `CardStatDefault` — CardStat padrão com valor formatado
-- [ ] `CardStatAllFormats` — currency, percent, integer, float
-- [ ] `CardStatTrend` — up, down, neutral
-- [ ] `CardStatLoading` — loading em todos os sub-componentes
-- [ ] `CardStatEmpty` — empty em todos os sub-componentes
-- [ ] `CardStatCompactDefault`
-- [ ] `CardStatProgressDefault` — com e sem goal
-- [ ] `CardStatComparisonDefault` — positivo, negativo, neutro
-- [ ] `CardStatSparklineDefault` — com data, sem data, trend
-- [ ] `CardStatHighlightAllVariants` — todas as 6 variantes
-- [ ] `CardStatListDefault` — múltiplos itens
-- [ ] `CardStatGaugeDefault` — diferentes valores nas zonas
-- [ ] `CardStatHeatbarDefault` — diferentes valores com tooltip
-
----
-
-## Checklist antes de implementar
-
-- [x] Escala tipográfica segue `sm=text-xs / md=text-sm / lg=text-base` (aplicado nos slots internos)
-- [x] Todos os tokens são semânticos (sem raw Tailwind para cor/status)
-- [x] `defaultVariants` declarado em `highlightVariants`
-- [x] Todos os `*Variants` são exportados (`highlightVariants`)
+- [x] `defaultVariants` declarado em todas as variantes CVA
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [x] `tabular-nums` em valores percentuais
+- [x] `tabular-nums` em valores
 - [x] `truncate` em labels
-- [x] `aria-label` não necessário (visual label sempre presente)
+- [x] `aria-hidden` em ícones decorativos
 - [x] `cn()` para classes condicionais
-- [x] Spacing usa apenas `gap-*` (nunca `space-y-*` / `space-x-*`)
-- [x] Prop `locale` integrada via `UI_I18N` para `thisPeriod`, `lastPeriod`, `noComparison`
+- [x] `gap-*` (nunca `space-y-*` / `space-x-*`)
+- [x] Prop `locale` integrada via `UI_I18N`

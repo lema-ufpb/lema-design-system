@@ -68,6 +68,14 @@ export const Default: Story = {
       </PaginationContent>
     </Pagination>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default pagination with previous, page numbers (1–3), ellipsis, and next buttons.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -98,6 +106,14 @@ export const LocalePTBR: Story = {
     </Pagination>
   ),
   args: { locale: "pt-BR" },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Portuguese (pt-BR) localization — previous/next button text translated.",
+      },
+    },
+  },
 }
 
 export const CustomText: Story = {
@@ -124,4 +140,12 @@ export const CustomText: Story = {
       </PaginationContent>
     </Pagination>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pagination with custom text labels for previous and next buttons.",
+      },
+    },
+  },
 }

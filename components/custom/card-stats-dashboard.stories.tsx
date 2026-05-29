@@ -40,6 +40,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Dashboard: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Full dashboard layout combining all CardStat variants — compact counters, sparklines, comparison, progress, gauge, heatbar, and list components in a realistic grid.",
+      },
+    },
+  },
   render: () => (
     <div className="flex min-h-screen flex-col gap-4 rounded-2xl bg-muted/30 p-6">
       <CardStat

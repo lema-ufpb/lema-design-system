@@ -33,6 +33,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Displays a profile card with avatar, name, role, and bio when hovering over the underlined trigger text.",
+      },
+    },
+  },
   render: () => (
     <HoverCard>
       <HoverCardTrigger asChild>

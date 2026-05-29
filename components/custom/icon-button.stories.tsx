@@ -64,23 +64,39 @@ const meta = {
         "destructive",
         "link",
       ],
+      table: { defaultValue: { summary: "ghost" } },
     },
     size: {
       control: "select",
       options: ["icon-xs", "icon-sm", "icon", "icon-lg"],
+      table: { defaultValue: { summary: "icon" } },
     },
     tooltipSide: {
       control: "select",
       options: ["top", "right", "bottom", "left"],
+      table: { defaultValue: { summary: "bottom" } },
     },
     rounded: {
       control: "select",
       options: ["none", "md", "full"],
+      table: { defaultValue: { summary: "md" } },
     },
-    loading: { control: "boolean" },
-    disabled: { control: "boolean" },
-    tooltip: { control: "text" },
-    label: { control: "text" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    disabled: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    tooltip: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    label: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
   },
 } satisfies Meta<typeof IconButton>
 
@@ -91,6 +107,13 @@ export const Default: Story = {
   args: {
     icon: <Bell />,
     label: "Notifications",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Default IconButton with a Bell icon and ghost variant.",
+      },
+    },
   },
 }
 
@@ -104,6 +127,14 @@ export const Playground: Story = {
     tooltipSide: "bottom",
     loading: false,
     disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Interactive playground with all control knobs exposed for experimentation.",
+      },
+    },
   },
 }
 

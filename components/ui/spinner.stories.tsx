@@ -35,9 +35,26 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default-sized spinning loader icon inheriting color from the parent text.",
+      },
+    },
+  },
+}
 
 export const CustomSize: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Spinner icons displayed at four different sizes (3, 4, 6, 8) to demonstrate size flexibility.",
+      },
+    },
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Spinner className="size-3" />
@@ -49,6 +66,14 @@ export const CustomSize: Story = {
 }
 
 export const InContext: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Spinner paired with contextual loading text labels to show typical inline usage.",
+      },
+    },
+  },
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2 text-sm text-muted-foreground">

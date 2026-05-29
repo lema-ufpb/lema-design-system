@@ -37,25 +37,47 @@ const meta = {
     size: {
       control: "radio",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
     },
     bodyPadding: {
       control: "radio",
       options: ["none", "sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
     },
     status: {
       control: "select",
       options: [undefined, "live", "warning", "error", "idle"],
+      table: { defaultValue: { summary: "" } },
     },
-    loading: { control: "boolean" },
-    showMaximize: { control: "boolean" },
-    showMinimize: { control: "boolean" },
-    showHeader: { control: "boolean" },
-    title: { control: "text" },
-    description: { control: "text" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showMaximize: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showMinimize: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showHeader: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    description: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     locale: {
       control: "select",
       options: ["en-US", "pt-PR", "es-ES", "fr-FR"],
       description: "Locale for toolbar tooltips and status labels.",
+      table: { defaultValue: { summary: "en-US" } },
     },
     toolbar: { table: { disable: true } },
     children: { table: { disable: true } },
@@ -77,6 +99,14 @@ export const Default: Story = {
       </p>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default Dashbox with title, description, and placeholder content.",
+      },
+    },
+  },
 }
 
 export const NoHeader: Story = {
@@ -89,6 +119,14 @@ export const NoHeader: Story = {
       </p>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashbox with showHeader={false} — header, toolbar, and status badge are hidden.",
+      },
+    },
+  },
 }
 
 export const WithStatus: Story = {
@@ -100,6 +138,13 @@ export const WithStatus: Story = {
         Service is responding normally.
       </p>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Dashbox with a live status badge in the header.",
+      },
+    },
   },
 }
 
@@ -128,6 +173,14 @@ export const AllStatuses: Story = {
       </Dashbox>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all four status badges — live, warning, error, and idle.",
+      },
+    },
+  },
 }
 
 export const WithToolbar: Story = {
@@ -163,6 +216,14 @@ export const WithToolbar: Story = {
       </div>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashbox with custom toolbar actions (download, settings) in the header.",
+      },
+    },
+  },
 }
 
 export const WithRefresh: Story = {
@@ -177,6 +238,14 @@ export const WithRefresh: Story = {
         Click the refresh button to see the spin animation.
       </p>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashbox with a refresh button that triggers an async onRefresh callback.",
+      },
+    },
   },
 }
 
@@ -196,6 +265,14 @@ export const LocalizedToolbar: Story = {
       </p>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Toolbar labels and status badge translated to Portuguese (pt-BR).",
+      },
+    },
+  },
 }
 
 export const Loading: Story = {
@@ -203,6 +280,14 @@ export const Loading: Story = {
     title: "Loading...",
     loading: true,
     children: null,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading state — the entire Dashbox body is replaced by animated skeleton placeholders.",
+      },
+    },
   },
 }
 
@@ -217,6 +302,14 @@ export const NoPadding: Story = {
         </span>
       </div>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dashbox with bodyPadding='none' — content stretches edge-to-edge.",
+      },
+    },
   },
 }
 
@@ -266,6 +359,14 @@ export const WithProgressBars: Story = {
       </Dashbox>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two Dashbox panels side-by-side containing ProgressBar components with different intents.",
+      },
+    },
+  },
 }
 
 export const Sizes: Story = {
@@ -282,4 +383,11 @@ export const Sizes: Story = {
       </Dashbox>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
 }

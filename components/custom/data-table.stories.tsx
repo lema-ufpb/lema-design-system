@@ -84,16 +84,48 @@ const meta = {
     },
   },
   argTypes: {
-    size: { control: "radio", options: ["default", "compact"] },
-    textSize: { control: "select", options: ["xs", "sm", "md", "lg"] },
-    height: { control: { type: "range", min: 200, max: 800, step: 20 } },
-    loading: { control: "boolean" },
-    showSearch: { control: "boolean" },
-    showDownload: { control: "boolean" },
-    pagination: { control: "boolean" },
-    selectRows: { control: "boolean" },
-    title: { control: "text" },
-    subtitle: { control: "text" },
+    size: {
+      control: "radio",
+      options: ["default", "compact"],
+      table: { defaultValue: { summary: "default" } },
+    },
+    textSize: {
+      control: "select",
+      options: ["xs", "sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
+    height: {
+      control: { type: "range", min: 200, max: 800, step: 20 },
+      table: { defaultValue: { summary: "400" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showSearch: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showDownload: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    pagination: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    selectRows: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     columns: { table: { disable: true } },
     footer: { table: { disable: true } },
@@ -119,6 +151,14 @@ interface Student {
   status: Status
   scholarship: boolean
   city: string
+  email: string
+  phone: string
+  birthDate: string
+  motherName: string
+  address: string
+  entryYear: number
+  advisor: string
+  shift: "Morning" | "Afternoon" | "Evening"
 }
 
 // ── Seed data generators ───────────────────────────────────────────────────
@@ -195,6 +235,28 @@ const CITIES = [
   "Cajazeiras",
 ]
 
+const ADVISORS = [
+  "Dr. Ana Lúcia",
+  "Dr. Carlos Mendes",
+  "Dra. Patrícia Oliveira",
+  "Dr. Ricardo Santos",
+  "Dr. Marcos Silva",
+  "Dra. Fernanda Costa",
+  "Dr. Thiago Almeida",
+  "Dra. Juliana Martins",
+]
+
+const MOTHER_NAMES = [
+  "Maria da Silva",
+  "Ana Pereira",
+  "Rosa Oliveira",
+  "Lucia Santos",
+  "Teresa Almeida",
+  "Sandra Costa",
+  "Fatima Rodrigues",
+  "Rita Barbosa",
+]
+
 const STATUSES: Status[] = ["Active", "Suspended", "Graduating", "Irregular"]
 const STATUS_WEIGHTS = [0.65, 0.1, 0.15, 0.1]
 
@@ -219,6 +281,16 @@ function generateStudents(count: number): Student[] {
     const absences = (seed * 6271 + 11) % 20
     const year = 2018 + (i % 6)
     const enrollmentId = `${year}${String((i % 9999) + 1).padStart(4, "0")}`
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}${i}@academico.ufpb.br`
+    const phone = `(83) 9${String(9000 + ((seed * 137 + 59) % 1000)).padStart(4, "0")}-${String((seed * 731 + 23) % 10000).padStart(4, "0")}`
+    const day = ((seed * 13 + 7) % 28) + 1
+    const month = ((seed * 7 + 3) % 12) + 1
+    const birthDate = `${String(day).padStart(2, "0")}/${String(month).padStart(2, "0")}/${1990 + (seed % 10)}`
+    const motherName = MOTHER_NAMES[i % MOTHER_NAMES.length]
+    const address = `Rua ${firstName}, ${100 + ((seed * 73 + 17) % 900)}`
+    const entryYear = year
+    const advisor = ADVISORS[i % ADVISORS.length]
+    const shift = (["Morning", "Afternoon", "Evening"] as const)[i % 3]
 
     return {
       id: seed,
@@ -231,6 +303,14 @@ function generateStudents(count: number): Student[] {
       status: weightedStatus(seed),
       scholarship: (seed * 3 + 1) % 5 === 0,
       city: CITIES[i % CITIES.length],
+      email,
+      phone,
+      birthDate,
+      motherName,
+      address,
+      entryYear,
+      advisor,
+      shift,
     }
   })
 }
@@ -371,6 +451,50 @@ const RICH_COLUMNS: ColumnDef<Student>[] = [
   },
 ]
 
+/** Many columns — for horizontal scroll demonstration */
+const MANY_COLUMNS: ColumnDef<Student>[] = [
+  col({
+    key: "enrollmentId",
+    label: "Enrollment ID",
+    width: 130,
+    sortable: true,
+  }),
+  col({ key: "name", label: "Name", width: 190, sortable: true }),
+  col({ key: "course", label: "Course", width: 220, sortable: true }),
+  col({
+    key: "semester",
+    label: "Sem.",
+    width: 70,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "gpa", label: "GPA", width: 80, align: "center", sortable: true }),
+  col({
+    key: "absences",
+    label: "Absences",
+    width: 90,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "status", label: "Status", width: 110 }),
+  col({ key: "scholarship", label: "Scholar", width: 80, align: "center" }),
+  col({ key: "email", label: "Email", width: 220 }),
+  col({ key: "phone", label: "Phone", width: 150 }),
+  col({ key: "birthDate", label: "Birth Date", width: 110, align: "center" }),
+  col({ key: "motherName", label: "Mother", width: 180 }),
+  col({ key: "address", label: "Address", width: 200 }),
+  col({
+    key: "entryYear",
+    label: "Entry",
+    width: 80,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "advisor", label: "Advisor", width: 180, sortable: true }),
+  col({ key: "shift", label: "Shift", width: 100, align: "center" }),
+  col({ key: "city", label: "City", width: 140 }),
+]
+
 // ── Shared args shorthand ──────────────────────────────────────────────────
 
 const base = {
@@ -383,6 +507,14 @@ const base = {
 
 export const Default: Story = {
   args: { ...base },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default data table with simple column definitions and 20 student records.",
+      },
+    },
+  },
 }
 
 export const TitleAndSubtitle: Story = {
@@ -391,6 +523,14 @@ export const TitleAndSubtitle: Story = {
     ...base,
     title: "Enrolled Students",
     subtitle: "Academic term 2025.1 — Department of Computing · UFPB",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Data table with title and subtitle text displayed above the table.",
+      },
+    },
   },
 }
 
@@ -471,6 +611,14 @@ export const SearchAndPagination: Story = {
     pageSizeOptions: [5, 8, 15, 20],
     height: 380,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combined global search and pagination — filtering resets the page index on each keystroke.",
+      },
+    },
+  },
 }
 
 export const WithCustomCells: Story = {
@@ -504,15 +652,91 @@ export const RowSelection: Story = {
     docs: {
       description: {
         story:
-          "Enable `selectRows` to inject a checkbox column managed by TanStack Table's `rowSelection` state. The header checkbox selects/deselects the entire current page and shows an indeterminate state when partially selected.",
+          "Enable `selectRows` to inject a checkbox column managed by TanStack Table's `rowSelection` state. The header checkbox selects/deselects the entire current page and shows an indeterminate state when partially selected. Scroll horizontally to observe the selection column staying fixed on the left with an opaque background.",
       },
     },
   },
-  args: {
-    ...base,
-    title: "Row Selection",
-    selectRows: true,
+  args: { data: [], columns: [] },
+  render: () => (
+    <DataTable
+      data={STUDENTS_20}
+      columns={MANY_COLUMNS}
+      title="Row Selection"
+      subtitle="Scroll horizontally to see the selection column stay fixed on the left"
+      selectRows
+      height={400}
+    />
+  ),
+}
+
+export const StickyColumns: Story = {
+  name: "Sticky Columns — First Two",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `stickyColumns` prop pins the first N columns to the left during horizontal scroll. Here, the first two columns (Enrollment ID and Name) stay fixed while the remaining columns scroll. The selection column can be combined with sticky columns — it always takes precedence at the far left.",
+      },
+    },
   },
+  args: { data: [], columns: [] },
+  render: () => (
+    <DataTable
+      data={STUDENTS_20}
+      columns={MANY_COLUMNS}
+      title="Sticky Columns"
+      subtitle="First two columns stay fixed — scroll horizontally to see them pinned"
+      stickyColumns={2}
+      height={400}
+    />
+  ),
+}
+
+export const StickyColumnsWithSelection: Story = {
+  name: "Sticky Columns + Row Selection",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combines `stickyColumns={2}` with `selectRows`. The selection checkbox is always the first sticky column (leftmost), followed by the two configured sticky columns. Scroll horizontally to see all three columns pinned on the left.",
+      },
+    },
+  },
+  args: { data: [], columns: [] },
+  render: () => (
+    <DataTable
+      data={STUDENTS_20}
+      columns={MANY_COLUMNS}
+      title="Sticky Columns + Selection"
+      subtitle="Selection checkbox + first two data columns stay fixed on the left"
+      stickyColumns={2}
+      selectRows
+      height={400}
+    />
+  ),
+}
+
+export const SquareBorders: Story = {
+  name: "Square Borders (no rounded corners)",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Set `rounded={false}` to render the table with straight corners instead of the default `rounded-xl`. Useful when embedding the table in a container that already provides its own border-radius or when a sharper aesthetic is desired.",
+      },
+    },
+  },
+  args: { data: [], columns: [] },
+  render: () => (
+    <DataTable
+      data={STUDENTS_20}
+      columns={MANY_COLUMNS}
+      title="Square Borders"
+      subtitle="rounded={false} — no rounded corners on the table wrapper"
+      rounded={false}
+      height={400}
+    />
+  ),
 }
 
 export const ClickableRows: Story = {
@@ -544,6 +768,14 @@ export const ClickableRows: Story = {
       </div>
     )
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Row click handler — clicking a row displays the selected student's details below the table.",
+      },
+    },
+  },
 }
 
 export const CompactSize: Story = {
@@ -555,6 +787,14 @@ export const CompactSize: Story = {
     showSearch: true,
     height: 380,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Compact table variant with tighter padding — ideal for dashboards and sidebars.",
+      },
+    },
+  },
 }
 
 export const WithDownload: Story = {
@@ -565,6 +805,14 @@ export const WithDownload: Story = {
     showDownload: true,
     showSearch: true,
     onDownload: () => alert("Exporting..."),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Download button in the toolbar that triggers an onDownload callback.",
+      },
+    },
   },
 }
 

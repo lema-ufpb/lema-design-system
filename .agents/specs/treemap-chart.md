@@ -124,15 +124,18 @@ _Gráfico de árvore (treemap) hierárquico baseado em recharts Treemap. Suporta
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — dados com 2 níveis de hierarquia
-- [ ] `DrillDown` — navegação completa com breadcrumb
-- [ ] `DeepTree` — 3+ níveis aninhados
-- [ ] `WithoutLabels` — showLabels=false
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-- [ ] `CustomFormatter` — valueFormatter formatando como moeda
-
----
+- [x] `Default` — Default
+- [x] `Hierarchical` — Hierarchical
+- [x] `CustomColors` — Custom Colors
+- [x] `NoLabels` — No Labels
+- [x] `DenseData` — Dense Data
+- [x] `WideAspectRatio` — Wide Aspect Ratio
+- [x] `WithFooter` — With Footer
+- [x] `FlatComparison` — Flat Comparison
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `DrillDown` — Drill Down
 
 ## Checklist antes de implementar
 

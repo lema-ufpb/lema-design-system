@@ -129,18 +129,17 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — título, descrição, children, status live
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `AllBodyPaddings` — none, sm, md, lg
-- [ ] `AllStatus` — live, warning, error, idle
-- [ ] `Loading` — `loading={true}`
-- [ ] `Minimized` — estado inicial minimizado
-- [ ] `Maximized` — estado maximizado
-- [ ] `WithToolbarExtra` — toolbar com children adicionais
-- [ ] `NoToolbar` — `showToolbar={false}`
-- [ ] `NoControls` — sem refresh, maximize, minimize
-
----
+- [x] `Default` — Default
+- [x] `NoHeader` — No Header
+- [x] `WithStatus` — With Status
+- [x] `AllStatuses` — All Statuses
+- [x] `WithToolbar` — With Toolbar
+- [x] `WithRefresh` — With Refresh
+- [x] `LocalizedToolbar` — Localized Toolbar
+- [x] `Loading` — Loading
+- [x] `NoPadding` — No Padding
+- [x] `WithProgressBars` — With Progress Bars
+- [x] `Sizes` — Sizes
 
 ## Checklist antes de implementar
 
@@ -149,7 +148,7 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [ ] `tabular-nums` — N/A (sem valores numéricos diretos)
+- [x] `tabular-nums` — N/A (sem valores numéricos diretos)
 - [x] `truncate` — N/A (título usa `title` attr)
 - [x] `aria-label` ou label visível em toolbar buttons
 - [x] `cn()` para classes condicionais

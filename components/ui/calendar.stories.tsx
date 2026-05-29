@@ -36,10 +36,12 @@ const meta = {
       control: "select",
       options: ["label", "dropdown"],
       description: "How the month/year caption is displayed",
+      table: { defaultValue: { summary: "label" } },
     },
     showOutsideDays: {
       control: "boolean",
       description: "Show days from adjacent months",
+      table: { defaultValue: { summary: "true" } },
     },
     buttonVariant: {
       control: "select",
@@ -52,11 +54,13 @@ const meta = {
         "link",
       ],
       description: "Variant for the previous/next navigation buttons",
+      table: { defaultValue: { summary: "ghost" } },
     },
     mode: {
       control: "select",
       options: ["single", "multiple", "range"],
       description: "Selection mode",
+      table: { defaultValue: { summary: "single" } },
     },
   },
 } satisfies Meta<typeof Calendar>
@@ -69,9 +73,25 @@ export const Default: Story = {
     const [date, setDate] = useState<Date | undefined>(new Date())
     return <Calendar mode="single" selected={date} onSelect={setDate} />
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single date selection with today's date pre-selected and the default label caption.",
+      },
+    },
+  },
 }
 
 export const WithDropdownCaption: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Calendar with dropdown-based month and year selectors replacing the default label caption.",
+      },
+    },
+  },
   render: () => {
     const [date, setDate] = useState<Date | undefined>(new Date())
     return (
@@ -86,6 +106,14 @@ export const WithDropdownCaption: Story = {
 }
 
 export const RangeSelection: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Range selection mode with a five-day span pre-selected from today.",
+      },
+    },
+  },
   render: () => {
     const [range, setRange] = useState({
       from: new Date(),
@@ -103,6 +131,14 @@ export const RangeSelection: Story = {
 }
 
 export const MultipleMonths: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Two months displayed side by side using the `numberOfMonths` prop for broader date visibility.",
+      },
+    },
+  },
   render: () => {
     const [date, setDate] = useState<Date | undefined>(new Date())
     return (
@@ -117,6 +153,14 @@ export const MultipleMonths: Story = {
 }
 
 export const WithWeekNumbers: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Calendar with week number indicators displayed along the left column for ISO week tracking.",
+      },
+    },
+  },
   render: () => {
     const [date, setDate] = useState<Date | undefined>(new Date())
     return (

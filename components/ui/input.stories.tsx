@@ -33,12 +33,15 @@ const meta = {
     type: {
       control: "select",
       options: ["text", "password", "email", "number", "search", "tel", "url"],
+      table: { defaultValue: { summary: "text" } },
     },
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     placeholder: {
       control: "text",
+      table: { defaultValue: { summary: "" } },
     },
   },
 } satisfies Meta<typeof Input>
@@ -49,6 +52,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     placeholder: "Enter text...",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Basic text input with a placeholder prompting the user to enter text.",
+      },
+    },
   },
 }
 
@@ -71,6 +82,14 @@ export const Disabled: Story = {
     disabled: true,
     placeholder: "Disabled input",
     value: "Disabled value",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Input in a disabled state with a pre-filled value that cannot be modified.",
+      },
+    },
   },
 }
 

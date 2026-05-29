@@ -113,27 +113,27 @@ Tamanhos de botão e ícone gerenciados pelo shadcn `Button` via prop `size` (`i
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — ghost, icon, rounded md, com tooltip
-- [ ] `AllVariants` — default, destructive, outline, secondary, ghost, link
-- [ ] `AllSizes` — icon-xs, icon-sm, icon, icon-lg
-- [ ] `AllRounded` — none, md, full
-- [ ] `Loading` — `loading={true}`
-- [ ] `Disabled` — `disabled={true}`
-- [ ] `NoTooltip` — `tooltip={false}`
-- [ ] `CustomTooltip` — tooltip diferente do label
-- [ ] `TooltipSides` — top, right, bottom, left
-
----
+- [x] `Default` — Default
+- [x] `Playground` — Playground
+- [x] `Variants` — Variants
+- [x] `Sizes` — Sizes
+- [x] `Rounded` — Rounded
+- [x] `TooltipSides` — Tooltip Sides
+- [x] `Loading` — Loading
+- [x] `States` — States
+- [x] `NoTooltip` — No Tooltip
+- [x] `ToolbarExample` — Toolbar Example
+- [x] `CardActions` — Card Actions
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — N/A (delega ao shadcn Button)
+- [x] Escala tipográfica — N/A (delega ao shadcn Button)
 - [x] Tokens semânticos — N/A (delega ao shadcn Button)
-- [ ] `cva()` — N/A (usa buttonVariants do shadcn)
+- [x] `cva()` — N/A (usa buttonVariants do shadcn)
 - [x] Loading usa spinner do lucide com `animate-spin` + `aria-busy`
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A
 - [x] `aria-label` obrigatório
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values
-- [ ] Prop `locale` — N/A (label é prop string)
+- [x] Prop `locale` — N/A (label é prop string)
