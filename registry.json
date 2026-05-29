@@ -1655,7 +1655,8 @@
       "registryDependencies": [
         "button",
         "skeleton",
-        "pagination"
+        "pagination",
+        "ui-i18n"
       ],
       "files": [
         {

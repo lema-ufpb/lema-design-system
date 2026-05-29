@@ -232,11 +232,22 @@ Todos os componentes abaixo vivem em `components/custom/`.
 | **Dashrow**    | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
 | **Drawer**     | Drawer completo com header, body scrollável, footer e botão de fechar adaptável à direção.               |
 | **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.       |
+| **Modal**      | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, body scrollável, async confirm com loading e suporte a i18n. |
 
 ```tsx
 import { Dashbox } from "@/components/custom/dashbox"
 import { Dashrow } from "@/components/custom/dashrow"
 import { Drawer } from "@/components/custom/drawer"
+import { Modal } from "@/components/custom/modal"
+
+<Modal
+  title="Confirmar exclusão"
+  intent="destructive"
+  confirmLabel="Excluir"
+  onConfirm={handleDelete}
+>
+  Tem certeza que deseja excluir este item?
+</Modal>
 
 <Drawer direction="right" title="Detalhes" description="ID #1234" footer={actions}>
   Conteúdo do drawer...
@@ -270,7 +281,7 @@ import { Spinner } from "@/components/custom/spinner"
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. |
-| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, colunas sticky, redimensionamento e seleção de linhas.                                        |
+| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
 | **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                                        |
 | **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                        |
 | **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                                      |
