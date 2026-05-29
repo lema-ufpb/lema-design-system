@@ -58,6 +58,18 @@ export const UI_I18N: Record<
       startVoice: string
       stopVoice: string
     }
+    modal: {
+      confirm: string
+      cancel: string
+    }
+    dataTable: {
+      searchPlaceholder: string
+      noData: string
+      noDataDescription: string
+      of: string
+      rows: string
+      rowsPerPage: string
+    }
   }
 > = {
   "en-US": {
@@ -147,6 +159,18 @@ export const UI_I18N: Record<
       clear: "Clear search",
       startVoice: "Search by voice",
       stopVoice: "Stop recording",
+    },
+    modal: {
+      confirm: "Confirm",
+      cancel: "Cancel",
+    },
+    dataTable: {
+      searchPlaceholder: "Search…",
+      noData: "No data found",
+      noDataDescription: "Data will appear here once available.",
+      of: "of",
+      rows: "rows",
+      rowsPerPage: "Rows per page",
     },
   },
   "pt-BR": {
@@ -240,6 +264,19 @@ export const UI_I18N: Record<
       startVoice: "Buscar por voz",
       stopVoice: "Parar gravação",
     },
+    modal: {
+      confirm: "Confirmar",
+      cancel: "Cancelar",
+    },
+    dataTable: {
+      searchPlaceholder: "Buscar…",
+      noData: "Nenhum dado encontrado",
+      noDataDescription:
+        "Os dados aparecerão aqui quando estiverem disponíveis.",
+      of: "de",
+      rows: "linhas",
+      rowsPerPage: "Linhas por página",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -328,6 +365,18 @@ export const UI_I18N: Record<
       clear: "Limpiar búsqueda",
       startVoice: "Buscar por voz",
       stopVoice: "Detener grabación",
+    },
+    modal: {
+      confirm: "Confirmar",
+      cancel: "Cancelar",
+    },
+    dataTable: {
+      searchPlaceholder: "Buscar…",
+      noData: "Sin datos",
+      noDataDescription: "Los datos aparecerán aquí cuando estén disponibles.",
+      of: "de",
+      rows: "filas",
+      rowsPerPage: "Filas por página",
     },
   },
   "fr-FR": {
@@ -424,6 +473,19 @@ export const UI_I18N: Record<
       clear: "Effacer la recherche",
       startVoice: "Rechercher par voix",
       stopVoice: "Arrêter l'enregistrement",
+    },
+    modal: {
+      confirm: "Confirmer",
+      cancel: "Annuler",
+    },
+    dataTable: {
+      searchPlaceholder: "Rechercher…",
+      noData: "Aucune donnée",
+      noDataDescription:
+        "Les données apparaîtront ici lorsqu'elles seront disponibles.",
+      of: "sur",
+      rows: "lignes",
+      rowsPerPage: "Lignes par page",
     },
   },
 }
