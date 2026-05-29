@@ -599,6 +599,29 @@ export const WithPagination: Story = {
   },
 }
 
+export const PaginationPtBR: Story = {
+  name: "Pagination — pt-BR",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Paginated table with `locale="pt-BR"` — buttons render as "Anterior" / "Próximo" and the counter shows "X–Y de N linhas", all resolved from `UI_I18N["pt-BR"]` with no manual `labels` prop.',
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_200 as unknown as object[],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Alunos — paginado",
+    subtitle: 'locale="pt-BR" — labels resolvidos automaticamente do UI_I18N',
+    pagination: true,
+    defaultPageSize: 10,
+    pageSizeOptions: [5, 10, 20],
+    height: 400,
+    locale: "pt-BR",
+  },
+}
+
 export const SearchAndPagination: Story = {
   name: "Search + Pagination",
   args: {
@@ -1119,6 +1142,26 @@ export const EmptyAfterSearch: Story = {
       noData: "No students match your search",
       noDataDescription: "Try searching by name, course, or enrollment ID.",
     },
+  },
+}
+
+export const EmptyStatePtBR: Story = {
+  name: "Empty State — pt-BR",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Empty state with `locale="pt-BR"` — the built-in message and description resolve automatically from `UI_I18N["pt-BR"]` without any `labels` override.',
+      },
+    },
+  },
+  args: {
+    data: [],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Sem resultados",
+    subtitle: "Tente ajustar os filtros ou volte mais tarde",
+    height: 340,
+    locale: "pt-BR",
   },
 }
 

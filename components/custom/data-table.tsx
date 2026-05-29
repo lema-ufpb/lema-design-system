@@ -25,6 +25,7 @@ import {
   Table2,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -81,6 +82,8 @@ export interface DataTableLabels {
     of?: string
     pluralItemName?: string
     rowsPerPage?: string
+    prev?: string
+    next?: string
   }
   actions?: {
     download?: string
@@ -132,6 +135,7 @@ export interface DataTableProps<
   onRowClick?: (row: TData) => void
 
   // Labels
+  locale?: UILocale
   labels?: DataTableLabels
 
   // Infinite scroll (non-paginated mode)
@@ -543,6 +547,9 @@ interface PaginationBarProps {
   onPageSizeChange?: (size: number) => void
   itemLabel: string
   rowsPerPageLabel: string
+  ofLabel: string
+  prevLabel: string
+  nextLabel: string
 }
 
 function PaginationBar({
@@ -559,6 +566,9 @@ function PaginationBar({
   onPageSizeChange,
   itemLabel,
   rowsPerPageLabel,
+  ofLabel,
+  prevLabel,
+  nextLabel,
 }: PaginationBarProps) {
   const start = totalRows === 0 ? 0 : pageIndex * pageSize + 1
   const end = Math.min((pageIndex + 1) * pageSize, totalRows)
@@ -570,7 +580,7 @@ function PaginationBar({
         <p className="text-xs text-muted-foreground">
           {totalRows === 0
             ? `0 ${itemLabel}`
-            : `${start}–${end} of ${totalRows} ${itemLabel}`}
+            : `${start}–${end} ${ofLabel} ${totalRows} ${itemLabel}`}
         </p>
 
         {pageSizeOptions && onPageSizeChange && (
@@ -602,6 +612,7 @@ function PaginationBar({
           <PaginationItem>
             <PaginationPrevious
               href="#"
+              text={prevLabel}
               onClick={(e) => {
                 e.preventDefault()
                 onPrev()
@@ -644,6 +655,7 @@ function PaginationBar({
           <PaginationItem>
             <PaginationNext
               href="#"
+              text={nextLabel}
               onClick={(e) => {
                 e.preventDefault()
                 onNext()
@@ -698,6 +710,7 @@ export function DataTable<TData extends object>({
   onRowClick,
   hasMore = false,
   onLoadMore,
+  locale,
   labels,
   ariaLabel,
   className,
@@ -709,19 +722,35 @@ export function DataTable<TData extends object>({
 
   // ── Labels ──
 
+  const i18n = locale ? UI_I18N[locale] : null
+
   const l = {
-    searchPlaceholder: labels?.searchPlaceholder ?? "Search...",
-    noData: labels?.noData ?? "No data found",
+    searchPlaceholder:
+      labels?.searchPlaceholder ??
+      i18n?.dataTable.searchPlaceholder ??
+      "Search...",
+    noData: labels?.noData ?? i18n?.dataTable.noData ?? "No data found",
     noDataDescription:
-      labels?.noDataDescription ?? "Data will appear here once available.",
+      labels?.noDataDescription ??
+      i18n?.dataTable.noDataDescription ??
+      "Data will appear here once available.",
     pagination: {
-      of: labels?.pagination?.of ?? "of",
-      pluralItemName: labels?.pagination?.pluralItemName ?? "rows",
-      rowsPerPage: labels?.pagination?.rowsPerPage ?? "Rows per page",
+      of: labels?.pagination?.of ?? i18n?.dataTable.of ?? "of",
+      pluralItemName:
+        labels?.pagination?.pluralItemName ?? i18n?.dataTable.rows ?? "rows",
+      rowsPerPage:
+        labels?.pagination?.rowsPerPage ??
+        i18n?.dataTable.rowsPerPage ??
+        "Rows per page",
+      prev: labels?.pagination?.prev ?? i18n?.pagination.previous ?? "Previous",
+      next: labels?.pagination?.next ?? i18n?.pagination.next ?? "Next",
     },
     actions: {
       download: labels?.actions?.download ?? "Export",
-      clearSearch: labels?.actions?.clearSearch ?? "Clear search",
+      clearSearch:
+        labels?.actions?.clearSearch ??
+        i18n?.combobox.clearSearch ??
+        "Clear search",
     },
     selection: {
       selectAll: labels?.selection?.selectAll ?? "Select all",
@@ -1189,6 +1218,9 @@ export function DataTable<TData extends object>({
             }
             itemLabel={l.pagination.pluralItemName}
             rowsPerPageLabel={l.pagination.rowsPerPage}
+            ofLabel={l.pagination.of}
+            prevLabel={l.pagination.prev}
+            nextLabel={l.pagination.next}
           />
         )}
       </div>
