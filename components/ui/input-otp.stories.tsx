@@ -37,6 +37,7 @@ const meta = {
   argTypes: {
     maxLength: {
       control: { type: "number", min: 4, max: 8 },
+      table: { defaultValue: { summary: "6" } },
     },
   },
 } satisfies Meta<typeof InputOTP>
@@ -45,6 +46,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Six-character OTP input split into two groups of three slots separated by a visual divider.",
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { maxLength: 6 } as any,
   render: () => (

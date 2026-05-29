@@ -31,9 +31,11 @@ const meta = {
   argTypes: {
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     placeholder: {
       control: "text",
+      table: { defaultValue: { summary: "" } },
     },
   },
 } satisfies Meta<typeof Textarea>
@@ -44,6 +46,14 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     placeholder: "Enter your message...",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-line text input with a placeholder prompting the user to enter a message.",
+      },
+    },
   },
 }
 
@@ -58,12 +68,28 @@ export const Disabled: Story = {
     disabled: true,
     placeholder: "Disabled textarea",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Textarea in a disabled state with a placeholder indicating it cannot be edited.",
+      },
+    },
+  },
 }
 
 export const Invalid: Story = {
   args: {
     "aria-invalid": true,
     placeholder: "Invalid textarea",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Textarea in an invalid state with destructive border styling indicated by aria-invalid.",
+      },
+    },
   },
 }
 

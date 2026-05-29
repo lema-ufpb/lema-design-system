@@ -50,23 +50,61 @@ const meta = {
     orientation: {
       control: "radio",
       options: ["vertical", "horizontal"],
+      table: { defaultValue: { summary: "vertical" } },
     },
     legendPosition: {
       control: "select",
       options: ["top", "bottom", "left", "right"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showGrid: { control: "boolean" },
-    showLegend: { control: "boolean" },
-    showTooltip: { control: "boolean" },
-    showBrush: { control: "boolean" },
-    stacked: { control: "boolean" },
-    rounded: { control: "boolean" },
-    height: { control: { type: "range", min: 150, max: 600, step: 10 } },
-    barSize: { control: { type: "range", min: 8, max: 60, step: 2 } },
-    title: { control: "text" },
-    subtitle: { control: "text" },
-    xAxisLabel: { control: "text" },
-    yAxisLabel: { control: "text" },
+    showGrid: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showLegend: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showTooltip: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    showBrush: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    stacked: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    rounded: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    height: {
+      control: { type: "range", min: 150, max: 600, step: 10 },
+      table: { defaultValue: { summary: "280" } },
+    },
+    barSize: {
+      control: { type: "range", min: 8, max: 60, step: 2 },
+      table: { defaultValue: { summary: "" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    subtitle: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    xAxisLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    yAxisLabel: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     data: { table: { disable: true } },
     dataKeys: { table: { disable: true } },
     footer: { table: { disable: true } },
@@ -118,6 +156,14 @@ const formatUSD = (v: number) =>
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default vertical bar chart showing monthly revenue from January to June 2025 with tooltips and rounded corners.",
+      },
+    },
+  },
   args: {
     title: "Monthly Revenue",
     subtitle: "January – June 2025",
@@ -132,6 +178,14 @@ export const Default: Story = {
 }
 
 export const Horizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal bar chart showing absences per course with custom per-series color labels, ideal for reading long category names.",
+      },
+    },
+  },
   args: {
     title: "Absences by Course",
     subtitle: "Semester 2025.1",
@@ -146,6 +200,14 @@ export const Horizontal: Story = {
 }
 
 export const MultiSeries: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-series vertical bar chart comparing enrolled versus active students per department with a legend and tooltip.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Department",
     subtitle: "Enrolled vs. active students",
@@ -164,6 +226,14 @@ export const MultiSeries: Story = {
 }
 
 export const MultiSeriesHorizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-series horizontal bar chart comparing enrolled versus active students, combining legend support with horizontal orientation.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Department",
     subtitle: "Enrolled vs. active students — horizontal orientation",
@@ -182,6 +252,14 @@ export const MultiSeriesHorizontal: Story = {
 }
 
 export const Stacked: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Stacked vertical bars comparing planned, actual, and projected budget across four quarters with a USD value formatter.",
+      },
+    },
+  },
   args: {
     title: "Quarterly Budget",
     subtitle: "Planned · Actual · Projected",
@@ -203,6 +281,14 @@ export const Stacked: Story = {
 }
 
 export const StackedHorizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Stacked horizontal bars showing cumulative quarterly budget across planned, actual, and projected categories.",
+      },
+    },
+  },
   args: {
     title: "Quarterly Budget",
     subtitle: "Cumulative by quarter — horizontal",
@@ -224,6 +310,14 @@ export const StackedHorizontal: Story = {
 }
 
 export const WithFooter: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Monthly revenue bar chart with a custom footer slot containing a trend indicator and update timestamp.",
+      },
+    },
+  },
   args: {
     title: "Monthly Revenue",
     subtitle: "Year-to-date 2025",
@@ -250,6 +344,14 @@ export const WithFooter: Story = {
 }
 
 export const CustomColors: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bar chart using `var(--primary)` and `var(--chart-3)` as per-series color overrides instead of the default chart tokens.",
+      },
+    },
+  },
   args: {
     title: "Enrollment by Department",
     subtitle: "Using var(--primary) and var(--chart-3) as series colors",
@@ -267,6 +369,14 @@ export const CustomColors: Story = {
 }
 
 export const NoDecoration: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Minimal bar chart with grid, tooltips, and rounded corners disabled — a compact chart with a fixed bar size.",
+      },
+    },
+  },
   args: {
     data: monthlyRevenue,
     dataKeys: ["revenue"],
@@ -355,6 +465,14 @@ const enrollmentTwoYears = [
 ]
 
 export const WithBrush: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-series bar chart with a brush slider for interactive range selection across 24 months of enrollment and graduation data.",
+      },
+    },
+  },
   args: {
     title: "Enrollment & Graduations — 2024–2025",
     subtitle: "Drag the handles at the bottom to zoom in on a time range",
@@ -374,6 +492,14 @@ export const WithBrush: Story = {
 }
 
 export const WithBrushStacked: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Stacked bar chart with a brush slider combining stacked series and interactive range zoom for semester comparison.",
+      },
+    },
+  },
   args: {
     title: "Enrollment & Graduations — stacked view",
     subtitle: "showBrush + stacked — scroll to compare semester peaks",
@@ -394,6 +520,14 @@ export const WithBrushStacked: Story = {
 }
 
 export const LocalePTBR: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Monthly revenue chart with Portuguese locale and BRL currency formatting demonstrating internationalization support.",
+      },
+    },
+  },
   args: {
     title: "Receita Mensal",
     subtitle: "Janeiro – Junho 2025",
@@ -496,6 +630,14 @@ export const EmptyState: Story = {
 }
 
 export const LegendPositions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grid of four bar charts demonstrating all four legend positions (top, right, bottom, left) for side-by-side comparison.",
+      },
+    },
+  },
   args: {
     data: enrollmentByDept,
     dataKeys: ["enrolled", "active"],

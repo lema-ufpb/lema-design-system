@@ -133,17 +133,23 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — linha suave com múltiplas séries
-- [ ] `Area` — gradient fill
-- [ ] `StackedArea` — áreas empilhadas
-- [ ] `LinearCurve` — interpolação linear
-- [ ] `StepCurve` — interpolação step
-- [ ] `WithReferenceLines` — metas e limites
-- [ ] `WithBrush` — brush habilitado
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-
----
+- [x] `Default` — Default
+- [x] `Area` — Area
+- [x] `WithAxisLabels` — With Axis Labels
+- [x] `AreaStacked` — Area Stacked
+- [x] `MultiSeries` — Multi Series
+- [x] `WithReferenceLines` — With Reference Lines
+- [x] `DashedForecast` — Dashed Forecast
+- [x] `StepCurve` — Step Curve
+- [x] `DotsAlways` — Dots Always
+- [x] `WithFooter` — With Footer
+- [x] `LegendPositions` — Legend Positions
+- [x] `WithBrush` — With Brush
+- [x] `WithBrushArea` — With Brush Area
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `EmptyState` — Empty State
+- [x] `NegativeTrend` — Negative Trend
 
 ## Checklist antes de implementar
 

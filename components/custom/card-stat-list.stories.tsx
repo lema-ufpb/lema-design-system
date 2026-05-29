@@ -21,6 +21,11 @@ const meta = {
     label: { control: "text" },
     loading: { control: "boolean" },
     empty: { control: "boolean" },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
     icon: { table: { disable: true } },
     items: { table: { disable: true } },
   },
@@ -33,6 +38,7 @@ export const Default: Story = {
   args: {
     label: "Performance Overview",
     icon: BarChart2Icon,
+    size: "md",
     items: [
       {
         label: "Sessions",
@@ -71,6 +77,14 @@ export const Default: Story = {
       },
     ],
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard stacked metrics card displaying five performance indicators with trend icons and color-coded values.",
+      },
+    },
+  },
 }
 
 export const Loading: Story = {
@@ -78,6 +92,14 @@ export const Loading: Story = {
     label: "Performance Overview",
     items: [],
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying two CardStatList placeholders while data is being fetched.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -98,6 +120,14 @@ export const EmptyState: Story = {
     items: [],
     empty: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing two list cards with dash placeholders when no data is available.",
+      },
+    },
+  },
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       <CardStatList
@@ -107,6 +137,71 @@ export const EmptyState: Story = {
         icon={BarChart2Icon}
       />
       <CardStatList label="Top Channels" items={[]} empty icon={ZapIcon} />
+    </div>
+  ),
+}
+
+export const AllSizes: Story = {
+  args: { label: "Metric", items: [] },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStatList component with five performance metrics.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <CardStatList
+            label="Performance Overview"
+            icon={BarChart2Icon}
+            size={size}
+            items={[
+              {
+                label: "Sessions",
+                value: 57891,
+                format: "integer",
+                trend: "up",
+                trendValue: "+12%",
+              },
+              {
+                label: "Bounce Rate",
+                value: 34.2,
+                format: "percent",
+                decimals: 1,
+                trend: "down",
+                trendValue: "−3pts",
+              },
+              {
+                label: "Avg. Duration",
+                value: "3m 42s",
+                trend: "up",
+                trendValue: "+8%",
+              },
+              {
+                label: "Conversions",
+                value: 1284,
+                format: "integer",
+                trend: "up",
+                trendValue: "+8%",
+              },
+              {
+                label: "Revenue / Session",
+                value: 2.15,
+                format: "currency",
+                trend: "neutral",
+                trendValue: "0%",
+              },
+            ]}
+          />
+        </div>
+      ))}
     </div>
   ),
 }
@@ -157,5 +252,13 @@ export const TopChannels: Story = {
         trendValue: "−8%",
       },
     ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates a marketing channels use case with organic search, direct, social media, email, and paid ads breakdown.",
+      },
+    },
   },
 }

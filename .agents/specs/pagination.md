@@ -1,16 +1,16 @@
 # Spec: Pagination
 
+> Componente de navegação para paginação de dados em múltiplas páginas.
+
 ---
 
 ## Propósito
 
-Componente de paginação semântica com `<nav>` e `<ul>`, links anterior/próximo com texto + ícone, ellipsis, e suporte a locale nos aria-label.
+**Usar quando:** Navegar entre páginas de uma lista ou conjunto de dados paginado.
 
-**Usar quando:** Qualquer lista ou tabela paginada no design system.
+**Não usar quando:** A navegação é infinita (scroll infinito) ou carregada sob demanda ("load more").
 
-**Não usar quando:** Paginação com select de página (quantas páginas). Scroll infinito.
-
-**Alternativa se não se aplicar:** Scroll infinito, "load more" button.
+**Alternativa:** Scroll infinito (`IntersectionObserver`) para feeds contínuos.
 
 ---
 
@@ -18,128 +18,89 @@ Componente de paginação semântica com `<nav>` e `<ul>`, links anterior/próxi
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/pagination.tsx` |
-| Tipo | `registry:component` (name: `pagination-ui`) |
-| Categoria | `Navigation` |
-| Depende de | `Button` (shadcn), `ChevronLeftIcon`, `ChevronRightIcon`, `MoreHorizontalIcon` (lucide-react) |
+| Arquivo | `components/ui/pagination.tsx` |
+| Tipo | `registry:ui` (name: `pagination`) |
+| Categoria | Navegação |
+| Depende de | `@/components/ui/button`, `lucide-react` (ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon), `@/lib/utils` (cn) |
 
 ---
 
 ## API — Props
 
-**Pagination (root):**
+### Pagination
 
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
 |------|------|--------|-------------|-----------|
-| `locale` | `UILocale` | `"en-US"` | | Localização dos aria-label |
-| `className` | `string` | — | | Classes extras |
+| `className` | `string` | — | Não | Classes adicionais |
 
-> Estende `React.ComponentProps<"nav">`. Não estende VariantProps (sem CVA).
+Wrapper `<nav>` com `aria-label="pagination"`.
 
-**PaginationLink:**
-
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `isActive` | `boolean` | — | | Aplica variante `outline` ao Button |
-| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"icon"` | | Tamanho do botão |
-
-> Estende `React.ComponentProps<"a">`.
-
-**PaginationPrevious / PaginationNext:**
+### PaginationLink
 
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
 |------|------|--------|-------------|-----------|
-| `text` | `string` | — | | Sobrescreve o texto padrão i18n |
-| `locale` | `UILocale` | `"en-US"` | | Localização do label |
+| `isActive` | `boolean` | — | Não | Marca como página ativa |
+| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"icon"` | Não | Tamanho do botão |
 
-> Estende `React.ComponentProps<typeof PaginationLink>`.
-
-**PaginationEllipsis:**
+### PaginationPrevious
 
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
 |------|------|--------|-------------|-----------|
-| `locale` | `UILocale` | `"en-US"` | | Localização do sr-only |
+| `text` | `string` | `"Previous"` | Não | Texto do link anterior |
 
-> Estende `React.ComponentProps<"span">`.
+### PaginationNext
+
+| Prop | Tipo | Padrão | Obrigatória | Descrição |
+|------|------|--------|-------------|-----------|
+| `text` | `string` | `"Next"` | Não | Texto do link próximo |
 
 ---
 
-## Variantes CVA
+## Tokens de design
 
-Nenhuma. O componente delega variantes visuais ao shadcn `Button` (variants: `outline`, `ghost`; size: `default`, `icon`).
-
----
-
-## Tokens de design utilizados
-
-Nenhum diretamente. Os tokens vêm do shadcn `Button` (delegação).
-
-- `variant="outline"` → botão de página ativa
-- `variant="ghost"` → demais botões
-- `size="default"` → Previous/Next
-- `size="icon"` → botões de página
-
----
-
-## Escala tipográfica e de tamanho
-
-| Slot | Valor |
-|------|-------|
-| Previous/Next text | `text-sm` (hidden em mobile com `hidden sm:block`) |
-| Icon | `size-4` (gerenciado pelo Button shadcn) |
-| Ellipsis container | `size-9 flex items-center justify-center` |
-| Ellipsis icon | `size-4` |
+| Token | Slot |
+|-------|------|
+| `--primary` / `--primary-foreground` | Botão de página ativa (variant `outline`) |
+| `--border` / `--muted` | Botão inativo e hover (variant `ghost`) |
+| `--ring` / `--ring/30` | Anel de foco |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `isActive` | Button `variant="outline"`, link `aria-current="page"` |
-| Mobile (< sm) | Previous/Next mostram apenas ícone, texto oculto |
-| Ellipsis | `aria-hidden` com `sr-only` para leitores de tela |
-| Previous | `aria-label="Go to previous page"`, ícone à esquerda |
-| Next | `aria-label="Go to next page"`, ícone à direita |
+| Estado | Comportamento |
+|--------|---------------|
+| Página ativa | `isActive=true`, `aria-current="page"`, variant `outline` |
+| Página inativa | Variant `ghost` |
+| Hover | Estilo herdado de `Button` (ghost/outline) |
+| Ellipsis | Apenas visual, `aria-hidden` |
+| Responsivo | Previous/Next exibem texto apenas em `sm:` |
 
 ---
 
 ## Acessibilidade
 
 | Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | `<nav role="navigation">` com `aria-label` i18n |
-| Lista | `<ul>` com itens `<li>` |
-| Link ativo | `aria-current="page"` |
-| Previous/Next | `aria-label` i18n (`goToPrevious`, `goToNext`) |
-| Ellipsis | `aria-hidden`, com `sr-only` "More pages" i18n |
-| Previous/Next text | `hidden sm:block` (acessível mesmo oculto via label) |
-| i18n | `UI_I18N[locale].pagination.*` (navLabel, previous, next, goToPrevious, goToNext, morePages) |
+|-----------|---------------|
+| Navegação semântica | `<nav role="navigation" aria-label="pagination">` |
+| Página ativa | `aria-current="page"` |
+| Previous/Next | `aria-label="Go to previous page"` / `"Go to next page"` |
+| Ellipsis | `aria-hidden` no ícone, `sr-only` "More pages" |
 
 ---
 
-## Stories obrigatórias no Storybook
+## Stories obrigatórias
 
-- [ ] `Default` — página 1 ativa, 5 páginas
-- [ ] `ActiveMiddle` — página 3 ativa
-- [ ] `LastPage` — última página ativa
-- [ ] `CustomText` — Previous/Next com texto customizado
-- [ ] `ManyPages` — 10+ páginas com ellipsis em ambos lados
-- [ ] `Mobile` — viewport < sm (texto oculto)
-- [ ] `Locales` — pt-BR, es-ES, fr-FR
+- [x] `Default` — Default
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `CustomText` — Custom Text
 
----
+## Checklist
 
-## Checklist antes de implementar
-
-- [ ] Escala tipográfica — N/A (usa tamanhos do shadcn Button)
-- [x] Tokens semânticos — N/A (delega ao shadcn Button)
-- [ ] `cva()` — N/A (sem variantes próprias)
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
-- [x] `aria-label` no `<nav>` e Previous/Next
-- [x] `aria-current="page"` no link ativo
-- [x] `cn()` para classes condicionais
-- [x] Spacing sem arbitrary values
-- [x] Prop `locale` integrada via `UI_I18N`
+- [x] Componente funcional com 7 sub-componentes exportados
+- [x] Stories no Storybook
+- [x] Documentação de tokens no stories
+- [x] Suporte a `isActive` em `PaginationLink`
+- [x] Texto customizável em Previous/Next
+- [x] Atributo `data-slot` em todos os sub-componentes
+- [x] Navegação semântica com `aria-label`

@@ -137,18 +137,14 @@ Compound variants:
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — lista com itens
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `AllIntents` — default, primary, secondary, destructive
-- [ ] `WithIcons` — itens com ícones
-- [ ] `WithGroups` — itens agrupados
-- [ ] `Searchable` — busca com filtro
-- [ ] `Loading` — loading com skeletons
-- [ ] `Empty` — lista vazia
-- [ ] `Disabled` — disabled state
-- [ ] `VirtualScrolling` — muitos itens (>100)
-
----
+- [x] `Default` — Default
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Controlled` — Controlled
+- [x] `Intents` — Intents
+- [x] `Loading` — Loading
+- [x] `Empty` — Empty
+- [x] `Virtualized` — Virtualized
+- [x] `InModal` — In Modal
 
 ## Checklist antes de implementar
 

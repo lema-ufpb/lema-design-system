@@ -28,11 +28,13 @@ const meta = {
       control: "radio",
       options: ["horizontal", "vertical"],
       description: "The axis along which the separator is rendered",
+      table: { defaultValue: { summary: "horizontal" } },
     },
     decorative: {
       control: "boolean",
       description:
         "Whether the separator is purely decorative (not announced by screen readers)",
+      table: { defaultValue: { summary: "true" } },
     },
   },
 } satisfies Meta<typeof Separator>
@@ -44,6 +46,14 @@ export const Horizontal: Story = {
   args: {
     orientation: "horizontal",
     decorative: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal divider separating two blocks of text to demonstrate visual content separation.",
+      },
+    },
   },
   render: (args) => (
     <div className="flex flex-col gap-4">
@@ -59,6 +69,14 @@ export const Horizontal: Story = {
 }
 
 export const Vertical: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertical separator dividing three inline text labels in a flex row layout.",
+      },
+    },
+  },
   render: () => (
     <div className="flex h-12 items-center gap-4">
       <span className="text-sm text-muted-foreground">Left</span>

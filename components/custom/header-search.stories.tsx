@@ -28,11 +28,18 @@ const meta = {
     },
   },
   argTypes: {
-    placeholder: { control: "text" },
-    isExpanded: { control: "boolean" },
+    placeholder: {
+      control: "text",
+      table: { defaultValue: { summary: "Search..." } },
+    },
+    isExpanded: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     rounded: {
       control: "select",
       options: ["full", "md", "none"],
+      table: { defaultValue: { summary: "full" } },
     },
   },
 } satisfies Meta<typeof HeaderSearch>
@@ -50,6 +57,14 @@ export const Default: Story = {
       <HeaderSearch {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Compact search bar in collapsed state with full rounded corners.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
@@ -63,6 +78,13 @@ export const LocalePTBR: Story = {
       <HeaderSearch {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Portuguese (pt-BR) localization — placeholder text translated.",
+      },
+    },
+  },
 }
 
 export const Square: Story = {
@@ -76,6 +98,14 @@ export const Square: Story = {
       <HeaderSearch {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Search bar with square corners (rounded='none') and always-expanded state.",
+      },
+    },
+  },
 }
 
 export const Expanded: Story = {
@@ -88,6 +118,13 @@ export const Expanded: Story = {
       <HeaderSearch {...args} />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Search bar pre-expanded with a custom placeholder.",
+      },
+    },
+  },
 }
 
 export const InHeaderMock: Story = {
@@ -113,4 +150,12 @@ export const InHeaderMock: Story = {
       </div>
     </header>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Search bar rendered inside a mock header layout with navigation links.",
+      },
+    },
+  },
 }

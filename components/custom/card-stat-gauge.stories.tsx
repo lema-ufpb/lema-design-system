@@ -29,6 +29,11 @@ const meta = {
     description: { control: "text" },
     loading: { control: "boolean" },
     empty: { control: "boolean" },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
     icon: { table: { disable: true } },
     zones: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
@@ -45,6 +50,15 @@ export const Default: Story = {
     min: 0,
     max: 100,
     description: "Promoters vs detractors",
+    size: "md",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard semi-circular SVG gauge showing an NPS score of 78 out of 100 with default color zones.",
+      },
+    },
   },
 }
 
@@ -53,6 +67,14 @@ export const Loading: Story = {
     label: "NPS Score",
     value: 0,
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying four CardStatGauge placeholders while data is being fetched.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -75,6 +97,14 @@ export const EmptyState: Story = {
     value: 0,
     empty: true,
     description: "Awaiting survey responses",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing four gauge cards with dash placeholders when no data is available.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -108,10 +138,79 @@ export const EmptyState: Story = {
   ),
 }
 
+export const AllSizes: Story = {
+  args: { label: "Gauge", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStatGauge component with various metrics.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <CardStatGauge
+              label="NPS Score"
+              value={78}
+              min={0}
+              max={100}
+              description="Promoters vs detractors"
+              size={size}
+            />
+            <CardStatGauge
+              label="CPU Usage"
+              value={42}
+              min={0}
+              max={100}
+              valueFormatter={(v) => `${v}%`}
+              description="Production cluster avg"
+              icon={CpuIcon}
+              size={size}
+            />
+            <CardStatGauge
+              label="Quality Score"
+              value={91}
+              min={0}
+              max={100}
+              description="Code review pipeline"
+              icon={ShieldCheckIcon}
+              size={size}
+            />
+            <CardStatGauge
+              label="Team Velocity"
+              value={34}
+              min={0}
+              max={60}
+              valueFormatter={(v) => `${v} pts`}
+              description="Story points per sprint"
+              size={size}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const AllGauges: Story = {
   args: {
     label: "Gauge",
     value: 0,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates four gauge configurations — NPS score, CPU usage with custom zones, quality score, and team velocity.",
+      },
+    },
   },
   render: () => (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

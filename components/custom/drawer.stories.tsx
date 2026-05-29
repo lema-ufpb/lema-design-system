@@ -37,10 +37,20 @@ const meta = {
     direction: {
       control: "select",
       options: ["bottom", "left", "right", "top"],
+      table: { defaultValue: { summary: "bottom" } },
     },
-    showCloseButton: { control: "boolean" },
-    title: { control: "text" },
-    description: { control: "text" },
+    showCloseButton: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    title: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    description: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     open: { table: { disable: true } },
     onOpenChange: { table: { disable: true } },
     trigger: { table: { disable: true } },
@@ -73,6 +83,14 @@ export const Default: Story = {
       </div>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bottom drawer with form fields (name, email) and a save/cancel footer.",
+      },
+    },
+  },
 }
 
 export const FromLeft: Story = {
@@ -99,6 +117,13 @@ export const FromLeft: Story = {
       </nav>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Left-side drawer with a vertical navigation menu.",
+      },
+    },
+  },
 }
 
 export const FromRight: Story = {
@@ -154,6 +179,14 @@ export const FromRight: Story = {
       </div>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Right-side drawer showing a list of notifications with badges and timestamps.",
+      },
+    },
+  },
 }
 
 export const FromTop: Story = {
@@ -178,6 +211,14 @@ export const FromTop: Story = {
       </div>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Top drawer with grid of quick action buttons (New File, Upload, Share).",
+      },
+    },
+  },
 }
 
 export const Confirmation: Story = {
@@ -201,6 +242,13 @@ export const Confirmation: Story = {
       </p>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Bottom drawer with a destructive delete confirmation dialog.",
+      },
+    },
+  },
 }
 
 export const ScrollableContent: Story = {
@@ -230,6 +278,14 @@ export const ScrollableContent: Story = {
       </div>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Right drawer with scrollable body content and a submit/cancel footer.",
+      },
+    },
+  },
 }
 
 export const NoHeader: Story = {
@@ -250,6 +306,14 @@ export const NoHeader: Story = {
       </p>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bottom drawer without title or description — content starts below the close button.",
+      },
+    },
+  },
 }
 
 export const NoCloseButton: Story = {
@@ -268,6 +332,14 @@ export const NoCloseButton: Story = {
       </p>
     </Drawer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Left drawer without a close button — dismiss via drag gesture or backdrop tap.",
+      },
+    },
+  },
 }
 
 export const ProgrammaticControl: Story = {
@@ -308,5 +380,13 @@ export const ProgrammaticControl: Story = {
         </Drawer>
       </div>
     )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Bottom drawer controlled externally via open/onOpenChange props.",
+      },
+    },
   },
 }

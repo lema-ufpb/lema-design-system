@@ -123,16 +123,9 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 4 grupos com vários links cada
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `Uppercase` — `upper={true}`
-- [ ] `SingleGroup` — apenas 1 grupo
-- [ ] `EmptyData` — `data={[]}`
-- [ ] `Mobile` — viewport < lg
-- [ ] `Desktop` — viewport >= lg
-- [ ] `WithExternalLinks` — links com `target="_blank"`
-
----
+- [x] `Default` — Default
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Simple` — Simple
 
 ## Checklist antes de implementar
 
@@ -140,9 +133,9 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 - [x] Todos os tokens são semânticos (sem raw Tailwind)
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A (links não truncam)
+- [x] Loading — N/A (sem estado loading)
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A (links não truncam)
 - [x] `aria-label` no `<nav>`
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values

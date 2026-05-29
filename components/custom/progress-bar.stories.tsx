@@ -9,55 +9,77 @@ const meta = {
     value: {
       control: { type: "range", min: 0, max: 100, step: 1 },
       description: "Progress value (0–1 or 0–100)",
+      table: { defaultValue: { summary: "0" } },
     },
     intent: {
       control: "select",
       options: ["primary", "secondary", "success", "destructive"],
+      table: { defaultValue: { summary: "primary" } },
     },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "sm" } },
     },
     total: {
       control: { type: "number", min: 1 },
       description:
         "Total value. When set, the bar fill is `value / total` and the label shows `value / total` instead of a percentage.",
+      table: { defaultValue: { summary: "" } },
     },
-    loading: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     precision: {
       control: { type: "number", min: 0, max: 5 },
       description: "Number of decimal places to display",
-      defaultValue: 0,
+      table: { defaultValue: { summary: "0" } },
     },
-    name: { control: "text" },
+    name: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     namePosition: {
       control: { type: "radio" },
       options: ["left", "right"],
+      table: { defaultValue: { summary: "left" } },
     },
-    upper: { control: "boolean" },
-    showLabel: { control: "boolean" },
+    upper: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    showLabel: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
     tooltip: {
       control: "text",
       description:
         "Content to display in a tooltip when hovering over the progress bar.",
+      table: { defaultValue: { summary: "" } },
     },
     labelPosition: {
       control: { type: "radio" },
       options: ["left", "right"],
+      table: { defaultValue: { summary: "left" } },
     },
     labelLayout: {
       control: "select",
       options: ["inline", "above", "below"],
       description: "Position of the name/label row relative to the bar.",
+      table: { defaultValue: { summary: "above" } },
     },
     labelWidth: {
       control: "number",
       description: "Fixed width in pixels for the name slot.",
+      table: { defaultValue: { summary: "" } },
     },
     locale: {
       control: "text",
       description:
         "Locale used for formatting the percentage (e.g. pt-BR, en-US).",
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
   parameters: {
@@ -96,6 +118,14 @@ export const Default: Story = {
     size: "sm",
     intent: "primary",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default progress bar at 65% with primary intent and inline label.",
+      },
+    },
+  },
 }
 
 export const AllIntents: Story = {
@@ -108,6 +138,14 @@ export const AllIntents: Story = {
       <ProgressBar value={40} intent="destructive" name="Destructive" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all four intent colors — primary, secondary, success, and destructive.",
+      },
+    },
+  },
 }
 
 export const AllSizes: Story = {
@@ -119,6 +157,13 @@ export const AllSizes: Story = {
       <ProgressBar value={70} size="lg" name="Large" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
 }
 
 export const WithPrecision: Story = {
@@ -139,6 +184,14 @@ export const WithPrecision: Story = {
       />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bar with varying decimal precision — 2, 1, and 0 decimal places.",
+      },
+    },
+  },
 }
 
 export const DifferentLocales: Story = {
@@ -183,6 +236,14 @@ export const Loading: Story = {
     value: 50,
     name: "Loading",
     loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading state with skeleton placeholder replacing the bar fill.",
+      },
+    },
   },
 }
 
@@ -264,6 +325,14 @@ export const WithTooltip: Story = {
     name: "Storage",
     tooltip: "85 GB of 100 GB used",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bar with a tooltip showing additional context on hover.",
+      },
+    },
+  },
 }
 
 export const NoLabel: Story = {
@@ -271,6 +340,14 @@ export const NoLabel: Story = {
     value: 50,
     name: "Hidden Label",
     showLabel: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bar with the percentage label hidden via showLabel={false}.",
+      },
+    },
   },
 }
 
@@ -280,6 +357,14 @@ export const LabelRight: Story = {
     name: "Progress",
     labelPosition: "right",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bar with the percentage label positioned on the right side of the bar.",
+      },
+    },
+  },
 }
 
 export const NameRight: Story = {
@@ -288,6 +373,14 @@ export const NameRight: Story = {
     name: "Progress",
     namePosition: "right",
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bar with the name label positioned on the right side of the bar.",
+      },
+    },
+  },
 }
 
 export const Uppercase: Story = {
@@ -295,6 +388,13 @@ export const Uppercase: Story = {
     value: 55,
     name: "Progress Status",
     upper: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Progress bar with uppercase name label via the upper prop.",
+      },
+    },
   },
 }
 
@@ -491,4 +591,12 @@ export const FixedLabelWidth: Story = {
       />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Progress bars with fixed label width for consistent alignment across multiple items.",
+      },
+    },
+  },
 }

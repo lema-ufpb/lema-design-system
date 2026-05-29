@@ -44,6 +44,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Right: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Slide-in panel from the right side with a profile editing form, header, footer, and close button.",
+      },
+    },
+  },
   render: () => (
     <Sheet>
       <SheetTrigger asChild>

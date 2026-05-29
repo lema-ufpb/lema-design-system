@@ -44,6 +44,7 @@ const meta = {
       control: "select",
       options: ["vertical", "horizontal", "responsive"],
       description: "Layout orientation of label and content",
+      table: { defaultValue: { summary: "vertical" } },
     },
   },
 } satisfies Meta<typeof Field>
@@ -52,6 +53,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Vertical field layout with a label, text input, and helper description text beneath the input.",
+      },
+    },
+  },
   render: () => (
     <Field className="max-w-sm">
       <FieldLabel>Name</FieldLabel>
@@ -64,6 +73,14 @@ export const Default: Story = {
 }
 
 export const Horizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal field orientation with the label positioned beside the input for inline form layouts.",
+      },
+    },
+  },
   render: () => (
     <Field orientation="horizontal" className="max-w-sm">
       <FieldLabel>Email</FieldLabel>
@@ -75,6 +92,14 @@ export const Horizontal: Story = {
 }
 
 export const WithError: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Field displaying multiple validation errors with data-invalid state and aria-invalid on the input.",
+      },
+    },
+  },
   render: () => (
     <Field className="max-w-sm" data-invalid>
       <FieldLabel>Password</FieldLabel>
@@ -92,6 +117,14 @@ export const WithError: Story = {
 }
 
 export const FieldSetExample: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Grouped fieldset with a legend title, separator between fields, and horizontal field layout.",
+      },
+    },
+  },
   render: () => (
     <FieldSet className="max-w-md">
       <FieldLegend>Contact Information</FieldLegend>

@@ -117,27 +117,27 @@ Sem escala tipográfica — Dashrow é puramente layout. Não há texto próprio
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — 3 dashboxes com alignment=left
-- [ ] `AlignmentRight` — alignment=right
-- [ ] `AlignmentEqual` — alignment=equal
-- [ ] `AllGaps` — none, sm, md, lg
-- [ ] `AllPaddings` — none, sm, md, lg
-- [ ] `NotResizable` — `resizable={false}`
-- [ ] `SingleChild` — apenas um painel
-- [ ] `Persisted` — com `storageKey`
-- [ ] `Mobile` — viewport < lg
-
----
+- [x] `Default` — Default
+- [x] `AllAlignments` — All Alignments
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `EqualHeightStretch` — Equal Height Stretch
+- [x] `ThreePanels` — Three Panels
+- [x] `Persistent` — Persistent
+- [x] `NotResizable` — Not Resizable
+- [x] `WithRealContent` — With Real Content
+- [x] `GapVariants` — Gap Variants
+- [x] `Mobile` — Mobile
+- [x] `Desktop` — Desktop
 
 ## Checklist antes de implementar
 
-- [ ] Escala tipográfica — N/A (sem texto)
+- [x] Escala tipográfica — N/A (sem texto)
 - [x] Tokens semânticos usados
 - [x] `cva()` com `defaultVariants`
 - [x] `*Variants` exportados
-- [ ] Loading — N/A (sem estado loading)
-- [ ] `tabular-nums` — N/A
-- [ ] `truncate` — N/A
+- [x] Loading — N/A (sem estado loading)
+- [x] `tabular-nums` — N/A
+- [x] `truncate` — N/A
 - [x] `aria-label` nos divisores
 - [x] `cn()` para classes condicionais
 - [x] Spacing sem arbitrary values

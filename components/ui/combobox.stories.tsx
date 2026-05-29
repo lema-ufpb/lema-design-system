@@ -74,6 +74,14 @@ const GROUPED_OPTIONS = [
 
 export const Default: Story = {
   name: "Single Select",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Single-select combobox filtering through a list of frameworks with a text input and dropdown.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string | null>(null)
     const anchorRef = useComboboxAnchor()
@@ -103,6 +111,14 @@ export const Default: Story = {
 }
 
 export const WithClear: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combobox with a clear button to reset the selected value back to empty.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string | null>("react")
     const anchorRef = useComboboxAnchor()
@@ -127,6 +143,14 @@ export const WithClear: Story = {
 }
 
 export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combobox input rendered in a disabled state with a placeholder indicating it cannot be interacted with.",
+      },
+    },
+  },
   render: function Render() {
     const anchorRef = useComboboxAnchor()
     return (
@@ -150,6 +174,14 @@ export const Disabled: Story = {
 }
 
 export const WithGroups: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combobox with items organized into labeled groups (Library and Meta-framework) for structured browsing.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string | null>(null)
     const anchorRef = useComboboxAnchor()
@@ -190,6 +222,14 @@ export const WithGroups: Story = {
 
 export const MultiSelect: Story = {
   name: "Multi Select with Chips",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Multi-select combobox with selected values displayed as removable chips and a chips input.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string[]>(["react", "next"])
     const anchorRef = useComboboxAnchor()
@@ -223,6 +263,14 @@ export const MultiSelect: Story = {
 
 export const WithCustomFilter: Story = {
   name: "Custom Filter",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combobox with a custom client-side filter matching against both label and value fields.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string | null>(null)
     const [search, setSearch] = React.useState("")
@@ -260,6 +308,14 @@ export const WithCustomFilter: Story = {
 
 export const ControlledValue: Story = {
   name: "Controlled",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combobox with the value controlled externally via dedicated action buttons for each option.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string | null>(null)
     const anchorRef = useComboboxAnchor()
@@ -303,6 +359,14 @@ export const ControlledValue: Story = {
 
 export const WithBadgeValue: Story = {
   name: "Custom Value Display",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Combobox that displays the selected value as a Badge component instead of inline text.",
+      },
+    },
+  },
   render: function Render() {
     const [value, setValue] = React.useState<string | null>(null)
     const anchorRef = useComboboxAnchor()

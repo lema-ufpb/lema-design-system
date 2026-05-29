@@ -96,6 +96,14 @@ const DefaultCommand = () => (
 )
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Command dialog with framework and account groups, each item displaying an icon and keyboard shortcut.",
+      },
+    },
+  },
   render: () => (
     <CommandDialog>
       <DefaultCommand />
@@ -104,6 +112,14 @@ export const Default: Story = {
 }
 
 export const WithIcons: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Command dialog with action and preference groups using descriptive icons and keyboard shortcuts.",
+      },
+    },
+  },
   render: () => (
     <CommandDialog>
       <CommandInput placeholder="Search..." />
@@ -144,6 +160,14 @@ export const WithIcons: Story = {
 }
 
 export const Empty: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Command dialog showing the empty state message when no results match the search input.",
+      },
+    },
+  },
   render: () => (
     <CommandDialog>
       <CommandInput placeholder="Search..." />
@@ -155,6 +179,14 @@ export const Empty: Story = {
 }
 
 export const WithoutDialog: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Inline command palette rendered directly in the page without a modal overlay, inside a bordered container.",
+      },
+    },
+  },
   render: () => (
     <div className="w-full max-w-sm rounded-lg border p-2">
       <Command>

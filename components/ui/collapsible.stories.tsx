@@ -35,6 +35,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Collapsible section with an outline button trigger and an animated chevron icon that rotates on open.",
+      },
+    },
+  },
   render: () => (
     <Collapsible className="w-80">
       <CollapsibleTrigger asChild>

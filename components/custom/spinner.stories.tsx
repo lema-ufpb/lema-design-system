@@ -31,11 +31,26 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {},
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default spinner with no additional props — renders at default size.",
+      },
+    },
+  },
 }
 
 export const LocalePTBR: Story = {
   args: {
     locale: "pt-BR",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Portuguese (pt-BR) localization applied.",
+      },
+    },
   },
 }
 
@@ -48,6 +63,13 @@ export const Sizes: Story = {
       <Spinner className="size-6" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Comparison of four sizes — 12px, 16px, 20px, and 24px.",
+      },
+    },
+  },
 }
 
 export const InButton: Story = {
@@ -67,6 +89,14 @@ export const InButton: Story = {
       </Button>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Spinner used inline inside disabled buttons to indicate loading states.",
+      },
+    },
+  },
 }
 
 export const CustomColor: Story = {
@@ -77,4 +107,12 @@ export const CustomColor: Story = {
       <Spinner className="size-6 text-destructive" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Spinner inheriting custom text colors — primary, muted-foreground, and destructive.",
+      },
+    },
+  },
 }

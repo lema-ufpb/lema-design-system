@@ -20,12 +20,12 @@ Campo de busca com dropdown de resultados, virtual scrolling, destaque de texto 
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/search-combo/index.tsx` |
-| Arquivos auxiliares | `components/custom/search-combo/types.ts`, `components/custom/search-combo/variants.ts` |
-| Hook | `components/custom/search-combo/hooks/use-speech-recognition` |
-| Tipo | `registry:component` |
-| Categoria | `Form` |
-| Depende de | `PopoverPrimitive` (Radix), `Spinner` (custom), `useSpeechRecognition` (hook local) |
+| Arquivo | `components/custom/search-combo.tsx` |
+| Arquivos auxiliares | `components/custom/search-combo.stories.tsx` |
+| Hook | `@/hooks/use-speech-recognition` (compartilhado) |
+| Tipo | `registry:ui` |
+| Categoria | `Navigation` |
+| Depende de | `radix-ui`, `@tanstack/react-virtual`, `Spinner` (custom), `useSpeechRecognition` (hook compartilhado) |
 
 ---
 
@@ -98,7 +98,7 @@ Múltiplos slots, cada um com seu próprio `cva()`:
 | Dimensão | Valores | Padrão |
 |----------|---------|--------|
 | `size` | `sm`, `md`, `lg` | `md` |
-| `rounded` | `true`, `false` | `false` |
+| `rounded` | `true`, `false` (ambos `rounded-none`) | `false` |
 
 ### searchComboResultItemVariants
 | Dimensão | Valores | Padrão |
@@ -188,20 +188,21 @@ Múltiplos slots, cada um com seu próprio `cva()`:
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — busca com resultados
-- [ ] `AllSizes` — sm, md, lg
-- [ ] `Rounded` — pill vs. default
-- [ ] `BorderMode` — border=true com bg-muted
-- [ ] `WithGroups` — resultados agrupados
-- [ ] `HighlightText` — matching com highlight
-- [ ] `Loading` — loading state com spinner
-- [ ] `Disabled` — disabled state
-- [ ] `Empty` — busca sem resultados
-- [ ] `VoiceEnabled` — com microfone
-- [ ] `NoButton` — button=false
-- [ ] `Controlled` — value e onChange externos
-
----
+- [x] `Default` — Default search combo with results
+- [x] `AllSizes` — sm, md, lg sizes
+- [x] `AllVariants` — all variant configurations
+- [x] `WithGroups` — grouped results
+- [x] `WithIcons` — items with icons
+- [x] `Rounded` — pill vs. default
+- [x] `BorderMode` — border=true with bg-muted
+- [x] `WithoutButton` — button=false
+- [x] `Disabled` — disabled state
+- [x] `Loading` — loading state with spinner
+- [x] `WithVoice` — voice recognition enabled
+- [x] `EmptyState` — no results found
+- [x] `WithOnSearch` — submit callback demo
+- [x] `WithOnSelectResult` — selection callback demo
+- [x] `Virtualized` — large list with virtual scrolling
 
 ## Checklist antes de implementar
 

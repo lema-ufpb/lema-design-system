@@ -77,6 +77,14 @@ const invoices = [
 ]
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Responsive table with header, body rows, and a caption displaying invoice data with right-aligned amounts.",
+      },
+    },
+  },
   render: () => (
     <div className="w-full max-w-3xl rounded-md border">
       <Table>

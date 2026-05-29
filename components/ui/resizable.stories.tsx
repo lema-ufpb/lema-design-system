@@ -34,6 +34,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Horizontal: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Horizontal split-panel layout with two resizable panels and a visible drag handle.",
+      },
+    },
+  },
   render: () => (
     <ResizablePanelGroup
       orientation="horizontal"

@@ -41,9 +41,11 @@ const meta = {
       control: "select",
       options: ["sm", "default"],
       description: "Select height preset",
+      table: { defaultValue: { summary: "default" } },
     },
     disabled: {
       control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
   },
 } satisfies Meta<typeof NativeSelect>
@@ -52,6 +54,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Native select element with three simple options using the default size preset and a chevron icon.",
+      },
+    },
+  },
   render: () => (
     <NativeSelect defaultValue="option-1">
       <NativeSelectOption value="option-1">Option 1</NativeSelectOption>
@@ -62,6 +72,14 @@ export const Default: Story = {
 }
 
 export const Small: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Compact native select using the small size preset for space-constrained layouts.",
+      },
+    },
+  },
   render: () => (
     <NativeSelect size="sm" defaultValue="option-1">
       <NativeSelectOption value="option-1">Option 1</NativeSelectOption>
@@ -71,6 +89,14 @@ export const Small: Story = {
 }
 
 export const WithGroup: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Native select with options organized into Fruits and Vegetables optgroups via NativeSelectOptGroup.",
+      },
+    },
+  },
   render: () => (
     <NativeSelect defaultValue="apple">
       <NativeSelectOptGroup label="Fruits">
@@ -86,6 +112,14 @@ export const WithGroup: Story = {
 }
 
 export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Native select in a disabled state with a pre-selected value, preventing user interaction.",
+      },
+    },
+  },
   render: () => (
     <NativeSelect disabled defaultValue="option-1">
       <NativeSelectOption value="option-1">Option 1</NativeSelectOption>

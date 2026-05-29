@@ -131,16 +131,22 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 
 ## Stories obrigatórias no Storybook
 
-- [ ] `Default` — estado padrão com dados de vendas mensais, 3 séries
-- [ ] `Horizontal` — orientação horizontal com categorias
-- [ ] `Stacked` — barras empilhadas
-- [ ] `WithBrush` — brush habilitado para zoom
-- [ ] `Loading` — `loading={true}`
-- [ ] `Empty` — array vazio
-- [ ] `WithCustomFormatter` — valueFormatter formatando como moeda
-- [ ] `CustomSizes` — altura customizada
-
----
+- [x] `Default` — Estado padrão com gráfico vertical de receita mensal (jan–jun 2025)
+- [x] `Horizontal` — Barras horizontais para categorias com nomes longos (faltas por curso)
+- [x] `MultiSeries` — Duas séries lado a lado (matriculados vs ativos por departamento)
+- [x] `MultiSeriesHorizontal` — Duas séries em orientação horizontal
+- [x] `Stacked` — Barras empilhadas (orçamento planejado × real × projetado por trimestre)
+- [x] `StackedHorizontal` — Barras empilhadas em orientação horizontal
+- [x] `WithFooter` — Gráfico com rodapé customizado (indicador de tendência + timestamp)
+- [x] `CustomColors` — Cores customizadas via `var(--primary)` e `var(--chart-3)`
+- [x] `NoDecoration` — Gráfico minimalista sem grid, tooltips nem cantos arredondados
+- [x] `WithAxisLabels` — Rótulos nos eixos X e Y com margens ajustadas automaticamente
+- [x] `WithBrush` — Slider brush para seleção interativa de intervalo em 24 meses
+- [x] `WithBrushStacked` — Brush combinado com barras empilhadas
+- [x] `LocalePTBR` — Localização pt-BR com formatação de moeda BRL
+- [x] `Loading` — Estado de carregamento com skeleton animado (wave cascade)
+- [x] `EmptyState` — Estado vazio com placeholder de borda tracejada
+- [x] `LegendPositions` — Grid 2×2 comparando as 4 posições de legenda (top, right, bottom, left)
 
 ## Checklist antes de implementar
 
