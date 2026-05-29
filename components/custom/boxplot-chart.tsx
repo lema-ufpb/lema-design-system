@@ -90,7 +90,10 @@ function BoxPlotChartSkeleton({
   const XAXIS_WIDTHS = [28, 36, 24, 32]
 
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="boxplot-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -708,15 +711,23 @@ export function BoxPlotChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="boxplot-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div
+            className={chartHeaderVariants()}
+            data-slot="boxplot-chart-header"
+          >
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="boxplot-chart-empty"
           style={{ height }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -731,7 +742,14 @@ export function BoxPlotChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div
+            className={chartFooterVariants()}
+            data-slot="boxplot-chart-footer"
+          >
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
@@ -777,15 +795,24 @@ export function BoxPlotChart({
   const centerOf = (i: number) => bandSize * (i + 0.5)
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="boxplot-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="boxplot-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
-      <div ref={containerRef} className="relative w-full" style={{ height }}>
+      <div
+        ref={containerRef}
+        className="relative w-full"
+        data-slot="boxplot-chart-chart"
+        style={{ height }}
+      >
         <svg width={width} height={height} style={{ overflow: "visible" }}>
           <g transform={`translate(${m.left}, ${m.top})`}>
             {/* Grid & value-axis ticks */}
@@ -948,7 +975,11 @@ export function BoxPlotChart({
         )}
       </div>
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="boxplot-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

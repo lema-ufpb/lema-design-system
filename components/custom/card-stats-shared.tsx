@@ -189,6 +189,7 @@ export function TrendBadge({
         trend === "down" && "bg-destructive/10 text-destructive",
         trend === "neutral" && "bg-muted text-muted-foreground"
       )}
+      data-slot="trend-badge"
     >
       <Icon aria-hidden />
       {value}
@@ -210,7 +211,10 @@ export function CardStatEmptySlot({
   inverted?: boolean
 }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 py-5 text-center">
+    <div
+      className="flex flex-col items-center justify-center gap-2 py-5 text-center"
+      data-slot="card-stat-empty-slot"
+    >
       <div
         className={cn(
           "flex size-9 items-center justify-center rounded-2xl",

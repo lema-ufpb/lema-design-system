@@ -120,7 +120,10 @@ function HeatmapChartSkeleton({
   const cols = 8
 
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="heatmap-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -278,15 +281,23 @@ export function HeatmapChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="heatmap-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div
+            className={chartHeaderVariants()}
+            data-slot="heatmap-chart-header"
+          >
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="heatmap-chart-empty"
           style={{ height: 200 }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -301,7 +312,14 @@ export function HeatmapChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div
+            className={chartFooterVariants()}
+            data-slot="heatmap-chart-footer"
+          >
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
@@ -338,16 +356,20 @@ export function HeatmapChart({
     : { flex: 1, minWidth: 0, height: effectiveHeight }
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="heatmap-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="heatmap-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
       {/* Grid */}
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto" data-slot="heatmap-chart-grid">
         <div className="w-full" style={{ padding: 2 }}>
           {/* X-axis labels */}
           <div className="mb-1 flex" style={{ paddingLeft: 96, gap }}>
@@ -466,7 +488,11 @@ export function HeatmapChart({
         </div>
       )}
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="heatmap-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

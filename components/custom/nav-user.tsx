@@ -44,7 +44,10 @@ export interface UserMenuItem {
 export function NavUser({ user, groups = [], loading = false }: UserMenuProps) {
   if (loading || !user) {
     return (
-      <div className="flex h-9 items-center gap-2 px-2">
+      <div
+        data-slot="nav-user-skeleton"
+        className="flex h-9 items-center gap-2 px-2"
+      >
         <Skeleton className="size-7 shrink-0 rounded-lg" />
         <div className="hidden flex-col gap-1 md:flex">
           <Skeleton className="h-3 w-20 rounded-md" />
@@ -63,16 +66,23 @@ export function NavUser({ user, groups = [], loading = false }: UserMenuProps) {
     .toUpperCase()
 
   return (
-    <DropdownMenu>
+    <DropdownMenu data-slot="nav-user">
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="flex h-9 items-center gap-2 px-2">
-          <Avatar className="size-7 rounded-lg">
+        <Button
+          data-slot="nav-user-trigger"
+          variant="ghost"
+          className="flex h-9 items-center gap-2 px-2"
+        >
+          <Avatar data-slot="nav-user-avatar" className="size-7 rounded-lg">
             <AvatarImage src={user.avatarUrl ?? ""} alt={user.name} />
             <AvatarFallback className="rounded-lg text-xs">
               {initials}
             </AvatarFallback>
           </Avatar>
-          <div className="hidden grid-cols-1 text-left text-sm leading-tight md:grid">
+          <div
+            data-slot="nav-user-info"
+            className="hidden grid-cols-1 text-left text-sm leading-tight md:grid"
+          >
             <span className="truncate font-medium">{user.name}</span>
             <span className="truncate text-xs text-muted-foreground">
               {user.email}
@@ -89,11 +99,14 @@ export function NavUser({ user, groups = [], loading = false }: UserMenuProps) {
       >
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-            <Avatar className="size-8 rounded-lg">
+            <Avatar data-slot="nav-user-avatar" className="size-8 rounded-lg">
               <AvatarImage src={user.avatarUrl ?? ""} alt={user.name} />
               <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
+            <div
+              data-slot="nav-user-info"
+              className="grid flex-1 text-left text-sm leading-tight"
+            >
               <span className="truncate font-medium">{user.name}</span>
               <span className="truncate text-xs text-muted-foreground">
                 {user.email}
@@ -108,6 +121,7 @@ export function NavUser({ user, groups = [], loading = false }: UserMenuProps) {
               {group.map((item) => {
                 return (
                   <DropdownMenuItem
+                    data-slot="nav-user-item"
                     key={item.id}
                     onClick={item.onClick}
                     className={cn(

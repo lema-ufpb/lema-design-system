@@ -123,7 +123,10 @@ function PieChartSkeleton({
   ]
 
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="pie-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -409,6 +412,7 @@ function ChartLegend({
         "flex flex-col gap-1.5 px-1",
         position === "top" ? "mb-2" : "mt-2"
       )}
+      data-slot="pie-chart-legend"
     >
       {items.map((item) => {
         const hidden = hiddenLabels.has(item.label)
@@ -569,15 +573,20 @@ export function PieChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="pie-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div className={chartHeaderVariants()} data-slot="pie-chart-header">
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="pie-chart-empty"
           style={{ height }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -594,21 +603,33 @@ export function PieChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div className={chartFooterVariants()} data-slot="pie-chart-footer">
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="pie-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="pie-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
-      <ResponsiveContainer width="100%" height={height}>
+      <ResponsiveContainer
+        width="100%"
+        height={height}
+        data-slot="pie-chart-chart"
+      >
         <RechartsPieChart>
           {showTooltip && (
             <Tooltip
@@ -684,7 +705,11 @@ export function PieChart({
         </RechartsPieChart>
       </ResponsiveContainer>
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="pie-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

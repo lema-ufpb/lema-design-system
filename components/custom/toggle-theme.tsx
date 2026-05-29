@@ -61,22 +61,36 @@ export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
   } = labels
 
   return (
-    <DropdownMenu>
+    <DropdownMenu data-slot="toggle-theme">
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label={trigger}>
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label={trigger}
+          data-slot="toggle-theme-trigger"
+        >
           <Icon />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("light")}
+          data-slot="toggle-theme-option"
+        >
           <Sun data-icon="inline-start" />
           {light}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("dark")}
+          data-slot="toggle-theme-option"
+        >
           <Moon data-icon="inline-start" />
           {dark}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("system")}
+          data-slot="toggle-theme-option"
+        >
           <Monitor data-icon="inline-start" />
           {system}
         </DropdownMenuItem>

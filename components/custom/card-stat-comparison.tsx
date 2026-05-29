@@ -52,7 +52,7 @@ export function CardStatComparison({
 
   if (loading) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-comparison">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
           <Skeleton
@@ -61,6 +61,7 @@ export function CardStatComparison({
         </CardHeader>
         <CardContent
           className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+          data-slot="card-stat-comparison-skeleton"
         >
           <div className="grid grid-cols-2">
             <div className="flex flex-col gap-1.5 pr-4">
@@ -80,7 +81,7 @@ export function CardStatComparison({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-comparison">
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -98,6 +99,7 @@ export function CardStatComparison({
         </CardHeader>
         <CardContent
           className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+          data-slot="card-stat-comparison-empty"
         >
           <div className="grid grid-cols-2">
             <div className="flex flex-col gap-0.5 pr-4">
@@ -164,7 +166,7 @@ export function CardStatComparison({
   const deltaLabel = `${delta > 0 ? "+" : ""}${delta.toFixed(1)}%`
 
   return (
-    <Card size="sm" className={className}>
+    <Card size="sm" className={className} data-slot="card-stat-comparison">
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(

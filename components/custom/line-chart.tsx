@@ -154,7 +154,10 @@ function LineChartSkeleton({
   const areaPath = `M 0,65 L 13,40 L 26,52 L 39,20 L 52,35 L 65,10 L 78,28 L 91,15 L 91,100 L 0,100 Z`
 
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="line-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -555,15 +558,20 @@ export function LineChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="line-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div className={chartHeaderVariants()} data-slot="line-chart-header">
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="line-chart-empty"
           style={{ height }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -578,7 +586,11 @@ export function LineChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div className={chartFooterVariants()} data-slot="line-chart-footer">
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
@@ -601,15 +613,23 @@ export function LineChart({
   const yAxisLabelOffset = yAxisLabel ? 0 : 10
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="line-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="line-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
-      <ResponsiveContainer width="100%" height={height}>
+      <ResponsiveContainer
+        width="100%"
+        height={height}
+        data-slot="line-chart-chart"
+      >
         <RechartsAreaChart
           data={data}
           margin={{ top: 12, right: 4, bottom: marginBottom, left: marginLeft }}
@@ -778,7 +798,11 @@ export function LineChart({
         </RechartsAreaChart>
       </ResponsiveContainer>
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="line-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }
