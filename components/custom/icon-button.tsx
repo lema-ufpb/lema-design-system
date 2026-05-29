@@ -72,6 +72,7 @@ export function IconButton({
       aria-label={label}
       disabled={disabled || loading}
       aria-busy={loading || undefined}
+      data-slot="icon-button"
       className={cn(roundedClass[rounded], loading && "cursor-wait", className)}
       {...props}
     >

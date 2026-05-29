@@ -160,6 +160,7 @@ export function CardStatHighlight({
       <Card
         size="sm"
         className={cn(cardStatHighlightVariants({ variant }), className)}
+        data-slot="card-stat-highlight"
       >
         {decorativeCircles}
         <CardHeader className="relative flex flex-row items-start justify-between">
@@ -168,7 +169,10 @@ export function CardStatHighlight({
             className={cn(cardStatHighlightBoxVariants({ size }), skeletonBg)}
           />
         </CardHeader>
-        <CardContent className="relative flex flex-col gap-2">
+        <CardContent
+          className="relative flex flex-col gap-2"
+          data-slot="card-stat-highlight-skeleton"
+        >
           <Skeleton className={cn("h-9 w-40", skeletonBg)} />
           <Skeleton className={cn("h-5 w-32", skeletonBg)} />
         </CardContent>
@@ -181,6 +185,7 @@ export function CardStatHighlight({
       <Card
         size="sm"
         className={cn(cardStatHighlightVariants({ variant }), className)}
+        data-slot="card-stat-highlight"
       >
         {decorativeCircles}
         <CardHeader className="relative flex flex-row items-start justify-between">
@@ -201,7 +206,7 @@ export function CardStatHighlight({
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className="relative">
+        <CardContent className="relative" data-slot="card-stat-highlight-empty">
           <CardStatEmptySlot
             icon={BarChart2Icon}
             message="No spotlight yet"
@@ -221,6 +226,7 @@ export function CardStatHighlight({
     <Card
       size="sm"
       className={cn(cardStatHighlightVariants({ variant }), className)}
+      data-slot="card-stat-highlight"
     >
       {decorativeCircles}
 

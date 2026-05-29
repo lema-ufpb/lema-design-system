@@ -160,7 +160,10 @@ function DashboxStatusBadge({
   if (!status || status === "idle") return null
   const labels = { ...UI_I18N[locale].dashbox.status, ...statusLabels }
   return (
-    <span className={dashboxStatusBadgeVariants({ status })}>
+    <span
+      data-slot="dashbox-status"
+      className={dashboxStatusBadgeVariants({ status })}
+    >
       <span className={cn("size-1.5 rounded-full", STATUS_DOT[status])} />
       {label ?? labels[status] ?? status}
     </span>
@@ -182,6 +185,7 @@ function ToolbarButton({
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          data-slot="dashbox-toolbar-button"
           type="button"
           onClick={onClick}
           aria-label={label}
@@ -238,6 +242,7 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
       <TooltipProvider delayDuration={300}>
         <div
           ref={ref}
+          data-slot="dashbox"
           className={cn(
             dashboxVariants({ size }),
             maximized && "fixed! inset-0 z-9999 rounded-none",
@@ -246,11 +251,12 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
           {...props}
         >
           {showHeader && (
-            <div className={dashboxHeaderVariants()}>
+            <div data-slot="dashbox-header" className={dashboxHeaderVariants()}>
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex items-center gap-2">
                   {title && (
                     <span
+                      data-slot="dashbox-title"
                       className={dashboxTitleVariants({ size })}
                       title={title}
                     >
@@ -266,14 +272,20 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
                   )}
                 </div>
                 {description && (
-                  <span className={dashboxDescriptionVariants({ size })}>
+                  <span
+                    data-slot="dashbox-description"
+                    className={dashboxDescriptionVariants({ size })}
+                  >
                     {description}
                   </span>
                 )}
               </div>
 
               {showToolbar && (
-                <div className={cn(dashboxToolbarVariants(), "shrink-0")}>
+                <div
+                  data-slot="dashbox-toolbar"
+                  className={cn(dashboxToolbarVariants(), "shrink-0")}
+                >
                   {toolbar}
 
                   {onRefresh && (
@@ -325,9 +337,15 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
           )}
 
           {!minimized && (
-            <div className={cn(dashboxBodyVariants({ padding: bodyPadding }))}>
+            <div
+              data-slot="dashbox-body"
+              className={cn(dashboxBodyVariants({ padding: bodyPadding }))}
+            >
               {loading ? (
-                <div className="flex flex-col gap-3">
+                <div
+                  data-slot="dashbox-skeleton"
+                  className="flex flex-col gap-3"
+                >
                   <Skeleton className="h-4 w-3/4" />
                   <Skeleton className="h-4 w-full" />
                   <Skeleton className="h-4 w-2/3" />

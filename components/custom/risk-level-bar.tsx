@@ -193,6 +193,7 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
         <div
           ref={ref}
           className={cn(riskLevelContainerVariants(), className)}
+          data-slot="risk-level-bar"
           {...props}
         >
           <div className={riskLevelWrapperVariants()}>
@@ -228,13 +229,20 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
       <div
         ref={ref}
         className={cn(riskLevelContainerVariants(), className)}
+        data-slot="risk-level-bar"
         {...props}
       >
         <div className={riskLevelWrapperVariants()}>
-          <span className={riskLevelLabelVariants({ side: "left", size })}>
+          <span
+            className={riskLevelLabelVariants({ side: "left", size })}
+            data-slot="risk-level-bar-label-left"
+          >
             {labelLeft}
           </span>
-          <div className={riskLevelLabelVariants({ side: "right", size })}>
+          <div
+            className={riskLevelLabelVariants({ side: "right", size })}
+            data-slot="risk-level-bar-label-right"
+          >
             <span className={riskLevelSubtitleVariants({ size })}>
               {labelRight}
             </span>
@@ -246,13 +254,17 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
               style={{
                 backgroundColor: currentSegment?.color || "var(--color-muted)",
               }}
+              data-slot="risk-level-bar-value"
             >
               {percentageLabel}
             </span>
           </div>
         </div>
 
-        <div className={riskLevelBarContainerVariants({ size })}>
+        <div
+          className={riskLevelBarContainerVariants({ size })}
+          data-slot="risk-level-bar-track"
+        >
           {segments.map((seg, idx) => (
             <div
               key={idx}
@@ -275,6 +287,7 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
             onMouseLeave={() => setIsTooltipVisible(false)}
             onFocus={() => setIsTooltipVisible(true)}
             onBlur={() => setIsTooltipVisible(false)}
+            data-slot="risk-level-bar-marker"
           >
             <span
               className={riskLevelTooltipVariants({

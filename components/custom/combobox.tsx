@@ -231,6 +231,7 @@ function DropdownContent({
             onChange={(e) => onQueryChange(e.target.value)}
             onKeyDown={onKeyDown}
             placeholder={searchPlaceholder}
+            data-slot="combobox-search"
             className={cn(
               "flex w-full bg-transparent py-3 outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed",
               SEARCH_HEIGHT[size],
@@ -325,6 +326,7 @@ function DropdownContent({
                   role="option"
                   aria-selected={isSelected}
                   aria-disabled={option.disabled || undefined}
+                  data-slot="combobox-option"
                   style={itemStyle}
                   className={cn(
                     cn(
@@ -604,7 +606,11 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
 
     if (loading) {
       return (
-        <div className="relative w-full min-w-0" style={{ maxWidth, ...style }}>
+        <div
+          className="relative w-full min-w-0"
+          style={{ maxWidth, ...style }}
+          data-slot="combobox"
+        >
           <Skeleton
             className={cn(
               "w-full",
@@ -622,7 +628,11 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
     }
 
     return (
-      <div className="relative w-full min-w-0" style={{ maxWidth, ...style }}>
+      <div
+        className="relative w-full min-w-0"
+        style={{ maxWidth, ...style }}
+        data-slot="combobox"
+      >
         <Popover open={open} onOpenChange={handleOpenChange}>
           <PopoverTrigger asChild>
             <Button
@@ -634,6 +644,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
               aria-label={ariaLabel}
               aria-labelledby={ariaLabelledBy}
               disabled={disabled}
+              data-slot="combobox-trigger"
               className={cn(
                 comboboxTriggerVariants({ size, rounded }),
                 clearable && hasValue && "pr-14",
@@ -648,6 +659,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
                         <Badge
                           key={visibleValues[i]}
                           variant="secondary"
+                          data-slot="combobox-selected"
                           className="max-w-[120px] truncate"
                         >
                           {label}
@@ -677,6 +689,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
           <PopoverContent
             align="start"
             sideOffset={4}
+            data-slot="combobox-content"
             className={cn(
               "overflow-hidden p-0",
               CONTENT_ROUNDED[rounded ?? "md"]
@@ -719,6 +732,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
             type="button"
             aria-label={i18n.clearSelection}
             tabIndex={-1}
+            data-slot="combobox-clear"
             className={cn(
               "absolute top-1/2 flex size-5 -translate-y-1/2 items-center justify-center rounded-full opacity-40 transition-opacity hover:opacity-100 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline",
               size === "sm" ? "right-7" : size === "lg" ? "right-9" : "right-8"

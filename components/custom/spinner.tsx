@@ -11,6 +11,7 @@ function Spinner({
     <Loader2Icon
       role="status"
       aria-label={UI_I18N[locale].spinner.loading}
+      data-slot="spinner"
       className={cn("size-4 animate-spin", className)}
       {...props}
     />

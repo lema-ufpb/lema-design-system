@@ -94,14 +94,14 @@ export function CardStatList({
 }: CardStatListProps) {
   if (loading) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-list">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
           <Skeleton
             className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
           />
         </CardHeader>
-        <CardContent className="p-0">
+        <CardContent className="p-0" data-slot="card-stat-list-skeleton">
           <ul>
             {SKELETON_ROW_WIDTHS.map((w, i) => (
               <li
@@ -127,7 +127,7 @@ export function CardStatList({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-list">
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -143,7 +143,7 @@ export function CardStatList({
             </CardAction>
           )}
         </CardHeader>
-        <CardContent>
+        <CardContent data-slot="card-stat-list-empty">
           <CardStatEmptySlot
             icon={InboxIcon}
             message="List is empty"
@@ -155,7 +155,7 @@ export function CardStatList({
   }
 
   return (
-    <Card size="sm" className={className}>
+    <Card size="sm" className={className} data-slot="card-stat-list">
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(
