@@ -293,7 +293,7 @@ export const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "bg-inherit px-4 py-3 text-left align-middle text-xs font-semibold tracking-wide text-muted-foreground uppercase",
+      "bg-inherit px-4 py-3 text-left align-middle text-xs font-medium tracking-wide text-muted-foreground uppercase",
       className
     )}
     {...props}
@@ -883,7 +883,7 @@ export function DataTable<TData extends object>({
   const hasToolbarRow = !!(toolbar || showDownload || showSearch)
 
   return (
-    <div className={cn("flex w-full flex-col gap-4", className)} {...props}>
+    <div data-slot="data-table" className={cn("flex w-full flex-col gap-4", className)} {...props}>
       {/* ── Header ── */}
       {(title || subtitle) && (
         <div className="flex flex-col gap-0.5">
