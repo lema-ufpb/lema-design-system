@@ -883,7 +883,11 @@ export function DataTable<TData extends object>({
   const hasToolbarRow = !!(toolbar || showDownload || showSearch)
 
   return (
-    <div data-slot="data-table" className={cn("flex w-full flex-col gap-4", className)} {...props}>
+    <div
+      data-slot="data-table"
+      className={cn("flex w-full flex-col gap-4", className)}
+      {...props}
+    >
       {/* ── Header ── */}
       {(title || subtitle) && (
         <div className="flex flex-col gap-0.5">
