@@ -50,6 +50,14 @@ export const UI_I18N: Record<
     emptyState: { noData: string; dataWillAppear: string }
     cardStats: { thisPeriod: string; lastPeriod: string; noComparison: string }
     pieChart: { total: string }
+    scoreRow: { loading: string; scoreLabel: string }
+    searchBar: {
+      placeholder: string
+      label: string
+      clear: string
+      startVoice: string
+      stopVoice: string
+    }
   }
 > = {
   "en-US": {
@@ -132,6 +140,14 @@ export const UI_I18N: Record<
       noComparison: "No comparison data",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Loading", scoreLabel: "Score" },
+    searchBar: {
+      placeholder: "Search…",
+      label: "Search",
+      clear: "Clear search",
+      startVoice: "Search by voice",
+      stopVoice: "Stop recording",
+    },
   },
   "pt-BR": {
     dialog: { close: "Fechar" },
@@ -216,6 +232,14 @@ export const UI_I18N: Record<
       noComparison: "Sem dados de comparação",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Carregando", scoreLabel: "Pontuação" },
+    searchBar: {
+      placeholder: "Buscar…",
+      label: "Buscar",
+      clear: "Limpar busca",
+      startVoice: "Buscar por voz",
+      stopVoice: "Parar gravação",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -297,6 +321,14 @@ export const UI_I18N: Record<
       noComparison: "Sin datos de comparación",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Cargando", scoreLabel: "Puntuación" },
+    searchBar: {
+      placeholder: "Buscar…",
+      label: "Buscar",
+      clear: "Limpiar búsqueda",
+      startVoice: "Buscar por voz",
+      stopVoice: "Detener grabación",
+    },
   },
   "fr-FR": {
     dialog: { close: "Fermer" },
@@ -385,5 +417,13 @@ export const UI_I18N: Record<
       noComparison: "Aucune donnée de comparaison",
     },
     pieChart: { total: "Total" },
+    scoreRow: { loading: "Chargement", scoreLabel: "Score" },
+    searchBar: {
+      placeholder: "Rechercher…",
+      label: "Rechercher",
+      clear: "Effacer la recherche",
+      startVoice: "Rechercher par voix",
+      stopVoice: "Arrêter l'enregistrement",
+    },
   },
 }
