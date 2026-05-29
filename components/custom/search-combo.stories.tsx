@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { useState, useMemo } from "react"
 import { SearchCombo } from "@/components/custom/search-combo"
-import type { SearchComboItem } from "@/components/custom/search-combo/types"
+import type { SearchComboItem } from "@/components/custom/search-combo"
 import { BookOpen, Globe, BarChart3, Users, FileText } from "lucide-react"
 
 const meta: Meta<typeof SearchCombo> = {
-  title: "Forms/SearchCombo",
+  title: "Navigation/SearchCombo",
   component: SearchCombo,
   parameters: {
     layout: "centered",

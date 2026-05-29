@@ -1142,6 +1142,29 @@
       ]
     },
     {
+      "name": "score-row",
+      "type": "registry:ui",
+      "title": "Score Row",
+      "description": "A scored list item pairing icon + label with a fractional score and optional progress bar. Includes ScoreRowList container for grouped items.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "progress",
+        "skeleton",
+        "tooltip",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/score-row.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/score-row.tsx"
+        }
+      ]
+    },
+    {
       "name": "step-progress",
       "type": "registry:ui",
       "title": "Step Progress",
@@ -1548,12 +1571,40 @@
       ]
     },
     {
+      "name": "search-bar",
+      "type": "registry:ui",
+      "title": "Search Bar",
+      "description": "A full-width composable search bar with visual variants, keyboard shortcut hint, voice input, debounce, custom icon, and skeleton loading.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "kbd",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/search-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-bar.tsx"
+        },
+        {
+          "path": "components/custom/search-bar.stories.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-bar.stories.tsx"
+        }
+      ]
+    },
+    {
       "name": "search-combo",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "Search Combo",
       "description": "A search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.",
       "dependencies": [
-        "@tanstack/react-virtual"
+        "@tanstack/react-virtual",
+        "radix-ui",
+        "lucide-react"
       ],
       "registryDependencies": [
         "popover",
@@ -1561,24 +1612,14 @@
       ],
       "files": [
         {
-          "path": "components/custom/search-combo/index.tsx",
-          "type": "registry:component",
-          "target": "components/ui/search-combo/index.tsx"
+          "path": "components/custom/search-combo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-combo.tsx"
         },
         {
-          "path": "components/custom/search-combo/types.ts",
-          "type": "registry:component",
-          "target": "components/ui/search-combo/types.ts"
-        },
-        {
-          "path": "components/custom/search-combo/variants.ts",
-          "type": "registry:component",
-          "target": "components/ui/search-combo/variants.ts"
-        },
-        {
-          "path": "components/custom/search-combo/hooks/use-speech-recognition.ts",
-          "type": "registry:component",
-          "target": "components/ui/search-combo/hooks/use-speech-recognition.ts"
+          "path": "components/custom/search-combo.stories.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-combo.stories.tsx"
         }
       ]
     },
