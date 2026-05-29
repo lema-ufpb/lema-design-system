@@ -54,11 +54,12 @@ All custom components live in `components/custom/` and follow the shadcn single-
 - **[Dashbox](/docs/ui-dashbox--docs)**: Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, and status badge.
 - **[DrawerUI](/docs/ui-drawerui--docs)**: Full-featured drawer wrapper with header, scrollable body, footer, and direction-aware close button. Supports bottom, left, right, and top directions.
 - **[IconButton](/docs/ui-iconbutton--docs)**: Icon-only button with optional tooltip, loading state, and configurable size and rounding.
+- **[Modal](/docs/ui-modal--docs)**: Flexible modal dialog built on Dialog with 6 size variants, 5 intent colors, scrollable body, auto async confirm tracking, loading skeleton, and i18n support.
 
 #### Data Display & Progress
 
 - **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar.
-- **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, and sorting capabilities.
+- **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, sorting, and `locale` prop for automatic i18n label resolution (search placeholder, empty state, pagination labels).
 - **[ProgressBar](/docs/data-display-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
 - **[ProgressCircular](/docs/data-display-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
 - **[RiskLevelBar](/docs/data-display-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
@@ -169,12 +170,16 @@ Components display UI labels (tooltips, aria-labels, status text, empty state me
 ```tsx
 import { Dashbox } from "@/components/custom/dashbox"
 import { Counter } from "@/components/custom/counter"
+import { DataTable } from "@/components/custom/data-table"
 
 <Dashbox title="Status" locale="pt-PR" status="live" />
 {/* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */}
 
 <Counter locale="es-ES" defaultValue={5} />
 {/* → aria-label: "Contador", buttons: "Disminuir valor" / "Aumentar valor" */}
+
+<DataTable locale="pt-BR" data={rows} columns={cols} pagination />
+{/* → busca: "Buscar…", empty: "Nenhum dado encontrado", paginação: "Anterior" / "Próximo" */}
 ```
 
 The `locale` prop defaults to `"en-US"` when omitted. Extending to additional locales requires only adding a new entry to `UI_I18N` in `lib/ui-i18n.ts`.
