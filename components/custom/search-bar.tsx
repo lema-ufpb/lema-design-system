@@ -8,6 +8,7 @@ import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition"
+import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -130,25 +131,6 @@ export const searchBarInputVariants = cva(
         sm: "text-xs",
         md: "text-sm",
         lg: "text-base",
-      },
-    },
-    defaultVariants: { size: "md" },
-  }
-)
-
-export const searchBarClearVariants = cva(
-  [
-    "flex shrink-0 items-center justify-center rounded",
-    "text-muted-foreground hover:bg-accent hover:text-foreground",
-    "focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none",
-    "motion-safe:transition-colors motion-safe:duration-100",
-  ],
-  {
-    variants: {
-      size: {
-        sm: "size-5",
-        md: "size-6",
-        lg: "size-7",
       },
     },
     defaultVariants: { size: "md" },
@@ -301,33 +283,41 @@ export const SearchBar = React.forwardRef<HTMLDivElement, SearchBarProps>(
         />
 
         {hasValue && !loading && (
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="icon"
             data-slot="search-bar-clear"
             onClick={handleClear}
             disabled={disabled}
             aria-label={i18n.clear}
-            className={searchBarClearVariants({ size })}
+            className={cn(
+              "rounded text-muted-foreground",
+              { sm: "size-5", md: "size-6", lg: "size-7" }[size]
+            )}
           >
             <XIcon className={searchBarIconVariants({ size })} />
-          </button>
+          </Button>
         )}
 
         {voice && voiceSupported && !loading && (
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="icon"
             data-slot="search-bar-voice"
             onClick={isListening ? stopVoice : startVoice}
             disabled={disabled}
             aria-label={isListening ? i18n.stopVoice : i18n.startVoice}
             aria-pressed={isListening}
             className={cn(
-              searchBarClearVariants({ size }),
+              "rounded text-muted-foreground",
+              { sm: "size-5", md: "size-6", lg: "size-7" }[size],
               isListening && "text-destructive motion-safe:animate-pulse"
             )}
           >
             <MicIcon className={searchBarIconVariants({ size })} />
-          </button>
+          </Button>
         )}
 
         {shortcut && !hasValue && !loading && (
