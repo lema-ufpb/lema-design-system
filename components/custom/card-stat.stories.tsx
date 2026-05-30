@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import { DollarSignIcon, UsersIcon } from "lucide-react"
+import { DollarSignIcon, TrendingUpIcon, UsersIcon } from "lucide-react"
 import { CardStat } from "./card-stats"
 
 const meta = {
@@ -30,6 +30,7 @@ const meta = {
           "| `loading` | `boolean` | Show skeleton placeholder while data is fetching |",
           "| `empty` | `boolean` | Show empty state when no data is available |",
           "| `valueFormatter` | `(value: number \\| string) => string` | Fully custom formatter — overrides `format`, `decimals`, `locale`, and `currency` |",
+          "| `valueClassName` | `string` | Extra classes merged onto the value `<p>` — use semantic tokens like `text-destructive` or `text-success` to colour the value |",
         ].join("\n"),
       },
     },
@@ -58,6 +59,7 @@ const meta = {
     },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
+    valueClassName: { control: "text" },
   },
 } satisfies Meta<typeof CardStat>
 
@@ -208,6 +210,63 @@ export const AllSizes: Story = {
           />
         </div>
       ))}
+    </div>
+  ),
+}
+
+export const ValueClassName: Story = {
+  args: {
+    label: "Delayed Orders",
+    value: 748,
+    format: "integer",
+    description: "15.02% delay rate",
+    icon: TrendingUpIcon,
+    valueClassName: "text-destructive",
+    size: "sm",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Use `valueClassName` to apply semantic color tokens directly to the value.",
+          "Common use case: highlight a KPI in `text-destructive` (red) or `text-success` (green) when it represents a negative or positive threshold.",
+          "",
+          "```tsx",
+          '<CardStat label="Delayed Orders" value={748} valueClassName="text-destructive" />',
+          '<CardStat label="Recovered" value={1204} valueClassName="text-success" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <CardStat
+        label="Delayed Orders"
+        value={748}
+        format="integer"
+        description="15.02% delay rate"
+        icon={TrendingUpIcon}
+        size="sm"
+        valueClassName="text-destructive"
+      />
+      <CardStat
+        label="Recovered Revenue"
+        value={204941}
+        format="integer"
+        description="above monthly target"
+        icon={DollarSignIcon}
+        size="sm"
+        valueClassName="text-success"
+      />
+      <CardStat
+        label="Active Users"
+        value={15309}
+        format="integer"
+        description="no change this week"
+        icon={UsersIcon}
+        size="sm"
+      />
     </div>
   ),
 }
