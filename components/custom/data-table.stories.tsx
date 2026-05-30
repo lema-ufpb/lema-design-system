@@ -364,6 +364,34 @@ const SIMPLE_COLUMNS: ColumnDef<Student>[] = [
   col({ key: "city", label: "City", width: 140, sortable: true }),
 ]
 
+/** Last column has no width — fills remaining space via flexGrow: 1 */
+const FLUID_COLUMNS: ColumnDef<Student>[] = [
+  col({
+    key: "enrollmentId",
+    label: "Enrollment ID",
+    width: 130,
+    sortable: true,
+  }),
+  col({ key: "name", label: "Name", width: 190, sortable: true }),
+  col({ key: "course", label: "Course", width: 220, sortable: true }),
+  col({
+    key: "semester",
+    label: "Sem.",
+    width: 70,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "gpa", label: "GPA", width: 80, align: "center", sortable: true }),
+  col({
+    key: "absences",
+    label: "Absences",
+    width: 90,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "city", label: "City", sortable: true }),
+]
+
 /** Rich columns — mix of col() helpers and native ColumnDef with custom cells */
 const RICH_COLUMNS: ColumnDef<Student>[] = [
   col({ key: "enrollmentId", label: "Enrollment ID", width: 130 }),
@@ -534,6 +562,40 @@ export const TitleAndSubtitle: Story = {
   },
 }
 
+export const FluidLastColumn: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Omit `width` from a column to make it fill all remaining space via `flexGrow: 1`.",
+          "Every other column keeps its fixed size (`flexGrow: 0`); the fluid column absorbs",
+          "whatever width the container provides — with no empty gap at the right edge.",
+          "",
+          "```tsx",
+          "// Fixed width — rigid, no growth",
+          "col({ key: 'name', label: 'Name', width: 190 })",
+          "",
+          "// No width — grows to fill remaining space",
+          "col({ key: 'city', label: 'City' })",
+          "```",
+          "",
+          "Header and body cells use the same `colStyle()` function, so they grow in perfect sync.",
+          "The resize handle is only rendered for fixed-width columns, so the fluid column stays",
+          "clean. Resize any adjacent column and the fluid column adjusts automatically.",
+        ].join("\n"),
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_20 as unknown as object[],
+    columns: FLUID_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Enrolled Students",
+    subtitle:
+      "Last column (City) has no width — it fills the remaining table width",
+    height: 400,
+  },
+}
+
 export const WithSearch: Story = {
   parameters: {
     docs: {
@@ -548,6 +610,25 @@ export const WithSearch: Story = {
     title: "Real-time Search",
     subtitle: "Filters across every column as you type",
     showSearch: true,
+  },
+}
+
+export const VoiceSearch: Story = {
+  name: "Search + Voice Input",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Enables the microphone button inside the search bar via `voiceSearch`. Uses the browser's Web Speech API — the button is hidden automatically in unsupported environments. Click the mic to dictate; the transcribed text is applied to the global filter in real time.",
+      },
+    },
+  },
+  args: {
+    ...base,
+    title: "Voice Search",
+    subtitle: "Click the microphone icon and speak to filter rows",
+    showSearch: true,
+    voiceSearch: true,
   },
 }
 

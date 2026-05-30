@@ -19,8 +19,6 @@ import {
   ArrowUp,
   ArrowDown,
   ChevronsUpDown,
-  Search,
-  X,
   Download,
   Table2,
 } from "lucide-react"
@@ -37,6 +35,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/custom/pagination"
+import { SearchBar } from "@/components/custom/search-bar"
 
 // ── ColumnMeta Augmentation ────────────────────────────────────────────────
 // Extends TanStack Table's column metadata type with layout and display hints.
@@ -130,6 +129,10 @@ export interface DataTableProps<
   toolbar?: React.ReactNode
   showDownload?: boolean
   onDownload?: () => void
+  voiceSearch?: boolean
+  onVoiceStart?: () => void
+  onVoiceEnd?: () => void
+  onVoiceError?: (error: string) => void
 
   // Handlers
   onRowClick?: (row: TData) => void
@@ -377,7 +380,7 @@ function DataTableSkeleton({
           </div>
           {showSearch && (
             <Skeleton
-              className="h-9 w-72 rounded-md"
+              className="h-8 w-72 rounded-md"
               style={{ animationDelay: "0.15s" }}
             />
           )}
@@ -707,6 +710,10 @@ export function DataTable<TData extends object>({
   toolbar,
   showDownload = false,
   onDownload,
+  voiceSearch = false,
+  onVoiceStart,
+  onVoiceEnd,
+  onVoiceError,
   onRowClick,
   hasMore = false,
   onLoadMore,
@@ -945,32 +952,20 @@ export function DataTable<TData extends object>({
           </div>
 
           {showSearch && (
-            <div
-              className={cn(
-                "flex w-72 min-w-[140px] items-center gap-2 rounded-md border border-border bg-background px-3 py-2",
-                "transition-colors focus-within:border-ring focus-within:ring-1 focus-within:ring-ring",
-                loading && "pointer-events-none opacity-60"
-              )}
-            >
-              <Search className="size-3.5 shrink-0 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder={l.searchPlaceholder}
-                value={globalFilter}
-                onChange={(e) => handleGlobalFilter(e.target.value)}
-                disabled={loading}
-                className="w-full border-none bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-              />
-              {globalFilter && (
-                <button
-                  onClick={() => handleGlobalFilter("")}
-                  aria-label={l.actions.clearSearch}
-                  className="flex shrink-0 items-center justify-center rounded hover:opacity-70"
-                >
-                  <X className="size-3.5 text-muted-foreground" />
-                </button>
-              )}
-            </div>
+            <SearchBar
+              value={globalFilter}
+              onChange={handleGlobalFilter}
+              placeholder={l.searchPlaceholder}
+              size="sm"
+              rounded="md"
+              disabled={loading}
+              locale={locale}
+              voice={voiceSearch}
+              onVoiceStart={onVoiceStart}
+              onVoiceEnd={onVoiceEnd}
+              onVoiceError={onVoiceError}
+              className="mt-2 mr-2 w-72 min-w-[140px]"
+            />
           )}
         </div>
       )}
@@ -1009,7 +1004,7 @@ export function DataTable<TData extends object>({
             {/* ── Sticky header ── */}
             <TableHeader
               sticky
-              className="w-full"
+              className="block w-full"
               style={{ minWidth: minTableWidth }}
             >
               {table.getHeaderGroups().map((headerGroup) => (
@@ -1164,7 +1159,7 @@ export function DataTable<TData extends object>({
                             isSelect &&
                               "sticky z-20 bg-card group-hover:bg-muted group-data-selected:bg-primary/10",
                             meta?.wrap &&
-                              "h-auto items-start py-3 leading-relaxed break-words whitespace-normal"
+                              "h-auto items-start py-3 leading-relaxed wrap-break-word whitespace-normal"
                           )}
                           style={{
                             ...(isSelect
