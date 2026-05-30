@@ -17,6 +17,7 @@ _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/geomap-chart.tsx` |
+| data-slot | `geomap-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `react-simple-maps` (ComposableMap, Geographies, Geography, Marker, ZoomableGroup), `@/components/ui/tooltip` (shadcn Tooltip, TooltipTrigger, TooltipContent, TooltipProvider), `geojson` (types), `class-variance-authority` |

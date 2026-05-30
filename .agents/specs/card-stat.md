@@ -4,6 +4,8 @@
 
 **Arquivo:** `components/custom/card-stat.tsx`
 
+**data-slot:** `card-stat` no `<Card>` root
+
 ---
 
 ## Props
@@ -13,9 +15,11 @@
 | `label` | `string` | — | ✓ | Rótulo do cartão |
 | `value` | `string \| number` | — | ✓ | Valor principal |
 | `size` | `CardStatSize` | `"md"` | | Tamanho do cartão |
+| `variant` | `"default" \| "muted" \| "flat"` | `"default"` | | Estilo visual do cartão |
 | `description` | `string` | — | | Descrição/rodapé |
 | `trend` | `CardStatTrend \| boolean` | `false` | | Direção da tendência |
 | `icon` | `React.ElementType` | — | | Ícone decorativo no header |
+| `valueClassName` | `string` | — | | Classes adicionais no valor |
 | `className` | `string` | — | | Classes extras |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `empty` | `boolean` | `false` | | Estado vazio |

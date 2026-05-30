@@ -21,6 +21,7 @@ Componente de entrada que combina campo de texto com lista suspensa para seleç�
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/ui/combobox.tsx` |
+| data-slot | `combobox` |
 | Tipo | `registry:ui` (name: `combobox`) |
 | Categoria | Formulário / Entrada de dados |
 | Depende de | `@base-ui/react`, `lucide-react`, `button`, `input-group` |

@@ -19,6 +19,7 @@
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/ui/spinner.tsx` |
+| data-slot | `spinner` |
 | Tipo | `registry:ui` (name: `spinner`) |
 | Categoria | Feedback / Indicador |
 | Depende de | `lucide-react` |
@@ -75,7 +76,7 @@
 ## Checklist
 
 - [x] Componente implementado em `spinner.tsx`
-- [x] Stories implementadas (Default, CustomSize, InContext)
+- [x] Stories implementadas (Default, LocalePTBR, Sizes, InButton, CustomColor)
 - [x] Usa `Loader2Icon` do lucide-react
 - [x] `role="status"` + `aria-label="Loading"`
 - [x] Herda cor via `currentColor`

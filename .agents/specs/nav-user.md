@@ -19,6 +19,7 @@ Menu de usuário para sidebar/navbar com avatar, nome, email e dropdown de açõ
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/nav-user.tsx` |
+| data-slot | `nav-user` |
 | Tipo | `registry:component` (name: `nav-user`) |
 | Categoria | `Navigation` |
 | Depende de | `Avatar`, `AvatarFallback`, `AvatarImage` (shadcn), `Button` (shadcn), `DropdownMenu`, `DropdownMenuContent`, `DropdownMenuGroup`, `DropdownMenuItem`, `DropdownMenuLabel`, `DropdownMenuSeparator`, `DropdownMenuShortcut`, `DropdownMenuTrigger` (shadcn), `Skeleton` (shadcn), `ChevronsUpDown` (lucide) |

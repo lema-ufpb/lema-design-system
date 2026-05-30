@@ -20,6 +20,7 @@ Indicador de progresso circular com SVG animado, centro numérico e título opci
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/progress-circular.tsx` |
+| data-slot | `progress-circular` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | Nenhum primitivo shadcn (SVG puro + CVA) |

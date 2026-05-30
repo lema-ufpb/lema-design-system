@@ -3,6 +3,7 @@
 > Cartão com gauge semicircular SVG dividido em zonas de risco/desempenho.
 
 **Arquivo:** `components/custom/card-stat-gauge.tsx`
+**data-slot:** `card-stat-gauge`
 
 ---
 
@@ -34,7 +35,7 @@ Zonas padrão: Poor (risk-1, 25%), Fair (risk-2, 50%), Good (risk-3, 75%), Excel
 
 | Variant | sm | md | lg |
 |---------|----|----|----|
-| `cardStatGaugeMaxWVariants` | `max-w-[130px]` | `max-w-[160px]` | `max-w-[200px]` |
+| `cardStatGaugeMaxWVariants` | `max-w-32` | `max-w-40` | `max-w-48` |
 | `cardStatGaugeValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
 
 Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`, `cardStatBadgePaddingVariants`.
