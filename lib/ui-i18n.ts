@@ -70,6 +70,7 @@ export const UI_I18N: Record<
       rows: string
       rowsPerPage: string
     }
+    pageLoader: { loading: string }
   }
 > = {
   "en-US": {
@@ -172,6 +173,7 @@ export const UI_I18N: Record<
       rows: "rows",
       rowsPerPage: "Rows per page",
     },
+    pageLoader: { loading: "Loading…" },
   },
   "pt-BR": {
     dialog: { close: "Fechar" },
@@ -277,6 +279,7 @@ export const UI_I18N: Record<
       rows: "linhas",
       rowsPerPage: "Linhas por página",
     },
+    pageLoader: { loading: "Carregando…" },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -378,6 +381,7 @@ export const UI_I18N: Record<
       rows: "filas",
       rowsPerPage: "Filas por página",
     },
+    pageLoader: { loading: "Cargando…" },
   },
   "fr-FR": {
     dialog: { close: "Fermer" },
@@ -487,5 +491,6 @@ export const UI_I18N: Record<
       rows: "lignes",
       rowsPerPage: "Lignes par page",
     },
+    pageLoader: { loading: "Chargement…" },
   },
 }

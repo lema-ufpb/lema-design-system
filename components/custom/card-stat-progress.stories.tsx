@@ -21,14 +21,24 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     label: { control: "text" },
     value: { control: "number" },
     goal: { control: "number" },
     description: { control: "text" },
-    showPercent: { control: "boolean" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    showPercent: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],

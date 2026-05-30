@@ -990,6 +990,26 @@
       ]
     },
     {
+      "name": "page-loader",
+      "type": "registry:ui",
+      "title": "Page Loader",
+      "description": "Full-page loading overlay with two variants: a shimmer bar fixed at the top of the viewport (bar) and a centered XL spinner (spinner). Controlled by a single loading prop with fade-in/out transition, semantic color options, and i18n support.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "spinner",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/page-loader.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/page-loader.tsx"
+        }
+      ]
+    },
+    {
       "name": "icon-button",
       "type": "registry:ui",
       "title": "Icon Button",

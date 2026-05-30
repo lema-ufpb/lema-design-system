@@ -39,10 +39,12 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     trend: {
       control: "select",
       options: ["up", "down", "neutral", true, false],
+      table: { defaultValue: { summary: "false" } },
     },
     decimals: { control: { type: "number", min: 0, max: 5 } },
     locale: { control: "text" },
@@ -50,8 +52,14 @@ const meta = {
     label: { control: "text" },
     value: { control: "number" },
     description: { control: "text" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
@@ -266,6 +274,118 @@ export const ValueClassName: Story = {
         description="no change this week"
         icon={UsersIcon}
         size="sm"
+      />
+    </div>
+  ),
+}
+
+export const MutedVariant: Story = {
+  args: { label: "Revenue", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          'Use `variant="muted"` for a flat card — no border, no shadow, `bg-muted` background.',
+          "Ideal for embedding KPIs inside panels or cards where the outer container already provides elevation.",
+          "",
+          "```tsx",
+          '<CardStat variant="muted" label="Revenue" value={45231.89} format="currency" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <CardStat
+        variant="muted"
+        label="Revenue"
+        value={45231.89}
+        format="currency"
+        description="+20.1% from last month"
+        trend="up"
+        icon={DollarSignIcon}
+      />
+      <CardStat
+        variant="muted"
+        label="Active Users"
+        value={15309}
+        format="integer"
+        description="No change this week"
+        trend="neutral"
+        icon={UsersIcon}
+      />
+      <CardStat
+        variant="muted"
+        label="Bounce Rate"
+        value={8.4}
+        format="percent"
+        description="−1.3% this week"
+        trend="down"
+      />
+      <CardStat
+        variant="muted"
+        label="Avg. Response"
+        value={127}
+        valueFormatter={(v) => `${v} ms`}
+        description="−12 ms vs yesterday"
+        trend="up"
+      />
+    </div>
+  ),
+}
+
+export const FlatVariant: Story = {
+  args: { label: "Revenue", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          'Use `variant="flat"` para um card sem borda e sem sombra com fundo branco (`bg-background`).',
+          "Ideal para áreas onde o container já tem fundo colorido e o card precisa se destacar em branco.",
+          "",
+          "```tsx",
+          '<CardStat variant="flat" label="Revenue" value={45231.89} format="currency" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <CardStat
+        variant="flat"
+        label="Revenue"
+        value={45231.89}
+        format="currency"
+        description="+20.1% from last month"
+        trend="up"
+        icon={DollarSignIcon}
+      />
+      <CardStat
+        variant="flat"
+        label="Active Users"
+        value={15309}
+        format="integer"
+        description="No change this week"
+        trend="neutral"
+        icon={UsersIcon}
+      />
+      <CardStat
+        variant="flat"
+        label="Bounce Rate"
+        value={8.4}
+        format="percent"
+        description="−1.3% this week"
+        trend="down"
+      />
+      <CardStat
+        variant="flat"
+        label="Avg. Response"
+        value={127}
+        valueFormatter={(v) => `${v} ms`}
+        description="−12 ms vs yesterday"
+        trend="up"
       />
     </div>
   ),
