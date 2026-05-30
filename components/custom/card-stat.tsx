@@ -35,6 +35,7 @@ export interface CardStatProps {
   size?: CardStatSize
   valueFormatter?: (value: number | string) => string
   className?: string
+  valueClassName?: string
   loading?: boolean
   empty?: boolean
 }
@@ -52,6 +53,7 @@ export function CardStat({
   size = "md",
   valueFormatter,
   className,
+  valueClassName,
   loading,
   empty,
 }: CardStatProps) {
@@ -148,7 +150,9 @@ export function CardStat({
       <CardContent
         className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
       >
-        <p className={cardStatValueVariants({ size })}>{displayValue}</p>
+        <p className={cn(cardStatValueVariants({ size }), valueClassName)}>
+          {displayValue}
+        </p>
         {description && (
           <p
             className={cn(
