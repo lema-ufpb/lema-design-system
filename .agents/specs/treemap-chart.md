@@ -17,6 +17,7 @@ _Gráfico de árvore (treemap) hierárquico baseado em recharts Treemap. Suporta
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/treemap-chart.tsx` |
+| data-slot | `treemap-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (ResponsiveContainer, Treemap, Tooltip), `lucide-react` (ChevronRight, Home, Layers), `class-variance-authority` |

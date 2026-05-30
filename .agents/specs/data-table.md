@@ -15,7 +15,7 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | Arquivo | `components/custom/data-table.tsx` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Button`, `Skeleton`, `Pagination` (custom), `@tanstack/react-table`, `@tanstack/react-virtual`, `lucide-react` |
+| Depende de | `Button`, `Skeleton`, `Pagination` (custom), `SearchBar` (custom), `@tanstack/react-table`, `@tanstack/react-virtual`, `lucide-react` |
 
 ---
 
@@ -35,7 +35,11 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | `textSize` | `"xs" \| "sm" \| "md" \| "lg"` | — | | Tamanho de fonte (deriva de `size` se omitido) |
 | `rounded` | `boolean` | `true` | | Remove cantos arredondados quando `false` |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
-| `showSearch` | `boolean` | `false` | | Exibe campo de busca global |
+| `showSearch` | `boolean` | `false` | | Exibe campo de busca global (SearchBar) |
+| `voiceSearch` | `boolean` | `false` | | Botão de voz na SearchBar |
+| `onVoiceStart` | `() => void` | — | | Callback início gravação |
+| `onVoiceEnd` | `() => void` | — | | Callback fim gravação |
+| `onVoiceError` | `(error: string) => void` | — | | Callback erro de voz |
 | `pagination` | `boolean` | `false` | | Habilita paginação |
 | `defaultPageSize` | `number` | `10` | | Tamanho inicial da página |
 | `defaultGlobalFilter` | `string` | `""` | | Filtro global inicial |
@@ -48,7 +52,8 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | `onRowClick` | `(row: TData) => void` | — | | Handler de clique na linha |
 | `hasMore` | `boolean` | `false` | | Infinite scroll ativo |
 | `onLoadMore` | `() => void` | — | | Handler de infinite scroll |
-| `labels` | `DataTableLabels` | — | | Labels i18n customizáveis |
+| `locale` | `UILocale` | — | | Localização para labels i18n |
+| `labels` | `DataTableLabels` | — | | Labels i18n customizáveis (sobrepõe locale) |
 | `ariaLabel` | `string` | — | | Rótulo ARIA da região |
 | `className` | `string` | — | | Classes extras |
 
@@ -112,6 +117,7 @@ Usa `SIZE_PRESETS`:
 |--------|----------------------|
 | `loading={true}` com `data.length === 0` | `<DataTableSkeleton>` com Skeleton simulando header, toolbar, rows, pagination, footer |
 | `loading={true}` com `data.length > 0` | Refetch progress bar (shimmer) no topo + `opacity-50 pointer-events-none` nas linhas |
+| Busca global | Usa `<SearchBar>` integrado com suporte a voz (`voiceSearch`) e locale; filtro global via TanStack Table |
 | `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2 e mensagem "No data found" |
 | Paginação | `PaginationBar` com page range, ellipsis, previous/next, page size selector |
 | Seleção | Checkbox `accent-primary` no header (select all) e cada linha |
@@ -126,7 +132,7 @@ Usa `SIZE_PRESETS`:
 
 | Requisito | Implementação |
 |-----------|--------------|
-| Role semântico | `<div role="region">` no viewport scrollável |
+| Role semântico | `<div role="region">` no viewport scrollável; `<div data-slot="data-table">` no root |
 | Rótulo | `aria-label` no viewport (fallback: "Table with N rows") |
 | Busy | `aria-busy={loading}` no viewport |
 | Tabela semântica | `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` |

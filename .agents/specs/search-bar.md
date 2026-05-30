@@ -21,7 +21,7 @@ Campo de busca versátil para uso no corpo de páginas. Suporta três modos visu
 | Arquivo | `components/custom/search-bar.tsx` |
 | Tipo | `registry:ui` |
 | Categoria | `Navigation` |
-| Depende de | `lucide-react`, `class-variance-authority`, `Kbd`, `Skeleton`, `useSpeechRecognition` (hook compartilhado), `UI_I18N` (i18n) |
+| Depende de | `lucide-react`, `class-variance-authority`, `Button` (shadcn), `Kbd`, `Skeleton`, `useSpeechRecognition` (hook compartilhado), `UI_I18N` (i18n) |
 
 ---
 

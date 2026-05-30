@@ -17,6 +17,7 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/line-chart.tsx` |
+| data-slot | `line-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Area, AreaChart, Brush, CartesianGrid, Legend, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (TrendingUp), `class-variance-authority` |

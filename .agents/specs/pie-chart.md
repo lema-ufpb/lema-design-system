@@ -17,6 +17,7 @@ _Gráfico de pizza/donut baseado em recharts PieChart. Suporta variantes pie e d
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/pie-chart.tsx` |
+| data-slot | `pie-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Label, Legend, Pie, PieChart, ResponsiveContainer, Sector, Tooltip), `lucide-react` (PieChart), `class-variance-authority` |

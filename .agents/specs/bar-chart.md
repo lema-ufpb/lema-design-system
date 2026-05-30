@@ -20,6 +20,7 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/bar-chart.tsx` |
+| data-slot | `bar-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Bar, BarChart, Brush, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (BarChart2), `class-variance-authority` |

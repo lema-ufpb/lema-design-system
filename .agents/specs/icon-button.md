@@ -19,6 +19,7 @@ Botão com ícone + tooltip opcional. Encapsula o shadcn `Button` com `aria-labe
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/icon-button.tsx` |
+| data-slot | `icon-button` |
 | Tipo | `registry:component` (name: `icon-button`) |
 | Categoria | `Form` |
 | Depende de | `Button` (shadcn), `Tooltip`, `TooltipContent`, `TooltipProvider`, `TooltipTrigger` (shadcn), `Loader2` (lucide-react) |
