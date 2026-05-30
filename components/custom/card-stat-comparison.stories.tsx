@@ -22,6 +22,7 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     decimals: { control: { type: "number", min: 0, max: 5 } },
     label: { control: "text" },
@@ -29,8 +30,14 @@ const meta = {
     previous: { control: "number" },
     currentLabel: { control: "text" },
     previousLabel: { control: "text" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],

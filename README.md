@@ -180,7 +180,7 @@ As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver c
 
 ### Specs existentes
 
-Todos os 34 componentes custom já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os 35 componentes custom já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### Spec template
 
@@ -265,12 +265,17 @@ import { Modal } from "@/components/custom/modal"
 
 #### Feedback
 
-| Componente  | Descrição                                                                        |
-| :---------- | :------------------------------------------------------------------------------- |
-| **Spinner** | Indicador de carregamento animado com `aria-label` localizada via `locale` prop. |
+| Componente     | Descrição                                                                                                                                                           |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **PageLoader** | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
+| **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                    |
 
 ```tsx
+import { PageLoader } from "@/components/custom/page-loader"
 import { Spinner } from "@/components/custom/spinner"
+
+<PageLoader loading={isLoading} locale="pt-BR" />
+<PageLoader loading={isLoading} variant="spinner" message="Salvando..." color="success" blur />
 
 <Spinner locale="pt-BR" />
 <Spinner className="size-6 text-primary" />

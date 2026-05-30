@@ -33,12 +33,19 @@ export interface CardStatProps {
   trend?: CardStatTrend | boolean
   icon?: React.ElementType
   size?: CardStatSize
+  variant?: "default" | "muted" | "flat"
   valueFormatter?: (value: number | string) => string
   className?: string
   valueClassName?: string
   loading?: boolean
   empty?: boolean
 }
+
+const VARIANT_CLASSES = {
+  default: undefined,
+  muted: "bg-muted shadow-none ring-0",
+  flat: "bg-background shadow-none ring-0",
+} as const
 
 export function CardStat({
   label,
@@ -51,15 +58,22 @@ export function CardStat({
   trend = false,
   icon: Icon,
   size = "md",
+  variant = "default",
   valueFormatter,
   className,
   valueClassName,
   loading,
   empty,
 }: CardStatProps) {
+  const variantClass = VARIANT_CLASSES[variant]
+
   if (loading) {
     return (
-      <Card size="sm" className={cn(className)} data-slot="card-stat">
+      <Card
+        size="sm"
+        className={cn(variantClass, className)}
+        data-slot="card-stat"
+      >
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-24 rounded-md" />
           <Skeleton
@@ -78,7 +92,11 @@ export function CardStat({
 
   if (empty) {
     return (
-      <Card size="sm" className={cn(className)} data-slot="card-stat">
+      <Card
+        size="sm"
+        className={cn(variantClass, className)}
+        data-slot="card-stat"
+      >
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -131,7 +149,11 @@ export function CardStat({
   const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
 
   return (
-    <Card size="sm" className={cn(className)} data-slot="card-stat">
+    <Card
+      size="sm"
+      className={cn(variantClass, className)}
+      data-slot="card-stat"
+    >
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(
