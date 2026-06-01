@@ -34,6 +34,7 @@ Estende `FmtProps`.
 | Variant | sm | md | lg |
 |---------|----|----|----|
 | `cardStatTrackHVariants` | `h-2` | `h-3` | `h-4` |
+| `cardStatMarkerTopVariants` | `top-1.5` | `top-2.5` | `top-3` |
 
 Compartilhadas: `cardStatLabelVariants`, `cardStatValueVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`, `cardStatContentGapVariants`, `cardStatBadgePaddingVariants`.
 

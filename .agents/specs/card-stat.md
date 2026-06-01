@@ -45,13 +45,16 @@ Nenhuma — usa apenas as variantes compartilhadas de `card-stats-shared.tsx`:
 |--------|---------------|
 | `loading` | Skeletons para label, headerIcon, value, description |
 | `empty` | Label atenuado, "—" no valor, "Nothing to measure yet" |
-| Normal | Label + valor formatado + ícone + tendência + descrição |
+| Normal | Label + valor formatado + ícone. Trend icon renderizado apenas dentro do bloco `description` — se `description` for omitido, trend não aparece mesmo com `trend` definido |
 
 ## Stories
 
 - [x] Default — CardStat padrão com valor formatado
 - [x] AllTrends — currency, percent, integer, float
 - [x] AllSizes — sm, md, lg
+- [x] ValueClassName — valor estilizado com classe semântica (text-success)
+- [x] MutedVariant — variante muted (bg-muted shadow-none ring-0)
+- [x] FlatVariant — variante flat (bg-background shadow-none ring-0)
 - [x] Loading
 - [x] Empty
 - [x] Locales — pt-BR, de-DE, en-US

@@ -50,6 +50,7 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | `showDownload` | `boolean` | `false` | | Botão de exportar |
 | `onDownload` | `() => void` | — | | Handler de exportação |
 | `onRowClick` | `(row: TData) => void` | — | | Handler de clique na linha |
+| `onSelectedRowsChange` | `(rows: TData[]) => void` | — | | Callback de seleção de linhas |
 | `hasMore` | `boolean` | `false` | | Infinite scroll ativo |
 | `onLoadMore` | `() => void` | — | | Handler de infinite scroll |
 | `locale` | `UILocale` | — | | Localização para labels i18n |
@@ -172,6 +173,11 @@ Usa `SIZE_PRESETS`:
 - [x] `StickyColumns` — Sticky Columns (First Two)
 - [x] `StickyColumnsWithSelection` — Sticky Columns + Row Selection
 - [x] `SquareBorders` — Square Borders (no rounded corners)
+- [x] `FluidLastColumn` — Última coluna fluida ocupando espaço restante
+- [x] `VoiceSearch` — Busca com suporte a voz
+- [x] `PaginationPtBR` — Paginação localizada pt-BR
+- [x] `BulkAction` — Ação em lote com seleção de linhas
+- [x] `EmptyStatePtBR` — Estado vazio localizado pt-BR
 
 ## Checklist antes de implementar
 
