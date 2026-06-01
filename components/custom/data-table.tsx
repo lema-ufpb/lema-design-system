@@ -136,6 +136,7 @@ export interface DataTableProps<
 
   // Handlers
   onRowClick?: (row: TData) => void
+  onSelectedRowsChange?: (rows: TData[]) => void
 
   // Labels
   locale?: UILocale
@@ -715,6 +716,7 @@ export function DataTable<TData extends object>({
   onVoiceEnd,
   onVoiceError,
   onRowClick,
+  onSelectedRowsChange,
   hasMore = false,
   onLoadMore,
   locale,
@@ -847,6 +849,16 @@ export function DataTable<TData extends object>({
     columnResizeMode: "onChange",
     enableColumnResizing: true,
   })
+
+  // ── Selection callback ──
+
+  React.useEffect(() => {
+    if (!onSelectedRowsChange) return
+    onSelectedRowsChange(
+      table.getSelectedRowModel().rows.map((r) => r.original)
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rowSelection])
 
   // ── Virtualization ──
 
