@@ -310,6 +310,7 @@ export function Modal({
       <DialogContent
         data-slot="modal"
         showCloseButton={showCloseButton}
+        {...(!description && { "aria-describedby": undefined })}
         className={cn(
           modalContentVariants({ size }),
           scrollable && "flex max-h-[85dvh] flex-col gap-0 overflow-hidden p-0",
