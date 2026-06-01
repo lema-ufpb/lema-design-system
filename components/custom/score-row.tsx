@@ -345,6 +345,7 @@ export function ScoreRow({
       <div
         data-slot="score-row"
         className={cn(scoreRowVariants({ size }), className)}
+        role="status"
         aria-busy="true"
         aria-label={t.loading}
       >
@@ -568,7 +569,6 @@ export function ScoreRowList({
   return (
     <div
       data-slot="score-row-list"
-      role="list"
       className={cn(
         "w-full",
         !inset && "overflow-hidden rounded-xl border border-border",
