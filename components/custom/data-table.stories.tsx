@@ -10,6 +10,7 @@ import {
   Info,
   RefreshCw,
   Users,
+  Trash2,
 } from "lucide-react"
 import {
   DataTable,
@@ -130,6 +131,7 @@ const meta = {
     columns: { table: { disable: true } },
     footer: { table: { disable: true } },
     toolbar: { table: { disable: true } },
+    onSelectedRowsChange: { table: { disable: true } },
   },
 } satisfies Meta<typeof DataTable>
 
@@ -755,22 +757,143 @@ export const RowSelection: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Enable `selectRows` to inject a checkbox column managed by TanStack Table's `rowSelection` state. The header checkbox selects/deselects the entire current page and shows an indeterminate state when partially selected. Scroll horizontally to observe the selection column staying fixed on the left with an opaque background.",
+        story: [
+          "Enable `selectRows` to inject a checkbox column managed by TanStack Table's `rowSelection` state.",
+          "The header checkbox selects/deselects the entire current page and shows an indeterminate state when partially selected.",
+          "",
+          "Use `onSelectedRowsChange` to receive the array of selected row objects whenever the selection changes.",
+          "The callback fires synchronously via a `useEffect` scoped to `rowSelection` state, so it reflects",
+          "the current page's selection after every toggle.",
+          "",
+          "```tsx",
+          "const [selected, setSelected] = React.useState<Student[]>([])",
+          "",
+          "<DataTable",
+          "  data={students}",
+          "  columns={columns}",
+          "  selectRows",
+          "  onSelectedRowsChange={setSelected}",
+          "/>",
+          "```",
+        ].join("\n"),
       },
     },
   },
   args: { data: [], columns: [] },
-  render: () => (
-    <DataTable
-      data={STUDENTS_20}
-      columns={MANY_COLUMNS}
-      title="Row Selection"
-      subtitle="Scroll horizontally to see the selection column stay fixed on the left"
-      selectRows
-      height={400}
-    />
-  ),
+  render: () => {
+    const [selected, setSelected] = React.useState<Student[]>([])
+    return (
+      <div className="flex flex-col gap-4">
+        <DataTable
+          data={STUDENTS_20}
+          columns={MANY_COLUMNS}
+          title="Row Selection"
+          subtitle="Scroll horizontally to see the selection column stay fixed on the left"
+          selectRows
+          onSelectedRowsChange={(rows) => setSelected(rows as Student[])}
+          height={400}
+        />
+        <div className="min-h-10 rounded-lg border border-border bg-muted/30 px-4 py-2.5 text-sm">
+          {selected.length === 0 ? (
+            <span className="text-muted-foreground">
+              No rows selected — use the checkboxes above.
+            </span>
+          ) : (
+            <span>
+              <span className="font-semibold">{selected.length}</span>{" "}
+              {selected.length === 1 ? "student" : "students"} selected:{" "}
+              <span className="text-muted-foreground">
+                {selected
+                  .slice(0, 4)
+                  .map((s) => s.name)
+                  .join(", ")}
+                {selected.length > 4 && ` +${selected.length - 4} more`}
+              </span>
+            </span>
+          )}
+        </div>
+      </div>
+    )
+  },
+}
+
+export const BulkAction: Story = {
+  name: "Row Selection — Bulk Action",
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "A common pattern: combine `onSelectedRowsChange` with a conditionally rendered toolbar button.",
+          "The button only appears when at least one row is selected.",
+          "",
+          "```tsx",
+          "const [selected, setSelected] = React.useState<Student[]>([])",
+          "",
+          "<DataTable",
+          "  data={students}",
+          "  columns={columns}",
+          "  selectRows",
+          "  onSelectedRowsChange={setSelected}",
+          "  toolbar={",
+          "    selected.length > 0 ? (",
+          "      <Button size='sm' variant='destructive' onClick={handleDelete}>",
+          "        <Trash2 className='size-4' />",
+          "        Delete selected ({selected.length})",
+          "      </Button>",
+          "    ) : null",
+          "  }",
+          "/>",
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  args: { data: [], columns: [] },
+  render: () => {
+    const [rows, setRows] = React.useState<Student[]>(STUDENTS_20)
+    const [selected, setSelected] = React.useState<Student[]>([])
+    const [lastDeleted, setLastDeleted] = React.useState<number | null>(null)
+
+    function handleDelete() {
+      const ids = new Set(selected.map((s) => s.id))
+      setLastDeleted(ids.size)
+      setRows((prev) => prev.filter((s) => !ids.has(s.id)))
+      setSelected([])
+    }
+
+    return (
+      <div className="flex flex-col gap-4">
+        <DataTable
+          data={rows}
+          columns={SIMPLE_COLUMNS as unknown as ColumnDef<object>[]}
+          title="Students"
+          subtitle="Select rows to reveal the bulk-delete toolbar button"
+          selectRows
+          onSelectedRowsChange={(r) => setSelected(r as Student[])}
+          pagination
+          defaultPageSize={8}
+          height={380}
+          toolbar={
+            selected.length > 0 ? (
+              <button
+                onClick={handleDelete}
+                className="text-destructive-foreground inline-flex items-center gap-1.5 rounded-md bg-destructive px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-90"
+              >
+                <Trash2 className="size-3.5" />
+                Delete selected ({selected.length})
+              </button>
+            ) : null
+          }
+        />
+        {lastDeleted !== null && (
+          <p className="text-xs text-muted-foreground">
+            {lastDeleted} {lastDeleted === 1 ? "row" : "rows"} removed.{" "}
+            {rows.length} remaining.
+          </p>
+        )}
+      </div>
+    )
+  },
 }
 
 export const StickyColumns: Story = {
