@@ -1204,6 +1204,28 @@
       ]
     },
     {
+      "name": "pill-group",
+      "type": "registry:ui",
+      "title": "Pill Group",
+      "description": "A horizontal filter bar with pill-shaped toggle buttons, item counts, per-item intent colors, icon support, and automatic scroll overflow with fade indicators.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/pill-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pill-group.tsx"
+        }
+      ]
+    },
+    {
       "name": "step-progress",
       "type": "registry:ui",
       "title": "Step Progress",
