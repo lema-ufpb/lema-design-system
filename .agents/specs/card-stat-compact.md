@@ -3,7 +3,7 @@
 > Cartão de estatística compacto com layout horizontal (ícone-label-valor-badge em linha).
 
 **Arquivo:** `components/custom/card-stat-compact.tsx`
-**data-slot:** `card-stat`
+**data-slot:** `card-stat-compact`
 
 ---
 
@@ -51,5 +51,7 @@ Compartilhadas: `cardStatDescriptionVariants`.
 - [x] Default
 - [x] AllSizes
 - [x] AllVariants
+- [x] MutedVariant — variante muted (bg-muted shadow-none ring-0)
+- [x] FlatVariant — variante flat (bg-background shadow-none ring-0)
 - [x] Loading
 - [x] Empty

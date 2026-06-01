@@ -86,7 +86,7 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 | Tamanho sm | `size-6` (24px), fallback `text-xs` |
 | Tamanho default | `size-8` (32px), fallback `text-sm` |
 | Tamanho lg | `size-10` (40px), fallback `text-base` |
-| AvatarGroup | Avatares sobrepostos com `-space-x-2` e `ring-2 ring-background` |
+| AvatarGroup | Avatares sobrepostos com `[&>:not(:first-child)]:-ml-2` e `ring-2 ring-background` |
 | AvatarBadge | Posicionado `absolute right-0 bottom-0` com `ring-2 ring-background` |
 
 ---
@@ -106,7 +106,7 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 
 - [x] `Default` — Avatar com imagem carregada e fallback de iniciais
 - [x] `Fallback` — Avatar com imagem vazia demonstrando fallback
-- [x] `Sizes` — Três tamanhos (sm, md, lg) via `className` custom
+- [x] `Sizes` — Três tamanhos (sm, md, lg) via `className` custom (não correspondem ao prop `size` do componente — demonstra tamanhos arbitrários 32/48/64px)
 
 ---
 

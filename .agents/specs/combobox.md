@@ -103,22 +103,13 @@ Componente de entrada que combina campo de texto com lista suspensa para seleç�
 ## Stories obrigatórias
 
 - [x] `Default` — Default
-- [x] `SingleControlled` — Single Controlled
-- [x] `MultiSelect` — Multi Select
-- [x] `WithGroups` — With Groups
-- [x] `MultiWithGroups` — Multi With Groups
-- [x] `VirtualizedLargeList` — Virtualized Large List
-- [x] `CustomRenderOption` — Custom Render Option
-- [x] `LocalePTBR` — Locale PTBR
-- [x] `Sizes` — Sizes
-- [x] `Disabled` — Disabled
-- [x] `DisabledOptions` — Disabled Options
-- [x] `NoSearchBar` — No Search Bar
-- [x] `RoundedVariants` — Rounded Variants
-- [x] `FluidWidth` — Fluid Width
-- [x] `Loading` — Loading
-- [x] `SimulatedLoading` — Simulated Loading
-- [x] `EmptyOptions` — Empty Options
+- [x] `WithClear` — Botão de limpar visível
+- [x] `Disabled` — Estado desabilitado
+- [x] `WithGroups` — Agrupamento de opções
+- [x] `MultiSelect` — Seleção múltipla com chips
+- [x] `WithCustomFilter` — Filtro customizado
+- [x] `ControlledValue` — Valor controlado
+- [x] `WithBadgeValue` — Valor exibido como badge
 
 ## Checklist
 
