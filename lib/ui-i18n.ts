@@ -71,6 +71,7 @@ export const UI_I18N: Record<
       rowsPerPage: string
     }
     pageLoader: { loading: string }
+    pillGroup: { filterLabel: string }
   }
 > = {
   "en-US": {
@@ -174,6 +175,7 @@ export const UI_I18N: Record<
       rowsPerPage: "Rows per page",
     },
     pageLoader: { loading: "Loading…" },
+    pillGroup: { filterLabel: "Filter by" },
   },
   "pt-BR": {
     dialog: { close: "Fechar" },
@@ -280,6 +282,7 @@ export const UI_I18N: Record<
       rowsPerPage: "Linhas por página",
     },
     pageLoader: { loading: "Carregando…" },
+    pillGroup: { filterLabel: "Filtrar por" },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -382,6 +385,7 @@ export const UI_I18N: Record<
       rowsPerPage: "Filas por página",
     },
     pageLoader: { loading: "Cargando…" },
+    pillGroup: { filterLabel: "Filtrar por" },
   },
   "fr-FR": {
     dialog: { close: "Fermer" },
@@ -492,5 +496,6 @@ export const UI_I18N: Record<
       rowsPerPage: "Lignes par page",
     },
     pageLoader: { loading: "Chargement…" },
+    pillGroup: { filterLabel: "Filtrer par" },
   },
 }
