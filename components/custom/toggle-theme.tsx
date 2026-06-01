@@ -5,6 +5,7 @@ import { Sun, Moon, Monitor } from "lucide-react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 import type { ComponentProps } from "react"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,10 +39,11 @@ interface ToggleThemeProps {
     system?: string
     trigger?: string
   }
+  loading?: boolean
 }
 
-export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
-  const { theme = "system", setTheme } = useTheme()
+export function ToggleTheme({ labels = {}, loading }: ToggleThemeProps) {
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -49,9 +51,11 @@ export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
     setMounted(true)
   }, [])
 
-  const Icon = mounted
-    ? (themeIcons[theme as keyof typeof themeIcons] ?? Monitor)
-    : Monitor
+  if (!mounted) {
+    return <Skeleton className="size-9 rounded-md" />
+  }
+
+  const Icon = themeIcons[resolvedTheme as keyof typeof themeIcons] ?? Sun
 
   const {
     light = "Light",
@@ -59,6 +63,10 @@ export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
     system = "System",
     trigger = "Toggle theme",
   } = labels
+
+  if (loading) {
+    return <Skeleton className="size-9 rounded-md" />
+  }
 
   return (
     <DropdownMenu data-slot="toggle-theme">
