@@ -94,7 +94,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 | Código | Idioma             |
 | :----- | :----------------- |
 | en-US  | English (default)  |
-| pt-PR  | Português (Brasil) |
+| pt-BR  | Português (Brasil) |
 | es-ES  | Español            |
 | fr-FR  | Français           |
 
@@ -107,7 +107,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 ```tsx
 import { Dashbox } from "@/components/custom/dashbox"
 
-<Dashbox title="Status" locale="pt-PR" status="live" />
+<Dashbox title="Status" locale="pt-BR" status="live" />
 // Badge mostra "Online", toolbar mostra "Atualizar", "Recolher" etc.
 ```
 
@@ -164,7 +164,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 │   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
 │   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
 │   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-├── specs/               # Specs de todos os componentes custom (34 arquivos)
+├── specs/               # Specs de todos os componentes (104 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -180,7 +180,7 @@ As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver c
 
 ### Specs existentes
 
-Todos os 35 componentes custom já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (55 ui primitives + 48 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### Spec template
 

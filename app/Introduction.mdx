@@ -32,7 +32,7 @@ The core "DNA" of the design system — semantic tokens, typography, color palet
 - **Color Tokens**: `--background`, `--foreground`, `--primary`, `--muted`, `--border`, and their dark-mode counterparts.
 - **Risk Tokens**: Custom semantic tokens (`--risk-1` to `--risk-4`) for data visualization and risk indicators.
 - **Theme Support**: Seamless switching between Light, Dark, and System modes via `ToggleTheme`.
-- **Internationalization (i18n)**: All UI strings are centralized in `lib/ui-i18n.ts` and localized via an optional `locale` prop (`"en-US"`, `"pt-PR"`, `"es-ES"`, `"fr-FR"`). Each component auto-installs the i18n dictionary as a registry dependency.
+- **Internationalization (i18n)**: All UI strings are centralized in `lib/ui-i18n.ts` and localized via an optional `locale` prop (`"en-US"`, `"pt-BR"`, `"es-ES"`, `"fr-FR"`). Each component auto-installs the i18n dictionary as a registry dependency.
 
 ### 2. Shadcn UI Primitives
 
@@ -164,7 +164,7 @@ Components display UI labels (tooltips, aria-labels, status text, empty state me
 | Code  | Language           |
 | :---- | :----------------- |
 | en-US | English (default)  |
-| pt-PR | Português (Brasil) |
+| pt-BR | Português (Brasil) |
 | es-ES | Español            |
 | fr-FR | Français           |
 
@@ -173,7 +173,7 @@ import { Dashbox } from "@/components/custom/dashbox"
 import { Counter } from "@/components/custom/counter"
 import { DataTable } from "@/components/custom/data-table"
 
-<Dashbox title="Status" locale="pt-PR" status="live" />
+<Dashbox title="Status" locale="pt-BR" status="live" />
 {/* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */}
 
 <Counter locale="es-ES" defaultValue={5} />
