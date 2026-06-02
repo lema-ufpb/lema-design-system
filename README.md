@@ -164,7 +164,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 │   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
 │   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
 │   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-├── specs/               # Specs de todos os componentes (104 arquivos — ui + custom)
+├── specs/               # Specs de todos os componentes (106 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -286,6 +286,7 @@ import { Spinner } from "@/components/custom/spinner"
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. |
+| **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
 | **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
 | **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                                        |
 | **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                        |
@@ -293,6 +294,7 @@ import { Spinner } from "@/components/custom/spinner"
 | **StepProgress**     | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical.                                                |
 
 ```tsx
+import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/custom/mini-card"
 import { CardStatCompact, CardStatProgress } from "@/components/custom/card-stats"
 import { ProgressBar } from "@/components/custom/progress-bar"
 import { ProgressCircular } from "@/components/custom/progress-circular"
@@ -300,6 +302,10 @@ import { RiskLevelBar } from "@/components/custom/risk-level-bar"
 import { StepProgress } from "@/components/custom/step-progress"
 import { DataTable } from "@/components/custom/data-table"
 
+<MiniCardGroup variant="outlined" size="md" divide accent="success">
+  <MiniCard label="Receita" value={124500} format="currency" locale="pt-BR" currency="BRL" delta="+26.8%" />
+  <MiniCard label="Selecionados" value={53} sub="/153" />
+</MiniCardGroup>
 <CardStatCompact label="Revenue" value={124500} format="currency" trend="up" trendValue="+26.8%" icon={DollarSignIcon} />
 <ProgressBar value={0.75} name="Taxa de Aprovação" intent="success" />
 <ProgressCircular value={0.6} title="Frequência" size="lg" />
