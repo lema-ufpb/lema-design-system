@@ -235,6 +235,7 @@ export function MiniCardSeparator({
     <div
       role="separator"
       aria-orientation="vertical"
+      data-slot="mini-card-separator"
       className={cn(
         "w-px shrink-0 self-stretch bg-border",
         height === "short" && "my-1.5",
