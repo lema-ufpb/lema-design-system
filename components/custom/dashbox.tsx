@@ -137,6 +137,12 @@ export const dashboxStatusBadgeVariants = cva(
   }
 )
 
+const titleSkeletonH: Record<DashboxSize, string> = {
+  sm: "h-3",
+  md: "h-3.5",
+  lg: "h-4",
+}
+
 // ── Private subcomponents ──────────────────────────────────────────────────
 
 const STATUS_DOT: Record<string, string> = {
@@ -254,16 +260,23 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
             <div data-slot="dashbox-header" className={dashboxHeaderVariants()}>
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex items-center gap-2">
-                  {title && (
-                    <span
-                      data-slot="dashbox-title"
-                      className={dashboxTitleVariants({ size })}
-                      title={title}
-                    >
-                      {title}
-                    </span>
+                  {loading ? (
+                    <Skeleton
+                      data-slot="dashbox-title-skeleton"
+                      className={cn(titleSkeletonH[size ?? "md"], "w-2/5")}
+                    />
+                  ) : (
+                    title && (
+                      <span
+                        data-slot="dashbox-title"
+                        className={dashboxTitleVariants({ size })}
+                        title={title}
+                      >
+                        {title}
+                      </span>
+                    )
                   )}
-                  {status && (
+                  {!loading && status && (
                     <DashboxStatusBadge
                       status={status}
                       locale={locale}
@@ -271,13 +284,24 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
                     />
                   )}
                 </div>
-                {description && (
-                  <span
-                    data-slot="dashbox-description"
-                    className={dashboxDescriptionVariants({ size })}
-                  >
-                    {description}
-                  </span>
+                {loading ? (
+                  <Skeleton
+                    data-slot="dashbox-description-skeleton"
+                    className={cn(
+                      "mt-0.5",
+                      titleSkeletonH[size ?? "md"],
+                      "w-3/5"
+                    )}
+                  />
+                ) : (
+                  description && (
+                    <span
+                      data-slot="dashbox-description"
+                      className={dashboxDescriptionVariants({ size })}
+                    >
+                      {description}
+                    </span>
+                  )
                 )}
               </div>
 
@@ -286,51 +310,74 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
                   data-slot="dashbox-toolbar"
                   className={cn(dashboxToolbarVariants(), "shrink-0")}
                 >
-                  {toolbar}
+                  {loading ? (
+                    <>
+                      {toolbar != null && (
+                        <Skeleton className="size-7 rounded-md" />
+                      )}
+                      {onRefresh && <Skeleton className="size-7 rounded-md" />}
+                      {showMinimize && (
+                        <Skeleton className="size-7 rounded-md" />
+                      )}
+                      {showMaximize && (
+                        <Skeleton className="size-7 rounded-md" />
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {toolbar}
 
-                  {onRefresh && (
-                    <ToolbarButton label={tl.refresh} onClick={handleRefresh}>
-                      <RefreshCw
-                        className={cn("size-3.5", refreshing && "animate-spin")}
-                      />
-                    </ToolbarButton>
+                      {onRefresh && (
+                        <ToolbarButton
+                          label={tl.refresh}
+                          onClick={handleRefresh}
+                        >
+                          <RefreshCw
+                            className={cn(
+                              "size-3.5",
+                              refreshing && "animate-spin"
+                            )}
+                          />
+                        </ToolbarButton>
+                      )}
+
+                      {showMinimize &&
+                        !maximized &&
+                        (minimized ? (
+                          <ToolbarButton
+                            label={tl.expand}
+                            onClick={() => setMinimized(false)}
+                          >
+                            <Plus className="size-3.5" />
+                          </ToolbarButton>
+                        ) : (
+                          <ToolbarButton
+                            label={tl.collapse}
+                            onClick={() => setMinimized(true)}
+                          >
+                            <Minus className="size-3.5" />
+                          </ToolbarButton>
+                        ))}
+
+                      {showMaximize &&
+                        !minimized &&
+                        (maximized ? (
+                          <ToolbarButton
+                            label={tl.restore}
+                            onClick={() => setMaximized(false)}
+                          >
+                            <Shrink className="size-3.5" />
+                          </ToolbarButton>
+                        ) : (
+                          <ToolbarButton
+                            label={tl.fullscreen}
+                            onClick={() => setMaximized(true)}
+                          >
+                            <Maximize2 className="size-3.5" />
+                          </ToolbarButton>
+                        ))}
+                    </>
                   )}
-
-                  {showMinimize &&
-                    !maximized &&
-                    (minimized ? (
-                      <ToolbarButton
-                        label={tl.expand}
-                        onClick={() => setMinimized(false)}
-                      >
-                        <Plus className="size-3.5" />
-                      </ToolbarButton>
-                    ) : (
-                      <ToolbarButton
-                        label={tl.collapse}
-                        onClick={() => setMinimized(true)}
-                      >
-                        <Minus className="size-3.5" />
-                      </ToolbarButton>
-                    ))}
-
-                  {showMaximize &&
-                    !minimized &&
-                    (maximized ? (
-                      <ToolbarButton
-                        label={tl.restore}
-                        onClick={() => setMaximized(false)}
-                      >
-                        <Shrink className="size-3.5" />
-                      </ToolbarButton>
-                    ) : (
-                      <ToolbarButton
-                        label={tl.fullscreen}
-                        onClick={() => setMaximized(true)}
-                      >
-                        <Maximize2 className="size-3.5" />
-                      </ToolbarButton>
-                    ))}
                 </div>
               )}
             </div>
