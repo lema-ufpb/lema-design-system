@@ -93,15 +93,6 @@ export interface MiniCardStripProps {
   className?: string
 }
 
-// ── Context ──
-
-const MiniCardCtx = React.createContext<{ size: MiniCardSize; locale: string }>(
-  {
-    size: "md",
-    locale: "en-US",
-  }
-)
-
 // ── Variants ──
 
 export const miniCardLabelVariants = cva(
@@ -224,6 +215,15 @@ function interleave(
     i < items.length - 1 ? [child, getSep(`sep-${i}`)] : [child]
   )
 }
+
+// ── Context ──
+
+const MiniCardCtx = React.createContext<{ size: MiniCardSize; locale: string }>(
+  {
+    size: "md",
+    locale: "en-US",
+  }
+)
 
 // ── MiniCardSeparator ──
 
