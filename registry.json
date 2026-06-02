@@ -1204,6 +1204,26 @@
       ]
     },
     {
+      "name": "mini-card",
+      "type": "registry:ui",
+      "title": "Mini Card",
+      "description": "Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost variants) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, and delta change indicators. Size propagates via context.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/custom/mini-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/mini-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "pill-group",
       "type": "registry:ui",
       "title": "Pill Group",
