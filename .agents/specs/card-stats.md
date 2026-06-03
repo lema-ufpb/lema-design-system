@@ -19,6 +19,7 @@ Exibir métricas e indicadores em formato de cartão, com suporte a formatação
 | Campo | Valor |
 |-------|-------|
 | Arquivo barrel | `components/custom/card-stats.tsx` |
+| data-slot | `card-stats` |
 | Módulo compartilhado | `components/custom/card-stats-shared.tsx` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

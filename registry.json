@@ -971,6 +971,45 @@
       ]
     },
     {
+      "name": "modal-ui",
+      "type": "registry:ui",
+      "title": "Modal",
+      "description": "A flexible modal dialog built on Dialog with size variants (sm/md/lg/xl/2xl/full), intent system (default/destructive/success/warning/info), scrollable body, auto async confirm tracking, loading skeleton, and i18n support.",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/modal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-loader",
+      "type": "registry:ui",
+      "title": "Page Loader",
+      "description": "Full-page loading overlay with two variants: a shimmer bar fixed at the top of the viewport (bar) and a centered XL spinner (spinner). Controlled by a single loading prop with fade-in/out transition, semantic color options, and i18n support.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "spinner",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/page-loader.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/page-loader.tsx"
+        }
+      ]
+    },
+    {
       "name": "icon-button",
       "type": "registry:ui",
       "title": "Icon Button",
@@ -1161,6 +1200,48 @@
           "path": "components/custom/score-row.tsx",
           "type": "registry:ui",
           "target": "components/ui/score-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mini-card",
+      "type": "registry:ui",
+      "title": "Mini Card",
+      "description": "Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost variants) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, and delta change indicators. Size propagates via context.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/custom/mini-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/mini-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pill-group",
+      "type": "registry:ui",
+      "title": "Pill Group",
+      "description": "A horizontal filter bar with pill-shaped toggle buttons, item counts, per-item intent colors, icon support, and automatic scroll overflow with fade indicators.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/custom/pill-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pill-group.tsx"
         }
       ]
     },
@@ -1636,7 +1717,8 @@
       "registryDependencies": [
         "button",
         "skeleton",
-        "pagination"
+        "pagination",
+        "ui-i18n"
       ],
       "files": [
         {

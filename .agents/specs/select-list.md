@@ -21,6 +21,7 @@ Lista vertical de itens selecionáveis com campo de busca, virtual scrolling par
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/select-list.tsx` |
+| data-slot | `select-list` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |
 | Depende de | `Input`, `Button`, `Badge`, `Skeleton` (shadcn/ui) |
@@ -38,7 +39,7 @@ Lista vertical de itens selecionáveis com campo de busca, virtual scrolling par
 | `height` | `number` | `300` | | Altura da lista virtual |
 | `debounce` | `number` | `300` | | Debounce da busca (ms) |
 | `placeholder` | `string` | `"Search..."` | | Placeholder do input |
-| `intent` | `"default" \| "primary" \| "secondary" \| "destructive"` | `"primary"` | | Intenção visual de seleção |
+| `intent` | `"default" \| "primary" \| "secondary" \| "destructive"` | `"primary"` | | Intenção visual de seleção (nota: CVA `defaultVariants` usa `"default"` — se `intent` for `undefined`, fallback do CVA não aplica classes de intent) |
 | `disabled` | `boolean` | `false` | | Desabilitado |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `search` | `string` | — | | Valor controlado da busca |

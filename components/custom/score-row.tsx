@@ -221,13 +221,26 @@ function formatScore(
         rest: "",
       }
     case "raw":
-      return { current: String(score), showFraction: false, rest: "" }
+      return {
+        current: new Intl.NumberFormat(locale, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        }).format(score),
+        showFraction: false,
+        rest: "",
+      }
     case "fraction":
     default:
       return {
-        current: String(score),
+        current: new Intl.NumberFormat(locale, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        }).format(score),
         showFraction: true,
-        rest: String(total),
+        rest: new Intl.NumberFormat(locale, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(total),
       }
   }
 }
@@ -248,10 +261,22 @@ function formatScoreText(
             maximumFractionDigits: decimals,
           }).format(score / total)
     case "raw":
-      return String(score)
+      return new Intl.NumberFormat(locale, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      }).format(score)
     case "fraction":
-    default:
-      return `${score} / ${total}`
+    default: {
+      const s = new Intl.NumberFormat(locale, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      }).format(score)
+      const t = new Intl.NumberFormat(locale, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(total)
+      return `${s} / ${t}`
+    }
   }
 }
 
@@ -320,6 +345,7 @@ export function ScoreRow({
       <div
         data-slot="score-row"
         className={cn(scoreRowVariants({ size }), className)}
+        role="status"
         aria-busy="true"
         aria-label={t.loading}
       >
@@ -543,7 +569,6 @@ export function ScoreRowList({
   return (
     <div
       data-slot="score-row-list"
-      role="list"
       className={cn(
         "w-full",
         !inset && "overflow-hidden rounded-xl border border-border",

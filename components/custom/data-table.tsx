@@ -19,12 +19,11 @@ import {
   ArrowUp,
   ArrowDown,
   ChevronsUpDown,
-  Search,
-  X,
   Download,
   Table2,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -36,6 +35,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/custom/pagination"
+import { SearchBar } from "@/components/custom/search-bar"
 
 // ── ColumnMeta Augmentation ────────────────────────────────────────────────
 // Extends TanStack Table's column metadata type with layout and display hints.
@@ -81,6 +81,8 @@ export interface DataTableLabels {
     of?: string
     pluralItemName?: string
     rowsPerPage?: string
+    prev?: string
+    next?: string
   }
   actions?: {
     download?: string
@@ -127,11 +129,17 @@ export interface DataTableProps<
   toolbar?: React.ReactNode
   showDownload?: boolean
   onDownload?: () => void
+  voiceSearch?: boolean
+  onVoiceStart?: () => void
+  onVoiceEnd?: () => void
+  onVoiceError?: (error: string) => void
 
   // Handlers
   onRowClick?: (row: TData) => void
+  onSelectedRowsChange?: (rows: TData[]) => void
 
   // Labels
+  locale?: UILocale
   labels?: DataTableLabels
 
   // Infinite scroll (non-paginated mode)
@@ -373,7 +381,7 @@ function DataTableSkeleton({
           </div>
           {showSearch && (
             <Skeleton
-              className="h-9 w-72 rounded-md"
+              className="h-8 w-72 rounded-md"
               style={{ animationDelay: "0.15s" }}
             />
           )}
@@ -543,6 +551,9 @@ interface PaginationBarProps {
   onPageSizeChange?: (size: number) => void
   itemLabel: string
   rowsPerPageLabel: string
+  ofLabel: string
+  prevLabel: string
+  nextLabel: string
 }
 
 function PaginationBar({
@@ -559,6 +570,9 @@ function PaginationBar({
   onPageSizeChange,
   itemLabel,
   rowsPerPageLabel,
+  ofLabel,
+  prevLabel,
+  nextLabel,
 }: PaginationBarProps) {
   const start = totalRows === 0 ? 0 : pageIndex * pageSize + 1
   const end = Math.min((pageIndex + 1) * pageSize, totalRows)
@@ -570,7 +584,7 @@ function PaginationBar({
         <p className="text-xs text-muted-foreground">
           {totalRows === 0
             ? `0 ${itemLabel}`
-            : `${start}–${end} of ${totalRows} ${itemLabel}`}
+            : `${start}–${end} ${ofLabel} ${totalRows} ${itemLabel}`}
         </p>
 
         {pageSizeOptions && onPageSizeChange && (
@@ -602,6 +616,7 @@ function PaginationBar({
           <PaginationItem>
             <PaginationPrevious
               href="#"
+              text={prevLabel}
               onClick={(e) => {
                 e.preventDefault()
                 onPrev()
@@ -644,6 +659,7 @@ function PaginationBar({
           <PaginationItem>
             <PaginationNext
               href="#"
+              text={nextLabel}
               onClick={(e) => {
                 e.preventDefault()
                 onNext()
@@ -695,9 +711,15 @@ export function DataTable<TData extends object>({
   toolbar,
   showDownload = false,
   onDownload,
+  voiceSearch = false,
+  onVoiceStart,
+  onVoiceEnd,
+  onVoiceError,
   onRowClick,
+  onSelectedRowsChange,
   hasMore = false,
   onLoadMore,
+  locale,
   labels,
   ariaLabel,
   className,
@@ -709,19 +731,35 @@ export function DataTable<TData extends object>({
 
   // ── Labels ──
 
+  const i18n = locale ? UI_I18N[locale] : null
+
   const l = {
-    searchPlaceholder: labels?.searchPlaceholder ?? "Search...",
-    noData: labels?.noData ?? "No data found",
+    searchPlaceholder:
+      labels?.searchPlaceholder ??
+      i18n?.dataTable.searchPlaceholder ??
+      "Search...",
+    noData: labels?.noData ?? i18n?.dataTable.noData ?? "No data found",
     noDataDescription:
-      labels?.noDataDescription ?? "Data will appear here once available.",
+      labels?.noDataDescription ??
+      i18n?.dataTable.noDataDescription ??
+      "Data will appear here once available.",
     pagination: {
-      of: labels?.pagination?.of ?? "of",
-      pluralItemName: labels?.pagination?.pluralItemName ?? "rows",
-      rowsPerPage: labels?.pagination?.rowsPerPage ?? "Rows per page",
+      of: labels?.pagination?.of ?? i18n?.dataTable.of ?? "of",
+      pluralItemName:
+        labels?.pagination?.pluralItemName ?? i18n?.dataTable.rows ?? "rows",
+      rowsPerPage:
+        labels?.pagination?.rowsPerPage ??
+        i18n?.dataTable.rowsPerPage ??
+        "Rows per page",
+      prev: labels?.pagination?.prev ?? i18n?.pagination.previous ?? "Previous",
+      next: labels?.pagination?.next ?? i18n?.pagination.next ?? "Next",
     },
     actions: {
       download: labels?.actions?.download ?? "Export",
-      clearSearch: labels?.actions?.clearSearch ?? "Clear search",
+      clearSearch:
+        labels?.actions?.clearSearch ??
+        i18n?.combobox.clearSearch ??
+        "Clear search",
     },
     selection: {
       selectAll: labels?.selection?.selectAll ?? "Select all",
@@ -811,6 +849,16 @@ export function DataTable<TData extends object>({
     columnResizeMode: "onChange",
     enableColumnResizing: true,
   })
+
+  // ── Selection callback ──
+
+  React.useEffect(() => {
+    if (!onSelectedRowsChange) return
+    onSelectedRowsChange(
+      table.getSelectedRowModel().rows.map((r) => r.original)
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rowSelection])
 
   // ── Virtualization ──
 
@@ -916,32 +964,20 @@ export function DataTable<TData extends object>({
           </div>
 
           {showSearch && (
-            <div
-              className={cn(
-                "flex w-72 min-w-[140px] items-center gap-2 rounded-md border border-border bg-background px-3 py-2",
-                "transition-colors focus-within:border-ring focus-within:ring-1 focus-within:ring-ring",
-                loading && "pointer-events-none opacity-60"
-              )}
-            >
-              <Search className="size-3.5 shrink-0 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder={l.searchPlaceholder}
-                value={globalFilter}
-                onChange={(e) => handleGlobalFilter(e.target.value)}
-                disabled={loading}
-                className="w-full border-none bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-              />
-              {globalFilter && (
-                <button
-                  onClick={() => handleGlobalFilter("")}
-                  aria-label={l.actions.clearSearch}
-                  className="flex shrink-0 items-center justify-center rounded hover:opacity-70"
-                >
-                  <X className="size-3.5 text-muted-foreground" />
-                </button>
-              )}
-            </div>
+            <SearchBar
+              value={globalFilter}
+              onChange={handleGlobalFilter}
+              placeholder={l.searchPlaceholder}
+              size="sm"
+              rounded="md"
+              disabled={loading}
+              locale={locale}
+              voice={voiceSearch}
+              onVoiceStart={onVoiceStart}
+              onVoiceEnd={onVoiceEnd}
+              onVoiceError={onVoiceError}
+              className="mt-2 mr-2 w-72 min-w-[140px]"
+            />
           )}
         </div>
       )}
@@ -980,7 +1016,7 @@ export function DataTable<TData extends object>({
             {/* ── Sticky header ── */}
             <TableHeader
               sticky
-              className="w-full"
+              className="block w-full"
               style={{ minWidth: minTableWidth }}
             >
               {table.getHeaderGroups().map((headerGroup) => (
@@ -1135,7 +1171,7 @@ export function DataTable<TData extends object>({
                             isSelect &&
                               "sticky z-20 bg-card group-hover:bg-muted group-data-selected:bg-primary/10",
                             meta?.wrap &&
-                              "h-auto items-start py-3 leading-relaxed break-words whitespace-normal"
+                              "h-auto items-start py-3 leading-relaxed wrap-break-word whitespace-normal"
                           )}
                           style={{
                             ...(isSelect
@@ -1189,6 +1225,9 @@ export function DataTable<TData extends object>({
             }
             itemLabel={l.pagination.pluralItemName}
             rowsPerPageLabel={l.pagination.rowsPerPage}
+            ofLabel={l.pagination.of}
+            prevLabel={l.pagination.prev}
+            nextLabel={l.pagination.next}
           />
         )}
       </div>

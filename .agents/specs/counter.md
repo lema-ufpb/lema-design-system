@@ -21,6 +21,7 @@ Campo numérico com botões de incremento/decremento e input direto. Ideal para 
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/counter.tsx` |
+| data-slot | `counter` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |
 | Depende de | `Skeleton` |
@@ -42,6 +43,7 @@ Campo numérico com botões de incremento/decremento e input direto. Ideal para 
 | `disabled` | `boolean` | `false` | | Desabilitado |
 | `label` | `string` | — | | Aria label do grupo (fallback i18n) |
 | `maxWidth` | `CSSProperties["maxWidth"]` | — | | Largura máxima |
+| `id` | `string` | — | | ID do input (gerado via `useId()` se omitido) |
 | `locale` | `UILocale` | `"en-US"` | | Locale para i18n |
 | `onChange` | `(value: number) => void` | — | | Callback de mudança |
 | `onBlur` | `(e: FocusEvent<HTMLInputElement>) => void` | — | | Callback de blur |

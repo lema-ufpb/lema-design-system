@@ -172,12 +172,14 @@ export function SelectList({
         }),
         isLast && "border-b-0"
       )}
+      data-slot="select-list-item"
     >
       <div className="flex min-w-0 flex-1 items-center gap-3 pr-4">
         {item.icon && (
           <div
             className="flex shrink-0 items-center justify-center text-muted-foreground"
             style={{ color: item.iconColor }}
+            data-slot="select-list-item-icon"
           >
             {item.icon}
           </div>
@@ -186,6 +188,7 @@ export function SelectList({
           <span
             className="truncate font-semibold text-foreground"
             title={item.name}
+            data-slot="select-list-item-name"
           >
             {item.name}
           </span>
@@ -209,6 +212,7 @@ export function SelectList({
                   ? "secondary"
                   : intent
             }
+            data-slot="select-list-selected-badge"
             className="pointer-events-none flex h-8 items-center gap-1.5 rounded-full px-4 py-1 text-sm"
           >
             <Check className="size-3" />
@@ -224,6 +228,7 @@ export function SelectList({
                   ? "outline"
                   : intent
             }
+            data-slot="select-list-select-button"
             className="rounded-full"
             onClick={() => !disabled && onSelect(item)}
             disabled={disabled || loading}
@@ -243,6 +248,7 @@ export function SelectList({
         className
       )}
       aria-busy={loading}
+      data-slot="select-list"
       {...props}
     >
       <div className="relative flex w-full items-center">
@@ -253,6 +259,7 @@ export function SelectList({
           onChange={(e) => handleChange(e.target.value)}
           placeholder={placeholder}
           disabled={disabled || loading}
+          data-slot="select-list-search"
           className="pr-9 pl-9"
         />
         {inputValue && !disabled && !loading && (
@@ -273,6 +280,7 @@ export function SelectList({
               <div
                 key={`skeleton-${i}`}
                 className="flex items-center justify-between border-b p-4 last:border-0"
+                data-slot="select-list-skeleton"
               >
                 <div className="flex flex-1 items-center gap-3">
                   <Skeleton className="size-8 rounded-full" />
@@ -289,6 +297,7 @@ export function SelectList({
           <div
             className="flex flex-col items-center justify-center gap-3 p-8 text-muted-foreground"
             style={{ height }}
+            data-slot="select-list-empty"
           >
             <Frown className="size-10 opacity-20" />
             <span className="text-sm font-medium">{emptyMessage}</span>
@@ -298,6 +307,7 @@ export function SelectList({
             ref={scrollRef}
             style={{ height, overflowY: "auto" }}
             className="w-full"
+            data-slot="select-list-list"
           >
             <div
               style={{

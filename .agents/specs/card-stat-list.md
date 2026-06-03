@@ -3,6 +3,7 @@
 > Cartão com lista de métricas (label + valor + tendência opcional) em formato de linhas.
 
 **Arquivo:** `components/custom/card-stat-list.tsx`
+**data-slot:** `card-stat-list`
 
 ---
 
@@ -27,7 +28,7 @@
 | Variant | sm | md | lg |
 |---------|----|----|----|
 | `cardStatListRowPyVariants` | `py-2` | `py-2.5` | `py-3` |
-| `cardStatListTextVariants` | `text-xs` | `text-sm` | `text-base` |
+| `cardStatListTextVariants` | `text-xs font-medium` | `text-sm font-medium` | `text-base font-medium` |
 | `cardStatListValueVariants` | `text-xs font-semibold tabular-nums` | `text-sm font-semibold tabular-nums` | `text-base font-semibold tabular-nums` |
 | `cardStatListBadgeIconVariants` | `size-2.5` | `size-3` | `size-3.5` |
 

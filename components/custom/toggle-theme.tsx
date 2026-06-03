@@ -5,6 +5,7 @@ import { Sun, Moon, Monitor } from "lucide-react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 import type { ComponentProps } from "react"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,10 +39,11 @@ interface ToggleThemeProps {
     system?: string
     trigger?: string
   }
+  loading?: boolean
 }
 
-export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
-  const { theme = "system", setTheme } = useTheme()
+export function ToggleTheme({ labels = {}, loading }: ToggleThemeProps) {
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -49,9 +51,11 @@ export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
     setMounted(true)
   }, [])
 
-  const Icon = mounted
-    ? (themeIcons[theme as keyof typeof themeIcons] ?? Monitor)
-    : Monitor
+  if (!mounted) {
+    return <Skeleton className="size-9 rounded-md" />
+  }
+
+  const Icon = themeIcons[resolvedTheme as keyof typeof themeIcons] ?? Sun
 
   const {
     light = "Light",
@@ -60,23 +64,41 @@ export function ToggleTheme({ labels = {} }: ToggleThemeProps) {
     trigger = "Toggle theme",
   } = labels
 
+  if (loading) {
+    return <Skeleton className="size-9 rounded-md" />
+  }
+
   return (
-    <DropdownMenu>
+    <DropdownMenu data-slot="toggle-theme">
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label={trigger}>
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label={trigger}
+          data-slot="toggle-theme-trigger"
+        >
           <Icon />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("light")}
+          data-slot="toggle-theme-option"
+        >
           <Sun data-icon="inline-start" />
           {light}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("dark")}
+          data-slot="toggle-theme-option"
+        >
           <Moon data-icon="inline-start" />
           {dark}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem
+          onClick={() => setTheme("system")}
+          data-slot="toggle-theme-option"
+        >
           <Monitor data-icon="inline-start" />
           {system}
         </DropdownMenuItem>

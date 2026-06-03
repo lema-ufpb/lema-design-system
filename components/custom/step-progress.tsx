@@ -151,6 +151,7 @@ const StepConnector = ({
   <span
     className={cn(stepConnectorVariants({ orientation, status }))}
     aria-hidden="true"
+    data-slot="step-progress-step-connector"
   />
 )
 
@@ -177,7 +178,10 @@ const StepProgressItem = ({
       )}
     >
       <div className={cn("relative flex shrink-0 flex-col items-center")}>
-        <div className={cn(stepCircleVariants({ status, size }), "z-10")}>
+        <div
+          className={cn(stepCircleVariants({ status, size }), "z-10")}
+          data-slot="step-progress-step-circle"
+        >
           {status === "complete" && !step.icon ? (
             <Check
               className={cn(
@@ -198,11 +202,17 @@ const StepProgressItem = ({
           orientation === "horizontal" ? "items-center" : "items-start"
         )}
       >
-        <span className={cn(stepTitleVariants({ orientation, status }))}>
+        <span
+          className={cn(stepTitleVariants({ orientation, status }))}
+          data-slot="step-progress-step-title"
+        >
           {step.title}
         </span>
         {step.description && (
-          <span className={cn(stepDescriptionVariants({ orientation }))}>
+          <span
+            className={cn(stepDescriptionVariants({ orientation }))}
+            data-slot="step-progress-step-description"
+          >
             {step.description}
           </span>
         )}
@@ -219,6 +229,7 @@ const StepProgressItem = ({
             ? "flex-col items-center"
             : "w-full flex-col"
         )}
+        data-slot="step-progress-step"
       >
         <ItemWrapper
           type={isInteractive ? "button" : undefined}
@@ -285,6 +296,7 @@ export const StepProgress = ({
     <ol
       aria-label={UI_I18N[locale].stepProgress.label}
       className={cn(stepProgressVariants({ orientation }), className)}
+      data-slot="step-progress"
       {...props}
     >
       {steps.map((step, index) => {

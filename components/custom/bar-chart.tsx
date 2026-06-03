@@ -127,7 +127,10 @@ function BarChartSkeleton({
   className,
 }: BarChartSkeletonProps) {
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="bar-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -504,15 +507,20 @@ export function BarChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="bar-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div className={chartHeaderVariants()} data-slot="bar-chart-header">
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="bar-chart-empty"
           style={{ height }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -527,7 +535,11 @@ export function BarChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div className={chartFooterVariants()} data-slot="bar-chart-footer">
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
@@ -557,15 +569,23 @@ export function BarChart({
   const yAxisLabelOffset = yAxisLabel ? 0 : 10
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="bar-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="bar-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
-      <ResponsiveContainer width="100%" height={height}>
+      <ResponsiveContainer
+        width="100%"
+        height={height}
+        data-slot="bar-chart-chart"
+      >
         <RechartsBarChart
           data={data}
           layout={rechartsLayout}
@@ -720,7 +740,11 @@ export function BarChart({
         </RechartsBarChart>
       </ResponsiveContainer>
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="bar-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

@@ -91,7 +91,7 @@ export function CardStatHeatbar({
 }: CardStatHeatbarProps) {
   if (loading) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-heatbar">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
           <Skeleton
@@ -100,6 +100,7 @@ export function CardStatHeatbar({
         </CardHeader>
         <CardContent
           className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+          data-slot="card-stat-heatbar-skeleton"
         >
           <div className="flex items-baseline justify-between">
             <Skeleton className="h-7 w-28" />
@@ -123,7 +124,7 @@ export function CardStatHeatbar({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-heatbar">
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -141,6 +142,7 @@ export function CardStatHeatbar({
         </CardHeader>
         <CardContent
           className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+          data-slot="card-stat-heatbar-empty"
         >
           <div className="flex items-baseline justify-between">
             <p
@@ -218,7 +220,7 @@ export function CardStatHeatbar({
   const activeZone = zones.find((z) => pct <= z.max) ?? zones[zones.length - 1]
 
   return (
-    <Card size="sm" className={className}>
+    <Card size="sm" className={className} data-slot="card-stat-heatbar">
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(

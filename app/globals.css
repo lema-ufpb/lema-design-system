@@ -220,6 +220,7 @@
 @theme {
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-loader-fill: loader-fill 2s ease-in-out infinite;
 
   @keyframes accordion-down {
     from {
@@ -238,6 +239,28 @@
 
     to {
       height: 0;
+    }
+  }
+
+  @keyframes loader-fill {
+    0% {
+      transform: scaleX(0);
+      opacity: 1;
+    }
+
+    70% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    85% {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scaleX(0);
+      opacity: 0;
     }
   }
 }

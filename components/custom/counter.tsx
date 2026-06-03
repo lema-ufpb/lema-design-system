@@ -189,6 +189,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
         style={{ maxWidth, ...style }}
         role="group"
         aria-label={label || UI_I18N[locale].counter.groupLabel}
+        data-slot="counter"
       >
         <button
           type="button"
@@ -196,6 +197,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
           disabled={disabled || currentNumber <= min}
           aria-label={UI_I18N[locale].counter.decrease}
           className={cn(counterButtonVariants({ size }))}
+          data-slot="counter-decrement"
         >
           <Minus className="size-4 shrink-0 transition-transform active:scale-75" />
         </button>
@@ -205,6 +207,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
           ref={ref}
           id={inputId}
           type="number"
+          data-slot="counter-input"
           value={isNaN(currentNumber) ? "" : currentNumber}
           onChange={handleInputChange}
           onBlur={handleInputBlur}
@@ -224,6 +227,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
           disabled={disabled || currentNumber >= max}
           aria-label={UI_I18N[locale].counter.increase}
           className={cn(counterButtonVariants({ size }))}
+          data-slot="counter-increment"
         >
           <Plus className="size-4 shrink-0 transition-transform active:scale-75" />
         </button>

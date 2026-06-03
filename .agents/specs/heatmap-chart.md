@@ -17,6 +17,7 @@ _Heatmap de matriz (grid) para visualização de densidade/correlação entre du
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/heatmap-chart.tsx` |
+| data-slot | `heatmap-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `lucide-react` (Grid3X3), `class-variance-authority` |

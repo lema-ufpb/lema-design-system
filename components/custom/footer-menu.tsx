@@ -107,24 +107,28 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
     return (
       <nav
         ref={ref}
+        data-slot="footer-menu"
         className={cn(footerMenuVariants(), className)}
         aria-label={UI_I18N[locale].footerMenu.label}
         {...props}
       >
         {/* Mobile: Accordion */}
         <AccordionPrimitive.Root
+          data-slot="footer-menu-accordion"
           type="single"
           collapsible
           className="flex w-full flex-col lg:hidden"
         >
           {data.map((group: FooterGroupData, i: number) => (
             <AccordionPrimitive.Item
+              data-slot="footer-menu-group"
               key={`mobile-${i}`}
               value={`item-${i}`}
               className={footerGroupVariants()}
             >
               <AccordionPrimitive.Header className="flex">
                 <AccordionPrimitive.Trigger
+                  data-slot="footer-menu-group-header"
                   className={cn(footerHeaderVariants(), "group")}
                 >
                   <span className={cn(footerTitleVariants({ size, upper }))}>
@@ -150,6 +154,7 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
                   {group.options.map((option: FooterOptionData, j: number) => (
                     <li key={j}>
                       <Link
+                        data-slot="footer-menu-link"
                         href={option.url}
                         target={option.target}
                         className={cn(footerLinkVariants({ size }))}
@@ -165,16 +170,27 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
         </AccordionPrimitive.Root>
 
         {/* Desktop: Static columns */}
-        <div className="hidden w-full gap-8 lg:flex lg:flex-row lg:justify-between lg:gap-12">
+        <div
+          data-slot="footer-menu-desktop"
+          className="hidden w-full gap-8 lg:flex lg:flex-row lg:justify-between lg:gap-12"
+        >
           {data.map((group: FooterGroupData, i: number) => (
-            <div key={`desktop-${i}`} className="flex flex-1 flex-col">
-              <h4 className={cn(footerTitleVariants({ size, upper }), "mb-4")}>
+            <div
+              data-slot="footer-menu-group"
+              key={`desktop-${i}`}
+              className="flex flex-1 flex-col"
+            >
+              <h4
+                data-slot="footer-menu-group-header"
+                className={cn(footerTitleVariants({ size, upper }), "mb-4")}
+              >
                 {group.title}
               </h4>
               <ul className={cn(footerContentVariants(), "space-y-2")}>
                 {group.options.map((option: FooterOptionData, j: number) => (
                   <li key={j}>
                     <Link
+                      data-slot="footer-menu-link"
                       href={option.url}
                       target={option.target}
                       className={cn(footerLinkVariants({ size }))}

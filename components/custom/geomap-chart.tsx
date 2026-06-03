@@ -144,7 +144,10 @@ function GeoMapChartSkeleton({
   className,
 }: GeoMapChartSkeletonProps) {
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="geomap-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -691,17 +694,18 @@ export function GeoMapChart({
     <div
       ref={containerRef}
       className={cn(chartWrapperVariants(), "relative", className)}
+      data-slot="geomap-chart"
       {...props}
     >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="geomap-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
       {/* map canvas + overlay legend */}
-      <div className="relative">
+      <div className="relative" data-slot="geomap-chart-map">
         <div style={{ height }} className="w-full overflow-hidden rounded-md">
           <ComposableMap
             projection={projection}
@@ -753,7 +757,11 @@ export function GeoMapChart({
         <MapTooltip state={tooltip} valueFormatter={valueFormatter} />
       )}
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="geomap-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

@@ -94,7 +94,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 | Código | Idioma             |
 | :----- | :----------------- |
 | en-US  | English (default)  |
-| pt-PR  | Português (Brasil) |
+| pt-BR  | Português (Brasil) |
 | es-ES  | Español            |
 | fr-FR  | Français           |
 
@@ -107,7 +107,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 ```tsx
 import { Dashbox } from "@/components/custom/dashbox"
 
-<Dashbox title="Status" locale="pt-PR" status="live" />
+<Dashbox title="Status" locale="pt-BR" status="live" />
 // Badge mostra "Online", toolbar mostra "Atualizar", "Recolher" etc.
 ```
 
@@ -164,7 +164,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 │   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
 │   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
 │   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-├── specs/               # Specs de todos os componentes custom (34 arquivos)
+├── specs/               # Specs de todos os componentes (106 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -180,7 +180,7 @@ As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver c
 
 ### Specs existentes
 
-Todos os 34 componentes custom já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (55 ui primitives + 48 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### Spec template
 
@@ -232,11 +232,22 @@ Todos os componentes abaixo vivem em `components/custom/`.
 | **Dashrow**    | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
 | **Drawer**     | Drawer completo com header, body scrollável, footer e botão de fechar adaptável à direção.               |
 | **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.       |
+| **Modal**      | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, body scrollável, async confirm com loading e suporte a i18n. |
 
 ```tsx
 import { Dashbox } from "@/components/custom/dashbox"
 import { Dashrow } from "@/components/custom/dashrow"
 import { Drawer } from "@/components/custom/drawer"
+import { Modal } from "@/components/custom/modal"
+
+<Modal
+  title="Confirmar exclusão"
+  intent="destructive"
+  confirmLabel="Excluir"
+  onConfirm={handleDelete}
+>
+  Tem certeza que deseja excluir este item?
+</Modal>
 
 <Drawer direction="right" title="Detalhes" description="ID #1234" footer={actions}>
   Conteúdo do drawer...
@@ -254,12 +265,17 @@ import { Drawer } from "@/components/custom/drawer"
 
 #### Feedback
 
-| Componente  | Descrição                                                                        |
-| :---------- | :------------------------------------------------------------------------------- |
-| **Spinner** | Indicador de carregamento animado com `aria-label` localizada via `locale` prop. |
+| Componente     | Descrição                                                                                                                                                           |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **PageLoader** | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
+| **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                    |
 
 ```tsx
+import { PageLoader } from "@/components/custom/page-loader"
 import { Spinner } from "@/components/custom/spinner"
+
+<PageLoader loading={isLoading} locale="pt-BR" />
+<PageLoader loading={isLoading} variant="spinner" message="Salvando..." color="success" blur />
 
 <Spinner locale="pt-BR" />
 <Spinner className="size-6 text-primary" />
@@ -270,13 +286,15 @@ import { Spinner } from "@/components/custom/spinner"
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. |
-| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, colunas sticky, redimensionamento e seleção de linhas.                                        |
+| **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
+| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
 | **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                                        |
 | **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                        |
 | **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                                      |
 | **StepProgress**     | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical.                                                |
 
 ```tsx
+import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/custom/mini-card"
 import { CardStatCompact, CardStatProgress } from "@/components/custom/card-stats"
 import { ProgressBar } from "@/components/custom/progress-bar"
 import { ProgressCircular } from "@/components/custom/progress-circular"
@@ -284,6 +302,10 @@ import { RiskLevelBar } from "@/components/custom/risk-level-bar"
 import { StepProgress } from "@/components/custom/step-progress"
 import { DataTable } from "@/components/custom/data-table"
 
+<MiniCardGroup variant="outlined" size="md" divide accent="success">
+  <MiniCard label="Receita" value={124500} format="currency" locale="pt-BR" currency="BRL" delta="+26.8%" />
+  <MiniCard label="Selecionados" value={53} sub="/153" />
+</MiniCardGroup>
 <CardStatCompact label="Revenue" value={124500} format="currency" trend="up" trendValue="+26.8%" icon={DollarSignIcon} />
 <ProgressBar value={0.75} name="Taxa de Aprovação" intent="success" />
 <ProgressCircular value={0.6} title="Frequência" size="lg" />

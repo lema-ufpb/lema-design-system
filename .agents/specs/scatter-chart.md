@@ -17,6 +17,7 @@ _Gráfico de dispersão (scatter plot) baseado em recharts ScatterChart. Suporta
 | Campo | Valor |
 |-------|-------|
 | Arquivo | `components/custom/scatter-chart.tsx` |
+| data-slot | `scatter-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis), `lucide-react` (Crosshair), `class-variance-authority` |
