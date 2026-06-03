@@ -1,5 +1,71 @@
 # Changelog
 
+## [2.0.0](https://github.com/lema-ufpb/design-system/compare/v1.0.1...v2.0.0) (2026-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **search-combo:** flatten multi-file directory into single-file
+
+### ✨ Features
+
+* **card-stat-highlight:** add white variant with bg-white text-foreground ([83ef88f](https://github.com/lema-ufpb/design-system/commit/83ef88f07fff59df73f60774bf6d2bcf6c9b8b2a))
+* **card-stats-shared:** add shared CVA variants, migrate TrendBadge, remove deprecated SIZE object ([db93ff6](https://github.com/lema-ufpb/design-system/commit/db93ff616acb46fdc500fc421820bab9b777a04c))
+* **data-table:** add sticky columns, selection, and square border stories ([b2cc9a2](https://github.com/lema-ufpb/design-system/commit/b2cc9a2931875214fa29daa07cc8239c06c80087))
+* **registry:** redirect all custom component targets to components/ui/ ([2b440e7](https://github.com/lema-ufpb/design-system/commit/2b440e79cb7127e225688eb11ab18cfd33e3cab2))
+* **registry:** redirect all custom component targets to components/ui/ ([c05a416](https://github.com/lema-ufpb/design-system/commit/c05a41681ecd3717d371e975ab37e6687f78ad1c))
+* **score-row:** add component with percentDecimals, locale-aware percent, title tooltip, and registry entry ([0809b6e](https://github.com/lema-ufpb/design-system/commit/0809b6e3d01aa64e9781c20a9b3a8a146061bcb5))
+* **search-bar:** add search bar component with voice, debounce, i18n ([d36b770](https://github.com/lema-ufpb/design-system/commit/d36b7700c39790c5584c0281b831d2f764b139a7))
+
+
+### 🐛 Bug Fixes
+
+* **card-stat-highlight:** export and rename variant, use semantic tokens, fix trackH scale ([bc9a0f7](https://github.com/lema-ufpb/design-system/commit/bc9a0f708a7c6f9440d4f48c072741311ed8d41a))
+* **card-stat:** export local CVA variants, add icon size CVA for trend/badge icons, cleanup skeleton overlay ([7eb42fe](https://github.com/lema-ufpb/design-system/commit/7eb42fe65a3578dde8f80b9dffd825ef228408f9))
+* **card-stat:** remove redundant font-semibold from TrendBadge ([b137088](https://github.com/lema-ufpb/design-system/commit/b13708889bf7e1b930b7b13ea07c7a73902db36f))
+* **card-stat:** resolve review issues from PR [#29](https://github.com/lema-ufpb/design-system/issues/29) ([53ae743](https://github.com/lema-ufpb/design-system/commit/53ae743e0fab4b72ceba7eaf737920a229c0db5e))
+* **card-stats:** apply design system review feedback ([7d183d9](https://github.com/lema-ufpb/design-system/commit/7d183d9c910f4e6b4b800d9daa862c41b72493c6))
+* **combobox:** add aria-label and aria-labelledby props to trigger ([b1854af](https://github.com/lema-ufpb/design-system/commit/b1854afbe85b6e5c45de0da135e2dde997f59d9d))
+* **data-table:** add data-slot attribute to root and use font-medium for column headers ([e13f3fd](https://github.com/lema-ufpb/design-system/commit/e13f3fdcc9bf55426ffe64b4d622b8dd6b6d6917))
+* **data-table:** prevent sticky column overlap on horizontal scroll and add rounded prop ([000d056](https://github.com/lema-ufpb/design-system/commit/000d056566d9d6ff2b73c4d44373c0d7de257b26))
+* replace -space-x-2 with [&&gt;:not(:first-child)]:-ml-2 in AvatarGroup and fix lg fallback scale ([7a383e7](https://github.com/lema-ufpb/design-system/commit/7a383e7cca293c01d960dfb6bbcd52b1f07b8890))
+* revert wrap-break-word to break-words (valid Tailwind v4 class) ([580fd90](https://github.com/lema-ufpb/design-system/commit/580fd9013574d8658811283a7aa5ec873ef8ca9f))
+* **score-row:** add data-slot attrs, motion-safe transitions, and fix progress height scale ([767e76c](https://github.com/lema-ufpb/design-system/commit/767e76c8e9e18408ae0727bf02703358edc65eb6))
+* **score-row:** align description skeleton heights with font-size ([9beb493](https://github.com/lema-ufpb/design-system/commit/9beb493e8dc8976034bf4548d014ea635a034e36))
+* **score-row:** use text-warning token, fix skeleton dimensions, update stories default and spec ([8e2412d](https://github.com/lema-ufpb/design-system/commit/8e2412d258e1758b932f673fcfc7b361bcb7e2a8))
+
+
+### ⚡ Performance
+
+* **use-speech-recognition:** use useSyncExternalStore for isSupported ([dd1cfb9](https://github.com/lema-ufpb/design-system/commit/dd1cfb9fac39f6a22459cc352f36d72b6a60725e))
+
+
+### 📚 Documentation
+
+* add CLI consumption guide for @lema-ufpb/ds-sync ([fef2d00](https://github.com/lema-ufpb/design-system/commit/fef2d00ef0f8bdaf69274a8274e0954fdd9d253c))
+* **avatar:** align lg fallback scale in behaviors table with canonical scale ([873cac2](https://github.com/lema-ufpb/design-system/commit/873cac24d8fbfbf71786f5fabc3dfe558bd6254b))
+* **card-stats:** update spec to reflect CVA variants replacing SIZE object ([10332ba](https://github.com/lema-ufpb/design-system/commit/10332ba548712ddc76ad280dfc7533ba97e61fb7))
+* **specs:** add spec documentation for -ui custom component wrappers ([bddfeaf](https://github.com/lema-ufpb/design-system/commit/bddfeafbe67c0e047bc7508fbf5f9d620a75fb98))
+* **specs:** add spec documentation for shadcn/ui primitives ([bee02a5](https://github.com/lema-ufpb/design-system/commit/bee02a566d23a4f184aa1d16f1b37f89dbfd12ac))
+* **specs:** add trend icon and badge icon CVA variants to highlight and list specs ([102e4c6](https://github.com/lema-ufpb/design-system/commit/102e4c6c69c7f98fe2dff8be803fc58a80cb5447))
+* **specs:** mark all checklists as [x] for implemented components and add descriptive story descriptions ([71c09af](https://github.com/lema-ufpb/design-system/commit/71c09af6fe6fb1e2ae0ef01914363f7598308f72))
+* **specs:** split card-stats.md into individual specs per sub-component ([418d69e](https://github.com/lema-ufpb/design-system/commit/418d69e3132fc8e106545eb503cbd7016134b45a))
+* **specs:** update existing custom component specs with accurate API and tokens ([1a49ca9](https://github.com/lema-ufpb/design-system/commit/1a49ca94eada21db95ebfe908216e961ae3f7e37))
+* **stories:** add default value summaries and story descriptions to custom component stories ([21bee75](https://github.com/lema-ufpb/design-system/commit/21bee753bffb2997c970aedece49dbb15af1ae98))
+* **stories:** add default value summaries and story descriptions to UI component stories ([fed63c6](https://github.com/lema-ufpb/design-system/commit/fed63c6033f396369955b0b152c898cd9e19db3d))
+* update data-table and combobox specs to match current APIs ([45fefc4](https://github.com/lema-ufpb/design-system/commit/45fefc42dcfdc8b87ded803bbf2fe38a854e7286))
+* update Introduction.mdx and README for search-combo and search-bar ([9a74fca](https://github.com/lema-ufpb/design-system/commit/9a74fca07a836f16acc3829c04588233152e3876))
+
+
+### ♻️ Refactor
+
+* **card-stat:** replace SIZE lookups with CVA variants across all sub-components ([c2414a4](https://github.com/lema-ufpb/design-system/commit/c2414a4671ad4d1c0eb1d594e7a85135fbda57f6))
+* **card-stat:** replace SIZE object with CVA variants for size-based styles ([40152f4](https://github.com/lema-ufpb/design-system/commit/40152f44d08b58e82cd2a8ce2445b8e32532db63))
+* **card-stats:** split monolithic card-stats.tsx + docs(specs): add spec coverage for all 90 registry items ([2456e92](https://github.com/lema-ufpb/design-system/commit/2456e924ea8bf84e820aada2da7db9fe7da76bd2))
+* **card-stats:** split monolithic card-stats.tsx into per-variant files ([5f958af](https://github.com/lema-ufpb/design-system/commit/5f958af4a9afedc5c4e21a4a49ab02d481dfb85a))
+* **search-bar:** replace raw buttons with Button component ([c81ba78](https://github.com/lema-ufpb/design-system/commit/c81ba78d808c679aeacda906818eae3cd94e3567))
+* **search-combo:** flatten multi-file directory into single-file ([d36b770](https://github.com/lema-ufpb/design-system/commit/d36b7700c39790c5584c0281b831d2f764b139a7))
+
 ## [1.0.1](https://github.com/lema-ufpb/design-system/compare/v1.0.0...v1.0.1) (2026-05-24)
 
 
