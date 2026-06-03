@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import { DollarSignIcon, UsersIcon } from "lucide-react"
+import { DollarSignIcon, TrendingUpIcon, UsersIcon } from "lucide-react"
 import { CardStat } from "./card-stats"
 
 const meta = {
@@ -30,6 +30,7 @@ const meta = {
           "| `loading` | `boolean` | Show skeleton placeholder while data is fetching |",
           "| `empty` | `boolean` | Show empty state when no data is available |",
           "| `valueFormatter` | `(value: number \\| string) => string` | Fully custom formatter — overrides `format`, `decimals`, `locale`, and `currency` |",
+          "| `valueClassName` | `string` | Extra classes merged onto the value `<p>` — use semantic tokens like `text-destructive` or `text-success` to colour the value |",
         ].join("\n"),
       },
     },
@@ -38,10 +39,12 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     trend: {
       control: "select",
       options: ["up", "down", "neutral", true, false],
+      table: { defaultValue: { summary: "false" } },
     },
     decimals: { control: { type: "number", min: 0, max: 5 } },
     locale: { control: "text" },
@@ -49,8 +52,14 @@ const meta = {
     label: { control: "text" },
     value: { control: "number" },
     description: { control: "text" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
@@ -58,6 +67,7 @@ const meta = {
     },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
+    valueClassName: { control: "text" },
   },
 } satisfies Meta<typeof CardStat>
 
@@ -208,6 +218,175 @@ export const AllSizes: Story = {
           />
         </div>
       ))}
+    </div>
+  ),
+}
+
+export const ValueClassName: Story = {
+  args: {
+    label: "Delayed Orders",
+    value: 748,
+    format: "integer",
+    description: "15.02% delay rate",
+    icon: TrendingUpIcon,
+    valueClassName: "text-destructive",
+    size: "sm",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Use `valueClassName` to apply semantic color tokens directly to the value.",
+          "Common use case: highlight a KPI in `text-destructive` (red) or `text-success` (green) when it represents a negative or positive threshold.",
+          "",
+          "```tsx",
+          '<CardStat label="Delayed Orders" value={748} valueClassName="text-destructive" />',
+          '<CardStat label="Recovered" value={1204} valueClassName="text-success" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <CardStat
+        label="Delayed Orders"
+        value={748}
+        format="integer"
+        description="15.02% delay rate"
+        icon={TrendingUpIcon}
+        size="sm"
+        valueClassName="text-destructive"
+      />
+      <CardStat
+        label="Recovered Revenue"
+        value={204941}
+        format="integer"
+        description="above monthly target"
+        icon={DollarSignIcon}
+        size="sm"
+        valueClassName="text-success"
+      />
+      <CardStat
+        label="Active Users"
+        value={15309}
+        format="integer"
+        description="no change this week"
+        icon={UsersIcon}
+        size="sm"
+      />
+    </div>
+  ),
+}
+
+export const MutedVariant: Story = {
+  args: { label: "Revenue", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          'Use `variant="muted"` for a flat card — no border, no shadow, `bg-muted` background.',
+          "Ideal for embedding KPIs inside panels or cards where the outer container already provides elevation.",
+          "",
+          "```tsx",
+          '<CardStat variant="muted" label="Revenue" value={45231.89} format="currency" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <CardStat
+        variant="muted"
+        label="Revenue"
+        value={45231.89}
+        format="currency"
+        description="+20.1% from last month"
+        trend="up"
+        icon={DollarSignIcon}
+      />
+      <CardStat
+        variant="muted"
+        label="Active Users"
+        value={15309}
+        format="integer"
+        description="No change this week"
+        trend="neutral"
+        icon={UsersIcon}
+      />
+      <CardStat
+        variant="muted"
+        label="Bounce Rate"
+        value={8.4}
+        format="percent"
+        description="−1.3% this week"
+        trend="down"
+      />
+      <CardStat
+        variant="muted"
+        label="Avg. Response"
+        value={127}
+        valueFormatter={(v) => `${v} ms`}
+        description="−12 ms vs yesterday"
+        trend="up"
+      />
+    </div>
+  ),
+}
+
+export const FlatVariant: Story = {
+  args: { label: "Revenue", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          'Use `variant="flat"` para um card sem borda e sem sombra com fundo branco (`bg-background`).',
+          "Ideal para áreas onde o container já tem fundo colorido e o card precisa se destacar em branco.",
+          "",
+          "```tsx",
+          '<CardStat variant="flat" label="Revenue" value={45231.89} format="currency" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <CardStat
+        variant="flat"
+        label="Revenue"
+        value={45231.89}
+        format="currency"
+        description="+20.1% from last month"
+        trend="up"
+        icon={DollarSignIcon}
+      />
+      <CardStat
+        variant="flat"
+        label="Active Users"
+        value={15309}
+        format="integer"
+        description="No change this week"
+        trend="neutral"
+        icon={UsersIcon}
+      />
+      <CardStat
+        variant="flat"
+        label="Bounce Rate"
+        value={8.4}
+        format="percent"
+        description="−1.3% this week"
+        trend="down"
+      />
+      <CardStat
+        variant="flat"
+        label="Avg. Response"
+        value={127}
+        valueFormatter={(v) => `${v} ms`}
+        description="−12 ms vs yesterday"
+        trend="up"
+      />
     </div>
   ),
 }

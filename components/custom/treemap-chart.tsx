@@ -82,7 +82,10 @@ function TreeMapChartSkeleton({
   className,
 }: TreeMapChartSkeletonProps) {
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="treemap-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -387,15 +390,23 @@ export function TreeMapChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="treemap-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div
+            className={chartHeaderVariants()}
+            data-slot="treemap-chart-header"
+          >
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="treemap-chart-empty"
           style={{ height }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -410,15 +421,26 @@ export function TreeMapChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div
+            className={chartFooterVariants()}
+            data-slot="treemap-chart-footer"
+          >
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="treemap-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="treemap-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
@@ -457,7 +479,11 @@ export function TreeMapChart({
         </nav>
       )}
 
-      <ResponsiveContainer width="100%" height={height}>
+      <ResponsiveContainer
+        width="100%"
+        height={height}
+        data-slot="treemap-chart-chart"
+      >
         <Treemap
           data={currentData}
           dataKey="value"
@@ -484,7 +510,11 @@ export function TreeMapChart({
         </Treemap>
       </ResponsiveContainer>
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="treemap-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

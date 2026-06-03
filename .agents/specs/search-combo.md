@@ -20,8 +20,9 @@ Campo de busca com dropdown de resultados, virtual scrolling, destaque de texto 
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/search-combo.tsx` |
-| Arquivos auxiliares | `components/custom/search-combo.stories.tsx` |
+| Arquivo | `components/custom/search-combo.tsx` (single-file, flattened de diretório multi-file) |
+| data-slot | `search-combo` | | |
+| Arquivos auxiliares | `components/custom/search-combo.stories.tsx` | | |
 | Hook | `@/hooks/use-speech-recognition` (compartilhado) |
 | Tipo | `registry:ui` |
 | Categoria | `Navigation` |

@@ -3,6 +3,7 @@
 > Cartão de estatística compacto com layout horizontal (ícone-label-valor-badge em linha).
 
 **Arquivo:** `components/custom/card-stat-compact.tsx`
+**data-slot:** `card-stat-compact`
 
 ---
 
@@ -13,6 +14,7 @@
 | `label` | `string` | — | ✓ |
 | `value` | `string \| number` | — | ✓ |
 | `size` | `CardStatSize` | `"md"` | |
+| `variant` | `"default" \| "muted" \| "flat"` | `"default"` | |
 | `trend` | `CardStatTrend \| boolean` | — | |
 | `trendValue` | `string` | — | |
 | `icon` | `React.ElementType` | — | |
@@ -49,5 +51,7 @@ Compartilhadas: `cardStatDescriptionVariants`.
 - [x] Default
 - [x] AllSizes
 - [x] AllVariants
+- [x] MutedVariant — variante muted (bg-muted shadow-none ring-0)
+- [x] FlatVariant — variante flat (bg-background shadow-none ring-0)
 - [x] Loading
 - [x] Empty

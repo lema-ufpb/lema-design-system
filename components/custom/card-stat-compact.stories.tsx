@@ -27,17 +27,25 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     trend: {
       control: "select",
       options: ["up", "down", "neutral", true, false],
+      table: { defaultValue: { summary: "—" } },
     },
     decimals: { control: { type: "number", min: 0, max: 5 } },
     label: { control: "text" },
     value: { control: "number" },
     trendValue: { control: "text" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],
@@ -183,6 +191,122 @@ export const AllSizes: Story = {
           </div>
         </div>
       ))}
+    </div>
+  ),
+}
+
+export const MutedVariant: Story = {
+  args: { label: "Metric", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          'Use `variant="muted"` para card sem borda, sem sombra e fundo `bg-muted`.',
+          "",
+          "```tsx",
+          '<CardStatCompact variant="muted" label="Revenue" value={124500} format="currency" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <CardStatCompact
+        variant="muted"
+        label="Total Revenue"
+        value={124500}
+        format="currency"
+        trend="up"
+        trendValue="+26.8%"
+        icon={DollarSignIcon}
+      />
+      <CardStatCompact
+        variant="muted"
+        label="Active Users"
+        value={57891}
+        format="integer"
+        trend="up"
+        trendValue="+12.4%"
+        icon={UsersIcon}
+      />
+      <CardStatCompact
+        variant="muted"
+        label="Orders"
+        value={1847}
+        format="integer"
+        trend="neutral"
+        trendValue="0.0%"
+        icon={ShoppingCartIcon}
+      />
+      <CardStatCompact
+        variant="muted"
+        label="Churn Rate"
+        value={2.4}
+        format="percent"
+        decimals={1}
+        trend="down"
+        trendValue="-0.8%"
+        icon={ActivityIcon}
+      />
+    </div>
+  ),
+}
+
+export const FlatVariant: Story = {
+  args: { label: "Metric", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          'Use `variant="flat"` para card sem borda, sem sombra e fundo branco (`bg-background`).',
+          "",
+          "```tsx",
+          '<CardStatCompact variant="flat" label="Revenue" value={124500} format="currency" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <CardStatCompact
+        variant="flat"
+        label="Total Revenue"
+        value={124500}
+        format="currency"
+        trend="up"
+        trendValue="+26.8%"
+        icon={DollarSignIcon}
+      />
+      <CardStatCompact
+        variant="flat"
+        label="Active Users"
+        value={57891}
+        format="integer"
+        trend="up"
+        trendValue="+12.4%"
+        icon={UsersIcon}
+      />
+      <CardStatCompact
+        variant="flat"
+        label="Orders"
+        value={1847}
+        format="integer"
+        trend="neutral"
+        trendValue="0.0%"
+        icon={ShoppingCartIcon}
+      />
+      <CardStatCompact
+        variant="flat"
+        label="Churn Rate"
+        value={2.4}
+        format="percent"
+        decimals={1}
+        trend="down"
+        trendValue="-0.8%"
+        icon={ActivityIcon}
+      />
     </div>
   ),
 }

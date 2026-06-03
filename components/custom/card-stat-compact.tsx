@@ -24,10 +24,17 @@ export interface CardStatCompactProps extends FmtProps {
   trendValue?: string
   icon?: React.ElementType
   size?: CardStatSize
+  variant?: "default" | "muted" | "flat"
   className?: string
   loading?: boolean
   empty?: boolean
 }
+
+const VARIANT_CLASSES = {
+  default: undefined,
+  muted: "bg-muted shadow-none ring-0",
+  flat: "bg-background shadow-none ring-0",
+} as const
 
 // ── Variants ──
 export const cardStatCompactValueVariants = cva("", {
@@ -70,15 +77,25 @@ export function CardStatCompact({
   trendValue,
   icon: Icon,
   size = "md",
+  variant = "default",
   className,
   loading,
   empty,
   ...fmt
 }: CardStatCompactProps) {
+  const variantClass = VARIANT_CLASSES[variant]
+
   if (loading) {
     return (
-      <Card size="sm" className={className}>
-        <CardContent className="flex items-center gap-3 py-4">
+      <Card
+        size="sm"
+        className={cn(variantClass, className)}
+        data-slot="card-stat-compact"
+      >
+        <CardContent
+          className="flex items-center gap-3 py-4"
+          data-slot="card-stat-compact-skeleton"
+        >
           <Skeleton
             className={cn(cardStatIconBoxVariants({ size }), "shrink-0")}
           />
@@ -94,8 +111,15 @@ export function CardStatCompact({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
-        <CardContent className="flex items-center gap-3 py-4">
+      <Card
+        size="sm"
+        className={cn(variantClass, className)}
+        data-slot="card-stat-compact"
+      >
+        <CardContent
+          className="flex items-center gap-3 py-4"
+          data-slot="card-stat-compact-empty"
+        >
           <div
             className={cn(
               "flex shrink-0 items-center justify-center bg-muted/50",
@@ -145,7 +169,11 @@ export function CardStatCompact({
   const trendDir = resolveTrend(trend)
 
   return (
-    <Card size="sm" className={className}>
+    <Card
+      size="sm"
+      className={cn(variantClass, className)}
+      data-slot="card-stat-compact"
+    >
       <CardContent className="flex items-center gap-3 py-4">
         {Icon && (
           <div

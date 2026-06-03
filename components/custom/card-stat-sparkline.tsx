@@ -172,14 +172,17 @@ export function CardStatSparkline({
 
   if (loading) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-sparkline">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
           <Skeleton
             className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
           />
         </CardHeader>
-        <CardContent className="flex items-end justify-between gap-4">
+        <CardContent
+          className="flex items-end justify-between gap-4"
+          data-slot="card-stat-sparkline-skeleton"
+        >
           <div className="flex flex-col gap-1.5">
             <Skeleton className="h-7 w-28" />
             <Skeleton className="h-5 w-24 rounded-full" />
@@ -195,7 +198,7 @@ export function CardStatSparkline({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-sparkline">
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -211,7 +214,10 @@ export function CardStatSparkline({
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className="flex items-end justify-between gap-4">
+        <CardContent
+          className="flex items-end justify-between gap-4"
+          data-slot="card-stat-sparkline-empty"
+        >
           <div className="flex flex-col gap-1.5">
             <p
               className={cn(
@@ -240,7 +246,7 @@ export function CardStatSparkline({
   const trendDir = resolveTrend(trend)
 
   return (
-    <Card size="sm" className={className}>
+    <Card size="sm" className={className} data-slot="card-stat-sparkline">
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(

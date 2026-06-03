@@ -50,6 +50,7 @@ O Accordion expõe 4 subcomponentes. As props refletem diretamente as da Radix U
 |------|------|--------|-------------|-----------|
 | `className` | `string` | — | Não | Classes adicionais |
 | `children` | `ReactNode` | — | Não | Conteúdo do cabeçalho |
+| `disabled` | `boolean` | — | Não | Desabilita o trigger (herdado da Radix UI) |
 
 ### AccordionContent
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
@@ -79,7 +80,7 @@ O Accordion expõe 4 subcomponentes. As props refletem diretamente as da Radix U
 | Transição | Animações `accordion-down` (abrir) e `accordion-up` (fechar) via `data-open` / `data-closed` |
 | Disabled | Trigger com `disabled` não responde a clique e fica `opacity-50` |
 | Hover | Trigger mostra underline |
-| Focus-visible | Trigger recebe outline do navegador (fallback para Radix) |
+| Focus-visible | Trigger usa `outline-none` sem `focus-visible:ring` alternativo — indicador de foco ausente (apenas fallback nativo do Radix) |
 
 ---
 
@@ -90,7 +91,7 @@ O Accordion expõe 4 subcomponentes. As props refletem diretamente as da Radix U
 | WAI-ARIA Accordion | Herdado da Radix UI: `aria-expanded` no trigger, `aria-controls` vinculado ao content |
 | Navegação por teclado | Teclas `ArrowDown`/`ArrowUp`/`Home`/`End` para navegação entre triggers (Radix) |
 | Estrutura semântica | `AccordionPrimitive.Header` envolve cada trigger; conteúdo dentro de `AccordionPrimitive.Content` |
-| Contraste de foco | Trigger usa `outline-none` com fallback para estilo nativo de foco |
+| Contraste de foco | Trigger usa `outline-none` sem indicador de foco customizado — indicador de foco ausente |
 | Screen reader | Chevrons têm `pointer-events-none` e não interferem na leitura |
 
 ---

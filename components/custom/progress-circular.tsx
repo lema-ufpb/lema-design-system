@@ -93,7 +93,7 @@ export const progressCircularValueVariants = cva(
 )
 
 export const progressCircularTitleVariants = cva(
-  "mt-3 min-h-5 w-full text-center font-medium break-words text-muted-foreground",
+  "mt-3 min-h-5 w-full text-center font-medium wrap-break-word text-muted-foreground",
   {
     variants: {
       loading: { true: "animate-pulse opacity-50" },
@@ -181,6 +181,7 @@ export const ProgressCircular = React.forwardRef<
       <div
         ref={ref}
         className={cn(progressCircularContainerVariants(), className)}
+        data-slot="progress-circular"
         {...props}
       >
         <div
@@ -190,6 +191,7 @@ export const ProgressCircular = React.forwardRef<
           aria-valuemin={0}
           aria-valuemax={100}
           aria-label={title || UI_I18N[locale].progressCircular.label}
+          data-slot="progress-circular-svg"
         >
           <svg
             width="100%"
@@ -205,6 +207,7 @@ export const ProgressCircular = React.forwardRef<
               stroke="currentColor"
               className="text-muted/30"
               strokeWidth={STROKE_WIDTH}
+              data-slot="progress-circular-track"
             />
             <circle
               cx="60"
@@ -219,10 +222,14 @@ export const ProgressCircular = React.forwardRef<
                 progressCircularIndicatorVariants(),
                 progressCircularStrokeVariants({ intent })
               )}
+              data-slot="progress-circular-indicator"
             />
           </svg>
 
-          <div className={cn(progressCircularCenterTextVariants({ size }))}>
+          <div
+            className={cn(progressCircularCenterTextVariants({ size }))}
+            data-slot="progress-circular-center-text"
+          >
             <span
               className={cn(progressCircularValueVariants({ size, loading }))}
             >
@@ -238,6 +245,7 @@ export const ProgressCircular = React.forwardRef<
         {title && (
           <span
             className={cn(progressCircularTitleVariants({ size, loading }))}
+            data-slot="progress-circular-title"
           >
             {loading ? <span className="invisible">{title}</span> : title}
           </span>

@@ -629,6 +629,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
         className={cn(searchComboWrapperVariants({ size, loading }), className)}
         role="search"
         aria-label={label}
+        data-slot="search-combo"
         {...props}
       >
         <PopoverPrimitive.Root
@@ -648,9 +649,13 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
               )}
               onFocus={() => setFocused(true)}
               data-state={focused ? "open" : "closed"}
+              data-slot="search-combo-input-wrapper"
             >
               {/* Search icon */}
-              <div className={cn(searchComboIconWrapperVariants({ border }))}>
+              <div
+                className={cn(searchComboIconWrapperVariants({ border }))}
+                data-slot="search-combo-search-icon"
+              >
                 {loading ? (
                   <Spinner className="size-4" />
                 ) : (
@@ -683,6 +688,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                 disabled={disabled}
                 autoComplete="off"
                 spellCheck={false}
+                data-slot="search-combo-input"
               />
 
               {/* Action buttons (clear + voice) */}
@@ -692,6 +698,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                     onClick={handleClear}
                     aria-label="Clear search"
                     type="button"
+                    data-slot="search-combo-clear"
                     className={cn(searchComboActionButtonVariants({ border }))}
                   >
                     <X className="size-4" />
@@ -704,6 +711,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                       isListening ? "Stop recording" : "Search by voice"
                     }
                     type="button"
+                    data-slot="search-combo-voice"
                     className={cn(
                       searchComboActionButtonVariants({ border }),
                       isListening && "animate-pulse text-destructive"
@@ -728,6 +736,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                   aria-label="Search"
                   disabled={!hasValue || disabled}
                   data-state={focused ? "open" : "closed"}
+                  data-slot="search-combo-search-button"
                 >
                   <Search
                     className={cn(["sm:hidden"])}
@@ -754,7 +763,10 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
               {/* Empty state */}
               {showEmpty && (
                 <div className={cn(searchComboResultsListVariants())}>
-                  <div className={cn(searchComboEmptyVariants())}>
+                  <div
+                    className={cn(searchComboEmptyVariants())}
+                    data-slot="search-combo-empty"
+                  >
                     {emptyMessage}
                   </div>
                 </div>
@@ -770,6 +782,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                   className={cn(searchComboResultsListVariants())}
                   style={{ height: listHeight }}
                   tabIndex={0}
+                  data-slot="search-combo-results"
                 >
                   <div
                     style={{
@@ -795,6 +808,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                               height: `${virtualItem.size}px`,
                               transform: `translateY(${virtualItem.start}px)`,
                             }}
+                            data-slot="search-combo-group-header"
                           >
                             {flatItem.label}
                           </li>
@@ -826,6 +840,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                           }}
                           onClick={() => handleSelectItem(item)}
                           onMouseEnter={() => setActiveIndex(itemIndex)}
+                          data-slot="search-combo-result-item"
                         >
                           <div
                             className={cn([

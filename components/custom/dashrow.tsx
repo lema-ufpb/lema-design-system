@@ -413,10 +413,11 @@ export function Dashrow({
   }
 
   return (
-    <div ref={containerRef} className={containerClass}>
+    <div ref={containerRef} data-slot="dashrow" className={containerClass}>
       {childrenArray.map((child, index) => (
         <Fragment key={index}>
           <div
+            data-slot="dashrow-panel"
             ref={(el) => {
               childRefs.current[index] = el
             }}
@@ -430,6 +431,7 @@ export function Dashrow({
 
           {resizable && index < childrenArray.length - 1 && (
             <div
+              data-slot="dashrow-divider"
               data-dashrow-divider
               data-dragging="false"
               role="separator"
@@ -441,7 +443,10 @@ export function Dashrow({
               tabIndex={0}
               className={cn(dashrowDividerVariants(), "group/divider")}
             >
-              <div className={dashrowDividerHandleVariants()} />
+              <div
+                data-slot="dashrow-divider-handle"
+                className={dashrowDividerHandleVariants()}
+              />
             </div>
           )}
         </Fragment>

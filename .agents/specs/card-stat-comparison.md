@@ -3,6 +3,7 @@
 > Cartão de comparação entre dois períodos (current vs previous) com cálculo automático de delta percentual e badge de tendência.
 
 **Arquivo:** `components/custom/card-stat-comparison.tsx`
+**data-slot:** `card-stat-comparison`
 
 ---
 

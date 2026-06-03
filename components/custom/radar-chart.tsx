@@ -130,7 +130,10 @@ function RadarChartSkeleton({
   }).join(" ")
 
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div
+      className={cn("flex w-full flex-col", className)}
+      data-slot="radar-chart-skeleton"
+    >
       {(hasTitle || hasSubtitle) && (
         <div className="flex flex-col gap-1.5 px-1 pb-4">
           {hasTitle && (
@@ -416,15 +419,20 @@ export function RadarChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn(chartWrapperVariants(), className)} {...props}>
+      <div
+        className={cn(chartWrapperVariants(), className)}
+        data-slot="radar-chart"
+        {...props}
+      >
         {(title || subtitle) && (
-          <div className={chartHeaderVariants()}>
+          <div className={chartHeaderVariants()} data-slot="radar-chart-header">
             {title && <p className={chartTitleVariants()}>{title}</p>}
             {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
           </div>
         )}
         <div
           className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border text-muted-foreground"
+          data-slot="radar-chart-empty"
           style={{ height }}
         >
           <div className="flex size-10 items-center justify-center rounded-full bg-muted">
@@ -439,7 +447,11 @@ export function RadarChart({
             </p>
           </div>
         </div>
-        {footer && <div className={chartFooterVariants()}>{footer}</div>}
+        {footer && (
+          <div className={chartFooterVariants()} data-slot="radar-chart-footer">
+            {footer}
+          </div>
+        )}
       </div>
     )
   }
@@ -448,15 +460,23 @@ export function RadarChart({
   const axisStyle = { fontSize: 12, fill: "var(--muted-foreground)" }
 
   return (
-    <div className={cn(chartWrapperVariants(), className)} {...props}>
+    <div
+      className={cn(chartWrapperVariants(), className)}
+      data-slot="radar-chart"
+      {...props}
+    >
       {(title || subtitle) && (
-        <div className={chartHeaderVariants()}>
+        <div className={chartHeaderVariants()} data-slot="radar-chart-header">
           {title && <p className={chartTitleVariants()}>{title}</p>}
           {subtitle && <p className={chartSubtitleVariants()}>{subtitle}</p>}
         </div>
       )}
 
-      <ResponsiveContainer width="100%" height={height}>
+      <ResponsiveContainer
+        width="100%"
+        height={height}
+        data-slot="radar-chart-chart"
+      >
         <RechartsRadarChart
           data={data}
           margin={{ top: 12, right: 24, bottom: 12, left: 24 }}
@@ -528,7 +548,11 @@ export function RadarChart({
         </RechartsRadarChart>
       </ResponsiveContainer>
 
-      {footer && <div className={chartFooterVariants()}>{footer}</div>}
+      {footer && (
+        <div className={chartFooterVariants()} data-slot="radar-chart-footer">
+          {footer}
+        </div>
+      )}
     </div>
   )
 }

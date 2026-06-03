@@ -161,14 +161,17 @@ export function CardStatGauge({
 }: CardStatGaugeProps) {
   if (loading) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-gauge">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-24 rounded-md" />
           <Skeleton
             className={cn(cardStatHeaderIconVariants({ size }), "rounded-md")}
           />
         </CardHeader>
-        <CardContent className="flex flex-col items-center gap-2 pb-3">
+        <CardContent
+          className="flex flex-col items-center gap-2 pb-3"
+          data-slot="card-stat-gauge-skeleton"
+        >
           <Skeleton
             className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}
             style={{
@@ -186,7 +189,7 @@ export function CardStatGauge({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-gauge">
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -202,8 +205,14 @@ export function CardStatGauge({
             </CardAction>
           )}
         </CardHeader>
-        <CardContent className="flex flex-col items-center gap-1 pb-3">
-          <div className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}>
+        <CardContent
+          className="flex flex-col items-center gap-1 pb-3"
+          data-slot="card-stat-gauge-empty"
+        >
+          <div
+            className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}
+            data-slot="card-stat-gauge-svg"
+          >
             <GaugeSvg percent={0} zones={zones} />
           </div>
           <p
@@ -243,7 +252,7 @@ export function CardStatGauge({
   const activeZone = zones.find((z) => pct <= z.max) ?? zones[zones.length - 1]
 
   return (
-    <Card size="sm" className={className}>
+    <Card size="sm" className={className} data-slot="card-stat-gauge">
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(
@@ -260,7 +269,10 @@ export function CardStatGauge({
         )}
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-1 pb-3">
-        <div className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}>
+        <div
+          className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}
+          data-slot="card-stat-gauge-svg"
+        >
           <GaugeSvg percent={pct} zones={zones} />
         </div>
         <p className={cn("-mt-1", cardStatGaugeValueVariants({ size }))}>

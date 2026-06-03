@@ -252,6 +252,7 @@ export const NavDots = React.forwardRef<HTMLDivElement, NavDotsProps>(
       <TooltipProvider>
         <div
           ref={internalRef}
+          data-slot="nav-dots"
           role="navigation"
           aria-label={UI_I18N[locale].navDots.sectionNav}
           className={cn(
@@ -268,6 +269,7 @@ export const NavDots = React.forwardRef<HTMLDivElement, NavDotsProps>(
             <Tooltip key={s.id}>
               <TooltipTrigger asChild>
                 <button
+                  data-slot="nav-dots-dot"
                   type="button"
                   onClick={() => {
                     setCurrentActive(i)

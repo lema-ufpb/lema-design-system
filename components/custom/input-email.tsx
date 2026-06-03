@@ -43,9 +43,10 @@ function EmailInput({
   const { inputClass, iconClass } = sizeConfig[size]
 
   return (
-    <div className="relative">
+    <div className="relative" data-slot="input-email">
       <Input
         type="email"
+        data-slot="input-email-input"
         className={cn(
           inputClass,
           radiusConfig[radius],
@@ -55,6 +56,7 @@ function EmailInput({
         {...props}
       />
       <Mail
+        data-slot="input-email-icon"
         className={cn(
           "pointer-events-none absolute top-1/2 -translate-y-1/2 text-muted-foreground",
           iconClass

@@ -30,6 +30,7 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     variant: {
       control: "select",
@@ -42,18 +43,26 @@ const meta = {
         "sky",
         "white",
       ],
+      table: { defaultValue: { summary: "primary" } },
     },
     trend: {
       control: "select",
       options: ["up", "down", "neutral", true, false],
+      table: { defaultValue: { summary: "—" } },
     },
     decimals: { control: { type: "number", min: 0, max: 5 } },
     label: { control: "text" },
     value: { control: "number" },
     trendValue: { control: "text" },
     description: { control: "text" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg"],

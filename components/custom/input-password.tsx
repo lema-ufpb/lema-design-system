@@ -54,9 +54,10 @@ function PasswordInput({
   const { inputClass, buttonSize } = sizeConfig[size]
 
   return (
-    <div className="relative">
+    <div className="relative" data-slot="input-password">
       <Input
         type={showPassword ? "text" : "password"}
+        data-slot="input-password-input"
         className={cn(
           inputClass,
           radiusConfig[radius],
@@ -69,6 +70,7 @@ function PasswordInput({
         type="button"
         variant="ghost"
         size={buttonSize}
+        data-slot="input-password-toggle"
         className="absolute top-1/2 right-1 -translate-y-1/2 text-muted-foreground hover:text-foreground"
         onClick={() => setShowPassword((v) => !v)}
         tabIndex={-1}

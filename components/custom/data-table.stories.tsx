@@ -10,6 +10,7 @@ import {
   Info,
   RefreshCw,
   Users,
+  Trash2,
 } from "lucide-react"
 import {
   DataTable,
@@ -130,6 +131,7 @@ const meta = {
     columns: { table: { disable: true } },
     footer: { table: { disable: true } },
     toolbar: { table: { disable: true } },
+    onSelectedRowsChange: { table: { disable: true } },
   },
 } satisfies Meta<typeof DataTable>
 
@@ -364,6 +366,34 @@ const SIMPLE_COLUMNS: ColumnDef<Student>[] = [
   col({ key: "city", label: "City", width: 140, sortable: true }),
 ]
 
+/** Last column has no width — fills remaining space via flexGrow: 1 */
+const FLUID_COLUMNS: ColumnDef<Student>[] = [
+  col({
+    key: "enrollmentId",
+    label: "Enrollment ID",
+    width: 130,
+    sortable: true,
+  }),
+  col({ key: "name", label: "Name", width: 190, sortable: true }),
+  col({ key: "course", label: "Course", width: 220, sortable: true }),
+  col({
+    key: "semester",
+    label: "Sem.",
+    width: 70,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "gpa", label: "GPA", width: 80, align: "center", sortable: true }),
+  col({
+    key: "absences",
+    label: "Absences",
+    width: 90,
+    align: "center",
+    sortable: true,
+  }),
+  col({ key: "city", label: "City", sortable: true }),
+]
+
 /** Rich columns — mix of col() helpers and native ColumnDef with custom cells */
 const RICH_COLUMNS: ColumnDef<Student>[] = [
   col({ key: "enrollmentId", label: "Enrollment ID", width: 130 }),
@@ -534,6 +564,40 @@ export const TitleAndSubtitle: Story = {
   },
 }
 
+export const FluidLastColumn: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Omit `width` from a column to make it fill all remaining space via `flexGrow: 1`.",
+          "Every other column keeps its fixed size (`flexGrow: 0`); the fluid column absorbs",
+          "whatever width the container provides — with no empty gap at the right edge.",
+          "",
+          "```tsx",
+          "// Fixed width — rigid, no growth",
+          "col({ key: 'name', label: 'Name', width: 190 })",
+          "",
+          "// No width — grows to fill remaining space",
+          "col({ key: 'city', label: 'City' })",
+          "```",
+          "",
+          "Header and body cells use the same `colStyle()` function, so they grow in perfect sync.",
+          "The resize handle is only rendered for fixed-width columns, so the fluid column stays",
+          "clean. Resize any adjacent column and the fluid column adjusts automatically.",
+        ].join("\n"),
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_20 as unknown as object[],
+    columns: FLUID_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Enrolled Students",
+    subtitle:
+      "Last column (City) has no width — it fills the remaining table width",
+    height: 400,
+  },
+}
+
 export const WithSearch: Story = {
   parameters: {
     docs: {
@@ -548,6 +612,25 @@ export const WithSearch: Story = {
     title: "Real-time Search",
     subtitle: "Filters across every column as you type",
     showSearch: true,
+  },
+}
+
+export const VoiceSearch: Story = {
+  name: "Search + Voice Input",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Enables the microphone button inside the search bar via `voiceSearch`. Uses the browser's Web Speech API — the button is hidden automatically in unsupported environments. Click the mic to dictate; the transcribed text is applied to the global filter in real time.",
+      },
+    },
+  },
+  args: {
+    ...base,
+    title: "Voice Search",
+    subtitle: "Click the microphone icon and speak to filter rows",
+    showSearch: true,
+    voiceSearch: true,
   },
 }
 
@@ -596,6 +679,29 @@ export const WithPagination: Story = {
     defaultPageSize: 5,
     pageSizeOptions: [5, 10, 20],
     height: 280,
+  },
+}
+
+export const PaginationPtBR: Story = {
+  name: "Pagination — pt-BR",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Paginated table with `locale="pt-BR"` — buttons render as "Anterior" / "Próximo" and the counter shows "X–Y de N linhas", all resolved from `UI_I18N["pt-BR"]` with no manual `labels` prop.',
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_200 as unknown as object[],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Alunos — paginado",
+    subtitle: 'locale="pt-BR" — labels resolvidos automaticamente do UI_I18N',
+    pagination: true,
+    defaultPageSize: 10,
+    pageSizeOptions: [5, 10, 20],
+    height: 400,
+    locale: "pt-BR",
   },
 }
 
@@ -651,22 +757,143 @@ export const RowSelection: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Enable `selectRows` to inject a checkbox column managed by TanStack Table's `rowSelection` state. The header checkbox selects/deselects the entire current page and shows an indeterminate state when partially selected. Scroll horizontally to observe the selection column staying fixed on the left with an opaque background.",
+        story: [
+          "Enable `selectRows` to inject a checkbox column managed by TanStack Table's `rowSelection` state.",
+          "The header checkbox selects/deselects the entire current page and shows an indeterminate state when partially selected.",
+          "",
+          "Use `onSelectedRowsChange` to receive the array of selected row objects whenever the selection changes.",
+          "The callback fires synchronously via a `useEffect` scoped to `rowSelection` state, so it reflects",
+          "the current page's selection after every toggle.",
+          "",
+          "```tsx",
+          "const [selected, setSelected] = React.useState<Student[]>([])",
+          "",
+          "<DataTable",
+          "  data={students}",
+          "  columns={columns}",
+          "  selectRows",
+          "  onSelectedRowsChange={setSelected}",
+          "/>",
+          "```",
+        ].join("\n"),
       },
     },
   },
   args: { data: [], columns: [] },
-  render: () => (
-    <DataTable
-      data={STUDENTS_20}
-      columns={MANY_COLUMNS}
-      title="Row Selection"
-      subtitle="Scroll horizontally to see the selection column stay fixed on the left"
-      selectRows
-      height={400}
-    />
-  ),
+  render: () => {
+    const [selected, setSelected] = React.useState<Student[]>([])
+    return (
+      <div className="flex flex-col gap-4">
+        <DataTable
+          data={STUDENTS_20}
+          columns={MANY_COLUMNS}
+          title="Row Selection"
+          subtitle="Scroll horizontally to see the selection column stay fixed on the left"
+          selectRows
+          onSelectedRowsChange={(rows) => setSelected(rows as Student[])}
+          height={400}
+        />
+        <div className="min-h-10 rounded-lg border border-border bg-muted/30 px-4 py-2.5 text-sm">
+          {selected.length === 0 ? (
+            <span className="text-muted-foreground">
+              No rows selected — use the checkboxes above.
+            </span>
+          ) : (
+            <span>
+              <span className="font-semibold">{selected.length}</span>{" "}
+              {selected.length === 1 ? "student" : "students"} selected:{" "}
+              <span className="text-muted-foreground">
+                {selected
+                  .slice(0, 4)
+                  .map((s) => s.name)
+                  .join(", ")}
+                {selected.length > 4 && ` +${selected.length - 4} more`}
+              </span>
+            </span>
+          )}
+        </div>
+      </div>
+    )
+  },
+}
+
+export const BulkAction: Story = {
+  name: "Row Selection — Bulk Action",
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "A common pattern: combine `onSelectedRowsChange` with a conditionally rendered toolbar button.",
+          "The button only appears when at least one row is selected.",
+          "",
+          "```tsx",
+          "const [selected, setSelected] = React.useState<Student[]>([])",
+          "",
+          "<DataTable",
+          "  data={students}",
+          "  columns={columns}",
+          "  selectRows",
+          "  onSelectedRowsChange={setSelected}",
+          "  toolbar={",
+          "    selected.length > 0 ? (",
+          "      <Button size='sm' variant='destructive' onClick={handleDelete}>",
+          "        <Trash2 className='size-4' />",
+          "        Delete selected ({selected.length})",
+          "      </Button>",
+          "    ) : null",
+          "  }",
+          "/>",
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  args: { data: [], columns: [] },
+  render: () => {
+    const [rows, setRows] = React.useState<Student[]>(STUDENTS_20)
+    const [selected, setSelected] = React.useState<Student[]>([])
+    const [lastDeleted, setLastDeleted] = React.useState<number | null>(null)
+
+    function handleDelete() {
+      const ids = new Set(selected.map((s) => s.id))
+      setLastDeleted(ids.size)
+      setRows((prev) => prev.filter((s) => !ids.has(s.id)))
+      setSelected([])
+    }
+
+    return (
+      <div className="flex flex-col gap-4">
+        <DataTable
+          data={rows}
+          columns={SIMPLE_COLUMNS as unknown as ColumnDef<object>[]}
+          title="Students"
+          subtitle="Select rows to reveal the bulk-delete toolbar button"
+          selectRows
+          onSelectedRowsChange={(r) => setSelected(r as Student[])}
+          pagination
+          defaultPageSize={8}
+          height={380}
+          toolbar={
+            selected.length > 0 ? (
+              <button
+                onClick={handleDelete}
+                className="text-destructive-foreground inline-flex items-center gap-1.5 rounded-md bg-destructive px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-90"
+              >
+                <Trash2 className="size-3.5" />
+                Delete selected ({selected.length})
+              </button>
+            ) : null
+          }
+        />
+        {lastDeleted !== null && (
+          <p className="text-xs text-muted-foreground">
+            {lastDeleted} {lastDeleted === 1 ? "row" : "rows"} removed.{" "}
+            {rows.length} remaining.
+          </p>
+        )}
+      </div>
+    )
+  },
 }
 
 export const StickyColumns: Story = {
@@ -1119,6 +1346,26 @@ export const EmptyAfterSearch: Story = {
       noData: "No students match your search",
       noDataDescription: "Try searching by name, course, or enrollment ID.",
     },
+  },
+}
+
+export const EmptyStatePtBR: Story = {
+  name: "Empty State — pt-BR",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Empty state with `locale="pt-BR"` — the built-in message and description resolve automatically from `UI_I18N["pt-BR"]` without any `labels` override.',
+      },
+    },
+  },
+  args: {
+    data: [],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Sem resultados",
+    subtitle: "Tente ajustar os filtros ou volte mais tarde",
+    height: 340,
+    locale: "pt-BR",
   },
 }
 

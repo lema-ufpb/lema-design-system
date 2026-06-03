@@ -32,18 +32,26 @@ const meta = {
     format: {
       control: "select",
       options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
     },
     trend: {
       control: "select",
       options: ["up", "down", "neutral", true, false],
+      table: { defaultValue: { summary: "—" } },
     },
     decimals: { control: { type: "number", min: 0, max: 5 } },
     label: { control: "text" },
     value: { control: "number" },
     trendValue: { control: "text" },
     description: { control: "text" },
-    loading: { control: "boolean" },
-    empty: { control: "boolean" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     data: { table: { disable: true } },
     size: {
       control: "select",

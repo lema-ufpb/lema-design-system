@@ -124,12 +124,14 @@ export const HeaderSearch = React.forwardRef<HTMLDivElement, HeaderSearchProps>(
     return (
       <div
         ref={ref}
+        data-slot="header-search"
         className={cn(headerSearchVariants({ isExpanded, rounded }), className)}
         {...props}
       >
         <div className="flex w-full items-center">
           {!isExpanded ? (
             <Button
+              data-slot="header-search-toggle"
               variant="ghost"
               size="icon"
               className={cn(headerSearchButtonVariants({ rounded }))}
@@ -139,9 +141,13 @@ export const HeaderSearch = React.forwardRef<HTMLDivElement, HeaderSearchProps>(
               <Search className="size-5" />
             </Button>
           ) : (
-            <div className="relative flex w-full animate-in items-center duration-200 zoom-in-95 fade-in">
+            <div
+              data-slot="header-search-input-wrapper"
+              className="relative flex w-full animate-in items-center duration-200 zoom-in-95 fade-in"
+            >
               <Search className="absolute left-3 size-4 text-muted-foreground" />
               <Input
+                data-slot="header-search-input"
                 ref={inputRef}
                 value={searchValue}
                 onChange={handleInputChange}
@@ -153,6 +159,7 @@ export const HeaderSearch = React.forwardRef<HTMLDivElement, HeaderSearchProps>(
                 )}
               />
               <Button
+                data-slot="header-search-close"
                 variant="ghost"
                 size="icon"
                 className={cn(
