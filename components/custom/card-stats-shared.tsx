@@ -232,7 +232,7 @@ export function CardStatEmptySlot({
       <p
         className={cn(
           "text-xs font-medium",
-          inverted ? "text-white/60" : "text-muted-foreground/70"
+          inverted ? "text-white/80" : "text-muted-foreground"
         )}
       >
         {message}
@@ -241,7 +241,7 @@ export function CardStatEmptySlot({
         <p
           className={cn(
             "text-xs leading-tight",
-            inverted ? "text-white/40" : "text-muted-foreground/50"
+            inverted ? "text-white/60" : "text-muted-foreground"
           )}
         >
           {sub}

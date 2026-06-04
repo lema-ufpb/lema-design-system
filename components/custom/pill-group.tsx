@@ -127,7 +127,7 @@ export const pillGroupCountVariants = cva("font-normal tabular-nums", {
   variants: {
     active: {
       true: "opacity-60",
-      false: "text-muted-foreground/70",
+      false: "text-muted-foreground",
     },
   },
   defaultVariants: { active: false },
@@ -292,7 +292,6 @@ export const PillGroup = React.forwardRef<HTMLDivElement, PillGroupProps>(
           <div
             role={multiple ? "group" : "radiogroup"}
             aria-label={label ?? t.filterLabel}
-            aria-multiselectable={multiple || undefined}
             aria-disabled={disabled || undefined}
             className="flex items-center gap-0.5"
           >
