@@ -119,11 +119,16 @@ export interface DataTableProps<
   loading?: boolean
   showSearch?: boolean
   pagination?: boolean
+  manualPagination?: boolean
+  pageCount?: number
+  rowCount?: number
   defaultPageSize?: number
+  pageIndex?: number
   defaultGlobalFilter?: string
   pageSizeOptions?: number[]
   selectRows?: boolean
   stickyColumns?: number
+  onPageChange?: (pageIndex: number) => void
 
   // Toolbar
   toolbar?: React.ReactNode
@@ -703,11 +708,16 @@ export function DataTable<TData extends object>({
   rounded = true,
   showSearch = false,
   pagination = false,
+  manualPagination = false,
+  pageCount,
+  rowCount,
   defaultPageSize = 10,
   defaultGlobalFilter = "",
   pageSizeOptions,
   selectRows = false,
   stickyColumns = 0,
+  onPageChange,
+  pageIndex,
   toolbar,
   showDownload = false,
   onDownload,
@@ -773,7 +783,7 @@ export function DataTable<TData extends object>({
   const [globalFilter, setGlobalFilter] = React.useState(defaultGlobalFilter)
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({})
   const [pagination_, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
+    pageIndex: pageIndex ?? 0,
     pageSize: defaultPageSize,
   })
 
@@ -782,6 +792,13 @@ export function DataTable<TData extends object>({
     setGlobalFilter(value)
     setPagination((p) => ({ ...p, pageIndex: 0 }))
   }, [])
+
+  // Sync internal pagination when external pageIndex prop changes
+  React.useEffect(() => {
+    if (pageIndex !== undefined && pageIndex !== pagination_.pageIndex) {
+      setPagination((prev) => ({ ...prev, pageIndex }))
+    }
+  }, [pageIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Selection column ──
 
@@ -825,6 +842,33 @@ export function DataTable<TData extends object>({
 
   // ── useReactTable ──
 
+  const paginationConfig = React.useMemo(() => {
+    if (!pagination) return {}
+    if (manualPagination) {
+      return {
+        manualPagination: true,
+        // -1 = TanStack "unknown total, always allow next" — used while meta is loading
+        pageCount: pageCount ?? -1,
+        ...(rowCount != null && { rowCount }),
+        onPaginationChange: setPagination,
+      }
+    }
+    return {
+      onPaginationChange: setPagination,
+      getPaginationRowModel: getPaginationRowModel(),
+    }
+  }, [pagination, manualPagination, pageCount, rowCount])
+
+  // Notify parent of pagination changes after render (never during render)
+  const prevPageRef = React.useRef(pagination_.pageIndex)
+  React.useEffect(() => {
+    if (!manualPagination || !onPageChange || !pagination) return
+    if (prevPageRef.current !== pagination_.pageIndex) {
+      prevPageRef.current = pagination_.pageIndex
+      onPageChange(pagination_.pageIndex)
+    }
+  }, [manualPagination, onPageChange, pagination, pagination_.pageIndex])
+
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
@@ -838,14 +882,15 @@ export function DataTable<TData extends object>({
     onSortingChange: setSorting,
     onGlobalFilterChange: handleGlobalFilter,
     onRowSelectionChange: setRowSelection,
-    ...(pagination && { onPaginationChange: setPagination }),
+    ...paginationConfig,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    ...(pagination && { getPaginationRowModel: getPaginationRowModel() }),
+    ...(pagination &&
+      !manualPagination && { getPaginationRowModel: getPaginationRowModel() }),
     enableRowSelection: selectRows,
     globalFilterFn: "includesString",
-    autoResetPageIndex: true,
+    autoResetPageIndex: !manualPagination,
     columnResizeMode: "onChange",
     enableColumnResizing: true,
   })
@@ -1212,7 +1257,11 @@ export function DataTable<TData extends object>({
           <PaginationBar
             pageIndex={table.getState().pagination.pageIndex}
             pageCount={table.getPageCount()}
-            totalRows={table.getFilteredRowModel().rows.length}
+            totalRows={
+              manualPagination && rowCount != null
+                ? rowCount
+                : table.getFilteredRowModel().rows.length
+            }
             pageSize={table.getState().pagination.pageSize}
             pageSizeOptions={pageSizeOptions}
             canPrev={table.getCanPreviousPage()}
