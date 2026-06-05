@@ -94,7 +94,7 @@ export const pillGroupItemVariants = cva(
         active: true,
         intent: "default",
         className:
-          "bg-foreground text-background shadow-xs hover:bg-foreground/90 hover:text-background",
+          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
       },
       {
         active: true,
