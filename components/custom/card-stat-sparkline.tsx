@@ -7,8 +7,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   type CardStatTrend,
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
   resolveTrend,
   TrendBadge,
   cardStatLabelVariants,
@@ -139,7 +139,7 @@ function FlatSparklineSvg({
   )
 }
 
-export interface CardStatSparklineProps extends FmtProps {
+export interface CardStatSparklineProps extends FormatOptions {
   label: string
   value: string | number
   data?: number[]
@@ -242,7 +242,7 @@ export function CardStatSparkline({
     )
   }
 
-  const display = applyFmt(value, fmt)
+  const display = applyFormat(value, fmt)
   const trendDir = resolveTrend(trend)
 
   return (

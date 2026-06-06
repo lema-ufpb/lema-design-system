@@ -24,6 +24,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
+import { formatValue as fmtValue } from "@/lib/format-utils"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -166,23 +167,25 @@ function formatValue(
   const n = Number(val)
   switch (format) {
     case "percent":
-      return new Intl.NumberFormat(locale, {
-        style: "percent",
-        minimumFractionDigits: 2,
-        ...formatOptions,
-      }).format(n)
+      return fmtValue(n, "percent", {
+        decimals: formatOptions?.minimumFractionDigits ?? 2,
+        locale,
+      })
     case "currency":
     case "money":
-      return new Intl.NumberFormat(locale ?? "pt-BR", {
-        style: "currency",
-        currency: "BRL",
-        ...formatOptions,
-      }).format(n)
+      return fmtValue(n, "currency", {
+        currency: formatOptions?.currency ?? "BRL",
+        decimals:
+          formatOptions?.minimumFractionDigits ??
+          formatOptions?.maximumFractionDigits ??
+          2,
+        locale: locale ?? "pt-BR",
+      })
     case "number":
-      return new Intl.NumberFormat(locale, {
-        maximumFractionDigits: 2,
-        ...formatOptions,
-      }).format(n)
+      return fmtValue(n, "float", {
+        decimals: formatOptions?.maximumFractionDigits ?? 2,
+        locale,
+      })
     default:
       return String(val)
   }

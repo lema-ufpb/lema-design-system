@@ -10,10 +10,11 @@ import {
   Tooltip,
 } from "recharts"
 import { cva } from "class-variance-authority"
+import { Gauge } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Gauge } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -57,6 +58,10 @@ export interface RadialChartProps extends React.HTMLAttributes<HTMLDivElement> {
   endAngle?: number
   /** Format bar values in the tooltip and center label */
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
   locale?: UILocale
@@ -237,11 +242,11 @@ interface TooltipEntry {
 function ChartTooltip({
   active,
   payload,
-  valueFormatter,
+  fmt,
 }: {
   active?: boolean
   payload?: TooltipEntry[]
-  valueFormatter?: (value: number) => string
+  fmt: (v: number) => string
 }) {
   if (!active || !payload?.length) return null
 
@@ -263,7 +268,7 @@ function ChartTooltip({
             style={{ backgroundColor: color }}
           />
           <span className="ml-auto text-xs font-semibold text-foreground tabular-nums">
-            {valueFormatter ? valueFormatter(value) : value.toLocaleString()}
+            {fmt(value)}
           </span>
         </div>
       )}
@@ -358,12 +363,29 @@ export function RadialChart({
   startAngle = 90,
   endAngle = -270,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   loading = false,
   locale = "en-US",
   className,
   ...props
 }: RadialChartProps) {
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   const items = React.useMemo(() => normalizeItems(data), [data])
 
   const [hiddenItems, setHiddenItems] = React.useState<Set<string>>(new Set())
@@ -447,9 +469,7 @@ export function RadialChart({
   // Center label: show formatted value only for single-item charts
   const centerValue =
     innerLabel && visibleItems.length === 1
-      ? valueFormatter
-        ? valueFormatter(visibleItems[0].value)
-        : visibleItems[0].value.toLocaleString()
+      ? fmt(visibleItems[0].value)
       : undefined
 
   const isVerticalLegend =
@@ -496,10 +516,7 @@ export function RadialChart({
             )}
 
             {showTooltip && (
-              <Tooltip
-                cursor={false}
-                content={<ChartTooltip valueFormatter={valueFormatter} />}
-              />
+              <Tooltip cursor={false} content={<ChartTooltip fmt={fmt} />} />
             )}
 
             {showLegend && (

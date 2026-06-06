@@ -22,7 +22,7 @@
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
 
-Estende `FmtProps`.
+Estende \`FormatOptions\`.
 
 ---
 

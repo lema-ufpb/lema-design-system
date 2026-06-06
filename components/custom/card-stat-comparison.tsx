@@ -9,9 +9,10 @@ import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import {
   type CardStatTrend,
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
   TrendBadge,
+  formatValue,
   cardStatLabelVariants,
   cardStatValueVariants,
   cardStatDescriptionVariants,
@@ -19,7 +20,7 @@ import {
   cardStatContentGapVariants,
 } from "./card-stats-shared"
 
-export interface CardStatComparisonProps extends FmtProps {
+export interface CardStatComparisonProps extends FormatOptions {
   label: string
   current: number
   previous: number
@@ -158,12 +159,12 @@ export function CardStatComparison({
     )
   }
 
-  const f = (v: number) => applyFmt(v, { ...fmt, locale: fmtLocale })
+  const f = (v: number) => applyFormat(v, { ...fmt, locale: fmtLocale })
   const delta =
     previous !== 0 ? ((current - previous) / Math.abs(previous)) * 100 : 0
   const trendDir: CardStatTrend =
     delta > 0.05 ? "up" : delta < -0.05 ? "down" : "neutral"
-  const deltaLabel = `${delta > 0 ? "+" : ""}${delta.toFixed(1)}%`
+  const deltaLabel = `${delta > 0 ? "+" : ""}${formatValue(Math.abs(delta) / 100, "percent", { decimals: 1, locale: fmtLocale })}`
 
   return (
     <Card size="sm" className={className} data-slot="card-stat-comparison">

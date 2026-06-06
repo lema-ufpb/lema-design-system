@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { TrendingUp, Info } from "lucide-react"
 import { BarChart } from "@/components/custom/bar-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/BarChart",
@@ -151,7 +152,7 @@ const absencesByCourse = [
 ]
 
 const formatUSD = (v: number) =>
-  v >= 1000 ? `$${(v / 1000).toFixed(0)}k` : `$${v}`
+  formatValue(v, "currency", { currency: "USD", abbreviate: true, decimals: 0 })
 
 // ── Stories ────────────────────────────────────────────────────────────────
 
@@ -538,9 +539,12 @@ export const LocalePTBR: Story = {
     showTooltip: true,
     rounded: true,
     valueFormatter: (v) =>
-      v >= 1000
-        ? `R$${(v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 0 })}k`
-        : `R$${v.toLocaleString("pt-BR")}`,
+      formatValue(v, "currency", {
+        currency: "BRL",
+        abbreviate: true,
+        decimals: 0,
+        locale: "pt-BR",
+      }),
     locale: "pt-BR",
   },
 }

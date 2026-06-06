@@ -7,6 +7,7 @@ import type { HTMLAttributes } from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatValue } from "@/lib/format-utils"
 import { Progress } from "@/components/ui/progress"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -213,34 +214,22 @@ function formatScore(
         current:
           total === 0
             ? "—"
-            : new Intl.NumberFormat(locale, {
-                style: "percent",
-                maximumFractionDigits: decimals,
-              }).format(score / total),
+            : formatValue(score / total, "percent", { decimals, locale }),
         showFraction: false,
         rest: "",
       }
     case "raw":
       return {
-        current: new Intl.NumberFormat(locale, {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals,
-        }).format(score),
+        current: formatValue(score, "float", { decimals, locale }),
         showFraction: false,
         rest: "",
       }
     case "fraction":
     default:
       return {
-        current: new Intl.NumberFormat(locale, {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals,
-        }).format(score),
+        current: formatValue(score, "float", { decimals, locale }),
         showFraction: true,
-        rest: new Intl.NumberFormat(locale, {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        }).format(total),
+        rest: formatValue(total, "integer", { locale }),
       }
   }
 }
@@ -256,25 +245,13 @@ function formatScoreText(
     case "percent":
       return total === 0
         ? "—"
-        : new Intl.NumberFormat(locale, {
-            style: "percent",
-            maximumFractionDigits: decimals,
-          }).format(score / total)
+        : formatValue(score / total, "percent", { decimals, locale })
     case "raw":
-      return new Intl.NumberFormat(locale, {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      }).format(score)
+      return formatValue(score, "float", { decimals, locale })
     case "fraction":
     default: {
-      const s = new Intl.NumberFormat(locale, {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      }).format(score)
-      const t = new Intl.NumberFormat(locale, {
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      }).format(total)
+      const s = formatValue(score, "float", { decimals, locale })
+      const t = formatValue(total, "integer", { locale })
       return `${s} / ${t}`
     }
   }
@@ -286,10 +263,7 @@ function formatPercent(
   locale: UILocale,
   decimals: number
 ): string {
-  return new Intl.NumberFormat(locale, {
-    style: "percent",
-    maximumFractionDigits: decimals,
-  }).format(ratio)
+  return formatValue(ratio, "percent", { decimals, locale })
 }
 
 const PROGRESS_INDICATOR_COLOR: Record<ScoreRowStatus, string> = {

@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Award, TrendingUp, Users } from "lucide-react"
 import { RadialChart } from "@/components/custom/radial-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/RadialChart",
@@ -148,7 +149,7 @@ export const Default: Story = {
     maxValue: 100,
     showTrack: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -169,7 +170,7 @@ export const WithLegend: Story = {
     showTrack: true,
     showLegend: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -193,7 +194,7 @@ export const GaugeSingle: Story = {
     showTrack: true,
     showTooltip: true,
     height: 220,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -215,7 +216,7 @@ export const FullCircleWithLabel: Story = {
     showTrack: true,
     showTooltip: true,
     height: 280,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -237,7 +238,7 @@ export const MultiDepartment: Story = {
     showLegend: true,
     showTooltip: true,
     height: 360,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -259,7 +260,7 @@ export const CustomColors: Story = {
     showTrack: true,
     showLegend: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -279,7 +280,7 @@ export const NoTrack: Story = {
     maxValue: 100,
     showTrack: false,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -301,7 +302,7 @@ export const WithFooter: Story = {
     showLegend: true,
     showTooltip: true,
     height: 360,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
@@ -398,7 +399,7 @@ export const LocalePTBR: Story = {
     maxValue: 100,
     showTrack: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
     locale: "pt-BR",
   },
 }
@@ -447,7 +448,7 @@ export const Loading: Story = {
     maxValue: 100,
     showTrack: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
   render: (args) => <LoadingDemo {...args} />,
 }

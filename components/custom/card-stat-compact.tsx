@@ -9,15 +9,15 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   type CardStatTrend,
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
   resolveTrend,
   TrendBadge,
   cardStatDescriptionVariants,
 } from "./card-stats-shared"
 
 // ── Types ──
-export interface CardStatCompactProps extends FmtProps {
+export interface CardStatCompactProps extends FormatOptions {
   label: string
   value: string | number
   trend?: CardStatTrend | boolean
@@ -165,7 +165,7 @@ export function CardStatCompact({
     )
   }
 
-  const display = applyFmt(value, fmt)
+  const display = applyFormat(value, fmt)
   const trendDir = resolveTrend(trend)
 
   return (

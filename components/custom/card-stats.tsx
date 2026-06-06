@@ -1,5 +1,5 @@
 export type {
-  CardStatFormat,
+  FormatPreset,
   CardStatTrend,
   CardStatSize,
 } from "./card-stats-shared"

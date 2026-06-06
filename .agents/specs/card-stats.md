@@ -51,10 +51,10 @@ Definidos em `card-stats-shared.tsx`:
 
 | Tipo | Valores |
 |------|---------|
-| `CardStatFormat` | `"currency" \| "percent" \| "integer" \| "float"` |
+| `FormatPreset` | `"currency" \| "percent" \| "integer" \| "float"` |
 | `CardStatTrend` | `"up" \| "down" \| "neutral"` |
 | `CardStatSize` | `"sm" \| "md" \| "lg"` |
-| `FmtProps` | `{ format?, decimals?, locale?, currency?, valueFormatter? }` |
+| `FormatOptions` | `{ format?, decimals?, locale?, currency?, valueFormatter? }` |
 
 ---
 
@@ -78,8 +78,8 @@ Definidas em `card-stats-shared.tsx`:
 
 | Export | Descrição |
 |--------|-----------|
-| `formatValue(value, format?, opts?)` | Formata valor conforme `CardStatFormat` usando `Intl.NumberFormat` |
-| `applyFmt(value, opts)` | Aplica `valueFormatter` customizado ou `formatValue` |
+| `formatValue(value, format?, opts?)` | Formata valor conforme `FormatPreset` usando `Intl.NumberFormat` |
+| `applyFormat(value, opts)` | Aplica `valueFormatter` customizado ou `formatValue` |
 | `resolveTrend(trend)` | Resolve `boolean \| CardStatTrend` para `CardStatTrend \| false` |
 | `TREND_ICONS` | `{ up: TrendingUpIcon, down: TrendingDownIcon, neutral: MinusIcon }` |
 | `TREND_COLORS` | `{ up: "text-success", down: "text-destructive", neutral: "text-muted-foreground" }` |

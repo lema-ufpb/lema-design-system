@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BookOpen, GraduationCap, TrendingUp, Users } from "lucide-react"
 import { TreeMapChart } from "@/components/custom/treemap-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/TreeMapChart",
@@ -177,7 +178,7 @@ export const Default: Story = {
     data: budgetAllocation,
     showLabels: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -197,7 +198,7 @@ export const Hierarchical: Story = {
     showLabels: true,
     showTooltip: true,
     height: 420,
-    valueFormatter: (v) => v.toLocaleString("en-US"),
+    valueFormatter: (v) => formatValue(v, "integer"),
   },
 }
 
@@ -217,7 +218,7 @@ export const CustomColors: Story = {
     data: performanceByDept,
     showLabels: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -275,7 +276,7 @@ export const WideAspectRatio: Story = {
     aspectRatio: 2,
     showLabels: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
     height: 260,
   },
 }
@@ -296,7 +297,7 @@ export const WithFooter: Story = {
     showLabels: true,
     showTooltip: true,
     height: 380,
-    valueFormatter: (v) => v.toLocaleString("en-US"),
+    valueFormatter: (v) => formatValue(v, "integer"),
     footer: (
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center gap-4">
@@ -389,7 +390,7 @@ export const LocalePTBR: Story = {
     data: budgetAllocation,
     showLabels: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
     locale: "pt-BR",
   },
 }
@@ -437,7 +438,7 @@ export const Loading: Story = {
     data: budgetAllocation,
     showLabels: true,
     showTooltip: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
   render: (args) => <LoadingDemo {...args} />,
 }

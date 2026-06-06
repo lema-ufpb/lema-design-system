@@ -23,7 +23,7 @@ Indicador de progresso circular com SVG animado, centro numérico e título opci
 | data-slot | `progress-circular` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | Nenhum primitivo shadcn (SVG puro + CVA) |
+| Depende de | Nenhum primitivo shadcn (SVG puro + CVA). Formatação via `format-utils` |
 
 ---
 

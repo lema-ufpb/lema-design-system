@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { TrendingDown, TrendingUp } from "lucide-react"
 import { HeatmapChart } from "@/components/custom/heatmap-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/HeatmapChart",
@@ -290,7 +291,7 @@ export const AbsenceRate: Story = {
     palette: "red",
     showValues: true,
     showScale: true,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 
@@ -312,7 +313,7 @@ export const CorrelationMatrix: Story = {
     showScale: true,
     min: 0,
     max: 1,
-    valueFormatter: (v) => v.toFixed(2),
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 2 }),
     cellSize: 56,
   },
 }
@@ -333,7 +334,7 @@ export const EngagementByDayAndHour: Story = {
     palette: "green",
     showValues: false,
     showScale: true,
-    valueFormatter: (v) => `${v} logins`,
+    valueFormatter: (v) => formatValue(v, "integer") + " logins",
   },
 }
 
@@ -421,7 +422,7 @@ export const FlatCells: Story = {
     showValues: true,
     showScale: true,
     cellHeight: 48,
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
   },
 }
 

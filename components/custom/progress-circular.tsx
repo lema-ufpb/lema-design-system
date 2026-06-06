@@ -6,6 +6,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatValue } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -172,9 +173,9 @@ export const ProgressCircular = React.forwardRef<
       }
     }, [clamped])
 
-    const percentage = (clamped * 100).toLocaleString(locale, {
-      minimumFractionDigits: precision,
-      maximumFractionDigits: precision,
+    const percentage = formatValue(clamped, "percent", {
+      decimals: precision,
+      locale,
     })
 
     return (

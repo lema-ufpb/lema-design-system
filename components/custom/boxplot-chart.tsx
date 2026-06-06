@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { BarChart2 } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -44,6 +45,10 @@ export interface BoxPlotChartProps extends React.HTMLAttributes<HTMLDivElement> 
   notched?: boolean
   /** Format value-axis tick labels and tooltip values */
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
   locale?: UILocale
@@ -296,14 +301,16 @@ function BoxTooltip({
   item,
   left,
   top,
-  valueFormatter,
+  fmt,
+  locale = "en-US",
 }: {
   item: BoxPlotItem
   left: number
   top: number
-  valueFormatter?: (v: number) => string
+  fmt: (v: number) => string
+  locale?: UILocale
 }) {
-  const fmt = (v: number) => (valueFormatter ? valueFormatter(v) : String(v))
+  const t = UI_I18N[locale].boxplot
 
   return (
     <div
@@ -315,14 +322,14 @@ function BoxTooltip({
       </p>
       <div className="flex flex-col gap-0.5">
         {[
-          { label: "Max", value: item.max },
-          { label: "Q3", value: item.q3 },
-          { label: "Median", value: item.median },
+          { label: t.max, value: item.max },
+          { label: t.q3, value: item.q3 },
+          { label: t.median, value: item.median },
           ...(item.mean !== undefined
-            ? [{ label: "Mean", value: item.mean }]
+            ? [{ label: t.mean, value: item.mean }]
             : []),
-          { label: "Q1", value: item.q1 },
-          { label: "Min", value: item.min },
+          { label: t.q1, value: item.q1 },
+          { label: t.min, value: item.min },
         ].map(({ label, value }) => (
           <div key={label} className="flex items-center gap-2">
             <span className="w-12 text-xs text-muted-foreground">{label}</span>
@@ -676,6 +683,10 @@ export function BoxPlotChart({
   showOutliers = true,
   notched = false,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   loading = false,
   locale = "en-US",
   className,
@@ -696,6 +707,19 @@ export function BoxPlotChart({
     setWidth(el.clientWidth)
     return () => ro.disconnect()
   }, [])
+
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
 
   if (loading) {
     return (
@@ -755,7 +779,6 @@ export function BoxPlotChart({
   }
 
   const items = resolveColors(data)
-  const fmt = (v: number) => (valueFormatter ? valueFormatter(v) : String(v))
 
   // Compute domain
   const allValues = items.flatMap((d) => [
@@ -970,7 +993,8 @@ export function BoxPlotChart({
             item={tooltip.item}
             left={tooltip.left}
             top={tooltip.top}
-            valueFormatter={valueFormatter}
+            fmt={fmt}
+            locale={locale}
           />
         )}
       </div>

@@ -7,8 +7,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 import {
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
   cardStatLabelVariants,
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
@@ -22,7 +22,7 @@ export interface CardStatGaugeZone {
   max: number
 }
 
-export interface CardStatGaugeProps extends FmtProps {
+export interface CardStatGaugeProps extends FormatOptions {
   label: string
   value: number
   min?: number
@@ -247,7 +247,7 @@ export function CardStatGauge({
     )
   }
 
-  const display = applyFmt(value, fmt)
+  const display = applyFormat(value, fmt)
   const pct = Math.min(100, Math.max(0, ((value - min) / (max - min)) * 100))
   const activeZone = zones.find((z) => pct <= z.max) ?? zones[zones.length - 1]
 

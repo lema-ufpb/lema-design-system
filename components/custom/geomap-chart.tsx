@@ -12,6 +12,8 @@ import type { FeatureCollection } from "geojson"
 import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
+import { type UILocale } from "@/lib/ui-i18n"
 import {
   Tooltip,
   TooltipContent,
@@ -122,6 +124,11 @@ export interface GeoMapChartProps extends React.HTMLAttributes<HTMLDivElement> {
   ) => void
   onMarkerClick?: (marker: GeoMapMarker) => void
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
+  locale?: UILocale
   /** Show animated skeleton in place of the map while data loads */
   loading?: boolean
 }
@@ -327,10 +334,10 @@ interface TooltipState {
 
 function MapTooltip({
   state,
-  valueFormatter,
+  fmt,
 }: {
   state: TooltipState
-  valueFormatter?: (v: number) => string
+  fmt: (v: number) => string
 }) {
   if (!state.visible) return null
   return (
@@ -341,7 +348,7 @@ function MapTooltip({
       <p className="text-xs font-semibold text-foreground">{state.name}</p>
       {state.value !== undefined && (
         <p className="mt-0.5 text-xs text-muted-foreground">
-          {valueFormatter ? valueFormatter(state.value) : state.value}
+          {fmt(state.value)}
         </p>
       )}
     </div>
@@ -374,22 +381,19 @@ const overlayPositionClassesVertical: Record<
 
 function ColorLegend({
   colorRange,
-  valueRange,
-  valueFormatter,
+  valueRange: [min, max],
+  fmt,
   label,
   position = "bottom-right",
   orientation = "horizontal",
 }: {
   colorRange: [string, string]
   valueRange: [number, number]
-  valueFormatter?: (v: number) => string
+  fmt: (v: number) => string
   label?: string
   position?: LegendPosition
   orientation?: LegendOrientation
 }) {
-  const [min, max] = valueRange
-  const fmt = (v: number) => (valueFormatter ? valueFormatter(v) : String(v))
-
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
   const [hoverValue, setHoverValue] = React.useState<number | null>(null)
   const barRef = React.useRef<HTMLDivElement>(null)
@@ -507,11 +511,29 @@ export function GeoMapChart({
   onFeatureClick,
   onMarkerClick,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
+  locale = "en-US",
   loading = false,
   className,
   ...props
 }: GeoMapChartProps) {
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   const shouldShowLegend = showLegend !== false && !!colorRange
 
   const dataMap = React.useMemo(() => buildDataMap(data), [data])
@@ -734,7 +756,7 @@ export function GeoMapChart({
           <ColorLegend
             colorRange={colorRange!}
             valueRange={valueRange}
-            valueFormatter={valueFormatter}
+            fmt={fmt}
             label={legendLabel}
             position={legendPosition}
             orientation={legendOrientation}
@@ -746,16 +768,14 @@ export function GeoMapChart({
         <ColorLegend
           colorRange={colorRange!}
           valueRange={valueRange}
-          valueFormatter={valueFormatter}
+          fmt={fmt}
           label={legendLabel}
           position="bottom"
           orientation={legendOrientation}
         />
       )}
 
-      {showTooltip && (
-        <MapTooltip state={tooltip} valueFormatter={valueFormatter} />
-      )}
+      {showTooltip && <MapTooltip state={tooltip} fmt={fmt} />}
 
       {footer && (
         <div className={chartFooterVariants()} data-slot="geomap-chart-footer">

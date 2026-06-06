@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Grid3X3 } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -50,6 +51,10 @@ export interface HeatmapChartProps extends React.HTMLAttributes<HTMLDivElement> 
   gap?: number
   /** Format cell values in tooltips and inside cells */
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Override the computed min (floor of the color scale) */
   min?: number
   /** Override the computed max (ceiling of the color scale) */
@@ -245,6 +250,10 @@ export function HeatmapChart({
   cellHeight,
   gap = 3,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   min: minProp,
   max: maxProp,
   loading = false,
@@ -258,8 +267,16 @@ export function HeatmapChart({
   )
 
   const fmt = React.useCallback(
-    (v: number) => (valueFormatter ? valueFormatter(v) : String(v)),
-    [valueFormatter]
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
   )
 
   const lookup = React.useMemo(() => {

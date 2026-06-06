@@ -12,10 +12,11 @@ import {
   Tooltip,
 } from "recharts"
 import { cva } from "class-variance-authority"
+import { Target } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Target } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -63,6 +64,10 @@ export interface RadarChartProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
   locale?: UILocale
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
 }
 
 // ── Constants ──────────────────────────────────────────────────────────────
@@ -258,12 +263,12 @@ function ChartTooltip({
   active,
   payload,
   label,
-  valueFormatter,
+  fmt,
 }: {
   active?: boolean
   payload?: TooltipPayloadEntry[]
   label?: string
-  valueFormatter?: (value: number) => string
+  fmt: (v: number) => string
 }) {
   if (!active || !payload?.length) return null
 
@@ -279,7 +284,7 @@ function ChartTooltip({
             />
             <span className="text-xs text-muted-foreground">{entry.name}</span>
             <span className="ml-auto pl-6 text-xs font-semibold text-foreground tabular-nums">
-              {valueFormatter ? valueFormatter(entry.value) : entry.value}
+              {fmt(entry.value)}
             </span>
           </div>
         ))}
@@ -391,10 +396,27 @@ export function RadarChart({
   valueFormatter,
   loading = false,
   locale = "en-US",
+  format,
+  decimals,
+  currency,
+  abbreviate,
   className,
   ...props
 }: RadarChartProps) {
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   const [hiddenSeries, setHiddenSeries] = React.useState<Set<string>>(new Set())
   const toggleSeries = React.useCallback((name: string) => {
     setHiddenSeries((prev) => {
@@ -494,15 +516,11 @@ export function RadarChart({
               tick={{ fontSize: 10, fill: "var(--muted-foreground)" }}
               axisLine={false}
               tickLine={false}
-              tickFormatter={valueFormatter}
+              tickFormatter={fmt}
             />
           )}
 
-          {showTooltip && (
-            <Tooltip
-              content={<ChartTooltip valueFormatter={valueFormatter} />}
-            />
-          )}
+          {showTooltip && <Tooltip content={<ChartTooltip fmt={fmt} />} />}
 
           {showLegend && (
             <Legend

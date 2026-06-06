@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { AlertCircle, TrendingDown } from "lucide-react"
 import { BoxPlotChart } from "@/components/custom/boxplot-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/BoxPlotChart",
@@ -354,7 +355,7 @@ export const SemesterComparison: Story = {
     showMean: true,
     showOutliers: true,
     height: 320,
-    valueFormatter: (v) => `${v}h`,
+    valueFormatter: (v) => formatValue(v, "integer") + "h",
   },
 }
 
@@ -375,7 +376,7 @@ export const ApiResponseTime: Story = {
     showMean: true,
     showOutliers: true,
     height: 340,
-    valueFormatter: (v) => `${v}ms`,
+    valueFormatter: (v) => formatValue(v, "integer") + "ms",
     footer: (
       <span className="flex items-center gap-1.5">
         <AlertCircle className="size-3.5 text-amber-500" />

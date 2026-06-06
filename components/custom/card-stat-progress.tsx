@@ -8,8 +8,9 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 import {
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
+  formatValue,
   cardStatLabelVariants,
   cardStatValueVariants,
   cardStatDescriptionVariants,
@@ -29,7 +30,7 @@ export const cardStatTrackHVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-export interface CardStatProgressProps extends FmtProps {
+export interface CardStatProgressProps extends FormatOptions {
   label: string
   value: number
   goal: number
@@ -53,6 +54,7 @@ export function CardStatProgress({
   className,
   loading,
   empty,
+  locale: pctLocale,
   ...fmt
 }: CardStatProgressProps) {
   if (loading) {
@@ -141,8 +143,8 @@ export function CardStatProgress({
     )
   }
 
-  const displayValue = applyFmt(value, fmt)
-  const displayGoal = applyFmt(goal, fmt)
+  const displayValue = applyFormat(value, { locale: pctLocale, ...fmt })
+  const displayGoal = applyFormat(goal, { locale: pctLocale, ...fmt })
   const pct = Math.min(100, Math.round((value / goal) * 100))
 
   const pctColor =
@@ -217,7 +219,10 @@ export function CardStatProgress({
                 pctColor
               )}
             >
-              {pct}%
+              {formatValue(pct / 100, "percent", {
+                decimals: 0,
+                locale: pctLocale,
+              })}
             </p>
           )}
         </div>

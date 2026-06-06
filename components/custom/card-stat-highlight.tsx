@@ -9,8 +9,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   type CardStatTrend,
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
   resolveTrend,
   TREND_ICONS,
   CardStatEmptySlot,
@@ -101,7 +101,7 @@ export const cardStatHighlightVariants = cva(
 )
 
 export interface CardStatHighlightProps
-  extends FmtProps, VariantProps<typeof cardStatHighlightVariants> {
+  extends FormatOptions, VariantProps<typeof cardStatHighlightVariants> {
   label: string
   value: string | number
   description?: string
@@ -218,7 +218,7 @@ export function CardStatHighlight({
     )
   }
 
-  const display = applyFmt(value, fmt)
+  const display = applyFormat(value, fmt)
   const trendDir = resolveTrend(trend)
   const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
 

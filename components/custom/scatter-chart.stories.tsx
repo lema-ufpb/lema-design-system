@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { AlertCircle, TrendingUp, Users } from "lucide-react"
 import { ScatterChart } from "@/components/custom/scatter-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/ScatterChart",
@@ -297,8 +298,8 @@ export const AttendanceVsApproval: Story = {
     showGrid: true,
     showTooltip: true,
     showTrendLine: true,
-    xFormatter: (v) => `${v}%`,
-    yFormatter: (v) => `${v}%`,
+    xFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
+    yFormatter: (v) => formatValue(v, "float", { decimals: 0 }) + "%",
     height: 320,
   },
 }

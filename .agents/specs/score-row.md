@@ -16,7 +16,7 @@ Linha de item pontuada com ícone, label, score e barra de progresso opcional. P
 | data-slot | `score-row` / `score-row-list` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Progress` (ui), `Skeleton`, `Tooltip`, `TooltipContent`, `TooltipProvider`, `TooltipTrigger`, `lucide-react`, `class-variance-authority`, `ui-i18n` |
+| Depende de | `Progress` (ui), `Skeleton`, `Tooltip`, `TooltipContent`, `TooltipProvider`, `TooltipTrigger`, `lucide-react`, `class-variance-authority`, `ui-i18n`, `format-utils` |
 
 ---
 
@@ -113,7 +113,7 @@ Todas com `defaultVariants` declarados.
 | **Auto status** | `status="auto"` deriva cor do ratio: ≥70% success, ≥40% warning, <40% destructive |
 | **Score display** | `fraction`: "42 / 95" · `percent`: "71,6%" (locale-aware, respeita `percentDecimals`) · `raw`: "42" |
 | **Progress bar** | `showProgress=true` renderiza barra fina colorida na base + tooltip com percentual localizado |
-| **Percent decimals** | `percentDecimals` controla casas decimais em todo percentual (score display, tooltip, aria-label). Usa `Intl.NumberFormat` com o locale ativo |
+| **Percent decimals** | `percentDecimals` controla casas decimais em todo percentual (score display, tooltip, aria-label). Usa `formatValue` de `@/lib/format-utils` com o locale ativo |
 | **Loading** | `loading=true` renderiza `Skeleton` em todos os slots mantendo a estrutura visual |
 | **Clickable** | `onClick` presente transforma a linha em `<button>` com `hover:bg-accent` e `focus-visible:ring` |
 | **ScoreRowList** | Container com `rounded-xl border-border` (a menos que `inset=true`), remove borda do último filho |

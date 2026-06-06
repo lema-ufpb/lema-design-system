@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Award, TrendingUp } from "lucide-react"
 import { RadarChart } from "@/components/custom/radar-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/RadarChart",
@@ -159,6 +160,7 @@ export const Default: Story = {
     categoryKey: "subject",
     filled: true,
     showTooltip: true,
+    valueFormatter: (v) => formatValue(v, "integer"),
   },
 }
 
@@ -340,6 +342,7 @@ export const WithFooter: Story = {
     categoryKey: "subject",
     filled: true,
     showTooltip: true,
+    valueFormatter: (v) => formatValue(v, "integer"),
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">

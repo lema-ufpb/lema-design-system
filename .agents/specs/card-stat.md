@@ -24,7 +24,7 @@
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `empty` | `boolean` | `false` | | Estado vazio |
 
-Estende `FmtProps` (`format`, `decimals`, `locale`, `currency`, `valueFormatter`).
+Estende \`FormatOptions\` (\`format\`, \`decimals\`, \`locale\`, \`currency\`, \`valueFormatter\`).
 
 ---
 

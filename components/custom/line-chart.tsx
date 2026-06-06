@@ -14,10 +14,11 @@ import {
   YAxis,
 } from "recharts"
 import { cva } from "class-variance-authority"
+import { TrendingUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
-import { TrendingUp } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -79,6 +80,10 @@ export interface LineChartProps extends React.HTMLAttributes<HTMLDivElement> {
    * accordingly when enabling.
    */
   showBrush?: boolean
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
   locale?: UILocale
@@ -294,12 +299,12 @@ function ChartTooltip({
   active,
   payload,
   label,
-  valueFormatter,
+  fmt,
 }: {
   active?: boolean
   payload?: TooltipPayloadEntry[]
   label?: string
-  valueFormatter?: (value: number) => string
+  fmt: (v: number) => string
 }) {
   if (!active || !payload?.length) return null
 
@@ -329,7 +334,7 @@ function ChartTooltip({
                 {entry.name}
               </span>
               <span className="ml-auto pl-4 text-xs font-semibold text-foreground tabular-nums">
-                {valueFormatter ? valueFormatter(entry.value) : entry.value}
+                {fmt(entry.value)}
               </span>
             </div>
           )
@@ -523,6 +528,10 @@ export function LineChart({
   connectNulls = false,
   referenceLines,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   showBrush = false,
   loading = false,
   locale = "en-US",
@@ -532,6 +541,19 @@ export function LineChart({
   ...props
 }: LineChartProps) {
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   // useId produces strings like ":r0:" — strip non-alphanumeric for safe SVG IDs
   const uid = React.useId().replace(/[^a-zA-Z0-9]/g, "")
   const [hiddenSeries, setHiddenSeries] = React.useState<Set<string>>(new Set())
@@ -682,7 +704,7 @@ export function LineChart({
             tick={axisStyle}
             axisLine={false}
             tickLine={false}
-            tickFormatter={valueFormatter}
+            tickFormatter={fmt}
             width={yAxisWidth}
             label={
               yAxisLabel
@@ -699,7 +721,7 @@ export function LineChart({
 
           {showTooltip && (
             <Tooltip
-              content={<ChartTooltip valueFormatter={valueFormatter} />}
+              content={<ChartTooltip fmt={fmt} />}
               cursor={{
                 stroke: "var(--border)",
                 strokeWidth: 1,

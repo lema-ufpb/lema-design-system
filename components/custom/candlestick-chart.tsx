@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { CandlestickChart as CandlestickIcon } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -75,6 +76,10 @@ export interface CandlestickChartProps extends React.HTMLAttributes<HTMLDivEleme
   showBrush?: boolean
   /** Format price values (Y axis ticks + tooltip) */
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Format date strings (X axis ticks + tooltip header) */
   dateFormatter?: (date: string) => string
   /** Show animated skeleton in place of the chart while data loads */
@@ -274,28 +279,24 @@ const chartFooterVariants = cva(
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
-function defaultValueFmt(v: number): string {
-  return v.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })
-}
-
-function defaultDateFmt(date: string): string {
+function defaultDateFmt(date: string, locale = "en-US"): string {
   try {
     const d = new Date(date)
     if (isNaN(d.getTime())) return date
-    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+    return d.toLocaleDateString(locale, {
+      month: "short",
+      day: "numeric",
+    })
   } catch {
     return date
   }
 }
 
-function fullDateFmt(date: string): string {
+function fullDateFmt(date: string, locale = "en-US"): string {
   try {
     const d = new Date(date)
     if (isNaN(d.getTime())) return date
-    return d.toLocaleDateString("en-US", {
+    return d.toLocaleDateString(locale, {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -502,7 +503,7 @@ function CandleTooltip({
       {/* Header: date + change badge */}
       <div className="mb-2 flex items-center justify-between gap-3">
         <p className="text-xs font-semibold text-foreground">
-          {fullDateFmt(candle.date)}
+          {fullDateFmt(candle.date, locale)}
         </p>
         <span
           className="rounded px-1.5 py-0.5 text-[10px] font-semibold tabular-nums"
@@ -569,7 +570,7 @@ function CandleTooltip({
             {UI_I18N[locale].candlestick.volume}
           </span>
           <span className="text-xs text-foreground tabular-nums">
-            {candle.volume.toLocaleString("en-US")}
+            {formatChartValue(candle.volume, { locale })}
           </span>
         </div>
       )}
@@ -812,6 +813,10 @@ export function CandlestickChart({
   showTooltip = true,
   showBrush = false,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   dateFormatter,
   loading = false,
   locale = "en-US",
@@ -819,8 +824,22 @@ export function CandlestickChart({
   ...props
 }: CandlestickChartProps) {
   // Hooks must be called unconditionally before any early returns
-  const valueFmt = valueFormatter ?? defaultValueFmt
-  const dateFmt = dateFormatter ?? defaultDateFmt
+  const valueFmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+  const dateFmt = React.useCallback(
+    (d: string) => dateFormatter?.(d) ?? defaultDateFmt(d, locale),
+    [dateFormatter, locale]
+  )
 
   const resolvedMAs = React.useMemo(
     () => normalizeMA(movingAverages ?? []),
