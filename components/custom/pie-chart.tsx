@@ -15,6 +15,11 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import {
+  formatChartValue,
+  formatValue,
+  type FormatPreset,
+} from "@/lib/format-utils"
 import { PieChart as PieChartIcon } from "lucide-react"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -48,8 +53,12 @@ export interface PieChartProps extends React.HTMLAttributes<HTMLDivElement> {
   paddingAngle?: number
   /** Format slice values in the tooltip, legend, and donut center */
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Locale used for default number and percentage formatting */
-  locale?: string
+  locale?: UILocale
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
 }
@@ -265,8 +274,7 @@ interface CenterLabelProps {
   value: number
   label: string
   percent: string | null
-  valueFormatter?: (v: number) => string
-  locale?: string
+  fmt: (v: number) => string
 }
 
 function CenterLabel({
@@ -274,15 +282,12 @@ function CenterLabel({
   value,
   label,
   percent,
-  valueFormatter,
-  locale = "en-US",
+  fmt,
 }: CenterLabelProps) {
   const { cx, cy } = (viewBox ?? {}) as { cx?: number; cy?: number }
   if (cx == null || cy == null) return <g />
 
-  const display = valueFormatter
-    ? valueFormatter(value)
-    : value.toLocaleString(locale)
+  const display = fmt(value)
   const hasPercent = percent !== null
 
   return (
@@ -336,27 +341,22 @@ function ChartTooltip({
   active,
   payload,
   total,
-  valueFormatter,
+  fmt,
   locale = "en-US",
 }: {
   active?: boolean
   payload?: TooltipPayloadEntry[]
   total: number
-  valueFormatter?: (v: number) => string
-  locale?: string
+  fmt: (v: number) => string
+  locale?: UILocale
 }) {
   if (!active || !payload?.length) return null
   const entry = payload[0]
 
-  const pct = new Intl.NumberFormat(locale, {
-    style: "percent",
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
-  }).format(entry.value / total)
-
-  const display = valueFormatter
-    ? valueFormatter(entry.value)
-    : entry.value.toLocaleString(locale)
+  const pct = formatValue(entry.value / total, "percent", {
+    decimals: 1,
+    locale,
+  })
 
   return (
     <div className="min-w-36 rounded-lg border border-border bg-card px-3 py-2 shadow-md">
@@ -371,7 +371,7 @@ function ChartTooltip({
       </div>
       <div className="mt-1.5 flex items-baseline justify-between gap-4">
         <span className="text-xs text-muted-foreground tabular-nums">
-          {display}
+          {fmt(entry.value)}
         </span>
         <span className="text-xs font-semibold text-foreground tabular-nums">
           {pct}
@@ -394,7 +394,7 @@ function ChartLegend({
   total,
   hiddenLabels,
   onToggle,
-  valueFormatter,
+  fmt,
   position = "bottom",
   locale = "en-US",
 }: {
@@ -402,9 +402,9 @@ function ChartLegend({
   total: number
   hiddenLabels: Set<string>
   onToggle: (label: string) => void
-  valueFormatter?: (v: number) => string
+  fmt: (v: number) => string
   position?: LegendPosition
-  locale?: string
+  locale?: UILocale
 }) {
   return (
     <div
@@ -416,15 +416,12 @@ function ChartLegend({
     >
       {items.map((item) => {
         const hidden = hiddenLabels.has(item.label)
-        const pct = new Intl.NumberFormat(locale, {
-          style: "percent",
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 1,
-        }).format(item.value / total)
+        const pct = formatValue(item.value / total, "percent", {
+          decimals: 1,
+          locale,
+        })
 
-        const display = valueFormatter
-          ? valueFormatter(item.value)
-          : item.value.toLocaleString(locale)
+        const display = fmt(item.value)
 
         return (
           <div
@@ -478,6 +475,10 @@ export function PieChart({
   innerLabel,
   paddingAngle = 0,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   loading = false,
   locale = "en-US",
   className,
@@ -488,6 +489,19 @@ export function PieChart({
     UI_I18N[locale as UILocale]?.pieChart?.total ??
     UI_I18N["en-US"].pieChart.total
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   const [activeLabel, setActiveLabel] = React.useState<string | null>(null)
   const [hiddenLabels, setHiddenLabels] = React.useState<Set<string>>(new Set())
 
@@ -537,11 +551,10 @@ export function PieChart({
   const centerValue = centerItem?.value ?? visibleTotal
   const centerLabel = centerItem?.label ?? i18nInnerLabel
   const centerPercent = centerItem
-    ? new Intl.NumberFormat(locale, {
-        style: "percent",
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1,
-      }).format(centerItem.value / visibleTotal)
+    ? formatValue(centerItem.value / visibleTotal, "percent", {
+        decimals: 1,
+        locale,
+      })
     : null
 
   const renderCenterLabel = React.useCallback(
@@ -551,11 +564,10 @@ export function PieChart({
         value={centerValue}
         label={centerLabel}
         percent={centerPercent}
-        valueFormatter={valueFormatter}
-        locale={locale}
+        fmt={fmt}
       />
     ),
-    [centerValue, centerLabel, centerPercent, valueFormatter, locale]
+    [centerValue, centerLabel, centerPercent, fmt]
   )
 
   if (loading) {
@@ -634,11 +646,7 @@ export function PieChart({
           {showTooltip && (
             <Tooltip
               content={
-                <ChartTooltip
-                  total={visibleTotal}
-                  valueFormatter={valueFormatter}
-                  locale={locale}
-                />
+                <ChartTooltip total={visibleTotal} fmt={fmt} locale={locale} />
               }
             />
           )}
@@ -652,7 +660,7 @@ export function PieChart({
                   total={total}
                   hiddenLabels={hiddenLabels}
                   onToggle={toggleLabel}
-                  valueFormatter={valueFormatter}
+                  fmt={fmt}
                   position={legendPosition}
                   locale={locale}
                 />
@@ -680,11 +688,10 @@ export function PieChart({
               showLabels
                 ? ({ percent }: { percent?: number }) =>
                     (percent ?? 0) > 0.04
-                      ? new Intl.NumberFormat(locale, {
-                          style: "percent",
-                          minimumFractionDigits: 0,
-                          maximumFractionDigits: 0,
-                        }).format(percent ?? 0)
+                      ? formatValue(percent ?? 0, "percent", {
+                          decimals: 0,
+                          locale,
+                        })
                       : ""
                 : false
             }

@@ -18,6 +18,22 @@
       ]
     },
     {
+      "name": "format-utils",
+      "type": "registry:lib",
+      "title": "Format Utils",
+      "description": "Shared formatting utilities including locale-aware number formatting via Intl.NumberFormat, value abbreviation (tri/bi/mi/mil, T/B/M/K), and format wrapper functions used by card-stats and chart components.",
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "lib/format-utils.ts",
+          "type": "registry:lib",
+          "target": "lib/format-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "accordion",
       "type": "registry:ui",
       "title": "Accordion",
@@ -1070,7 +1086,8 @@
         "progress",
         "tooltip",
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1153,7 +1170,8 @@
       "title": "Progress Circular",
       "description": "Displays progress as a circular gauge with an animated stroke and centered value.",
       "registryDependencies": [
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1170,7 +1188,8 @@
       "description": "A segmented progress bar with a movable marker. Uses semantic tokens (--risk-1 to --risk-4) for flexible theming.",
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1193,7 +1212,8 @@
         "progress",
         "skeleton",
         "tooltip",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1272,7 +1292,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1290,7 +1311,8 @@
       "dependencies": [],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1311,7 +1333,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1331,7 +1354,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "tooltip"
+        "tooltip",
+        "format-utils"
       ],
       "files": [
         {
@@ -1351,7 +1375,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1372,7 +1397,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1393,7 +1419,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1414,7 +1441,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1435,7 +1463,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1456,7 +1485,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1477,7 +1507,8 @@
       ],
       "registryDependencies": [
         "skeleton",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {
@@ -1718,7 +1749,8 @@
         "button",
         "skeleton",
         "pagination",
-        "ui-i18n"
+        "ui-i18n",
+        "format-utils"
       ],
       "files": [
         {

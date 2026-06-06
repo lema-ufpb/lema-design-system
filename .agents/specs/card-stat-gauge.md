@@ -23,7 +23,7 @@
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
 
-Estende `FmtProps`.
+Estende \`FormatOptions\`.
 
 `CardStatGaugeZone`: `{ label: string, color: string, max: number }`
 

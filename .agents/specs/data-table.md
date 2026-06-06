@@ -15,7 +15,7 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | Arquivo | `components/custom/data-table.tsx` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Button`, `Skeleton`, `Pagination` (custom), `SearchBar` (custom), `@tanstack/react-table`, `@tanstack/react-virtual`, `lucide-react` |
+| Depende de | `Button`, `Skeleton`, `Pagination` (custom), `SearchBar` (custom), `@tanstack/react-table`, `@tanstack/react-virtual`, `lucide-react`, `format-utils` |
 
 ---
 
@@ -186,7 +186,7 @@ Usa `SIZE_PRESETS`:
 - [x] Todo `cva()` tem `defaultVariants` declarado — N/A (usa SIZE_PRESETS)
 - [x] Todos os `*Variants` são exportados — N/A
 - [x] Loading usa `<Skeleton>` com dimensões corretas (DataTableSkeleton)
-- [x] `tabular-nums` em todos os valores numéricos — N/A (formatado via Intl)
+- [x] `tabular-nums` em todos os valores numéricos — N/A (formatado via `format-utils`)
 - [x] `truncate` em todos os labels de texto variável
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais

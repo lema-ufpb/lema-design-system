@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { AlertCircle, TrendingDown, TrendingUp } from "lucide-react"
 import { CandlestickChart } from "@/components/custom/candlestick-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/CandlestickChart",
@@ -605,9 +606,11 @@ export const CryptoVolatility: Story = {
     showTooltip: true,
     height: 360,
     valueFormatter: (v) =>
-      v >= 1000
-        ? `$${v.toLocaleString("en-US", { maximumFractionDigits: 0 })}`
-        : `$${v.toFixed(2)}`,
+      formatValue(v, "currency", {
+        currency: "USD",
+        abbreviate: true,
+        decimals: 0,
+      }),
   },
 }
 

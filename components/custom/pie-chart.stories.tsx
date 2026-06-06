@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BookOpen, GraduationCap, Users } from "lucide-react"
 import { PieChart } from "@/components/custom/pie-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/PieChart",
@@ -132,8 +133,8 @@ const completionRate = [
   { label: "Dropped", value: 8, color: "var(--destructive)" },
 ]
 
-const formatStudents = (v: number) => v.toLocaleString("en-US")
-const formatPct = (v: number) => `${v}%`
+const formatStudents = (v: number) => formatValue(v, "integer")
+const formatPct = (v: number) => formatValue(v, "float", { decimals: 0 }) + "%"
 
 // ── Stories ────────────────────────────────────────────────────────────────
 

@@ -7,8 +7,8 @@ import { TrendingUpIcon, TrendingDownIcon, MinusIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
-  type CardStatFormat,
-  applyFmt,
+  type FormatPreset,
+  applyFormat,
 } from "@/components/custom/card-stats-shared"
 
 // ── Types ──
@@ -17,7 +17,7 @@ export type MiniCardSize = "sm" | "md" | "lg"
 export type MiniCardIntent = "default" | "success" | "warning" | "destructive"
 export type MiniCardGroupVariant = "ghost" | "pill" | "outlined" | "elevated"
 export type MiniCardDelta = "up" | "down" | "neutral"
-export type { CardStatFormat as MiniCardFormat }
+export type { FormatPreset as MiniCardFormat }
 
 export interface MiniCardProps {
   /** Uppercase label rendered above the value */
@@ -40,7 +40,7 @@ export interface MiniCardProps {
   /** Size variant — inherits from the nearest MiniCardGroup when omitted */
   size?: MiniCardSize
   /** Number format: "currency" | "percent" | "integer" | "float" */
-  format?: CardStatFormat
+  format?: FormatPreset
   /** Locale for number formatting — inherits from MiniCardGroup when omitted */
   locale?: string
   /** Currency code for format="currency", e.g. "BRL", "USD" */
@@ -287,7 +287,7 @@ export function MiniCard({
     )
   }
 
-  const displayValue = applyFmt(value, {
+  const displayValue = applyFormat(value, {
     format,
     locale,
     currency,

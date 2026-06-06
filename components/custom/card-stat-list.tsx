@@ -9,8 +9,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   type CardStatTrend,
   type CardStatSize,
-  type FmtProps,
-  applyFmt,
+  type FormatOptions,
+  applyFormat,
   resolveTrend,
   TREND_ICONS,
   CardStatEmptySlot,
@@ -64,7 +64,7 @@ export const cardStatListBadgeIconVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-export interface CardStatListItem extends FmtProps {
+export interface CardStatListItem extends FormatOptions {
   label: string
   value: string | number
   trend?: CardStatTrend | boolean
@@ -174,7 +174,7 @@ export function CardStatList({
       <CardContent className="p-0">
         <ul>
           {items.map((item, i) => {
-            const display = applyFmt(item.value, item)
+            const display = applyFormat(item.value, item)
             const trendDir = resolveTrend(item.trend)
             const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
             const trendCls =

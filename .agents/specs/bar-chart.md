@@ -23,7 +23,7 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 | data-slot | `bar-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn/ui), `recharts` (Bar, BarChart, Brush, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (BarChart2), `class-variance-authority` |
+| Depende de | `Skeleton` (shadcn/ui), `recharts` (Bar, BarChart, Brush, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (BarChart2), `class-variance-authority`, `format-utils` |
 
 ---
 
@@ -46,7 +46,11 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 | `stacked` | `boolean` | `false` | | Empilha todas as barras |
 | `barSize` | `number` | — | | Largura fixa da barra em px |
 | `rounded` | `boolean` | `true` | | Arredonda a borda superior das barras |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores dos ticks e tooltip |
+| `valueFormatter` | `(value: number) => string` | — | | Formata valores dos ticks e tooltip (fallback se `format` não suprir) |
+| `format` | `FormatPreset` | — | | Preset de formatação (`"currency"`, `"percent"`, `"integer"`, `"float"`) |
+| `decimals` | `number` | — | | Casas decimais (quando `format="float"`) |
+| `currency` | `string` | `"USD"` | | Código da moeda (quando `format="currency"`) |
+| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware (ex: 1.5k, 2,3 mi) |
 | `showBrush` | `boolean` | `false` | | Exibe brush para scroll/zoom (vertical apenas) |
 | `loading` | `boolean` | `false` | | Estado de carregamento com skeleton |
 | `locale` | `UILocale` | `"en-US"` | | Locale para i18n |

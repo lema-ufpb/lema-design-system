@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { MapPin, TrendingUp } from "lucide-react"
 import { GeoMapChart } from "@/components/custom/geomap-chart"
+import { formatValue } from "@/lib/format-utils"
 
 // ── GeoJSON files are served from /public/geojson/ ────────────────────────
 //
@@ -187,7 +188,8 @@ export const Choropleth: Story = {
       { id: "BOL", name: "Bolivia", value: 18600 },
     ],
     showTooltip: true,
-    valueFormatter: (v) => `${(v / 1000).toFixed(1)}k students`,
+    valueFormatter: (v) =>
+      formatValue(v, "integer", { abbreviate: true }) + " students",
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
@@ -238,7 +240,7 @@ export const WithLegend: Story = {
       { id: "GO", name: "Goias", value: 18600 },
     ],
     showTooltip: true,
-    valueFormatter: (v) => `${(v / 1000).toFixed(1)}k`,
+    valueFormatter: (v) => formatValue(v, "integer", { abbreviate: true }),
   },
 }
 
@@ -295,7 +297,8 @@ export const BrazilStates: Story = {
       { id: "RR", name: "Roraima", value: 1200 },
     ],
     showTooltip: true,
-    valueFormatter: (v) => `${(v / 1000).toFixed(1)}k students`,
+    valueFormatter: (v) =>
+      formatValue(v, "integer", { abbreviate: true }) + " students",
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
@@ -364,7 +367,7 @@ export const WithMarkers: Story = {
       },
     ],
     showTooltip: true,
-    valueFormatter: (v) => `${v.toLocaleString("en-US")} students`,
+    valueFormatter: (v) => formatValue(v, "integer") + " students",
     footer: (
       <span className="flex items-center gap-1.5">
         <MapPin className="size-3.5 text-chart-1" />
@@ -401,7 +404,8 @@ export const WithHighlight: Story = {
     selectedFeatureIds: ["SP", "MG", "RJ"],
     selectedStroke: "var(--primary)",
     showTooltip: true,
-    valueFormatter: (v) => `${(v / 1000).toFixed(1)}k students`,
+    valueFormatter: (v) =>
+      formatValue(v, "integer", { abbreviate: true }) + " students",
   },
 }
 
@@ -431,7 +435,12 @@ export const UsaStates: Story = {
     colorRange: ["#fef3c7", "#b45309"],
     defaultFill: "var(--muted)",
     showTooltip: true,
-    valueFormatter: (v) => `$${v}k / year`,
+    valueFormatter: (v) =>
+      formatValue(v * 1000, "currency", {
+        currency: "USD",
+        abbreviate: true,
+        decimals: 0,
+      }) + " / year",
     data: [
       { id: "01", name: "Alabama", value: 58 },
       { id: "02", name: "Alaska", value: 85 },
@@ -576,6 +585,6 @@ export const ZoomPan: Story = {
       { id: "GO", name: "Goias", value: 18600 },
     ],
     showTooltip: true,
-    valueFormatter: (v) => `${(v / 1000).toFixed(1)}k`,
+    valueFormatter: (v) => formatValue(v, "integer", { abbreviate: true }),
   },
 }

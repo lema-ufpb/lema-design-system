@@ -32,7 +32,7 @@
 | `intent` | `MiniCardIntent` | `"default"` | |
 | `delta` | `string \| MiniCardDelta` | — | |
 | `size` | `MiniCardSize` | inherits from context | |
-| `format` | `CardStatFormat` | — | |
+| `format` | `FormatPreset` | — | |
 | `locale` | `string` | inherits from context | |
 | `currency` | `string` | — | |
 | `decimals` | `number` | — | |
@@ -186,7 +186,7 @@
 | Container | `<div data-slot="mini-card">` | Flex row com `gap-1.5`, `items-center`, `min-w-0` |
 | Icon | `<Icon>` | CVA `miniCardIconVariants`, `aria-hidden` |
 | Label | `<span>` | CVA `miniCardLabelVariants`, uppercase via Tailwind `uppercase` |
-| Value | `<span>` | CVA `miniCardValueVariants`, formatado via `applyFmt` |
+| Value | `<span>` | CVA `miniCardValueVariants`, formatado via `applyFormat` |
 | Sub | `<span>` | CVA `miniCardSubVariants` |
 | Delta | `<span>` | `text-xs font-medium tabular-nums` + delta color |
 

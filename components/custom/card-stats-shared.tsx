@@ -5,9 +5,10 @@ import { TrendingUpIcon, TrendingDownIcon, MinusIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 
-// ── Shared types ─────────────────────────────────────────────────────────────
+// Re-export shared formatting utilities from lib
+export type { FormatPreset, FormatOptions } from "@/lib/format-utils"
+export { formatValue, formatChartValue, applyFormat } from "@/lib/format-utils"
 
-export type CardStatFormat = "currency" | "percent" | "integer" | "float"
 export type CardStatTrend = "up" | "down" | "neutral"
 export type CardStatSize = "sm" | "md" | "lg"
 
@@ -90,46 +91,6 @@ export const cardStatBadgeTextVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
-// ── Shared helpers ────────────────────────────────────────────────────────────
-
-export function formatValue(
-  value: string | number,
-  format?: CardStatFormat,
-  opts?: { decimals?: number; locale?: string; currency?: string }
-): string {
-  if (!format || typeof value === "string") return String(value)
-  const num = Number(value)
-  const locale = opts?.locale ?? "en-US"
-  const currency = opts?.currency ?? "USD"
-  const decimals = opts?.decimals
-  switch (format) {
-    case "currency":
-      return new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency,
-        minimumFractionDigits: decimals ?? 2,
-        maximumFractionDigits: decimals ?? 2,
-      }).format(num)
-    case "percent":
-      return (
-        new Intl.NumberFormat(locale, {
-          minimumFractionDigits: decimals ?? 1,
-          maximumFractionDigits: decimals ?? 1,
-        }).format(num) + "%"
-      )
-    case "integer":
-      return new Intl.NumberFormat(locale, {
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      }).format(num)
-    case "float":
-      return new Intl.NumberFormat(locale, {
-        minimumFractionDigits: decimals ?? 2,
-        maximumFractionDigits: decimals ?? 2,
-      }).format(num)
-  }
-}
-
 export const TREND_ICONS: Record<CardStatTrend, React.ElementType> = {
   up: TrendingUpIcon,
   down: TrendingDownIcon,
@@ -148,24 +109,6 @@ export function resolveTrend(
   if (trend === true) return "up"
   if (!trend) return false
   return trend
-}
-
-export interface FmtProps {
-  format?: CardStatFormat
-  decimals?: number
-  locale?: string
-  currency?: string
-  valueFormatter?: (value: number | string) => string
-}
-
-export function applyFmt(value: number | string, opts: FmtProps): string {
-  return opts.valueFormatter
-    ? opts.valueFormatter(value)
-    : formatValue(value, opts.format, {
-        decimals: opts.decimals,
-        locale: opts.locale,
-        currency: opts.currency,
-      })
 }
 
 // ── TrendBadge ────────────────────────────────────────────────────────────────

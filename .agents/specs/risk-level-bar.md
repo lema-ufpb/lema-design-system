@@ -23,7 +23,7 @@ Barra de risco segmentada com marcador de valor atual, tooltip flutuante e segme
 | data-slot | `risk-level-bar` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn) |
+| Depende de | `Skeleton` (shadcn), `format-utils` |
 
 ---
 
@@ -145,7 +145,7 @@ interface RiskSegment {
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
 - [x] Loading usa `<Skeleton>` com dimensões corretas
-- [x] `tabular-nums` em todos os valores numéricos — N/A (percentual formatado via `toLocaleString`)
+- [x] `tabular-nums` em todos os valores numéricos — N/A (percentual formatado via `formatValue` de `@/lib/format-utils`)
 - [x] `truncate` em todos os labels de texto variável — N/A (labels são props fixas)
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais

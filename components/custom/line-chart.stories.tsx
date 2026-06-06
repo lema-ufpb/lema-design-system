@@ -2,6 +2,7 @@ import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { AlertCircle, TrendingDown, TrendingUp } from "lucide-react"
 import { LineChart } from "@/components/custom/line-chart"
+import { formatValue } from "@/lib/format-utils"
 
 const meta = {
   title: "Data Display/LineChart",
@@ -345,7 +346,7 @@ export const WithReferenceLines: Story = {
         dashed: false,
       },
     ],
-    valueFormatter: (v) => `${v}ms`,
+    valueFormatter: (v) => formatValue(v, "integer") + "ms",
     height: 320,
   },
 }
@@ -379,7 +380,12 @@ export const DashedForecast: Story = {
     showGrid: true,
     showLegend: true,
     showTooltip: true,
-    valueFormatter: (v) => `$${(v / 1000).toFixed(0)}k`,
+    valueFormatter: (v) =>
+      formatValue(v, "currency", {
+        currency: "USD",
+        abbreviate: true,
+        decimals: 0,
+      }),
     height: 300,
   },
 }
@@ -708,7 +714,7 @@ export const NegativeTrend: Story = {
     referenceLines: [
       { value: 5, label: "Target", color: "var(--chart-2)", dashed: true },
     ],
-    valueFormatter: (v) => `${v}%`,
+    valueFormatter: (v) => formatValue(v, "float", { decimals: 1 }) + "%",
     footer: (
       <span className="flex items-center gap-1.5">
         <TrendingDown className="size-3.5 text-emerald-500" />

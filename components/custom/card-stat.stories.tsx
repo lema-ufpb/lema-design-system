@@ -23,6 +23,7 @@ const meta = {
           '| `format` | `"currency" \\| "percent" \\| "integer" \\| "float"` | Numeric formatting preset |',
           "| `decimals` | `number` | Number of fraction digits for numeric formats |",
           '| `locale` | `string` | BCP 47 locale string (default: `"en-US"`) |',
+          "| `abbreviate` | `boolean` | Abbreviate large numbers — e.g. `1.5M`, `R$ 2,3 bi`, `850K` (locale-aware) |",
           '| `currency` | `string` | ISO 4217 currency code when `format="currency"` (default: `"USD"`) |',
           "| `description` | `string` | Secondary description rendered below the value |",
           '| `trend` | `"up" \\| "down" \\| "neutral" \\| boolean` | Trend direction — `true` is shorthand for `"up"` |',
@@ -49,6 +50,10 @@ const meta = {
     decimals: { control: { type: "number", min: 0, max: 5 } },
     locale: { control: "text" },
     currency: { control: "text" },
+    abbreviate: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     label: { control: "text" },
     value: { control: "number" },
     description: { control: "text" },
@@ -274,6 +279,122 @@ export const ValueClassName: Story = {
         description="no change this week"
         icon={UsersIcon}
         size="sm"
+      />
+    </div>
+  ),
+}
+
+export const Abbreviated: Story = {
+  args: { label: "Revenue", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Set `abbreviate` to shorten large numbers with locale-aware suffixes.",
+          "English uses T/B/M/K; Portuguese uses tri/bi/mi/mil.",
+          "",
+          "```tsx",
+          '<CardStat label="Market Cap" value={1570000000} format="currency" abbreviate locale="en-US" currency="USD" />',
+          '<CardStat label="Valor de Mercado" value={1570000000} format="currency" abbreviate locale="pt-BR" currency="BRL" />',
+          "```",
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <CardStat
+        label="Market Cap"
+        value={1570000000}
+        format="currency"
+        abbreviate
+        locale="en-US"
+        currency="USD"
+        icon={DollarSignIcon}
+        description="+12.4% this quarter"
+        trend="up"
+      />
+      <CardStat
+        label="Valor de Mercado"
+        value={1570000000}
+        format="currency"
+        abbreviate
+        locale="pt-BR"
+        currency="BRL"
+        icon={DollarSignIcon}
+        description="+12,4% neste trimestre"
+        trend="up"
+      />
+      <CardStat
+        label="Total Users"
+        value={2847500}
+        format="integer"
+        abbreviate
+        locale="en-US"
+        icon={UsersIcon}
+        description="+843K new this month"
+        trend="up"
+      />
+      <CardStat
+        label="Usuários Totais"
+        value={2847500}
+        format="integer"
+        abbreviate
+        locale="pt-BR"
+        icon={UsersIcon}
+        description="+843 mil novos este mês"
+        trend="up"
+      />
+    </div>
+  ),
+}
+
+export const AbbreviatedCompact: Story = {
+  args: { label: "Label", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Dense grid demonstrating abbreviation across different orders of magnitude — thousands, millions, billions, trillions.",
+          'All cards use `locale="en-US"` with `abbreviate` and format-specific formatting.',
+        ].join("\n"),
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <CardStat
+        label="Total Revenue"
+        value={45231890}
+        format="currency"
+        abbreviate
+        description="+12.3% vs last year"
+        trend="up"
+      />
+      <CardStat
+        label="Quarterly Profit"
+        value={2100000000}
+        format="currency"
+        abbreviate
+        description="+8.7% vs last quarter"
+        trend="up"
+      />
+      <CardStat
+        label="Page Views"
+        value={8750000000}
+        format="float"
+        decimals={2}
+        abbreviate
+        description="7.2B organic"
+        trend="up"
+      />
+      <CardStat
+        label="National Debt"
+        value={35700000000000}
+        format="currency"
+        abbreviate
+        description="+2.1% this year"
+        trend="up"
       />
     </div>
   ),

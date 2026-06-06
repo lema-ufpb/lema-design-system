@@ -6,6 +6,7 @@ import { cva } from "class-variance-authority"
 import { ChevronRight, Home, Layers } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -39,6 +40,10 @@ export interface TreeMapChartProps extends React.HTMLAttributes<HTMLDivElement> 
   showTooltip?: boolean
   /** Format the numeric value displayed in labels and tooltip */
   valueFormatter?: (value: number) => string
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
   locale?: UILocale
@@ -166,11 +171,11 @@ interface TooltipEntry {
 function ChartTooltip({
   active,
   payload,
-  valueFormatter,
+  fmt,
 }: {
   active?: boolean
   payload?: TooltipEntry[]
-  valueFormatter?: (value: number) => string
+  fmt: (v: number) => string
 }) {
   if (!active || !payload?.length) return null
 
@@ -189,7 +194,7 @@ function ChartTooltip({
             style={{ backgroundColor: color }}
           />
           <span className="ml-auto text-xs font-semibold text-foreground tabular-nums">
-            {valueFormatter ? valueFormatter(value) : value.toLocaleString()}
+            {fmt(value)}
           </span>
         </div>
       )}
@@ -237,7 +242,8 @@ interface CellDataProps {
 
 interface CellBehaviorProps {
   showLabels: boolean
-  valueFormatter?: (v: number) => string
+  fmt: (v: number) => string
+  locale: string
   onNodeClick?: (name: string, children: EnrichedItem[]) => void
 }
 
@@ -254,13 +260,12 @@ function CustomizedContent(props: CellDataProps & CellBehaviorProps) {
     _hasChildren = false,
     _children,
     showLabels,
-    valueFormatter,
+    fmt,
+    locale,
     onNodeClick,
   } = props
 
-  const formatted = valueFormatter
-    ? valueFormatter(value)
-    : value.toLocaleString()
+  const formatted = fmt(value)
   const canLabel = showLabels && width > 64 && height > 44
   const nameFontSize = Math.max(Math.min(width / 11, 13), 10)
   const valueFontSize = Math.max(Math.min(width / 14, 11), 9)
@@ -318,7 +323,8 @@ function CustomizedContent(props: CellDataProps & CellBehaviorProps) {
                 className="mt-1 rounded-full bg-white/20 px-1.5 py-0.5 text-white/80 [text-shadow:none]"
                 style={{ fontSize: "8px", lineHeight: "1.2" }}
               >
-                click to explore
+                {UI_I18N[locale as UILocale]?.treemap?.explore ??
+                  "click to explore"}
               </span>
             )}
           </div>
@@ -340,12 +346,29 @@ export function TreeMapChart({
   showLabels = true,
   showTooltip = true,
   valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   loading = false,
   locale = "en-US",
   className,
   ...props
 }: TreeMapChartProps) {
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   const enrichedData = React.useMemo(() => enrichData(data), [data])
 
   const [drillStack, setDrillStack] = React.useState<
@@ -496,17 +519,14 @@ export function TreeMapChart({
             (
               <CustomizedContent
                 showLabels={showLabels}
-                valueFormatter={valueFormatter}
+                fmt={fmt}
+                locale={locale}
                 onNodeClick={handleNodeClick}
               />
             ) as unknown as React.ReactElement
           }
         >
-          {showTooltip && (
-            <Tooltip
-              content={<ChartTooltip valueFormatter={valueFormatter} />}
-            />
-          )}
+          {showTooltip && <Tooltip content={<ChartTooltip fmt={fmt} />} />}
         </Treemap>
       </ResponsiveContainer>
 

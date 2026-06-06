@@ -6,6 +6,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatValue } from "@/lib/format-utils"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -215,10 +216,9 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
     const clampedValue = Math.max(0, Math.min(1, Number(value) || 0))
     const markerPosition = `${clampedValue * 100}%`
 
-    const percentageLabel = clampedValue.toLocaleString(locale, {
-      style: "percent",
-      minimumFractionDigits: 1,
-      maximumFractionDigits: 1,
+    const percentageLabel = formatValue(clampedValue, "percent", {
+      decimals: 1,
+      locale,
     })
 
     const currentSegment = segments.find(

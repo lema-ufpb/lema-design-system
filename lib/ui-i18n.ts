@@ -35,7 +35,15 @@ export const UI_I18N: Record<
     }
     dashbox: { toolbar: Record<string, string>; status: Record<string, string> }
     dashrow: { resizePanels: string }
-    treemap: { breadcrumb: string }
+    treemap: { breadcrumb: string; explore: string }
+    boxplot: {
+      max: string
+      q3: string
+      median: string
+      mean: string
+      q1: string
+      min: string
+    }
     scatterChart: { rangeStart: string; rangeEnd: string }
     candlestick: {
       open: string
@@ -132,7 +140,15 @@ export const UI_I18N: Record<
       },
     },
     dashrow: { resizePanels: "Resize panels" },
-    treemap: { breadcrumb: "Treemap breadcrumb" },
+    treemap: { breadcrumb: "Treemap breadcrumb", explore: "click to explore" },
+    boxplot: {
+      max: "Max",
+      q3: "Q3",
+      median: "Median",
+      mean: "Mean",
+      q1: "Q1",
+      min: "Min",
+    },
     scatterChart: { rangeStart: "Range start", rangeEnd: "Range end" },
     candlestick: {
       open: "Open",
@@ -235,7 +251,18 @@ export const UI_I18N: Record<
       },
     },
     dashrow: { resizePanels: "Redimensionar painéis" },
-    treemap: { breadcrumb: "Navegação do Treemap" },
+    treemap: {
+      breadcrumb: "Navegação do Treemap",
+      explore: "clique para explorar",
+    },
+    boxplot: {
+      max: "Máx",
+      q3: "Q3",
+      median: "Mediana",
+      mean: "Média",
+      q1: "Q1",
+      min: "Mín",
+    },
     scatterChart: {
       rangeStart: "Início do intervalo",
       rangeEnd: "Fim do intervalo",
@@ -342,7 +369,18 @@ export const UI_I18N: Record<
       },
     },
     dashrow: { resizePanels: "Redimensionar paneles" },
-    treemap: { breadcrumb: "Navegación del Treemap" },
+    treemap: {
+      breadcrumb: "Navegación del Treemap",
+      explore: "clic para explorar",
+    },
+    boxplot: {
+      max: "Máx",
+      q3: "Q3",
+      median: "Mediana",
+      mean: "Media",
+      q1: "Q1",
+      min: "Mín",
+    },
     scatterChart: { rangeStart: "Inicio del rango", rangeEnd: "Fin del rango" },
     candlestick: {
       open: "Apertura",
@@ -448,7 +486,18 @@ export const UI_I18N: Record<
       },
     },
     dashrow: { resizePanels: "Redimensionner les panneaux" },
-    treemap: { breadcrumb: "Navigation Treemap" },
+    treemap: {
+      breadcrumb: "Navigation Treemap",
+      explore: "cliquez pour explorer",
+    },
+    boxplot: {
+      max: "Max",
+      q3: "Q3",
+      median: "Médiane",
+      mean: "Moyenne",
+      q1: "Q1",
+      min: "Min",
+    },
     scatterChart: {
       rangeStart: "Début de la plage",
       rangeEnd: "Fin de la plage",
@@ -498,4 +547,33 @@ export const UI_I18N: Record<
     pageLoader: { loading: "Chargement…" },
     pillGroup: { filterLabel: "Filtrer par" },
   },
+}
+
+export type AbbrevScale = { threshold: number; divisor: number; suffix: string }
+
+export const ABBREV_SCALES: Record<UILocale, AbbrevScale[]> = {
+  "pt-BR": [
+    { threshold: 1e12, divisor: 1e12, suffix: " tri" },
+    { threshold: 1e9, divisor: 1e9, suffix: " bi" },
+    { threshold: 1e6, divisor: 1e6, suffix: " mi" },
+    { threshold: 1e3, divisor: 1e3, suffix: " mil" },
+  ],
+  "en-US": [
+    { threshold: 1e12, divisor: 1e12, suffix: "T" },
+    { threshold: 1e9, divisor: 1e9, suffix: "B" },
+    { threshold: 1e6, divisor: 1e6, suffix: "M" },
+    { threshold: 1e3, divisor: 1e3, suffix: "K" },
+  ],
+  "es-ES": [
+    { threshold: 1e12, divisor: 1e12, suffix: " B" },
+    { threshold: 1e9, divisor: 1e9, suffix: " M" },
+    { threshold: 1e6, divisor: 1e6, suffix: " M" },
+    { threshold: 1e3, divisor: 1e3, suffix: " K" },
+  ],
+  "fr-FR": [
+    { threshold: 1e12, divisor: 1e12, suffix: " T" },
+    { threshold: 1e9, divisor: 1e9, suffix: " Md" },
+    { threshold: 1e6, divisor: 1e6, suffix: " M" },
+    { threshold: 1e3, divisor: 1e3, suffix: " k" },
+  ],
 }

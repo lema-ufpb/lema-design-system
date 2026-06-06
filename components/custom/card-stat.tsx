@@ -6,10 +6,10 @@ import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
 import {
-  type CardStatFormat,
+  type FormatPreset,
   type CardStatTrend,
   type CardStatSize,
-  applyFmt,
+  applyFormat,
   resolveTrend,
   TREND_ICONS,
   TREND_COLORS,
@@ -25,10 +25,11 @@ import {
 export interface CardStatProps {
   label: string
   value: string | number
-  format?: CardStatFormat
+  format?: FormatPreset
   decimals?: number
   locale?: string
   currency?: string
+  abbreviate?: boolean
   description?: string
   trend?: CardStatTrend | boolean
   icon?: React.ElementType
@@ -54,6 +55,7 @@ export function CardStat({
   decimals,
   locale,
   currency,
+  abbreviate,
   description,
   trend = false,
   icon: Icon,
@@ -140,11 +142,12 @@ export function CardStat({
     )
   }
 
-  const displayValue = applyFmt(value, {
+  const displayValue = applyFormat(value, {
     format,
     decimals,
     locale,
     currency,
+    abbreviate,
     valueFormatter,
   })
 

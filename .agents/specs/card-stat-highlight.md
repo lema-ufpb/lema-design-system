@@ -23,7 +23,7 @@
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
 
-Estende `FmtProps` + `VariantProps<typeof cardStatHighlightVariants>`.
+Estende \`FormatOptions\` + \`VariantProps<typeof cardStatHighlightVariants>\`.
 
 ---
 

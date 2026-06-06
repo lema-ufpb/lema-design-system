@@ -13,10 +13,11 @@ import {
   ZAxis,
 } from "recharts"
 import { cva } from "class-variance-authority"
+import { Crosshair } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Crosshair } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -69,6 +70,8 @@ export interface ScatterChartProps extends React.HTMLAttributes<HTMLDivElement> 
   yLabel?: string
   xFormatter?: (value: number) => string
   yFormatter?: (value: number) => string
+  /** Unified value formatter (applies to all axes & tooltip). */
+  valueFormatter?: (value: number) => string
   /**
    * Point size range for the z dimension `[min, max]`.
    * Ignored when no data point has a `z` value.
@@ -81,6 +84,10 @@ export interface ScatterChartProps extends React.HTMLAttributes<HTMLDivElement> 
    * to pan the entire window.
    */
   showBrush?: boolean
+  format?: FormatPreset
+  decimals?: number
+  currency?: string
+  abbreviate?: boolean
   /** Show animated skeleton in place of the chart while data loads */
   loading?: boolean
   locale?: UILocale
@@ -297,6 +304,7 @@ function ChartTooltip({
   yLabel,
   xFormatter,
   yFormatter,
+  fmt,
 }: {
   active?: boolean
   payload?: TooltipEntry[]
@@ -305,6 +313,7 @@ function ChartTooltip({
   yLabel?: string
   xFormatter?: (v: number) => string
   yFormatter?: (v: number) => string
+  fmt: (v: number) => string
 }) {
   if (!active || !payload?.length) return null
 
@@ -321,11 +330,11 @@ function ChartTooltip({
   const yEntry = payload[1]
   const zEntry = payload[2]
 
-  const fmt = (entry: TooltipEntry, formatter?: (v: number) => string) =>
+  const display = (entry: TooltipEntry, formatter?: (v: number) => string) =>
     entry.value !== undefined
       ? formatter
         ? formatter(entry.value)
-        : entry.value.toLocaleString()
+        : fmt(entry.value)
       : "—"
 
   return (
@@ -346,7 +355,7 @@ function ChartTooltip({
               {xLabel ?? xEntry.name ?? "X"}
             </span>
             <span className="text-xs font-semibold text-foreground tabular-nums">
-              {fmt(xEntry, xFormatter)}
+              {display(xEntry, xFormatter)}
             </span>
           </div>
         )}
@@ -356,7 +365,7 @@ function ChartTooltip({
               {yLabel ?? yEntry.name ?? "Y"}
             </span>
             <span className="text-xs font-semibold text-foreground tabular-nums">
-              {fmt(yEntry, yFormatter)}
+              {display(yEntry, yFormatter)}
             </span>
           </div>
         )}
@@ -366,7 +375,7 @@ function ChartTooltip({
               {zEntry.name ?? "Size"}
             </span>
             <span className="text-xs font-semibold text-foreground tabular-nums">
-              {fmt(zEntry)}
+              {display(zEntry)}
             </span>
           </div>
         )}
@@ -491,6 +500,7 @@ interface ContinuousBrushProps {
   high: number
   onChange: (low: number, high: number) => void
   formatter?: (v: number) => string
+  fmt: (v: number) => string
   locale?: UILocale
 }
 
@@ -501,6 +511,7 @@ function ContinuousBrush({
   high,
   onChange,
   formatter,
+  fmt,
   locale = "en-US",
 }: ContinuousBrushProps) {
   const trackRef = React.useRef<HTMLDivElement>(null)
@@ -568,10 +579,7 @@ function ContinuousBrush({
     [min, max, low, high, range, onChange, valueAt]
   )
 
-  const fmt = (v: number) =>
-    formatter
-      ? formatter(v)
-      : v.toLocaleString(undefined, { maximumFractionDigits: 1 })
+  const display = (v: number) => (formatter ? formatter(v) : fmt(v))
 
   return (
     <div className="mt-2 px-2 pb-1 select-none">
@@ -622,8 +630,8 @@ function ContinuousBrush({
 
       {/* Value labels under handles */}
       <div className="mt-0.5 flex justify-between text-[10px] text-muted-foreground">
-        <span>{fmt(low)}</span>
-        <span>{fmt(high)}</span>
+        <span>{display(low)}</span>
+        <span>{display(high)}</span>
       </div>
     </div>
   )
@@ -646,6 +654,11 @@ export function ScatterChart({
   yLabel,
   xFormatter,
   yFormatter,
+  valueFormatter,
+  format,
+  decimals,
+  currency,
+  abbreviate,
   bubbleRange = [40, 400],
   showBrush = false,
   loading = false,
@@ -654,6 +667,19 @@ export function ScatterChart({
   ...props
 }: ScatterChartProps) {
   // Hooks must be called unconditionally before any early returns
+  const fmt = React.useCallback(
+    (v: number) =>
+      formatChartValue(v, {
+        format,
+        decimals,
+        locale,
+        currency,
+        abbreviate,
+        valueFormatter,
+      }),
+    [valueFormatter, format, decimals, locale, currency, abbreviate]
+  )
+
   const colored = React.useMemo(() => assignColors(series), [series])
 
   const [hiddenSeries, setHiddenSeries] = React.useState<Set<string>>(new Set())
@@ -830,7 +856,7 @@ export function ScatterChart({
             tick={axisStyle}
             tickLine={false}
             axisLine={{ stroke: "var(--border)" }}
-            tickFormatter={xFormatter}
+            tickFormatter={(v: number) => (xFormatter ? xFormatter(v) : fmt(v))}
             label={
               xLabel
                 ? {
@@ -850,7 +876,7 @@ export function ScatterChart({
             tick={axisStyle}
             tickLine={false}
             axisLine={{ stroke: "var(--border)" }}
-            tickFormatter={yFormatter}
+            tickFormatter={(v: number) => (yFormatter ? yFormatter(v) : fmt(v))}
             width={yAxisWidth}
             label={
               yLabel
@@ -876,6 +902,7 @@ export function ScatterChart({
                   yLabel={yLabel}
                   xFormatter={xFormatter}
                   yFormatter={yFormatter}
+                  fmt={fmt}
                 />
               }
             />
@@ -941,6 +968,7 @@ export function ScatterChart({
           high={brushX[1]}
           onChange={(lo, hi) => setBrushX([lo, hi])}
           formatter={xFormatter}
+          fmt={fmt}
           locale={locale}
         />
       )}
