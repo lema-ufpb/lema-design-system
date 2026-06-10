@@ -1148,6 +1148,24 @@
       ]
     },
     {
+      "name": "card-icon",
+      "type": "registry:ui",
+      "title": "Card Icon",
+      "description": "Feature / navigation card with a tinted icon medallion, title and description. Icon colour and background derive from a single semantic tone token. Supports soft/solid/outline media styles, three sizes, centred or left alignment, badge, link mode with hover lift, and a loading skeleton.",
+      "registryDependencies": [
+        "card",
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/custom/card-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-icon.tsx"
+        }
+      ]
+    },
+    {
       "name": "progress-bar",
       "type": "registry:ui",
       "title": "Progress Bar",
