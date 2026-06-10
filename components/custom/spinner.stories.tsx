@@ -88,7 +88,7 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: "Carregando indicadores…",
+    label: "Loading indicators…",
     tone: "primary",
   },
   parameters: {
@@ -184,7 +184,7 @@ export const LargeWithLabel: Story = {
     <div className="flex flex-col items-center gap-3">
       <Spinner size="3xl" tone="primary" />
       <span className="text-sm text-muted-foreground">
-        Processando dados da Agenda 2030…
+        Processing 2030 Agenda data…
       </span>
     </div>
   ),

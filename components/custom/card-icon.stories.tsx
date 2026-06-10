@@ -70,9 +70,9 @@ const meta = {
   },
   args: {
     icon: CompassIcon,
-    title: "Visão geral dos ODS",
+    title: "ODS overview",
     description:
-      "Seu ponto de partida para os principais indicadores de desempenho da Agenda 2030.",
+      "Your starting point for the main performance indicators of the 2030 Agenda.",
     tone: "warning",
     mediaStyle: "soft",
     size: "md",
@@ -99,38 +99,38 @@ export const Tones: Story = {
       <CardIcon
         icon={LeafIcon}
         tone="success"
-        title="Sustentabilidade"
-        description="Indicadores ambientais e metas de redução de impacto."
+        title="Sustainability"
+        description="Environmental indicators and impact reduction targets."
       />
       <CardIcon
         icon={TargetIcon}
         tone="warning"
-        title="Metas em risco"
-        description="Objetivos que precisam de atenção no ciclo atual."
+        title="Goals at risk"
+        description="Targets requiring attention in the current cycle."
       />
       <CardIcon
         icon={ShieldCheckIcon}
         tone="destructive"
-        title="Conformidade"
-        description="Requisitos críticos pendentes de verificação."
+        title="Compliance"
+        description="Critical requirements pending verification."
       />
       <CardIcon
         icon={BarChart3Icon}
         tone="primary"
-        title="Desempenho"
-        description="Evolução consolidada dos principais indicadores."
+        title="Performance"
+        description="Consolidated evolution of key indicators."
       />
       <CardIcon
         icon={GlobeIcon}
         tone="sky"
-        title="Cobertura territorial"
-        description="Distribuição dos dados por município e região."
+        title="Territorial coverage"
+        description="Data distribution by municipality and region."
       />
       <CardIcon
         icon={HeartHandshakeIcon}
         tone="violet"
-        title="Parcerias"
-        description="Articulações institucionais ativas no programa."
+        title="Partnerships"
+        description="Active institutional liaisons within the program."
       />
     </div>
   ),
@@ -144,21 +144,21 @@ export const MediaStyles: Story = {
         tone="primary"
         mediaStyle="soft"
         title="Soft"
-        description="Token tingido a 10%."
+        description="Tinted token at 10%."
       />
       <CardIcon
         icon={ZapIcon}
         tone="primary"
         mediaStyle="solid"
         title="Solid"
-        description="Preenchimento sólido com foreground."
+        description="Solid fill with foreground."
       />
       <CardIcon
         icon={ZapIcon}
         tone="primary"
         mediaStyle="outline"
         title="Outline"
-        description="Contorno na cor do token."
+        description="Outline in the token colour."
       />
     </div>
   ),
@@ -172,21 +172,21 @@ export const Sizes: Story = {
         tone="sky"
         size="sm"
         title="Small"
-        description="Escala compacta para grids densos."
+        description="Compact scale for dense grids."
       />
       <CardIcon
         icon={CompassIcon}
         tone="sky"
         size="md"
         title="Medium"
-        description="Tamanho padrão para a maioria dos casos."
+        description="Standard size for most use cases."
       />
       <CardIcon
         icon={CompassIcon}
         tone="sky"
         size="lg"
         title="Large"
-        description="Destaque em seções de abertura."
+        description="Highlight in opening sections."
       />
     </div>
   ),
@@ -198,8 +198,8 @@ export const AlignStart: Story = {
     titleUpper: false,
     tone: "primary",
     icon: BarChart3Icon,
-    title: "Relatórios analíticos",
-    description: "Exporte e compartilhe painéis com a equipe.",
+    title: "Analytical reports",
+    description: "Export and share dashboards with the team.",
   },
   render: (args) => (
     <div className="max-w-sm">
@@ -214,9 +214,9 @@ export const AsLink: Story = {
     tone: "violet",
     titleUpper: false,
     icon: TargetIcon,
-    title: "Explorar indicadores",
-    description: "Navegue pelos 17 objetivos e suas metas.",
-    actionLabel: "Acessar",
+    title: "Explore indicators",
+    description: "Browse the 17 goals and their targets.",
+    actionLabel: "Access",
   },
   render: (args) => (
     <div className="max-w-sm">
@@ -227,12 +227,12 @@ export const AsLink: Story = {
 
 export const WithBadge: Story = {
   args: {
-    badge: "Novo",
+    badge: "New",
     tone: "success",
     titleUpper: false,
     icon: LeafIcon,
-    title: "Painel de impacto",
-    description: "Acompanhe os resultados ambientais em tempo real.",
+    title: "Impact dashboard",
+    description: "Track environmental results in real time.",
   },
   render: (args) => (
     <div className="max-w-sm">
