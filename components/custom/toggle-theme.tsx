@@ -6,6 +6,7 @@ import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 import type { ComponentProps } from "react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,16 +34,11 @@ const themeIcons = {
 } as const
 
 interface ToggleThemeProps {
-  labels?: {
-    light?: string
-    dark?: string
-    system?: string
-    trigger?: string
-  }
+  locale?: UILocale
   loading?: boolean
 }
 
-export function ToggleTheme({ labels = {}, loading }: ToggleThemeProps) {
+export function ToggleTheme({ locale = "en-US", loading }: ToggleThemeProps) {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -57,12 +53,7 @@ export function ToggleTheme({ labels = {}, loading }: ToggleThemeProps) {
 
   const Icon = themeIcons[resolvedTheme as keyof typeof themeIcons] ?? Sun
 
-  const {
-    light = "Light",
-    dark = "Dark",
-    system = "System",
-    trigger = "Toggle theme",
-  } = labels
+  const { light, dark, system, trigger } = UI_I18N[locale].toggleTheme
 
   if (loading) {
     return <Skeleton className="size-9 rounded-md" />

@@ -80,6 +80,12 @@ export const UI_I18N: Record<
     }
     pageLoader: { loading: string }
     pillGroup: { filterLabel: string }
+    toggleTheme: {
+      light: string
+      dark: string
+      system: string
+      trigger: string
+    }
   }
 > = {
   "en-US": {
@@ -192,6 +198,12 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Loading…" },
     pillGroup: { filterLabel: "Filter by" },
+    toggleTheme: {
+      light: "Light",
+      dark: "Dark",
+      system: "System",
+      trigger: "Toggle theme",
+    },
   },
   "pt-BR": {
     dialog: { close: "Fechar" },
@@ -310,6 +322,12 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Carregando…" },
     pillGroup: { filterLabel: "Filtrar por" },
+    toggleTheme: {
+      light: "Claro",
+      dark: "Escuro",
+      system: "Sistema",
+      trigger: "Alternar tema",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -424,6 +442,12 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Cargando…" },
     pillGroup: { filterLabel: "Filtrar por" },
+    toggleTheme: {
+      light: "Claro",
+      dark: "Oscuro",
+      system: "Sistema",
+      trigger: "Cambiar tema",
+    },
   },
   "fr-FR": {
     dialog: { close: "Fermer" },
@@ -546,6 +570,12 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Chargement…" },
     pillGroup: { filterLabel: "Filtrer par" },
+    toggleTheme: {
+      light: "Clair",
+      dark: "Sombre",
+      system: "Système",
+      trigger: "Changer de thème",
+    },
   },
 }
 
