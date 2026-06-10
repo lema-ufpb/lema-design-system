@@ -1672,7 +1672,8 @@
       ],
       "registryDependencies": [
         "button",
-        "dropdown-menu"
+        "dropdown-menu",
+        "ui-i18n"
       ],
       "files": [
         {

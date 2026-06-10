@@ -33,10 +33,11 @@ const meta = {
     ),
   ],
   argTypes: {
-    labels: {
-      control: "object",
-      description: "Override menu item and trigger labels",
-      table: { defaultValue: { summary: "{}" } },
+    locale: {
+      control: "select",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      description: "Locale for menu item and trigger labels",
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof ToggleTheme>
@@ -58,12 +59,7 @@ export const Default: Story = {
 
 export const Portuguese: Story = {
   args: {
-    labels: {
-      light: "Claro",
-      dark: "Escuro",
-      system: "Sistema",
-      trigger: "Alternar tema",
-    },
+    locale: "pt-BR",
   },
   parameters: {
     docs: {
