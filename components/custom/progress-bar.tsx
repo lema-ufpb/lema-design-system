@@ -203,6 +203,7 @@ export function ProgressBar({
 
       return (
         <div
+          data-slot="progress-bar"
           className={cn(
             progressBarContainerVariants({ labelLayout }),
             className
@@ -218,6 +219,7 @@ export function ProgressBar({
 
     return (
       <div
+        data-slot="progress-bar"
         className={cn(progressBarContainerVariants({ labelLayout }), className)}
         {...props}
       >
@@ -298,6 +300,7 @@ export function ProgressBar({
 
     return (
       <div
+        data-slot="progress-bar"
         className={cn(progressBarContainerVariants({ labelLayout }), className)}
         {...props}
       >
@@ -312,6 +315,7 @@ export function ProgressBar({
 
   return (
     <div
+      data-slot="progress-bar"
       className={cn(progressBarContainerVariants({ labelLayout }), className)}
       {...props}
     >
