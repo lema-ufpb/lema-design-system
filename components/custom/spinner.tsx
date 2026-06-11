@@ -94,6 +94,7 @@ function Spinner({
   if (!label) {
     return (
       <SpinnerRoot
+        data-slot="spinner"
         aria-label={ariaLabel ?? UI_I18N[locale].spinner.loading}
         strokeWidth={resolvedStroke}
         className={iconClassName}
@@ -105,8 +106,13 @@ function Spinner({
   // With a visible label the wrapper carries the status role and the icon
   // becomes decorative, so the label provides the accessible name.
   return (
-    <span role="status" className="inline-flex items-center gap-2">
+    <span
+      data-slot="spinner"
+      role="status"
+      className="inline-flex items-center gap-2"
+    >
       <SpinnerRoot
+        data-slot="spinner-icon"
         role="spinner"
         aria-label={ariaLabel}
         aria-hidden="true"
@@ -114,7 +120,12 @@ function Spinner({
         className={iconClassName}
         {...props}
       />
-      <span className={spinnerLabelVariants({ size })}>{label}</span>
+      <span
+        data-slot="spinner-label"
+        className={spinnerLabelVariants({ size })}
+      >
+        {label}
+      </span>
     </span>
   )
 }

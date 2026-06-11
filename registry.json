@@ -1788,6 +1788,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "spinner",
         "ui-i18n"
       ],
       "files": [
