@@ -46,7 +46,7 @@ Atomic, accessible base components installed via the shadcn CLI — used as buil
 
 ### 3. Custom UI Components
 
-All custom components live in `components/custom/` and follow the shadcn single-file pattern. Each is individually installable via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
+All custom components live in `components/ds/` and follow the shadcn single-file pattern. Each is individually installable via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
 
 #### Layout & Containers
 
@@ -107,7 +107,7 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 
 #### Blocks
 
-High-complexity components maintained in `components/custom/search-combo/` with independent support files.
+High-complexity components maintained in `components/ds/search-combo/` with independent support files.
 
 - **[SearchCombo](/docs/forms-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.
 
@@ -133,25 +133,25 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 Common commands:
 
 ```bash
-npx lema-ds add dashbox bar-chart        # Install component(s)
-npx lema-ds update progress-bar          # Update component(s)
-npx lema-ds verify                       # Drift detection
-npx lema-ds sync --all --yes             # CI mode
+npx ds add dashbox bar-chart        # Install component(s)
+npx ds update progress-bar          # Update component(s)
+npx ds verify                       # Drift detection
+npx ds sync --all --yes             # CI mode
 ```
 
-> 🔑 Token provided by LEMA's NOC. Lockfile `lema-ds.lock.json` is auto-generated and **must be committed**.
+> 🔑 Token provided by LEMA's NOC. Lockfile `ds.lock` is auto-generated and **must be committed**.
 
 ### Via shadcn CLI
 
 Any component can also be added directly via the standard shadcn CLI:
 
 ```bash
-npx lema-ds add <component-name>
+npx ds add <component-name>
 
 # Examples:
-npx lema-ds add dashbox
-npx lema-ds add progress-bar
-npx lema-ds add search-combo
+npx ds add dashbox
+npx ds add progress-bar
+npx ds add search-combo
 ```
 
 > The shared i18n dictionary (`lib/ui-i18n.ts`) is automatically installed as a registry dependency for every locale-aware component.
@@ -170,9 +170,9 @@ Components display UI labels (tooltips, aria-labels, status text, empty state me
 | fr-FR | Français           |
 
 ```tsx
-import { Dashbox } from "@/components/custom/dashbox"
-import { Counter } from "@/components/custom/counter"
-import { DataTable } from "@/components/custom/data-table"
+import { Dashbox } from "@/components/ds/dashbox"
+import { Counter } from "@/components/ds/counter"
+import { DataTable } from "@/components/ds/data-table"
 
 <Dashbox title="Status" locale="pt-BR" status="live" />
 {/* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */}
