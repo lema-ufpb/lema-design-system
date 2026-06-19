@@ -2,7 +2,7 @@
 
 > Cartão de destaque (hero KPI) com fundo colorido sólido, círculos decorativos e 7 variantes de cor.
 
-**Arquivo:** `components/custom/card-stat-highlight.tsx`
+**Arquivo:** `components/ds/card-stat-highlight.tsx`
 **data-slot:** `card-stat-highlight`
 
 ---

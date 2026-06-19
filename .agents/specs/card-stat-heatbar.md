@@ -2,7 +2,7 @@
 
 > Cartão com barra de calor segmentada por zonas de risco, com tooltip interativo e marcador de posição.
 
-**Arquivo:** `components/custom/card-stat-heatbar.tsx`
+**Arquivo:** `components/ds/card-stat-heatbar.tsx`
 **data-slot:** `card-stat-heatbar`
 
 ---

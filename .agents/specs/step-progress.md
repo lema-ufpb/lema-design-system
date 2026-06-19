@@ -19,7 +19,7 @@ Wizard de progresso multi-etapa com orientação horizontal ou vertical. Cada et
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/step-progress.tsx` |
+| Arquivo | `components/ds/step-progress.tsx` |
 | data-slot | `step-progress` |
 | Tipo | `registry:component` |
 | Categoria | `Navigation` |

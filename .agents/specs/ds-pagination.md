@@ -20,8 +20,8 @@ Wrapper sobre a paginação shadcn/ui que adiciona suporte a locale para `aria-l
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/pagination.tsx` |
-| Tipo | `registry:ui` (name: `pagination-ui`) |
+| Arquivo | `components/ds/pagination.tsx` |
+| Tipo | `registry:ui` (name: `ds-pagination`) |
 | Categoria | Navegação |
 | Depende de | `lucide-react`, `button`, `ui-i18n` |
 

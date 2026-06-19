@@ -18,7 +18,7 @@ Menu de usuário para sidebar/navbar com avatar, nome, email e dropdown de açõ
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/nav-user.tsx` |
+| Arquivo | `components/ds/nav-user.tsx` |
 | data-slot | `nav-user` |
 | Tipo | `registry:component` (name: `nav-user`) |
 | Categoria | `Navigation` |

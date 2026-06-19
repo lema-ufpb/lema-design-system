@@ -2,7 +2,7 @@
 
 > Cartão de progresso com barra, valor atual vs goal, percentual e código de cores por faixa.
 
-**Arquivo:** `components/custom/card-stat-progress.tsx`
+**Arquivo:** `components/ds/card-stat-progress.tsx`
 **data-slot:** `card-stat-progress` (ainda não aplicado nos elementos `Card` do componente)
 
 ---

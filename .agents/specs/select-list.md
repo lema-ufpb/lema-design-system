@@ -20,7 +20,7 @@ Lista vertical de itens selecionáveis com campo de busca, virtual scrolling par
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/select-list.tsx` |
+| Arquivo | `components/ds/select-list.tsx` |
 | data-slot | `select-list` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |

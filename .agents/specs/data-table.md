@@ -12,7 +12,7 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/data-table.tsx` |
+| Arquivo | `components/ds/data-table.tsx` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Button`, `Skeleton`, `Pagination` (custom), `SearchBar` (custom), `@tanstack/react-table`, `@tanstack/react-virtual`, `lucide-react`, `format-utils` |

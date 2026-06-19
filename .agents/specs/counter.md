@@ -20,7 +20,7 @@ Campo numérico com botões de incremento/decremento e input direto. Ideal para 
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/counter.tsx` |
+| Arquivo | `components/ds/counter.tsx` |
 | data-slot | `counter` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |

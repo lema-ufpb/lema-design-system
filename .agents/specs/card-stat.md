@@ -2,7 +2,7 @@
 
 > Cartão de estatística principal com label, valor formatado, ícone, tendência e descrição.
 
-**Arquivo:** `components/custom/card-stat.tsx`
+**Arquivo:** `components/ds/card-stat.tsx`
 
 **data-slot:** `card-stat` no `<Card>` root
 

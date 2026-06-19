@@ -16,7 +16,7 @@ _Gráfico radar (teia) baseado em recharts RadarChart para visualização multiv
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/radar-chart.tsx` |
+| Arquivo | `components/ds/radar-chart.tsx` |
 | data-slot | `radar-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

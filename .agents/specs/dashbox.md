@@ -18,7 +18,7 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/dashbox.tsx` |
+| Arquivo | `components/ds/dashbox.tsx` |
 | data-slot | `dashbox` |
 | Tipo | `registry:component` (name: `dashbox`) |
 | Categoria | `Layout` |
