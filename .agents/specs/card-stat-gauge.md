@@ -2,7 +2,7 @@
 
 > Cartão com gauge semicircular SVG dividido em zonas de risco/desempenho.
 
-**Arquivo:** `components/custom/card-stat-gauge.tsx`
+**Arquivo:** `components/ds/card-stat-gauge.tsx`
 **data-slot:** `card-stat-gauge`
 
 ---

@@ -16,7 +16,7 @@ _Gráfico de candles (velas) para visualização financeira de preços OHLC (Ope
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/candlestick-chart.tsx` |
+| Arquivo | `components/ds/candlestick-chart.tsx` |
 | data-slot | `candlestick-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

@@ -19,7 +19,7 @@ Barra de risco segmentada com marcador de valor atual, tooltip flutuante e segme
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/risk-level-bar.tsx` |
+| Arquivo | `components/ds/risk-level-bar.tsx` |
 | data-slot | `risk-level-bar` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

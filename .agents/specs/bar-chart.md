@@ -19,7 +19,7 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/bar-chart.tsx` |
+| Arquivo | `components/ds/bar-chart.tsx` |
 | data-slot | `bar-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

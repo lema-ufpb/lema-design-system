@@ -2,7 +2,7 @@
 
 > Cartão com lista de métricas (label + valor + tendência opcional) em formato de linhas.
 
-**Arquivo:** `components/custom/card-stat-list.tsx`
+**Arquivo:** `components/ds/card-stat-list.tsx`
 **data-slot:** `card-stat-list`
 
 ---

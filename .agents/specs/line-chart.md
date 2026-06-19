@@ -16,7 +16,7 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/line-chart.tsx` |
+| Arquivo | `components/ds/line-chart.tsx` |
 | data-slot | `line-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

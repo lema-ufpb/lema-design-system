@@ -18,7 +18,7 @@
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/page-loader.tsx` |
+| Arquivo | `components/ds/page-loader.tsx` |
 | Tipo | `registry:component` |
 | Categoria | Feedback |
 | Depende de | `Spinner` (ui), `cn`, `UI_I18N`, `cva` |

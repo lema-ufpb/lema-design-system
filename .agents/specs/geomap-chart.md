@@ -16,7 +16,7 @@ _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/geomap-chart.tsx` |
+| Arquivo | `components/ds/geomap-chart.tsx` |
 | data-slot | `geomap-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

@@ -16,7 +16,7 @@ Barra horizontal de filtros com botões em forma de pílula. Cada pílula repres
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/pill-group.tsx` |
+| Arquivo | `components/ds/pill-group.tsx` |
 | Tipo | `registry:ui` |
 | Categoria | `Navigation / Filter` |
 | Depende de | `Button`, `Skeleton`, `UI_I18N` |

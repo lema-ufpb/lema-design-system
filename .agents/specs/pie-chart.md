@@ -16,7 +16,7 @@ _Gráfico de pizza/donut baseado em recharts PieChart. Suporta variantes pie e d
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/pie-chart.tsx` |
+| Arquivo | `components/ds/pie-chart.tsx` |
 | data-slot | `pie-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

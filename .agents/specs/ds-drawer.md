@@ -20,8 +20,8 @@ Painel slide-over que abre de qualquer borda da tela, combinando header opcional
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/drawer.tsx` |
-| Tipo | `registry:ui` (name: `drawer-ui`) |
+| Arquivo | `components/ds/drawer.tsx` |
+| Tipo | `registry:ui` (name: `ds-drawer`) |
 | Categoria | Painel / Sobreposição |
 | Depende de | `drawer` (shadcn/ui), `lucide-react` |
 

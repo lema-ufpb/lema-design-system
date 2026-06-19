@@ -19,7 +19,7 @@ Alternador de tema claro/escuro/sistema usando `next-themes` com menu dropdown. 
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/toggle-theme.tsx` |
+| Arquivo | `components/ds/toggle-theme.tsx` |
 | data-slot | `toggle-theme` |
 | Tipo | `registry:component` |
 | Categoria | `Navigation` |

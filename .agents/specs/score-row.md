@@ -12,7 +12,7 @@ Linha de item pontuada com ícone, label, score e barra de progresso opcional. P
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/score-row.tsx` |
+| Arquivo | `components/ds/score-row.tsx` |
 | data-slot | `score-row` / `score-row-list` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

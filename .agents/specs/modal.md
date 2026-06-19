@@ -20,7 +20,7 @@ Wrapper sobre o `Dialog` (shadcn/ui) que adiciona `intent` com √≠cone + cor sem√
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/modal.tsx` |
+| Arquivo | `components/ds/modal.tsx` |
 | data-slot | `modal` | |
 | Tipo | `registry:ui` (name: `modal-ui`) |
 | Categoria | Overlay / Modal |

@@ -16,7 +16,7 @@ _Gráfico de dispersão (scatter plot) baseado em recharts ScatterChart. Suporta
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/scatter-chart.tsx` |
+| Arquivo | `components/ds/scatter-chart.tsx` |
 | data-slot | `scatter-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |

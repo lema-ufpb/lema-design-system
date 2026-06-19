@@ -18,7 +18,7 @@ Botão com ícone + tooltip opcional. Encapsula o shadcn `Button` com `aria-labe
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/icon-button.tsx` |
+| Arquivo | `components/ds/icon-button.tsx` |
 | data-slot | `icon-button` |
 | Tipo | `registry:component` (name: `icon-button`) |
 | Categoria | `Form` |

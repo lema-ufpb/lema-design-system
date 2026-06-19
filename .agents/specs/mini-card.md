@@ -2,7 +2,7 @@
 
 > Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost) and MiniCardStrip (auto-dividers). Size propagates via React context.
 
-**Arquivo:** `components/custom/mini-card.tsx`
+**Arquivo:** `components/ds/mini-card.tsx`
 **data-slot:** `mini-card`, `mini-card-group`, `mini-card-strip`
 
 ---

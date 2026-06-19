@@ -2,7 +2,7 @@
 
 > Cartão de estatística compacto com layout horizontal (ícone-label-valor-badge em linha).
 
-**Arquivo:** `components/custom/card-stat-compact.tsx`
+**Arquivo:** `components/ds/card-stat-compact.tsx`
 **data-slot:** `card-stat-compact`
 
 ---

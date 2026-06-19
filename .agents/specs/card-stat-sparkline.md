@@ -2,7 +2,7 @@
 
 > Cartão de estatística com sparkline SVG (curva Catmull-Rom suavizada) para visualização de tendência temporal.
 
-**Arquivo:** `components/custom/card-stat-sparkline.tsx`
+**Arquivo:** `components/ds/card-stat-sparkline.tsx`
 **data-slot:** `card-stat-sparkline`
 
 ---

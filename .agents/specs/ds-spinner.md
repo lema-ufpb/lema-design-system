@@ -20,8 +20,8 @@
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/spinner.tsx` |
-| Tipo | `registry:ui` (name: `spinner-ui`) |
+| Arquivo | `components/ds/spinner.tsx` |
+| Tipo | `registry:ui` (name: `ds-spinner`) |
 | Categoria | Feedback / Indicador |
 | Depende de | `lucide-react`, `ui-i18n` |
 

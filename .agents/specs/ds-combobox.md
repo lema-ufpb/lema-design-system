@@ -20,8 +20,8 @@ Componente de entrada que combina trigger de seleção com popover contendo list
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/combobox.tsx` |
-| Tipo | `registry:ui` (name: `combobox-ui`) |
+| Arquivo | `components/ds/combobox.tsx` |
+| Tipo | `registry:ui` (name: `ds-combobox`) |
 | Categoria | Formulário / Seleção |
 | Depende de | `@tanstack/react-virtual`, `lucide-react`, `badge`, `button`, `popover`, `skeleton`, `ui-i18n` |
 

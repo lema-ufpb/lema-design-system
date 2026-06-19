@@ -2,7 +2,7 @@
 
 > Módulo compartilhado da família CardStats. Contém tipos, helpers, variantes CVA compartilhadas e componentes auxiliares.
 
-**Arquivo:** `components/custom/card-stats-shared.tsx`
+**Arquivo:** `components/ds/card-stats-shared.tsx`
 **data-slot:** `card-stats-shared`
 
 ---
