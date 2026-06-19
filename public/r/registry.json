@@ -948,7 +948,7 @@
       ]
     },
     {
-      "name": "combobox-ui",
+      "name": "ds-combobox",
       "type": "registry:ui",
       "title": "Combobox UI",
       "description": "A batteries-included combobox with virtual scrolling, search, single/multi-select, groups, and custom option rendering.",
@@ -964,14 +964,14 @@
       ],
       "files": [
         {
-          "path": "components/custom/combobox.tsx",
+          "path": "components/ds/combobox.tsx",
           "type": "registry:ui",
-          "target": "components/ui/combobox-ui.tsx"
+          "target": "components/ds/combobox.tsx"
         }
       ]
     },
     {
-      "name": "drawer-ui",
+      "name": "ds-drawer",
       "type": "registry:ui",
       "title": "Drawer UI",
       "description": "A full-featured drawer wrapper with optional header, scrollable body, footer, and direction-aware close button.",
@@ -980,9 +980,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/drawer.tsx",
+          "path": "components/ds/drawer.tsx",
           "type": "registry:ui",
-          "target": "components/ui/drawer-ui.tsx"
+          "target": "components/ds/drawer.tsx"
         }
       ]
     },
@@ -999,9 +999,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/modal.tsx",
+          "path": "components/ds/modal.tsx",
           "type": "registry:ui",
-          "target": "components/ui/modal.tsx"
+          "target": "components/ds/modal.tsx"
         }
       ]
     },
@@ -1019,9 +1019,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/page-loader.tsx",
+          "path": "components/ds/page-loader.tsx",
           "type": "registry:ui",
-          "target": "components/ui/page-loader.tsx"
+          "target": "components/ds/page-loader.tsx"
         }
       ]
     },
@@ -1036,9 +1036,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/icon-button.tsx",
+          "path": "components/ds/icon-button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/icon-button.tsx"
+          "target": "components/ds/icon-button.tsx"
         }
       ]
     },
@@ -1054,9 +1054,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/dashbox.tsx",
+          "path": "components/ds/dashbox.tsx",
           "type": "registry:ui",
-          "target": "components/ui/dashbox.tsx"
+          "target": "components/ds/dashbox.tsx"
         }
       ]
     },
@@ -1070,9 +1070,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/dashrow.tsx",
+          "path": "components/ds/dashrow.tsx",
           "type": "registry:ui",
-          "target": "components/ui/dashrow.tsx"
+          "target": "components/ds/dashrow.tsx"
         }
       ]
     },
@@ -1091,59 +1091,59 @@
       ],
       "files": [
         {
-          "path": "components/custom/card-stats-shared.tsx",
+          "path": "components/ds/card-stats-shared.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stats-shared.tsx"
+          "target": "components/ds/card-stats-shared.tsx"
         },
         {
-          "path": "components/custom/card-stat.tsx",
+          "path": "components/ds/card-stat.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat.tsx"
+          "target": "components/ds/card-stat.tsx"
         },
         {
-          "path": "components/custom/card-stat-compact.tsx",
+          "path": "components/ds/card-stat-compact.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-compact.tsx"
+          "target": "components/ds/card-stat-compact.tsx"
         },
         {
-          "path": "components/custom/card-stat-progress.tsx",
+          "path": "components/ds/card-stat-progress.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-progress.tsx"
+          "target": "components/ds/card-stat-progress.tsx"
         },
         {
-          "path": "components/custom/card-stat-comparison.tsx",
+          "path": "components/ds/card-stat-comparison.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-comparison.tsx"
+          "target": "components/ds/card-stat-comparison.tsx"
         },
         {
-          "path": "components/custom/card-stat-sparkline.tsx",
+          "path": "components/ds/card-stat-sparkline.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-sparkline.tsx"
+          "target": "components/ds/card-stat-sparkline.tsx"
         },
         {
-          "path": "components/custom/card-stat-highlight.tsx",
+          "path": "components/ds/card-stat-highlight.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-highlight.tsx"
+          "target": "components/ds/card-stat-highlight.tsx"
         },
         {
-          "path": "components/custom/card-stat-list.tsx",
+          "path": "components/ds/card-stat-list.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-list.tsx"
+          "target": "components/ds/card-stat-list.tsx"
         },
         {
-          "path": "components/custom/card-stat-gauge.tsx",
+          "path": "components/ds/card-stat-gauge.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-gauge.tsx"
+          "target": "components/ds/card-stat-gauge.tsx"
         },
         {
-          "path": "components/custom/card-stat-heatbar.tsx",
+          "path": "components/ds/card-stat-heatbar.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stat-heatbar.tsx"
+          "target": "components/ds/card-stat-heatbar.tsx"
         },
         {
-          "path": "components/custom/card-stats.tsx",
+          "path": "components/ds/card-stats.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-stats.tsx"
+          "target": "components/ds/card-stats.tsx"
         }
       ]
     },
@@ -1159,9 +1159,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/card-icon.tsx",
+          "path": "components/ds/card-icon.tsx",
           "type": "registry:ui",
-          "target": "components/ui/card-icon.tsx"
+          "target": "components/ds/card-icon.tsx"
         }
       ]
     },
@@ -1176,9 +1176,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/progress-bar.tsx",
+          "path": "components/ds/progress-bar.tsx",
           "type": "registry:ui",
-          "target": "components/ui/progress-bar.tsx"
+          "target": "components/ds/progress-bar.tsx"
         }
       ]
     },
@@ -1193,9 +1193,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/progress-circular.tsx",
+          "path": "components/ds/progress-circular.tsx",
           "type": "registry:ui",
-          "target": "components/ui/progress-circular.tsx"
+          "target": "components/ds/progress-circular.tsx"
         }
       ]
     },
@@ -1211,9 +1211,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/risk-level-bar.tsx",
+          "path": "components/ds/risk-level-bar.tsx",
           "type": "registry:ui",
-          "target": "components/ui/risk-level-bar.tsx"
+          "target": "components/ds/risk-level-bar.tsx"
         }
       ]
     },
@@ -1235,9 +1235,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/score-row.tsx",
+          "path": "components/ds/score-row.tsx",
           "type": "registry:ui",
-          "target": "components/ui/score-row.tsx"
+          "target": "components/ds/score-row.tsx"
         }
       ]
     },
@@ -1255,9 +1255,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/mini-card.tsx",
+          "path": "components/ds/mini-card.tsx",
           "type": "registry:ui",
-          "target": "components/ui/mini-card.tsx"
+          "target": "components/ds/mini-card.tsx"
         }
       ]
     },
@@ -1277,9 +1277,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/pill-group.tsx",
+          "path": "components/ds/pill-group.tsx",
           "type": "registry:ui",
-          "target": "components/ui/pill-group.tsx"
+          "target": "components/ds/pill-group.tsx"
         }
       ]
     },
@@ -1293,9 +1293,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/step-progress.tsx",
+          "path": "components/ds/step-progress.tsx",
           "type": "registry:ui",
-          "target": "components/ui/step-progress.tsx"
+          "target": "components/ds/step-progress.tsx"
         }
       ]
     },
@@ -1315,9 +1315,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/bar-chart.tsx",
+          "path": "components/ds/bar-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/bar-chart.tsx"
+          "target": "components/ds/bar-chart.tsx"
         }
       ]
     },
@@ -1334,9 +1334,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/boxplot-chart.tsx",
+          "path": "components/ds/boxplot-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/boxplot-chart.tsx"
+          "target": "components/ds/boxplot-chart.tsx"
         }
       ]
     },
@@ -1356,9 +1356,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/candlestick-chart.tsx",
+          "path": "components/ds/candlestick-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/candlestick-chart.tsx"
+          "target": "components/ds/candlestick-chart.tsx"
         }
       ]
     },
@@ -1377,9 +1377,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/geomap-chart.tsx",
+          "path": "components/ds/geomap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/geomap-chart.tsx"
+          "target": "components/ds/geomap-chart.tsx"
         }
       ]
     },
@@ -1398,9 +1398,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/heatmap-chart.tsx",
+          "path": "components/ds/heatmap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/heatmap-chart.tsx"
+          "target": "components/ds/heatmap-chart.tsx"
         }
       ]
     },
@@ -1420,9 +1420,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/line-chart.tsx",
+          "path": "components/ds/line-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/line-chart.tsx"
+          "target": "components/ds/line-chart.tsx"
         }
       ]
     },
@@ -1442,9 +1442,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/pie-chart.tsx",
+          "path": "components/ds/pie-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/pie-chart.tsx"
+          "target": "components/ds/pie-chart.tsx"
         }
       ]
     },
@@ -1464,9 +1464,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/radar-chart.tsx",
+          "path": "components/ds/radar-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/radar-chart.tsx"
+          "target": "components/ds/radar-chart.tsx"
         }
       ]
     },
@@ -1486,9 +1486,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/radial-chart.tsx",
+          "path": "components/ds/radial-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/radial-chart.tsx"
+          "target": "components/ds/radial-chart.tsx"
         }
       ]
     },
@@ -1508,9 +1508,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/scatter-chart.tsx",
+          "path": "components/ds/scatter-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/scatter-chart.tsx"
+          "target": "components/ds/scatter-chart.tsx"
         }
       ]
     },
@@ -1530,9 +1530,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/treemap-chart.tsx",
+          "path": "components/ds/treemap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ui/treemap-chart.tsx"
+          "target": "components/ds/treemap-chart.tsx"
         }
       ]
     },
@@ -1547,9 +1547,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/counter.tsx",
+          "path": "components/ds/counter.tsx",
           "type": "registry:ui",
-          "target": "components/ui/counter.tsx"
+          "target": "components/ds/counter.tsx"
         }
       ]
     },
@@ -1563,9 +1563,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/input-email.tsx",
+          "path": "components/ds/input-email.tsx",
           "type": "registry:ui",
-          "target": "components/ui/input-email.tsx"
+          "target": "components/ds/input-email.tsx"
         }
       ]
     },
@@ -1581,9 +1581,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/input-password.tsx",
+          "path": "components/ds/input-password.tsx",
           "type": "registry:ui",
-          "target": "components/ui/input-password.tsx"
+          "target": "components/ds/input-password.tsx"
         }
       ]
     },
@@ -1604,9 +1604,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/select-list.tsx",
+          "path": "components/ds/select-list.tsx",
           "type": "registry:ui",
-          "target": "components/ui/select-list.tsx"
+          "target": "components/ds/select-list.tsx"
         }
       ]
     },
@@ -1620,9 +1620,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/footer-menu.tsx",
+          "path": "components/ds/footer-menu.tsx",
           "type": "registry:ui",
-          "target": "components/ui/footer-menu.tsx"
+          "target": "components/ds/footer-menu.tsx"
         }
       ]
     },
@@ -1638,9 +1638,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/header-search.tsx",
+          "path": "components/ds/header-search.tsx",
           "type": "registry:ui",
-          "target": "components/ui/header-search.tsx"
+          "target": "components/ds/header-search.tsx"
         }
       ]
     },
@@ -1655,9 +1655,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/nav-dots.tsx",
+          "path": "components/ds/nav-dots.tsx",
           "type": "registry:ui",
-          "target": "components/ui/nav-dots.tsx"
+          "target": "components/ds/nav-dots.tsx"
         }
       ]
     },
@@ -1674,9 +1674,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/nav-user.tsx",
+          "path": "components/ds/nav-user.tsx",
           "type": "registry:ui",
-          "target": "components/ui/nav-user.tsx"
+          "target": "components/ds/nav-user.tsx"
         }
       ]
     },
@@ -1695,9 +1695,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/toggle-theme.tsx",
+          "path": "components/ds/toggle-theme.tsx",
           "type": "registry:ui",
-          "target": "components/ui/toggle-theme.tsx"
+          "target": "components/ds/toggle-theme.tsx"
         }
       ]
     },
@@ -1716,14 +1716,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/search-bar.tsx",
+          "path": "components/ds/search-bar.tsx",
           "type": "registry:ui",
-          "target": "components/ui/search-bar.tsx"
-        },
-        {
-          "path": "components/custom/search-bar.stories.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/search-bar.stories.tsx"
+          "target": "components/ds/search-bar.tsx"
         }
       ]
     },
@@ -1739,18 +1734,13 @@
       ],
       "registryDependencies": [
         "popover",
-        "spinner-ui"
+        "ds-spinner"
       ],
       "files": [
         {
-          "path": "components/custom/search-combo.tsx",
+          "path": "components/ds/search-combo.tsx",
           "type": "registry:ui",
-          "target": "components/ui/search-combo.tsx"
-        },
-        {
-          "path": "components/custom/search-combo.stories.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/search-combo.stories.tsx"
+          "target": "components/ds/search-combo.tsx"
         }
       ]
     },
@@ -1773,14 +1763,14 @@
       ],
       "files": [
         {
-          "path": "components/custom/data-table.tsx",
+          "path": "components/ds/data-table.tsx",
           "type": "registry:ui",
-          "target": "components/ui/data-table.tsx"
+          "target": "components/ds/data-table.tsx"
         }
       ]
     },
     {
-      "name": "spinner-ui",
+      "name": "ds-spinner",
       "type": "registry:ui",
       "title": "Spinner UI",
       "description": "An animated loader with locale-aware aria-labels, built on lucide-react Loader2Icon.",
@@ -1793,14 +1783,14 @@
       ],
       "files": [
         {
-          "path": "components/custom/spinner.tsx",
+          "path": "components/ds/spinner.tsx",
           "type": "registry:ui",
-          "target": "components/ui/spinner-ui.tsx"
+          "target": "components/ds/spinner.tsx"
         }
       ]
     },
     {
-      "name": "pagination-ui",
+      "name": "ds-pagination",
       "type": "registry:ui",
       "title": "Pagination UI",
       "description": "A pagination component with locale-aware aria labels, prev/next links, and ellipsis support.",
@@ -1813,9 +1803,9 @@
       ],
       "files": [
         {
-          "path": "components/custom/pagination.tsx",
+          "path": "components/ds/pagination.tsx",
           "type": "registry:ui",
-          "target": "components/ui/pagination-ui.tsx"
+          "target": "components/ds/pagination.tsx"
         }
       ]
     }
