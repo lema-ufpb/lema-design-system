@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { Kbd } from "@/components/ui/kbd"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -266,7 +267,7 @@ export const SearchBar = React.forwardRef<HTMLDivElement, SearchBarProps>(
           )}
         </span>
 
-        <input
+        <Input
           ref={inputRef}
           data-slot="search-bar-input"
           type="text"
@@ -279,7 +280,11 @@ export const SearchBar = React.forwardRef<HTMLDivElement, SearchBarProps>(
           onKeyDown={handleKeyDown}
           placeholder={placeholder ?? i18n.placeholder}
           aria-label={i18n.label}
-          className={searchBarInputVariants({ size })}
+          className={cn(
+            "h-auto rounded-none border-none bg-transparent px-0 py-0",
+            "focus-visible:border-transparent focus-visible:ring-0 focus-visible:ring-transparent",
+            searchBarInputVariants({ size })
+          )}
         />
 
         {hasValue && !loading && (

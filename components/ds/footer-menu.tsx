@@ -2,12 +2,17 @@
 
 import * as React from "react"
 import Link from "next/link"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { ChevronDown } from "lucide-react"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionContent,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -41,7 +46,7 @@ export const footerMenuVariants = cva(
   "flex w-full flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12"
 )
 
-export const footerGroupVariants = cva("flex w-full flex-col py-0")
+export const footerGroupVariants = cva("flex w-full flex-col !border-b-0 py-0")
 
 export const footerHeaderVariants = cva([
   "flex w-full cursor-pointer items-center justify-between py-4",
@@ -52,7 +57,7 @@ export const footerHeaderVariants = cva([
 ])
 
 export const footerTitleVariants = cva(
-  "flex justify-start text-left font-medium text-foreground",
+  "flex justify-start text-left font-medium text-footer-heading",
   {
     variants: {
       size: {
@@ -76,7 +81,7 @@ export const footerContentVariants = cva([
 
 export const footerLinkVariants = cva(
   [
-    "inline-block cursor-pointer py-1 text-muted-foreground transition-colors hover:text-primary",
+    "inline-block cursor-pointer py-1 text-footer-link transition-all hover:text-footer-link-hover hover:underline",
     "rounded-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none",
   ],
   {
@@ -92,7 +97,7 @@ export const footerLinkVariants = cva(
 )
 
 export const footerNavIconVariants = cva(
-  "size-4 text-muted-foreground transition-transform duration-200 lg:hidden"
+  "size-4 text-footer-link transition-transform duration-200 lg:hidden"
 )
 
 // ── FooterMenu ─────────────────────────────────────────────────────────────
@@ -113,38 +118,40 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
         {...props}
       >
         {/* Mobile: Accordion */}
-        <AccordionPrimitive.Root
+        <Accordion
           data-slot="footer-menu-accordion"
           type="single"
           collapsible
-          className="flex w-full flex-col lg:hidden"
+          className="radius-none flex w-full flex-col rounded-none border-none lg:hidden"
         >
           {data.map((group: FooterGroupData, i: number) => (
-            <AccordionPrimitive.Item
+            <AccordionItem
               data-slot="footer-menu-group"
               key={`mobile-${i}`}
               value={`item-${i}`}
               className={footerGroupVariants()}
             >
-              <AccordionPrimitive.Header className="flex">
-                <AccordionPrimitive.Trigger
-                  data-slot="footer-menu-group-header"
-                  className={cn(footerHeaderVariants(), "group")}
-                >
-                  <span className={cn(footerTitleVariants({ size, upper }))}>
-                    {group.title}
-                  </span>
-                  <ChevronDown
-                    className={cn(
-                      footerNavIconVariants(),
-                      "transition-transform duration-200 group-data-[state=open]:rotate-180"
-                    )}
-                    aria-hidden="true"
-                  />
-                </AccordionPrimitive.Trigger>
-              </AccordionPrimitive.Header>
+              <AccordionTrigger
+                data-slot="footer-menu-group-header"
+                className={cn(
+                  footerHeaderVariants(),
+                  "hover:no-underline",
+                  "**:data-[slot=accordion-trigger-icon]:hidden"
+                )}
+              >
+                <span className={cn(footerTitleVariants({ size, upper }))}>
+                  {group.title}
+                </span>
+                <ChevronDown
+                  className={cn(
+                    footerNavIconVariants(),
+                    "transition-transform duration-200 group-data-[state=open]/accordion-trigger:rotate-180"
+                  )}
+                  aria-hidden="true"
+                />
+              </AccordionTrigger>
 
-              <AccordionPrimitive.Content className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+              <AccordionContent className="p-0 [&_a]:no-underline [&_a]:hover:text-footer-link-hover [&>div]:px-0 [&>div]:py-0">
                 <ul
                   className={cn(
                     footerContentVariants(),
@@ -164,10 +171,10 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
                     </li>
                   ))}
                 </ul>
-              </AccordionPrimitive.Content>
-            </AccordionPrimitive.Item>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </AccordionPrimitive.Root>
+        </Accordion>
 
         {/* Desktop: Static columns */}
         <div
