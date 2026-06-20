@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 
 const meta = {
-  title: "Data Display/RiskLevelBar",
+  title: "Feedback/RiskLevelBar",
   component: RiskLevelBar,
   parameters: {
     layout: "padded",

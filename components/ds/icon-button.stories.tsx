@@ -22,7 +22,7 @@ import {
 import { IconButton } from "./icon-button"
 
 const meta = {
-  title: "Forms/IconButton",
+  title: "Actions/IconButton",
   component: IconButton,
   tags: ["autodocs"],
   parameters: {

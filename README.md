@@ -229,6 +229,27 @@ npx ds add <componente>
 
 Todos os componentes abaixo vivem em `components/ds/`.
 
+#### Actions
+
+| Componente     | Descrição                                                                                                                    |
+| :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| **Button**     | Feature-rich button wrapping shadcn `Button`. Adiciona loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step confirmation, e tooltip integrado. |
+| **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.                           |
+| **ToggleTheme**| Botão dropdown para alternar entre temas claro, escuro e sistema. Re-exporta `ThemeProvider` e `useTheme` de `@/providers/theme` para configuração do app. |
+
+```tsx
+import { Button } from "@/components/ds/button"
+import { IconButton } from "@/components/ds/icon-button"
+import { ToggleTheme } from "@/components/ds/toggle-theme"
+
+<Button loading startIcon={<Download className="size-4" />}>Download</Button>
+<Button variant="destructive" confirm={{ text: "Tem certeza?" }}>Excluir</Button>
+<Button tooltip={{ text: "Enviar relatório", side: "top" }}>Enviar</Button>
+
+<IconButton icon={Download} label="Download" tooltip="Baixar arquivo" />
+<ToggleTheme locale="pt-BR" />
+```
+
 #### Layout
 
 | Componente     | Descrição                                                                                                |
@@ -236,7 +257,6 @@ Todos os componentes abaixo vivem em `components/ds/`.
 | **Dashbox**    | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge. |
 | **Dashrow**    | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
 | **Drawer**     | Drawer completo com header, body scrollável, footer e botão de fechar adaptável à direção.               |
-| **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.       |
 | **Modal**      | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, body scrollável, async confirm com loading e suporte a i18n. |
 
 ```tsx
@@ -274,29 +294,35 @@ import { Modal } from "@/components/ds/modal"
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **PageLoader** | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
 | **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                    |
+| **ProgressBar**| Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                             |
+| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                      |
+| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                   |
 
 ```tsx
 import { PageLoader } from "@/components/ds/page-loader"
 import { Spinner } from "@/components/ds/spinner"
+import { ProgressBar } from "@/components/ds/progress-bar"
+import { ProgressCircular } from "@/components/ds/progress-circular"
+import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 
 <PageLoader loading={isLoading} locale="pt-BR" />
 <PageLoader loading={isLoading} variant="spinner" message="Salvando..." color="success" blur />
 
 <Spinner locale="pt-BR" />
 <Spinner className="size-6 text-primary" />
+
+<ProgressBar value={0.75} name="Taxa de Aprovação" intent="success" />
+<ProgressCircular value={0.6} title="Frequência" size="lg" />
+<RiskLevelBar labelLeft="Nível de Risco" labelRight="Score" value={0.4} />
 ```
 
-#### Progresso & Exibição de Dados
+#### Exibição de Dados
 
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Cada variante é instalável individualmente via `card-stat`, `card-stat-compact`, etc., ou todas de uma vez via o barrel `card-stats`. |
 | **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
 | **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
-| **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                                        |
-| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                        |
-| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                                      |
-| **StepProgress**     | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical.                                                |
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
@@ -304,10 +330,6 @@ import { CardStatCompact } from "@/components/ds/card-stat-compact"
 import { CardStatProgress } from "@/components/ds/card-stat-progress"
 // Ou via barrel (instala todos):
 // import { CardStatCompact, CardStatProgress } from "@/components/ds/card-stats"
-import { ProgressBar } from "@/components/ds/progress-bar"
-import { ProgressCircular } from "@/components/ds/progress-circular"
-import { RiskLevelBar } from "@/components/ds/risk-level-bar"
-import { StepProgress } from "@/components/ds/step-progress"
 import { DataTable } from "@/components/ds/data-table"
 
 <MiniCardGroup variant="outlined" size="md" divide accent="success">
@@ -315,9 +337,6 @@ import { DataTable } from "@/components/ds/data-table"
   <MiniCard label="Selecionados" value={53} sub="/153" />
 </MiniCardGroup>
 <CardStatCompact label="Revenue" value={124500} format="currency" trend="up" trendValue="+26.8%" icon={DollarSignIcon} />
-<ProgressBar value={0.75} name="Taxa de Aprovação" intent="success" />
-<ProgressCircular value={0.6} title="Frequência" size="lg" />
-<RiskLevelBar labelLeft="Nível de Risco" labelRight="Score" value={0.4} />
 <DataTable columns={columns} data={rows} searchable sortable paginated />
 ```
 
@@ -352,6 +371,8 @@ import { BarChart } from "@/components/ds/bar-chart"
 | **Counter**              | Input numérico com controles +/− e suporte a valor controlado/não-controlado.                      |
 | **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                 |
 | **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                            |
+| **SearchBar**            | Input de busca expansível para headers com ícone toggle, dica de atalho de teclado e placeholders i18n. |
+| **SearchCombo**          | Campo de busca com dropdown de autocomplete virtualizado, highlight de texto (com acentuação insensitive), navegação por teclado, agrupamento de resultados e reconhecimento de voz opcional. Mantido em `components/ds/search-combo/`. |
 | **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.          |
 | **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips e renderização customizada. |
 | **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.             |
@@ -363,6 +384,8 @@ import { Combobox as ComboboxCustom } from "@/components/ds/combobox"  // custom
 import { SelectList } from "@/components/ds/select-list"
 import { InputEmail } from "@/components/ds/input-email"
 import { InputPassword } from "@/components/ds/input-password"
+import { SearchBar } from "@/components/ds/search-bar"
+import { SearchCombo } from "@/components/ds/search-combo"
 
 <Counter defaultValue={1} min={0} max={100} onChange={setValue} />
 <Combobox options={items} value={selected} onChange={setSelected} />
@@ -370,32 +393,30 @@ import { InputPassword } from "@/components/ds/input-password"
 <SelectList data={items} selectedId={id} onSelect={setItem} height={300} />
 <InputEmail placeholder="email@example.com" />
 <InputPassword placeholder="Senha" />
+<SearchBar onSearch={(term) => router.push(`/search?q=${term}`)} />
+<SearchCombo value={query} onChange={setQuery} options={results} onSearch={fetchResults} voice />
 ```
 
 #### Navegação
 
 | Componente       | Descrição                                                                         |
 | :--------------- | :-------------------------------------------------------------------------------- |
-| **HeaderSearch** | Botão de busca expansível com animação suave para headers de página.              |
+| **Tabs**         | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, loading skeletons e fallback responsivo para Accordion em mobile. |
 | **FooterMenu**   | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase. |
 | **ScrollToTop**  | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n. |
 | **NavDots**      | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips. |
 | **NavUser**      | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.   |
-| **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR.  |
-| **ToggleTheme**  | Botão dropdown para alternar entre temas claro, escuro e sistema. Re-exporta `ThemeProvider` e `useTheme` de `@/providers/theme` para configuração do app. |
+| **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR e `rounded` variant (`full`/`light`/`none`). |
+| **StepProgress** | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical. |
 
 ```tsx
-import { HeaderSearch } from "@/components/ds/header-search"
 import { FooterMenu } from "@/components/ds/footer-menu"
 import { ScrollToTop } from "@/components/ds/scroll-to-top"
-import { ToggleTheme } from "@/components/ds/toggle-theme"
 import { Pagination } from "@/components/ds/pagination"
 import { NavDots } from "@/components/ds/nav-dots"
 import { NavUser } from "@/components/ds/nav-user"
-
-// No layout do header:
-<HeaderSearch onSearch={(term) => router.push(`/search?q=${term}`)} />
-<ToggleTheme locale="pt-BR" />
+import { Tabs } from "@/components/ds/tabs"
+import { StepProgress } from "@/components/ds/step-progress"
 
 // Provider de tema (app-level):
 import { ThemeProvider, useTheme } from "@/components/ds/toggle-theme"
@@ -407,28 +428,14 @@ function App({ children }: { children: React.ReactNode }) {
 <Pagination currentPage={1} totalPages={10} onPageChange={setPage} />
 <NavDots sections={sections} />
 <NavUser user={user} onLogout={handleLogout} />
-```
-
-### Blocos multi-arquivo
-
-Componentes de alta complexidade mantidos em subdiretórios dentro de `components/ds/`.
-
-#### SearchCombo
-
-Campo de busca com dropdown de autocomplete virtualizado, highlight de texto (com acentuação insensitive), navegação por teclado, agrupamento de resultados e reconhecimento de voz opcional.
-
-```tsx
-import { SearchCombo } from "@/components/ds/search-combo"
-
-<SearchCombo
-  value={query}
-  onChange={setQuery}
-  options={results}
-  onSearch={(term) => fetchResults(term)}
-  onSelectResult={(item) => router.push(item.url)}
-  voice
-  placeholder="Buscar documentos..."
+<Tabs
+  items={[
+    { value: "profile", label: "Perfil", icon: User, content: <ProfileForm /> },
+    { value: "security", label: "Segurança", icon: Lock, content: <SecurityForm /> },
+  ]}
+  variant="pill"
 />
+<StepProgress steps={steps} currentStep={1} />
 ```
 
 ## Theming

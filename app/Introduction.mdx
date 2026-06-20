@@ -48,23 +48,24 @@ Atomic, accessible base components installed via the shadcn CLI — used as buil
 
 Custom components live in `components/ds/`. Shared utilities and helpers in `lib/` provide CVA variants, i18n dictionaries, and formatting utilities reused across the component family. Each component is individually registered in `registry.json` (type `registry:ui`), with barrel entries listing sub-components as `registryDependencies`. Install individually or in bulk via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
 
+#### Actions
+
+- **[Button](/docs/actions-button--docs)**: Feature-rich button with loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step destructive confirmation, and built-in tooltip via Radix. Wraps the shadcn `Button` primitive.
+- **[IconButton](/docs/actions-iconbutton--docs)**: Icon-only button with optional tooltip, loading state, and configurable size and rounding.
+- **[ToggleTheme](/docs/actions-toggletheme--docs)**: Dropdown button to switch between light, dark, and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app-level setup.
+
 #### Layout & Containers
 
 - **[Dashrow](/docs/ui-dashrow--docs)**: Responsive layout container for dashboard panels with resizable split ratios and N-child support.
 - **[Dashbox](/docs/ui-dashbox--docs)**: Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, and status badge.
 - **[DrawerUI](/docs/ui-drawerui--docs)**: Full-featured drawer wrapper with header, scrollable body, footer, and direction-aware close button. Supports bottom, left, right, and top directions.
-- **[IconButton](/docs/ui-iconbutton--docs)**: Icon-only button with optional tooltip, loading state, and configurable size and rounding.
 - **[Modal](/docs/ui-modal--docs)**: Flexible modal dialog built on Dialog with 6 size variants, 5 intent colors, scrollable body, auto async confirm tracking, loading skeleton, and i18n support.
 
-#### Data Display & Progress
+#### Data Display
 
 - **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. All share CVA variants from `lib/card-stats-shared.tsx`. Each variant is installable individually (`card-stat`, `card-stat-compact`, etc.) or all at once via the `card-stats` barrel (which lists all variants as `registryDependencies`).
 - **[MiniCard](/docs/data-display-minicard--docs)**: Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators, and number formatting. Size propagates via context.
 - **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, sorting, and `locale` prop for automatic i18n label resolution (search placeholder, empty state, pagination labels).
-- **[ProgressBar](/docs/data-display-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
-- **[ProgressCircular](/docs/data-display-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
-- **[RiskLevelBar](/docs/data-display-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
-- **[StepProgress](/docs/navigation-stepprogress--docs)**: Multi-step process guide with status indicators in horizontal or vertical orientations.
 
 #### Charts
 
@@ -86,31 +87,31 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 
 - **[PageLoader](/docs/feedback-pageloader--docs)**: Full-page loading overlay with a top shimmer bar (`bar`) or a centered XL spinner (`spinner`). Controlled by a single `loading` prop with smooth fade-in/out, semantic color options (`primary`, `success`, `destructive`), optional frosted-glass overlay, and i18n support.
 - **[Spinner](/docs/feedback-spinner--docs)**: Animated loading indicator with localized `aria-label` via `locale` prop.
+- **[ProgressBar](/docs/feedback-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
+- **[ProgressCircular](/docs/feedback-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
+- **[RiskLevelBar](/docs/feedback-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
 
 #### Navigation
 
+- **[Tabs](/docs/navigation-tabs--docs)**: Declarative tab component powered by Radix. Pass an `items` array with `value`, `label`, optional `icon`, `count`, `disabled`, and `content`. Four variants (`default`, `line`, `pill`, `segmented`), three sizes, vertical orientation, and responsive accordion fallback on mobile.
 - **[NavDots](/docs/navigation-navdots--docs)**: Dot-based section navigation with automatic scroll tracking and tooltips.
 - **[NavUser](/docs/navigation-navuser--docs)**: User profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.
 - **[HeaderSearch](/docs/navigation-headersearch--docs)**: Smoothly expanding search bar for page headers.
 - **[FooterMenu](/docs/navigation-footermenu--docs)**: Responsive footer — columns on desktop, accordion on mobile.
 - **[ScrollToTop](/docs/ui-scrolltotop--docs)**: Floating button with scroll-progress ring and direction-aware visibility for quick top-of-page navigation.
-- **[Pagination](/docs/navigation-pagination--docs)**: Semantic pagination with `locale` prop for "Anterior"/"Próxima" labels.
-- **[ToggleTheme](/docs/navigation-toggletheme--docs)**: Dropdown button to switch between light, dark, and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app-level setup.
+- **[Pagination](/docs/navigation-pagination--docs)**: Semantic pagination with `locale` prop for "Anterior"/"Próxima" labels, and `rounded` variant (`full`/`light`/`none`).
+- **[StepProgress](/docs/navigation-stepprogress--docs)**: Multi-step process guide with status indicators in horizontal or vertical orientations.
 
 #### Forms
 
 - **[Counter](/docs/forms-counter--docs)**: Numeric input with +/− button controls and controlled/uncontrolled value support.
 - **[Input Email](/docs/forms-emailinput--docs)**: Email field with a built-in mail icon and size/radius variants.
 - **[Input Password](/docs/forms-passwordinput--docs)**: Password field with a toggle visibility button and size/radius variants.
+- **[SearchBar](/docs/forms-searchbar--docs)**: Smoothly expanding search input for page headers with icon toggle, keyboard shortcut hint, and i18n placeholders.
+- **[SearchCombo](/docs/forms-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting. Maintained in `components/ds/search-combo/` with independent support files.
 - **[Combobox](/docs/ui-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, and group support, built on @base-ui/react.
 - **[ComboboxUI](/docs/ui-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, and full search.
 - **[SelectList](/docs/forms-selectlist--docs)**: Searchable list with selection state, groups, icons, and virtual scrolling for large data sets.
-
-#### Blocks
-
-High-complexity components maintained in `components/ds/search-combo/` with independent support files.
-
-- **[SearchCombo](/docs/forms-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.
 
 ---
 
