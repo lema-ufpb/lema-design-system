@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { ProgressCircular } from "@/components/ds/progress-circular"
 
 const meta = {
-  title: "Data Display/ProgressCircular",
+  title: "Feedback/ProgressCircular",
   component: ProgressCircular,
   tags: ["autodocs"],
   argTypes: {
