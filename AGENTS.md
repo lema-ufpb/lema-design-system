@@ -7,7 +7,7 @@ Registry público em `registry.json` (schema shadcn). Componentes consumíveis v
 
 ```
 components/ui/       → primitivos shadcn (não modificar sem --diff review)
-components/custom/   → compostos do design system (lógica de negócio, CVA, i18n)
+components/ds/   → compostos do design system (lógica de negócio, CVA, i18n)
 lib/ui-i18n.ts       → dicionário i18n compartilhado (en-US, pt-BR, es-ES, fr-FR)
 lib/utils.ts         → cn() e utilidades
 app/globals.css      → tokens CSS (colors, radius, sidebar, charts, success/warning/risk-*)
@@ -43,7 +43,7 @@ valor/num:   sm → text-xs font-semibold  md → text-sm font-semibold  lg → 
 - Fundo neutro / track → `bg-muted`
 - Labels → `text-muted-foreground` · Valores → `text-foreground`
 
-### Padrão CVA single-file (components/custom/)
+### Padrão CVA single-file (components/ds/)
 ```tsx
 // Ordem obrigatória no arquivo:
 // 1. "use client" (se hooks/eventos)

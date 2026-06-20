@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update
 
 # ANSI Colors
 CYAN=\033[0;36m
@@ -26,6 +26,7 @@ help:
 	@echo "  🚢 $(GREEN)make docker-run$(RESET)       - Roda o container Docker local (porta 8080)"
 	@echo "  📥 $(GREEN)make shadcn-add-all$(RESET)   - Adiciona todos os componentes do shadcn (sobrescreve)"
 	@echo "  🧪 $(GREEN)make shadcn-add-all-dry$(RESET) - Simula a adição de todos os componentes"
+	@echo "  🔄 $(GREEN)make shadcn-update$(RESET)      - Atualiza todos os componentes primitivos para a versão mais recente"
 	@echo ""
 	@echo "💡 $(YELLOW)Dica: Rode 'make dev' para começar a brincar!$(RESET)"
 
@@ -102,3 +103,9 @@ shadcn-add-all:
 shadcn-add-all-dry:
 	@echo "🧪 $(CYAN)Apenas uma simulação (dry-run)! Verificando adição dos componentes...$(RESET)"
 	npx shadcn@latest add --all --overwrite --dry-run
+
+shadcn-update:
+	@echo "🔄 $(YELLOW)Atualizando componentes primitivos shadcn em components/ui/...$(RESET)"
+	npx shadcn@latest add --all --overwrite
+	npm run format
+	@echo "✅ $(GREEN)Componentes atualizados para a versão mais recente do shadcn/ui!$(RESET)"
