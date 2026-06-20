@@ -18,7 +18,8 @@ Layout horizontal responsivo de múltiplos painéis com divisores redimensionáv
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/dashrow.tsx` |
+| Arquivo | `components/ds/dashrow.tsx` |
+| data-slot | `dashrow` |
 | Tipo | `registry:component` (name: `dashrow`) |
 | Categoria | `Layout` |
 | Depende de | Nenhum primitivo shadcn (apenas React + CVA) |

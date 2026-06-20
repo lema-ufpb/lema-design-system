@@ -20,7 +20,8 @@ Wrapper do `Input` shadcn com botão de olho para alternar entre `type="password
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/input-password.tsx` |
+| Arquivo | `components/ds/input-password.tsx` |
+| data-slot | `input-password` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |
 | Depende de | `Input`, `Button` (shadcn/ui) |

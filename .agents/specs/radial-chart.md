@@ -16,7 +16,8 @@ _Gráfico de barras radiais (gauge) baseado em recharts RadialBarChart. Barras c
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/radial-chart.tsx` |
+| Arquivo | `components/ds/radial-chart.tsx` |
+| data-slot | `radial-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Legend, PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip), `lucide-react` (Gauge), `class-variance-authority` |

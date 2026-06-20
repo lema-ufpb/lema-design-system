@@ -52,6 +52,7 @@ const UI_I18N: Record<UILocale, { ... }>
 | `footerMenu` | Rótulo de navegação do rodapé |
 | `stepProgress` | Rótulo de progresso |
 | `combobox` | Placeholder, busca, resultados vazios, seleção |
+| `modal` | Labels de confirmação e cancelamento (confirm, cancel) |
 | `dashbox` | Toolbar (refresh, collapse, expand, fullscreen) e status (live, warning, error, idle) |
 | `dashrow` | Redimensionamento de painéis |
 | `treemap` | Navegação de breadcrumb |
@@ -60,6 +61,9 @@ const UI_I18N: Record<UILocale, { ... }>
 | `emptyState` | Nenhum dado / dados aparecerão |
 | `cardStats` | Rótulos de período atual e anterior |
 | `pieChart` | Total |
+| `scoreRow` | Loading e label de score |
+| `searchBar` | Placeholder, label, limpar, voice input |
+| `dataTable` | Busca, estados vazios, paginação (of, rows, rowsPerPage) |
 
 ---
 
@@ -98,6 +102,7 @@ const UI_I18N: Record<UILocale, { ... }>
 - [x] `navDots` (sectionNav, goTo)
 - [x] `footerMenu.label`
 - [x] `stepProgress.label`
+- [x] `modal` (confirm, cancel)
 - [x] `combobox` (placeholder, searchPlaceholder, noResults, noOptions, clearSearch, clearSelection, clearAll, selected)
 - [x] `dashbox` toolbar e status
 - [x] `dashrow.resizePanels`
@@ -107,6 +112,9 @@ const UI_I18N: Record<UILocale, { ... }>
 - [x] `emptyState` (noData, dataWillAppear)
 - [x] `cardStats` (thisPeriod, lastPeriod, noComparison)
 - [x] `pieChart.total`
+- [x] `scoreRow` (loading, scoreLabel)
+- [x] `searchBar` (placeholder, label, clear, startVoice, stopVoice)
+- [x] `dataTable` (searchPlaceholder, noData, noDataDescription, of, rows, rowsPerPage)
 
 ---
 

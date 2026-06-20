@@ -2,7 +2,8 @@
 
 > Cartão de destaque (hero KPI) com fundo colorido sólido, círculos decorativos e 7 variantes de cor.
 
-**Arquivo:** `components/custom/card-stat-highlight.tsx`
+**Arquivo:** `components/ds/card-stat-highlight.tsx`
+**data-slot:** `card-stat-highlight`
 
 ---
 
@@ -22,7 +23,7 @@
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
 
-Estende `FmtProps` + `VariantProps<typeof cardStatHighlightVariants>`.
+Estende \`FormatOptions\` + \`VariantProps<typeof cardStatHighlightVariants>\`.
 
 ---
 
@@ -48,7 +49,7 @@ Estende `FmtProps` + `VariantProps<typeof cardStatHighlightVariants>`.
 | `cardStatHighlightIconVariants` | `size-4` | `size-5` | `size-6` |
 | `cardStatHighlightValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
 | `cardStatHighlightDescVariants` | `text-xs` | `text-sm` | `text-base` |
-| `cardStatHighlightTrendIconVariants` | `size-3.5` | `size-5` | `size-6` |
+| `cardStatHighlightTrendIconVariants` | `size-3.5` | `size-4` | `size-5` |
 
 Compartilhada: `cardStatLabelVariants`.
 
@@ -56,7 +57,7 @@ Compartilhada: `cardStatLabelVariants`.
 
 ## Variante white
 
-- Fundo `bg-white text-foreground`
+- Fundo `bg-highlight-white text-highlight-white-foreground`
 - Círculos decorativos usam `bg-muted/10` e `bg-muted/5` (em vez de `bg-white/*`)
 - IconBox usa `bg-muted/10` (em vez de `bg-white/20`)
 - Skeletons mantêm `bg-muted` nativo (sem overlay)

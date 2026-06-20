@@ -2,7 +2,8 @@
 
 > Módulo compartilhado da família CardStats. Contém tipos, helpers, variantes CVA compartilhadas e componentes auxiliares.
 
-**Arquivo:** `components/custom/card-stats-shared.tsx`
+**Arquivo:** `components/ds/card-stats-shared.tsx`
+**data-slot:** `card-stats-shared`
 
 ---
 
@@ -10,10 +11,10 @@
 
 | Tipo | Valores |
 |------|---------|
-| `CardStatFormat` | `"currency" \| "percent" \| "integer" \| "float"` |
+| `FormatPreset` | `"currency" \| "percent" \| "integer" \| "float"` |
 | `CardStatTrend` | `"up" \| "down" \| "neutral"` |
 | `CardStatSize` | `"sm" \| "md" \| "lg"` |
-| `FmtProps` | `{ format?, decimals?, locale?, currency?, valueFormatter? }` |
+| `FormatOptions` | `{ format?, decimals?, locale?, currency?, valueFormatter? }` |
 
 ---
 
@@ -33,22 +34,26 @@ Todas com `defaultVariants: { size: "md" }`.
 
 ---
 
-## Helpers
+## Helpers (re-exports de `@/lib/format-utils`)
 
 ### formatValue(value, format?, opts?)
 
-Formata valor numérico conforme `CardStatFormat` usando `Intl.NumberFormat`.
+Re-exportado de `@/lib/format-utils`. Formata valor numérico conforme `FormatPreset` usando `Intl.NumberFormat`.
 
 | Formato | Comportamento |
 |---------|---------------|
 | `currency` | `style: currency` com `opts.currency` (padrão USD) |
-| `percent` | Valor + "%" |
+| `percent` | Valor como ratio (0–1) + formato percentual |
 | `integer` | Sem casas decimais |
 | `float` | Com `opts.decimals` (padrão 2) |
 
-### applyFmt(value, opts)
+### formatChartValue(value, opts?)
 
-Se `opts.valueFormatter` existe, usa-o. Senão, delega para `formatValue`.
+Re-exportado de `@/lib/format-utils`. Aplica `opts.format`/`opts.decimals`/`opts.currency`/`opts.abbreviate` com fallback para `opts.valueFormatter` se presente. Usado pelos componentes de gráfico para formatação de eixos e tooltips.
+
+### applyFormat(value, opts)
+
+Re-exportado de `@/lib/format-utils`. Se `opts.valueFormatter` existe, usa-o. Senão, delega para `formatValue`.
 
 ### resolveTrend(trend)
 

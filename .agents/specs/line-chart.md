@@ -16,10 +16,11 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/line-chart.tsx` |
+| Arquivo | `components/ds/line-chart.tsx` |
+| data-slot | `line-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn/ui), `recharts` (Area, AreaChart, Brush, CartesianGrid, Legend, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (TrendingUp), `class-variance-authority` |
+| Depende de | `Skeleton` (shadcn/ui), `recharts` (Area, AreaChart, Brush, CartesianGrid, Legend, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (TrendingUp), `class-variance-authority`, `format-utils` |
 
 ---
 
@@ -43,7 +44,11 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 | `showTooltip` | `boolean` | `true` | | Exibe tooltip |
 | `connectNulls` | `boolean` | `false` | | Conecta valores nulos |
 | `referenceLines` | `LineChartReferenceLine[]` | — | | Linhas de referência horizontais |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores |
+| `valueFormatter` | `(value: number) => string` | — | | Formata valores (fallback se `format` não suprir) |
+| `format` | `FormatPreset` | — | | Preset de formatação |
+| `decimals` | `number` | — | | Casas decimais |
+| `currency` | `string` | `"USD"` | | Código da moeda |
+| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware |
 | `showBrush` | `boolean` | `false` | | Exibe brush para zoom |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `locale` | `UILocale` | `"en-US"` | | Locale |

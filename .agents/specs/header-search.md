@@ -19,7 +19,8 @@ Campo de busca expansível com animação, ideal para headers e barras de navega
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/header-search.tsx` |
+| Arquivo | `components/ds/header-search.tsx` |
+| data-slot | `header-search` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |
 | Depende de | `Button`, `Input` (shadcn), `lucide-react`, `cva` |
