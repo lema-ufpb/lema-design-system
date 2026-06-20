@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -56,20 +57,6 @@ export const counterVariants = cva(
       variant: "default",
       disabled: false,
     },
-  }
-)
-
-export const counterButtonVariants = cva(
-  "flex shrink-0 items-center justify-center rounded-md transition-all hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-30",
-  {
-    variants: {
-      size: {
-        sm: "size-6",
-        md: "size-8",
-        lg: "size-9",
-      },
-    },
-    defaultVariants: { size: "md" },
   }
 )
 
@@ -191,16 +178,18 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
         aria-label={label || UI_I18N[locale].counter.groupLabel}
         data-slot="counter"
       >
-        <button
+        <Button
+          variant="ghost"
+          size={size === "sm" ? "icon-xs" : size === "lg" ? "icon" : "icon-sm"}
           type="button"
           onClick={decrement}
           disabled={disabled || currentNumber <= min}
           aria-label={UI_I18N[locale].counter.decrease}
-          className={cn(counterButtonVariants({ size }))}
           data-slot="counter-decrement"
+          className="rounded-md hover:bg-accent disabled:opacity-30"
         >
           <Minus className="size-4 shrink-0 transition-transform active:scale-75" />
-        </button>
+        </Button>
 
         <input
           {...props}
@@ -221,16 +210,18 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
           className={cn(counterInputVariants({ size }))}
         />
 
-        <button
+        <Button
+          variant="ghost"
+          size={size === "sm" ? "icon-xs" : size === "lg" ? "icon" : "icon-sm"}
           type="button"
           onClick={increment}
           disabled={disabled || currentNumber >= max}
           aria-label={UI_I18N[locale].counter.increase}
-          className={cn(counterButtonVariants({ size }))}
           data-slot="counter-increment"
+          className="rounded-md hover:bg-accent disabled:opacity-30"
         >
           <Plus className="size-4 shrink-0 transition-transform active:scale-75" />
-        </button>
+        </Button>
       </div>
     )
   }
