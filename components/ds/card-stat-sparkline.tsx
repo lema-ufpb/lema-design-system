@@ -15,7 +15,7 @@ import {
   cardStatValueVariants,
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 function toSvgPts(
   data: number[],

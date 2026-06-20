@@ -46,7 +46,7 @@ Atomic, accessible base components installed via the shadcn CLI — used as buil
 
 ### 3. Custom UI Components
 
-All custom components live in `components/ds/` and follow the shadcn single-file pattern. Each is individually installable via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
+Custom components live in `components/ds/`. Shared utilities and helpers in `lib/` provide CVA variants, i18n dictionaries, and formatting utilities reused across the component family. Each component is individually registered in `registry.json` (type `registry:ui`), with barrel entries listing sub-components as `registryDependencies`. Install individually or in bulk via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
 
 #### Layout & Containers
 
@@ -58,7 +58,7 @@ All custom components live in `components/ds/` and follow the shadcn single-file
 
 #### Data Display & Progress
 
-- **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar.
+- **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. All share CVA variants from `lib/card-stats-shared.tsx`. Each variant is installable individually (`card-stat`, `card-stat-compact`, etc.) or all at once via the `card-stats` barrel (which lists all variants as `registryDependencies`).
 - **[MiniCard](/docs/data-display-minicard--docs)**: Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators, and number formatting. Size propagates via context.
 - **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, sorting, and `locale` prop for automatic i18n label resolution (search placeholder, empty state, pagination labels).
 - **[ProgressBar](/docs/data-display-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
@@ -94,7 +94,7 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 - **[HeaderSearch](/docs/navigation-headersearch--docs)**: Smoothly expanding search bar for page headers.
 - **[FooterMenu](/docs/navigation-footermenu--docs)**: Responsive footer — columns on desktop, accordion on mobile.
 - **[Pagination](/docs/navigation-pagination--docs)**: Semantic pagination with `locale` prop for "Anterior"/"Próxima" labels.
-- **[ToggleTheme](/docs/navigation-toggletheme--docs)**: Dropdown button to switch between light, dark, and system themes.
+- **[ToggleTheme](/docs/navigation-toggletheme--docs)**: Dropdown button to switch between light, dark, and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app-level setup.
 
 #### Forms
 
@@ -194,7 +194,7 @@ The `locale` prop defaults to `"en-US"` when omitted. Extending to additional lo
 - **Dark / Light themes**: All colors use shadcn semantic tokens and adapt automatically via CSS variables.
 - **Responsiveness**: Mobile-first approach — complex components like `FooterMenu` switch layouts based on viewport.
 - **Type Safety**: 100% TypeScript with CVA-powered variant props for a bulletproof developer experience.
-- **Registry-ready**: Each component ships as a single file, installable in any shadcn project without copying the repo.
+- **Registry-ready**: Each component is individually registered in `registry.json` (type `registry:ui` or `registry:lib`) and installable via `npx ds add <component-name>` without copying the repo. Barrel entries aggregate sub-components as `registryDependencies` for bulk install.
 
 ---
 

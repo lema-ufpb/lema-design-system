@@ -2,7 +2,7 @@ export type {
   FormatPreset,
   CardStatTrend,
   CardStatSize,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 export type { CardStatProps } from "./card-stat"
 export { CardStat } from "./card-stat"

@@ -28,6 +28,7 @@
 
 * **specs:** rename and update for custom-to-ds migration ([5bc8e43](https://github.com/lema-ufpb/design-system/commit/5bc8e4365924b044ef8697ab31167e28815576d6))
 
+
 ## [2.0.0](https://github.com/lema-ufpb/design-system/compare/v1.0.1...v2.0.0) (2026-05-29)
 
 
