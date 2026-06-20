@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { cva, type VariantProps } from "class-variance-authority"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { MoreHorizontalIcon } from "lucide-react"
 import {
@@ -11,6 +12,21 @@ import {
   PaginationPrevious as UIPaginationPrevious,
   PaginationNext as UIPaginationNext,
 } from "@/components/ui/pagination"
+
+// ── Variants ──
+
+const paginationLinkVariants = cva("", {
+  variants: {
+    rounded: {
+      full: "rounded-4xl",
+      light: "rounded-lg",
+      none: "rounded-none",
+    },
+  },
+  defaultVariants: {
+    rounded: "full",
+  },
+})
 
 function Pagination({
   className,
@@ -41,13 +57,15 @@ function PaginationLink({
   className,
   isActive,
   size = "icon",
+  rounded,
   ...props
-}: React.ComponentProps<typeof UIPaginationLink>) {
+}: React.ComponentProps<typeof UIPaginationLink> &
+  VariantProps<typeof paginationLinkVariants>) {
   return (
     <UIPaginationLink
       isActive={isActive}
       size={size}
-      className={className}
+      className={cn(paginationLinkVariants({ rounded }), className)}
       {...props}
     />
   )
@@ -57,13 +75,15 @@ function PaginationPrevious({
   className,
   text,
   locale = "en-US",
+  rounded,
   ...props
 }: React.ComponentProps<typeof UIPaginationPrevious> & {
   locale?: UILocale
+  rounded?: "full" | "light" | "none"
 }) {
   return (
     <UIPaginationPrevious
-      className={cn("pl-2!", className)}
+      className={cn("pl-2!", paginationLinkVariants({ rounded }), className)}
       aria-label={UI_I18N[locale].pagination.goToPrevious}
       text={text ?? UI_I18N[locale].pagination.previous}
       {...props}
@@ -75,13 +95,15 @@ function PaginationNext({
   className,
   text,
   locale = "en-US",
+  rounded,
   ...props
 }: React.ComponentProps<typeof UIPaginationNext> & {
   locale?: UILocale
+  rounded?: "full" | "light" | "none"
 }) {
   return (
     <UIPaginationNext
-      className={cn("pr-2!", className)}
+      className={cn("pr-2!", paginationLinkVariants({ rounded }), className)}
       aria-label={UI_I18N[locale].pagination.goToNext}
       text={text ?? UI_I18N[locale].pagination.next}
       {...props}

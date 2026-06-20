@@ -115,6 +115,7 @@ export interface DataTableProps<
   size?: "compact" | "default"
   textSize?: "xs" | "sm" | "md" | "lg"
   rounded?: boolean
+  paginationRounded?: "full" | "light" | "none"
 
   // Features
   loading?: boolean
@@ -562,6 +563,7 @@ interface PaginationBarProps {
   ofLabel: string
   prevLabel: string
   nextLabel: string
+  rounded?: "full" | "light" | "none"
 }
 
 function PaginationBar({
@@ -581,6 +583,7 @@ function PaginationBar({
   ofLabel,
   prevLabel,
   nextLabel,
+  rounded = "full",
 }: PaginationBarProps) {
   const start = totalRows === 0 ? 0 : pageIndex * pageSize + 1
   const end = Math.min((pageIndex + 1) * pageSize, totalRows)
@@ -625,13 +628,14 @@ function PaginationBar({
             <PaginationPrevious
               href="#"
               text={prevLabel}
+              rounded={rounded}
               onClick={(e) => {
                 e.preventDefault()
                 onPrev()
               }}
               aria-disabled={!canPrev}
               className={cn(
-                "rounded-md hover:bg-primary/10",
+                "hover:bg-primary/10",
                 !canPrev && "pointer-events-none opacity-50"
               )}
             />
@@ -647,12 +651,12 @@ function PaginationBar({
                 <PaginationLink
                   href="#"
                   isActive={p === pageIndex + 1}
+                  rounded={rounded}
                   onClick={(e) => {
                     e.preventDefault()
                     onPageChange(p - 1)
                   }}
                   className={cn(
-                    "rounded-md",
                     p === pageIndex + 1
                       ? "border-transparent bg-primary/15 text-primary hover:bg-primary/20"
                       : "hover:bg-primary/10"
@@ -668,13 +672,14 @@ function PaginationBar({
             <PaginationNext
               href="#"
               text={nextLabel}
+              rounded={rounded}
               onClick={(e) => {
                 e.preventDefault()
                 onNext()
               }}
               aria-disabled={!canNext}
               className={cn(
-                "rounded-md hover:bg-primary/10",
+                "hover:bg-primary/10",
                 !canNext && "pointer-events-none opacity-50"
               )}
             />
@@ -709,6 +714,7 @@ export function DataTable<TData extends object>({
   size = "default",
   textSize: _textSize,
   rounded = true,
+  paginationRounded,
   showSearch = false,
   pagination = false,
   manualPagination = false,
@@ -1280,6 +1286,7 @@ export function DataTable<TData extends object>({
             ofLabel={l.pagination.of}
             prevLabel={l.pagination.prev}
             nextLabel={l.pagination.next}
+            rounded={paginationRounded}
           />
         )}
       </div>
