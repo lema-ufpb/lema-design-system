@@ -18,7 +18,7 @@ import {
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
   cardStatContentGapVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 export interface CardStatComparisonProps extends FormatOptions {
   label: string

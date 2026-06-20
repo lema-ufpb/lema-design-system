@@ -1077,69 +1077,237 @@
       ]
     },
     {
-      "name": "card-stats",
+      "name": "card-stat-shared",
       "type": "registry:ui",
-      "title": "Card Stats",
-      "description": "A portfolio of statistical display cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, and CardStatHeatbar.",
+      "title": "Card Stat Shared",
+      "description": "Shared utilities, CVA variants, and helper components (TrendBadge, CardStatEmptySlot) for the card-stat family.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
       "registryDependencies": [
-        "card",
-        "progress",
-        "tooltip",
-        "skeleton",
-        "ui-i18n",
+        "badge",
         "format-utils"
       ],
       "files": [
         {
-          "path": "components/ds/card-stats-shared.tsx",
+          "path": "lib/card-stats-shared.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stats-shared.tsx"
-        },
+          "target": "lib/card-stats-shared.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-stat",
+      "type": "registry:ui",
+      "title": "Card Stat",
+      "description": "A statistical display card with label, value, trend indicator, optional icon, and loading skeleton.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-compact",
+      "type": "registry:ui",
+      "title": "Card Stat Compact",
+      "description": "A compact statistical card with trend badge, description, icon, and loading skeleton.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-compact.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-compact.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-progress",
+      "type": "registry:ui",
+      "title": "Card Stat Progress",
+      "description": "A statistical card with an embedded progress bar for showing completion or attainment levels.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "progress",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-progress.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-progress.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-comparison",
+      "type": "registry:ui",
+      "title": "Card Stat Comparison",
+      "description": "A side-by-side comparison card for current vs. previous period values with trend indicators.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-comparison.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-comparison.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-sparkline",
+      "type": "registry:ui",
+      "title": "Card Stat Sparkline",
+      "description": "A statistical card with an inline sparkline chart for visual trend representation.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-sparkline.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-sparkline.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-highlight",
+      "type": "registry:ui",
+      "title": "Card Stat Highlight",
+      "description": "A high-emphasis statistical card with a colored background for key metric prominence.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-highlight.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-highlight.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-list",
+      "type": "registry:ui",
+      "title": "Card Stat List",
+      "description": "A statistical card containing a list of labeled items with icons and trend indicators.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-list.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-list.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-gauge",
+      "type": "registry:ui",
+      "title": "Card Stat Gauge",
+      "description": "A statistical card with a gauge visualization for showing metrics within a target range.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-gauge.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-gauge.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stat-heatbar",
+      "type": "registry:ui",
+      "title": "Card Stat Heatbar",
+      "description": "A statistical card with a segmented heatbar visualization for multi-zone metric display.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card-stat-shared",
+        "card",
+        "progress",
+        "skeleton"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stat-heatbar.tsx",
           "type": "registry:ui",
           "target": "components/ds/card-stat-heatbar.tsx"
-        },
+        }
+      ]
+    },
+    {
+      "name": "card-stats",
+      "type": "registry:ui",
+      "title": "Card Stats (All)",
+      "description": "A portfolio of all statistical display cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, and CardStatHeatbar.",
+      "registryDependencies": [
+        "card-stat",
+        "card-stat-compact",
+        "card-stat-progress",
+        "card-stat-comparison",
+        "card-stat-sparkline",
+        "card-stat-highlight",
+        "card-stat-list",
+        "card-stat-gauge",
+        "card-stat-heatbar"
+      ],
+      "files": [
         {
           "path": "components/ds/card-stats.tsx",
           "type": "registry:ui",

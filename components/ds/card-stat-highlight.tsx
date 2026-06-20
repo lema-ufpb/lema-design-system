@@ -15,7 +15,7 @@ import {
   TREND_ICONS,
   CardStatEmptySlot,
   cardStatLabelVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 // ── Variants ──
 export const cardStatHighlightBoxVariants = cva("", {

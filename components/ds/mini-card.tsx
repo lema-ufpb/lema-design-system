@@ -6,10 +6,7 @@ import { TrendingUpIcon, TrendingDownIcon, MinusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
-import {
-  type FormatPreset,
-  applyFormat,
-} from "@/components/ds/card-stats-shared"
+import { type FormatPreset, applyFormat } from "@/lib/card-stats-shared"
 
 // ── Types ──
 
