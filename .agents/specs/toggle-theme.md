@@ -23,7 +23,8 @@ Alternador de tema claro/escuro/sistema usando `next-themes` com menu dropdown. 
 | data-slot | `toggle-theme` |
 | Tipo | `registry:component` |
 | Categoria | `Navigation` |
-| Depende de | `Button`, `DropdownMenu` (shadcn), `next-themes`, `lucide-react` |
+| Depende de | `Button`, `DropdownMenu` (shadcn), `@/providers/theme` (re-exporta `ThemeProvider` e `useTheme`), `lucide-react` |
+| Re-exports | `ThemeProvider`, `useTheme` — consumíveis via `import { ThemeProvider, useTheme } from "@/components/ds/toggle-theme"` |
 
 ---
 

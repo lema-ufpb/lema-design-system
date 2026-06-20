@@ -19,8 +19,8 @@ _O que este componente resolve? Quando usar vs. alternativas existentes?_
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/[nome].tsx` |
-| Tipo | `registry:component` |
+| Arquivo | `components/ds/[nome].tsx` |
+| Tipo | `registry:ui` |
 | Categoria | `Data Display` / `Form` / `Navigation` / `Feedback` / `Layout` |
 | Depende de | (primitivos shadcn usados: Card, Badge, Skeleton, etc.) |
 
