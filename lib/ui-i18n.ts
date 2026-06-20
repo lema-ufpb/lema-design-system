@@ -80,6 +80,7 @@ export const UI_I18N: Record<
     }
     pageLoader: { loading: string }
     pillGroup: { filterLabel: string }
+    tabs: { tabList: string }
     toggleTheme: {
       light: string
       dark: string
@@ -202,6 +203,7 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Loading…" },
     pillGroup: { filterLabel: "Filter by" },
+    tabs: { tabList: "Tab list" },
     toggleTheme: {
       light: "Light",
       dark: "Dark",
@@ -330,6 +332,7 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Carregando…" },
     pillGroup: { filterLabel: "Filtrar por" },
+    tabs: { tabList: "Lista de abas" },
     toggleTheme: {
       light: "Claro",
       dark: "Escuro",
@@ -454,6 +457,7 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Cargando…" },
     pillGroup: { filterLabel: "Filtrar por" },
+    tabs: { tabList: "Lista de pestañas" },
     toggleTheme: {
       light: "Claro",
       dark: "Oscuro",
@@ -586,6 +590,7 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Chargement…" },
     pillGroup: { filterLabel: "Filtrer par" },
+    tabs: { tabList: "Liste d'onglets" },
     toggleTheme: {
       light: "Clair",
       dark: "Sombre",
