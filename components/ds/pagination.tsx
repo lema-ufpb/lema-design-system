@@ -2,12 +2,15 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
-import { Button } from "@/components/ui/button"
+import { MoreHorizontalIcon } from "lucide-react"
 import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MoreHorizontalIcon,
-} from "lucide-react"
+  Pagination as UIPagination,
+  PaginationContent as UIPaginationContent,
+  PaginationItem as UIPaginationItem,
+  PaginationLink as UIPaginationLink,
+  PaginationPrevious as UIPaginationPrevious,
+  PaginationNext as UIPaginationNext,
+} from "@/components/ui/pagination"
 
 function Pagination({
   className,
@@ -15,11 +18,9 @@ function Pagination({
   ...props
 }: React.ComponentProps<"nav"> & { locale?: UILocale }) {
   return (
-    <nav
-      role="navigation"
+    <UIPagination
+      className={className}
       aria-label={UI_I18N[locale].pagination.navLabel}
-      data-slot="pagination"
-      className={cn("mx-auto flex w-full justify-center", className)}
       {...props}
     />
   )
@@ -29,44 +30,26 @@ function PaginationContent({
   className,
   ...props
 }: React.ComponentProps<"ul">) {
-  return (
-    <ul
-      data-slot="pagination-content"
-      className={cn("flex items-center gap-1", className)}
-      {...props}
-    />
-  )
+  return <UIPaginationContent className={className} {...props} />
 }
 
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
-  return <li data-slot="pagination-item" {...props} />
+  return <UIPaginationItem {...props} />
 }
-
-type PaginationLinkProps = {
-  isActive?: boolean
-} & Pick<React.ComponentProps<typeof Button>, "size"> &
-  React.ComponentProps<"a">
 
 function PaginationLink({
   className,
   isActive,
   size = "icon",
   ...props
-}: PaginationLinkProps) {
+}: React.ComponentProps<typeof UIPaginationLink>) {
   return (
-    <Button
-      asChild
-      variant={isActive ? "outline" : "ghost"}
+    <UIPaginationLink
+      isActive={isActive}
       size={size}
-      className={cn(className)}
-    >
-      <a
-        aria-current={isActive ? "page" : undefined}
-        data-slot="pagination-link"
-        data-active={isActive}
-        {...props}
-      />
-    </Button>
+      className={className}
+      {...props}
+    />
   )
 }
 
@@ -75,22 +58,16 @@ function PaginationPrevious({
   text,
   locale = "en-US",
   ...props
-}: React.ComponentProps<typeof PaginationLink> & {
-  text?: string
+}: React.ComponentProps<typeof UIPaginationPrevious> & {
   locale?: UILocale
 }) {
   return (
-    <PaginationLink
-      aria-label={UI_I18N[locale].pagination.goToPrevious}
-      size="default"
+    <UIPaginationPrevious
       className={cn("pl-2!", className)}
+      aria-label={UI_I18N[locale].pagination.goToPrevious}
+      text={text ?? UI_I18N[locale].pagination.previous}
       {...props}
-    >
-      <ChevronLeftIcon data-icon="inline-start" />
-      <span className="hidden sm:block">
-        {text ?? UI_I18N[locale].pagination.previous}
-      </span>
-    </PaginationLink>
+    />
   )
 }
 
@@ -99,22 +76,16 @@ function PaginationNext({
   text,
   locale = "en-US",
   ...props
-}: React.ComponentProps<typeof PaginationLink> & {
-  text?: string
+}: React.ComponentProps<typeof UIPaginationNext> & {
   locale?: UILocale
 }) {
   return (
-    <PaginationLink
-      aria-label={UI_I18N[locale].pagination.goToNext}
-      size="default"
+    <UIPaginationNext
       className={cn("pr-2!", className)}
+      aria-label={UI_I18N[locale].pagination.goToNext}
+      text={text ?? UI_I18N[locale].pagination.next}
       {...props}
-    >
-      <span className="hidden sm:block">
-        {text ?? UI_I18N[locale].pagination.next}
-      </span>
-      <ChevronRightIcon data-icon="inline-end" />
-    </PaginationLink>
+    />
   )
 }
 
