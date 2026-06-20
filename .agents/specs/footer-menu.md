@@ -22,7 +22,7 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 | data-slot | `footer-menu` |
 | Tipo | `registry:component` (name: `footer-menu`) |
 | Categoria | `Navigation` |
-| Depende de | `@radix-ui/react-accordion` (AccordionPrimitive), `next/link` (Link), `ChevronDown` (lucide-react) |
+| Depende de | `ui/accordion` (Accordion, AccordionItem, AccordionTrigger, AccordionContent), `next/link` (Link), `ChevronDown` (lucide-react) |
 
 ---
 
@@ -76,11 +76,13 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 
 | Token | Slot onde é usado |
 |-------|------------------|
-| `text-foreground` | título do grupo |
-| `text-muted-foreground` | links, ícone ChevronDown |
-| `hover:text-primary` | link hover |
+| `text-footer-heading` | título do grupo |
+| `text-footer-link` | links, ícone ChevronDown |
+| `text-footer-link-hover` | link hover |
 | `bg-accent/50` | mobile: hover no header do acordeão |
 | `ring-primary` | focus-visible em header e links |
+
+> **Tokens semânticos:** `--footer-heading`, `--footer-link`, `--footer-link-hover` definidos em `app/globals.css` via `@theme inline`. Por padrão referenciam `--foreground` e `--muted-foreground`, mas consumidores podem sobrescrever apenas as cores do footer sem afetar o restante da UI.
 
 ---
 
@@ -100,9 +102,11 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 | Estado | Comportamento esperado |
 |--------|----------------------|
 | `data` vazio ou `undefined` | `return null` — componente não renderiza |
-| Mobile (< lg) | Accordion collapsible, 1 item por vez |
+| Mobile (< lg) | Accordion collapsible via `ui/Accordion`, 1 item por vez |
 | Desktop (lg+) | Colunas estáticas lado a lado, accordion oculto (`lg:hidden` / `lg:flex`) |
-| Accordion trigger | Focus-visible ring-primary |
+| Accordion trigger | `hover:no-underline` (sobrescreve hover:underline do ui/AccordionTrigger). Focus-visible ring-primary |
+| Accordion item | `!border-b-0` — sem bordas entre itens (sobrescreve `not-last:border-b` do ui/AccordionItem) |
+| Link hover | Adiciona `hover:underline` + mudança de cor via `text-footer-link-hover` |
 | Link com target | Atributo `target` repassado ao `<Link>` |
 | `upper={true}` | Títulos em `tracking-wider uppercase` |
 
@@ -113,8 +117,9 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 | Requisito | Implementação |
 |-----------|--------------|
 | Role semântico | `<nav>` com `aria-label` via `UI_I18N[locale].footerMenu.label` |
-| Accordion | Radix AccordionPrimitive (gerencia a11y nativamente) |
-| Headers | `AccordionPrimitive.Header` com Trigger |
+| Accordion | `ui/Accordion` + `ui/AccordionItem` + `ui/AccordionTrigger` + `ui/AccordionContent` (gerenciam a11y nativamente via Radix) |
+| Headers | `AccordionTrigger` com Header |
+| Links mobile | `[&_a]:no-underline` (sobrescreve `underline` do `AccordionContent` do ui/accordion) |
 | Ícone | `aria-hidden="true"` no ChevronDown |
 | Focus | `focus-visible:ring-2 focus-visible:ring-primary` em headers e links |
 | Desktop | `lg:pointer-events-none` no header para evitar interação |
@@ -131,7 +136,7 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 ## Checklist antes de implementar
 
 - [x] Escala tipográfica segue `sm=text-sm / md=text-base / lg=text-lg` (títulos) e `sm=text-xs / md=text-sm / lg=text-base` (links)
-- [x] Todos os tokens são semânticos (sem raw Tailwind)
+- [x] Todos os tokens são semânticos (`text-footer-heading`, `text-footer-link`, `text-footer-link-hover` com fallback para `foreground`/`muted-foreground`)
 - [x] Todo `cva()` tem `defaultVariants` declarado
 - [x] Todos os `*Variants` são exportados
 - [x] Loading — N/A (sem estado loading)

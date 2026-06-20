@@ -60,7 +60,7 @@ Wrapper `<nav>` com `aria-label="pagination"`.
 
 | Token | Slot |
 |-------|------|
-| `--primary` / `--primary-foreground` | Botão de página ativa (variant `outline`) |
+| `--primary` / `--primary-foreground` | Botão de página ativa (variant `default`) |
 | `--border` / `--muted` | Botão inativo e hover (variant `ghost`) |
 | `--ring` / `--ring/30` | Anel de foco |
 
@@ -70,9 +70,9 @@ Wrapper `<nav>` com `aria-label="pagination"`.
 
 | Estado | Comportamento |
 |--------|---------------|
-| Página ativa | `isActive=true`, `aria-current="page"`, variant `outline` |
+| Página ativa | `isActive=true`, `aria-current="page"`, variant `default` |
 | Página inativa | Variant `ghost` |
-| Hover | Estilo herdado de `Button` (ghost/outline) |
+| Hover | Estilo herdado de `Button` (ghost/default) |
 | Ellipsis | Apenas visual, `aria-hidden` |
 | Responsivo | Previous/Next exibem texto apenas em `sm:` |
 
