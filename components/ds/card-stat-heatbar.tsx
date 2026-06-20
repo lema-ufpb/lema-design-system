@@ -21,7 +21,7 @@ import {
   cardStatHeaderIconVariants,
   cardStatContentGapVariants,
   cardStatBadgePaddingVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 // ── Types ──
 export interface CardStatHeatbarZone {

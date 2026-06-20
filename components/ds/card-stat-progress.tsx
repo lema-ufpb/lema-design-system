@@ -16,7 +16,7 @@ import {
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
   cardStatContentGapVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 // ── Variants ──
 export const cardStatTrackHVariants = cva("", {
