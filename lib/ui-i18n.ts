@@ -86,6 +86,10 @@ export const UI_I18N: Record<
       system: string
       trigger: string
     }
+    scrollToTop: {
+      label: string
+      tooltip: string
+    }
   }
 > = {
   "en-US": {
@@ -203,6 +207,10 @@ export const UI_I18N: Record<
       dark: "Dark",
       system: "System",
       trigger: "Toggle theme",
+    },
+    scrollToTop: {
+      label: "Scroll to top",
+      tooltip: "Back to top",
     },
   },
   "pt-BR": {
@@ -328,6 +336,10 @@ export const UI_I18N: Record<
       system: "Sistema",
       trigger: "Alternar tema",
     },
+    scrollToTop: {
+      label: "Voltar ao topo",
+      tooltip: "Voltar ao topo",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -447,6 +459,10 @@ export const UI_I18N: Record<
       dark: "Oscuro",
       system: "Sistema",
       trigger: "Cambiar tema",
+    },
+    scrollToTop: {
+      label: "Volver arriba",
+      tooltip: "Volver arriba",
     },
   },
   "fr-FR": {
@@ -575,6 +591,10 @@ export const UI_I18N: Record<
       dark: "Sombre",
       system: "Système",
       trigger: "Changer de thème",
+    },
+    scrollToTop: {
+      label: "Retour en haut",
+      tooltip: "Retour en haut",
     },
   },
 }
