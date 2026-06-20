@@ -729,13 +729,15 @@ export function ScatterChart({
     globalXMax,
   ])
 
-  // When the underlying data domain changes, reset the brush to the new full range.
-  // useEffect is the correct place for this secondary setState (React docs pattern).
-  React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (showBrush) setBrushX([globalXMin, globalXMax])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globalXMin, globalXMax])
+  const [prevDomain, setPrevDomain] = React.useState({ globalXMin, globalXMax })
+  if (
+    showBrush &&
+    (globalXMin !== prevDomain.globalXMin ||
+      globalXMax !== prevDomain.globalXMax)
+  ) {
+    setPrevDomain({ globalXMin, globalXMax })
+    setBrushX([globalXMin, globalXMax])
+  }
 
   const xDomain = showBrush
     ? ([brushX[0], brushX[1]] as [number, number])
