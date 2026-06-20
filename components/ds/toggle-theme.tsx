@@ -2,7 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { Sun, Moon, Monitor } from "lucide-react"
-import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+import {
+  ThemeProvider as NextThemesProvider,
+  useTheme,
+} from "@/providers/theme"
 import type { ComponentProps } from "react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
