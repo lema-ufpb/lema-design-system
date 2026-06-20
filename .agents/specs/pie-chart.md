@@ -16,10 +16,11 @@ _Gráfico de pizza/donut baseado em recharts PieChart. Suporta variantes pie e d
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/pie-chart.tsx` |
+| Arquivo | `components/ds/pie-chart.tsx` |
+| data-slot | `pie-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn/ui), `recharts` (Label, Legend, Pie, PieChart, ResponsiveContainer, Sector, Tooltip), `lucide-react` (PieChart), `class-variance-authority` |
+| Depende de | `Skeleton` (shadcn/ui), `recharts` (Label, Legend, Pie, PieChart, ResponsiveContainer, Sector, Tooltip), `lucide-react` (PieChart), `class-variance-authority`, `format-utils` |
 
 ---
 
@@ -39,7 +40,11 @@ _Gráfico de pizza/donut baseado em recharts PieChart. Suporta variantes pie e d
 | `showLabels` | `boolean` | `false` | | Labels percentuais externos |
 | `innerLabel` | `string` | — | | Label central no donut (padrão: "Total" i18n) |
 | `paddingAngle` | `number` | `0` | | Gap entre fatias em graus |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores |
+| `valueFormatter` | `(value: number) => string` | — | | Formata valores (fallback se `format` não suprir) |
+| `format` | `FormatPreset` | — | | Preset de formatação |
+| `decimals` | `number` | — | | Casas decimais |
+| `currency` | `string` | `"USD"` | | Código da moeda |
+| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware |
 | `locale` | `string` | `"en-US"` | | Locale |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `className` | `string` | — | | Classes extras |

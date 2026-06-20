@@ -16,10 +16,11 @@ _Gráfico radar (teia) baseado em recharts RadarChart para visualização multiv
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/radar-chart.tsx` |
+| Arquivo | `components/ds/radar-chart.tsx` |
+| data-slot | `radar-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn/ui), `recharts` (Legend, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Tooltip), `lucide-react` (Target), `class-variance-authority` |
+| Depende de | `Skeleton` (shadcn/ui), `recharts` (Legend, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Tooltip), `lucide-react` (Target), `class-variance-authority`, `format-utils` |
 
 ---
 
@@ -42,7 +43,11 @@ _Gráfico radar (teia) baseado em recharts RadarChart para visualização multiv
 | `showLegend` | `boolean` | `false` | | Exibe legenda |
 | `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | | Posição da legenda |
 | `showTooltip` | `boolean` | `true` | | Exibe tooltip |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores |
+| `valueFormatter` | `(value: number) => string` | — | | Formata valores (fallback se `format` não suprir) |
+| `format` | `FormatPreset` | — | | Preset de formatação |
+| `decimals` | `number` | — | | Casas decimais |
+| `currency` | `string` | `"USD"` | | Código da moeda |
+| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `locale` | `UILocale` | `"en-US"` | | Locale |
 | `className` | `string` | — | | Classes extras |

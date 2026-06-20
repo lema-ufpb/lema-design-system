@@ -18,7 +18,8 @@ Menu de rodapé responsivo com acordeão em mobile e colunas estáticas em deskt
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/footer-menu.tsx` |
+| Arquivo | `components/ds/footer-menu.tsx` |
+| data-slot | `footer-menu` |
 | Tipo | `registry:component` (name: `footer-menu`) |
 | Categoria | `Navigation` |
 | Depende de | `@radix-ui/react-accordion` (AccordionPrimitive), `next/link` (Link), `ChevronDown` (lucide-react) |

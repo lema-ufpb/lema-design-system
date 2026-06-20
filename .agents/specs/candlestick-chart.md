@@ -16,10 +16,11 @@ _Gráfico de candles (velas) para visualização financeira de preços OHLC (Ope
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/candlestick-chart.tsx` |
+| Arquivo | `components/ds/candlestick-chart.tsx` |
+| data-slot | `candlestick-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn/ui), `recharts` (Bar, Brush, CartesianGrid, ComposedChart, Legend, Line, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (CandlestickChart), `class-variance-authority` |
+| Depende de | `Skeleton` (shadcn/ui), `recharts` (Bar, Brush, CartesianGrid, ComposedChart, Legend, Line, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (CandlestickChart), `class-variance-authority`, `format-utils` |
 
 ---
 
@@ -42,7 +43,11 @@ _Gráfico de candles (velas) para visualização financeira de preços OHLC (Ope
 | `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | | Posição da legenda |
 | `showTooltip` | `boolean` | `true` | | Exibe tooltip ao hover |
 | `showBrush` | `boolean` | `false` | | Exibe brush para zoom |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores de preço |
+| `valueFormatter` | `(value: number) => string` | — | | Formata valores de preço (fallback se `format` não suprir) |
+| `format` | `FormatPreset` | — | | Preset de formatação |
+| `decimals` | `number` | — | | Casas decimais |
+| `currency` | `string` | `"USD"` | | Código da moeda |
+| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware (ex: volume) |
 | `dateFormatter` | `(date: string) => string` | — | | Formata datas no eixo X |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `locale` | `UILocale` | `"en-US"` | | Locale para i18n |

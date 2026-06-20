@@ -18,10 +18,10 @@ Campo de busca versátil para uso no corpo de páginas. Suporta três modos visu
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/search-bar.tsx` |
+| Arquivo | `components/ds/search-bar.tsx` |
 | Tipo | `registry:ui` |
 | Categoria | `Navigation` |
-| Depende de | `lucide-react`, `class-variance-authority`, `Kbd`, `Skeleton`, `useSpeechRecognition` (hook compartilhado), `UI_I18N` (i18n) |
+| Depende de | `lucide-react`, `class-variance-authority`, `Button` (shadcn), `Kbd`, `Skeleton`, `useSpeechRecognition` (hook compartilhado), `UI_I18N` (i18n) |
 
 ---
 
@@ -84,10 +84,12 @@ Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange">`.
 |----------|---------|--------|
 | `size` | `sm`, `md`, `lg` | `md` |
 
-### searchBarClearVariants (botão clear / voz)
+### Botões clear / voz (inline sizing)
 | Dimensão | Valores | Padrão |
 |----------|---------|--------|
 | `size` | `sm`, `md`, `lg` | `md` |
+
+> **Nota:** Clear e voice buttons usam objeto inline `{ sm: "size-5", md: "size-6", lg: "size-7" }[size]` em vez de um CVA separado. O slot `searchBarClearVariants` não existe como CVA exportado.
 
 ---
 

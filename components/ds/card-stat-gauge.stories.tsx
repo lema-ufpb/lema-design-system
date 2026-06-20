@@ -1,0 +1,269 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite"
+import { CpuIcon, ShieldCheckIcon } from "lucide-react"
+import { CardStatGauge } from "./card-stats"
+
+const meta = {
+  title: "Data Display/CardStatGauge",
+  component: CardStatGauge,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: [
+          "Semi-circular SVG gauge with coloured zone segments.",
+          "The filled arc and its dot adopt the zone colour. Custom zones can be passed via the `zones` prop.",
+        ].join("\n"),
+      },
+    },
+  },
+  argTypes: {
+    format: {
+      control: "select",
+      options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
+    },
+    label: { control: "text" },
+    value: { control: "number" },
+    min: { control: "number" },
+    max: { control: "number" },
+    description: { control: "text" },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    empty: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      table: { defaultValue: { summary: "md" } },
+    },
+    icon: { table: { disable: true } },
+    zones: { table: { disable: true } },
+    valueFormatter: { table: { disable: true } },
+  },
+} satisfies Meta<typeof CardStatGauge>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    label: "NPS Score",
+    value: 78,
+    min: 0,
+    max: 100,
+    description: "Promoters vs detractors",
+    size: "md",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Standard semi-circular SVG gauge showing an NPS score of 78 out of 100 with default color zones.",
+      },
+    },
+  },
+}
+
+export const Loading: Story = {
+  args: {
+    label: "NPS Score",
+    value: 0,
+    loading: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Loading skeleton state displaying four CardStatGauge placeholders while data is being fetched.",
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <CardStatGauge label="NPS Score" value={0} loading />
+      <CardStatGauge label="CPU Usage" value={0} loading icon={CpuIcon} />
+      <CardStatGauge
+        label="Quality Score"
+        value={0}
+        loading
+        icon={ShieldCheckIcon}
+      />
+      <CardStatGauge label="Team Velocity" value={0} loading />
+    </div>
+  ),
+}
+
+export const EmptyState: Story = {
+  args: {
+    label: "NPS Score",
+    value: 0,
+    empty: true,
+    description: "Awaiting survey responses",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Empty state showing four gauge cards with dash placeholders when no data is available.",
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <CardStatGauge
+        label="NPS Score"
+        value={0}
+        empty
+        description="Awaiting survey responses"
+      />
+      <CardStatGauge
+        label="CPU Usage"
+        value={0}
+        empty
+        description="No metrics collected"
+        icon={CpuIcon}
+      />
+      <CardStatGauge
+        label="Quality Score"
+        value={0}
+        empty
+        description="Pipeline not configured"
+        icon={ShieldCheckIcon}
+      />
+      <CardStatGauge
+        label="Team Velocity"
+        value={0}
+        empty
+        description="No sprints completed"
+      />
+    </div>
+  ),
+}
+
+export const AllSizes: Story = {
+  args: { label: "Gauge", value: 0 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison across sm, md, and lg size presets for the CardStatGauge component with various metrics.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <div key={size} className="flex flex-col gap-2">
+          <p className="font-mono text-xs text-muted-foreground">
+            {`size="${size}"`}
+          </p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <CardStatGauge
+              label="NPS Score"
+              value={78}
+              min={0}
+              max={100}
+              description="Promoters vs detractors"
+              size={size}
+            />
+            <CardStatGauge
+              label="CPU Usage"
+              value={42}
+              min={0}
+              max={100}
+              valueFormatter={(v) => `${v}%`}
+              description="Production cluster avg"
+              icon={CpuIcon}
+              size={size}
+            />
+            <CardStatGauge
+              label="Quality Score"
+              value={91}
+              min={0}
+              max={100}
+              description="Code review pipeline"
+              icon={ShieldCheckIcon}
+              size={size}
+            />
+            <CardStatGauge
+              label="Team Velocity"
+              value={34}
+              min={0}
+              max={60}
+              valueFormatter={(v) => `${v} pts`}
+              description="Story points per sprint"
+              size={size}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
+export const AllGauges: Story = {
+  args: {
+    label: "Gauge",
+    value: 0,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates four gauge configurations — NPS score, CPU usage with custom zones, quality score, and team velocity.",
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <CardStatGauge
+        label="NPS Score"
+        value={78}
+        min={0}
+        max={100}
+        description="Promoters vs detractors"
+      />
+      <CardStatGauge
+        label="CPU Usage"
+        value={42}
+        min={0}
+        max={100}
+        valueFormatter={(v) => `${v}%`}
+        description="Production cluster avg"
+        icon={CpuIcon}
+        zones={[
+          { label: "Low", color: "#10b981", max: 50 },
+          { label: "Medium", color: "#f59e0b", max: 80 },
+          { label: "High", color: "#f97316", max: 95 },
+          { label: "Critical", color: "#ef4444", max: 100 },
+        ]}
+      />
+      <CardStatGauge
+        label="Quality Score"
+        value={91}
+        min={0}
+        max={100}
+        description="Code review pipeline"
+        icon={ShieldCheckIcon}
+      />
+      <CardStatGauge
+        label="Team Velocity"
+        value={34}
+        min={0}
+        max={60}
+        valueFormatter={(v) => `${v} pts`}
+        description="Story points per sprint"
+        zones={[
+          { label: "Behind", color: "#ef4444", max: 25 },
+          { label: "On track", color: "#f59e0b", max: 50 },
+          { label: "Ahead", color: "#10b981", max: 100 },
+        ]}
+      />
+    </div>
+  ),
+}

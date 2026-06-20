@@ -18,7 +18,8 @@ Navegação por dots (pontos) que rastreia a seção visível via `IntersectionO
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/nav-dots.tsx` |
+| Arquivo | `components/ds/nav-dots.tsx` |
+| data-slot | `nav-dots` |
 | Tipo | `registry:component` (name: `nav-dots`) |
 | Categoria | `Navigation` |
 | Depende de | `Tooltip` (shadcn), `TooltipProvider`, `TooltipContent`, `TooltipTrigger` |

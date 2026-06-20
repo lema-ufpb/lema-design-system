@@ -16,7 +16,8 @@ _Gráfico de box plot (caixa e bigodes) para visualização de distribuições e
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/boxplot-chart.tsx` |
+| Arquivo | `components/ds/boxplot-chart.tsx` |
+| data-slot | `boxplot-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton` (shadcn/ui), `lucide-react` (BarChart2), `class-variance-authority` |

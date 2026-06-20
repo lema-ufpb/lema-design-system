@@ -10,9 +10,9 @@ O Chart é a camada de integração entre Recharts e o sistema de tokens do LEMA
 
 **Usar quando:** Qualquer visualização de dados baseada em Recharts que precise de tooltip, legend e cores consistentes com o design system.
 
-**Não usar quando:** Gráficos customizados não-Recharts (SVG puro). Para gráficos específicos já implementados no sistema (BarChart, LineChart, PieChart, etc.), usar os componentes custom em `components/custom/`.
+**Não usar quando:** Gráficos customizados não-Recharts (SVG puro). Para gráficos específicos já implementados no sistema (BarChart, LineChart, PieChart, etc.), usar os componentes custom em `components/ds/`.
 
-**Alternativa se não se aplicar:** Componentes custom em `components/custom/` (bar-chart, line-chart, pie-chart, etc.) que já encapsulam ChartContainer com configurações específicas.
+**Alternativa se não se aplicar:** Componentes custom em `components/ds/` (bar-chart, line-chart, pie-chart, etc.) que já encapsulam ChartContainer com configurações específicas.
 
 ---
 

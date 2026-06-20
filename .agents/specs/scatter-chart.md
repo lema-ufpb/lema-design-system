@@ -16,10 +16,11 @@ _Gráfico de dispersão (scatter plot) baseado em recharts ScatterChart. Suporta
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/scatter-chart.tsx` |
+| Arquivo | `components/ds/scatter-chart.tsx` |
+| data-slot | `scatter-chart` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
-| Depende de | `Skeleton` (shadcn/ui), `recharts` (CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis), `lucide-react` (Crosshair), `class-variance-authority` |
+| Depende de | `Skeleton` (shadcn/ui), `recharts` (CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis), `lucide-react` (Crosshair), `class-variance-authority`, `format-utils` |
 
 ---
 
@@ -41,6 +42,11 @@ _Gráfico de dispersão (scatter plot) baseado em recharts ScatterChart. Suporta
 | `yLabel` | `string` | — | | Rótulo do eixo Y |
 | `xFormatter` | `(value: number) => string` | — | | Formata valores do eixo X |
 | `yFormatter` | `(value: number) => string` | — | | Formata valores do eixo Y |
+| `valueFormatter` | `(value: number) => string` | — | | Formata valores unificados (aplica a todos os eixos e tooltips; fallback se `format` não suprir) |
+| `format` | `FormatPreset` | — | | Preset de formatação |
+| `decimals` | `number` | — | | Casas decimais |
+| `currency` | `string` | `"USD"` | | Código da moeda |
+| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware |
 | `bubbleRange` | `[number, number]` | `[40, 400]` | | Range de tamanho dos bubbles (ZAxis) |
 | `showBrush` | `boolean` | `false` | | Brush contínuo customizado para zoom X |
 | `loading` | `boolean` | `false` | | Estado de carregamento |

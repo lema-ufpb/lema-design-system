@@ -20,7 +20,8 @@ Wrapper do `Input` shadcn com ícone `Mail` à direita e configuração simplifi
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/input-email.tsx` |
+| Arquivo | `components/ds/input-email.tsx` |
+| data-slot | `input-email` |
 | Tipo | `registry:component` |
 | Categoria | `Form` |
 | Depende de | `Input` (shadcn/ui) |

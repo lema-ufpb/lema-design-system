@@ -19,7 +19,7 @@ Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip,
 
 | Campo | Valor |
 |-------|-------|
-| Arquivo | `components/custom/progress-bar.tsx` |
+| Arquivo | `components/ds/progress-bar.tsx` |
 | Tipo | `registry:component` |
 | Categoria | `Data Display` |
 | Depende de | `Skeleton`, `Tooltip` (shadcn), `radix-ui/progress` |
