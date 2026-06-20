@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.2.0](https://github.com/lema-ufpb/design-system/compare/v1.1.0...v1.2.0) (2026-06-20)
+
+
+### ✨ Features
+
+* **theme:** add dedicated theme provider module with useTheme export ([921eb36](https://github.com/lema-ufpb/design-system/commit/921eb36c92bc4ac21690454d25eba330fb31db6d))
+
+
+### 🐛 Bug Fixes
+
+* **lint:** resolve set-state-in-effect rule violations ([90ec17a](https://github.com/lema-ufpb/design-system/commit/90ec17a6defe2dd9002711e88bf259ca85bf992f))
+
+
+### 📚 Documentation
+
+* update skill, specs, templates, readme, and introduction ([05c4a3c](https://github.com/lema-ufpb/design-system/commit/05c4a3c0fef26fdcf4d3439de7a585f87cb066db))
+
+
+### ♻️ Refactor
+
+* **card-stats:** extract shared module to lib/ with individual registry entries ([4c71d24](https://github.com/lema-ufpb/design-system/commit/4c71d24bb7e664ce308514ebffa818eb4d77d6be))
+
 ## [1.1.0](https://github.com/lema-ufpb/design-system/compare/v1.0.2...v1.1.0) (2026-06-20)
 
 
