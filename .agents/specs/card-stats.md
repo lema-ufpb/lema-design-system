@@ -20,8 +20,8 @@ Exibir métricas e indicadores em formato de cartão, com suporte a formatação
 |-------|-------|
 | Arquivo barrel | `components/ds/card-stats.tsx` |
 | data-slot | `card-stats` |
-| Módulo compartilhado | `components/ds/card-stats-shared.tsx` |
-| Tipo | `registry:component` |
+| Módulo compartilhado | `lib/card-stats-shared.tsx` |
+| Tipo | `registry:component` (barrel) — cada sub-componente é instalável individualmente via `card-stat`, `card-stat-compact`, etc. |
 | Categoria | `Data Display` |
 | Depende de | `Card`, `CardAction`, `CardContent`, `CardHeader` (shadcn/ui/card), `Progress`, `Skeleton`, `Tooltip`, `TooltipContent`, `TooltipProvider`, `Badge` |
 
@@ -47,7 +47,7 @@ Todos os sub-componentes aceitam `size` (`"sm" | "md" | "lg"`, padrão `"md"`) e
 
 ## Tipos compartilhados
 
-Definidos em `card-stats-shared.tsx`:
+Definidos em `lib/card-stats-shared.tsx`:
 
 | Tipo | Valores |
 |------|---------|
@@ -60,7 +60,7 @@ Definidos em `card-stats-shared.tsx`:
 
 ## Variantes CVA compartilhadas
 
-Definidas em `card-stats-shared.tsx`:
+Definidas em `lib/card-stats-shared.tsx`:
 
 | Variant | sm | md | lg |
 |---------|----|----|----|

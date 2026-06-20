@@ -17,7 +17,7 @@ import {
   cardStatLabelVariants,
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 // ── Variants ──
 export const cardStatListRowPyVariants = cva("", {

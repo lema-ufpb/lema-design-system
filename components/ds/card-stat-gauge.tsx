@@ -13,7 +13,7 @@ import {
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
   cardStatBadgePaddingVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 // ── Types ──
 export interface CardStatGaugeZone {

@@ -128,6 +128,12 @@ This project extends shadcn with custom tokens. Use them instead of raw colors:
 | `bg-risk-2`                        | High risk segment (amber, hue ~50)                |
 | `bg-risk-3`                        | Medium risk segment (yellow-green, hue ~85)       |
 | `bg-risk-4`                        | Low risk segment (green-yellow, hue ~105)         |
+| `bg-highlight-violet` / `text-highlight-violet` | Violet highlight fills (used in CardStatHighlight) |
+| `text-highlight-violet-foreground` | Text **on** `bg-highlight-violet`                 |
+| `bg-highlight-sky` / `text-highlight-sky` | Sky highlight fills                         |
+| `text-highlight-sky-foreground`    | Text **on** `bg-highlight-sky`                    |
+| `bg-highlight-white` / `text-highlight-white` | White highlight fills                   |
+| `text-highlight-white-foreground`  | Text **on** `bg-highlight-white`                  |
 
 **Rule:** Trend/delta indicators must use semantic tokens:
 ```tsx
@@ -212,7 +218,7 @@ Always use the design token scale — never hardcode `rounded-full` for rectangl
 
 ## CVA Component Patterns
 
-All custom components in `components/custom/` follow the single-file CVA pattern. These rules apply when creating or modifying them:
+All custom components in `components/ds/` follow the single-file CVA pattern. These rules apply when creating or modifying them:
 
 ### File structure
 
@@ -220,10 +226,16 @@ All custom components in `components/custom/` follow the single-file CVA pattern
 // 1. "use client" if needed
 // 2. imports
 // 3. Types block (export type, export interface)
-// 4. Variants block (export const *Variants = cva(...))
+// 4. Variants block (export const *Variants = cva(...)) or shared import from lib/
 // 5. Internal helpers (const skeletonDims, formatValue, etc.)
 // 6. Component (export function Component / React.forwardRef)
 ```
+
+**Exception — shared variants in `lib/`:** When multiple sibling components share the same CVA variants (e.g. `card-stat-*` family), variants live in a single shared file `lib/<family>-shared.tsx` instead of being duplicated. The component imports them:
+```tsx
+import { cardStatLabelVariants, cardStatValueVariants } from "@/lib/card-stats-shared"
+```
+The shared file must export all variant functions, types, and helpers. Each consuming component follows the same file structure but skips the Variants block (step 4).
 
 ### Variant naming
 
@@ -287,16 +299,53 @@ const skeletonDims = {
 
 ### Card statistics
 
-Stats cards (from `card-stats.tsx`) follow this hierarchy:
+The card-stat family (`components/ds/card-stat-*.tsx`) shares CVA variants through `lib/card-stats-shared.tsx`. This file exports `cardStatLabelVariants`, `cardStatValueVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`, `cardStatTrendIconVariants`, `TrendBadge`, `CardStatEmptySlot`, and trend helpers. Every card-stat variant imports from it instead of duplicating variant definitions.
 
 ```
-CardHeader → title (text-sm font-medium text-muted-foreground)
-CardContent → value (text-2xl font-semibold tabular-nums)
-             trend  (text-sm font-medium, color from semantic token)
-CardFooter → auxiliary info (text-xs text-muted-foreground)
+// Shared module in lib/
+lib/card-stats-shared.tsx — CVA variants, TrendBadge, CardStatEmptySlot, types, re-exports from format-utils
+
+// Consumers in components/ds/
+card-stat.tsx              — barrel re-exporting all variants + registryDependencies
+card-stat-compact.tsx      — compact layout
+card-stat-progress.tsx     — with progress bar
+card-stat-comparison.tsx   — side-by-side comparison
+card-stat-sparkline.tsx    — inline sparkline
+card-stat-highlight.tsx    — with bg-highlight-* surface
+card-stat-list.tsx         — multi-item list
+card-stat-gauge.tsx        — circular gauge
+card-stat-heatbar.tsx      — heatmap bar
 ```
 
-Never flatten this structure into `CardContent` only.
+Each variant is registered individually in `registry.json` so consumers can install exactly what they need. The `card-stats` barrel entry lists all variants as `registryDependencies` for bulk install.
+
+**Loading:** Every variant renders 3 `<Skeleton>` elements matching real content dimensions.
+**Empty:** All variants show `—` for the value and a localized "Nothing to measure yet" message.
+
+### Registry entry pattern
+
+Each component gets its own entry in `registry.json` (shadcn registry schema, type `registry:ui` or `registry:lib`). Shared libraries in `lib/` use type `registry:lib`. Barrel files list their sub-components as `registryDependencies`:
+
+```json
+{
+  "name": "card-stats",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "card-stat",
+    "card-stat-compact",
+    "card-stat-progress",
+    "card-stat-comparison",
+    "card-stat-sparkline",
+    "card-stat-highlight",
+    "card-stat-list",
+    "card-stat-gauge",
+    "card-stat-heatbar"
+  ],
+  "files": [{ "path": "components/ds/card-stats.tsx", "type": "registry:ui", "target": "components/ds/card-stats.tsx" }]
+}
+```
+
+Registry is rebuilt with `make registry` (runs `npm run registry:build`, which calls `shadcn build`).
 
 ### Tabular data
 
@@ -395,6 +444,9 @@ These patterns have appeared in code reviews — flag them:
 | Missing `tabular-nums` on numeric values | Add it — prevents layout shift as numbers change |
 | Skeleton height different from real content height | Skeleton must match real content dimensions |
 | `React.CSSProperties["maxWidth"]` (or any indexed CSS property access) in props | Tailwind v4 augments `CSSProperties` and indexed access types produce IDE false positives — use concrete types: `string \| number` for layout props, `string` for color/display props |
+| Component placed in `components/custom/` instead of `components/ds/` | All custom components live in `components/ds/` — `components/custom/` does not exist |
+| CVA variants duplicated across sibling components | Extract shared variants to a file in `lib/<family>-shared.tsx` and import from all siblings |
+| Missing `registry.json` entry | Every component needs its own registry entry; run `make registry` after adding |
 
 ---
 
@@ -435,10 +487,15 @@ Follow the single-file CVA pattern (types → variants → helpers → component
 ### Step 4 — Verify
 
 ```bash
-make test          # must still pass (567 tests)
+make lint          # 0 errors, 0 warnings
+make registry      # rebuild registry.json (must be run after new components)
+make test          # must still pass (714 tests across 106 files)
+make shadcn-update # after upgrading shadcn primitives (overwrites all components/ui/ + components/ds/)
 ```
 
 Open Storybook and visually check each required story. The component is not done until:
 - All required stories render without error
+- `make lint` passes
 - `make test` passes
+- Registry entry is added and `make registry` builds successfully
 - All checklist items in the spec are checked off

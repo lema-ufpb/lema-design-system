@@ -147,8 +147,13 @@ design-system/
 │       │   └── hooks/
 │       └── ...
 ├── lib/
-│   ├── utils.ts            # Utilitários (cn)
-│   └── ui-i18n.ts          # Dicionário i18n compartilhado (multi-locale)
+│   ├── utils.ts                    # Utilitários (cn)
+│   ├── ui-i18n.ts                  # Dicionário i18n compartilhado (multi-locale)
+│   ├── format-utils.ts             # Formatação numérica localizada (Intl.NumberFormat)
+│   ├── card-stats-shared.tsx       # CVA variants, TrendBadge, helpers da família CardStat
+│   └── version.ts                  # Constante de versão do app
+├── providers/
+│   └── theme.tsx           # ThemeProvider custom com suporte a color themes
 ├── .storybook/             # Configuração Storybook
 ├── registry.json           # Registro shadcn
 └── Makefile                # Scripts de build
@@ -174,7 +179,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 1. **Preencher o template** `.agents/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
-4. **Verificar** com `make test` (590+ testes)
+4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (714 testes em 106 arquivos)
 
 As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver com assistência, as regras de estilo, composição e tokens são aplicadas automaticamente durante a geração de código.
 
@@ -285,7 +290,7 @@ import { Spinner } from "@/components/ds/spinner"
 
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. |
+| **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Cada variante é instalável individualmente via `card-stat`, `card-stat-compact`, etc., ou todas de uma vez via o barrel `card-stats`. |
 | **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
 | **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
 | **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                                        |
@@ -295,7 +300,10 @@ import { Spinner } from "@/components/ds/spinner"
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
-import { CardStatCompact, CardStatProgress } from "@/components/ds/card-stats"
+import { CardStatCompact } from "@/components/ds/card-stat-compact"
+import { CardStatProgress } from "@/components/ds/card-stat-progress"
+// Ou via barrel (instala todos):
+// import { CardStatCompact, CardStatProgress } from "@/components/ds/card-stats"
 import { ProgressBar } from "@/components/ds/progress-bar"
 import { ProgressCircular } from "@/components/ds/progress-circular"
 import { RiskLevelBar } from "@/components/ds/risk-level-bar"
@@ -373,7 +381,7 @@ import { InputPassword } from "@/components/ds/input-password"
 | **NavDots**      | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips. |
 | **NavUser**      | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.   |
 | **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR.  |
-| **ToggleTheme**  | Botão dropdown para alternar entre temas claro, escuro e sistema.                 |
+| **ToggleTheme**  | Botão dropdown para alternar entre temas claro, escuro e sistema. Re-exporta `ThemeProvider` e `useTheme` de `@/providers/theme` para configuração do app. |
 
 ```tsx
 import { HeaderSearch } from "@/components/ds/header-search"
@@ -385,7 +393,14 @@ import { NavUser } from "@/components/ds/nav-user"
 
 // No layout do header:
 <HeaderSearch onSearch={(term) => router.push(`/search?q=${term}`)} />
-<ToggleTheme labels={{ light: "Claro", dark: "Escuro", system: "Sistema" }} />
+<ToggleTheme locale="pt-BR" />
+
+// Provider de tema (app-level):
+import { ThemeProvider, useTheme } from "@/components/ds/toggle-theme"
+
+function App({ children }: { children: React.ReactNode }) {
+  return <ThemeProvider>{children}</ThemeProvider>
+}
 
 <Pagination currentPage={1} totalPages={10} onPageChange={setPage} />
 <NavDots sections={sections} />
@@ -444,10 +459,15 @@ O sistema usa CSS variables para theming:
 
 ```css
 :root {
-  --risk-1: oklch(0.62 0.19 28); /* Baixo */
+  --risk-1: oklch(0.62 0.19 28);     /* Maior risco */
   --risk-2: oklch(0.72 0.17 50);
   --risk-3: oklch(0.85 0.18 85);
-  --risk-4: oklch(0.92 0.15 105); /* Alto */
+  --risk-4: oklch(0.92 0.15 105);    /* Menor risco */
+  --success: oklch(0.72 0.16 155);   /* Positivo */
+  --warning: oklch(0.78 0.14 75);    /* Atenção */
+  --highlight-violet: oklch(0.68 0.18 295);
+  --highlight-sky: oklch(0.72 0.12 225);
+  --highlight-white: oklch(0.92 0.01 80);
 }
 ```
 
@@ -471,11 +491,13 @@ O sistema usa CSS variables para theming:
 make dev              # Inicia o servidor local do Storybook (porta 6006)
 make build            # Build produção
 make start            # Servidor produção
-make lint             # ESLint e typecheck
+make lint             # ESLint + typecheck + Prettier check
 make format           # Prettier
 make build-storybook  # Build Storybook estático
-make test             # Vitest
+make test             # Vitest (714 testes em 106 arquivos)
 make coverage         # Coverage com Vitest
+make registry         # Rebuild do registry.json (shadcn build)
+make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
 make clean            # Limpar artefatos
 ```
 

@@ -95,3 +95,4 @@ function ThemeHotkey() {
 }
 
 export { ThemeProvider }
+export { useTheme }

@@ -14,7 +14,7 @@ import {
   resolveTrend,
   TrendBadge,
   cardStatDescriptionVariants,
-} from "./card-stats-shared"
+} from "@/lib/card-stats-shared"
 
 // ── Types ──
 export interface CardStatCompactProps extends FormatOptions {
