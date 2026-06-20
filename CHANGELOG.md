@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.1.0](https://github.com/lema-ufpb/design-system/compare/v1.0.2...v1.1.0) (2026-06-20)
+
+
+### ✨ Features
+
+* **card-icon:** add CardIcon component with tone, media style, and size variants ([4036177](https://github.com/lema-ufpb/design-system/commit/403617729ca9517eb56add1c4ad716986e05429b))
+* **components:** rename custom directory to ds ([59c35a2](https://github.com/lema-ufpb/design-system/commit/59c35a22e0c073bdf8748649648b55418c01d595))
+* **data-table:** add manualPagination with external page/pageCount/pageIndex control ([18eeb50](https://github.com/lema-ufpb/design-system/commit/18eeb50c4d7228896de38105af994548e54aa984))
+* **format-utils:** add centralized number formatting and integrate across chart/stat components ([b1f58b0](https://github.com/lema-ufpb/design-system/commit/b1f58b0495dea99a6894ee6837c0899724915fb3))
+* **spinner:** add CVA variants with tone, size scale, thickness, and label support ([bd27d97](https://github.com/lema-ufpb/design-system/commit/bd27d97d578b8617d8c63c8f0523d303a787d36d))
+* **toggle-theme:** migrate from labels prop to centralized UI_I18N ([3042dfb](https://github.com/lema-ufpb/design-system/commit/3042dfb70a0a72a261f29ce3a2a28ca6338e8273))
+
+
+### 🐛 Bug Fixes
+
+* **ui:** improve accessibility and text contrast in card-stat and pill-group ([b5364f4](https://github.com/lema-ufpb/design-system/commit/b5364f42553524253ebe8c2d06460d2a7dc3580e))
+
+
+### 📚 Documentation
+
+* **introduction:** update references for custom-to-ds and lema-ds-to-ds ([d988eb4](https://github.com/lema-ufpb/design-system/commit/d988eb4576ff66d7ddb06457339e798011688374))
+* **readme:** update for custom-to-ds and lema-ds-to-ds ([0e6d1f4](https://github.com/lema-ufpb/design-system/commit/0e6d1f4098fa3638cd343f64ab44e2fc37ceadf4))
+
+
+### ♻️ Refactor
+
+* **specs:** rename and update for custom-to-ds migration ([5bc8e43](https://github.com/lema-ufpb/design-system/commit/5bc8e4365924b044ef8697ab31167e28815576d6))
+
 ## [2.0.0](https://github.com/lema-ufpb/design-system/compare/v1.0.1...v2.0.0) (2026-05-29)
 
 
