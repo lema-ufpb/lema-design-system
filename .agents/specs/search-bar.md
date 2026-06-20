@@ -21,7 +21,7 @@ Campo de busca versátil para uso no corpo de páginas. Suporta três modos visu
 | Arquivo | `components/ds/search-bar.tsx` |
 | Tipo | `registry:ui` |
 | Categoria | `Navigation` |
-| Depende de | `lucide-react`, `class-variance-authority`, `Button` (shadcn), `Kbd`, `Skeleton`, `useSpeechRecognition` (hook compartilhado), `UI_I18N` (i18n) |
+| Depende de | `lucide-react`, `class-variance-authority`, `Button` (shadcn), `Input` (ui/input), `Kbd`, `Skeleton`, `useSpeechRecognition` (hook compartilhado), `UI_I18N` (i18n) |
 
 ---
 
@@ -83,6 +83,8 @@ Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange">`.
 | Dimensão | Valores | Padrão |
 |----------|---------|--------|
 | `size` | `sm`, `md`, `lg` | `md` |
+
+> **Input delegado ao `ui/Input`:** o `<input>` nativo foi substituído por `<Input>` de `ui/input.tsx`. O estilo built-in do Input (`h-9`, `rounded-3xl`, `border`, `bg-input/50`, `px-3`, `py-1`, `focus-visible:ring-3`) é anulado via `h-auto rounded-none border-none bg-transparent px-0 py-0 focus-visible:border-transparent focus-visible:ring-0 focus-visible:ring-transparent`, deixando o input sem borda/bg/altura próprios — quem controla o visual é o container `searchBarVariants`. A fonte continua via `searchBarInputVariants`.
 
 ### Botões clear / voz (inline sizing)
 | Dimensão | Valores | Padrão |
@@ -149,6 +151,7 @@ Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange">`.
 | Teclado | `Enter` → `onSearch`, `Escape` → clear |
 | i18n | Todas as strings via `UI_I18N[locale].searchBar.*` |
 | `data-slot` | `search-bar`, `search-bar-icon`, `search-bar-input`, `search-bar-clear`, `search-bar-voice`, `search-bar-shortcut`, `search-bar-trailing` |
+| Input | Delegado ao `<Input>` de `ui/input.tsx`; ref passa por `React.ComponentProps<"input">` (React 19) |
 
 ---
 

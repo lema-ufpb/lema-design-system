@@ -169,7 +169,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 │   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
 │   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
 │   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-├── specs/               # Specs de todos os componentes (106 arquivos — ui + custom)
+├── specs/               # Specs de todos os componentes (107 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -185,7 +185,7 @@ As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver c
 
 ### Specs existentes
 
-Todos os componentes (55 ui primitives + 48 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (55 ui primitives + 49 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### Spec template
 
@@ -378,6 +378,7 @@ import { InputPassword } from "@/components/ds/input-password"
 | :--------------- | :-------------------------------------------------------------------------------- |
 | **HeaderSearch** | Botão de busca expansível com animação suave para headers de página.              |
 | **FooterMenu**   | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase. |
+| **ScrollToTop**  | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n. |
 | **NavDots**      | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips. |
 | **NavUser**      | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.   |
 | **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR.  |
@@ -386,6 +387,7 @@ import { InputPassword } from "@/components/ds/input-password"
 ```tsx
 import { HeaderSearch } from "@/components/ds/header-search"
 import { FooterMenu } from "@/components/ds/footer-menu"
+import { ScrollToTop } from "@/components/ds/scroll-to-top"
 import { ToggleTheme } from "@/components/ds/toggle-theme"
 import { Pagination } from "@/components/ds/pagination"
 import { NavDots } from "@/components/ds/nav-dots"
@@ -494,7 +496,7 @@ make start            # Servidor produção
 make lint             # ESLint + typecheck + Prettier check
 make format           # Prettier
 make build-storybook  # Build Storybook estático
-make test             # Vitest (714 testes em 106 arquivos)
+make test             # Vitest (726 testes em 107 arquivos)
 make coverage         # Coverage com Vitest
 make registry         # Rebuild do registry.json (shadcn build)
 make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
