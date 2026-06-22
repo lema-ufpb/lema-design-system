@@ -115,6 +115,12 @@ const meta = {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
+    paginationRounded: {
+      control: "radio",
+      options: ["full", "light", "none"],
+      table: { defaultValue: { summary: "full" } },
+      if: { arg: "pagination", eq: true },
+    },
     selectRows: {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
@@ -702,6 +708,72 @@ export const PaginationPtBR: Story = {
     pageSizeOptions: [5, 10, 20],
     height: 400,
     locale: "pt-BR",
+  },
+}
+
+export const PaginationRoundedFull: Story = {
+  name: "Pagination — Rounded Full",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Pagination buttons with `paginationRounded="full"` — fully rounded (pill-style, default).',
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_200 as unknown as object[],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Rounded Full",
+    subtitle: 'paginationRounded="full" — pill-shaped buttons',
+    pagination: true,
+    defaultPageSize: 10,
+    height: 400,
+    paginationRounded: "full",
+  },
+}
+
+export const PaginationRoundedLight: Story = {
+  name: "Pagination — Rounded Light",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Pagination buttons with `paginationRounded="light"` — slightly rounded corners.',
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_200 as unknown as object[],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Rounded Light",
+    subtitle: 'paginationRounded="light" — subtle rounding',
+    pagination: true,
+    defaultPageSize: 10,
+    height: 400,
+    paginationRounded: "light",
+  },
+}
+
+export const PaginationRoundedNone: Story = {
+  name: "Pagination — Rounded None",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Pagination buttons with `paginationRounded="none"` — square corners.',
+      },
+    },
+  },
+  args: {
+    data: STUDENTS_200 as unknown as object[],
+    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    title: "Rounded None",
+    subtitle: 'paginationRounded="none" — square buttons',
+    pagination: true,
+    defaultPageSize: 10,
+    height: 400,
+    paginationRounded: "none",
   },
 }
 

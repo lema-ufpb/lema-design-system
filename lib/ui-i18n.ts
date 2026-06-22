@@ -80,11 +80,16 @@ export const UI_I18N: Record<
     }
     pageLoader: { loading: string }
     pillGroup: { filterLabel: string }
+    tabs: { tabList: string }
     toggleTheme: {
       light: string
       dark: string
       system: string
       trigger: string
+    }
+    scrollToTop: {
+      label: string
+      tooltip: string
     }
   }
 > = {
@@ -198,11 +203,16 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Loading…" },
     pillGroup: { filterLabel: "Filter by" },
+    tabs: { tabList: "Tab list" },
     toggleTheme: {
       light: "Light",
       dark: "Dark",
       system: "System",
       trigger: "Toggle theme",
+    },
+    scrollToTop: {
+      label: "Scroll to top",
+      tooltip: "Back to top",
     },
   },
   "pt-BR": {
@@ -322,11 +332,16 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Carregando…" },
     pillGroup: { filterLabel: "Filtrar por" },
+    tabs: { tabList: "Lista de abas" },
     toggleTheme: {
       light: "Claro",
       dark: "Escuro",
       system: "Sistema",
       trigger: "Alternar tema",
+    },
+    scrollToTop: {
+      label: "Voltar ao topo",
+      tooltip: "Voltar ao topo",
     },
   },
   "es-ES": {
@@ -442,11 +457,16 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Cargando…" },
     pillGroup: { filterLabel: "Filtrar por" },
+    tabs: { tabList: "Lista de pestañas" },
     toggleTheme: {
       light: "Claro",
       dark: "Oscuro",
       system: "Sistema",
       trigger: "Cambiar tema",
+    },
+    scrollToTop: {
+      label: "Volver arriba",
+      tooltip: "Volver arriba",
     },
   },
   "fr-FR": {
@@ -570,11 +590,16 @@ export const UI_I18N: Record<
     },
     pageLoader: { loading: "Chargement…" },
     pillGroup: { filterLabel: "Filtrer par" },
+    tabs: { tabList: "Liste d'onglets" },
     toggleTheme: {
       light: "Clair",
       dark: "Sombre",
       system: "Système",
       trigger: "Changer de thème",
+    },
+    scrollToTop: {
+      label: "Retour en haut",
+      tooltip: "Retour en haut",
     },
   },
 }

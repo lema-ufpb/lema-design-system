@@ -34,6 +34,7 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | `size` | `"compact" \| "default"` | `"default"` | | Densidade de padding |
 | `textSize` | `"xs" \| "sm" \| "md" \| "lg"` | — | | Tamanho de fonte (deriva de `size` se omitido) |
 | `rounded` | `boolean` | `true` | | Remove cantos arredondados quando `false` |
+| `paginationRounded` | `"full" \| "light" \| "none"` | `"full"` | | Arredondamento dos botões de paginação |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `showSearch` | `boolean` | `false` | | Exibe campo de busca global (SearchBar) |
 | `voiceSearch` | `boolean` | `false` | | Botão de voz na SearchBar |
@@ -121,6 +122,7 @@ Usa `SIZE_PRESETS`:
 | Busca global | Usa `<SearchBar>` integrado com suporte a voz (`voiceSearch`) e locale; filtro global via TanStack Table |
 | `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2 e mensagem "No data found" |
 | Paginação | `PaginationBar` com page range, ellipsis, previous/next, page size selector |
+| Paginação — arredondamento | `paginationRounded` prop (`"full"` → pill, `"light"` → `rounded-lg`, `"none"` → square) aplicada via CVA a `PaginationLink`, `PaginationPrevious`, `PaginationNext` |
 | Seleção | Checkbox `accent-primary` no header (select all) e cada linha |
 | Colunas sticky | Header: `z-20 bg-muted text-foreground` / Selection: `z-30 bg-muted` / Body sticky: `z-10 bg-card` com `group-hover:bg-muted` sólido (sem `/40`) para evitar overlap no scroll horizontal |
 | Infinite scroll | Scroll detection (últimos 5 itens) dispara `onLoadMore` |
@@ -178,6 +180,9 @@ Usa `SIZE_PRESETS`:
 - [x] `PaginationPtBR` — Paginação localizada pt-BR
 - [x] `BulkAction` — Ação em lote com seleção de linhas
 - [x] `EmptyStatePtBR` — Estado vazio localizado pt-BR
+- [x] `PaginationRoundedFull` — Paginação com botões totalmente arredondados
+- [x] `PaginationRoundedLight` — Paginação com botões levemente arredondados
+- [x] `PaginationRoundedNone` — Paginação com botões quadrados
 
 ## Checklist antes de implementar
 

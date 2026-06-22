@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 import { Sun, Moon, Monitor } from "lucide-react"
 import {
   ThemeProvider as NextThemesProvider,
@@ -43,12 +43,11 @@ interface ToggleThemeProps {
 
 export function ToggleTheme({ locale = "en-US", loading }: ToggleThemeProps) {
   const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true)
-  }, [])
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  )
 
   if (!mounted) {
     return <Skeleton className="size-9 rounded-md" />
