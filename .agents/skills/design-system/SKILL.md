@@ -6,6 +6,18 @@ Skill for reviewing and implementing components in the LEMA design system. Exten
 
 ---
 
+## Critical rule — shadcn primitives (`components/ui/`)
+
+The files in `components/ui/` are **shadcn primitives** — their source code **must not be modified** in this project. Any manual change will be lost on the next CLI update. Updating these primitives must be done exclusively with:
+
+```bash
+npx shadcn@latest add <component> --yes
+```
+
+This covers type fixes, style adjustments, prop renames, or any other changes to primitive code. The `components/ui/` directory is managed entirely by the shadcn CLI, not by manual edits.
+
+---
+
 ## Inherited Rules (shadcn skill)
 
 All rules from the `shadcn` skill apply without exception:
