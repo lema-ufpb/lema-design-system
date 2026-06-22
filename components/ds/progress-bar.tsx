@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Progress as ProgressPrimitive } from "radix-ui"
 import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes, ReactNode } from "react"
@@ -13,6 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { Progress } from "@/components/ui/progress"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -158,12 +158,6 @@ export function ProgressBar({
           maximumFractionDigits: precision,
         }).format(clamped)
 
-  const trackHeight: Record<ProgressBarSize, string> = {
-    sm: "h-2 min-w-20",
-    md: "h-3 min-w-24",
-    lg: "h-4 min-w-32",
-  }
-
   const displayName = upper ? name?.toUpperCase() : name
   const ratioDims: typeof skeletonDims = {
     sm: {
@@ -232,29 +226,36 @@ export function ProgressBar({
 
   // ── Track ────────────────────────────────────────────────────────────────
 
+  const intentIndicatorClass: Record<ProgressBarIntent, string> = {
+    primary: "",
+    secondary: "[&>[data-slot=progress-indicator]]:bg-secondary",
+    success: "[&>[data-slot=progress-indicator]]:bg-success",
+    destructive: "[&>[data-slot=progress-indicator]]:bg-destructive",
+  }
+
+  const trackHeight_: Record<ProgressBarSize, string> = {
+    sm: "min-w-20",
+    md: "min-w-24",
+    lg: "min-w-32",
+  }
+
   const track = (
-    <ProgressPrimitive.Root
-      data-slot="progress"
+    <Progress
       className={cn(
-        "relative flex items-center overflow-hidden rounded-full bg-muted",
         isStacked ? "w-full" : "flex-1",
-        trackHeight[size]
+        trackHeight_[size],
+        intentIndicatorClass[intent],
+        "[&>[data-slot=progress-indicator]]:transition-[transform] [&>[data-slot=progress-indicator]]:duration-700 [&>[data-slot=progress-indicator]]:ease-out"
       )}
       value={clamped * 100}
       aria-label={name ?? "Progress"}
       aria-valuenow={Math.round(clamped * 100)}
       aria-valuemin={0}
       aria-valuemax={100}
-    >
-      <ProgressPrimitive.Indicator
-        data-slot="progress-indicator"
-        className={cn(
-          "size-full flex-1 rounded-full transition-[transform] duration-700 ease-out",
-          progressBarFillVariants({ intent })
-        )}
-        style={{ transform: `translateX(-${100 - clamped * 100}%)` }}
-      />
-    </ProgressPrimitive.Root>
+      style={{
+        height: size === "sm" ? "0.5rem" : size === "lg" ? "1rem" : undefined,
+      }}
+    />
   )
 
   const wrappedTrack = tooltip ? (

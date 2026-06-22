@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { ToggleTheme, ThemeProvider } from "@/components/ds/toggle-theme"
 
 const meta = {
-  title: "Navigation/ToggleTheme",
+  title: "Actions/ToggleTheme",
   component: ToggleTheme,
   tags: ["autodocs"],
   parameters: {

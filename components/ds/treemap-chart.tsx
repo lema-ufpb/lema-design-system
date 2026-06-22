@@ -386,13 +386,11 @@ export function TreeMapChart({
     setDrillStack((prev) => prev.slice(0, index))
   }, [])
 
-  // Reset drill-stack when root data changes (using data identity as the trigger).
-  // useEffect with a conditional setState is the React-recommended pattern here.
-  React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+  const [prevData, setPrevData] = React.useState(data)
+  if (data !== prevData) {
+    setPrevData(data)
     if (drillStack.length > 0) setDrillStack([])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  }
 
   const currentData =
     drillStack.length > 0

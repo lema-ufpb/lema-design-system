@@ -42,6 +42,44 @@ function useCarousel() {
   return context
 }
 
+function useCarouselScrollState(api: CarouselApi | undefined) {
+  const snapshotRef = React.useRef({
+    canScrollPrev: false,
+    canScrollNext: false,
+  })
+
+  const subscribe = React.useCallback(
+    (callback: () => void) => {
+      if (!api) return () => {}
+      const handler = () => callback()
+      api.on("select", handler)
+      api.on("reInit", handler)
+      handler()
+      return () => {
+        api.off("select", handler)
+        api.off("reInit", handler)
+      }
+    },
+    [api]
+  )
+
+  const getSnapshot = React.useCallback(() => {
+    if (!api) return snapshotRef.current
+    const prev = snapshotRef.current
+    const canScrollPrev = api.canScrollPrev()
+    const canScrollNext = api.canScrollNext()
+    if (
+      canScrollPrev !== prev.canScrollPrev ||
+      canScrollNext !== prev.canScrollNext
+    ) {
+      snapshotRef.current = { canScrollPrev, canScrollNext }
+    }
+    return snapshotRef.current
+  }, [api])
+
+  return React.useSyncExternalStore(subscribe, getSnapshot, getSnapshot)
+}
+
 function Carousel({
   orientation = "horizontal",
   opts,
@@ -58,14 +96,7 @@ function Carousel({
     },
     plugins
   )
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false)
-  const [canScrollNext, setCanScrollNext] = React.useState(false)
-
-  const onSelect = React.useCallback((api: CarouselApi) => {
-    if (!api) return
-    setCanScrollPrev(api.canScrollPrev())
-    setCanScrollNext(api.canScrollNext())
-  }, [])
+  const { canScrollPrev, canScrollNext } = useCarouselScrollState(api)
 
   const scrollPrev = React.useCallback(() => {
     api?.scrollPrev()
@@ -92,22 +123,6 @@ function Carousel({
     if (!api || !setApi) return
     setApi(api)
   }, [api, setApi])
-
-  React.useEffect(() => {
-    if (!api) return
-    api.on("reInit", onSelect)
-    api.on("select", onSelect)
-
-    return () => {
-      api?.off("select", onSelect)
-    }
-  }, [api, onSelect])
-
-  React.useEffect(() => {
-    if (!api) return
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    onSelect(api)
-  }, [api, onSelect])
 
   return (
     <CarouselContext.Provider

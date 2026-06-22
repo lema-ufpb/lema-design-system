@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 
 const meta = {
-  title: "Navigation/SearchBar",
+  title: "Forms/SearchBar",
   component: SearchBar,
   parameters: {
     layout: "padded",

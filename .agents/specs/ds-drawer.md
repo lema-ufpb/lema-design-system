@@ -23,7 +23,7 @@ Painel slide-over que abre de qualquer borda da tela, combinando header opcional
 | Arquivo | `components/ds/drawer.tsx` |
 | Tipo | `registry:ui` (name: `ds-drawer`) |
 | Categoria | Painel / Sobreposição |
-| Depende de | `drawer` (shadcn/ui), `lucide-react` |
+| Depende de | `ui/drawer` (DrawerRoot, DrawerContent, DrawerTrigger, DrawerClose, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter), `lucide-react` |
 
 ---
 
@@ -54,6 +54,8 @@ Painel slide-over que abre de qualquer borda da tela, combinando header opcional
 | `--muted` | Drag handle (pill) |
 | `--border` | Borda do painel, footer divider |
 | `bg-black/30` + `backdrop-blur` | Overlay |
+
+> **Content delegado ao `ui/DrawerContent`:** o conteúdo do drawer usa `DrawerContent` de `ui/drawer.tsx` em vez de `DrawerPrimitive.Content` do vaul. O pseudo-elemento `::before` do `DrawerContent` é suprimido via `before:content-none` para evitar borda/sombra duplicada com os tokens do ds. Os `mt-24`/`mb-24` do `DrawerContent` são zerados via `data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=top]:mb-0`.
 
 ---
 

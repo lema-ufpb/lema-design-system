@@ -20,9 +20,16 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: "🚀 Release Please"
+        id: release
         uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GHCR_PAT }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+
+      - name: "🤖 Auto-merge release PR"
+        if: steps.release.outputs.pr
+        env:
+          GH_TOKEN: ${{ secrets.GHCR_PAT }}
+        run: gh pr merge --auto --admin --merge "${{ steps.release.outputs.pr }}"

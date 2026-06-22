@@ -1410,6 +1410,28 @@
       ]
     },
     {
+      "name": "scroll-to-top",
+      "type": "registry:ui",
+      "title": "Scroll to Top",
+      "description": "Floating button with scroll-progress ring that reveals when scrolling upward past a threshold. Smart direction-aware visibility, Tooltip, i18n support, and multiple positions.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/scroll-to-top.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/scroll-to-top.tsx"
+        }
+      ]
+    },
+    {
       "name": "mini-card",
       "type": "registry:ui",
       "title": "Mini Card",
@@ -1784,6 +1806,7 @@
       "title": "Footer Menu",
       "description": "A responsive footer navigation that displays in columns on desktop and as an accordion on mobile.",
       "registryDependencies": [
+        "accordion",
         "ui-i18n"
       ],
       "files": [
@@ -1878,6 +1901,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "input",
         "kbd",
         "skeleton",
         "ui-i18n"

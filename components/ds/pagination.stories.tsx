@@ -22,7 +22,7 @@ const meta = {
         component: [
           "A semantic pagination component built with native `<nav>` and `<ul>` elements for accessibility.",
           "",
-          "It uses the `Button` component internally for links and handles states like active pages and disabled navigation. The `PaginationLink` accepts an `isActive` prop to highlight the current page.",
+          "It uses the `Button` component internally for links and handles states like active pages and disabled navigation. The `PaginationLink` accepts an `isActive` prop to highlight the current page and a `rounded` prop (`full` / `light` / `none`) to control button border radius.",
           "",
           "## Design Tokens & Semantic Variables",
           "",
@@ -111,6 +111,117 @@ export const LocalePTBR: Story = {
       description: {
         story:
           "Portuguese (pt-BR) localization — previous/next button text translated.",
+      },
+    },
+  },
+}
+
+export const RoundedFull: Story = {
+  render: () => (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" rounded="full" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" rounded="full">
+            1
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive rounded="full">
+            2
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" rounded="full">
+            3
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" rounded="full" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Fully rounded buttons via `rounded="full"` (default).',
+      },
+    },
+  },
+}
+
+export const RoundedLight: Story = {
+  render: () => (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" rounded="light" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" rounded="light">
+            1
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive rounded="light">
+            2
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" rounded="light">
+            3
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" rounded="light" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Lightly rounded buttons via `rounded="light"`.',
+      },
+    },
+  },
+}
+
+export const RoundedNone: Story = {
+  render: () => (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" rounded="none" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" rounded="none">
+            1
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive rounded="none">
+            2
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" rounded="none">
+            3
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" rounded="none" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Square buttons via `rounded="none"`.',
       },
     },
   },
