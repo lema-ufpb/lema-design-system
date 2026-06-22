@@ -667,6 +667,94 @@ export const LocalePtBR: Story = {
   },
 }
 
+// ── Color Tokens ────────────────────────────────────────────────────────────
+
+export const ColorTokens: Story = {
+  name: "Color Tokens — accent",
+  args: { title: "Categoria", score: 72, total: 100 },
+  render: () => (
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Direct CSS color values
+        </p>
+        <ScoreRowList>
+          <ScoreRow
+            title="Vendas"
+            description="Ciclo 2025.1"
+            icon={BarChart2Icon}
+            score={85}
+            total={100}
+            accent="oklch(0.5 0.2 270)"
+          />
+          <ScoreRow
+            title="Infraestrutura"
+            description="Semestre acadêmico"
+            icon={ShieldCheckIcon}
+            score={40}
+            total={100}
+            accent="oklch(0.55 0.18 30)"
+          />
+        </ScoreRowList>
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Design system token references
+        </p>
+        <ScoreRowList>
+          <ScoreRow
+            title="Produto"
+            description="Resultado trimestral"
+            icon={ClipboardListIcon}
+            score={91}
+            total={100}
+            accent="var(--color-success)"
+          />
+          <ScoreRow
+            title="Marketing"
+            description="Campanha atual"
+            icon={ActivityIcon}
+            score={62}
+            total={100}
+            accent="var(--color-warning)"
+          />
+          <ScoreRow
+            title="Suporte"
+            description="Chamados abertos"
+            icon={UsersIcon}
+            score={30}
+            total={100}
+            accent="var(--color-destructive)"
+          />
+        </ScoreRowList>
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          External token with fallback
+        </p>
+        <ScoreRowList>
+          <ScoreRow
+            title="Categoria Customizada"
+            description="Token externo com fallback"
+            icon={FileTextIcon}
+            score={74}
+            total={100}
+            accent="var(--color-brand, oklch(0.4 0.2 240))"
+          />
+        </ScoreRowList>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `accent` prop accepts any CSS color or `var(--my-token)`. It sets `--score-accent` as a CSS custom property and drives icon container background/text (`bg-(--score-accent)/10 text-(--score-accent)`), the score value text, and the progress fill — overriding all `status`-based colors for per-instance customization.",
+      },
+    },
+  },
+}
+
 // ── Percent Decimals ────────────────────────────────────────────────────────
 
 export const PercentDecimals: Story = {
