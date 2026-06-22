@@ -1,8 +1,8 @@
-# LEMA Design System
+# ✨ LEMA Design System
 
 Sistema de design oficial do [Laboratório de Economia e Modelagem Aplicada (LEMA)](https://lema.ufpb.br) da Universidade Federal da Paraíba (UFPB). Um sistema de componentes React moderno, acessível e themeável, construído sobre shadcn/ui e Radix UI Primitives.
 
-## Visão Geral 🎯
+## 🎯 Visão Geral 🎯
 
 Este design system fornece um conjunto de componentes React Typescript de alta qualidade, com suporte a:
 
@@ -12,7 +12,7 @@ Este design system fornece um conjunto de componentes React Typescript de alta q
 - 📱 Design responsivo
 - 🔍 TypeScript total
 
-## Stack Tecnológica 🛠️
+## 💻 Stack Tecnológica 🛠️
 
 | Tecnologia               | Propósito                    |
 | ------------------------ | ---------------------------- |
@@ -26,7 +26,7 @@ Este design system fornece um conjunto de componentes React Typescript de alta q
 | Storybook                | Documentação de componentes  |
 | Vitest                   | Testes                       |
 
-## Instalação 🚀
+## 🚀 Instalação 🚀
 
 ```bash
 # Clone o repositório
@@ -40,7 +40,7 @@ npm install
 make dev
 ```
 
-## Uso via CLI dedicada — `@lema-ufpb/ds-sync` 📦
+## 📦 Uso via CLI dedicada — `@lema-ufpb/ds-sync`
 
 Para projetos institucionais da UFPB, disponibilizamos uma CLI dedicada no [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) que estende o shadcn CLI com autenticação, lockfile, drift detection e modo CI:
 
@@ -57,7 +57,7 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 
 > 🔑 O token é fornecido pelo NOC do LEMA. O registry padrão aponta para produção.
 
-### Comandos principais
+### ⌨️ Comandos principais
 
 | Comando                          | Descrição                       |
 | :------------------------------- | :------------------------------ |
@@ -72,7 +72,7 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 
 O lockfile `ds.lock` é gerado automaticamente e **deve ser versionado** — é a fonte da verdade para reprodutibilidade e detecção de drift.
 
-## Uso via Registry (shadcn CLI)
+## ⬇️ Uso via Registry (shadcn CLI)
 
 Você pode instalar qualquer componente deste design system em seu próprio projeto usando o link do registro oficial:
 
@@ -85,11 +85,11 @@ npx ds add dashbox
 npx ds add progress-bar
 ```
 
-## Internacionalização (i18n) 🌐
+## 🌐 Internacionalização (i18n)
 
 Todos os componentes com texto visível suportam internacionalização via prop `locale`. O dicionário centralizado fica em `lib/ui-i18n.ts`.
 
-### Locais suportados
+### 🌍 Locais suportados
 
 | Código | Idioma             |
 | :----- | :----------------- |
@@ -102,7 +102,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 > O arquivo `lib/ui-i18n.ts` (dicionário i18n) é instalado automaticamente como dependência de registro para todos os componentes que suportam locale. Não é necessário instalá-lo manualmente.
 
 
-### Uso
+### 💡 Uso
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
@@ -113,7 +113,7 @@ import { Dashbox } from "@/components/ds/dashbox"
 
 A prop `locale` é opcional (padrão `"en-US"`). Ao instalar um componente via shadcn CLI, o arquivo `lib/ui-i18n.ts` é instalado automaticamente como dependência.
 
-### Registry 📦
+### 🗃️ Registry
 
 O dicionário `ui-i18n` está publicado como `registry:lib` no registro oficial:
 
@@ -122,7 +122,7 @@ O dicionário `ui-i18n` está publicado como `registry:lib` no registro oficial:
 npx ds add ui-i18n
 ```
 
-## Estrutura do Projeto 📁
+## 📁 Estrutura do Projeto
 
 ```
 design-system/
@@ -159,7 +159,7 @@ design-system/
 └── Makefile                # Scripts de build
 ```
 
-## Desenvolvimento Orientado a Spec (Spec-Driven) 📋
+## 📋 Desenvolvimento Orientado a Spec (Spec-Driven)
 
 Novos componentes customizados seguem um fluxo **spec-first**, com templates e habilidades de IA-guardrail em `.agents/`:
 
@@ -174,7 +174,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
     └── component-spec.md # Template de spec para novos componentes
 ```
 
-### Workflow spec-first
+### 🔄 Workflow spec-first
 
 1. **Preencher o template** `.agents/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
@@ -183,17 +183,17 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 
 As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver com assistência, as regras de estilo, composição e tokens são aplicadas automaticamente durante a geração de código.
 
-### Specs existentes 📚
+### 📚 Specs existentes
 
 Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
-### Spec template 📄
+### 📄 Spec template
 
 O template cobre: propósito de uso, API completa com tipos, variantes CVA por slot, tokens de design, escala tipográfica sm/md/lg, comportamentos (loading, disabled, empty), acessibilidade (ARIA, teclado, i18n) e checklist de stories obrigatórias.
 
-## Componentes 🧩
+## 🧩 Componentes
 
-### Primitivos shadcn 🔧
+### 🧱 Primitivos shadcn
 
 Componentes base instalados via shadcn CLI, sem modificações:
 
@@ -225,11 +225,11 @@ Para adicionar novos componentes shadcn ao projeto:
 npx ds add <componente>
 ```
 
-### Componentes customizados 🎨
+### ✨ Componentes customizados
 
 Todos os componentes abaixo vivem em `components/ds/`.
 
-#### Actions ⚡
+#### ⚡ Actions
 
 | Componente     | Descrição                                                                                                                    |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
@@ -250,7 +250,7 @@ import { ToggleTheme } from "@/components/ds/toggle-theme"
 <ToggleTheme locale="pt-BR" />
 ```
 
-#### Layout 📐
+#### 📐 Layout
 
 | Componente     | Descrição                                                                                                |
 | :------------- | :------------------------------------------------------------------------------------------------------- |
@@ -288,7 +288,7 @@ import { Modal } from "@/components/ds/modal"
 </Dashrow>
 ```
 
-#### Feedback 💬
+#### 💬 Feedback
 
 | Componente     | Descrição                                                                                                                                                           |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -321,7 +321,7 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 <Empty variant="search" title="Nenhum resultado encontrado" action={{ label: "Limpar filtros", onClick: clearFilters }} />
 ```
 
-#### Exibição de Dados 📊
+#### 📊 Exibição de Dados
 
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -367,7 +367,7 @@ import { Badge } from "@/components/ds/badge"
 <Badge variant="warning" removable onRemove={handleDismiss}>Pendente</Badge>
 ```
 
-#### Gráficos 📈
+#### 📈 Gráficos
 
 Componentes de visualização de dados construídos sobre Recharts e otimizados para o LEMA.
 
@@ -391,7 +391,7 @@ import { BarChart } from "@/components/ds/bar-chart"
 <BarChart data={data} categoryKey="name" dataKeys={[{ key: "total", label: "Total" }]} />
 ```
 
-#### Formulários ✏️
+#### 📝 Formulários
 
 | Componente               | Descrição                                                                                          |
 | :----------------------- | :------------------------------------------------------------------------------------------------- |
@@ -437,7 +437,7 @@ import { SearchCombo } from "@/components/ds/search-combo"
 <SearchCombo value={query} onChange={setQuery} options={results} onSearch={fetchResults} voice />
 ```
 
-#### Navegação 🧭
+#### 🧭 Navegação
 
 | Componente       | Descrição                                                                         |
 | :--------------- | :-------------------------------------------------------------------------------- |
@@ -491,9 +491,9 @@ function App({ children }: { children: React.ReactNode }) {
 />
 ```
 
-## Theming 🎨
+## 🎨 Theming
 
-### Cores 🎭
+### 🎭 Cores
 
 O sistema usa CSS variables para theming:
 
@@ -517,7 +517,7 @@ O sistema usa CSS variables para theming:
 }
 ```
 
-### Tokens de risco ⚠️
+### ⚠️ Tokens de risco
 
 ```css
 :root {
@@ -533,12 +533,12 @@ O sistema usa CSS variables para theming:
 }
 ```
 
-### Tipografia 🔤
+### 🔤 Tipografia
 
 - **Sans**: Inter (variável `--font-sans`)
 - **Mono**: Geist Mono (variável `--font-mono`)
 
-### Border Radius 📏
+### 📏 Border Radius
 
 | Token         | Cálculo        |
 | ------------- | -------------- |
@@ -547,7 +547,7 @@ O sistema usa CSS variables para theming:
 | `--radius-lg` | `radius`       |
 | `--radius-xl` | `radius * 1.4` |
 
-## Scripts 📜
+## 📜 Scripts
 
 ```bash
 make dev              # Inicia o servidor local do Storybook (porta 6006)
@@ -563,18 +563,18 @@ make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
 make clean            # Limpar artefatos
 ```
 
-## Release & Deploy 🚢
+## 🚢 Release & Deploy
 
 O projeto usa um fluxo **GitFlow** com versionamento automático via [release-please](https://github.com/googleapis/release-please) e deploy contínuo para Kubernetes via ArgoCD.
 
-### Branches 🌿
+### 🌿 Branches
 
 | Branch    | Propósito                                                           |
 | :-------- | :------------------------------------------------------------------ |
 | `develop` | Branch de integração — todo PR de feature/fix entra aqui            |
 | `main`    | Branch de release — recebe merge de `develop` quando pronto p/ ship |
 
-### Fluxo completo 🔄
+### 🔄 Fluxo completo
 
 ```
 feature/* ──PR──▶ develop ──PR──▶ main ──┐
@@ -589,7 +589,7 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
                               CD: build Docker → GHCR → argocd-apps → prod
 ```
 
-### CI 🔍
+### 🔍 CI
 
 Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código novo é introduzido. PRs `develop → main` e PRs do release-please **não rodam CI** (são promoção e version bump, respectivamente — mesmo código já validado). Pipeline **sequencial** com fail-fast (3 jobs encadeados via `needs:`) no self-hosted runner:
 
@@ -611,7 +611,7 @@ Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Inst
 
 > ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + branch atualizada antes do merge. Atualmente **nenhuma branch exige status checks** (`contexts: []`) — considere adicionar `🕵️‍♂️ Lint`, `🧪 Test` e `📦 Build` como required checks em `develop`.
 
-### AI Review 🤖
+### 🤖 AI Review
 
 Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Dependabot e do `github-actions[bot]`. O fluxo:
 
@@ -622,7 +622,7 @@ Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Depe
 
 PRs do release-please nunca disparam este workflow — eles vão contra `main`, não `develop`.
 
-### Release automatizada 🤖
+### ⚙️ Release automatizada
 
 Dispara em **push para `main`**. O bot do release-please:
 
@@ -639,7 +639,7 @@ Dispara em **push para `main`**. O bot do release-please:
 - `package.json` `version` — sobrescrito pelo bot em cada release
 - `release-please-config.json` — configuração das seções do CHANGELOG
 
-### CD 🔄
+### 🚀 CD
 
 Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
@@ -654,7 +654,7 @@ Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
 > 🔒 **Garantia de qualidade**: a tag só nasce de um PR de release-please mergeado em `main`. Como o CI validou o código em `develop` e branch protection exige PR + branch atualizada, todo commit que vira tag já passou pelo pipeline. Não existe gate adicional no CD — a confiança vem do fluxo upstream.
 
-### Mecânica de versão 🏷️
+### 🏷️ Mecânica de versão
 
 A versão exibida na documentação Storybook é injetada em tempo de build via `git describe --tags --abbrev=0` em `.storybook/main.ts`. O fluxo é:
 
@@ -664,7 +664,7 @@ git tag vX.Y.Z  ──▶  __APP_VERSION__ (Vite define)  ──▶  lib/version
 
 Para builds locais (sem tag), a versão exibida é `0.0.0`.
 
-### Recovery 🚑
+### 🚑 Recovery
 
 Caminho default (90% dos casos): **roll-forward**.
 
@@ -674,15 +674,15 @@ Caminho default (90% dos casos): **roll-forward**.
 
 Para cenários menos comuns (versão errada calculada, release por engano, rollback urgente em prod, manifest inconsistente, branch protection bloqueando), consulte **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — roteiro detalhado com comandos prontos para cada situação.
 
-## Contribuindo 🤝
+## 🤝 Contribuindo
 
-### Setup ⚙️
+### ⚙️ Setup
 
 1. Fork o repositório
 2. Clone e instale: `git clone ... && cd design-system && npm install --legacy-peer-deps`
 3. Crie uma branch a partir de `develop`: `git checkout develop && git checkout -b feature/minha-feature`
 
-### Conventional Commits 📝
+### 📝 Conventional Commits
 
 Para que o release-please calcule corretamente a próxima versão e gere o `CHANGELOG.md`, **todos os commits devem seguir o padrão [Conventional Commits](https://www.conventionalcommits.org)**:
 
@@ -706,20 +706,20 @@ git commit -m "docs(readme): update installation instructions"
 git commit -m "refactor(card-stats)!: rename CardStat to CardStatBase"  # breaking
 ```
 
-### Pull Request 🔀
+### 🔀 Pull Request
 
 1. Push da sua branch: `git push origin feature/minha-feature`
 2. Abra PR contra `develop` — CI dispara automaticamente
 3. Após aprovação e merge em `develop`, eventualmente um PR `develop → main` agrega features prontas para release
 4. Merge em `main` → o bot do release-please abre `chore(release): vX.Y.Z` → revisar → merge → deploy automático
 
-## Licença 📄
+## 📄 Licença
 
 MIT License - © 2026 LEMA/UFPB
 
 See [LICENSE](./LICENSE) for details.
 
-## Contato 📬
+## 📬 Contato
 
 Laboratório de Economia e Modelagem Aplicada da
 Universidade Federal da Paraíba
