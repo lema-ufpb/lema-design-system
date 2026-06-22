@@ -23,7 +23,7 @@ registry.json        → manifesto de exportação do design system
 - Tailwind CSS v4 (`@theme inline`, sem `tailwind.config.js`)
 - shadcn/ui (`radix` base, estilo `luma`, package manager: `npm`)
 - CVA (`class-variance-authority`) para variantes
-- Storybook 10 com Vitest browser mode (`make test` = 567 testes)
+- Storybook 10 com Vitest browser mode (`make test` = 840 testes em 118 arquivos)
 - i18n: `UI_I18N[locale]` de `@/lib/ui-i18n`
 
 ## Regras críticas — sempre aplicar
@@ -66,7 +66,15 @@ Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real.
 - Sem `dark:` manual — usar tokens semânticos
 
 ### Testes
-`make test` deve passar após cada mudança. 567 testes em Storybook via vitest browser.
+`make test` deve passar após cada mudança. 840 testes em 118 arquivos via Vitest browser mode.
+
+### Documentação Storybook
+- Título das stories segue o padrão `Categoria/Componente` (ex: `Actions/Button`, `Data Display/BarChart`, `Form/Counter`)
+- Stories obrigatórias por componente: Default, AllVariants, AllSizes, Loading, Disabled/Error, Locales (se i18n)
+- Testes de interação via `play` function com `@storybook/test`
+- Cada componente .tsx tem seu .stories.tsx co-localizado no mesmo diretório
+- MDX de introdução em `app/Introduction.mdx` com `import { VERSION } from "../lib/version"`
+- Links nas docs seguem `/docs/<kind-slug>--docs` (ex: `/docs/form-counter--docs`)
 
 ## Workflow spec-first para novos componentes
 
