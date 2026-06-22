@@ -32,4 +32,4 @@ jobs:
         if: steps.release.outputs.pr
         env:
           GH_TOKEN: ${{ secrets.GHCR_PAT }}
-        run: gh pr merge --auto --admin --merge "${{ steps.release.outputs.pr }}"
+        run: gh pr merge --auto --admin --merge "${{ fromJSON(steps.release.outputs.pr).number }}"
