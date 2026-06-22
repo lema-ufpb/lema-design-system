@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/lema-ufpb/design-system/compare/v1.3.0...v1.4.0) (2026-06-22)
+
+
+### ✨ Features
+
+* **ui:** add ds-accordion, ds-avatar, ds-badge, ds-carousel, ds-empty, ds-input, ds-slider, ds-switch, ds-select, ds-button, ds-tabs wrapper components ([f80a7eb](https://github.com/lema-ufpb/design-system/commit/f80a7eb4f600472dd90120c04cf3d04ace140771))
+
+
+### 📚 Documentation
+
+* update AGENTS.md and design-system skill with Storybook documentation standards ([ac8bc7e](https://github.com/lema-ufpb/design-system/commit/ac8bc7ed0e9b4a154033b6ceffac4a72d6486ae9))
+* update README and Introduction.mdx with new component listings ([f80a7eb](https://github.com/lema-ufpb/design-system/commit/f80a7eb4f600472dd90120c04cf3d04ace140771))
+
 ## [1.3.0](https://github.com/lema-ufpb/design-system/compare/v1.2.0...v1.3.0) (2026-06-22)
 
 
