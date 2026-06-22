@@ -450,3 +450,76 @@ export const BannerKPI: Story = {
     },
   },
 }
+
+export const ColorTokens: Story = {
+  name: "Color Tokens — background & color",
+  args: { label: "Custom KPI", value: 12847 },
+  render: () => (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <CardStatHighlight
+        label="Custom Purple"
+        value={12847}
+        format="integer"
+        trend="up"
+        trendValue="+847"
+        description="new this month"
+        icon={StarIcon}
+        background="oklch(0.5 0.2 270)"
+        color="white"
+      />
+      <CardStatHighlight
+        label="Success Token"
+        value={96.4}
+        format="percent"
+        decimals={1}
+        trend="up"
+        trendValue="+2.1pts"
+        description="NPS this month"
+        icon={HeartIcon}
+        background="var(--color-success)"
+        color="var(--color-success-foreground)"
+      />
+      <CardStatHighlight
+        label="Warning Token"
+        value={248}
+        format="integer"
+        trend="down"
+        trendValue="−12%"
+        description="processing backlog"
+        icon={ShoppingCartIcon}
+        background="var(--color-warning)"
+        color="var(--color-warning-foreground)"
+      />
+      <CardStatHighlight
+        label="Custom Amber"
+        value={2400000}
+        format="currency"
+        trend="up"
+        trendValue="+18%"
+        description="vs last quarter"
+        icon={DollarSignIcon}
+        background="oklch(0.75 0.18 75)"
+        color="oklch(0.2 0.05 75)"
+      />
+      <CardStatHighlight
+        label="External Token"
+        value={420000}
+        format="currency"
+        trend="up"
+        trendValue="+12%"
+        description="YTD performance"
+        icon={TrendingUpIcon}
+        background="var(--color-brand, oklch(0.4 0.2 240))"
+        color="white"
+      />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `background` and `color` props accept any CSS color or `var(--my-token)`. They set `--card-highlight-background` and `--card-highlight-color` as CSS custom properties and apply via `bg-(--card-highlight-background)` and `text-(--card-highlight-color)` — escaping the 7-variant enum for per-instance customization.",
+      },
+    },
+  },
+}
