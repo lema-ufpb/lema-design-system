@@ -21,6 +21,13 @@ const meta = {
           "| **Trigger Toggle Button** | `--foreground` / `--muted-foreground` | Icon stroke indicator color depending on activity state |",
           "| **Dropdown Popover** | `--popover` | Backdrop popover dropdown context background |",
           "| **Hover Item Highlight** | `--accent` | Hover item selection background |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for menu item and trigger labels |',
+          "| `loading` | `boolean` | `false` | Shows skeleton while theme state hydrates |",
         ].join("\n"),
       },
     },
@@ -34,10 +41,14 @@ const meta = {
   ],
   argTypes: {
     locale: {
-      control: "select",
+      control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Locale for menu item and trigger labels",
       table: { defaultValue: { summary: "en-US" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
   },
 } satisfies Meta<typeof ToggleTheme>
@@ -46,7 +57,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    locale: "en-US",
+  },
   parameters: {
     docs: {
       description: {

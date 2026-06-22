@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Search, X, Check, Frown } from "lucide-react"
+import { Search, X, Check } from "lucide-react"
 import { useVirtualizer } from "@tanstack/react-virtual"
 import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Empty } from "@/components/ds/empty"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -295,12 +296,16 @@ export function SelectList({
           </div>
         ) : filteredData.length === 0 ? (
           <div
-            className="flex flex-col items-center justify-center gap-3 p-8 text-muted-foreground"
-            style={{ height }}
+            style={{ minHeight: height }}
+            className="flex items-center justify-center"
             data-slot="select-list-empty"
           >
-            <Frown className="size-10 opacity-20" />
-            <span className="text-sm font-medium">{emptyMessage}</span>
+            <Empty
+              variant="no-results"
+              title={emptyMessage}
+              compact
+              locale={locale}
+            />
           </div>
         ) : (
           <div

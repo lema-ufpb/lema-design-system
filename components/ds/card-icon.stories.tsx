@@ -24,6 +24,24 @@ const meta = {
           "Feature / navigation card built around a tinted icon medallion, a title and a description.",
           "Icon colour and background both derive from a single semantic `tone` token — no raw Tailwind values.",
           "Three media styles (`soft`, `solid`, `outline`), three sizes, centred or left-aligned, and an optional link mode with a hover lift.",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `icon` | `React.ElementType` | — | (required) Icon component rendered inside the media circle |",
+          "| `title` | `string` | — | (required) Card title |",
+          "| `description` | `string` | — | Optional description text |",
+          "| `tone` | ``primary` \\| `success` \\| `warning` \\| `destructive` \\| `violet` \\| `sky` \\| `neutral`` | `primary` | Semantic colour applied to icon and background |",
+          "| `mediaStyle` | `soft` \\| `solid` \\| `outline` | `soft` | How the media circle is painted from the tone token |",
+          "| `size` | `sm` \\| `md` \\| `lg` | `md` | Card size preset |",
+          "| `align` | `center` \\| `start` | `center` | Content alignment |",
+          "| `titleUpper` | `boolean` | `false` | Uppercase + tracked title |",
+          "| `badge` | `string` | — | Optional badge shown above the title |",
+          "| `href` | `string` | — | Renders the whole card as a link |",
+          "| `actionLabel` | `string` | — | Optional call-to-action row at the bottom |",
+          "| `loading` | `boolean` | `false` | Show skeleton placeholder while data is fetching |",
+          "| `className` | `string` | — | Additional CSS classes |",
         ].join("\n"),
       },
     },
@@ -57,7 +75,10 @@ const meta = {
       options: ["center", "start"],
       table: { defaultValue: { summary: "center" } },
     },
-    titleUpper: { control: "boolean" },
+    titleUpper: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     title: { control: "text" },
     description: { control: "text" },
     badge: { control: "text" },
@@ -67,6 +88,7 @@ const meta = {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
+    icon: { table: { disable: true } },
   },
   args: {
     icon: CompassIcon,
@@ -86,6 +108,13 @@ type Story = StoryObj<typeof meta>
 
 // Reproduces the reference dashboard hero card.
 export const Default: Story = {
+  args: {
+    tone: "primary",
+    mediaStyle: "soft",
+    size: "md",
+    align: "center",
+    titleUpper: false,
+  },
   render: (args) => (
     <div className="max-w-sm">
       <CardIcon {...args} />

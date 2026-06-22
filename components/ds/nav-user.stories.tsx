@@ -99,8 +99,24 @@ const meta = {
           "| **Highlight background** | `--accent` | Highlight hover background for menu items |",
           "| **Highlight text** | `--accent-foreground` | Highlight hover text and icon colors |",
           "| **Destructive option** | `--destructive` | Text color highlighting delete/logout actions |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `user` | `UserMenuData` | — | User data object (name, email, avatarUrl) |",
+          "| `groups` | `UserMenuItem[][]` | — | 2D array of dropdown menu groups |",
+          "| `loading` | `boolean` | `false` | Shows skeleton while data loads |",
         ].join("\n"),
       },
+    },
+  },
+  argTypes: {
+    user: { table: { disable: true } },
+    groups: { table: { disable: true } },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
   },
 } satisfies Meta<typeof NavUser>
@@ -190,6 +206,7 @@ export const Default: Story = {
   args: {
     user: mockUser,
     groups: defaultGroups,
+    loading: false,
   },
   render: (args) => (
     <div className="flex h-32 w-full items-center justify-end rounded-lg border bg-card px-12">

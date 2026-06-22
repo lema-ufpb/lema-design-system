@@ -14,31 +14,34 @@ const meta = {
           "The original KPI card — label, formatted value, trend icon+colour, and description.",
           "Fully configurable locale, currency, and custom formatter.",
           "",
-          "## Props",
+          "## Component Props",
           "",
-          "| Prop | Type | Description |",
-          "| --- | --- | --- |",
-          "| `label` | `string` | Header label shown above the value |",
-          "| `value` | `string \\| number` | The metric value to display |",
-          '| `format` | `"currency" \\| "percent" \\| "integer" \\| "float"` | Numeric formatting preset |',
-          "| `decimals` | `number` | Number of fraction digits for numeric formats |",
-          '| `locale` | `string` | BCP 47 locale string (default: `"en-US"`) |',
-          "| `abbreviate` | `boolean` | Abbreviate large numbers — e.g. `1.5M`, `R$ 2,3 bi`, `850K` (locale-aware) |",
-          '| `currency` | `string` | ISO 4217 currency code when `format="currency"` (default: `"USD"`) |',
-          "| `description` | `string` | Secondary description rendered below the value |",
-          '| `trend` | `"up" \\| "down" \\| "neutral" \\| boolean` | Trend direction — `true` is shorthand for `"up"` |',
-          "| `icon` | `React.ElementType` | Icon displayed in the card action slot |",
-          "| `loading` | `boolean` | Show skeleton placeholder while data is fetching |",
-          "| `empty` | `boolean` | Show empty state when no data is available |",
-          "| `valueFormatter` | `(value: number \\| string) => string` | Fully custom formatter — overrides `format`, `decimals`, `locale`, and `currency` |",
-          "| `valueClassName` | `string` | Extra classes merged onto the value `<p>` — use semantic tokens like `text-destructive` or `text-success` to colour the value |",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `label` | `string` | — | (required) Header label shown above the value |",
+          "| `value` | `string \\| number` | — | (required) The metric value to display |",
+          "| `format` | `currency` \\| `percent` \\| `integer` \\| `float` | — | Numeric formatting preset |",
+          "| `decimals` | `number` | — | Number of fraction digits for numeric formats |",
+          "| `locale` | `string` | `en-US` | BCP 47 locale string |",
+          "| `currency` | `string` | `USD` | ISO 4217 currency code |",
+          "| `abbreviate` | `boolean` | `false` | Abbreviate large numbers (locale-aware) |",
+          "| `description` | `string` | — | Secondary description rendered below the value |",
+          "| `trend` | `up` \\| `down` \\| `neutral` \\| `boolean` | `false` | Trend direction — `true` is shorthand for `up` |",
+          "| `icon` | `React.ElementType` | — | Icon displayed in the card action slot |",
+          "| `size` | `sm` \\| `md` \\| `lg` | `md` | Size preset |",
+          "| `variant` | `default` \\| `muted` \\| `flat` | `default` | Card visual variant |",
+          "| `loading` | `boolean` | `false` | Show skeleton placeholder while data is fetching |",
+          "| `empty` | `boolean` | `false` | Show empty state when no data is available |",
+          "| `valueFormatter` | `(value: number \\| string) => string` | — | Fully custom formatter — overrides format/decimals/locale/currency |",
+          "| `valueClassName` | `string` | — | Extra classes merged onto the value text — use semantic tokens like `text-destructive` or `text-success` |",
+          "| `className` | `string` | — | Additional CSS classes |",
         ].join("\n"),
       },
     },
   },
   argTypes: {
     format: {
-      control: "select",
+      control: "inline-radio",
       options: ["currency", "percent", "integer", "float"],
       table: { defaultValue: { summary: "—" } },
     },
@@ -47,16 +50,29 @@ const meta = {
       options: ["up", "down", "neutral", true, false],
       table: { defaultValue: { summary: "false" } },
     },
-    decimals: { control: { type: "number", min: 0, max: 5 } },
-    locale: { control: "text" },
-    currency: { control: "text" },
+    decimals: {
+      control: { type: "number", min: 0, max: 5 },
+      table: { defaultValue: { summary: "—" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
+    currency: {
+      control: "text",
+      table: { defaultValue: { summary: "USD" } },
+    },
     abbreviate: {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
-    label: { control: "text" },
-    value: { control: "number" },
-    description: { control: "text" },
+    label: { control: "text", table: { defaultValue: { summary: "—" } } },
+    value: { control: "number", table: { defaultValue: { summary: "—" } } },
+    description: {
+      control: "text",
+      table: { defaultValue: { summary: "—" } },
+    },
     loading: {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
@@ -66,13 +82,21 @@ const meta = {
       table: { defaultValue: { summary: "false" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
     icon: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
-    valueClassName: { control: "text" },
+    valueClassName: {
+      control: "text",
+      table: { defaultValue: { summary: "—" } },
+    },
+    variant: {
+      control: "select",
+      options: ["default", "muted", "flat"],
+      table: { defaultValue: { summary: "default" } },
+    },
   },
 } satisfies Meta<typeof CardStat>
 
@@ -84,10 +108,15 @@ export const Default: Story = {
     label: "Revenue",
     value: 45231.89,
     format: "currency",
+    decimals: 2,
+    locale: "en-US",
+    currency: "USD",
+    abbreviate: false,
     description: "+20.1% from last month",
     trend: "up",
     icon: DollarSignIcon,
     size: "md",
+    variant: "default",
   },
   parameters: {
     docs: {
@@ -164,12 +193,12 @@ export const Locales: Story = {
   render: () => (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
       <CardStat
-        label="Receita Total"
+        label="Total Revenue"
         value={98400}
         format="currency"
         locale="pt-BR"
         currency="BRL"
-        description="+12,3% em relação ao mês anterior"
+        description="+12.3% vs last month"
         trend="up"
         icon={DollarSignIcon}
       />
@@ -315,14 +344,14 @@ export const Abbreviated: Story = {
         trend="up"
       />
       <CardStat
-        label="Valor de Mercado"
+        label="Market Cap"
         value={1570000000}
         format="currency"
         abbreviate
         locale="pt-BR"
         currency="BRL"
         icon={DollarSignIcon}
-        description="+12,4% neste trimestre"
+        description="+12.4% this quarter"
         trend="up"
       />
       <CardStat
@@ -336,13 +365,13 @@ export const Abbreviated: Story = {
         trend="up"
       />
       <CardStat
-        label="Usuários Totais"
+        label="Total Users"
         value={2847500}
         format="integer"
         abbreviate
         locale="pt-BR"
         icon={UsersIcon}
-        description="+843 mil novos este mês"
+        description="+843K new this month"
         trend="up"
       />
     </div>
@@ -462,8 +491,8 @@ export const FlatVariant: Story = {
     docs: {
       description: {
         story: [
-          'Use `variant="flat"` para um card sem borda e sem sombra com fundo branco (`bg-background`).',
-          "Ideal para áreas onde o container já tem fundo colorido e o card precisa se destacar em branco.",
+          'Use `variant="flat"` for a borderless, shadowless card with a white background (`bg-background`).',
+          "Ideal for areas where the container already has a colored background and the card needs to stand out in white.",
           "",
           "```tsx",
           '<CardStat variant="flat" label="Revenue" value={45231.89} format="currency" />',

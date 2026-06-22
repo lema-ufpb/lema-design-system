@@ -3,7 +3,7 @@ import { Counter } from "@/components/ds/counter"
 import { useEffect, useState } from "react"
 
 const meta = {
-  title: "Forms/Counter",
+  title: "Form/Counter",
   component: Counter,
   tags: ["autodocs"],
   parameters: {
@@ -16,6 +16,28 @@ const meta = {
           "By default the counter fills the width of its parent container. Use the `maxWidth` prop to cap the maximum width.",
           "",
           "Supports various size presets (`sm`, `md`, `lg`), border variants (`default`, `ghost`, `outline`), step configuration, custom constraints (`min`/`max`), and keyboard arrow-key navigation.",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `number` | — | Controlled value |",
+          "| `defaultValue` | `number` | `0` | Uncontrolled initial value |",
+          "| `min` | `number` | `-Infinity` | Minimum allowed value |",
+          "| `max` | `number` | `Infinity` | Maximum allowed value |",
+          "| `step` | `number` | `1` | Increment/decrement step |",
+          "| `size` | `sm` \\| `md` \\| `lg` | `md` | Size preset |",
+          "| `variant` | `default` \\| `ghost` \\| `outline` | `default` | Border variant |",
+          "| `loading` | `boolean` | `false` | Show skeleton while value is fetching |",
+          "| `disabled` | `boolean` | `false` | Disable all interaction |",
+          "| `label` | `string` | — | Accessible `aria-label` for the group |",
+          "| `maxWidth` | `CSSProperties['maxWidth']` | — | Cap the counter width |",
+          "| `locale` | `en-US` \\| `pt-BR` \\| `es-ES` \\| `fr-FR` | `en-US` | Locale for button labels |",
+          "| `onChange` | `(value: number) => void` | — | Called when value changes |",
+          "| `onBlur` | `(e: FocusEvent) => void` | — | Called on input blur |",
+          "| `onKeyDown` | `(e: KeyboardEvent) => void` | — | Called on input keydown |",
+          "| `id` | `string` | — | Input `id` attribute |",
+          "| `className` | `string` | — | Additional CSS classes |",
           "",
           "## Design Tokens & Semantic Variables",
           "",
@@ -67,6 +89,11 @@ const meta = {
       control: "text",
       table: { defaultValue: { summary: "" } },
     },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
   },
 } satisfies Meta<typeof Counter>
 
@@ -79,6 +106,11 @@ export const Default: Story = {
     min: 0,
     max: 10,
     step: 1,
+    size: "md",
+    variant: "default",
+    loading: false,
+    disabled: false,
+    locale: "en-US",
   },
   parameters: {
     docs: {

@@ -12,12 +12,12 @@ const meta = {
       table: { defaultValue: { summary: "0" } },
     },
     intent: {
-      control: "select",
+      control: "inline-radio",
       options: ["primary", "secondary", "success", "destructive"],
       table: { defaultValue: { summary: "primary" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "sm" } },
     },
@@ -65,7 +65,7 @@ const meta = {
       table: { defaultValue: { summary: "left" } },
     },
     labelLayout: {
-      control: "select",
+      control: "inline-radio",
       options: ["inline", "above", "below"],
       description: "Position of the name/label row relative to the bar.",
       table: { defaultValue: { summary: "above" } },
@@ -76,7 +76,8 @@ const meta = {
       table: { defaultValue: { summary: "" } },
     },
     locale: {
-      control: "text",
+      control: "select",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description:
         "Locale used for formatting the percentage (e.g. pt-BR, en-US).",
       table: { defaultValue: { summary: "en-US" } },
@@ -102,6 +103,26 @@ const meta = {
           "| **Track Background** | `--muted` | Outer background bar track fill |",
           "| **Name text label** | `--muted-foreground` | Font color for left-positioned name descriptions |",
           "| **Active text label** | `--foreground` | Font color for right-positioned status titles |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `number` | — | (required) Progress value (0–1 or 0–100) |",
+          "| `name` | `string` | — | Label text displayed next to the bar |",
+          '| `namePosition` | `"left" \\| "right"` | `"left"` | Side for the name label (inline layout) |',
+          "| `upper` | `boolean` | `false` | Uppercases the name label |",
+          "| `showLabel` | `boolean` | `true` | Shows the percentage / ratio label |",
+          '| `labelPosition` | `"left" \\| "right"` | `"left"` | Side for the percentage label |',
+          '| `labelLayout` | `"inline" \\| "above" \\| "below"` | `"above"` | Position of labels relative to the bar |',
+          "| `labelWidth` | `number` | — | Fixed width (px) for the name slot |",
+          '| `intent` | `"primary" \\| "secondary" \\| "success" \\| "destructive"` | `"primary"` | Fill color |',
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"sm"` | Bar thickness |',
+          "| `total` | `number` | — | Total value — switches label to `value / total` |",
+          "| `loading` | `boolean` | `false` | Skeleton loading state |",
+          "| `precision` | `number` | `0` | Decimal places for the percentage |",
+          "| `tooltip` | `ReactNode` | — | Content shown on hover |",
+          '| `locale` | `string` | `"en-US"` | Locale for percentage formatting |',
         ].join("\n"),
       },
     },
@@ -115,8 +136,16 @@ export const Default: Story = {
   args: {
     value: 65,
     name: "Progress",
-    size: "sm",
+    namePosition: "left",
+    upper: false,
+    showLabel: true,
+    labelPosition: "left",
+    labelLayout: "above",
     intent: "primary",
+    size: "sm",
+    loading: false,
+    precision: 0,
+    locale: "en-US",
   },
   parameters: {
     docs: {
@@ -261,30 +290,30 @@ export const LoadingStates: Story = {
     <div className="flex w-96 flex-col gap-8">
       <div className="flex flex-col gap-2">
         <p className="text-sm font-medium text-muted-foreground">inline</p>
-        <ProgressBar value={60} name="Auditoria Normal" loading size="sm" />
-        <ProgressBar value={60} name="Auditoria Normal" loading size="md" />
-        <ProgressBar value={60} name="Auditoria Normal" loading size="lg" />
+        <ProgressBar value={60} name="Standard Audit" loading size="sm" />
+        <ProgressBar value={60} name="Standard Audit" loading size="md" />
+        <ProgressBar value={60} name="Standard Audit" loading size="lg" />
       </div>
 
       <div className="flex flex-col gap-2">
         <p className="text-sm font-medium text-muted-foreground">above</p>
         <ProgressBar
           value={60}
-          name="Auditoria Normal"
+          name="Standard Audit"
           labelLayout="above"
           loading
           size="sm"
         />
         <ProgressBar
           value={60}
-          name="Auditoria Normal"
+          name="Standard Audit"
           labelLayout="above"
           loading
           size="md"
         />
         <ProgressBar
           value={60}
-          name="Auditoria Normal"
+          name="Standard Audit"
           labelLayout="above"
           loading
           size="lg"
@@ -295,21 +324,21 @@ export const LoadingStates: Story = {
         <p className="text-sm font-medium text-muted-foreground">below</p>
         <ProgressBar
           value={60}
-          name="Auditoria Normal"
+          name="Standard Audit"
           labelLayout="below"
           loading
           size="sm"
         />
         <ProgressBar
           value={60}
-          name="Auditoria Normal"
+          name="Standard Audit"
           labelLayout="below"
           loading
           size="md"
         />
         <ProgressBar
           value={60}
-          name="Auditoria Normal"
+          name="Standard Audit"
           labelLayout="below"
           loading
           size="lg"
@@ -412,19 +441,19 @@ export const LabelLayoutInline: Story = {
     <div className="flex w-96 flex-col gap-4">
       <ProgressBar
         value={72}
-        name="Auditoria Normal"
+        name="Standard Audit"
         labelLayout="inline"
         intent="primary"
       />
       <ProgressBar
         value={45}
-        name="Documentos Fiscais"
+        name="Tax Documents"
         labelLayout="inline"
         intent="success"
       />
       <ProgressBar
         value={20}
-        name="Pendências"
+        name="Pending"
         labelLayout="inline"
         intent="destructive"
       />
@@ -446,19 +475,19 @@ export const LabelLayoutAbove: Story = {
     <div className="flex w-96 flex-col gap-6">
       <ProgressBar
         value={72}
-        name="Auditoria Normal"
+        name="Standard Audit"
         labelLayout="above"
         intent="primary"
       />
       <ProgressBar
         value={45}
-        name="Documentos Fiscais"
+        name="Tax Documents"
         labelLayout="above"
         intent="success"
       />
       <ProgressBar
         value={20}
-        name="Pendências"
+        name="Pending"
         labelLayout="above"
         intent="destructive"
       />
@@ -480,19 +509,19 @@ export const LabelLayoutBelow: Story = {
     <div className="flex w-96 flex-col gap-6">
       <ProgressBar
         value={72}
-        name="Auditoria Normal"
+        name="Standard Audit"
         labelLayout="below"
         intent="primary"
       />
       <ProgressBar
         value={45}
-        name="Documentos Fiscais"
+        name="Tax Documents"
         labelLayout="below"
         intent="success"
       />
       <ProgressBar
         value={20}
-        name="Pendências"
+        name="Pending"
         labelLayout="below"
         intent="destructive"
       />
@@ -514,15 +543,15 @@ export const LabelLayoutComparison: Story = {
     <div className="flex w-96 flex-col gap-8">
       <div className="flex flex-col gap-1">
         <p className="text-sm font-medium text-muted-foreground">inline</p>
-        <ProgressBar value={60} name="Auditoria Normal" labelLayout="inline" />
+        <ProgressBar value={60} name="Standard Audit" labelLayout="inline" />
       </div>
       <div className="flex flex-col gap-1">
         <p className="text-sm font-medium text-muted-foreground">above</p>
-        <ProgressBar value={60} name="Auditoria Normal" labelLayout="above" />
+        <ProgressBar value={60} name="Standard Audit" labelLayout="above" />
       </div>
       <div className="flex flex-col gap-1">
         <p className="text-sm font-medium text-muted-foreground">below</p>
-        <ProgressBar value={60} name="Auditoria Normal" labelLayout="below" />
+        <ProgressBar value={60} name="Standard Audit" labelLayout="below" />
       </div>
     </div>
   ),
@@ -549,27 +578,27 @@ export const RatioLabel: Story = {
       <ProgressBar
         value={20}
         total={95}
-        name="Auditoria Normal"
+        name="Standard Audit"
         labelLayout="above"
       />
       <ProgressBar
         value={38}
         total={95}
-        name="Documentos Fiscais"
+        name="Tax Documents"
         labelLayout="above"
         intent="success"
       />
       <ProgressBar
         value={91}
         total={95}
-        name="Concluídos"
+        name="Completed"
         labelLayout="above"
         intent="success"
       />
       <ProgressBar
         value={12}
         total={95}
-        name="Pendências"
+        name="Pending"
         labelLayout="above"
         intent="destructive"
       />
