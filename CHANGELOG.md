@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.3.0](https://github.com/lema-ufpb/design-system/compare/v1.2.0...v1.3.0) (2026-06-22)
+
+
+### ✨ Features
+
+* **button:** add DS Button component with loading, confirm, and tooltip ([bfe250c](https://github.com/lema-ufpb/design-system/commit/bfe250cf94be5a09ba9647616a3e729104661909))
+* **pagination:** add rounded variant and plumb through data-table ([f314057](https://github.com/lema-ufpb/design-system/commit/f31405726fdb7ebe590e708f7f7b0f7be941ec2b))
+* **scroll-to-top:** add ScrollToTop component with progress ring, variant, and i18n support ([513ea89](https://github.com/lema-ufpb/design-system/commit/513ea8950dcb8d0840df0e6f4ad6876b6d3c3c00))
+* **tabs:** add DS Tabs component with responsive accordion fallback ([a9dfb08](https://github.com/lema-ufpb/design-system/commit/a9dfb084717a43f56fc22fca6bfbac4532c18c0a))
+
+
+### 🐛 Bug Fixes
+
+* **ci:** extract PR number from release-please output ([dcf5f82](https://github.com/lema-ufpb/design-system/commit/dcf5f82eb47eac406a331c5f2b621b4520701802))
+* **ci:** replace gh pr merge with GitHub API merge endpoint ([301c607](https://github.com/lema-ufpb/design-system/commit/301c607b10d269736ebff7278c2d7913c866f927))
+* **pagination:** use default variant for active page button ([3ef6a26](https://github.com/lema-ufpb/design-system/commit/3ef6a262fea0a5ef8bfb95484c42c7fb2abe7b98))
+
+
+### 📚 Documentation
+
+* add Data API documentation, reclassify Storybook titles, update README ([ee24054](https://github.com/lema-ufpb/design-system/commit/ee24054b77aa28b3b0968551d072a67037db3c73))
+* update specs, README, and Introduction for refactored components and ScrollToTop ([5cfa257](https://github.com/lema-ufpb/design-system/commit/5cfa25706f161c1b6903f4d32933c28472a08b12))
+
+
+### ♻️ Refactor
+
+* **counter, progress-bar:** replace custom primitives with ui/Button and ui/Progress ([0da3b90](https://github.com/lema-ufpb/design-system/commit/0da3b90ebdf6ce46b4316dc2fdfb0f63b367ebfd))
+* **footer-menu, search-bar, drawer:** delegate to ui/accordion, ui/Input, ui/DrawerContent ([d0eafb8](https://github.com/lema-ufpb/design-system/commit/d0eafb81cbc8b784f9d6647d9103e06e6f6b074e))
+* **toggle-theme, carousel, scatter-chart, treemap-chart:** replace useEffect patterns with useSyncExternalStore or render-phase setState ([9cfc212](https://github.com/lema-ufpb/design-system/commit/9cfc21260e79d86424e668361415e11ad0df0f85))
+
 ## [1.2.0](https://github.com/lema-ufpb/design-system/compare/v1.1.0...v1.2.0) (2026-06-20)
 
 
