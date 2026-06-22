@@ -50,6 +50,12 @@ export interface ScoreRowProps extends HTMLAttributes<HTMLElement> {
   locale?: UILocale
   /** Number of decimal places in the percentage display (progress tooltip and aria-label). Defaults to 0. */
   percentDecimals?: number
+  /**
+   * Override all intent-based colors via CSS token `--score-accent`.
+   * Drives icon container bg/text, score value text, and progress fill.
+   * Accepts any CSS color or `var(--my-token)`.
+   */
+  accent?: string
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -288,10 +294,15 @@ export function ScoreRow({
   loading = false,
   locale = "en-US",
   percentDecimals = 0,
+  accent,
   className,
   onClick,
   ...props
 }: ScoreRowProps) {
+  const tokenStyle =
+    accent !== undefined
+      ? ({ "--score-accent": accent } as React.CSSProperties)
+      : undefined
   const t = UI_I18N[locale].scoreRow
   const resolvedStatus: ScoreRowStatus =
     status === "auto" ? deriveStatus(score, total) : status
@@ -402,7 +413,8 @@ export function ScoreRow({
         >
           <div
             className={cn(
-              scoreRowIconContainerVariants({ size, status: resolvedStatus })
+              scoreRowIconContainerVariants({ size, status: resolvedStatus }),
+              accent && "bg-(--score-accent)/10 text-(--score-accent)"
             )}
             aria-hidden="true"
           >
@@ -433,7 +445,8 @@ export function ScoreRow({
           <span
             aria-hidden="true"
             className={cn(
-              scoreRowCurrentVariants({ size, status: resolvedStatus })
+              scoreRowCurrentVariants({ size, status: resolvedStatus }),
+              accent && "text-(--score-accent)"
             )}
           >
             {current}
@@ -475,7 +488,9 @@ export function ScoreRow({
                   aria-label={`${t.scoreLabel}: ${percentText}`}
                   className={cn(
                     PROGRESS_HEIGHT[size],
-                    PROGRESS_INDICATOR_COLOR[resolvedStatus]
+                    !accent && PROGRESS_INDICATOR_COLOR[resolvedStatus],
+                    accent &&
+                      "[&>[data-slot=progress-indicator]]:bg-(--score-accent)"
                   )}
                 />
               </span>
@@ -500,6 +515,7 @@ export function ScoreRow({
       <button
         type="button"
         data-slot="score-row"
+        style={tokenStyle}
         onClick={onClick}
         className={cn(
           scoreRowVariants({ size, interactive: true }),
@@ -516,6 +532,7 @@ export function ScoreRow({
   return (
     <div
       data-slot="score-row"
+      style={tokenStyle}
       className={cn(scoreRowVariants({ size }), className)}
       {...props}
     >

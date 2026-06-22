@@ -28,23 +28,29 @@ export interface AccordionItem {
   disabled?: boolean
 }
 
-export interface AccordionProps
-  extends
-    VariantProps<typeof accordionVariants>,
-    VariantProps<typeof triggerVariants> {
-  type?: "single" | "multiple"
-  collapsible?: boolean
+type AccordionCommonProps = {
   iconVariant?: AccordionIconVariant
-  size?: "sm" | "md" | "lg"
-  rounded?: "default" | "none"
-  bordered?: "default" | "none"
   items: AccordionItem[]
-  value?: string | string[]
-  onValueChange?: (value: string | string[]) => void
   loading?: boolean
   loadingCount?: number
   className?: string
+} & VariantProps<typeof accordionVariants> &
+  VariantProps<typeof triggerVariants>
+
+export type AccordionSingleProps = AccordionCommonProps & {
+  type?: "single"
+  collapsible?: boolean
+  value?: string
+  onValueChange?: (value: string) => void
 }
+
+export type AccordionMultipleProps = AccordionCommonProps & {
+  type: "multiple"
+  value?: string[]
+  onValueChange?: (value: string[]) => void
+}
+
+export type AccordionProps = AccordionSingleProps | AccordionMultipleProps
 
 // ── Variants ──
 
@@ -176,20 +182,23 @@ function AccordionIcon({
 
 // ── Component ──
 
-function Accordion({
-  type = "single",
-  collapsible = true,
-  iconVariant = "chevron",
-  size = "md",
-  rounded = "default",
-  bordered = "default",
-  items,
-  value: controlledValue,
-  onValueChange,
-  loading = false,
-  loadingCount = 3,
-  className,
-}: AccordionProps) {
+function Accordion(props: AccordionProps) {
+  const {
+    type = "single",
+    iconVariant = "chevron",
+    size: sizeProp = "md",
+    rounded = "default",
+    bordered = "default",
+    items,
+    value: controlledValue,
+    onValueChange,
+    loading = false,
+    loadingCount = 3,
+    className,
+  } = props
+
+  const size: "sm" | "md" | "lg" = sizeProp ?? "md"
+
   if (loading) {
     return (
       <div
@@ -230,39 +239,57 @@ function Accordion({
     )
   }
 
+  const rootClassName = cn(
+    "flex w-full flex-col overflow-hidden",
+    accordionVariants({ rounded, bordered }),
+    className
+  )
+
+  const itemsJSX = items.map((item) => (
+    <AccordionItemRoot
+      key={item.value}
+      value={item.value}
+      disabled={item.disabled}
+    >
+      <AccordionPrimitive.Header className="flex">
+        <AccordionPrimitive.Trigger
+          data-slot="accordion-trigger"
+          className={triggerVariants({ size })}
+        >
+          <span className="truncate">{item.trigger}</span>
+          <AccordionIcon iconVariant={iconVariant} size={size} />
+        </AccordionPrimitive.Trigger>
+      </AccordionPrimitive.Header>
+      <AccordionContent className={contentVariants({ size })}>
+        {item.children}
+      </AccordionContent>
+    </AccordionItemRoot>
+  ))
+
+  if (type === "multiple") {
+    return (
+      <AccordionPrimitive.Root
+        data-slot="ds-accordion"
+        type="multiple"
+        value={controlledValue as string[] | undefined}
+        onValueChange={onValueChange as ((value: string[]) => void) | undefined}
+        className={rootClassName}
+      >
+        {itemsJSX}
+      </AccordionPrimitive.Root>
+    )
+  }
+
   return (
     <AccordionPrimitive.Root
       data-slot="ds-accordion"
-      type={type as "single"}
-      collapsible={collapsible}
+      type="single"
+      collapsible={(props as AccordionSingleProps).collapsible ?? true}
       value={controlledValue as string | undefined}
       onValueChange={onValueChange as ((value: string) => void) | undefined}
-      className={cn(
-        "flex w-full flex-col overflow-hidden",
-        accordionVariants({ rounded, bordered }),
-        className
-      )}
+      className={rootClassName}
     >
-      {items.map((item) => (
-        <AccordionItemRoot
-          key={item.value}
-          value={item.value}
-          disabled={item.disabled}
-        >
-          <AccordionPrimitive.Header className="flex">
-            <AccordionPrimitive.Trigger
-              data-slot="accordion-trigger"
-              className={triggerVariants({ size })}
-            >
-              <span className="truncate">{item.trigger}</span>
-              <AccordionIcon iconVariant={iconVariant} size={size} />
-            </AccordionPrimitive.Trigger>
-          </AccordionPrimitive.Header>
-          <AccordionContent className={contentVariants({ size })}>
-            {item.children}
-          </AccordionContent>
-        </AccordionItemRoot>
-      ))}
+      {itemsJSX}
     </AccordionPrimitive.Root>
   )
 }

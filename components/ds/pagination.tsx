@@ -84,7 +84,9 @@ function PaginationPrevious({
   return (
     <UIPaginationPrevious
       className={cn("pl-2!", paginationLinkVariants({ rounded }), className)}
-      aria-label={UI_I18N[locale].pagination.goToPrevious}
+      aria-label={
+        props["aria-label"] ?? UI_I18N[locale].pagination.goToPrevious
+      }
       text={text ?? UI_I18N[locale].pagination.previous}
       {...props}
     />
@@ -104,7 +106,7 @@ function PaginationNext({
   return (
     <UIPaginationNext
       className={cn("pr-2!", paginationLinkVariants({ rounded }), className)}
-      aria-label={UI_I18N[locale].pagination.goToNext}
+      aria-label={props["aria-label"] ?? UI_I18N[locale].pagination.goToNext}
       text={text ?? UI_I18N[locale].pagination.next}
       {...props}
     />

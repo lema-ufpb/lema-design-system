@@ -27,6 +27,16 @@ export interface DrawerProps {
   open?: boolean
   onOpenChange?: (open: boolean) => void
   className?: string
+  shouldScaleBackground?: boolean
+  snapPoints?: (number | string)[]
+  activeSnapPoint?: number | string | null
+  setActiveSnapPoint?: (snapPoint: number | string | null) => void
+  onEscapeKeyDown?: React.ComponentPropsWithoutRef<
+    typeof DrawerContent
+  >["onEscapeKeyDown"]
+  onPointerDownOutside?: React.ComponentPropsWithoutRef<
+    typeof DrawerContent
+  >["onPointerDownOutside"]
 }
 
 export function Drawer({
@@ -40,6 +50,12 @@ export function Drawer({
   open,
   onOpenChange,
   className,
+  shouldScaleBackground,
+  snapPoints,
+  activeSnapPoint,
+  setActiveSnapPoint,
+  onEscapeKeyDown,
+  onPointerDownOutside,
 }: DrawerProps) {
   const isHorizontal = direction === "left" || direction === "right"
   const hasHeader = Boolean(title || description)
@@ -49,11 +65,17 @@ export function Drawer({
       direction={direction === "bottom" ? undefined : direction}
       open={open}
       onOpenChange={onOpenChange}
+      shouldScaleBackground={shouldScaleBackground}
+      snapPoints={snapPoints}
+      activeSnapPoint={activeSnapPoint}
+      setActiveSnapPoint={setActiveSnapPoint}
     >
       {trigger && <DrawerTrigger asChild>{trigger}</DrawerTrigger>}
 
       <DrawerContent
         data-slot="drawer-ui"
+        onEscapeKeyDown={onEscapeKeyDown}
+        onPointerDownOutside={onPointerDownOutside}
         className={cn(
           "group/drawer border border-border bg-popover p-0 text-popover-foreground shadow-2xl outline-none before:content-none data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=top]:mb-0",
           // Bottom
