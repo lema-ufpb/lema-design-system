@@ -11,7 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Variants ──
 
-export const badgeVariants = cva("", {
+export const badgeVariants = cva("flex-nowrap whitespace-nowrap", {
   variants: {
     variant: {
       default: "",
@@ -53,17 +53,32 @@ export const badgeDotVariants = cva("rounded-full", {
 
 export interface BadgeProps
   extends
-    Omit<React.ComponentProps<"span">, "size">,
+    Omit<React.ComponentProps<"span">, "size" | "color">,
     VariantProps<typeof badgeVariants> {
   dot?: boolean
   removable?: boolean
   icon?: React.ReactNode
   maxCount?: number
   onRemove?: () => void
-  /** Valor numérico exibido quando maxCount está definido */
   count?: number
   loading?: boolean
   locale?: UILocale
+  /**
+   * Override background via CSS token `--badge-background`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   * @example background="var(--color-success)"
+   */
+  background?: string
+  /**
+   * Override text color via CSS token `--badge-color`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   */
+  color?: string
+  /**
+   * Override border color via CSS token `--badge-border-color`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   */
+  borderColor?: string
 }
 
 // ── Component ──
@@ -81,6 +96,10 @@ function Badge({
   locale = "pt-BR",
   className,
   children,
+  style,
+  background,
+  color,
+  borderColor,
   ...props
 }: BadgeProps) {
   const i18n = UI_I18N[locale]
@@ -94,10 +113,28 @@ function Badge({
 
   const showCount = maxCount !== undefined && count !== undefined
 
+  const tokenStyle = {
+    ...(background !== undefined && {
+      "--badge-background": background,
+    }),
+    ...(color !== undefined && { "--badge-color": color }),
+    ...(borderColor !== undefined && {
+      "--badge-border-color": borderColor,
+    }),
+    ...style,
+  } as React.CSSProperties
+
   return (
     <BadgeRoot
       data-slot="ds-badge"
-      className={cn(badgeVariants({ variant, size }), className)}
+      style={tokenStyle}
+      className={cn(
+        badgeVariants({ variant, size }),
+        background && "bg-(--badge-background)",
+        color && "text-(--badge-color)",
+        borderColor && "border border-(--badge-border-color)",
+        className
+      )}
       {...props}
     >
       {dot && (
@@ -112,7 +149,7 @@ function Badge({
           data-slot="ds-badge-icon"
           aria-hidden="true"
           className={cn(
-            "inline-flex items-center justify-center",
+            "inline-flex shrink-0 items-center justify-center",
             size === "sm"
               ? "[&>svg]:size-2.5"
               : size === "lg"
@@ -123,7 +160,10 @@ function Badge({
           {icon}
         </span>
       )}
-      <span data-slot="ds-badge-text" className="max-w-[200px] truncate">
+      <span
+        data-slot="ds-badge-text"
+        className="max-w-[200px] min-w-0 truncate"
+      >
         {showCount ? (count > 999 ? "99+" : count) : children}
       </span>
       {removable && (

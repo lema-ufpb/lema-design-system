@@ -386,6 +386,14 @@ interface ComboboxBaseProps extends VariantProps<
   renderOption?: (option: ComboboxOption, selected: boolean) => React.ReactNode
   "aria-label"?: string
   "aria-labelledby"?: string
+  /** Popover positioning — side where the dropdown opens */
+  side?: "top" | "right" | "bottom" | "left"
+  /** Popover alignment relative to the trigger */
+  align?: "start" | "center" | "end"
+  /** Distance in px between trigger and popover */
+  sideOffset?: number
+  /** Offset along the alignment axis in px */
+  alignOffset?: number
 }
 
 interface ComboboxSingleProps extends ComboboxBaseProps {
@@ -424,6 +432,10 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
       renderOption,
       "aria-label": ariaLabel,
       "aria-labelledby": ariaLabelledBy,
+      side,
+      align = "start",
+      sideOffset = 4,
+      alignOffset,
     } = props
 
     const i18n = UI_I18N[locale].combobox
@@ -687,8 +699,10 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
           </PopoverTrigger>
 
           <PopoverContent
-            align="start"
-            sideOffset={4}
+            side={side}
+            align={align}
+            sideOffset={sideOffset}
+            alignOffset={alignOffset}
             data-slot="combobox-content"
             className={cn(
               "overflow-hidden p-0",

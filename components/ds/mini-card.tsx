@@ -48,6 +48,11 @@ export interface MiniCardProps {
   valueFormatter?: (value: string | number) => string
   loading?: boolean
   className?: string
+  /**
+   * Override icon and value color via CSS token `--mini-card-accent`.
+   * Accepts any CSS color or `var(--my-token)`. Delta colors are unaffected.
+   */
+  accent?: string
 }
 
 export interface MiniCardGroupProps {
@@ -259,6 +264,7 @@ export function MiniCard({
   decimals,
   valueFormatter,
   loading,
+  accent,
   className,
 }: MiniCardProps) {
   const { size: ctxSize, locale: ctxLocale } = React.useContext(MiniCardCtx)
@@ -296,21 +302,35 @@ export function MiniCard({
   const deltaLabel = delta && !isDeltaKeyword(delta) ? delta : undefined
   const DeltaIcon = deltaDir ? DELTA_ICONS[deltaDir] : null
 
+  const accentStyle =
+    accent !== undefined
+      ? ({ "--mini-card-accent": accent } as React.CSSProperties)
+      : undefined
+
   return (
     <div
+      style={accentStyle}
       className={cn("flex min-w-0 items-center gap-1.5", className)}
       data-slot="mini-card"
     >
       {Icon && (
         <Icon
-          className={miniCardIconVariants({ size, intent: iconIntent })}
+          className={cn(
+            miniCardIconVariants({ size, intent: iconIntent }),
+            accent && "text-(--mini-card-accent)"
+          )}
           aria-hidden
         />
       )}
       <div className="flex min-w-0 flex-col">
         <span className={miniCardLabelVariants({ size })}>{label}</span>
         <div className="flex items-baseline gap-0.5">
-          <span className={miniCardValueVariants({ size, intent })}>
+          <span
+            className={cn(
+              miniCardValueVariants({ size, intent }),
+              accent && "text-(--mini-card-accent)"
+            )}
+          >
             {displayValue}
           </span>
           {sub && <span className={miniCardSubVariants({ size })}>{sub}</span>}

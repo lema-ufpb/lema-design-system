@@ -50,6 +50,10 @@ export interface SelectProps extends VariantProps<typeof triggerVariants> {
   locale?: UILocale
   disabled?: boolean
   className?: string
+  side?: "top" | "right" | "bottom" | "left"
+  align?: "start" | "center" | "end"
+  sideOffset?: number
+  alignOffset?: number
 }
 
 // ── Variants ──
@@ -87,6 +91,10 @@ function Select({
   locale = "pt-BR",
   disabled = false,
   className,
+  side,
+  align = "start",
+  sideOffset = 4,
+  alignOffset,
 }: SelectProps) {
   const i18n = UI_I18N[locale]
   const [open, setOpen] = React.useState(false)
@@ -203,7 +211,10 @@ function Select({
         </PopoverTrigger>
         <PopoverContent
           className="w-(--radix-popover-trigger-width) p-0"
-          align="start"
+          side={side}
+          align={align}
+          sideOffset={sideOffset}
+          alignOffset={alignOffset}
         >
           <CommandRoot>
             {searchable && (

@@ -37,7 +37,17 @@ export type ModalIntent =
 export interface ModalProps {
   /** Controlled open state */
   open?: boolean
+  defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
+  onEscapeKeyDown?: React.ComponentPropsWithoutRef<
+    typeof DialogContent
+  >["onEscapeKeyDown"]
+  onPointerDownOutside?: React.ComponentPropsWithoutRef<
+    typeof DialogContent
+  >["onPointerDownOutside"]
+  onInteractOutside?: React.ComponentPropsWithoutRef<
+    typeof DialogContent
+  >["onInteractOutside"]
   /** Element that opens the modal when clicked */
   trigger?: React.ReactNode
   title?: React.ReactNode
@@ -182,7 +192,11 @@ function getConfirmButtonProps(intent: ModalIntent): {
 
 export function Modal({
   open,
+  defaultOpen,
   onOpenChange,
+  onEscapeKeyDown,
+  onPointerDownOutside,
+  onInteractOutside,
   trigger,
   title,
   description,
@@ -305,11 +319,14 @@ export function Modal({
   )
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent
         data-slot="modal"
         showCloseButton={showCloseButton}
+        onEscapeKeyDown={onEscapeKeyDown}
+        onPointerDownOutside={onPointerDownOutside}
+        onInteractOutside={onInteractOutside}
         {...(!description && { "aria-describedby": undefined })}
         className={cn(
           modalContentVariants({ size }),

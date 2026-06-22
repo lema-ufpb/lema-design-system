@@ -2,7 +2,7 @@
 
 import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
-import type { HTMLAttributes, ReactNode } from "react"
+import type { CSSProperties, HTMLAttributes, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -45,9 +45,22 @@ export interface ProgressBarProps
   total?: number
   loading?: boolean
   precision?: number
+  max?: number
+  getValueLabel?: (value: number, max: number) => string
   tooltip?: ReactNode
   /** Locale used for formatting the percentage label */
   locale?: string
+  /**
+   * Override fill color via CSS token `--progress-fill`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   * @example fillColor="var(--color-brand)"
+   */
+  fillColor?: string
+  /**
+   * Override track (background) color via CSS token `--progress-track`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   */
+  trackColor?: string
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -138,11 +151,21 @@ export function ProgressBar({
   total,
   loading = false,
   precision = 0,
+  max = 100,
+  getValueLabel,
   tooltip,
   locale = "en-US",
+  fillColor,
+  trackColor,
+  style,
   className,
   ...props
 }: ProgressBarProps) {
+  const tokenStyle = {
+    ...(fillColor !== undefined && { "--progress-fill": fillColor }),
+    ...(trackColor !== undefined && { "--progress-track": trackColor }),
+    ...style,
+  } as CSSProperties
   const clamped =
     total !== undefined
       ? Math.max(0, Math.min(1, value / total))
@@ -197,6 +220,7 @@ export function ProgressBar({
       return (
         <div
           data-slot="progress-bar"
+          style={tokenStyle}
           className={cn(
             progressBarContainerVariants({ labelLayout }),
             className
@@ -213,6 +237,7 @@ export function ProgressBar({
     return (
       <div
         data-slot="progress-bar"
+        style={tokenStyle}
         className={cn(progressBarContainerVariants({ labelLayout }), className)}
         {...props}
       >
@@ -243,10 +268,14 @@ export function ProgressBar({
       className={cn(
         isStacked ? "w-full" : "flex-1",
         trackHeight_[size],
-        intentIndicatorClass[intent],
+        !fillColor && intentIndicatorClass[intent],
+        fillColor && "*:data-[slot=progress-indicator]:bg-(--progress-fill)",
+        trackColor && "bg-(--progress-track)",
         "*:data-[slot=progress-indicator]:transition-[transform] *:data-[slot=progress-indicator]:duration-700 *:data-[slot=progress-indicator]:ease-out"
       )}
       value={clamped * 100}
+      max={max}
+      getValueLabel={getValueLabel}
       aria-label={name ?? "Progress"}
       aria-valuenow={Math.round(clamped * 100)}
       aria-valuemin={0}
