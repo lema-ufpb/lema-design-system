@@ -25,10 +25,16 @@ const meta = {
   },
   argTypes: {
     dir: {
-      control: "select",
+      control: "inline-radio",
       options: ["ltr", "rtl"],
       description: "Text direction",
       table: { defaultValue: { summary: "ltr" } },
+    },
+    direction: {
+      table: { disable: true },
+    },
+    children: {
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof DirectionProvider>

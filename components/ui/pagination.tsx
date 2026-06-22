@@ -51,7 +51,7 @@ function PaginationLink({
   return (
     <Button
       asChild
-      variant={isActive ? "default" : "ghost"}
+      variant={isActive ? "outline" : "ghost"}
       size={size}
       className={cn(className)}
     >

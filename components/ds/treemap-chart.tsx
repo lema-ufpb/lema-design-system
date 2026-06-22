@@ -320,7 +320,7 @@ function CustomizedContent(props: CellDataProps & CellBehaviorProps) {
             )}
             {_hasChildren && height > 60 && (
               <span
-                className="mt-1 rounded-full bg-white/20 px-1.5 py-0.5 text-white/80 [text-shadow:none]"
+                className="mt-1 rounded-full bg-white/20 px-1.5 py-0.5 text-white/80 text-shadow-none"
                 style={{ fontSize: "8px", lineHeight: "1.2" }}
               >
                 {UI_I18N[locale as UILocale]?.treemap?.explore ??

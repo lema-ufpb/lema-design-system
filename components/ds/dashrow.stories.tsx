@@ -16,6 +16,19 @@ const meta = {
           "",
           "Supports mobile vertical stacking, mouse/touch listeners, fluid resize transitions without React re-renders, and custom `sessionStorage` persistence.",
           "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `children` | `ReactNode` | — | (required) Panel children (typically Dashbox) |",
+          "| `alignment` | `left` \\| `right` \\| `equal` | `left` | Width ratio between children on desktop |",
+          "| `gap` | `none` \\| `sm` \\| `md` \\| `lg` | `md` | Gap between panels |",
+          "| `padding` | `none` \\| `sm` \\| `md` \\| `lg` | `none` | Outer padding of the row container |",
+          "| `storageKey` | `string` | — | Persist resize state in sessionStorage |",
+          "| `resizable` | `boolean` | `true` | Show draggable divider |",
+          "| `locale` | `en-US` \\| `pt-BR` \\| `es-ES` \\| `fr-FR` | `en-US` | Locale for drag-resize tooltips |",
+          "| `className` | `string` | — | Additional CSS classes |",
+          "",
           "## Design Tokens & Semantic Variables",
           "",
           "| Element | CSS Variable | Purpose |",
@@ -31,20 +44,20 @@ const meta = {
   },
   argTypes: {
     alignment: {
-      control: "radio",
+      control: "inline-radio",
       options: ["left", "right", "equal"],
       description:
         "Width ratio between children on desktop. `left` = 60/40, `right` = 40/60, `equal` = 50/50.",
       table: { defaultValue: { summary: "left" } },
     },
     gap: {
-      control: "radio",
+      control: "inline-radio",
       options: ["none", "sm", "md", "lg"],
       description: "Gap between panels.",
       table: { defaultValue: { summary: "md" } },
     },
     padding: {
-      control: "radio",
+      control: "inline-radio",
       options: ["none", "sm", "md", "lg"],
       description: "Outer padding of the row container.",
       table: { defaultValue: { summary: "none" } },
@@ -61,6 +74,11 @@ const meta = {
     },
     children: { table: { disable: true } },
     className: { table: { disable: true } },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
   },
 } satisfies Meta<typeof Dashrow>
 
@@ -89,6 +107,10 @@ const TallContent = () => (
 export const Default: Story = {
   args: {
     alignment: "left",
+    gap: "md",
+    padding: "none",
+    resizable: true,
+    locale: "en-US",
     children: (
       <>
         <Dashbox title="Main Panel">
@@ -147,14 +169,14 @@ export const LocalePTBR: Story = {
     locale: "pt-BR",
     children: (
       <>
-        <Dashbox title="Painel Principal">
+        <Dashbox title="Main Panel">
           <p className="text-sm text-muted-foreground">
-            Conteúdo do painel. Gráficos, tabelas ou métricas.
+            Main panel content. Charts, tables, or metrics.
           </p>
         </Dashbox>
-        <Dashbox title="Painel Lateral">
+        <Dashbox title="Side Panel">
           <p className="text-sm text-muted-foreground">
-            Painel secundário com informações complementares.
+            Secondary panel with supplementary information.
           </p>
         </Dashbox>
       </>

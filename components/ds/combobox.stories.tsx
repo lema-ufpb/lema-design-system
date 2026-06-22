@@ -11,7 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 
 const meta = {
-  title: "Forms/Combobox",
+  title: "Form/Combobox",
   component: Combobox,
   tags: ["autodocs"],
   parameters: {
@@ -82,18 +82,43 @@ const meta = {
           "Where `ComboboxValue = string | number`.",
           "",
           "---",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `options` | `ComboboxOption[]` | — | (required) List of selectable options |",
+          "| `placeholder` | `string` | — | Placeholder text in trigger |",
+          "| `searchPlaceholder` | `string` | — | Placeholder text in search input |",
+          "| `emptyText` | `string` | — | Text shown when search yields no results |",
+          "| `noOptionsText` | `string` | — | Text shown when options list is empty |",
+          "| `loading` | `boolean` | `false` | Skeleton state |",
+          "| `disabled` | `boolean` | `false` | Disabled state |",
+          "| `clearable` | `boolean` | `true` | Show clear button |",
+          "| `searchable` | `boolean` | `true` | Show search bar |",
+          "| `maxWidth` | `string \\| number` | — | Max width of the combobox |",
+          '| `locale` | `UILocale` | `"en-US"` | i18n locale |',
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Size variant |',
+          '| `rounded` | `"full" \\| "md" \\| "none"` | `"md"` | Border radius variant |',
+          "| `multiple` | `boolean` | `false` | Enable multi-select |",
+          "| `value` | `ComboboxValue \\| ComboboxValue[] \\| null` | — | Controlled value |",
+          "| `defaultValue` | `ComboboxValue \\| ComboboxValue[] \\| null` | — | Uncontrolled default value |",
+          "| `onChange` | `(value) => void` | — | Selection change handler |",
+          "| `maxDisplayed` | `number` | `3` | Max visible badges in multi-select |",
+          "| `renderOption` | `(option, selected) => ReactNode` | — | Custom option renderer |",
+          "| `aria-label` | `string` | — | Accessibility label |",
         ].join("\n"),
       },
     },
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
     rounded: {
-      control: "select",
+      control: "inline-radio",
       options: ["full", "md", "none"],
       table: { defaultValue: { summary: "md" } },
     },
@@ -136,6 +161,11 @@ const meta = {
     maxWidth: {
       control: "text",
       table: { defaultValue: { summary: "" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof Combobox>
@@ -185,6 +215,13 @@ export const Default: Story = {
     options: FRAMEWORKS,
     placeholder: "Select a framework…",
     maxWidth: "320px",
+    size: "md",
+    rounded: "md",
+    loading: false,
+    disabled: false,
+    clearable: true,
+    searchable: true,
+    locale: "en-US",
   },
   parameters: {
     docs: {

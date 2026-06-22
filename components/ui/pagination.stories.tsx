@@ -92,7 +92,7 @@ export const Sizes: Story = {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" text="Anterior" />
+            <PaginationPrevious href="#" text="Previous" />
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#" size="sm">
@@ -110,7 +110,7 @@ export const Sizes: Story = {
             </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationNext href="#" text="Próximo" />
+            <PaginationNext href="#" text="Next" />
           </PaginationItem>
         </PaginationContent>
       </Pagination>

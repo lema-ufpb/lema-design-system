@@ -45,7 +45,7 @@ const meta = {
   },
   argTypes: {
     orientation: {
-      control: "select",
+      control: "inline-radio",
       options: ["horizontal", "vertical"],
       description: "Layout direction of the group",
       table: { defaultValue: { summary: "horizontal" } },

@@ -38,13 +38,13 @@ const meta = {
   },
   argTypes: {
     type: {
-      control: "select",
+      control: "inline-radio",
       options: ["single", "multiple"],
       description: "Selection behavior",
       table: { defaultValue: { summary: "single" } },
     },
     orientation: {
-      control: "select",
+      control: "inline-radio",
       options: ["horizontal", "vertical"],
       table: { defaultValue: { summary: "horizontal" } },
     },
@@ -54,12 +54,12 @@ const meta = {
       table: { defaultValue: { summary: "2" } },
     },
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "outline"],
       table: { defaultValue: { summary: "default" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "sm", "lg"],
       table: { defaultValue: { summary: "default" } },
     },

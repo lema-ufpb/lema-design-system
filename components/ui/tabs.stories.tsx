@@ -32,7 +32,7 @@ const meta = {
   },
   argTypes: {
     orientation: {
-      control: "select",
+      control: "inline-radio",
       options: ["horizontal", "vertical"],
       description: "Layout direction of tabs vs content",
       table: { defaultValue: { summary: "horizontal" } },

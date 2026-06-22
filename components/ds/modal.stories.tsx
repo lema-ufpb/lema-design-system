@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator"
 import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: "Overlay/Modal",
+  title: "Feedback/Modal",
   component: Modal,
   tags: ["autodocs"],
   parameters: {
@@ -53,6 +53,31 @@ const meta = {
           "| `xl` | 576px |",
           "| `2xl` | 672px |",
           "| `full` | viewport − 2rem |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `open` | `boolean` | — | Controlled open state |",
+          "| `onOpenChange` | `(open: boolean) => void` | — | Callback when open state changes |",
+          "| `trigger` | `React.ReactNode` | — | Element that opens the modal |",
+          "| `title` | `React.ReactNode` | — | Modal title |",
+          "| `description` | `React.ReactNode` | — | Modal description |",
+          "| `children` | `React.ReactNode` | — | Modal body content |",
+          "| `footer` | `React.ReactNode` | — | Custom footer — replaces auto-generated buttons |",
+          "| `icon` | `React.ReactNode` | — | Custom icon — overrides intent default |",
+          "| `onConfirm` | `() => void \\| Promise<void>` | — | Confirm action — async tracking auto-enabled |",
+          "| `onCancel` | `() => void` | — | Cancel action |",
+          "| `confirmLabel` | `string` | — | Confirm button text |",
+          "| `cancelLabel` | `string` | — | Cancel button text |",
+          "| `confirmLoading` | `boolean` | — | Manual loading override for confirm button |",
+          "| `closeOnConfirm` | `boolean` | `false` | Auto-close after confirm |",
+          '| `size` | `"sm" \\| "md" \\| "lg" \\| "xl" \\| "2xl" \\| "full"` | `"md"` | Dialog max-width |',
+          '| `intent` | `"default" \\| "destructive" \\| "success" \\| "warning" \\| "info"` | `"default"` | Semantic accent and icon |',
+          "| `scrollable` | `boolean` | `false` | Enables scrollable body with sticky header/footer |",
+          "| `loading` | `boolean` | `false` | Shows skeleton placeholders |",
+          "| `showCloseButton` | `boolean` | `true` | Shows or hides the X close button |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for button labels |',
         ].join("\n"),
       },
     },
@@ -85,7 +110,7 @@ const meta = {
       table: { defaultValue: { summary: "false" } },
     },
     locale: {
-      control: "select",
+      control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       table: { defaultValue: { summary: "en-US" } },
     },
@@ -101,6 +126,8 @@ const meta = {
     icon: { table: { disable: true } },
     onConfirm: { table: { disable: true } },
     onCancel: { table: { disable: true } },
+    confirmLoading: { table: { disable: true } },
+    className: { table: { disable: true } },
   },
 } satisfies Meta<typeof Modal>
 

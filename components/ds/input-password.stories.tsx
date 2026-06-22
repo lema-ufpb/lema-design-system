@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { PasswordInput } from "./input-password"
 
 const meta = {
-  title: "Forms/PasswordInput",
+  title: "Form/PasswordInput",
   component: PasswordInput,
   tags: ["autodocs"],
   parameters: {
@@ -25,6 +25,16 @@ const meta = {
           "| **Error state border** | `--destructive` | Red outer boundary ring for validation failure |",
           "| **Error focus ring** | `--destructive/20` | Subtle red focus ring for invalid validation inputs |",
           "| **Disabled background** | `--muted` | Light background fill indicating read-only / disabled state |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `size` | `"sm" \\| "default" \\| "lg"` | `"default"` | Controls height and button size |',
+          '| `radius` | `"pill" \\| "rounded" \\| "square"` | `"pill"` | Border radius preset |',
+          '| `variant` | `"default" \\| "white"` | `"default"` | Background fill variant |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for toggle button aria-label |',
+          '| (All native input props) | `ComponentProps<"input">` | — | Inherited HTML input attributes |',
         ].join("\n"),
       },
     },
@@ -39,19 +49,28 @@ const meta = {
       table: { defaultValue: { summary: "" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "default", "lg"],
       table: { defaultValue: { summary: "default" } },
     },
     radius: {
-      control: "select",
+      control: "inline-radio",
       options: ["pill", "rounded", "square"],
       table: { defaultValue: { summary: "pill" } },
     },
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "white"],
       table: { defaultValue: { summary: "default" } },
+    },
+    defaultValue: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof PasswordInput>
@@ -62,6 +81,10 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     placeholder: "Enter your password...",
+    size: "default",
+    radius: "pill",
+    variant: "default",
+    locale: "en-US",
   },
   parameters: {
     docs: {
@@ -103,7 +126,7 @@ export const Large: Story = {
 
 export const LocalePTBR: Story = {
   args: {
-    placeholder: "Digite sua senha...",
+    placeholder: "Enter your password...",
     locale: "pt-BR",
   },
   parameters: {

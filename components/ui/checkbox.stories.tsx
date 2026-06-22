@@ -32,7 +32,7 @@ const meta = {
   },
   argTypes: {
     checked: {
-      control: "select",
+      control: "inline-radio",
       options: [true, false, "indeterminate"],
       description: "The controlled checked state",
       table: { defaultValue: { summary: "false" } },

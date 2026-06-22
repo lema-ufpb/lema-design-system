@@ -33,7 +33,7 @@ const meta = {
   },
   argTypes: {
     captionLayout: {
-      control: "select",
+      control: "inline-radio",
       options: ["label", "dropdown"],
       description: "How the month/year caption is displayed",
       table: { defaultValue: { summary: "label" } },
@@ -57,10 +57,22 @@ const meta = {
       table: { defaultValue: { summary: "ghost" } },
     },
     mode: {
-      control: "select",
+      control: "inline-radio",
       options: ["single", "multiple", "range"],
       description: "Selection mode",
       table: { defaultValue: { summary: "single" } },
+    },
+    classNames: {
+      table: { disable: true },
+    },
+    locale: {
+      table: { disable: true },
+    },
+    formatters: {
+      table: { disable: true },
+    },
+    components: {
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof Calendar>

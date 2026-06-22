@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 
 const meta = {
-  title: "Forms/SearchBar",
+  title: "Form/SearchBar",
   component: SearchBar,
   parameters: {
     layout: "padded",
@@ -48,6 +48,32 @@ const meta = {
           "| Placeholder | `--muted-foreground` | Reduced contrast hint |",
           "| Icon | `--muted-foreground` | Consistent with placeholder |",
           "| Loading spinner | `--muted-foreground` | Inherits icon color |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `string` | — | Controlled input value |",
+          '| `defaultValue` | `string` | `""` | Uncontrolled initial value |',
+          "| `onChange` | `(value: string) => void` | — | Callback on every keystroke (debounce-aware) |",
+          "| `onSearch` | `(value: string) => void` | — | Callback on Enter |",
+          "| `onClear` | `() => void` | — | Callback when input is cleared |",
+          "| `placeholder` | `string` | — | Input placeholder |",
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Height and font size |',
+          '| `variant` | `"outline" \\| "filled" \\| "ghost"` | `"outline"` | Visual surface style |',
+          '| `rounded` | `"none" \\| "sm" \\| "md" \\| "lg" \\| "xl" \\| "full"` | `"lg"` | Border radius |',
+          "| `icon` | `React.ElementType` | `SearchIcon` | Custom leading icon |",
+          "| `loading` | `boolean` | `false` | Shows spinner, hides clear button |",
+          "| `shortcut` | `string` | — | Kbd hint (hidden when input has value) |",
+          "| `trailingSlot` | `React.ReactNode` | — | Content after clear button |",
+          "| `debounceMs` | `number` | `0` | Debounce delay for onChange (ms) |",
+          "| `voice` | `boolean` | `false` | Enables voice input button |",
+          "| `onVoiceStart` | `() => void` | — | Callback when recording starts |",
+          "| `onVoiceEnd` | `() => void` | — | Callback when recording ends |",
+          "| `onVoiceError` | `(error: string) => void` | — | Callback on voice error |",
+          "| `disabled` | `boolean` | `false` | Disables the search bar |",
+          "| `autoFocus` | `boolean` | `false` | Auto-focuses the input on mount |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for i18n strings |',
         ].join("\n"),
       },
     },
@@ -59,14 +85,23 @@ const meta = {
   argTypes: {
     placeholder: {
       control: "text",
+      table: { defaultValue: { summary: "Search…" } },
     },
+    icon: { table: { disable: true } },
+    trailingSlot: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    onSearch: { table: { disable: true } },
+    onClear: { table: { disable: true } },
+    onVoiceStart: { table: { disable: true } },
+    onVoiceEnd: { table: { disable: true } },
+    onVoiceError: { table: { disable: true } },
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["outline", "filled", "ghost"],
       table: { defaultValue: { summary: "outline" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
@@ -92,7 +127,7 @@ const meta = {
       table: { defaultValue: { summary: "0" } },
     },
     locale: {
-      control: "select",
+      control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       table: { defaultValue: { summary: "en-US" } },
     },
@@ -111,6 +146,16 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     placeholder: "Search anything…",
+    defaultValue: "",
+    size: "md",
+    variant: "outline",
+    rounded: "lg",
+    loading: false,
+    debounceMs: 0,
+    voice: false,
+    disabled: false,
+    autoFocus: false,
+    locale: "en-US",
   },
   parameters: {
     docs: {
@@ -634,7 +679,7 @@ export const Locales: Story = {
       {(
         [
           { locale: "en-US", label: "English (en-US)" },
-          { locale: "pt-BR", label: "Português (pt-BR)" },
+          { locale: "pt-BR", label: "Portuguese (pt-BR)" },
           { locale: "es-ES", label: "Español (es-ES)" },
           { locale: "fr-FR", label: "Français (fr-FR)" },
         ] as const

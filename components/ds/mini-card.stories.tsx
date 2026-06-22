@@ -59,32 +59,75 @@ const meta = {
           "| Warning value | `--warning` |",
           "| Destructive value | `--destructive` |",
           "| Separator | `--border` |",
+          "",
+          "## Component Props — MiniCard",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `label` | `string` | — | (required) Uppercase label above the value |",
+          "| `value` | `string \\| number` | — | (required) Primary display value |",
+          "| `sub` | `string` | — | Supplementary baseline value (e.g. `/153`) |",
+          "| `icon` | `React.ElementType` | — | Leading Lucide icon component |",
+          '| `iconIntent` | `"default" \\| "success" \\| "warning" \\| "destructive"` | `"default"` | Semantic color for the icon |',
+          '| `intent` | `"default" \\| "success" \\| "warning" \\| "destructive"` | `"default"` | Semantic color for the value |',
+          '| `delta` | `string \\| "up" \\| "down" \\| "neutral"` | — | Change indicator (icon or signed string) |',
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Size — inherits from `MiniCardGroup` context |',
+          '| `format` | `"currency" \\| "percent" \\| "integer" \\| "float"` | — | Number format preset |',
+          '| `locale` | `string` | `"en-US"` | Locale for number formatting |',
+          '| `currency` | `string` | — | Currency code for `format="currency"` |',
+          "| `decimals` | `number` | — | Decimal places for float/currency |",
+          "| `valueFormatter` | `(value) => string` | — | Custom formatter override |",
+          "| `loading` | `boolean` | — | Skeleton loading state |",
         ].join("\n"),
       },
     },
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
     intent: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "success", "warning", "destructive"],
       table: { defaultValue: { summary: "default" } },
     },
     iconIntent: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "success", "warning", "destructive"],
+      table: { defaultValue: { summary: "default" } },
     },
     loading: {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
+    label: { control: "text", table: { defaultValue: { summary: "—" } } },
+    value: { control: "text", table: { defaultValue: { summary: "—" } } },
+    sub: { control: "text", table: { defaultValue: { summary: "—" } } },
+    delta: { control: "text", table: { defaultValue: { summary: "—" } } },
+    format: {
+      control: "inline-radio",
+      options: ["currency", "percent", "integer", "float"],
+      table: { defaultValue: { summary: "—" } },
+    },
+    locale: {
+      control: "text",
+      table: { defaultValue: { summary: "en-US" } },
+    },
+    currency: {
+      control: "text",
+      table: { defaultValue: { summary: "USD" } },
+    },
+    decimals: {
+      control: { type: "number", min: 0, max: 5 },
+      table: { defaultValue: { summary: "—" } },
+    },
+    icon: { table: { disable: true } },
+    valueFormatter: { table: { disable: true } },
   },
   args: {
-    label: "Contribuintes",
+    label: "Contributors",
     value: 1450,
   },
 } satisfies Meta<typeof MiniCard>
@@ -95,6 +138,14 @@ type Story = StoryObj<typeof meta>
 // ── Stories ────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
+  args: {
+    format: "integer",
+    decimals: 0,
+    locale: "en-US",
+    currency: "USD",
+    iconIntent: "default",
+    intent: "default",
+  },
   parameters: {
     docs: {
       description: {
@@ -106,7 +157,7 @@ export const Default: Story = {
 
 export const WithIcon: Story = {
   args: {
-    label: "Contribuintes",
+    label: "Contributors",
     value: 1450,
     icon: UsersIcon,
   },
@@ -122,7 +173,7 @@ export const WithIcon: Story = {
 
 export const WithSub: Story = {
   args: {
-    label: "Capac. Usada",
+    label: "Capacity Used",
     value: 53,
     sub: "/153",
   },
@@ -140,10 +191,10 @@ export const WithDelta: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-6">
-        <MiniCard label="Receita" value="R$ 2.4M" delta="+18%" />
-        <MiniCard label="Pendências" value={47} delta="-12" />
-        <MiniCard label="Auditados" value={95} delta="neutral" />
-        <MiniCard label="Selecionados" value={53} delta="up" />
+        <MiniCard label="Revenue" value="R$ 2.4M" delta="+18%" />
+        <MiniCard label="Pending" value={47} delta="-12" />
+        <MiniCard label="Audited" value={95} delta="neutral" />
+        <MiniCard label="Selected" value={53} delta="up" />
       </div>
     </div>
   ),
@@ -166,13 +217,13 @@ export const FormatValues: Story = {
         </p>
         <div className="flex items-center gap-6">
           <MiniCard
-            label="Contribuintes"
+            label="Contributors"
             value={1234567}
             format="integer"
             locale="pt-BR"
           />
           <MiniCard
-            label="Selecionados"
+            label="Selected"
             value={53}
             format="integer"
             locale="pt-BR"
@@ -185,7 +236,7 @@ export const FormatValues: Story = {
         </p>
         <div className="flex items-center gap-6">
           <MiniCard
-            label="Potencial Total"
+            label="Total Potential"
             value={4200000}
             format="currency"
             locale="pt-BR"
@@ -193,7 +244,7 @@ export const FormatValues: Story = {
             decimals={0}
           />
           <MiniCard
-            label="Recuperação"
+            label="Recovery"
             value={1823000}
             format="currency"
             locale="pt-BR"
@@ -207,13 +258,13 @@ export const FormatValues: Story = {
         <p className="mb-2 text-xs text-muted-foreground">format: percent</p>
         <div className="flex items-center gap-6">
           <MiniCard
-            label="Capac. Usada"
+            label="Capacity Used"
             value={34.6}
             format="percent"
             locale="pt-BR"
           />
           <MiniCard
-            label="Cobertura"
+            label="Coverage"
             value={78.4}
             format="percent"
             locale="pt-BR"
@@ -227,12 +278,17 @@ export const FormatValues: Story = {
         </p>
         <div className="flex items-center gap-6">
           <MiniCard
-            label="Score Médio"
+            label="Avg Score"
             value={7.83}
             format="float"
             decimals={2}
           />
-          <MiniCard label="Desvio" value={1.241} format="float" decimals={3} />
+          <MiniCard
+            label="Deviation"
+            value={1.241}
+            format="float"
+            decimals={3}
+          />
         </div>
       </div>
       <div>
@@ -247,8 +303,8 @@ export const FormatValues: Story = {
             currency="BRL"
             decimals={0}
           />
-          <MiniCard label="Selecionados" value={53} format="integer" />
-          <MiniCard label="Cobertura" value={78.4} format="percent" />
+          <MiniCard label="Selected" value={53} format="integer" />
+          <MiniCard label="Coverage" value={78.4} format="percent" />
         </MiniCardGroup>
       </div>
     </div>
@@ -268,10 +324,10 @@ export const Intents: Story = {
     <div className="flex flex-col gap-4">
       {(
         [
-          ["default", "Selecionados", 53],
-          ["success", "Concluídos", 84],
-          ["warning", "Risco Médio", "Alto (78.4)"],
-          ["destructive", "Pendências", 12],
+          ["default", "Selected", 53],
+          ["success", "Completed", 84],
+          ["warning", "Medium Risk", "High (78.4)"],
+          ["destructive", "Pending", 12],
         ] as const
       ).map(([intent, label, value]) => (
         <div key={intent} className="flex items-center gap-4">
@@ -303,19 +359,19 @@ export const IconIntents: Story = {
         iconIntent="default"
       />
       <MiniCard
-        label="Auditados"
+        label="Audited"
         value={84}
         icon={FileSearchIcon}
         iconIntent="success"
       />
       <MiniCard
-        label="Risco Médio"
-        value="Alto (78.4)"
+        label="Medium Risk"
+        value="High (78.4)"
         icon={ShieldAlertIcon}
         iconIntent="warning"
       />
       <MiniCard
-        label="Pendências"
+        label="Pending"
         value={12}
         icon={ZapIcon}
         iconIntent="destructive"
@@ -341,15 +397,15 @@ export const AllSizes: Story = {
             {size}
           </span>
           <MiniCard
-            label="Contribuintes"
+            label="Contributors"
             value={1450}
             icon={UsersIcon}
             size={size}
           />
-          <MiniCard label="Capac. Usada" value={53} sub="/153" size={size} />
+          <MiniCard label="Capacity Used" value={53} sub="/153" size={size} />
           <MiniCard
-            label="Risco Médio"
-            value="Alto (78.4)"
+            label="Medium Risk"
+            value="High (78.4)"
             intent="warning"
             icon={ShieldAlertIcon}
             iconIntent="warning"
@@ -385,9 +441,9 @@ export const GroupVariants: Story = {
             {desc}
           </span>
           <MiniCardGroup variant={variant} size="md" divide>
-            <MiniCard label="Selecionados" value={53} />
-            <MiniCard label="Capac. Usada" value={53} sub="/153" />
-            <MiniCard label="Restante" value={100} />
+            <MiniCard label="Selected" value={53} />
+            <MiniCard label="Capacity Used" value={53} sub="/153" />
+            <MiniCard label="Remaining" value={100} />
           </MiniCardGroup>
         </div>
       ))}
@@ -420,17 +476,17 @@ export const GroupAccents: Story = {
               accent === "success"
                 ? "Normal"
                 : accent === "warning"
-                  ? "Atenção"
-                  : "Crítico"
+                  ? "Attention"
+                  : "Critical"
             }
             intent={accent}
           />
           <MiniCard
-            label="Contribuintes"
+            label="Contributors"
             value={accent === "success" ? 84 : accent === "warning" ? 32 : 8}
           />
           <MiniCard
-            label="% do Total"
+            label="% of Total"
             value={
               accent === "success" ? "88%" : accent === "warning" ? "33%" : "8%"
             }
@@ -454,10 +510,10 @@ export const SizeFromGroup: Story = {
     <div className="flex flex-col gap-4">
       {(["sm", "md", "lg"] as const).map((size) => (
         <MiniCardGroup key={size} variant="outlined" size={size} divide>
-          <MiniCard label="Contribuintes" value={1450} icon={UsersIcon} />
-          <MiniCard label="Selecionados" value={53} />
-          <MiniCard label="Capac. Usada" value={53} sub="/153" />
-          <MiniCard label="Restante" value={100} />
+          <MiniCard label="Contributors" value={1450} icon={UsersIcon} />
+          <MiniCard label="Selected" value={53} />
+          <MiniCard label="Capacity Used" value={53} sub="/153" />
+          <MiniCard label="Remaining" value={100} />
         </MiniCardGroup>
       ))}
     </div>
@@ -476,10 +532,10 @@ export const StripLayout: Story = {
   render: () => (
     <MiniCardStrip>
       <MiniCardGroup variant="outlined" size="md" divide>
-        <MiniCard label="Contribuintes" value={1450} icon={UsersIcon} />
+        <MiniCard label="Contributors" value={1450} icon={UsersIcon} />
         <MiniCard
-          label="Risco Médio"
-          value="Alto (78.4)"
+          label="Medium Risk"
+          value="High (78.4)"
           intent="warning"
           icon={ShieldAlertIcon}
           iconIntent="warning"
@@ -487,17 +543,17 @@ export const StripLayout: Story = {
       </MiniCardGroup>
 
       <MiniCardGroup variant="pill" size="md" divide>
-        <MiniCard label="Selecionados" value={53} />
-        <MiniCard label="Capac. Usada" value={53} sub="/153" />
-        <MiniCard label="Restante" value={100} />
+        <MiniCard label="Selected" value={53} />
+        <MiniCard label="Capacity Used" value={53} sub="/153" />
+        <MiniCard label="Remaining" value={100} />
       </MiniCardGroup>
 
       <MiniCardGroup size="md" divide>
-        <MiniCard label="Auditoria Normal" value={32} sub="/95" />
-        <MiniCard label="Malhas Fiscais" value={21} sub="/75" />
+        <MiniCard label="Standard Audit" value={32} sub="/95" />
+        <MiniCard label="Tax Audits" value={21} sub="/75" />
       </MiniCardGroup>
 
-      <MiniCard label="Regionais" value={5} icon={MapPinIcon} />
+      <MiniCard label="Regional Units" value={5} icon={MapPinIcon} />
     </MiniCardStrip>
   ),
   parameters: {
@@ -515,10 +571,10 @@ export const RiskMatrixSummaryBar: Story = {
     <div className="flex h-16 w-full items-center border-b bg-background px-6">
       <MiniCardStrip scroll className="w-full justify-end">
         <MiniCardGroup variant="outlined" size="md" divide>
-          <MiniCard label="Contribuintes" value={1450} icon={UsersIcon} />
+          <MiniCard label="Contributors" value={1450} icon={UsersIcon} />
           <MiniCard
-            label="Risco Médio"
-            value="Alto (78.4)"
+            label="Medium Risk"
+            value="High (78.4)"
             intent="warning"
             icon={ShieldAlertIcon}
             iconIntent="warning"
@@ -526,17 +582,17 @@ export const RiskMatrixSummaryBar: Story = {
         </MiniCardGroup>
 
         <MiniCardGroup variant="pill" size="md" divide>
-          <MiniCard label="Selecionados" value={53} />
-          <MiniCard label="Capac. Usada" value={53} sub="/153" />
-          <MiniCard label="Restante" value={100} />
+          <MiniCard label="Selected" value={53} />
+          <MiniCard label="Capacity Used" value={53} sub="/153" />
+          <MiniCard label="Remaining" value={100} />
         </MiniCardGroup>
 
         <MiniCardGroup size="md" divide>
-          <MiniCard label="Auditoria Normal" value={32} sub="/95" />
-          <MiniCard label="Malhas Fiscais" value={21} sub="/75" />
+          <MiniCard label="Standard Audit" value={32} sub="/95" />
+          <MiniCard label="Tax Audits" value={21} sub="/75" />
         </MiniCardGroup>
 
-        <MiniCard label="Regionais" value={5} icon={MapPinIcon} />
+        <MiniCard label="Regional Units" value={5} icon={MapPinIcon} />
       </MiniCardStrip>
     </div>
   ),
@@ -556,13 +612,13 @@ export const FinancialStrip: Story = {
     <MiniCardStrip>
       <MiniCardGroup variant="elevated" size="md" divide accent="success">
         <MiniCard
-          label="Potencial Total"
+          label="Total Potential"
           value="R$ 4,2M"
           icon={BanknoteIcon}
           iconIntent="success"
         />
         <MiniCard
-          label="Recuperação Esperada"
+          label="Expected Recovery"
           value="R$ 1,8M"
           intent="success"
           delta="+22%"
@@ -570,8 +626,8 @@ export const FinancialStrip: Story = {
       </MiniCardGroup>
 
       <MiniCardGroup variant="pill" size="md" divide>
-        <MiniCard label="Regionais" value={8} icon={MapPinIcon} />
-        <MiniCard label="Segmentos" value={14} icon={BuildingIcon} />
+        <MiniCard label="Regional Units" value={8} icon={MapPinIcon} />
+        <MiniCard label="Segments" value={14} icon={BuildingIcon} />
       </MiniCardGroup>
     </MiniCardStrip>
   ),
@@ -590,27 +646,27 @@ export const Loading: Story = {
     <div className="flex flex-col gap-6">
       <div>
         <p className="mb-2 text-xs text-muted-foreground">Single card</p>
-        <MiniCard label="Contribuintes" value={0} loading />
+        <MiniCard label="Contributors" value={0} loading />
       </div>
       <div>
         <p className="mb-2 text-xs text-muted-foreground">Group with divide</p>
         <MiniCardGroup variant="pill" size="md" divide>
-          <MiniCard label="Selecionados" value={0} loading />
-          <MiniCard label="Capac. Usada" value={0} loading />
-          <MiniCard label="Restante" value={0} loading />
+          <MiniCard label="Selected" value={0} loading />
+          <MiniCard label="Capacity Used" value={0} loading />
+          <MiniCard label="Remaining" value={0} loading />
         </MiniCardGroup>
       </div>
       <div>
         <p className="mb-2 text-xs text-muted-foreground">Full strip</p>
         <MiniCardStrip>
           <MiniCardGroup variant="outlined" size="md" divide>
-            <MiniCard label="Contribuintes" value={0} loading />
-            <MiniCard label="Risco Médio" value={0} loading />
+            <MiniCard label="Contributors" value={0} loading />
+            <MiniCard label="Medium Risk" value={0} loading />
           </MiniCardGroup>
           <MiniCardGroup variant="pill" size="md" divide>
-            <MiniCard label="Selecionados" value={0} loading />
-            <MiniCard label="Capac. Usada" value={0} loading />
-            <MiniCard label="Restante" value={0} loading />
+            <MiniCard label="Selected" value={0} loading />
+            <MiniCard label="Capacity Used" value={0} loading />
+            <MiniCard label="Remaining" value={0} loading />
           </MiniCardGroup>
         </MiniCardStrip>
       </div>
@@ -637,23 +693,23 @@ export const ResponsiveWrap: Story = {
         <div className="w-[480px] rounded-lg border p-4">
           <MiniCardStrip wrap>
             <MiniCardGroup variant="outlined" size="md">
-              <MiniCard label="Contribuintes" value={1450} icon={UsersIcon} />
+              <MiniCard label="Contributors" value={1450} icon={UsersIcon} />
               <MiniCard
-                label="Risco Médio"
-                value="Alto (78.4)"
+                label="Medium Risk"
+                value="High (78.4)"
                 intent="warning"
                 icon={ShieldAlertIcon}
                 iconIntent="warning"
               />
             </MiniCardGroup>
             <MiniCardGroup variant="pill" size="md">
-              <MiniCard label="Selecionados" value={53} />
-              <MiniCard label="Capac. Usada" value={53} sub="/153" />
-              <MiniCard label="Restante" value={100} />
+              <MiniCard label="Selected" value={53} />
+              <MiniCard label="Capacity Used" value={53} sub="/153" />
+              <MiniCard label="Remaining" value={100} />
             </MiniCardGroup>
             <MiniCardGroup size="md">
-              <MiniCard label="Auditoria Normal" value={32} sub="/95" />
-              <MiniCard label="Malhas Fiscais" value={21} sub="/75" />
+              <MiniCard label="Standard Audit" value={32} sub="/95" />
+              <MiniCard label="Tax Audits" value={21} sub="/75" />
             </MiniCardGroup>
           </MiniCardStrip>
         </div>
@@ -666,10 +722,10 @@ export const ResponsiveWrap: Story = {
         </p>
         <div className="w-[260px] rounded-lg border p-4">
           <MiniCardGroup variant="pill" size="md" wrap>
-            <MiniCard label="Selecionados" value={53} />
-            <MiniCard label="Capac. Usada" value={53} sub="/153" />
-            <MiniCard label="Restante" value={100} />
-            <MiniCard label="Auditoria Normal" value={32} sub="/95" />
+            <MiniCard label="Selected" value={53} />
+            <MiniCard label="Capacity Used" value={53} sub="/153" />
+            <MiniCard label="Remaining" value={100} />
+            <MiniCard label="Standard Audit" value={32} sub="/95" />
           </MiniCardGroup>
         </div>
       </div>
@@ -688,11 +744,11 @@ export const ResponsiveWrap: Story = {
 export const Standalone: Story = {
   render: () => (
     <div className="flex items-center gap-4">
-      <MiniCard label="Selecionados" value={53} />
+      <MiniCard label="Selected" value={53} />
       <MiniCardSeparator height="tall" />
-      <MiniCard label="Capac. Usada" value={53} sub="/153" />
+      <MiniCard label="Capacity Used" value={53} sub="/153" />
       <MiniCardSeparator height="short" />
-      <MiniCard label="Restante" value={100} />
+      <MiniCard label="Remaining" value={100} />
     </div>
   ),
   parameters: {

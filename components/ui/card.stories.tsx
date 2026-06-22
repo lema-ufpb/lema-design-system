@@ -39,7 +39,7 @@ const meta = {
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "sm"],
       description: "Controls the card's internal padding and gap sizing.",
       table: { defaultValue: { summary: "default" } },

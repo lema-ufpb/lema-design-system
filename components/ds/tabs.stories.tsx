@@ -70,17 +70,17 @@ const meta = {
   },
   argTypes: {
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "line", "pill", "segmented"],
       table: { defaultValue: { summary: "default" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
     orientation: {
-      control: "select",
+      control: "inline-radio",
       options: ["horizontal", "vertical"],
       table: { defaultValue: { summary: "horizontal" } },
     },
@@ -96,7 +96,12 @@ const meta = {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
+    defaultValue: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     items: { table: { disable: true } },
+    value: { table: { disable: true } },
     onValueChange: { table: { disable: true } },
     skeletonCount: { table: { disable: true } },
     locale: { table: { disable: true } },
@@ -249,6 +254,13 @@ export const Default: Story = {
   args: {
     items: defaultItems,
     defaultValue: "account",
+    variant: "default",
+    size: "md",
+    orientation: "horizontal",
+    responsive: false,
+    forceAccordion: false,
+    loading: false,
+    locale: "en-US",
   },
 }
 
