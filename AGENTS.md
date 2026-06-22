@@ -6,7 +6,8 @@ Registry público em `registry.json` (schema shadcn). Componentes consumíveis v
 ## Estrutura
 
 ```
-components/ui/       → primitivos shadcn (não modificar sem --diff review)
+components/ui/       → primitivos shadcn — **NÃO ALTERAR O CÓDIGO FONTE**
+                       Atualizar exclusivamente com `npx shadcn@latest add <component> --yes`
 components/ds/   → compostos do design system (lógica de negócio, CVA, i18n)
 lib/ui-i18n.ts       → dicionário i18n compartilhado (en-US, pt-BR, es-ES, fr-FR)
 lib/utils.ts         → cn() e utilidades
@@ -27,6 +28,13 @@ registry.json        → manifesto de exportação do design system
 - i18n: `UI_I18N[locale]` de `@/lib/ui-i18n`
 
 ## Regras críticas — sempre aplicar
+
+### Componentes shadcn (components/ui/)
+Os arquivos em `components/ui/` são **primitivos shadcn** — seu código-fonte **não pode ser alterado** neste projeto. Qualquer modificação manual será perdida na próxima atualização via CLI. A atualização deve ser feita exclusivamente com:
+```bash
+npx shadcn@latest add <component> --yes
+```
+Isso inclui correções de tipos, ajustes de estilo, renomeação de props ou qualquer outra alteração no código dos primitivos.
 
 ### Tipografia (scale para sm/md/lg)
 ```
