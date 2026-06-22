@@ -14,6 +14,20 @@ const meta = {
           "",
           "Includes transition expansion animations (`isExpanded`), custom corner rounded variants (`full`, `md`, `none`), blur/focus management, keyboard actions support (Esc to close, Enter to submit), and clear buttons.",
           "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `placeholder` | `string` | `Search...` | Input placeholder text |",
+          "| `isExpanded` | `boolean` | `false` | Controlled expanded state |",
+          "| `rounded` | `full` \\| `md` \\| `none` | `full` | Border radius variant |",
+          "| `autoFocus` | `boolean` | `true` | Auto-focus input when expanded |",
+          "| `locale` | `en-US` \\| `pt-BR` \\| `es-ES` \\| `fr-FR` | `en-US` | Locale for button labels |",
+          "| `value` | `string` | — | Controlled input value |",
+          "| `onChange` | `(value: string) => void` | — | Called when input value changes |",
+          "| `onSearch` | `(value: string) => void` | — | Called on Enter key |",
+          "| `className` | `string` | — | Additional CSS classes |",
+          "",
           "## Design Tokens & Semantic Variables",
           "",
           "| Element | CSS Variable | Purpose |",
@@ -41,6 +55,18 @@ const meta = {
       options: ["full", "md", "none"],
       table: { defaultValue: { summary: "full" } },
     },
+    autoFocus: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
+    onSearch: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    value: { table: { disable: true } },
   },
 } satisfies Meta<typeof HeaderSearch>
 
@@ -51,6 +77,8 @@ export const Default: Story = {
   args: {
     placeholder: "Search indicators...",
     rounded: "full",
+    locale: "en-US",
+    autoFocus: true,
   },
   render: (args) => (
     <div className="flex h-20 w-full items-center justify-end rounded-lg border bg-card px-8">
@@ -69,7 +97,7 @@ export const Default: Story = {
 
 export const LocalePTBR: Story = {
   args: {
-    placeholder: "Pesquisar indicadores...",
+    placeholder: "Search indicators...",
     rounded: "full",
     locale: "pt-BR",
   },

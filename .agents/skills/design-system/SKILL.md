@@ -488,8 +488,8 @@ Follow the single-file CVA pattern (types → variants → helpers → component
 
 ```bash
 make lint          # 0 errors, 0 warnings
-make registry      # rebuild registry.json (must be run after new components)
-make test          # must still pass (714 tests across 106 files)
+make registry      # rebuild registry.json + public/r/ (must be run after new components or registry.json changes)
+make test          # must still pass (840 tests across 118 files)
 make shadcn-update # after upgrading shadcn primitives (overwrites all components/ui/ + components/ds/)
 ```
 
@@ -499,3 +499,103 @@ Open Storybook and visually check each required story. The component is not done
 - `make test` passes
 - Registry entry is added and `make registry` builds successfully
 - All checklist items in the spec are checked off
+
+---
+
+## Storybook Documentation Standards
+
+### Story title convention
+
+All stories must follow the `Category/ComponentName` pattern. Story titles are defined in the default export `title` field:
+
+| Category | Examples |
+|----------|----------|
+| `Actions` | `Actions/Button`, `Actions/IconButton`, `Actions/ToggleTheme` |
+| `Layout` | `Layout/Dashbox`, `Layout/Dashrow`, `Layout/DrawerUI` |
+| `Data Display` | `Data Display/BarChart`, `Data Display/CardStats`, `Data Display/DataTable`, `Data Display/Avatar`, `Data Display/Badge` |
+| `Navigation` | `Navigation/Tabs`, `Navigation/Pagination`, `Navigation/Accordion`, `Navigation/FooterMenu` |
+| `Feedback` | `Feedback/PageLoader`, `Feedback/Spinner`, `Feedback/Empty`, `Feedback/ProgressBar`, `Feedback/ProgressCircular`, `Feedback/RiskLevelBar` |
+| `Form` | `Form/Counter`, `Form/Input`, `Form/Select`, `Form/Slider`, `Form/Switch`, `Form/Combobox`, `Form/ComboboxUI`, `Form/SelectList` |
+| `UI` | `UI/Modal`, `UI/ScrollToTop`, `UI/Dashrow`, `UI/Dashbox` |
+
+Storybook URLs follow the pattern: `/docs/<category-slug>-<component-slug>--docs` (e.g., `Form/Counter` → `/docs/form-counter--docs`, `Data Display/BarChart` → `/docs/data-display-barchart--docs`).
+
+### Required stories per component
+
+| Story | Required | Description |
+|-------|----------|-------------|
+| `Default` | ✅ | Primary variant with typical props |
+| `AllVariants` | ✅ | All CVA variant dimensions rendered side-by-side |
+| `AllSizes` | ✅ | sm, md, lg variants (when applicable) |
+| `Loading` | ✅ | Loading state with Skeleton |
+| `Disabled` / `Error` | ✅ | Disabled or error state (when applicable) |
+| `Locales` | ✅ (se i18n) | en-US, pt-BR, es-ES, fr-FR side-by-side |
+
+### Interaction tests
+
+Use `play` from `@storybook/test` for interaction tests:
+
+```tsx
+import { expect, userEvent, within } from "@storybook/test"
+
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button"))
+    await expect(canvas.getByText("Clicked")).toBeInTheDocument()
+  },
+}
+```
+
+### Documentation links
+
+When referencing components in docs (`Introduction.mdx`, `README.md`), links must follow the Storybook URL convention:
+
+```
+/docs/<kind-slug>--docs
+```
+
+Examples:
+- `Form/Counter` → `/docs/form-counter--docs` (not `forms-counter`)
+- `Actions/Button` → `/docs/actions-button--docs`
+- `Data Display/BarChart` → `/docs/data-display-barchart--docs`
+
+### Stories file location
+
+Stories files are co-located with their component:
+
+```
+components/ds/button.tsx
+components/ds/button.stories.tsx    ← story file right next to component
+
+components/ds/search-combo/
+├── index.tsx
+├── types.ts
+├── variants.ts
+├── search-combo.stories.tsx        ← story file inside subdirectory
+└── hooks/
+```
+
+Exceptions: stories for components in `subdirectories` (e.g., `search-combo/`) place the `.stories.tsx` inside the subdirectory.
+
+### MDX introduction page
+
+The introduction page lives at `app/Introduction.mdx` and uses:
+```tsx
+import { Meta } from "@storybook/addon-docs/blocks"
+import { VERSION } from "../lib/version"
+
+<Meta title="Introduction" />
+```
+
+The `VERSION` constant is injected at build time via `git describe --tags`. The MDX file should be updated whenever:
+- A new component category is added
+- A new component is added to the design system
+- Storybook URLs change
+
+### Version injection
+
+Version is injected at build time via `lib/version.ts`:
+```
+git tag vX.Y.Z → __APP_VERSION__ (Vite define) → lib/version.ts → app/Introduction.mdx
+```

@@ -43,13 +43,13 @@ const meta = {
   },
   argTypes: {
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "outline", "muted"],
       description: "Visual style variant",
       table: { defaultValue: { summary: "default" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "sm", "xs"],
       description: "Size preset",
       table: { defaultValue: { summary: "default" } },

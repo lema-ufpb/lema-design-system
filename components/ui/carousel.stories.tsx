@@ -32,7 +32,7 @@ const meta = {
   },
   argTypes: {
     orientation: {
-      control: "select",
+      control: "inline-radio",
       options: ["horizontal", "vertical"],
       description: "Scroll direction",
       table: { defaultValue: { summary: "horizontal" } },

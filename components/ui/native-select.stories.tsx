@@ -38,7 +38,7 @@ const meta = {
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "default"],
       description: "Select height preset",
       table: { defaultValue: { summary: "default" } },

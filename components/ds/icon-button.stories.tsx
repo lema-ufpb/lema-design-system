@@ -30,24 +30,39 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Um botão de ícone acessível com tooltip integrado.",
-          "Constrói sobre o `Button` shadcn/ui usando os tamanhos icon-específicos",
-          "e envolve o `Tooltip` automaticamente.",
+          "An accessible icon button with built-in tooltip.",
+          "Builds on the shadcn/ui `Button` using icon-specific sizes",
+          "and wraps the `Tooltip` automatically.",
           "",
-          "## Comportamento",
+          "## Component Props",
           "",
-          "- `label` é sempre obrigatório — vira o `aria-label` e o texto padrão do tooltip",
-          "- `tooltip={false}` desativa o tooltip sem remover o `aria-label`",
-          '- `tooltip="texto"` substitui o tooltip preservando o `aria-label` original',
-          "- `loading` substitui o ícone por um spinner e desabilita a interação",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `icon` | `ReactNode` | — | (required) The icon to display |",
+          "| `label` | `string` | — | (required) Accessible label — becomes `aria-label` and default tooltip text |",
+          "| `tooltip` | `string \\| false` | — | Override tooltip text; pass `false` to disable tooltip |",
+          "| `tooltipSide` | `top` \\| `right` \\| `bottom` \\| `left` | `bottom` | Side the tooltip appears on |",
+          "| `variant` | `default` \\| `outline` \\| `secondary` \\| `ghost` \\| `destructive` \\| `link` | `ghost` | Visual variant |",
+          "| `size` | `icon-xs` \\| `icon-sm` \\| `icon` \\| `icon-lg` | `icon` | Button size |",
+          "| `rounded` | `none` \\| `md` \\| `full` | `md` | Border radius |",
+          "| `loading` | `boolean` | `false` | Show spinner and disable interaction |",
+          "| `disabled` | `boolean` | `false` | Disable the button |",
+          "| `className` | `string` | — | Additional CSS classes |",
           "",
-          "## Tamanhos disponíveis",
+          "## Behavior",
           "",
-          "| Size | Dimensão |",
+          "- `label` is always required — becomes the `aria-label` and default tooltip text",
+          "- `tooltip={false}` disables the tooltip without removing the `aria-label`",
+          '- `tooltip="text"` overrides the tooltip while preserving the original `aria-label`',
+          "- `loading` replaces the icon with a spinner and disables interaction",
+          "",
+          "## Available sizes",
+          "",
+          "| Size | Dimension |",
           "| --- | --- |",
           "| `icon-xs` | 24 × 24px |",
           "| `icon-sm` | 32 × 32px |",
-          "| `icon` | 36 × 36px (padrão) |",
+          "| `icon` | 36 × 36px (default) |",
           "| `icon-lg` | 40 × 40px |",
         ].join("\n"),
       },
@@ -67,7 +82,7 @@ const meta = {
       table: { defaultValue: { summary: "ghost" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["icon-xs", "icon-sm", "icon", "icon-lg"],
       table: { defaultValue: { summary: "icon" } },
     },
@@ -77,7 +92,7 @@ const meta = {
       table: { defaultValue: { summary: "bottom" } },
     },
     rounded: {
-      control: "select",
+      control: "inline-radio",
       options: ["none", "md", "full"],
       table: { defaultValue: { summary: "md" } },
     },
@@ -97,6 +112,8 @@ const meta = {
       control: "text",
       table: { defaultValue: { summary: "" } },
     },
+    icon: { table: { disable: true } },
+    className: { table: { disable: true } },
   },
 } satisfies Meta<typeof IconButton>
 
@@ -107,6 +124,11 @@ export const Default: Story = {
   args: {
     icon: <Bell />,
     label: "Notifications",
+    tooltipSide: "bottom",
+    variant: "ghost",
+    size: "icon",
+    rounded: "md",
+    loading: false,
   },
   parameters: {
     docs: {
@@ -143,7 +165,7 @@ export const Variants: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Todos os variants do Button aplicados ao IconButton.",
+        story: "All Button variants applied to IconButton.",
       },
     },
   },
@@ -162,7 +184,7 @@ export const Sizes: Story = {
   args: { icon: <Search />, label: "Size showcase" },
   parameters: {
     docs: {
-      description: { story: "Quatro tamanhos de ícone — icon-xs a icon-lg." },
+      description: { story: "Four icon sizes — icon-xs to icon-lg." },
     },
   },
   render: () => (
@@ -213,7 +235,7 @@ export const Rounded: Story = {
     docs: {
       description: {
         story:
-          "Três opções de borda: `none` (quadrado), `md` (padrão — herdado do Button), `full` (circular).",
+          "Three border radius options: `none` (square), `md` (default — inherited from Button), `full` (circular).",
       },
     },
   },
@@ -256,7 +278,7 @@ export const TooltipSides: Story = {
   parameters: {
     layout: "centered",
     docs: {
-      description: { story: "Tooltip pode aparecer em qualquer lado." },
+      description: { story: "Tooltip can appear on any side." },
     },
   },
   render: () => (
@@ -305,7 +327,7 @@ export const Loading: Story = {
     docs: {
       description: {
         story:
-          "Estado de loading substitui o ícone por um spinner e desabilita o botão.",
+          "Loading state replaces the icon with a spinner and disables the button.",
       },
     },
   },
@@ -332,7 +354,9 @@ export const States: Story = {
   args: { icon: <Bookmark />, label: "Save" },
   parameters: {
     docs: {
-      description: { story: "Comparação entre idle, loading e disabled." },
+      description: {
+        story: "Comparison between idle, loading, and disabled states.",
+      },
     },
   },
   render: () => (
@@ -358,7 +382,7 @@ export const NoTooltip: Story = {
     docs: {
       description: {
         story:
-          "`tooltip={false}` remove o tooltip mas preserva o `aria-label`.",
+          "`tooltip={false}` removes the tooltip but preserves the `aria-label`.",
       },
     },
   },
@@ -376,7 +400,8 @@ export const ToolbarExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Exemplo real: toolbar de editor de texto com grupos de ações.",
+        story:
+          "Real-world example: rich text editor toolbar with action groups.",
       },
     },
   },
@@ -415,7 +440,7 @@ export const CardActions: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Padrão comum: ações inline em cards ou list items.",
+        story: "Common pattern: inline actions in cards or list items.",
       },
     },
   },

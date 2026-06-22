@@ -31,7 +31,7 @@ const meta = {
   },
   argTypes: {
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "destructive"],
       description: "Visual style variant",
       table: { defaultValue: { summary: "default" } },

@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog"
 
 const meta = {
-  title: "Forms/SelectList",
+  title: "Form/SelectList",
   component: SelectList,
   parameters: {
     layout: "padded",
@@ -96,6 +96,25 @@ const meta = {
           "| **Select button indicator** | `--primary` / `--secondary` / `--destructive` | Primary/Secondary fill color for selection badges |",
           "| **Main user name** | `--foreground` | Main font color for selected items |",
           "| **Secondary metadata** | `--muted-foreground` | Font color for user roles, groups, and icons |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `data` | `SelectListItem[]` | — | (required) Array of selectable items |",
+          "| `selectedId` | `string \\| number` | — | Currently selected item ID (controlled) |",
+          "| `height` | `number` | `300` | Virtual list container height (px) |",
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Row density |',
+          "| `debounce` | `number` | `300` | Debounce delay for onSearch (ms) |",
+          '| `placeholder` | `string` | `"Search..."` | Search input placeholder |',
+          '| `intent` | `"default" \\| "primary" \\| "secondary" \\| "destructive"` | `"primary"` | Selection badge color |',
+          "| `disabled` | `boolean` | `false` | Disables all interactions |",
+          "| `loading` | `boolean` | `false` | Skeleton loading state |",
+          "| `onSelect` | `(item: SelectListItem) => void` | — | (required) Callback on item selection |",
+          "| `onSearch` | `(value: string) => void` | — | External search callback |",
+          "| `search` | `string` | — | External search value (controlled) |",
+          '| `emptyMessage` | `string` | `"No results found"` | Empty state message |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for i18n strings |',
         ].join("\n"),
       },
     },
@@ -108,7 +127,7 @@ const meta = {
       table: { defaultValue: { summary: "primary" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
@@ -119,6 +138,17 @@ const meta = {
     disabled: {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
+    },
+    data: { table: { disable: true } },
+    onSelect: { table: { disable: true } },
+    onSearch: { table: { disable: true } },
+    placeholder: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    height: {
+      control: "number",
+      table: { defaultValue: { summary: "300" } },
     },
   },
 } satisfies Meta<typeof SelectList>
@@ -170,6 +200,13 @@ export const Default: Story = {
     placeholder: "Search by name...",
     height: 350,
     onSelect: (item) => console.log("Selected:", item),
+    debounce: 300,
+    intent: "primary",
+    size: "md",
+    disabled: false,
+    loading: false,
+    locale: "en-US",
+    emptyMessage: "No results found",
   },
   parameters: {
     docs: {
@@ -186,29 +223,29 @@ export const LocalePTBR: Story = {
       {
         id: 1,
         name: "João Silva",
-        group: "Engenharia",
-        value: "Sênior",
+        group: "Engineering",
+        value: "Senior",
         icon: <User className="size-4" />,
       },
       {
         id: 2,
         name: "Maria Santos",
         group: "Design",
-        value: "Pleno",
+        value: "Mid-level",
         icon: <Shield className="size-4" />,
       },
       {
         id: 3,
         name: "Carlos Oliveira",
-        group: "Produto",
-        value: "Júnior",
+        group: "Product",
+        value: "Junior",
         icon: <Zap className="size-4" />,
       },
     ],
-    placeholder: "Pesquisar por nome...",
+    placeholder: "Search by name...",
     height: 350,
     locale: "pt-BR",
-    onSelect: (item) => console.log("Selecionado:", item),
+    onSelect: (item) => console.log("Selected:", item),
   },
   parameters: {
     docs: {

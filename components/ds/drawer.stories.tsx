@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 
 const meta = {
-  title: "Navigation/Drawer",
+  title: "Layout/Drawer",
   component: Drawer,
   tags: ["autodocs"],
   parameters: {
@@ -18,6 +18,21 @@ const meta = {
           "A full-size slide-over panel wrapping the **vaul** drawer primitive.",
           "Opens from any edge (bottom, left, right, top) and fills the viewport edge-to-edge.",
           "Combines optional header, scrollable body, footer, and a direction-aware close button.",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `direction` | `bottom` \\| `left` \\| `right` \\| `top` | `bottom` | Which edge the drawer slides from |",
+          "| `title` | `ReactNode` | — | Drawer title |",
+          "| `description` | `ReactNode` | — | Drawer description |",
+          "| `trigger` | `ReactNode` | — | Element that opens the drawer |",
+          "| `footer` | `ReactNode` | — | Footer content |",
+          "| `children` | `ReactNode` | — | Body content |",
+          "| `showCloseButton` | `boolean` | `true` | Show close button in header |",
+          "| `open` | `boolean` | — | Controlled open state |",
+          "| `onOpenChange` | `(open: boolean) => void` | — | Callback when open state changes |",
+          "| `className` | `string` | — | Additional CSS classes |",
           "",
           "## Design Tokens & Semantic Variables",
           "",

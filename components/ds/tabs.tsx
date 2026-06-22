@@ -321,7 +321,7 @@ export function Tabs({
               {Icon && <Icon />}
               <span>{item.label}</span>
               {item.count !== undefined && (
-                <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-muted-foreground/20 px-1.5 text-xs leading-none font-semibold tabular-nums">
+                <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-muted-foreground/20 px-1.5 text-xs leading-none font-semibold tabular-nums">
                   {item.count}
                 </span>
               )}

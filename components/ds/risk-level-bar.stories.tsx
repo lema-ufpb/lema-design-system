@@ -24,6 +24,18 @@ const meta = {
           "| **Track Base** | `--muted` | Outer background bar container track fill |",
           "| **Main Label Text** | `--foreground` | Font color for key left-side indicators |",
           "| **Sub-Label Text** | `--muted-foreground` | Font color for description status subtitles |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `labelLeft` | `string` | — | (required) Left-side label text |",
+          "| `labelRight` | `string` | — | (required) Right-side label text |",
+          "| `value` | `number` | `0` | Risk value from 0 to 1 |",
+          "| `loading` | `boolean` | `false` | Skeleton loading state |",
+          "| `segments` | `RiskSegment[]` | Default 4 risk segments | Custom segment configuration |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for percentage label |',
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"sm"` | Bar height and label size |',
         ].join("\n"),
       },
     },
@@ -40,10 +52,25 @@ const meta = {
       table: { defaultValue: { summary: "false" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "sm" } },
     },
+    labelLeft: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    labelRight: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    segments: { table: { disable: true } },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
+    className: { table: { disable: true } },
   },
 } satisfies Meta<typeof RiskLevelBar>
 
@@ -55,6 +82,9 @@ export const Default: Story = {
     labelLeft: "Risk Level Indicator",
     labelRight: "Current Score",
     value: 0.65,
+    loading: false,
+    locale: "en-US",
+    size: "sm",
   },
   parameters: {
     docs: {
@@ -138,8 +168,8 @@ export const AllSizes: Story = {
 
 export const LocalePTBR: Story = {
   args: {
-    labelLeft: "Nível de Risco",
-    labelRight: "Pontuação",
+    labelLeft: "Risk Level",
+    labelRight: "Score",
     value: 0.65,
     locale: "pt-BR",
   },

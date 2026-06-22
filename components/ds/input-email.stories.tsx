@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { EmailInput } from "./input-email"
 
 const meta = {
-  title: "Forms/EmailInput",
+  title: "Form/EmailInput",
   component: EmailInput,
   tags: ["autodocs"],
   parameters: {
@@ -24,6 +24,15 @@ const meta = {
           "| **Error state border** | `--destructive` | Red outer boundary ring for validation failure |",
           "| **Error focus ring** | `--destructive/20` | Subtle red focus ring for invalid validation inputs |",
           "| **Disabled background** | `--muted` | Light background fill indicating read-only / disabled state |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `size` | `"sm" \\| "default" \\| "lg"` | `"default"` | Controls height and icon scale |',
+          '| `radius` | `"pill" \\| "rounded" \\| "square"` | `"pill"` | Border radius preset |',
+          '| `variant` | `"default" \\| "white"` | `"default"` | Background fill variant |',
+          '| (All native input props) | `ComponentProps<"input">` | — | Inherited HTML input attributes (`disabled`, `placeholder`, `defaultValue`, `aria-invalid`, etc.) |',
         ].join("\n"),
       },
     },
@@ -38,19 +47,23 @@ const meta = {
       table: { defaultValue: { summary: "" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "default", "lg"],
       table: { defaultValue: { summary: "default" } },
     },
     radius: {
-      control: "select",
+      control: "inline-radio",
       options: ["pill", "rounded", "square"],
       table: { defaultValue: { summary: "pill" } },
     },
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "white"],
       table: { defaultValue: { summary: "default" } },
+    },
+    defaultValue: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
     },
   },
 } satisfies Meta<typeof EmailInput>
@@ -61,6 +74,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     placeholder: "e.g., user@example.com",
+    size: "default",
+    radius: "pill",
+    variant: "default",
   },
   parameters: {
     docs: {

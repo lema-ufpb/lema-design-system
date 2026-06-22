@@ -45,6 +45,9 @@ const meta = {
       ],
       table: { defaultValue: { summary: "default" } },
     },
+    asChild: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof Badge>
 

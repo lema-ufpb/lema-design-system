@@ -987,7 +987,7 @@
       ]
     },
     {
-      "name": "modal-ui",
+      "name": "ds-modal",
       "type": "registry:ui",
       "title": "Modal",
       "description": "A flexible modal dialog built on Dialog with size variants (sm/md/lg/xl/2xl/full), intent system (default/destructive/success/warning/info), scrollable body, auto async confirm tracking, loading skeleton, and i18n support.",
@@ -1998,6 +1998,244 @@
           "path": "components/ds/pagination.tsx",
           "type": "registry:ui",
           "target": "components/ds/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-badge",
+      "type": "registry:ui",
+      "title": "Badge UI",
+      "description": "Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-empty",
+      "type": "registry:ui",
+      "title": "Empty UI",
+      "description": "Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "empty",
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/empty.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/empty.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-switch",
+      "type": "registry:ui",
+      "title": "Switch UI",
+      "description": "Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "switch",
+        "label",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-accordion",
+      "type": "registry:ui",
+      "title": "Accordion UI",
+      "description": "Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, i18n aria-labels, skeleton loading, and nested accordion support.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "accordion",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-input",
+      "type": "registry:ui",
+      "title": "Input UI",
+      "description": "Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, i18n labels, and error state.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-avatar",
+      "type": "registry:ui",
+      "title": "Avatar UI",
+      "description": "Extended avatar with size scale (sm through 2xl), status indicator dots, initials color generator, avatar group with overflow count, tooltip, and skeleton loading.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "skeleton",
+        "tooltip",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-slider",
+      "type": "registry:ui",
+      "title": "Slider UI",
+      "description": "Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, i18n aria-labels, and skeleton loading.",
+      "registryDependencies": [
+        "slider",
+        "tooltip",
+        "skeleton",
+        "ui-i18n",
+        "format-utils"
+      ],
+      "files": [
+        {
+          "path": "components/ds/slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-select",
+      "type": "registry:ui",
+      "title": "Select UI",
+      "description": "Extended select with search filter, async option loading, grouped options, creatable new option, i18n placeholder/no-results, and skeleton loading.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "skeleton",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-button",
+      "type": "registry:ui",
+      "title": "Button UI",
+      "description": "Feature-rich button with loading state, start/end icons, rounded variant (full/lg/md/none), fullWidth, double-click debounce, two-step destructive confirmation, and built-in tooltip via Radix. Wraps the shadcn Button primitive.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/ds/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-carousel",
+      "type": "registry:ui",
+      "title": "Carousel UI",
+      "description": "Extended carousel with autoplay support via embla-carousel-autoplay, multiple nav variants (side/overlay/bottom/none), card/showcase/minimal display modes, dot indicators, responsive slides-per-view, i18n aria-labels, and skeleton loading. Wraps the shadcn Carousel primitive.",
+      "dependencies": [
+        "embla-carousel-autoplay",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "carousel",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-tabs",
+      "type": "registry:ui",
+      "title": "Tabs UI",
+      "description": "Extended tabs with 4 variants (default/line/pill/segmented), 3 sizes, icons, count badges, loading skeletons, vertical orientation, and responsive accordion fallback on mobile. Wraps the shadcn Tabs primitive.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tabs",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ds/tabs.tsx"
         }
       ]
     }

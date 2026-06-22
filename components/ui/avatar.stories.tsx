@@ -30,6 +30,12 @@ const meta = {
   },
   argTypes: {
     className: { control: "text" },
+    size: {
+      control: "inline-radio",
+      options: ["default", "sm", "lg"],
+      description: "Avatar size preset",
+      table: { defaultValue: { summary: "default" } },
+    },
   },
 } satisfies Meta<typeof Avatar>
 

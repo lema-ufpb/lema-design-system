@@ -32,7 +32,7 @@ const meta = {
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "sm"],
       description: "Switch size preset",
       table: { defaultValue: { summary: "default" } },

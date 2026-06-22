@@ -91,6 +91,49 @@ export const UI_I18N: Record<
       label: string
       tooltip: string
     }
+    carousel: {
+      previous: string
+      next: string
+      slide: string
+      goToSlide: string
+      progress: string
+    }
+    badge: {
+      remove: string
+    }
+    empty: {
+      noData: string
+      noDataDescription: string
+      noResults: string
+      noResultsDescription: string
+      search: string
+      searchDescription: string
+      error: string
+      errorDescription: string
+    }
+    switch: {
+      toggle: string
+    }
+    accordion: {
+      expand: string
+      collapse: string
+    }
+    input: {
+      clear: string
+    }
+    avatar: {
+      online: string
+      busy: string
+      away: string
+      offline: string
+    }
+    select: {
+      placeholder: string
+      search: string
+      noResults: string
+      create: string
+      selected: string
+    }
   }
 > = {
   "en-US": {
@@ -213,6 +256,49 @@ export const UI_I18N: Record<
     scrollToTop: {
       label: "Scroll to top",
       tooltip: "Back to top",
+    },
+    carousel: {
+      previous: "Previous",
+      next: "Next",
+      slide: "Slide",
+      goToSlide: "Go to slide",
+      progress: "Progress",
+    },
+    badge: {
+      remove: "Remove",
+    },
+    empty: {
+      noData: "No data to display",
+      noDataDescription: "Data will appear here once available.",
+      noResults: "No results found",
+      noResultsDescription: "Try adjusting your search or filters.",
+      search: "Search",
+      searchDescription: "Enter a term to search.",
+      error: "Something went wrong",
+      errorDescription: "Please try again later.",
+    },
+    switch: {
+      toggle: "Toggle",
+    },
+    accordion: {
+      expand: "Expand",
+      collapse: "Collapse",
+    },
+    input: {
+      clear: "Clear",
+    },
+    avatar: {
+      online: "Online",
+      busy: "Busy",
+      away: "Away",
+      offline: "Offline",
+    },
+    select: {
+      placeholder: "Select…",
+      search: "Search…",
+      noResults: "No results found.",
+      create: "Create",
+      selected: "selected",
     },
   },
   "pt-BR": {
@@ -343,6 +429,50 @@ export const UI_I18N: Record<
       label: "Voltar ao topo",
       tooltip: "Voltar ao topo",
     },
+    carousel: {
+      previous: "Anterior",
+      next: "Próximo",
+      slide: "Slide",
+      goToSlide: "Ir para o slide",
+      progress: "Progresso",
+    },
+    badge: {
+      remove: "Remover",
+    },
+    empty: {
+      noData: "Nenhum dado disponível",
+      noDataDescription:
+        "Os dados aparecerão aqui quando estiverem disponíveis.",
+      noResults: "Nenhum resultado encontrado",
+      noResultsDescription: "Tente ajustar sua pesquisa ou filtros.",
+      search: "Buscar",
+      searchDescription: "Digite um termo para buscar.",
+      error: "Algo deu errado",
+      errorDescription: "Tente novamente mais tarde.",
+    },
+    switch: {
+      toggle: "Alternar",
+    },
+    accordion: {
+      expand: "Expandir",
+      collapse: "Recolher",
+    },
+    input: {
+      clear: "Limpar",
+    },
+    avatar: {
+      online: "Online",
+      busy: "Ocupado",
+      away: "Ausente",
+      offline: "Offline",
+    },
+    select: {
+      placeholder: "Selecionar…",
+      search: "Buscar…",
+      noResults: "Nenhum resultado encontrado.",
+      create: "Criar",
+      selected: "selecionado(s)",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar" },
@@ -467,6 +597,49 @@ export const UI_I18N: Record<
     scrollToTop: {
       label: "Volver arriba",
       tooltip: "Volver arriba",
+    },
+    carousel: {
+      previous: "Anterior",
+      next: "Siguiente",
+      slide: "Diapositiva",
+      goToSlide: "Ir a la diapositiva",
+      progress: "Progreso",
+    },
+    badge: {
+      remove: "Eliminar",
+    },
+    empty: {
+      noData: "Sin datos para mostrar",
+      noDataDescription: "Los datos aparecerán aquí cuando estén disponibles.",
+      noResults: "Sin resultados",
+      noResultsDescription: "Intente ajustar su búsqueda o filtros.",
+      search: "Buscar",
+      searchDescription: "Ingrese un término para buscar.",
+      error: "Algo salió mal",
+      errorDescription: "Intente de nuevo más tarde.",
+    },
+    switch: {
+      toggle: "Alternar",
+    },
+    accordion: {
+      expand: "Expandir",
+      collapse: "Colapsar",
+    },
+    input: {
+      clear: "Limpiar",
+    },
+    avatar: {
+      online: "En línea",
+      busy: "Ocupado",
+      away: "Ausente",
+      offline: "Desconectado",
+    },
+    select: {
+      placeholder: "Seleccionar…",
+      search: "Buscar…",
+      noResults: "Sin resultados.",
+      create: "Crear",
+      selected: "seleccionado(s)",
     },
   },
   "fr-FR": {
@@ -600,6 +773,50 @@ export const UI_I18N: Record<
     scrollToTop: {
       label: "Retour en haut",
       tooltip: "Retour en haut",
+    },
+    carousel: {
+      previous: "Précédent",
+      next: "Suivant",
+      slide: "Diapositive",
+      goToSlide: "Aller à la diapositive",
+      progress: "Progression",
+    },
+    badge: {
+      remove: "Supprimer",
+    },
+    empty: {
+      noData: "Aucune donnée à afficher",
+      noDataDescription:
+        "Les données apparaîtront ici lorsqu'elles seront disponibles.",
+      noResults: "Aucun résultat",
+      noResultsDescription: "Essayez d'ajuster votre recherche ou vos filtres.",
+      search: "Rechercher",
+      searchDescription: "Entrez un terme de recherche.",
+      error: "Une erreur est survenue",
+      errorDescription: "Veuillez réessayer plus tard.",
+    },
+    switch: {
+      toggle: "Basculer",
+    },
+    accordion: {
+      expand: "Développer",
+      collapse: "Réduire",
+    },
+    input: {
+      clear: "Effacer",
+    },
+    avatar: {
+      online: "En ligne",
+      busy: "Occupé",
+      away: "Absent",
+      offline: "Hors ligne",
+    },
+    select: {
+      placeholder: "Sélectionner…",
+      search: "Rechercher…",
+      noResults: "Aucun résultat.",
+      create: "Créer",
+      selected: "sélectionné(s)",
     },
   },
 }

@@ -24,13 +24,23 @@ const meta = {
           "| **Icon (tone: current)** | `currentColor` | Inherits text color from the parent context |",
           "| **Icon (tone: primary…destructive)** | `text-primary`, `text-success`, `text-warning`, `text-destructive`, `text-muted-foreground` | Semantic spinner colors |",
           "| **Label** | `text-muted-foreground` | Secondary text alongside the spinner |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `size` | `"sm" \\| "md" \\| "lg" \\| "xl" \\| "2xl" \\| "3xl" \\| "4xl" \\| "5xl" \\| "6xl" \\| "7xl"` | `"md"` | Icon dimension (14px–96px) |',
+          '| `tone` | `"current" \\| "muted" \\| "primary" \\| "success" \\| "warning" \\| "destructive"` | `"current"` | Semantic color |',
+          '| `thickness` | `"thin" \\| "regular" \\| "bold" \\| "bolder"` | `"regular"` | Stroke width (1.5–3) |',
+          "| `label` | `string` | — | Visible text rendered next to the spinner |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for accessible name fallback |',
         ].join("\n"),
       },
     },
   },
   argTypes: {
     size: {
-      control: "inline-radio",
+      control: "select",
       options: [
         "sm",
         "md",
@@ -62,12 +72,16 @@ const meta = {
       options: ["thin", "regular", "bold", "bolder"],
       table: { defaultValue: { summary: "regular" } },
     },
-    label: { control: "text" },
+    label: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     locale: {
       control: "select",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       table: { defaultValue: { summary: "en-US" } },
     },
+    className: { table: { disable: true } },
   },
 } satisfies Meta<typeof Spinner>
 
@@ -75,7 +89,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    size: "md",
+    tone: "current",
+    thickness: "regular",
+    locale: "en-US",
+  },
   parameters: {
     docs: {
       description: {
