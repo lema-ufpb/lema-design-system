@@ -78,6 +78,20 @@ const meta: Meta<typeof NavDots> = {
           "",
           "## Scroll detection",
           "The component walks up the DOM to find the nearest scrollable ancestor and uses it as the `IntersectionObserver` root. Override with `scrollContainer`.",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `sections` | `NavDotsSection[]` | — | (required) Array of sections to navigate |",
+          "| `active` | `number` | `0` | Initially active section index |",
+          "| `scrollOnClick` | `boolean` | `true` | Enable smooth scroll on dot click |",
+          '| `scrollContainer` | `RefObject<HTMLElement> \\| "window" \\| null` | `null` | Scroll container override (auto-detected by default) |',
+          '| `scrollMargin` | `string` | `"0px"` | IntersectionObserver rootMargin |',
+          "| `onActiveChange` | `(index: number) => void` | — | Callback when active section changes |",
+          '| `orientation` | `"vertical" \\| "horizontal"` | `"vertical"` | Layout direction |',
+          '| `position` | `"left" \\| "right"` | `"right"` | Side alignment (vertical only) |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for aria-labels |',
         ].join("\n"),
       },
     },
@@ -104,6 +118,15 @@ const meta: Meta<typeof NavDots> = {
     onActiveChange: { table: { disable: true } },
     scrollContainer: { table: { disable: true } },
     sections: { table: { disable: true } },
+    scrollMargin: {
+      control: "text",
+      table: { defaultValue: { summary: "0px" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
   },
 }
 
@@ -121,6 +144,10 @@ export const Default: Story = {
     sections,
     position: "right",
     orientation: "vertical",
+    active: 0,
+    scrollOnClick: true,
+    scrollMargin: "0px",
+    locale: "en-US",
   },
   render: (args) => (
     <ScrollDemo>
@@ -278,12 +305,12 @@ export const LocalePTBR: Story = {
       ...s,
       label:
         s.id === "s-intro"
-          ? "Introdução"
+          ? "Introduction"
           : s.id === "s-process"
-            ? "Processo"
+            ? "Process"
             : s.id === "s-features"
-              ? "Recursos"
-              : "Dicas",
+              ? "Features"
+              : "Tips",
     })),
     position: "right",
     orientation: "vertical",

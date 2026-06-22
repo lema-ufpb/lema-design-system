@@ -45,7 +45,7 @@ const meta = {
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "sm"],
       description: "Content sizing preset — affects header/footer layout",
       table: { defaultValue: { summary: "default" } },

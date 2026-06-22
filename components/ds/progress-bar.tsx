@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes, ReactNode } from "react"
@@ -228,9 +227,9 @@ export function ProgressBar({
 
   const intentIndicatorClass: Record<ProgressBarIntent, string> = {
     primary: "",
-    secondary: "[&>[data-slot=progress-indicator]]:bg-secondary",
-    success: "[&>[data-slot=progress-indicator]]:bg-success",
-    destructive: "[&>[data-slot=progress-indicator]]:bg-destructive",
+    secondary: "*:data-[slot=progress-indicator]:bg-secondary",
+    success: "*:data-[slot=progress-indicator]:bg-success",
+    destructive: "*:data-[slot=progress-indicator]:bg-destructive",
   }
 
   const trackHeight_: Record<ProgressBarSize, string> = {
@@ -245,7 +244,7 @@ export function ProgressBar({
         isStacked ? "w-full" : "flex-1",
         trackHeight_[size],
         intentIndicatorClass[intent],
-        "[&>[data-slot=progress-indicator]]:transition-[transform] [&>[data-slot=progress-indicator]]:duration-700 [&>[data-slot=progress-indicator]]:ease-out"
+        "*:data-[slot=progress-indicator]:transition-[transform] *:data-[slot=progress-indicator]:duration-700 *:data-[slot=progress-indicator]:ease-out"
       )}
       value={clamped * 100}
       aria-label={name ?? "Progress"}

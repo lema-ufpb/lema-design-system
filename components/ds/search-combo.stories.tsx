@@ -5,7 +5,7 @@ import type { SearchComboItem } from "@/components/ds/search-combo"
 import { BookOpen, Globe, BarChart3, Users, FileText } from "lucide-react"
 
 const meta: Meta<typeof SearchCombo> = {
-  title: "Forms/SearchCombo",
+  title: "Form/SearchCombo",
   component: SearchCombo,
   parameters: {
     layout: "centered",
@@ -89,6 +89,30 @@ const meta: Meta<typeof SearchCombo> = {
           "| **Action Button Text** | `--primary-foreground` | Icon stroke and text color on primary action button |",
           "| **Sub-labels & Spoke Icons** | `--muted-foreground` | Auxiliary placeholder messages, secondary group headers, and icons |",
           "| **Highlighted Query Match** | `--primary` / `--primary/15` | Accent highlight backing for matched text parts |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `string` | — | (required) Controlled input value |",
+          "| `onChange` | `(value: string) => void` | — | (required) Callback on every keystroke |",
+          "| `onSearch` | `(value: string) => void` | — | Callback on Enter or search button click |",
+          "| `options` | `SearchComboItem[]` | — | Array of dropdown result items |",
+          "| `onSelectResult` | `(item: SearchComboItem) => void` | — | Callback when a result is selected |",
+          '| `placeholder` | `string` | `"Search..."` | Placeholder text |',
+          "| `button` | `boolean` | `true` | Shows the search submit button |",
+          "| `rounded` | `boolean` | `false` | Applies full pill shape |",
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Height and font size |',
+          "| `border` | `boolean` | `false` | Inverted header mode with primary background |",
+          "| `disabled` | `boolean` | `false` | Disables the input and dropdown |",
+          "| `loading` | `boolean` | `false` | Shows spinner in place of search icon |",
+          "| `autoFocus` | `boolean` | `true` | Auto-focuses the input on mount |",
+          '| `label` | `string` | `"Search"` | Accessible label for the search landmark |',
+          '| `emptyMessage` | `string` | `"No results found."` | Message when no results match |',
+          "| `voice` | `boolean` | `false` | Enables voice recognition |",
+          "| `onVoiceStart` | `() => void` | — | Callback when recording starts |",
+          "| `onVoiceEnd` | `() => void` | — | Callback when recording ends |",
+          "| `onVoiceError` | `(error: string) => void` | — | Callback on voice error |",
         ].join("\n"),
       },
     },
@@ -96,7 +120,7 @@ const meta: Meta<typeof SearchCombo> = {
   tags: ["autodocs"],
   argTypes: {
     size: {
-      control: "radio",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       description: "Controls the overall scale and padding",
       table: { defaultValue: { summary: "md" } },
@@ -131,6 +155,14 @@ const meta: Meta<typeof SearchCombo> = {
       description: "Enables voice recognition (if supported by browser)",
       table: { defaultValue: { summary: "false" } },
     },
+    placeholder: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    emptyMessage: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
     value: { table: { disable: true } },
     onChange: { table: { disable: true } },
     onSearch: { table: { disable: true } },
@@ -140,6 +172,10 @@ const meta: Meta<typeof SearchCombo> = {
     onVoiceStart: { table: { disable: true } },
     onVoiceEnd: { table: { disable: true } },
     onVoiceError: { table: { disable: true } },
+    label: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
   },
   args: {
     size: "md",
@@ -236,6 +272,19 @@ const InteractiveSearchCombo = (
 }
 
 export const Default: Story = {
+  args: {
+    placeholder: "Search...",
+    button: true,
+    rounded: false,
+    size: "md",
+    border: false,
+    disabled: false,
+    loading: false,
+    autoFocus: true,
+    label: "Search",
+    emptyMessage: "No results found.",
+    voice: false,
+  },
   render: (args) => <InteractiveSearchCombo {...args} />,
 }
 

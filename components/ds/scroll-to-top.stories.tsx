@@ -109,8 +109,48 @@ const meta = {
           "| Ring arc | `text-primary` (outline) / `text-primary-foreground/70` (fill) | Progress arc accent |",
           "| Shadow | `shadow-lg` → `shadow-xl` on hover | Lift on interaction |",
           "| Tooltip bg | `--foreground` / `--background` | Tooltip appearance |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `threshold` | `number` | `400` | Scroll distance (px) before button appears |",
+          "| `showProgress` | `boolean` | `true` | Shows the scroll-progress ring |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for tooltip and aria-label |',
+          "| `loading` | `boolean` | `false` | Skeleton loading state |",
+          '| `variant` | `"outline" \\| "fill"` | `"outline"` | Visual style |',
+          '| `position` | `"bottom-right" \\| "bottom-left" \\| "top-right" \\| "top-left"` | `"bottom-right"` | Corner placement |',
         ],
       },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: "radio",
+      options: ["outline", "fill"],
+      table: { defaultValue: { summary: "outline" } },
+    },
+    showProgress: {
+      control: "boolean",
+      table: { defaultValue: { summary: "true" } },
+    },
+    threshold: {
+      control: "number",
+      table: { defaultValue: { summary: "400" } },
+    },
+    position: {
+      control: "inline-radio",
+      options: ["bottom-right", "bottom-left", "top-right", "top-left"],
+      table: { defaultValue: { summary: "bottom-right" } },
+    },
+    loading: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof ScrollToTop>

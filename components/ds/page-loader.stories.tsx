@@ -32,6 +32,19 @@ const meta = {
           "| Bar / spinner (success) | `--success` |",
           "| Bar / spinner (destructive) | `--destructive` |",
           "| Message text | `--muted-foreground` |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `loading` | `boolean` | — | (required) Toggles visibility — fades in/out |",
+          '| `variant` | `"bar" \\| "spinner"` | `"bar"` | Visual indicator style |',
+          '| `size` | `"sm" \\| "md" \\| "lg" \\| "xl" \\| "2xl" \\| "4xl"` | `"md"` | Spinner or bar thickness |',
+          '| `color` | `"primary" \\| "success" \\| "destructive"` | `"primary"` | Accent color |',
+          '| `overlay` | `"ghost" \\| "soft" \\| "subtle" \\| "solid" \\| "none"` | `"soft"` | Overlay opacity level |',
+          "| `blur` | `boolean` | `false` | Applies backdrop blur to overlay |",
+          "| `message` | `string` | — | Custom message (spinner variant only) |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for default loading text |',
         ].join("\n"),
       },
     },
@@ -40,30 +53,48 @@ const meta = {
     loading: true,
   },
   argTypes: {
-    variant: { control: "radio", options: ["bar", "spinner"] },
+    variant: {
+      control: "radio",
+      options: ["bar", "spinner"],
+      table: { defaultValue: { summary: "bar" } },
+    },
     size: {
       control: "select",
       options: ["sm", "md", "lg", "xl", "2xl", "4xl"],
+      table: { defaultValue: { summary: "md" } },
     },
-    color: { control: "radio", options: ["primary", "success", "destructive"] },
-    overlay: {
+    color: {
       control: "radio",
-      options: ["ghost", "soft", "subtle", "solid", "none"],
+      options: ["primary", "success", "destructive"],
+      table: { defaultValue: { summary: "primary" } },
     },
-    blur: { control: "boolean" },
-    loading: { control: "boolean" },
-    message: { control: "text" },
-    locale: {
+    overlay: {
       control: "select",
-      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      options: ["ghost", "soft", "subtle", "solid", "none"],
+      table: { defaultValue: { summary: "soft" } },
     },
+    blur: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
+    loading: { control: "boolean" },
+    message: {
+      control: "text",
+      table: { defaultValue: { summary: "" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
+    className: { table: { disable: true } },
   },
 } satisfies Meta<typeof PageLoader>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-// ── Wrapper para demonstrar contra conteúdo de página ──
+// ── Wrapper to demonstrate against page content ──
 
 function PageContent({ children }: { children?: React.ReactNode }) {
   return (
@@ -87,7 +118,7 @@ function PageContent({ children }: { children?: React.ReactNode }) {
   )
 }
 
-// ── Interactive (controle manual) ──
+// ── Interactive (manual control) ──
 
 function InteractiveLoader(args: React.ComponentProps<typeof PageLoader>) {
   const [loading, setLoading] = React.useState(true)
@@ -125,6 +156,7 @@ export const Default: Story = {
   render: (args) => <InteractiveLoader {...args} />,
   args: {
     variant: "bar",
+    size: "md",
     color: "primary",
     overlay: "soft",
     blur: false,

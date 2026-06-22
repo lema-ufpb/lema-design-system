@@ -68,6 +68,16 @@ const meta = {
           "| **Active Link hover** | `--primary` | Active hover text highlight color for links |",
           "| **Trigger Focus rings** | `--primary` | Outline border ring visible during keyboard focus navigation |",
           "| **Mobile hover highlight** | `--accent/50` | Background translucent color for mobile header triggers |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `data` | `FooterGroupData[]` | — | (required) Footer column data |",
+          "| `upper` | `boolean` | `false` | Uppercase headers |",
+          '| `locale` | `UILocale` | `"en-US"` | i18n locale |',
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Typography size variant |',
+          "| `className` | `string` | — | Additional CSS classes |",
         ].join("\n"),
       },
     },
@@ -81,6 +91,12 @@ const meta = {
       control: "select",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
+    },
+    data: { table: { disable: true } },
+    locale: {
+      control: "select",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof FooterMenu>
@@ -132,6 +148,7 @@ export const Default: Story = {
     data: footerData,
     size: "md",
     upper: true,
+    locale: "en-US",
   },
   render: (args) => (
     <div className="mx-auto w-full max-w-6xl rounded-xl bg-card">
@@ -152,19 +169,19 @@ export const LocalePTBR: Story = {
   args: {
     data: [
       {
-        title: "Produto",
+        title: "Product",
         options: [
-          { name: "Recursos", url: "#" },
-          { name: "Integrações", url: "#" },
-          { name: "Preços", url: "#" },
+          { name: "Features", url: "#" },
+          { name: "Integrations", url: "#" },
+          { name: "Pricing", url: "#" },
         ],
       },
       {
-        title: "Empresa",
+        title: "Company",
         options: [
-          { name: "Sobre Nós", url: "#" },
-          { name: "Carreiras", url: "#" },
-          { name: "Contato", url: "#" },
+          { name: "About Us", url: "#" },
+          { name: "Careers", url: "#" },
+          { name: "Contact", url: "#" },
         ],
       },
     ],

@@ -76,7 +76,7 @@ const meta = {
       table: { defaultValue: { summary: "default" } },
     },
     rounded: {
-      control: "select",
+      control: "inline-radio",
       options: ["full", "lg", "md", "none"],
       table: { defaultValue: { summary: "full" } },
     },
@@ -100,6 +100,7 @@ const meta = {
     debounceMs: { table: { disable: true } },
     loadingText: { table: { disable: true } },
     asChild: { table: { disable: true } },
+    children: { table: { disable: true } },
   },
 } satisfies Meta<typeof Button>
 
@@ -112,6 +113,7 @@ export const Default: Story = {
   args: {
     children: "Button",
     variant: "default",
+    loading: false,
   },
   parameters: {
     docs: {

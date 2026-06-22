@@ -66,6 +66,8 @@ Custom components live in `components/ds/`. Shared utilities and helpers in `lib
 - **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. All share CVA variants from `lib/card-stats-shared.tsx`. Each variant is installable individually (`card-stat`, `card-stat-compact`, etc.) or all at once via the `card-stats` barrel (which lists all variants as `registryDependencies`).
 - **[MiniCard](/docs/data-display-minicard--docs)**: Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators, and number formatting. Size propagates via context.
 - **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, sorting, and `locale` prop for automatic i18n label resolution (search placeholder, empty state, pagination labels).
+- **[Avatar](/docs/data-display-avatar--docs)**: Extended avatar with 5 sizes, status dots, initials color generator, group overflow, tooltip, and skeleton loading.
+- **[Badge](/docs/data-display-badge--docs)**: Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).
 
 #### Charts
 
@@ -90,6 +92,7 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 - **[ProgressBar](/docs/feedback-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
 - **[ProgressCircular](/docs/feedback-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
 - **[RiskLevelBar](/docs/feedback-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
+- **[Empty](/docs/feedback-empty--docs)**: Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.
 
 #### Navigation
 
@@ -101,17 +104,22 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 - **[ScrollToTop](/docs/ui-scrolltotop--docs)**: Floating button with scroll-progress ring and direction-aware visibility for quick top-of-page navigation.
 - **[Pagination](/docs/navigation-pagination--docs)**: Semantic pagination with `locale` prop for "Anterior"/"Próxima" labels, and `rounded` variant (`full`/`light`/`none`).
 - **[StepProgress](/docs/navigation-stepprogress--docs)**: Multi-step process guide with status indicators in horizontal or vertical orientations.
+- **[Accordion](/docs/navigation-accordion--docs)**: Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, i18n aria-labels, skeleton loading, and nested accordion support.
 
 #### Forms
 
-- **[Counter](/docs/forms-counter--docs)**: Numeric input with +/− button controls and controlled/uncontrolled value support.
+- **[Input](/docs/form-input--docs)**: Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.
+- **[Select](/docs/form-select--docs)**: Extended select with search filter, async option loading, grouped options, creatable new option, i18n placeholder/no-results, and skeleton loading.
+- **[Slider](/docs/form-slider--docs)**: Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.
+- **[Switch](/docs/form-switch--docs)**: Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.
+- **[Counter](/docs/form-counter--docs)**: Numeric input with +/− button controls and controlled/uncontrolled value support.
 - **[Input Email](/docs/forms-emailinput--docs)**: Email field with a built-in mail icon and size/radius variants.
 - **[Input Password](/docs/forms-passwordinput--docs)**: Password field with a toggle visibility button and size/radius variants.
 - **[SearchBar](/docs/forms-searchbar--docs)**: Smoothly expanding search input for page headers with icon toggle, keyboard shortcut hint, and i18n placeholders.
 - **[SearchCombo](/docs/forms-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting. Maintained in `components/ds/search-combo/` with independent support files.
-- **[Combobox](/docs/ui-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, and group support, built on @base-ui/react.
-- **[ComboboxUI](/docs/ui-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, and full search.
-- **[SelectList](/docs/forms-selectlist--docs)**: Searchable list with selection state, groups, icons, and virtual scrolling for large data sets.
+- **[Combobox](/docs/form-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, and group support, built on @base-ui/react.
+- **[ComboboxUI](/docs/form-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, and full search.
+- **[SelectList](/docs/form-selectlist--docs)**: Searchable list with selection state, groups, icons, and virtual scrolling for large data sets.
 
 ---
 

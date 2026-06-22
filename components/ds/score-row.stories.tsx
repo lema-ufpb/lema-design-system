@@ -43,6 +43,23 @@ const meta = {
           "| **Progress bar** | status tokens | Colored fill driven by `score / total` ratio |",
           "| **Row border** | `--border` | Bottom separator between items |",
           "| **Hover background** | `--accent` | Interactive row hover state |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | (required) Row title |",
+          "| `description` | `string` | — | Subtitle below the title |",
+          "| `icon` | `React.ElementType` | `FileTextIcon` | Lucide icon component |",
+          "| `score` | `number` | — | (required) Current score value |",
+          "| `total` | `number` | — | (required) Maximum possible score |",
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Row density and typography |',
+          '| `status` | `"default" \\| "success" \\| "warning" \\| "destructive" \\| "auto"` | `"default"` | Semantic color; `"auto"` derives from ratio |',
+          '| `scoreDisplay` | `"fraction" \\| "percent" \\| "raw"` | `"fraction"` | Score render mode |',
+          "| `showProgress` | `boolean` | `true` | Shows a progress bar at row bottom |",
+          "| `loading` | `boolean` | `false` | Skeleton loading state |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for formatting |',
+          "| `percentDecimals` | `number` | `0` | Decimal places in percentage tooltip |",
         ].join("\n"),
       },
     },
@@ -50,7 +67,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
@@ -60,7 +77,7 @@ const meta = {
       table: { defaultValue: { summary: "default" } },
     },
     scoreDisplay: {
-      control: "select",
+      control: "inline-radio",
       options: ["fraction", "percent", "raw"],
       table: { defaultValue: { summary: "fraction" } },
     },
@@ -78,6 +95,18 @@ const meta = {
       control: { type: "number", min: 0, max: 4, step: 1 },
       table: { defaultValue: { summary: "0" } },
     },
+    title: { control: "text", table: { defaultValue: { summary: "—" } } },
+    description: {
+      control: "text",
+      table: { defaultValue: { summary: "—" } },
+    },
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
+    },
+    icon: { table: { disable: true } },
+    onClick: { table: { disable: true } },
   },
 } satisfies Meta<typeof ScoreRow>
 
@@ -93,6 +122,13 @@ export const Default: Story = {
     icon: FileTextIcon,
     score: 76,
     total: 95,
+    size: "md",
+    status: "default",
+    scoreDisplay: "fraction",
+    showProgress: true,
+    loading: false,
+    locale: "en-US",
+    percentDecimals: 0,
   },
   parameters: {
     docs: {
@@ -625,7 +661,7 @@ export const LocalePtBR: Story = {
     docs: {
       description: {
         story:
-          'With `locale="pt-BR"`, the decimal separator in tooltips and `scoreDisplay="percent"` uses a comma (`71,6%`) via `Intl.NumberFormat`. The `scoreLabel` in `aria-label` is translated to *Pontuação*. Hover the progress bar to see the localized tooltip.',
+          'With `locale="pt-BR"`, the decimal separator in tooltips and `scoreDisplay="percent"` uses a comma (`71,6%`) via `Intl.NumberFormat`. The `scoreLabel` in `aria-label` is translated to *Score*. Hover the progress bar to see the localized tooltip.',
       },
     },
   },

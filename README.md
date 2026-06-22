@@ -169,7 +169,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 │   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
 │   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
 │   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-├── specs/               # Specs de todos os componentes (107 arquivos — ui + custom)
+├── specs/               # Specs de todos os componentes (117 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -179,13 +179,13 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 1. **Preencher o template** `.agents/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
-4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (714 testes em 106 arquivos)
+4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (840 testes em 118 arquivos)
 
 As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver com assistência, as regras de estilo, composição e tokens são aplicadas automaticamente durante a geração de código.
 
 ### Specs existentes
 
-Todos os componentes (55 ui primitives + 49 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### Spec template
 
@@ -292,6 +292,7 @@ import { Modal } from "@/components/ds/modal"
 
 | Componente     | Descrição                                                                                                                                                           |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Empty** (ds)      | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading. |
 | **PageLoader** | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
 | **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                    |
 | **ProgressBar**| Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                             |
@@ -303,6 +304,7 @@ import { PageLoader } from "@/components/ds/page-loader"
 import { Spinner } from "@/components/ds/spinner"
 import { ProgressBar } from "@/components/ds/progress-bar"
 import { ProgressCircular } from "@/components/ds/progress-circular"
+import { Empty } from "@/components/ds/empty"
 import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 
 <PageLoader loading={isLoading} locale="pt-BR" />
@@ -314,6 +316,9 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 <ProgressBar value={0.75} name="Taxa de Aprovação" intent="success" />
 <ProgressCircular value={0.6} title="Frequência" size="lg" />
 <RiskLevelBar labelLeft="Nível de Risco" labelRight="Score" value={0.4} />
+
+<Empty variant="no-data" locale="pt-BR" />
+<Empty variant="search" title="Nenhum resultado encontrado" action={{ label: "Limpar filtros", onClick: clearFilters }} />
 ```
 
 #### Exibição de Dados
@@ -323,6 +328,9 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 | **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Cada variante é instalável individualmente via `card-stat`, `card-stat-compact`, etc., ou todas de uma vez via o barrel `card-stats`. |
 | **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
 | **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
+| **ScoreRow**         | Componente de linha de score com ícone configurável, score/total, barra de progresso com tooltip percentual localizada, status auto-derivado (success/warning/destructive), tamanhos sm/md/lg, suporte a ScoreRowList e loading skeleton. |
+| **Avatar** (ds)      | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, avatar group with overflow count, tooltip, and skeleton loading. |
+| **Badge** (ds)       | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning). |
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
@@ -331,6 +339,9 @@ import { CardStatProgress } from "@/components/ds/card-stat-progress"
 // Ou via barrel (instala todos):
 // import { CardStatCompact, CardStatProgress } from "@/components/ds/card-stats"
 import { DataTable } from "@/components/ds/data-table"
+import { ScoreRow, ScoreRowList } from "@/components/ds/score-row"
+import { Avatar, AvatarGroup } from "@/components/ds/avatar"
+import { Badge } from "@/components/ds/badge"
 
 <MiniCardGroup variant="outlined" size="md" divide accent="success">
   <MiniCard label="Receita" value={124500} format="currency" locale="pt-BR" currency="BRL" delta="+26.8%" />
@@ -338,6 +349,22 @@ import { DataTable } from "@/components/ds/data-table"
 </MiniCardGroup>
 <CardStatCompact label="Revenue" value={124500} format="currency" trend="up" trendValue="+26.8%" icon={DollarSignIcon} />
 <DataTable columns={columns} data={rows} searchable sortable paginated />
+
+<ScoreRowList>
+  <ScoreRow title="Acurácia" description="Modelo XGBoost" score={88} total={100} status="success" locale="pt-BR" />
+  <ScoreRow title="Precisão" description="Modelo Random Forest" score={45} total={100} status="warning" locale="pt-BR" />
+</ScoreRowList>
+
+<Avatar src="/user.jpg" alt="João Silva" size="lg" />
+<Avatar initials="JS" />
+<AvatarGroup limit={3}>
+  <Avatar initials="AL" tooltip="Ana Lima" />
+  <Avatar initials="BC" tooltip="Bruno Costa" />
+</AvatarGroup>
+
+<Badge>Concluído</Badge>
+<Badge variant="success" dot>Aprovado</Badge>
+<Badge variant="warning" removable onRemove={handleDismiss}>Pendente</Badge>
 ```
 
 #### Gráficos
@@ -369,28 +396,41 @@ import { BarChart } from "@/components/ds/bar-chart"
 | Componente               | Descrição                                                                                          |
 | :----------------------- | :------------------------------------------------------------------------------------------------- |
 | **Counter**              | Input numérico com controles +/− e suporte a valor controlado/não-controlado.                      |
+| **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state. |
 | **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                 |
 | **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                            |
 | **SearchBar**            | Input de busca expansível para headers com ícone toggle, dica de atalho de teclado e placeholders i18n. |
 | **SearchCombo**          | Campo de busca com dropdown de autocomplete virtualizado, highlight de texto (com acentuação insensitive), navegação por teclado, agrupamento de resultados e reconhecimento de voz opcional. Mantido em `components/ds/search-combo/`. |
 | **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.          |
 | **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips e renderização customizada. |
+| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, i18n placeholder/no-results, and skeleton loading. |
 | **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.             |
+| **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading. |
+| **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state. |
 
 ```tsx
 import { Counter } from "@/components/ds/counter"
 import { Combobox } from "@/components/ui/combobox"          // primitivo
 import { Combobox as ComboboxCustom } from "@/components/ds/combobox"  // custom
 import { SelectList } from "@/components/ds/select-list"
+import { Input } from "@/components/ds/input"
 import { InputEmail } from "@/components/ds/input-email"
 import { InputPassword } from "@/components/ds/input-password"
 import { SearchBar } from "@/components/ds/search-bar"
+import { Select } from "@/components/ds/select"
+import { Slider } from "@/components/ds/slider"
+import { Switch } from "@/components/ds/switch"
 import { SearchCombo } from "@/components/ds/search-combo"
 
 <Counter defaultValue={1} min={0} max={100} onChange={setValue} />
+<Input placeholder="Digite seu nome" clearable maxLength={100} locale="pt-BR" />
 <Combobox options={items} value={selected} onChange={setSelected} />
 <ComboboxCustom options={items} value={values} onChange={setValues} multiple />
 <SelectList data={items} selectedId={id} onSelect={setItem} height={300} />
+<Select options={options} value={selected} onChange={setSelected} searchable locale="pt-BR" />
+<Slider defaultValue={[50]} max={100} step={1} showTooltip locale="pt-BR" />
+<Switch label="Notificações" />
+<Switch label="Modo escuro" variant="success" />
 <InputEmail placeholder="email@example.com" />
 <InputPassword placeholder="Senha" />
 <SearchBar onSearch={(term) => router.push(`/search?q=${term}`)} />
@@ -401,6 +441,7 @@ import { SearchCombo } from "@/components/ds/search-combo"
 
 | Componente       | Descrição                                                                         |
 | :--------------- | :-------------------------------------------------------------------------------- |
+| **Accordion** (ds)  | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, i18n aria-labels, skeleton loading, and nested accordion support. |
 | **Tabs**         | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, loading skeletons e fallback responsivo para Accordion em mobile. |
 | **FooterMenu**   | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase. |
 | **ScrollToTop**  | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n. |
@@ -410,6 +451,7 @@ import { SearchCombo } from "@/components/ds/search-combo"
 | **StepProgress** | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical. |
 
 ```tsx
+import { Accordion } from "@/components/ds/accordion"
 import { FooterMenu } from "@/components/ds/footer-menu"
 import { ScrollToTop } from "@/components/ds/scroll-to-top"
 import { Pagination } from "@/components/ds/pagination"
@@ -436,6 +478,17 @@ function App({ children }: { children: React.ReactNode }) {
   variant="pill"
 />
 <StepProgress steps={steps} currentStep={1} />
+
+<Accordion
+  type="single"
+  collapsible
+  items={[
+    { value: "config", trigger: "Configurações", children: <div>Conteúdo...</div> },
+    { value: "prefs", trigger: "Preferências", children: <div>Conteúdo...</div> },
+  ]}
+  iconVariant="chevron"
+  locale="pt-BR"
+/>
 ```
 
 ## Theming
@@ -503,7 +556,7 @@ make start            # Servidor produção
 make lint             # ESLint + typecheck + Prettier check
 make format           # Prettier
 make build-storybook  # Build Storybook estático
-make test             # Vitest (726 testes em 107 arquivos)
+make test             # Vitest (840 testes em 118 arquivos)
 make coverage         # Coverage com Vitest
 make registry         # Rebuild do registry.json (shadcn build)
 make shadcn-update    # Atualiza todos os primitivos shadcn para última versão

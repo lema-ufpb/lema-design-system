@@ -32,8 +32,42 @@ const meta = {
           "| **Inactive Links** | `transparent` | Uses the `ghost` Button variant for unselected pages |",
           "| **Hover state** | `--accent` | Subtle gray background when hovering over pagination items |",
           "| **Text color** | `--foreground` | Default text color for page numbers and labels |",
+          "",
+          "## Component Props — Pagination",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for nav aria-label |',
+          "",
+          "### PaginationLink",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `isActive` | `boolean` | — | Highlights the current page |",
+          '| `rounded` | `"full" \\| "light" \\| "none"` | `"full"` | Border radius of the button |',
+          "",
+          "### PaginationPrevious / PaginationNext",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `text` | `string` | — | Custom label text |",
+          '| `rounded` | `"full" \\| "light" \\| "none"` | `"full"` | Border radius |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for aria-label |',
+          "",
+          "### PaginationEllipsis",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for sr-only text |',
         ].join("\n"),
       },
+    },
+  },
+  argTypes: {
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof Pagination>
@@ -83,7 +117,7 @@ export const LocalePTBR: Story = {
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" text="Anterior" />
+          <PaginationPrevious href="#" text="Previous" />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">1</PaginationLink>
@@ -100,7 +134,7 @@ export const LocalePTBR: Story = {
           <PaginationEllipsis />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" text="Próxima" />
+          <PaginationNext href="#" text="Next" />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
@@ -232,7 +266,7 @@ export const CustomText: Story = {
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" text="Anterior" />
+          <PaginationPrevious href="#" text="Previous" />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">1</PaginationLink>
@@ -246,7 +280,7 @@ export const CustomText: Story = {
           <PaginationLink href="#">3</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" text="Próxima" />
+          <PaginationNext href="#" text="Next" />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

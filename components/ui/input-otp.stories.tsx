@@ -39,6 +39,9 @@ const meta = {
       control: { type: "number", min: 4, max: 8 },
       table: { defaultValue: { summary: "6" } },
     },
+    containerClassName: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof InputOTP>
 

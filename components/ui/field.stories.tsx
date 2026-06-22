@@ -41,7 +41,7 @@ const meta = {
   },
   argTypes: {
     orientation: {
-      control: "select",
+      control: "inline-radio",
       options: ["vertical", "horizontal", "responsive"],
       description: "Layout orientation of label and content",
       table: { defaultValue: { summary: "vertical" } },

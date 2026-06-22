@@ -31,13 +31,13 @@ const meta = {
   },
   argTypes: {
     variant: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "outline"],
       description: "Visual style variant",
       table: { defaultValue: { summary: "default" } },
     },
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["default", "sm", "lg"],
       description: "Size and padding preset",
       table: { defaultValue: { summary: "default" } },

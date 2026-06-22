@@ -75,7 +75,7 @@ const PARTIAL_ITEMS = [
 // ── Meta ───────────────────────────────────────────────────────────────────
 
 const meta = {
-  title: "Forms/PillGroup",
+  title: "Form/PillGroup",
   component: PillGroup,
   tags: ["autodocs"],
   parameters: {
@@ -158,13 +158,30 @@ const meta = {
           "| Active warning | `--warning` / `--warning-foreground` |",
           "| Active destructive | `--destructive` / `--destructive-foreground` |",
           "| Scroll fade | `--background/80` |",
+          "",
+          "## Component Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `PillGroupItem[]` | — | (required) Array of pill descriptors |",
+          "| `value` | `string \\| string[] \\| null` | — | Controlled selected value(s) |",
+          "| `defaultValue` | `string \\| string[] \\| null` | `null` | Initial selection (uncontrolled) |",
+          "| `multiple` | `boolean` | `false` | Enable multi-select mode |",
+          "| `onChange` | `(value: string \\| string[] \\| null) => void` | — | Callback on selection change |",
+          '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Pill height and font size |',
+          "| `showCount` | `boolean` | — | Show numeric counts (auto-enabled when items have `count`) |",
+          "| `loading` | `boolean` | `false` | Skeleton loading state |",
+          "| `disabled` | `boolean` | `false` | Disables all interactions |",
+          '| `locale` | `UILocale` | `"en-US"` | Locale for count formatting and i18n |',
+          "| `label` | `string` | — | Accessible label for the filter group |",
+          "| `skeletonCount` | `number` | — | Number of skeleton pills while loading |",
         ].join("\n"),
       },
     },
   },
   argTypes: {
     size: {
-      control: "select",
+      control: "inline-radio",
       options: ["sm", "md", "lg"],
       table: { defaultValue: { summary: "md" } },
     },
@@ -174,6 +191,7 @@ const meta = {
     },
     showCount: {
       control: "boolean",
+      table: { defaultValue: { summary: "undefined" } },
     },
     loading: {
       control: "boolean",
@@ -184,10 +202,16 @@ const meta = {
       table: { defaultValue: { summary: "false" } },
     },
     locale: {
-      control: "select",
+      control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       table: { defaultValue: { summary: "en-US" } },
     },
+    label: { control: "text", table: { defaultValue: { summary: "—" } } },
+    skeletonCount: {
+      control: "number",
+      table: { defaultValue: { summary: "3" } },
+    },
+    defaultValue: { table: { disable: true } },
   },
   args: {
     items: AUDIT_ITEMS,
@@ -203,6 +227,11 @@ export const Default: Story = {
   args: {
     items: AUDIT_ITEMS,
     defaultValue: "all",
+    multiple: false,
+    size: "md",
+    loading: false,
+    disabled: false,
+    locale: "en-US",
   },
   parameters: {
     docs: {
