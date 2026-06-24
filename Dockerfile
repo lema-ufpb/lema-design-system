@@ -15,9 +15,8 @@ COPY . .
 # Accept version from build arg (injected by CD workflow)
 ARG APP_VERSION
 
-# Build the storybook static files
-RUN APP_VERSION=$APP_VERSION npm run build-storybook
-RUN node scripts/build-component-docs.mjs
+# Build the storybook static files and generate component docs
+RUN APP_VERSION=$APP_VERSION make build-storybook
 
 # Stage 2: Serve
 FROM nginx:alpine AS runner

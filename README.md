@@ -161,23 +161,13 @@ design-system/
 
 ## 📋 Desenvolvimento Orientado a Spec (Spec-Driven)
 
-Novos componentes customizados seguem um fluxo **spec-first**, com templates e habilidades de IA-guardrail em `.agents/`:
-
-```
-.agents/
-├── skills/
-│   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
-│   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
-│   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-└── templates/
-    └── component-spec.md # Template de spec para novos componentes
-```
+Novos componentes customizados seguem um fluxo **spec-first**, com templates e specs em `docs/`:
 
 ```
 docs/
 ├── specs/               # Specs de todos os componentes (117 arquivos — ui + custom)
 └── templates/
-    └── component-spec.md # Template de spec para novos componentes (cópia)
+    └── component-spec.md # Template de spec para novos componentes
 ```
 
 ### 🔄 Workflow spec-first
@@ -187,7 +177,7 @@ docs/
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
 4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (840 testes em 118 arquivos)
 
-As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver com assistência, as regras de estilo, composição e tokens são aplicadas automaticamente durante a geração de código.
+As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem seu propósito, API, variantes CVA, tokens e acessibilidade documentados.
 
 ### 📚 Specs existentes
 
