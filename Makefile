@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update
 
 # ANSI Colors
 CYAN=\033[0;36m
