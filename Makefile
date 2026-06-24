@@ -56,9 +56,15 @@ format-check:
 	@echo "✨ $(GREEN)Código devidamente formatado!$(RESET)"
 
 
+build-docs:
+	@echo "📝 $(YELLOW)Gerando documentação machine-readable dos componentes...$(RESET)"
+	node scripts/build-component-docs.mjs
+	@echo "✅ $(GREEN)Documentação gerada em storybook-static/docs/components.json!$(RESET)"
+
 build-storybook:
 	@echo "📦 $(YELLOW)Empacotando as histórias... Gerando o build estático do Storybook!$(RESET)"
 	npm run build-storybook
+	node scripts/build-component-docs.mjs
 	@echo "✅ $(GREEN)Build do Storybook concluído com sucesso!$(RESET)"
 
 test:

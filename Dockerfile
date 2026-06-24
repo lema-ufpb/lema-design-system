@@ -17,6 +17,7 @@ ARG APP_VERSION
 
 # Build the storybook static files
 RUN APP_VERSION=$APP_VERSION npm run build-storybook
+RUN node scripts/build-component-docs.mjs
 
 # Stage 2: Serve
 FROM nginx:alpine AS runner
