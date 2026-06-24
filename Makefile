@@ -63,7 +63,7 @@ build-docs:
 
 build-storybook:
 	@echo "📦 $(YELLOW)Empacotando as histórias... Gerando o build estático do Storybook!$(RESET)"
-	npm run build-storybook
+	APP_VERSION=$(APP_VERSION) npm run build-storybook
 	node scripts/build-component-docs.mjs
 	@echo "✅ $(GREEN)Build do Storybook concluído com sucesso!$(RESET)"
 
