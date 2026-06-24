@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.5.0](https://github.com/lema-ufpb/design-system/compare/v1.4.0...v1.5.0) (2026-06-24)
+
+
+### ✨ Features
+
+* **scripts:** add machine-readable component documentation generator ([9914e5e](https://github.com/lema-ufpb/design-system/commit/9914e5e7c2994c3db0c5ea159228d56c102972bc)), closes [#47](https://github.com/lema-ufpb/design-system/issues/47)
+* **ui:** add new props and type improvements to ds-* components ([a0119c5](https://github.com/lema-ufpb/design-system/commit/a0119c5f3b8fef539807b273f0c25ce79a3de6b9))
+
+
+### 🐛 Bug Fixes
+
+* address review issues — add build-docs to .PHONY, restrict /docs/ location to specific file ([c84367d](https://github.com/lema-ufpb/design-system/commit/c84367d96f286c6f228c4ffe3c5b072c318b4850))
+* remove stale .agents references from README, consolidate docs generation in Dockerfile ([2e5d584](https://github.com/lema-ufpb/design-system/commit/2e5d584e55ea6cbc0f1617242b4d760e59b80c6c))
+
+
+### 📚 Documentation
+
+* **project:** add critical rule forbidding manual edits to shadcn primitives ([bf64b96](https://github.com/lema-ufpb/design-system/commit/bf64b96fc9a88a13da730d5092ed086e4a3548c9))
+* remove references to removed .claude and .agents directories ([9fe6a2f](https://github.com/lema-ufpb/design-system/commit/9fe6a2fd7d5f8b84a1886bd64be8f1a15e14e8a5))
+* update component descriptions in Introduction.mdx and README.md ([c482555](https://github.com/lema-ufpb/design-system/commit/c4825555d6b995254e922ab0f8c49a86427a9320))
+
 ## [1.4.0](https://github.com/lema-ufpb/design-system/compare/v1.3.0...v1.4.0) (2026-06-22)
 
 
