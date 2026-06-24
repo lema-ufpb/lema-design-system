@@ -29,6 +29,22 @@ export interface CounterProps
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   id?: string
   locale?: UILocale
+  inputProps?: Omit<
+    React.ComponentProps<"input">,
+    | "type"
+    | "value"
+    | "defaultValue"
+    | "onChange"
+    | "min"
+    | "max"
+    | "step"
+    | "onBlur"
+    | "onKeyDown"
+    | "id"
+    | "disabled"
+    | "ref"
+    | "className"
+  >
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -96,6 +112,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
       onChange,
       onBlur,
       onKeyDown,
+      inputProps,
       className,
       style,
       ...props
@@ -192,6 +209,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
         </Button>
 
         <input
+          {...inputProps}
           {...props}
           ref={ref}
           id={inputId}

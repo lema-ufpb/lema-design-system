@@ -181,3 +181,44 @@ export const Loading: Story = {
     </div>
   ),
 }
+
+export const ColorTokens: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-2">
+      <Badge background="oklch(0.5 0.2 270)" color="white">
+        Custom Purple
+      </Badge>
+      <Badge
+        background="var(--color-success)"
+        color="var(--color-success-foreground)"
+      >
+        Success Token
+      </Badge>
+      <Badge
+        background="var(--color-warning)"
+        color="var(--color-warning-foreground)"
+        borderColor="var(--color-warning)"
+      >
+        Warning Token
+      </Badge>
+      <Badge
+        background="oklch(0.3 0.15 30)"
+        color="white"
+        borderColor="oklch(0.5 0.15 30)"
+      >
+        Custom Dark
+      </Badge>
+      <Badge background="var(--color-brand, oklch(0.4 0.2 240))" color="white">
+        External Token
+      </Badge>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `background`, `color`, and `borderColor` props accept any CSS color value or `var(--my-token)`. They set CSS custom properties (`--badge-background`, `--badge-color`, `--badge-border-color`) and apply the matching utility classes — escaping the built-in variant enum for per-instance customization.",
+      },
+    },
+  },
+}

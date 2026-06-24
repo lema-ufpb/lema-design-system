@@ -33,6 +33,16 @@ export interface ProgressCircularProps
   loading?: boolean
   precision?: number
   locale?: UILocale
+  /**
+   * Override indicator stroke via CSS token `--progress-fill`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   */
+  fillColor?: string
+  /**
+   * Override track stroke via CSS token `--progress-track`.
+   * Accepts any CSS color value or `var(--my-token)`.
+   */
+  trackColor?: string
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -143,11 +153,19 @@ export const ProgressCircular = React.forwardRef<
       loading = false,
       locale = "en-US",
       precision = 0,
+      fillColor,
+      trackColor,
+      style,
       className,
       ...props
     },
     ref
   ) => {
+    const tokenStyle = {
+      ...(fillColor !== undefined && { "--progress-fill": fillColor }),
+      ...(trackColor !== undefined && { "--progress-track": trackColor }),
+      ...style,
+    } as React.CSSProperties
     const [offset, setOffset] = React.useState(CIRCUMFERENCE)
     const rafRef = React.useRef<number>(0)
 
@@ -181,6 +199,7 @@ export const ProgressCircular = React.forwardRef<
     return (
       <div
         ref={ref}
+        style={tokenStyle}
         className={cn(progressCircularContainerVariants(), className)}
         data-slot="progress-circular"
         {...props}
@@ -206,7 +225,10 @@ export const ProgressCircular = React.forwardRef<
               r={RADIUS}
               fill="none"
               stroke="currentColor"
-              className="text-muted/30"
+              className={cn(
+                "text-muted/30",
+                trackColor && "text-(--progress-track)"
+              )}
               strokeWidth={STROKE_WIDTH}
               data-slot="progress-circular-track"
             />
@@ -221,7 +243,8 @@ export const ProgressCircular = React.forwardRef<
               strokeLinecap="round"
               className={cn(
                 progressCircularIndicatorVariants(),
-                progressCircularStrokeVariants({ intent })
+                !fillColor && progressCircularStrokeVariants({ intent }),
+                fillColor && "stroke-(--progress-fill)"
               )}
               data-slot="progress-circular-indicator"
             />

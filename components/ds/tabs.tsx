@@ -44,6 +44,8 @@ export interface TabsProps {
   size?: "sm" | "md" | "lg"
   /** Layout direction. @default "horizontal" */
   orientation?: "horizontal" | "vertical"
+  /** Whether tabs activate on focus or require a click. @default "automatic" */
+  activationMode?: "automatic" | "manual"
   /** When true, collapses to an Accordion on viewports below 768px. */
   responsive?: boolean
   /** Always render as Accordion regardless of viewport. Useful for stories. */
@@ -243,6 +245,7 @@ export function Tabs({
   variant = "default",
   size = "md",
   orientation = "horizontal",
+  activationMode,
   responsive = false,
   forceAccordion = false,
   loading = false,
@@ -301,6 +304,7 @@ export function Tabs({
       value={activeValue}
       onValueChange={handleValueChange}
       orientation={orientation}
+      activationMode={activationMode}
       className={className}
     >
       <TabsPrimitive.List

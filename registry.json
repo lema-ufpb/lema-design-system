@@ -951,7 +951,7 @@
       "name": "ds-combobox",
       "type": "registry:ui",
       "title": "Combobox UI",
-      "description": "A batteries-included combobox with virtual scrolling, search, single/multi-select, groups, and custom option rendering.",
+      "description": "A batteries-included combobox with virtual scrolling, search, single/multi-select, groups, custom option rendering, and configurable popover positioning (side/align/offset).",
       "dependencies": [
         "@tanstack/react-virtual"
       ],
@@ -974,7 +974,7 @@
       "name": "ds-drawer",
       "type": "registry:ui",
       "title": "Drawer UI",
-      "description": "A full-featured drawer wrapper with optional header, scrollable body, footer, and direction-aware close button.",
+      "description": "A full-featured drawer wrapper with optional header, scrollable body, footer, direction-aware close button, snap points, scale background, and escape/pointer-down-outside event handlers.",
       "registryDependencies": [
         "drawer"
       ],
@@ -990,7 +990,7 @@
       "name": "ds-modal",
       "type": "registry:ui",
       "title": "Modal",
-      "description": "A flexible modal dialog built on Dialog with size variants (sm/md/lg/xl/2xl/full), intent system (default/destructive/success/warning/info), scrollable body, auto async confirm tracking, loading skeleton, and i18n support.",
+      "description": "A flexible modal dialog built on Dialog with size variants (sm/md/lg/xl/2xl/full), intent system (default/destructive/success/warning/info), defaultOpen for uncontrolled usage, scrollable body, auto async confirm tracking, loading skeleton, escape/pointer-down-outside/interact-outside event handlers, and i18n support.",
       "registryDependencies": [
         "dialog",
         "button",
@@ -1337,7 +1337,7 @@
       "name": "progress-bar",
       "type": "registry:ui",
       "title": "Progress Bar",
-      "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, and semantic color intents. Built on the Radix UI Progress primitive.",
+      "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, custom fill/track color overrides via CSS tokens, getValueLabel for custom label formatting, max prop, and semantic color intents. Built on the Radix UI Progress primitive.",
       "registryDependencies": [
         "skeleton",
         "tooltip"
@@ -1730,7 +1730,7 @@
       "name": "counter",
       "type": "registry:ui",
       "title": "Counter",
-      "description": "A precision numeric input with button controls and direct keyboard entry support.",
+      "description": "A precision numeric input with button controls, direct keyboard entry support, and inputProps passthrough for native HTML attributes.",
       "registryDependencies": [
         "skeleton",
         "ui-i18n"
@@ -2070,7 +2070,7 @@
       "name": "ds-accordion",
       "type": "registry:ui",
       "title": "Accordion UI",
-      "description": "Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, i18n aria-labels, skeleton loading, and nested accordion support.",
+      "description": "Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support.",
       "dependencies": [
         "lucide-react"
       ],
@@ -2112,7 +2112,7 @@
       "name": "ds-avatar",
       "type": "registry:ui",
       "title": "Avatar UI",
-      "description": "Extended avatar with size scale (sm through 2xl), status indicator dots, initials color generator, avatar group with overflow count, tooltip, and skeleton loading.",
+      "description": "Extended avatar with size scale (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.",
       "dependencies": [
         "lucide-react"
       ],
@@ -2154,7 +2154,7 @@
       "name": "ds-select",
       "type": "registry:ui",
       "title": "Select UI",
-      "description": "Extended select with search filter, async option loading, grouped options, creatable new option, i18n placeholder/no-results, and skeleton loading.",
+      "description": "Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning (side/align/offset), i18n placeholder/no-results, and skeleton loading.",
       "dependencies": [
         "lucide-react"
       ],
@@ -2199,7 +2199,7 @@
       "name": "ds-carousel",
       "type": "registry:ui",
       "title": "Carousel UI",
-      "description": "Extended carousel with autoplay support via embla-carousel-autoplay, multiple nav variants (side/overlay/bottom/none), card/showcase/minimal display modes, dot indicators, responsive slides-per-view, i18n aria-labels, and skeleton loading. Wraps the shadcn Carousel primitive.",
+      "description": "Extended carousel with autoplay support via embla-carousel-autoplay, multiple nav variants (side/overlay/bottom/none), card/showcase/minimal display modes, dot indicators, responsive slides-per-view, external API control via setApi, i18n aria-labels, and skeleton loading. Wraps the shadcn Carousel primitive.",
       "dependencies": [
         "embla-carousel-autoplay",
         "lucide-react"
@@ -2221,7 +2221,7 @@
       "name": "ds-tabs",
       "type": "registry:ui",
       "title": "Tabs UI",
-      "description": "Extended tabs with 4 variants (default/line/pill/segmented), 3 sizes, icons, count badges, loading skeletons, vertical orientation, and responsive accordion fallback on mobile. Wraps the shadcn Tabs primitive.",
+      "description": "Extended tabs with 4 variants (default/line/pill/segmented), 3 sizes, icons, count badges, loading skeletons, vertical orientation, activation mode (automatic/manual), and responsive accordion fallback on mobile. Wraps the shadcn Tabs primitive.",
       "dependencies": [
         "radix-ui",
         "lucide-react"

@@ -31,7 +31,10 @@ export interface EmptyAction {
   onClick: () => void
 }
 
-export interface EmptyProps extends VariantProps<typeof emptyVariants> {
+export interface EmptyProps
+  extends
+    Omit<React.ComponentProps<"div">, "className">,
+    VariantProps<typeof emptyVariants> {
   variant?: EmptyVariant
   /** Sobrescreve o título i18n */
   title?: string
@@ -89,6 +92,7 @@ function Empty({
   loading = false,
   locale = "pt-BR",
   className,
+  ...htmlProps
 }: EmptyProps) {
   const i18n = UI_I18N[locale]
 
@@ -116,9 +120,11 @@ function Empty({
     return (
       <div
         data-slot="ds-empty"
+        {...htmlProps}
         className={cn(
           "flex w-full flex-col items-center justify-center gap-4",
-          emptyVariants({ compact })
+          emptyVariants({ compact }),
+          className
         )}
       >
         <Skeleton
@@ -133,9 +139,10 @@ function Empty({
   return (
     <EmptyRoot
       data-slot="ds-empty"
-      className={cn(emptyVariants({ compact }), className)}
       role="region"
       aria-label={resolvedTitle}
+      {...htmlProps}
+      className={cn(emptyVariants({ compact }), className)}
     >
       <EmptyHeader>
         <EmptyMedia className={iconVariants({ compact })}>

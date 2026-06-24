@@ -6,15 +6,16 @@ Registry público em `registry.json` (schema shadcn). Componentes consumíveis v
 ## Estrutura
 
 ```
-components/ui/       → primitivos shadcn (não modificar sem --diff review)
+components/ui/       → primitivos shadcn — **NÃO ALTERAR O CÓDIGO FONTE**
+                       Atualizar exclusivamente com `npx shadcn@latest add <component> --yes`
 components/ds/   → compostos do design system (lógica de negócio, CVA, i18n)
 lib/ui-i18n.ts       → dicionário i18n compartilhado (en-US, pt-BR, es-ES, fr-FR)
 lib/utils.ts         → cn() e utilidades
 app/globals.css      → tokens CSS (colors, radius, sidebar, charts, success/warning/risk-*)
 registry.json        → manifesto de exportação do design system
 .storybook/          → configuração do Storybook (vitest browser mode)
-.agents/skills/      → skills de review: shadcn/ e design-system/
-.agents/templates/   → templates spec-first para novos componentes
+docs/specs/          → specs de todos os componentes (117 arquivos — ui + custom)
+docs/templates/      → templates spec-first para novos componentes
 ```
 
 ## Stack
@@ -27,6 +28,13 @@ registry.json        → manifesto de exportação do design system
 - i18n: `UI_I18N[locale]` de `@/lib/ui-i18n`
 
 ## Regras críticas — sempre aplicar
+
+### Componentes shadcn (components/ui/)
+Os arquivos em `components/ui/` são **primitivos shadcn** — seu código-fonte **não pode ser alterado** neste projeto. Qualquer modificação manual será perdida na próxima atualização via CLI. A atualização deve ser feita exclusivamente com:
+```bash
+npx shadcn@latest add <component> --yes
+```
+Isso inclui correções de tipos, ajustes de estilo, renomeação de props ou qualquer outra alteração no código dos primitivos.
 
 ### Tipografia (scale para sm/md/lg)
 ```
@@ -78,15 +86,13 @@ Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real.
 
 ## Workflow spec-first para novos componentes
 
-1. Preencher `.agents/templates/component-spec.md` antes de escrever código
+1. Preencher `docs/templates/component-spec.md` antes de escrever código
 2. Revisar spec (tokens, variantes, a11y, stories) — pode ser revisado pela skill `design-system`
 3. Implementar seguindo o checklist do template
 4. `make lint` deve continuar passando inclusive sem warnings
 5. `make test` deve continuar passando
 6. Checar stories no Storybook antes de considerar concluído
 
-## Skills disponíveis
+## Templates
 
-- `.agents/skills/shadcn/SKILL.md` — regras shadcn (componentes, composição, CLI)
-- `.agents/skills/design-system/SKILL.md` — regras de design system (escala, tokens, CVA, checklist)
-- `.agents/templates/component-spec.md` — template spec-first para novos componentes
+- `docs/templates/component-spec.md` — template spec-first para novos componentes
