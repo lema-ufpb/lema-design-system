@@ -169,14 +169,20 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e h
 │   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
 │   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
 │   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
-├── specs/               # Specs de todos os componentes (117 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
 
+```
+docs/
+├── specs/               # Specs de todos os componentes (117 arquivos — ui + custom)
+└── templates/
+    └── component-spec.md # Template de spec para novos componentes (cópia)
+```
+
 ### 🔄 Workflow spec-first
 
-1. **Preencher o template** `.agents/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
+1. **Preencher o template** `docs/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
 4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (840 testes em 118 arquivos)
@@ -185,7 +191,7 @@ As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver c
 
 ### 📚 Specs existentes
 
-Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### 📄 Spec template
 
