@@ -25,6 +25,7 @@ export type AvatarStatus = "online" | "busy" | "away" | "offline"
 
 export interface AvatarProps
   extends
+    Omit<React.ComponentProps<typeof AvatarRoot>, "className" | "size">,
     VariantProps<typeof avatarVariants>,
     VariantProps<typeof statusVariants> {
   src?: string
@@ -36,6 +37,10 @@ export interface AvatarProps
   loading?: boolean
   locale?: UILocale
   className?: string
+  onLoadingStatusChange?: (
+    status: "idle" | "loading" | "loaded" | "error"
+  ) => void
+  delayMs?: number
 }
 
 export interface AvatarGroupProps {
@@ -135,6 +140,9 @@ function Avatar({
   loading = false,
   locale = "pt-BR",
   className,
+  onLoadingStatusChange,
+  delayMs,
+  ...htmlProps
 }: AvatarProps) {
   const i18n = UI_I18N[locale]
   const initials = fallback ?? getInitials(alt)
@@ -156,13 +164,19 @@ function Avatar({
   const avatarElement = (
     <AvatarRoot
       data-slot="ds-avatar"
-      className={cn(avatarVariants({ size }), className)}
       aria-label={ariaLabel}
+      {...htmlProps}
+      className={cn(avatarVariants({ size }), className)}
     >
       {src ? (
-        <AvatarImage src={src} alt={alt} />
+        <AvatarImage
+          src={src}
+          alt={alt}
+          onLoadingStatusChange={onLoadingStatusChange}
+        />
       ) : (
         <AvatarFallback
+          delayMs={delayMs}
           className={cn(initialsVariants({ size }), initialsColor)}
         >
           {initials}

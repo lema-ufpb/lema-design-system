@@ -13,7 +13,10 @@ export type PageLoaderColor = "primary" | "success" | "destructive"
 export type PageLoaderOverlay = "ghost" | "soft" | "subtle" | "solid" | "none"
 export type PageLoaderSize = "sm" | "md" | "lg" | "xl" | "2xl" | "4xl"
 
-export interface PageLoaderProps {
+export interface PageLoaderProps extends Omit<
+  React.ComponentProps<"div">,
+  "aria-label"
+> {
   loading: boolean
   variant?: PageLoaderVariant
   size?: PageLoaderSize
@@ -23,6 +26,7 @@ export interface PageLoaderProps {
   message?: string
   locale?: UILocale
   className?: string
+  "aria-label"?: string
 }
 
 // ── Variants ──
@@ -135,6 +139,8 @@ export function PageLoader({
   message,
   locale = "en-US",
   className,
+  "aria-label": ariaLabel,
+  ...htmlProps
 }: PageLoaderProps) {
   const t = UI_I18N[locale].pageLoader
 
@@ -142,9 +148,10 @@ export function PageLoader({
     <div
       role="status"
       aria-busy={loading}
-      aria-label={t.loading}
+      aria-label={ariaLabel ?? t.loading}
       aria-live="polite"
       data-loading={loading}
+      {...htmlProps}
       className={cn(
         pageLoaderOverlayVariants({ overlay, blur }),
         loading

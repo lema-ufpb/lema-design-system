@@ -1,8 +1,8 @@
-# LEMA Design System
+# ✨ LEMA Design System
 
 Sistema de design oficial do [Laboratório de Economia e Modelagem Aplicada (LEMA)](https://lema.ufpb.br) da Universidade Federal da Paraíba (UFPB). Um sistema de componentes React moderno, acessível e themeável, construído sobre shadcn/ui e Radix UI Primitives.
 
-## Visão Geral
+## 🎯 Visão Geral 🎯
 
 Este design system fornece um conjunto de componentes React Typescript de alta qualidade, com suporte a:
 
@@ -12,7 +12,7 @@ Este design system fornece um conjunto de componentes React Typescript de alta q
 - 📱 Design responsivo
 - 🔍 TypeScript total
 
-## Stack Tecnológica
+## 💻 Stack Tecnológica 🛠️
 
 | Tecnologia               | Propósito                    |
 | ------------------------ | ---------------------------- |
@@ -26,7 +26,7 @@ Este design system fornece um conjunto de componentes React Typescript de alta q
 | Storybook                | Documentação de componentes  |
 | Vitest                   | Testes                       |
 
-## Instalação
+## 🚀 Instalação 🚀
 
 ```bash
 # Clone o repositório
@@ -40,7 +40,7 @@ npm install
 make dev
 ```
 
-## Uso via CLI dedicada — `@lema-ufpb/ds-sync` 📦
+## 📦 Uso via CLI dedicada — `@lema-ufpb/ds-sync`
 
 Para projetos institucionais da UFPB, disponibilizamos uma CLI dedicada no [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) que estende o shadcn CLI com autenticação, lockfile, drift detection e modo CI:
 
@@ -57,7 +57,7 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 
 > 🔑 O token é fornecido pelo NOC do LEMA. O registry padrão aponta para produção.
 
-### Comandos principais
+### ⌨️ Comandos principais
 
 | Comando                          | Descrição                       |
 | :------------------------------- | :------------------------------ |
@@ -72,7 +72,7 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 
 O lockfile `ds.lock` é gerado automaticamente e **deve ser versionado** — é a fonte da verdade para reprodutibilidade e detecção de drift.
 
-## Uso via Registry (shadcn CLI)
+## ⬇️ Uso via Registry (shadcn CLI)
 
 Você pode instalar qualquer componente deste design system em seu próprio projeto usando o link do registro oficial:
 
@@ -85,11 +85,11 @@ npx ds add dashbox
 npx ds add progress-bar
 ```
 
-## Internacionalização (i18n)
+## 🌐 Internacionalização (i18n)
 
 Todos os componentes com texto visível suportam internacionalização via prop `locale`. O dicionário centralizado fica em `lib/ui-i18n.ts`.
 
-### Locais suportados
+### 🌍 Locais suportados
 
 | Código | Idioma             |
 | :----- | :----------------- |
@@ -102,7 +102,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 > O arquivo `lib/ui-i18n.ts` (dicionário i18n) é instalado automaticamente como dependência de registro para todos os componentes que suportam locale. Não é necessário instalá-lo manualmente.
 
 
-### Uso
+### 💡 Uso
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
@@ -113,7 +113,7 @@ import { Dashbox } from "@/components/ds/dashbox"
 
 A prop `locale` é opcional (padrão `"en-US"`). Ao instalar um componente via shadcn CLI, o arquivo `lib/ui-i18n.ts` é instalado automaticamente como dependência.
 
-### Registry
+### 🗃️ Registry
 
 O dicionário `ui-i18n` está publicado como `registry:lib` no registro oficial:
 
@@ -122,7 +122,7 @@ O dicionário `ui-i18n` está publicado como `registry:lib` no registro oficial:
 npx ds add ui-i18n
 ```
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 design-system/
@@ -159,41 +159,37 @@ design-system/
 └── Makefile                # Scripts de build
 ```
 
-## Desenvolvimento Orientado a Spec (Spec-Driven)
+## 📋 Desenvolvimento Orientado a Spec (Spec-Driven)
 
-Novos componentes customizados seguem um fluxo **spec-first**, com templates e habilidades de IA-guardrail em `.agents/`:
+Novos componentes customizados seguem um fluxo **spec-first**, com templates e specs em `docs/`:
 
 ```
-.agents/
-├── skills/
-│   ├── shadcn/          # Regras shadcn (composição, CLI, styling, forms)
-│   │   └── rules/       # Styling, forms, composition, icons, base-vs-radix
-│   └── design-system/   # Regras do LEMA-DS (escala, tokens, CVA, a11y)
+docs/
 ├── specs/               # Specs de todos os componentes (117 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
 
-### Workflow spec-first
+### 🔄 Workflow spec-first
 
-1. **Preencher o template** `.agents/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
+1. **Preencher o template** `docs/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
 4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (840 testes em 118 arquivos)
 
-As skills em `.agents/skills/` funcionam como guardrails de IA: ao desenvolver com assistência, as regras de estilo, composição e tokens são aplicadas automaticamente durante a geração de código.
+As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem seu propósito, API, variantes CVA, tokens e acessibilidade documentados.
 
-### Specs existentes
+### 📚 Specs existentes
 
-Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `.agents/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
-### Spec template
+### 📄 Spec template
 
 O template cobre: propósito de uso, API completa com tipos, variantes CVA por slot, tokens de design, escala tipográfica sm/md/lg, comportamentos (loading, disabled, empty), acessibilidade (ARIA, teclado, i18n) e checklist de stories obrigatórias.
 
-## Componentes
+## 🧩 Componentes
 
-### Primitivos shadcn
+### 🧱 Primitivos shadcn
 
 Componentes base instalados via shadcn CLI, sem modificações:
 
@@ -225,11 +221,11 @@ Para adicionar novos componentes shadcn ao projeto:
 npx ds add <componente>
 ```
 
-### Componentes customizados
+### ✨ Componentes customizados
 
 Todos os componentes abaixo vivem em `components/ds/`.
 
-#### Actions
+#### ⚡ Actions
 
 | Componente     | Descrição                                                                                                                    |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
@@ -250,14 +246,14 @@ import { ToggleTheme } from "@/components/ds/toggle-theme"
 <ToggleTheme locale="pt-BR" />
 ```
 
-#### Layout
+#### 📐 Layout
 
 | Componente     | Descrição                                                                                                |
 | :------------- | :------------------------------------------------------------------------------------------------------- |
 | **Dashbox**    | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge. |
 | **Dashrow**    | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
-| **Drawer**     | Drawer completo com header, body scrollável, footer e botão de fechar adaptável à direção.               |
-| **Modal**      | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, body scrollável, async confirm com loading e suporte a i18n. |
+| **Drawer**     | Drawer completo com header, body scrollável, footer, snap points, scale background, event handlers e botão de fechar adaptável à direção.               |
+| **Modal**      | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, defaultOpen, body scrollável, async confirm com loading, event handlers e suporte a i18n. |
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
@@ -288,14 +284,14 @@ import { Modal } from "@/components/ds/modal"
 </Dashrow>
 ```
 
-#### Feedback
+#### 💬 Feedback
 
 | Componente     | Descrição                                                                                                                                                           |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Empty** (ds)      | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading. |
 | **PageLoader** | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
 | **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                    |
-| **ProgressBar**| Indicador horizontal com preenchimento animado, intenções semânticas e posições de rótulo configuráveis.                                                             |
+| **ProgressBar**| Indicador horizontal com preenchimento animado, intenções semânticas, posições de rótulo configuráveis, override de cores fill/track via CSS tokens e getValueLabel.                                                             |
 | **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                      |
 | **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                   |
 
@@ -321,7 +317,7 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 <Empty variant="search" title="Nenhum resultado encontrado" action={{ label: "Limpar filtros", onClick: clearFilters }} />
 ```
 
-#### Exibição de Dados
+#### 📊 Exibição de Dados
 
 | Componente           | Descrição                                                                                                                                                                       |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -329,7 +325,7 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 | **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
 | **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
 | **ScoreRow**         | Componente de linha de score com ícone configurável, score/total, barra de progresso com tooltip percentual localizada, status auto-derivado (success/warning/destructive), tamanhos sm/md/lg, suporte a ScoreRowList e loading skeleton. |
-| **Avatar** (ds)      | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, avatar group with overflow count, tooltip, and skeleton loading. |
+| **Avatar** (ds)      | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading. |
 | **Badge** (ds)       | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning). |
 
 ```tsx
@@ -367,7 +363,7 @@ import { Badge } from "@/components/ds/badge"
 <Badge variant="warning" removable onRemove={handleDismiss}>Pendente</Badge>
 ```
 
-#### Gráficos
+#### 📈 Gráficos
 
 Componentes de visualização de dados construídos sobre Recharts e otimizados para o LEMA.
 
@@ -391,19 +387,19 @@ import { BarChart } from "@/components/ds/bar-chart"
 <BarChart data={data} categoryKey="name" dataKeys={[{ key: "total", label: "Total" }]} />
 ```
 
-#### Formulários
+#### 📝 Formulários
 
 | Componente               | Descrição                                                                                          |
 | :----------------------- | :------------------------------------------------------------------------------------------------- |
-| **Counter**              | Input numérico com controles +/− e suporte a valor controlado/não-controlado.                      |
+| **Counter**              | Input numérico com controles +/−, suporte a valor controlado/não-controlado e inputProps para atributos HTML nativos.                      |
 | **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state. |
 | **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                 |
 | **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                            |
 | **SearchBar**            | Input de busca expansível para headers com ícone toggle, dica de atalho de teclado e placeholders i18n. |
 | **SearchCombo**          | Campo de busca com dropdown de autocomplete virtualizado, highlight de texto (com acentuação insensitive), navegação por teclado, agrupamento de resultados e reconhecimento de voz opcional. Mantido em `components/ds/search-combo/`. |
 | **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.          |
-| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips e renderização customizada. |
-| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, i18n placeholder/no-results, and skeleton loading. |
+| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips, renderização customizada e posicionamento configurável. |
+| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning, i18n placeholder/no-results, and skeleton loading. |
 | **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.             |
 | **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading. |
 | **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state. |
@@ -437,12 +433,12 @@ import { SearchCombo } from "@/components/ds/search-combo"
 <SearchCombo value={query} onChange={setQuery} options={results} onSearch={fetchResults} voice />
 ```
 
-#### Navegação
+#### 🧭 Navegação
 
 | Componente       | Descrição                                                                         |
 | :--------------- | :-------------------------------------------------------------------------------- |
-| **Accordion** (ds)  | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, i18n aria-labels, skeleton loading, and nested accordion support. |
-| **Tabs**         | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, loading skeletons e fallback responsivo para Accordion em mobile. |
+| **Accordion** (ds)  | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support. |
+| **Tabs**         | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, activation mode (automatic/manual), loading skeletons e fallback responsivo para Accordion em mobile. |
 | **FooterMenu**   | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase. |
 | **ScrollToTop**  | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n. |
 | **NavDots**      | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips. |
@@ -491,9 +487,9 @@ function App({ children }: { children: React.ReactNode }) {
 />
 ```
 
-## Theming
+## 🎨 Theming
 
-### Cores
+### 🎭 Cores
 
 O sistema usa CSS variables para theming:
 
@@ -517,7 +513,7 @@ O sistema usa CSS variables para theming:
 }
 ```
 
-### Tokens de risco (RiskLevelBar, CardStatGauge, CardStatHeatbar)
+### ⚠️ Tokens de risco
 
 ```css
 :root {
@@ -533,12 +529,12 @@ O sistema usa CSS variables para theming:
 }
 ```
 
-### Tipografia
+### 🔤 Tipografia
 
 - **Sans**: Inter (variável `--font-sans`)
 - **Mono**: Geist Mono (variável `--font-mono`)
 
-### Border Radius
+### 📏 Border Radius
 
 | Token         | Cálculo        |
 | ------------- | -------------- |
@@ -547,7 +543,7 @@ O sistema usa CSS variables para theming:
 | `--radius-lg` | `radius`       |
 | `--radius-xl` | `radius * 1.4` |
 
-## Scripts
+## 📜 Scripts
 
 ```bash
 make dev              # Inicia o servidor local do Storybook (porta 6006)
@@ -563,18 +559,18 @@ make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
 make clean            # Limpar artefatos
 ```
 
-## Release & Deploy
+## 🚢 Release & Deploy
 
 O projeto usa um fluxo **GitFlow** com versionamento automático via [release-please](https://github.com/googleapis/release-please) e deploy contínuo para Kubernetes via ArgoCD.
 
-### Branches
+### 🌿 Branches
 
 | Branch    | Propósito                                                           |
 | :-------- | :------------------------------------------------------------------ |
 | `develop` | Branch de integração — todo PR de feature/fix entra aqui            |
 | `main`    | Branch de release — recebe merge de `develop` quando pronto p/ ship |
 
-### Fluxo completo (do commit ao deploy)
+### 🔄 Fluxo completo
 
 ```
 feature/* ──PR──▶ develop ──PR──▶ main ──┐
@@ -589,7 +585,7 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
                               CD: build Docker → GHCR → argocd-apps → prod
 ```
 
-### CI (`.github/workflows/ci.yml`)
+### 🔍 CI
 
 Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código novo é introduzido. PRs `develop → main` e PRs do release-please **não rodam CI** (são promoção e version bump, respectivamente — mesmo código já validado). Pipeline **sequencial** com fail-fast (3 jobs encadeados via `needs:`) no self-hosted runner:
 
@@ -611,7 +607,7 @@ Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Inst
 
 > ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + branch atualizada antes do merge. Atualmente **nenhuma branch exige status checks** (`contexts: []`) — considere adicionar `🕵️‍♂️ Lint`, `🧪 Test` e `📦 Build` como required checks em `develop`.
 
-### AI Review (`.github/workflows/ai-review.yml`)
+### 🤖 AI Review
 
 Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Dependabot e do `github-actions[bot]`. O fluxo:
 
@@ -622,7 +618,7 @@ Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Depe
 
 PRs do release-please nunca disparam este workflow — eles vão contra `main`, não `develop`.
 
-### Release automatizada (`.github/workflows/release-please.yml`)
+### ⚙️ Release automatizada
 
 Dispara em **push para `main`**. O bot do release-please:
 
@@ -639,7 +635,7 @@ Dispara em **push para `main`**. O bot do release-please:
 - `package.json` `version` — sobrescrito pelo bot em cada release
 - `release-please-config.json` — configuração das seções do CHANGELOG
 
-### CD (`.github/workflows/cd.yml`)
+### 🚀 CD
 
 Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
@@ -654,7 +650,7 @@ Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
 > 🔒 **Garantia de qualidade**: a tag só nasce de um PR de release-please mergeado em `main`. Como o CI validou o código em `develop` e branch protection exige PR + branch atualizada, todo commit que vira tag já passou pelo pipeline. Não existe gate adicional no CD — a confiança vem do fluxo upstream.
 
-### Mecânica de versão (single source of truth: git tag)
+### 🏷️ Mecânica de versão
 
 A versão exibida na documentação Storybook é injetada em tempo de build via `git describe --tags --abbrev=0` em `.storybook/main.ts`. O fluxo é:
 
@@ -664,7 +660,7 @@ git tag vX.Y.Z  ──▶  __APP_VERSION__ (Vite define)  ──▶  lib/version
 
 Para builds locais (sem tag), a versão exibida é `0.0.0`.
 
-### Recovery quando algo falha no CD
+### 🚑 Recovery
 
 Caminho default (90% dos casos): **roll-forward**.
 
@@ -674,15 +670,15 @@ Caminho default (90% dos casos): **roll-forward**.
 
 Para cenários menos comuns (versão errada calculada, release por engano, rollback urgente em prod, manifest inconsistente, branch protection bloqueando), consulte **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — roteiro detalhado com comandos prontos para cada situação.
 
-## Contribuindo
+## 🤝 Contribuindo
 
-### Setup
+### ⚙️ Setup
 
 1. Fork o repositório
 2. Clone e instale: `git clone ... && cd design-system && npm install --legacy-peer-deps`
 3. Crie uma branch a partir de `develop`: `git checkout develop && git checkout -b feature/minha-feature`
 
-### Conventional Commits (obrigatório)
+### 📝 Conventional Commits
 
 Para que o release-please calcule corretamente a próxima versão e gere o `CHANGELOG.md`, **todos os commits devem seguir o padrão [Conventional Commits](https://www.conventionalcommits.org)**:
 
@@ -706,20 +702,20 @@ git commit -m "docs(readme): update installation instructions"
 git commit -m "refactor(card-stats)!: rename CardStat to CardStatBase"  # breaking
 ```
 
-### Pull Request
+### 🔀 Pull Request
 
 1. Push da sua branch: `git push origin feature/minha-feature`
 2. Abra PR contra `develop` — CI dispara automaticamente
 3. Após aprovação e merge em `develop`, eventualmente um PR `develop → main` agrega features prontas para release
 4. Merge em `main` → o bot do release-please abre `chore(release): vX.Y.Z` → revisar → merge → deploy automático
 
-## Licença
+## 📄 Licença
 
 MIT License - © 2026 LEMA/UFPB
 
 See [LICENSE](./LICENSE) for details.
 
-## Contato
+## 📬 Contato
 
 Laboratório de Economia e Modelagem Aplicada da
 Universidade Federal da Paraíba

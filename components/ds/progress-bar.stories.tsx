@@ -629,3 +629,68 @@ export const FixedLabelWidth: Story = {
     },
   },
 }
+
+export const ColorTokens: Story = {
+  name: "Color Tokens — fillColor & trackColor",
+  args: { value: 72 },
+  render: () => (
+    <div className="flex w-96 flex-col gap-6">
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Direct CSS color values
+        </p>
+        <ProgressBar
+          value={72}
+          name="Custom Purple"
+          fillColor="oklch(0.5 0.2 270)"
+          trackColor="oklch(0.92 0.04 270)"
+        />
+        <ProgressBar
+          value={55}
+          name="Custom Amber"
+          fillColor="oklch(0.75 0.18 75)"
+          trackColor="oklch(0.95 0.04 75)"
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Design system token references
+        </p>
+        <ProgressBar
+          value={85}
+          name="Success Token"
+          fillColor="var(--color-success)"
+        />
+        <ProgressBar
+          value={40}
+          name="Warning Token"
+          fillColor="var(--color-warning)"
+          trackColor="var(--color-warning-foreground)"
+        />
+        <ProgressBar
+          value={20}
+          name="Destructive Token"
+          fillColor="var(--color-destructive)"
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          External token with fallback
+        </p>
+        <ProgressBar
+          value={68}
+          name="Brand Color"
+          fillColor="var(--color-brand, oklch(0.4 0.2 240))"
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `fillColor` and `trackColor` props accept any CSS color or `var(--my-token)`. They set `--progress-fill` and `--progress-track` as CSS custom properties and apply via `bg-(--progress-fill)` / `bg-(--progress-track)` — bypassing the `intent` enum for per-instance customization.",
+      },
+    },
+  },
+}

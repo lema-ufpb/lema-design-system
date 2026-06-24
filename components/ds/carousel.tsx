@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
+import type { UseEmblaCarouselType } from "embla-carousel-react"
 import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
 
@@ -20,6 +21,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 // ── Types ──
 
+export type CarouselApi = UseEmblaCarouselType[1]
+
 export type CarouselVariant = "default" | "cards" | "showcase" | "minimal"
 export type CarouselNavPosition = "side" | "overlay" | "bottom" | "none"
 export type CarouselNavVariant = "outline" | "ghost" | "primary" | "secondary"
@@ -36,6 +39,7 @@ export interface CarouselSlidesPerView {
 export interface CarouselProps extends VariantProps<typeof carouselVariants> {
   variant?: CarouselVariant
   orientation?: "horizontal" | "vertical"
+  setApi?: (api: CarouselApi) => void
   slidesPerView?: number | CarouselSlidesPerView
   autoplayInterval?: number
   pauseOnHover?: boolean
@@ -284,6 +288,7 @@ function CarouselDots({
 export function Carousel({
   variant = "default",
   orientation = "horizontal",
+  setApi,
   slidesPerView,
   autoplayInterval,
   pauseOnHover = true,
@@ -374,6 +379,7 @@ export function Carousel({
       opts={{ loop, align, skipSnaps }}
       plugins={plugins}
       orientation={orientation}
+      setApi={setApi}
     >
       {showProgress && <CarouselProgress orientation={orientation} />}
 

@@ -112,6 +112,15 @@ export interface CardStatHighlightProps
   className?: string
   loading?: boolean
   empty?: boolean
+  /**
+   * Override card background via CSS token `--card-highlight-background`.
+   * Escapes the 7-variant enum. Accepts any CSS color or `var(--my-token)`.
+   */
+  background?: string
+  /**
+   * Override card text color via CSS token `--card-highlight-color`.
+   */
+  color?: string
 }
 
 export function CardStatHighlight({
@@ -126,13 +135,29 @@ export function CardStatHighlight({
   className,
   loading,
   empty,
+  background,
+  color,
   ...fmt
 }: CardStatHighlightProps) {
-  const isWhiteVariant = variant === "white"
+  const isWhiteVariant = variant === "white" && !background
 
   const overlayBg = isWhiteVariant ? "bg-muted/10" : "bg-white/20"
   const circleBg = isWhiteVariant ? "bg-muted/10" : "bg-white/10"
   const circleBg2 = isWhiteVariant ? "bg-muted/5" : "bg-white/5"
+
+  const tokenStyle = {
+    ...(background !== undefined && {
+      "--card-highlight-background": background,
+    }),
+    ...(color !== undefined && { "--card-highlight-color": color }),
+  } as React.CSSProperties
+
+  const cardClassName = cn(
+    cardStatHighlightVariants({ variant }),
+    background && "bg-(--card-highlight-background)",
+    color && "text-(--card-highlight-color)",
+    className
+  )
 
   const decorativeCircles = (
     <>
@@ -159,7 +184,8 @@ export function CardStatHighlight({
     return (
       <Card
         size="sm"
-        className={cn(cardStatHighlightVariants({ variant }), className)}
+        style={tokenStyle}
+        className={cardClassName}
         data-slot="card-stat-highlight"
       >
         {decorativeCircles}
@@ -184,7 +210,8 @@ export function CardStatHighlight({
     return (
       <Card
         size="sm"
-        className={cn(cardStatHighlightVariants({ variant }), className)}
+        style={tokenStyle}
+        className={cardClassName}
         data-slot="card-stat-highlight"
       >
         {decorativeCircles}
@@ -225,7 +252,8 @@ export function CardStatHighlight({
   return (
     <Card
       size="sm"
-      className={cn(cardStatHighlightVariants({ variant }), className)}
+      style={tokenStyle}
+      className={cardClassName}
       data-slot="card-stat-highlight"
     >
       {decorativeCircles}

@@ -1,7 +1,7 @@
 # Spec: BarChart
 
 > Preencha este template ANTES de escrever qualquer código.
-> Mova o arquivo preenchido para `.agents/specs/bar-chart.md` ao finalizar.
+> Mova o arquivo preenchido para `docs/specs/bar-chart.md` ao finalizar.
 
 ---
 

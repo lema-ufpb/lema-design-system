@@ -208,3 +208,72 @@ export const Loading: Story = {
     },
   },
 }
+
+export const ColorTokens: Story = {
+  name: "Color Tokens — fillColor & trackColor",
+  args: { value: 72 },
+  render: () => (
+    <div className="flex flex-wrap gap-8">
+      <div className="flex flex-col items-center gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Direct value
+        </p>
+        <ProgressCircular
+          value={72}
+          title="Custom Purple"
+          fillColor="oklch(0.5 0.2 270)"
+          trackColor="oklch(0.92 0.04 270)"
+        />
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Success token
+        </p>
+        <ProgressCircular
+          value={85}
+          title="Success Token"
+          fillColor="var(--color-success)"
+        />
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Warning token
+        </p>
+        <ProgressCircular
+          value={40}
+          title="Warning Token"
+          fillColor="var(--color-warning)"
+        />
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          External token
+        </p>
+        <ProgressCircular
+          value={60}
+          title="Brand Color"
+          fillColor="var(--color-brand, oklch(0.4 0.2 240))"
+        />
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Custom track
+        </p>
+        <ProgressCircular
+          value={55}
+          title="Custom Track"
+          fillColor="oklch(0.55 0.18 30)"
+          trackColor="oklch(0.93 0.04 30)"
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `fillColor` and `trackColor` props accept any CSS color or `var(--my-token)`. They set `--progress-fill` and `--progress-track` as CSS custom properties. `fillColor` applies via `stroke-(--progress-fill)` on the indicator SVG circle; `trackColor` applies via `text-(--progress-track)` (currentColor) on the track circle — bypassing the `intent` enum for per-instance customization.",
+      },
+    },
+  },
+}

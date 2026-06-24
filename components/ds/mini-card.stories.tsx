@@ -760,3 +760,104 @@ export const Standalone: Story = {
     },
   },
 }
+
+export const ColorTokens: Story = {
+  name: "Color Tokens — accent",
+  render: () => (
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Direct CSS color values — icon and value inherit the accent
+        </p>
+        <div className="flex items-center gap-6">
+          <MiniCard
+            label="Custom Purple"
+            value={1450}
+            icon={UsersIcon}
+            accent="oklch(0.5 0.2 270)"
+          />
+          <MiniCard
+            label="Custom Amber"
+            value="R$ 4,2M"
+            icon={BanknoteIcon}
+            accent="oklch(0.75 0.18 75)"
+          />
+          <MiniCard
+            label="Custom Rose"
+            value={12}
+            icon={ZapIcon}
+            accent="oklch(0.55 0.18 30)"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          Design system token references
+        </p>
+        <div className="flex items-center gap-6">
+          <MiniCard
+            label="Success"
+            value={84}
+            icon={FileSearchIcon}
+            accent="var(--color-success)"
+          />
+          <MiniCard
+            label="Warning"
+            value="High (78.4)"
+            icon={ShieldAlertIcon}
+            accent="var(--color-warning)"
+          />
+          <MiniCard
+            label="Destructive"
+            value={8}
+            icon={ZapIcon}
+            accent="var(--color-destructive)"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-xs font-medium text-muted-foreground">
+          accent in a group — simulating per-category KPI strips
+        </p>
+        <MiniCardStrip>
+          <MiniCardGroup variant="outlined" size="md" divide>
+            <MiniCard
+              label="Produto"
+              value={91}
+              icon={BuildingIcon}
+              accent="var(--color-success)"
+            />
+            <MiniCard
+              label="Marketing"
+              value={62}
+              icon={MapPinIcon}
+              accent="var(--color-warning)"
+            />
+          </MiniCardGroup>
+          <MiniCardGroup variant="outlined" size="md" divide>
+            <MiniCard
+              label="Brand"
+              value="R$ 1,8M"
+              icon={BanknoteIcon}
+              accent="var(--color-brand, oklch(0.4 0.2 240))"
+            />
+            <MiniCard
+              label="Custom"
+              value={74}
+              icon={UsersIcon}
+              accent="oklch(0.5 0.2 270)"
+            />
+          </MiniCardGroup>
+        </MiniCardStrip>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `accent` prop accepts any CSS color or `var(--my-token)`. It sets `--mini-card-accent` as a CSS custom property and applies to the icon (`text-(--mini-card-accent)`) and value (`text-(--mini-card-accent)`). Delta indicators keep their own semantic colors (`text-success`, `text-destructive`, `text-muted-foreground`) and are unaffected by `accent`.",
+      },
+    },
+  },
+}

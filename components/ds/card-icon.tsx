@@ -196,6 +196,8 @@ export interface CardIconProps extends VariantProps<
   badge?: string
   /** Renders the whole card as a link with a hover lift. */
   href?: string
+  rel?: string
+  target?: string
   /** Optional call-to-action row shown at the bottom (interactive cards). */
   actionLabel?: string
   className?: string
@@ -213,6 +215,8 @@ export function CardIcon({
   titleUpper = false,
   badge,
   href,
+  rel,
+  target,
   actionLabel,
   className,
   loading,
@@ -307,6 +311,8 @@ export function CardIcon({
       {href && (
         <a
           href={href}
+          rel={rel}
+          target={target}
           aria-label={title}
           className="absolute inset-0 rounded-4xl outline-none"
         />

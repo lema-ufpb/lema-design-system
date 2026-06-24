@@ -58,15 +58,15 @@ Custom components live in `components/ds/`. Shared utilities and helpers in `lib
 
 - **[Dashrow](/docs/ui-dashrow--docs)**: Responsive layout container for dashboard panels with resizable split ratios and N-child support.
 - **[Dashbox](/docs/ui-dashbox--docs)**: Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, and status badge.
-- **[DrawerUI](/docs/ui-drawerui--docs)**: Full-featured drawer wrapper with header, scrollable body, footer, and direction-aware close button. Supports bottom, left, right, and top directions.
-- **[Modal](/docs/ui-modal--docs)**: Flexible modal dialog built on Dialog with 6 size variants, 5 intent colors, scrollable body, auto async confirm tracking, loading skeleton, and i18n support.
+- **[DrawerUI](/docs/ui-drawerui--docs)**: Full-featured drawer wrapper with header, scrollable body, footer, direction-aware close button, snap points, scale background, and event handlers for escape/pointer-down-outside. Supports bottom, left, right, and top directions.
+- **[Modal](/docs/ui-modal--docs)**: Flexible modal dialog built on Dialog with 6 size variants, 5 intent colors, defaultOpen for uncontrolled usage, scrollable body, auto async confirm tracking, loading skeleton, escape/pointer-down-outside/interact-outside event handlers, and i18n support.
 
 #### Data Display
 
 - **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. All share CVA variants from `lib/card-stats-shared.tsx`. Each variant is installable individually (`card-stat`, `card-stat-compact`, etc.) or all at once via the `card-stats` barrel (which lists all variants as `registryDependencies`).
 - **[MiniCard](/docs/data-display-minicard--docs)**: Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators, and number formatting. Size propagates via context.
 - **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, sorting, and `locale` prop for automatic i18n label resolution (search placeholder, empty state, pagination labels).
-- **[Avatar](/docs/data-display-avatar--docs)**: Extended avatar with 5 sizes, status dots, initials color generator, group overflow, tooltip, and skeleton loading.
+- **[Avatar](/docs/data-display-avatar--docs)**: Extended avatar with 5 sizes, status dots, initials color generator, image loading status callback, delay fallback, group overflow, tooltip, and skeleton loading.
 - **[Badge](/docs/data-display-badge--docs)**: Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).
 
 #### Charts
@@ -89,7 +89,7 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 
 - **[PageLoader](/docs/feedback-pageloader--docs)**: Full-page loading overlay with a top shimmer bar (`bar`) or a centered XL spinner (`spinner`). Controlled by a single `loading` prop with smooth fade-in/out, semantic color options (`primary`, `success`, `destructive`), optional frosted-glass overlay, and i18n support.
 - **[Spinner](/docs/feedback-spinner--docs)**: Animated loading indicator with localized `aria-label` via `locale` prop.
-- **[ProgressBar](/docs/feedback-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, and semantic color intents.
+- **[ProgressBar](/docs/feedback-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, custom fill/track color overrides via CSS tokens, getValueLabel for custom label formatting, and semantic color intents.
 - **[ProgressCircular](/docs/feedback-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
 - **[RiskLevelBar](/docs/feedback-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
 - **[Empty](/docs/feedback-empty--docs)**: Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.
@@ -109,7 +109,7 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 #### Forms
 
 - **[Input](/docs/form-input--docs)**: Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.
-- **[Select](/docs/form-select--docs)**: Extended select with search filter, async option loading, grouped options, creatable new option, i18n placeholder/no-results, and skeleton loading.
+- **[Select](/docs/form-select--docs)**: Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning (side/align/offset), i18n placeholder/no-results, and skeleton loading.
 - **[Slider](/docs/form-slider--docs)**: Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.
 - **[Switch](/docs/form-switch--docs)**: Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.
 - **[Counter](/docs/form-counter--docs)**: Numeric input with +/− button controls and controlled/uncontrolled value support.
@@ -117,8 +117,8 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 - **[Input Password](/docs/forms-passwordinput--docs)**: Password field with a toggle visibility button and size/radius variants.
 - **[SearchBar](/docs/forms-searchbar--docs)**: Smoothly expanding search input for page headers with icon toggle, keyboard shortcut hint, and i18n placeholders.
 - **[SearchCombo](/docs/forms-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting. Maintained in `components/ds/search-combo/` with independent support files.
-- **[Combobox](/docs/form-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, and group support, built on @base-ui/react.
-- **[ComboboxUI](/docs/form-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, and full search.
+- **[Combobox](/docs/form-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, group support, and configurable popover positioning (side/align/offset), built on @base-ui/react.
+- **[ComboboxUI](/docs/form-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, full search, and configurable popover positioning.
 - **[SelectList](/docs/form-selectlist--docs)**: Searchable list with selection state, groups, icons, and virtual scrolling for large data sets.
 
 ---
@@ -177,7 +177,7 @@ Components display UI labels (tooltips, aria-labels, status text, empty state me
 | en-US | English (default)  |
 | pt-BR | Português (Brasil) |
 | es-ES | Español            |
-| fr-FR | Français           |
+| fr-FR | Fran&ccedil;ais    |
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
