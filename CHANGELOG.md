@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/lema-ufpb/design-system/compare/v1.5.0...v1.5.1) (2026-06-24)
+
+
+### 🧹 Chores
+
+* release 1.5.1 ([993aa6f](https://github.com/lema-ufpb/design-system/commit/993aa6f6fe8914572e8dfd61cd2a335daa3ed0af))
+
 ## [1.5.0](https://github.com/lema-ufpb/design-system/compare/v1.4.0...v1.5.0) (2026-06-24)
 
 
