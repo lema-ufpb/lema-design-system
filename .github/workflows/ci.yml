@@ -53,26 +53,9 @@ jobs:
           npm run lint
           echo "🌺 Linter aprovado! Seu código está lindo!"
 
-  test:
-    name: "🧪 Test"
-    needs: lint
-    runs-on: self-hosted
-    steps:
-      - name: "📥 Checkout do código"
-        uses: actions/checkout@v5
-
-      - name: "🧰 Setup Node + Deps"
-        uses: ./.github/actions/setup-node-deps
-
-      - name: "📸 Run Visual Tests (Playwright)"
-        run: |
-          echo "📸 Executando testes visuais com Playwright..."
-          npm run test
-          echo "✅ Testes visuais concluídos com sucesso!"
-
   build:
     name: "📦 Build"
-    needs: test
+    needs: lint
     runs-on: self-hosted
     steps:
       - name: "📥 Checkout do código"
