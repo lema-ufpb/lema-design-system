@@ -1,7 +1,7 @@
 # Spec: [NomeDoComponente]
 
 > Preencha este template ANTES de escrever qualquer código.
-> Mova o arquivo preenchido para `.agents/specs/[nome-componente].md` ao finalizar.
+> Mova o arquivo preenchido para `docs/specs/[nome-componente].md` ao finalizar.
 
 ---
 
