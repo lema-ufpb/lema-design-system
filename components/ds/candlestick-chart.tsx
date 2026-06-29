@@ -89,8 +89,8 @@ export interface CandlestickChartProps extends React.HTMLAttributes<HTMLDivEleme
 
 // ── Constants ──────────────────────────────────────────────────────────────
 
-const POSITIVE_COLOR = "#22c55e"
-const NEGATIVE_COLOR = "#ef4444"
+const POSITIVE_COLOR = "var(--success)"
+const NEGATIVE_COLOR = "var(--destructive)"
 
 /** Colors assigned in order to movingAverages when no color is specified */
 const MA_COLORS = [

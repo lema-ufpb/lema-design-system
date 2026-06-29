@@ -210,13 +210,16 @@ export function CardStatSparkline({
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={cardStatHeaderIconVariants({ size })} />
+              <Icon
+                className={cardStatHeaderIconVariants({ size })}
+                aria-hidden
+              />
             </CardAction>
           )}
         </CardHeader>
         <CardContent
           className="flex items-end justify-between gap-4"
-          data-slot="card-stat-sparkline-empty"
+          data-slot="card-stat-sparkline"
         >
           <div className="flex flex-col gap-1.5">
             <p
@@ -258,7 +261,10 @@ export function CardStatSparkline({
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={cardStatHeaderIconVariants({ size })} />
+            <Icon
+              className={cardStatHeaderIconVariants({ size })}
+              aria-hidden
+            />
           </CardAction>
         )}
       </CardHeader>

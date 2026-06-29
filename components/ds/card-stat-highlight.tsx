@@ -228,7 +228,10 @@ export function CardStatHighlight({
                   overlayBg
                 )}
               >
-                <Icon className={cardStatHighlightIconVariants({ size })} />
+                <Icon
+                  className={cardStatHighlightIconVariants({ size })}
+                  aria-hidden
+                />
               </div>
             </CardAction>
           )}
@@ -239,6 +242,7 @@ export function CardStatHighlight({
             message="No spotlight yet"
             sub="Your headline KPI will appear here"
             inverted={!isWhiteVariant}
+            size={size}
           />
         </CardContent>
       </Card>
@@ -271,7 +275,10 @@ export function CardStatHighlight({
                 overlayBg
               )}
             >
-              <Icon className={cardStatHighlightIconVariants({ size })} />
+              <Icon
+                className={cardStatHighlightIconVariants({ size })}
+                aria-hidden
+              />
             </div>
           </CardAction>
         )}

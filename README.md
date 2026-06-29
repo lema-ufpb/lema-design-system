@@ -196,8 +196,10 @@ Componentes base instalados via shadcn CLI, sem modificações:
 | Componente        | Descrição                                                                                          |
 | :---------------- | :------------------------------------------------------------------------------------------------- |
 | **Accordion**     | Conjunto de painéis empilhados e colapsáveis.                                                      |
+| **Attachment**    | Anexo de arquivo com preview de mídia, título, descrição, ações e overlay de trigger.              |
 | **Avatar**        | Elemento visual para representar usuários com fallback de iniciais.                                |
 | **Badge**         | Pequeno rótulo indicador de status ou categoria.                                                   |
+| **Bubble**        | Bolha de chat com variantes sent/received e suporte a tail.                                        |
 | **Button**        | Botão interativo com variantes (default, destructive, outline, etc).                               |
 | **Card**          | Container versátil com header, título, ação, descrição e footer.                                   |
 | **Combobox**      | Autocomplete com busca, navegação por teclado e suporte a grupos, construído sobre @base-ui/react. |
@@ -207,10 +209,14 @@ Componentes base instalados via shadcn CLI, sem modificações:
 | **Drawer**        | Painel deslizante com suporte a 4 direções e gestos de arrastar.                                   |
 | **Input**         | Campo de entrada de texto padrão.                                                                  |
 | **Input Group**   | Conjunto de inputs agrupados com ícones ou botões.                                                 |
+| **Marker**        | Indicador de status/pin para itens de chat e lista.                                                |
+| **Message**       | Mensagem de chat com slots de avatar, conteúdo, header e footer.                                   |
+| **MessageScroller** | Container com auto-scroll para listas de mensagens e botões de navegação.                       |
 | **Popover**       | Conteúdo flutuante ancorado a um elemento.                                                         |
 | **Progress**      | Barra de progresso linear simples.                                                                 |
 | **Scroll Area**   | Área de rolagem customizada e acessível.                                                           |
 | **Skeleton**      | Placeholder de carregamento para estados vazios.                                                   |
+| **Spinner**       | Indicador de carregamento animado.                                                                 |
 | **Table**         | Componente responsivo de tabela com suporte a rolagem horizontal.                                  |
 | **Textarea**      | Campo de entrada de texto multilinha.                                                              |
 | **Tooltip**       | Breve descrição exibida ao passar o mouse.                                                         |
