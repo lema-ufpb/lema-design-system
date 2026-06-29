@@ -139,7 +139,10 @@ export function CardStatList({
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={cardStatHeaderIconVariants({ size })} />
+              <Icon
+                className={cardStatHeaderIconVariants({ size })}
+                aria-hidden
+              />
             </CardAction>
           )}
         </CardHeader>
@@ -148,6 +151,7 @@ export function CardStatList({
             icon={InboxIcon}
             message="List is empty"
             sub="Add metrics to start tracking"
+            size={size}
           />
         </CardContent>
       </Card>
@@ -167,7 +171,10 @@ export function CardStatList({
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={cardStatHeaderIconVariants({ size })} />
+            <Icon
+              className={cardStatHeaderIconVariants({ size })}
+              aria-hidden
+            />
           </CardAction>
         )}
       </CardHeader>

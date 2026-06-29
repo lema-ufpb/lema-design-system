@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -136,7 +137,10 @@ export function CardStatHeatbar({
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={cardStatHeaderIconVariants({ size })} />
+              <Icon
+                className={cardStatHeaderIconVariants({ size })}
+                aria-hidden
+              />
             </CardAction>
           )}
         </CardHeader>
@@ -153,15 +157,16 @@ export function CardStatHeatbar({
             >
               —
             </p>
-            <span
+            <Badge
+              variant="outline"
               className={cn(
-                "rounded-full bg-muted/40 font-semibold text-muted-foreground/40",
+                "text-muted-foreground/60",
                 cardStatBadgePaddingVariants({ size }),
                 cardStatDescriptionVariants({ size })
               )}
             >
               Pending
-            </span>
+            </Badge>
           </div>
           <div className="relative pb-10">
             <div
@@ -232,12 +237,16 @@ export function CardStatHeatbar({
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={cardStatHeaderIconVariants({ size })} />
+            <Icon
+              className={cardStatHeaderIconVariants({ size })}
+              aria-hidden
+            />
           </CardAction>
         )}
       </CardHeader>
       <CardContent
         className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        data-slot="card-stat-heatbar"
       >
         <div className="flex items-baseline justify-between">
           <p className={cardStatValueVariants({ size })}>{display}</p>
@@ -248,6 +257,7 @@ export function CardStatHeatbar({
               cardStatDescriptionVariants({ size })
             )}
             style={{ backgroundColor: activeZone.color }}
+            aria-hidden
           >
             {activeZone.label}
           </span>

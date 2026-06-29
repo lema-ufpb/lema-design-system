@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { SearchIcon, XIcon, LoaderCircleIcon, MicIcon } from "lucide-react"
+import { SearchIcon, XIcon, MicIcon } from "lucide-react"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Kbd } from "@/components/ui/kbd"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Spinner } from "@/components/ui/spinner"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -259,8 +260,9 @@ export const SearchBar = React.forwardRef<HTMLDivElement, SearchBarProps>(
       >
         <span data-slot="search-bar-icon" aria-hidden="true">
           {loading ? (
-            <LoaderCircleIcon
-              className={cn(searchBarIconVariants({ size }), "animate-spin")}
+            <Spinner
+              className={searchBarIconVariants({ size })}
+              aria-hidden="true"
             />
           ) : (
             <Icon className={searchBarIconVariants({ size })} />

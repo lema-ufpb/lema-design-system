@@ -324,7 +324,10 @@ export const TableCell = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <td
     ref={ref}
-    className={cn("px-4 py-3 align-middle text-sm text-foreground", className)}
+    className={cn(
+      "px-4 py-3 align-middle text-sm text-foreground tabular-nums",
+      className
+    )}
     {...props}
   />
 ))

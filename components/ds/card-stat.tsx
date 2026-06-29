@@ -17,6 +17,7 @@ import {
   cardStatValueVariants,
   cardStatDescriptionVariants,
   cardStatHeaderIconVariants,
+  cardStatTrendIconVariants,
   cardStatContentGapVariants,
 } from "@/lib/card-stats-shared"
 
@@ -193,7 +194,10 @@ export function CardStat({
             )}
           >
             {TrendIcon && (
-              <TrendIcon className="size-2.5 shrink-0" aria-hidden />
+              <TrendIcon
+                className={cn(cardStatTrendIconVariants({ size }))}
+                aria-hidden
+              />
             )}
             {description}
           </p>
