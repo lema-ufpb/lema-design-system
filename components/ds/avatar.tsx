@@ -221,7 +221,7 @@ function AvatarGroup({
   return (
     <div
       data-slot="ds-avatar-group"
-      className={cn("flex -space-x-2", className)}
+      className={cn("flex [&>*]:-mr-2 [&>*:last-child]:mr-0", className)}
     >
       {visible}
       {overflow > 0 && (

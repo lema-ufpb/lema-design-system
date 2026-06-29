@@ -40,8 +40,8 @@ export const cardStatDescriptionVariants = cva("", {
   variants: {
     size: {
       sm: "text-xs",
-      md: "text-xs",
-      lg: "text-sm",
+      md: "text-sm",
+      lg: "text-base",
     },
   },
   defaultVariants: { size: "md" },
@@ -84,8 +84,8 @@ export const cardStatBadgeTextVariants = cva("", {
   variants: {
     size: {
       sm: "text-xs font-semibold",
-      md: "text-xs font-semibold",
-      lg: "text-sm font-semibold",
+      md: "text-sm font-semibold",
+      lg: "text-base font-semibold",
     },
   },
   defaultVariants: { size: "md" },
@@ -142,16 +142,30 @@ export function TrendBadge({
 
 // ── CardStatEmptySlot ─────────────────────────────────────────────────────────
 
+const emptySlotBoxVariants: Record<string, string> = {
+  sm: "size-7 rounded-xl",
+  md: "size-9 rounded-2xl",
+  lg: "size-11 rounded-3xl",
+}
+
+const emptySlotIconVariants: Record<string, string> = {
+  sm: "size-3",
+  md: "size-4",
+  lg: "size-5",
+}
+
 export function CardStatEmptySlot({
   icon: Icon,
   message,
   sub,
   inverted = false,
+  size = "md",
 }: {
   icon: React.ElementType
   message: string
   sub?: string
   inverted?: boolean
+  size?: CardStatSize
 }) {
   return (
     <div
@@ -160,13 +174,14 @@ export function CardStatEmptySlot({
     >
       <div
         className={cn(
-          "flex size-9 items-center justify-center rounded-2xl",
+          "flex items-center justify-center rounded-2xl",
+          emptySlotBoxVariants[size],
           inverted ? "bg-white/15" : "bg-muted/60"
         )}
       >
         <Icon
           className={cn(
-            "size-4",
+            emptySlotIconVariants[size],
             inverted ? "text-white/50" : "text-muted-foreground/50"
           )}
           aria-hidden

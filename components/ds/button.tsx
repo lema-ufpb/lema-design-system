@@ -1,11 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Loader2 } from "lucide-react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Button as ButtonRoot } from "@/components/ui/button"
+import { Spinner } from "@/components/ui/spinner"
 import {
   Tooltip,
   TooltipContent,
@@ -135,16 +135,16 @@ export function Button({
     >
       {loading ? (
         <>
-          <Loader2 className="animate-spin" />
+          <Spinner data-icon="inline-start" />
           {loadingText ?? children}
         </>
       ) : confirming && confirm ? (
         confirm.text
       ) : (
         <>
-          {startIcon}
+          {startIcon && <span data-icon="inline-start">{startIcon}</span>}
           {children}
-          {endIcon}
+          {endIcon && <span data-icon="inline-end">{endIcon}</span>}
         </>
       )}
     </ButtonRoot>

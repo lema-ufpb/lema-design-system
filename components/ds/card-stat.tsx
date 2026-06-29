@@ -193,7 +193,15 @@ export function CardStat({
             )}
           >
             {TrendIcon && (
-              <TrendIcon className="size-2.5 shrink-0" aria-hidden />
+              <TrendIcon
+                className={cn(
+                  "shrink-0",
+                  size === "sm" && "size-2.5",
+                  size === "md" && "size-3",
+                  size === "lg" && "size-3.5"
+                )}
+                aria-hidden
+              />
             )}
             {description}
           </p>

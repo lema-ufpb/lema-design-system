@@ -13,6 +13,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { cn } from "@/lib/utils"
+import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
 
 export type DrawerDirection = "bottom" | "left" | "right" | "top"
 
@@ -27,6 +28,7 @@ export interface DrawerProps {
   open?: boolean
   onOpenChange?: (open: boolean) => void
   className?: string
+  locale?: UILocale
   shouldScaleBackground?: boolean
   snapPoints?: (number | string)[]
   activeSnapPoint?: number | string | null
@@ -50,6 +52,7 @@ export function Drawer({
   open,
   onOpenChange,
   className,
+  locale = "pt-BR",
   shouldScaleBackground,
   snapPoints,
   activeSnapPoint,
@@ -119,7 +122,9 @@ export function Drawer({
                     )}
                   >
                     <X className="size-3.5" />
-                    <span className="sr-only">Fechar</span>
+                    <span className="sr-only">
+                      {UI_I18N[locale].dialog.close}
+                    </span>
                   </DrawerClose>
                 )}
               </div>

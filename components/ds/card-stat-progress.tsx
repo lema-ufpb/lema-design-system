@@ -59,7 +59,7 @@ export function CardStatProgress({
 }: CardStatProgressProps) {
   if (loading) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-progress">
         <CardHeader className="flex flex-row items-center justify-between">
           <Skeleton className="h-3 w-28 rounded-md" />
           <Skeleton
@@ -87,7 +87,7 @@ export function CardStatProgress({
 
   if (empty) {
     return (
-      <Card size="sm" className={className}>
+      <Card size="sm" className={className} data-slot="card-stat-progress">
         <CardHeader className="flex flex-row items-center justify-between">
           <span
             className={cn(
@@ -99,7 +99,10 @@ export function CardStatProgress({
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={cardStatHeaderIconVariants({ size })} />
+              <Icon
+                className={cardStatHeaderIconVariants({ size })}
+                aria-hidden
+              />
             </CardAction>
           )}
         </CardHeader>
@@ -166,7 +169,7 @@ export function CardStatProgress({
           : ""
 
   return (
-    <Card size="sm" className={className}>
+    <Card size="sm" className={className} data-slot="card-stat-progress">
       <CardHeader className="flex flex-row items-center justify-between">
         <span
           className={cn(
@@ -178,7 +181,10 @@ export function CardStatProgress({
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={cardStatHeaderIconVariants({ size })} />
+            <Icon
+              className={cardStatHeaderIconVariants({ size })}
+              aria-hidden
+            />
           </CardAction>
         )}
       </CardHeader>

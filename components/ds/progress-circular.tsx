@@ -5,6 +5,7 @@ import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
+import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { formatValue } from "@/lib/format-utils"
 
@@ -91,7 +92,6 @@ export const progressCircularValueVariants = cva(
   "font-semibold text-foreground tabular-nums",
   {
     variants: {
-      loading: { true: "animate-pulse opacity-50" },
       size: {
         sm: "text-xs",
         md: "text-sm",
@@ -99,15 +99,30 @@ export const progressCircularValueVariants = cva(
         xl: "text-2xl",
       },
     },
-    defaultVariants: { loading: false, size: "md" },
+    defaultVariants: { size: "md" },
   }
 )
+
+const progressCircularValueSkeletonDims: Record<ProgressCircularSize, string> =
+  {
+    sm: "h-3 w-10",
+    md: "h-4 w-14",
+    lg: "h-5 w-16",
+    xl: "h-7 w-20",
+  }
+
+const progressCircularTitleSkeletonDims: Record<ProgressCircularSize, string> =
+  {
+    sm: "h-3 w-16",
+    md: "h-4 w-24",
+    lg: "h-5 w-32",
+    xl: "h-6 w-40",
+  }
 
 export const progressCircularTitleVariants = cva(
   "mt-3 min-h-5 w-full text-center font-medium wrap-break-word text-muted-foreground",
   {
     variants: {
-      loading: { true: "animate-pulse opacity-50" },
       size: {
         sm: "max-w-[80px] text-xs",
         md: "max-w-[120px] text-sm",
@@ -115,7 +130,7 @@ export const progressCircularTitleVariants = cva(
         xl: "max-w-[200px] text-lg",
       },
     },
-    defaultVariants: { loading: false, size: "md" },
+    defaultVariants: { size: "md" },
   }
 )
 
@@ -254,26 +269,38 @@ export const ProgressCircular = React.forwardRef<
             className={cn(progressCircularCenterTextVariants({ size }))}
             data-slot="progress-circular-center-text"
           >
-            <span
-              className={cn(progressCircularValueVariants({ size, loading }))}
-            >
-              {loading ? (
-                <span className="invisible">0%</span>
-              ) : (
-                `${percentage}%`
-              )}
-            </span>
+            {loading ? (
+              <Skeleton
+                className={cn(
+                  "rounded",
+                  progressCircularValueSkeletonDims[size]
+                )}
+              />
+            ) : (
+              <span className={cn(progressCircularValueVariants({ size }))}>
+                {`${percentage}%`}
+              </span>
+            )}
           </div>
         </div>
 
-        {title && (
-          <span
-            className={cn(progressCircularTitleVariants({ size, loading }))}
-            data-slot="progress-circular-title"
-          >
-            {loading ? <span className="invisible">{title}</span> : title}
-          </span>
-        )}
+        {title &&
+          (loading ? (
+            <Skeleton
+              className={cn(
+                "mx-auto rounded",
+                progressCircularTitleSkeletonDims[size]
+              )}
+              data-slot="progress-circular-title"
+            />
+          ) : (
+            <span
+              className={cn(progressCircularTitleVariants({ size }))}
+              data-slot="progress-circular-title"
+            >
+              {title}
+            </span>
+          ))}
       </div>
     )
   }

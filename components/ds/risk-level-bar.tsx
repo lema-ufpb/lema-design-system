@@ -58,7 +58,7 @@ export const riskLevelLabelVariants = cva(
 )
 
 export const riskLevelValueVariants = cva(
-  "flex items-center justify-center rounded-md font-semibold shadow-sm transition-all duration-200",
+  "flex items-center justify-center rounded-md font-semibold tabular-nums shadow-sm transition-all duration-200",
   {
     variants: {
       size: {
