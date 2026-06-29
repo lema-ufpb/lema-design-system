@@ -1,5 +1,7 @@
 # LEMA-DS — Design System UFPB
 
+> **Instrução para agentes de IA:** Antes de qualquer tarefa neste repositório, carregue obrigatoriamente as skills `design-system` e `shadcn` usando `ToolSkill`. Elas contêm as regras de tokens, CVA, Storybook e shadcn que este projeto segue.
+
 Design system baseado em shadcn/ui · Tailwind CSS v4 · CVA · TypeScript · Storybook.
 Registry público em `registry.json` (schema shadcn). Componentes consumíveis via `npx shadcn@latest add`.
 
