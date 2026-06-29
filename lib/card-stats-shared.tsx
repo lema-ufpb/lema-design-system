@@ -58,6 +58,17 @@ export const cardStatHeaderIconVariants = cva("", {
   defaultVariants: { size: "md" },
 })
 
+export const cardStatTrendIconVariants = cva("shrink-0", {
+  variants: {
+    size: {
+      sm: "size-2.5",
+      md: "size-3",
+      lg: "size-3.5",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
 export const cardStatContentGapVariants = cva("", {
   variants: {
     size: {

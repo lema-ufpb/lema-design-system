@@ -10,7 +10,15 @@ import {
   AttachmentAction,
   AttachmentTrigger,
 } from "./attachment"
-import { FileIcon, XIcon, DownloadIcon, ImageIcon } from "lucide-react"
+import {
+  FileIcon,
+  XIcon,
+  DownloadIcon,
+  ImageIcon,
+  LoaderCircleIcon,
+  AlertCircleIcon,
+} from "lucide-react"
+import { Spinner } from "@/components/ui/spinner"
 
 const meta = {
   title: "Shadcn UI/Attachment",
@@ -118,7 +126,7 @@ export const Vertical: Story = {
   ),
 }
 
-export const Variants: Story = {
+export const AllVariants: Story = {
   parameters: {
     docs: {
       description: {
@@ -140,7 +148,7 @@ export const Variants: Story = {
       </Attachment>
       <Attachment state="uploading">
         <AttachmentMedia>
-          <FileIcon />
+          <LoaderCircleIcon className="animate-spin" />
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>uploading.zip</AttachmentTitle>
@@ -158,7 +166,7 @@ export const Variants: Story = {
       </Attachment>
       <Attachment state="error">
         <AttachmentMedia>
-          <FileIcon />
+          <AlertCircleIcon />
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>failed.zip</AttachmentTitle>
@@ -181,6 +189,137 @@ export const Variants: Story = {
         <AttachmentActions>
           <AttachmentAction aria-label="Remove file">
             <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+    </div>
+  ),
+}
+
+export const AllSizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Comparison of all three size presets — default, sm, and xs — in horizontal orientation.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-4">
+      <Attachment size="default">
+        <AttachmentMedia>
+          <FileIcon />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>document.pdf</AttachmentTitle>
+          <AttachmentDescription>2.4 MB</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Remove">
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+      <Attachment size="sm">
+        <AttachmentMedia>
+          <FileIcon />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>document.pdf</AttachmentTitle>
+          <AttachmentDescription>2.4 MB</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Remove">
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+      <Attachment size="xs">
+        <AttachmentMedia>
+          <FileIcon />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>document.pdf</AttachmentTitle>
+          <AttachmentDescription>2.4 MB</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Remove">
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+    </div>
+  ),
+}
+
+export const Loading: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Uploading and processing states representing active loading feedback with shimmer on title text.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <Attachment state="uploading">
+        <AttachmentMedia>
+          <Spinner />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>uploading.zip</AttachmentTitle>
+          <AttachmentDescription>Uploading… 45%</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Cancel" disabled>
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+      <Attachment state="processing">
+        <AttachmentMedia>
+          <Spinner />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>processing.zip</AttachmentTitle>
+          <AttachmentDescription>Processing…</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Cancel" disabled>
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+    </div>
+  ),
+}
+
+export const Error: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Error state with destructive styling and a retry action button.",
+      },
+    },
+  },
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <Attachment state="error">
+        <AttachmentMedia>
+          <AlertCircleIcon />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>failed_upload.pdf</AttachmentTitle>
+          <AttachmentDescription>
+            Upload failed — network error
+          </AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Retry">
+            <DownloadIcon />
           </AttachmentAction>
         </AttachmentActions>
       </Attachment>
