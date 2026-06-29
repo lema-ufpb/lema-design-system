@@ -6,8 +6,10 @@ import {
   AlertCircleIcon,
   CheckCircle2Icon,
   InfoIcon,
-  LoaderCircleIcon,
+  Maximize2,
+  Minimize2,
   TriangleAlertIcon,
+  XIcon,
 } from "lucide-react"
 import {
   Dialog,
@@ -20,7 +22,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Spinner } from "@/components/ui/spinner"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 
@@ -74,6 +78,10 @@ export interface ModalProps {
   /** Shows skeleton placeholders instead of children */
   loading?: boolean
   showCloseButton?: boolean
+  /** When true, shows a button to expand modal to full screen */
+  maximize?: boolean
+  /** Callback fired when the maximize state changes */
+  onMaximized?: (maximized: boolean) => void
   locale?: UILocale
   /** Applied to the scrollable body wrapper (or directly to content when non-scrollable) */
   className?: string
@@ -114,7 +122,7 @@ export const modalIconWrapperVariants = cva(
 export const modalHeaderVariants = cva("gap-2", {
   variants: {
     scrollable: {
-      true: "shrink-0 border-b border-border px-6 pt-6 pb-4",
+      true: "shrink-0 px-6 pt-6 pb-4",
       false: "",
     },
   },
@@ -134,7 +142,7 @@ export const modalBodyVariants = cva("", {
 export const modalFooterVariants = cva("", {
   variants: {
     scrollable: {
-      true: "shrink-0 border-t border-border px-6 py-4",
+      true: "shrink-0 px-6 py-4",
       false: "",
     },
   },
@@ -214,10 +222,25 @@ export function Modal({
   scrollable = false,
   loading = false,
   showCloseButton = true,
+  maximize = false,
+  onMaximized,
   locale = "en-US",
   className,
 }: ModalProps) {
   const [internalLoading, setInternalLoading] = React.useState(false)
+  const [maximized, setMaximized] = React.useState(false)
+
+  React.useEffect(() => {
+    if (open === false) {
+      const t = setTimeout(() => {
+        setMaximized((prev) => {
+          if (prev) onMaximized?.(false)
+          return false
+        })
+      }, 200)
+      return () => clearTimeout(t)
+    }
+  }, [open, onMaximized])
   const isConfirmLoading = confirmLoading ?? internalLoading
 
   const t = UI_I18N[locale].modal
@@ -247,9 +270,7 @@ export function Modal({
       variant={confirmButtonProps.variant}
       className={confirmButtonProps.className}
     >
-      {isConfirmLoading && (
-        <LoaderCircleIcon data-icon="inline-start" className="animate-spin" />
-      )}
+      {isConfirmLoading && <Spinner data-icon="inline-start" />}
       {confirmLabel ?? t.confirm}
     </Button>
   )
@@ -277,27 +298,58 @@ export function Modal({
   const headerSection = hasHeader && (
     <DialogHeader
       className={cn(
-        modalHeaderVariants({ scrollable }),
-        hasIntent && resolvedIcon && "flex-row items-start"
+        modalHeaderVariants({ scrollable: scrollable || maximized }),
+        (hasIntent && resolvedIcon) || maximize ? "flex-row items-start" : ""
       )}
     >
-      {hasIntent && resolvedIcon && (
-        <div className={modalIconWrapperVariants({ intent })}>
-          {resolvedIcon}
+      <div className="flex min-w-0 flex-1 items-start gap-2">
+        {hasIntent && resolvedIcon && (
+          <div className={cn(modalIconWrapperVariants({ intent }), "shrink-0")}>
+            {resolvedIcon}
+          </div>
+        )}
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+          {title && <DialogTitle className="truncate">{title}</DialogTitle>}
+          {description && <DialogDescription>{description}</DialogDescription>}
+        </div>
+      </div>
+      {maximize && (
+        <div className="flex shrink-0 items-center gap-1">
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            className="bg-secondary"
+            onClick={() => {
+              const next = !maximized
+              setMaximized(next)
+              onMaximized?.(next)
+            }}
+            aria-label={maximized ? "Minimize" : "Maximize"}
+          >
+            {maximized ? (
+              <Minimize2 className="size-3.5" />
+            ) : (
+              <Maximize2 className="size-3.5" />
+            )}
+          </Button>
+          {showCloseButton && (
+            <DialogClose asChild>
+              <Button variant="ghost" size="icon-sm" className="bg-secondary">
+                <XIcon className="size-3.5" />
+                <span className="sr-only">{UI_I18N[locale].dialog.close}</span>
+              </Button>
+            </DialogClose>
+          )}
         </div>
       )}
-      <div className="flex flex-col gap-1.5">
-        {title && <DialogTitle>{title}</DialogTitle>}
-        {description && <DialogDescription>{description}</DialogDescription>}
-      </div>
     </DialogHeader>
   )
 
   const bodySection = (children || loading) && (
     <div
       className={cn(
-        modalBodyVariants({ scrollable }),
-        !scrollable && className
+        modalBodyVariants({ scrollable: scrollable || maximized }),
+        !scrollable && !maximized && className
       )}
     >
       {loading ? (
@@ -313,7 +365,9 @@ export function Modal({
   )
 
   const footerSection = hasFooter && (
-    <DialogFooter className={modalFooterVariants({ scrollable })}>
+    <DialogFooter
+      className={modalFooterVariants({ scrollable: scrollable || maximized })}
+    >
       {footer ?? autoFooter}
     </DialogFooter>
   )
@@ -323,19 +377,30 @@ export function Modal({
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent
         data-slot="modal"
-        showCloseButton={showCloseButton}
+        showCloseButton={showCloseButton && !maximize}
         onEscapeKeyDown={onEscapeKeyDown}
         onPointerDownOutside={onPointerDownOutside}
         onInteractOutside={onInteractOutside}
         {...(!description && { "aria-describedby": undefined })}
         className={cn(
           modalContentVariants({ size }),
-          scrollable && "flex max-h-[85dvh] flex-col gap-0 overflow-hidden p-0",
-          scrollable && className
+          scrollable || maximized
+            ? "flex max-h-[85dvh] flex-col gap-0 overflow-hidden p-0"
+            : "",
+          (scrollable || maximized) && className,
+          maximized && [
+            "fixed! inset-0! top-0! left-0! z-50!",
+            "h-dvh! max-h-none! w-full! max-w-none! sm:max-w-none!",
+            "translate-x-0! translate-y-0!",
+            "gap-0! rounded-none! p-0!",
+            "flex! flex-col! overflow-hidden!",
+          ]
         )}
       >
         {headerSection}
+        {scrollable || maximized ? <Separator /> : null}
         {bodySection}
+        {(scrollable || maximized) && hasFooter && <Separator />}
         {footerSection}
       </DialogContent>
     </Dialog>
