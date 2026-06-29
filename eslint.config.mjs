@@ -19,7 +19,15 @@ const eslintConfig = defineConfig([
     "public/mockServiceWorker.js",
     "storybook-static/**",
   ]),
-  ...storybook.configs["flat/recommended"]
+  ...storybook.configs["flat/recommended"],
+  // components/ui/ are shadcn primitives — updated only via CLI, not manually.
+  // Disable rules that flag patterns inherent to the generated code.
+  {
+    files: ["components/ui/**"],
+    rules: {
+      "react-hooks/set-state-in-effect": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
