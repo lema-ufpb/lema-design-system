@@ -57,10 +57,10 @@ export const progressCircularWrapperVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-[80px] w-[80px]",
-        md: "h-[120px] w-[120px]",
-        lg: "h-[160px] w-[160px]",
-        xl: "h-[200px] w-[200px]",
+        sm: "size-20",
+        md: "size-30",
+        lg: "size-40",
+        xl: "size-50",
       },
     },
     defaultVariants: { size: "md" },
@@ -78,10 +78,10 @@ export const progressCircularCenterTextVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-[40px] w-[40px]",
-        md: "h-[60px] w-[60px]",
-        lg: "h-[80px] w-[80px]",
-        xl: "h-[100px] w-[100px]",
+        sm: "size-10",
+        md: "size-15",
+        lg: "size-20",
+        xl: "size-25",
       },
     },
     defaultVariants: { size: "md" },

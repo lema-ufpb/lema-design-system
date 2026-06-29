@@ -261,7 +261,10 @@ export function CardStatSparkline({
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={cardStatHeaderIconVariants({ size })} />
+            <Icon
+              className={cardStatHeaderIconVariants({ size })}
+              aria-hidden
+            />
           </CardAction>
         )}
       </CardHeader>
