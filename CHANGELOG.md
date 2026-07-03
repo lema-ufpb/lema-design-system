@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.6.0](https://github.com/lema-ufpb/design-system/compare/v1.5.1...v1.6.0) (2026-07-03)
+
+
+### ✨ Features
+
+* **ui:** add chat primitives — Attachment, Bubble, Marker, Message, MessageScroller ([e759df5](https://github.com/lema-ufpb/design-system/commit/e759df51739ca47e594911c4b135e8524b31fb0f)), closes [#56](https://github.com/lema-ufpb/design-system/issues/56)
+
+
+### 🐛 Bug Fixes
+
+* **ds:** remove raw Tailwind colors, arbitrary radius/icon overrides and manual dark: variants ([675cd2d](https://github.com/lema-ufpb/design-system/commit/675cd2deca5072799adb72ab24fcbc20872c25a7))
+* **ds:** resolve audit issues — group names, a11y, arbitrary values, z-index ([1c1a05a](https://github.com/lema-ufpb/design-system/commit/1c1a05a268170ba3c3cde2855f32a2140f430670)), closes [#56](https://github.com/lema-ufpb/design-system/issues/56)
+* **theme:** add missing size-15/25/30/50 tokens to globals.css ([ea70f6d](https://github.com/lema-ufpb/design-system/commit/ea70f6d6b594c5bfc550d2849313a0e9cae5858f))
+
+
+### ♻️ Refactor
+
+* **ds:** modal, progress-circular, card-stats, and component polish ([30b76d2](https://github.com/lema-ufpb/design-system/commit/30b76d2e5d9fee9d7644cae698d212d22215d50b)), closes [#56](https://github.com/lema-ufpb/design-system/issues/56)
+* **ds:** use semantic CSS variables for candlestick colors ([6b3c2f4](https://github.com/lema-ufpb/design-system/commit/6b3c2f4630e46dc599a44b9a33054935fed5f55c)), closes [#56](https://github.com/lema-ufpb/design-system/issues/56)
+
 ## [1.5.1](https://github.com/lema-ufpb/design-system/compare/v1.5.0...v1.5.1) (2026-06-24)
 
 
