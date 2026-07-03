@@ -5,6 +5,7 @@ import { cva } from "class-variance-authority"
 import { TrendingUpIcon, TrendingDownIcon, MinusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
 import { type FormatPreset, applyFormat } from "@/lib/card-stats-shared"
 
@@ -232,17 +233,15 @@ const MiniCardCtx = React.createContext<{ size: MiniCardSize; locale: string }>(
 export function MiniCardSeparator({
   height = "tall",
   className,
-}: MiniCardSeparatorProps) {
+}: {
+  height?: "tall" | "short"
+  className?: string
+}) {
   return (
-    <div
-      role="separator"
-      aria-orientation="vertical"
+    <Separator
+      orientation="vertical"
       data-slot="mini-card-separator"
-      className={cn(
-        "w-px shrink-0 self-stretch bg-border",
-        height === "short" && "my-1.5",
-        className
-      )}
+      className={cn(height === "short" && "my-1.5", className)}
     />
   )
 }

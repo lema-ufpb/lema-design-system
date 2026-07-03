@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -201,13 +202,16 @@ export function CardStatGauge({
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={cardStatHeaderIconVariants({ size })} />
+              <Icon
+                className={cardStatHeaderIconVariants({ size })}
+                aria-hidden
+              />
             </CardAction>
           )}
         </CardHeader>
         <CardContent
           className="flex flex-col items-center gap-1 pb-3"
-          data-slot="card-stat-gauge-empty"
+          data-slot="card-stat-gauge"
         >
           <div
             className={cn("w-full", cardStatGaugeMaxWVariants({ size }))}
@@ -223,15 +227,16 @@ export function CardStatGauge({
           >
             —
           </p>
-          <span
+          <Badge
+            variant="outline"
             className={cn(
-              "rounded-full bg-muted/50 font-semibold text-muted-foreground/40",
+              "text-muted-foreground/60",
               cardStatBadgePaddingVariants({ size }),
               cardStatDescriptionVariants({ size })
             )}
           >
             No reading
-          </span>
+          </Badge>
           {description && (
             <p
               className={cn(
@@ -285,6 +290,7 @@ export function CardStatGauge({
             cardStatDescriptionVariants({ size })
           )}
           style={{ backgroundColor: activeZone.color }}
+          aria-hidden
         >
           {activeZone.label}
         </span>

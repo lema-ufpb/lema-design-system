@@ -14,6 +14,7 @@ import {
   resolveTrend,
   TrendBadge,
   cardStatDescriptionVariants,
+  cardStatLabelVariants,
 } from "@/lib/card-stats-shared"
 
 // ── Types ──
@@ -138,7 +139,7 @@ export function CardStatCompact({
             <p
               className={cn(
                 "truncate font-medium text-muted-foreground",
-                cardStatDescriptionVariants({ size })
+                cardStatLabelVariants({ size })
               )}
             >
               {label}
@@ -199,7 +200,7 @@ export function CardStatCompact({
           <p
             className={cn(
               "truncate font-medium text-muted-foreground",
-              cardStatDescriptionVariants({ size })
+              cardStatLabelVariants({ size })
             )}
           >
             {label}

@@ -14,6 +14,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Separator } from "@/components/ui/separator"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -69,7 +70,6 @@ export const dashboxVariants = cva(
 
 export const dashboxHeaderVariants = cva([
   "flex items-start justify-between gap-3 px-4 py-3",
-  "border-b border-border",
   "shrink-0 bg-card",
 ])
 
@@ -251,7 +251,7 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
           data-slot="dashbox"
           className={cn(
             dashboxVariants({ size }),
-            maximized && "fixed! inset-0 z-9999 rounded-none",
+            maximized && "fixed! inset-0 z-50 rounded-none",
             className
           )}
           {...props}
@@ -382,6 +382,8 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
               )}
             </div>
           )}
+
+          {showHeader && <Separator />}
 
           {!minimized && (
             <div

@@ -155,7 +155,7 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
                 <ul
                   className={cn(
                     footerContentVariants(),
-                    "space-y-2 px-4 pt-4 pb-6"
+                    "flex flex-col gap-2 px-4 pt-4 pb-6"
                   )}
                 >
                   {group.options.map((option: FooterOptionData, j: number) => (
@@ -193,7 +193,9 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
               >
                 {group.title}
               </h4>
-              <ul className={cn(footerContentVariants(), "space-y-2")}>
+              <ul
+                className={cn(footerContentVariants(), "flex flex-col gap-2")}
+              >
                 {group.options.map((option: FooterOptionData, j: number) => (
                   <li key={j}>
                     <Link

@@ -92,17 +92,16 @@ const dsTabsTriggerVariants = cva(
     "focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring",
     "disabled:pointer-events-none disabled:opacity-50",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-    "group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start",
+    "group-data-[orientation=vertical]/tabs-list:w-full group-data-[orientation=vertical]/tabs-list:justify-start",
     "data-active:text-foreground",
   ],
   {
     variants: {
       variant: {
         default: [
-          "rounded-full border border-transparent!",
+          "rounded-full border border-transparent",
           "text-foreground/60 hover:text-foreground",
           "data-active:bg-background data-active:text-foreground data-active:shadow-xs",
-          "dark:data-active:border-input dark:data-active:bg-input/30",
         ],
         line: [
           "rounded-none bg-transparent",
@@ -110,8 +109,8 @@ const dsTabsTriggerVariants = cva(
           "data-active:bg-transparent data-active:text-foreground",
           // Underline indicator
           "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity",
-          "group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5",
-          "group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5",
+          "group-data-[orientation=horizontal]/tabs-list:after:inset-x-0 group-data-[orientation=horizontal]/tabs-list:after:-bottom-1 group-data-[orientation=horizontal]/tabs-list:after:h-0.5",
+          "group-data-[orientation=vertical]/tabs-list:after:inset-y-0 group-data-[orientation=vertical]/tabs-list:after:-right-1 group-data-[orientation=vertical]/tabs-list:after:w-0.5",
           "data-active:after:opacity-100",
         ],
         pill: [
@@ -305,7 +304,7 @@ export function Tabs({
       onValueChange={handleValueChange}
       orientation={orientation}
       activationMode={activationMode}
-      className={className}
+      className={cn(orientation === "horizontal" && "flex-col", className)}
     >
       <TabsPrimitive.List
         data-slot="ds-tabs-list"

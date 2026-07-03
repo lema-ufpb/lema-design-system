@@ -58,7 +58,7 @@ export const riskLevelLabelVariants = cva(
 )
 
 export const riskLevelValueVariants = cva(
-  "flex items-center justify-center rounded-md font-semibold shadow-sm transition-all duration-200",
+  "flex items-center justify-center rounded-md font-semibold tabular-nums shadow-sm transition-all duration-200",
   {
     variants: {
       size: {
@@ -104,8 +104,8 @@ export const riskLevelSegmentVariants = cva(
 )
 
 export const riskLevelMarkerVariants = cva([
-  "absolute top-[-10px] h-0 w-0 border-l-[8px] border-l-transparent",
-  "border-t-[12px] border-r-[8px] border-t-foreground border-r-transparent",
+  "absolute -top-2.5 h-0 w-0 border-l-8 border-l-transparent",
+  "border-t-[12px] border-r-8 border-t-foreground border-r-transparent",
   "group z-[3] -translate-x-1/2 cursor-pointer transition-[left] duration-300 ease-in-out",
 ])
 

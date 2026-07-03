@@ -23,7 +23,7 @@ export interface CounterProps
   loading?: boolean
   disabled?: boolean
   label?: string
-  maxWidth?: React.CSSProperties["maxWidth"]
+  maxWidth?: string | number
   onChange?: (value: number) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void

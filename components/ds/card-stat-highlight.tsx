@@ -83,7 +83,7 @@ export type CardStatHighlightVariant =
   | "white"
 
 export const cardStatHighlightVariants = cva(
-  "relative overflow-hidden shadow-lg ring-0 dark:shadow-none",
+  "relative overflow-hidden shadow-lg ring-0",
   {
     variants: {
       variant: {
@@ -228,7 +228,10 @@ export function CardStatHighlight({
                   overlayBg
                 )}
               >
-                <Icon className={cardStatHighlightIconVariants({ size })} />
+                <Icon
+                  className={cardStatHighlightIconVariants({ size })}
+                  aria-hidden
+                />
               </div>
             </CardAction>
           )}
@@ -239,6 +242,7 @@ export function CardStatHighlight({
             message="No spotlight yet"
             sub="Your headline KPI will appear here"
             inverted={!isWhiteVariant}
+            size={size}
           />
         </CardContent>
       </Card>
@@ -271,7 +275,10 @@ export function CardStatHighlight({
                 overlayBg
               )}
             >
-              <Icon className={cardStatHighlightIconVariants({ size })} />
+              <Icon
+                className={cardStatHighlightIconVariants({ size })}
+                aria-hidden
+              />
             </div>
           </CardAction>
         )}

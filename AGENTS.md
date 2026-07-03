@@ -1,5 +1,7 @@
 # LEMA-DS — Design System UFPB
 
+> **Instrução para agentes de IA:** Antes de qualquer tarefa neste repositório, carregue obrigatoriamente as skills `design-system` e `shadcn` usando `ToolSkill`. Elas contêm as regras de tokens, CVA, Storybook e shadcn que este projeto segue.
+
 Design system baseado em shadcn/ui · Tailwind CSS v4 · CVA · TypeScript · Storybook.
 Registry público em `registry.json` (schema shadcn). Componentes consumíveis via `npx shadcn@latest add`.
 
@@ -29,12 +31,19 @@ docs/templates/      → templates spec-first para novos componentes
 
 ## Regras críticas — sempre aplicar
 
-### Componentes shadcn (components/ui/)
-Os arquivos em `components/ui/` são **primitivos shadcn** — seu código-fonte **não pode ser alterado** neste projeto. Qualquer modificação manual será perdida na próxima atualização via CLI. A atualização deve ser feita exclusivamente com:
+### Componentes shadcn (components/ui/) — NÃO ALTERAR
+
+Todo componente em `components/ui/` é gerenciado **exclusivamente** pelo CLI externo:
+
 ```bash
 npx shadcn@latest add <component> --yes
 ```
-Isso inclui correções de tipos, ajustes de estilo, renomeação de props ou qualquer outra alteração no código dos primitivos.
+
+Seu código-fonte **NÃO DEVE SER ALTERADO**. Se por qualquer motivo for alterado, reinstale o primitivo com `npx shadcn@latest add <component> --yes` para restaurar a versão oficial. Isso inclui correções de tipos, ajustes de estilo, renomeação de props ou qualquer outra modificação manual.
+
+### Stories obrigatórios
+
+Cada componente em `components/ui/` e `components/ds/` **DEVE** ter seu arquivo de stories correspondente (`.stories.tsx` co-localizado no mesmo diretório). A falta de stories quebra a documentação do Storybook e o `make lint`.
 
 ### Tipografia (scale para sm/md/lg)
 ```
@@ -50,6 +59,33 @@ valor/num:   sm → text-xs font-semibold  md → text-sm font-semibold  lg → 
 - Risco → `bg-risk-1` (maior) … `bg-risk-4` (menor)
 - Fundo neutro / track → `bg-muted`
 - Labels → `text-muted-foreground` · Valores → `text-foreground`
+- Trend/delta: `text-success` (up) · `text-destructive` (down)
+- Highlight fill: `bg-highlight-violet` / `bg-highlight-sky` / `bg-highlight-white`
+- Charts: `--chart-1` a `--chart-5`, nunca hex hardcoded
+
+### Escala de tamanhos (sm/md/lg)
+Para componentes com variante de tamanho, sempre usar esta tabela:
+
+| Slot       | sm          | md          | lg           |
+|------------|-------------|-------------|--------------|
+| Icon       | `size-3.5`  | `size-4`    | `size-5`     |
+| Track/bar  | `h-2`       | `h-3`       | `h-4`        |
+| Row height | `h-7`       | `h-8`       | `h-9`        |
+
+### Icon sizing
+Nunca dimensionar ícones independentemente do container. Usar `size-*` (e nunca `w-* h-*`) quando isolados:
+- Inline sm: `size-3.5` · Inline base: `size-4` · Card header: `size-5` · Page heading: `size-6`
+
+### Border radius (sempre usar tokens do design system)
+`rounded-sm` (0.6× radius), `rounded-md` (0.8×), `rounded-lg` (radius), `rounded-xl` (1.4×), `rounded-2xl` (1.8×), `rounded-3xl` (2.2×), `rounded-4xl` (2.6×), `rounded-full` (apenas circulares/pills)
+
+### Interactive element heights
+`xs: h-6` · `sm: h-8` · `md: h-9` · `lg: h-10` · `xl: h-12`
+
+### Data Display
+- Tabelas: row height `h-10` (standard) / `h-8` (compact); células numéricas com `tabular-nums`
+- Progresso: track `bg-muted`, fill `bg-primary` (ou `bg-success`/`bg-destructive`)
+- Charts: usar `--chart-1..5`, sempre com `Chart` wrapper do shadcn
 
 ### Padrão CVA single-file (components/ds/)
 ```tsx

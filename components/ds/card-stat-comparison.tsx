@@ -94,7 +94,10 @@ export function CardStatComparison({
           </span>
           {Icon && (
             <CardAction className="text-muted-foreground">
-              <Icon className={cardStatHeaderIconVariants({ size })} />
+              <Icon
+                className={cardStatHeaderIconVariants({ size })}
+                aria-hidden
+              />
             </CardAction>
           )}
         </CardHeader>
@@ -179,12 +182,16 @@ export function CardStatComparison({
         </span>
         {Icon && (
           <CardAction className="text-muted-foreground">
-            <Icon className={cardStatHeaderIconVariants({ size })} />
+            <Icon
+              className={cardStatHeaderIconVariants({ size })}
+              aria-hidden
+            />
           </CardAction>
         )}
       </CardHeader>
       <CardContent
         className={cn("flex flex-col", cardStatContentGapVariants({ size }))}
+        data-slot="card-stat-comparison"
       >
         <div className="grid grid-cols-2">
           <div className="flex flex-col gap-0.5 pr-4">
