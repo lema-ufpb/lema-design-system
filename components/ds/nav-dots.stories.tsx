@@ -12,10 +12,10 @@ const sections = [
 ]
 
 const SECTION_COLORS = [
-  "bg-blue-50 dark:bg-blue-950",
-  "bg-emerald-50 dark:bg-emerald-950",
-  "bg-amber-50 dark:bg-amber-950",
-  "bg-purple-50 dark:bg-purple-950",
+  "bg-highlight-sky/10",
+  "bg-success/10",
+  "bg-warning/10",
+  "bg-highlight-violet/10",
 ]
 
 // ── Scrollable section renderer ────────────────────────────────────────────

@@ -205,19 +205,16 @@ export const WithIcons: Story = {
   },
   render: () => (
     <div className="flex flex-wrap items-center gap-4">
-      <Button startIcon={<Mail className="size-4" />}>Email</Button>
-      <Button endIcon={<ChevronRight className="size-4" />}>Next</Button>
-      <Button startIcon={<Download className="size-4" />} variant="secondary">
+      <Button startIcon={<Mail />}>Email</Button>
+      <Button endIcon={<ChevronRight />}>Next</Button>
+      <Button startIcon={<Download />} variant="secondary">
         Download
       </Button>
-      <Button
-        startIcon={<UserPlus className="size-4" />}
-        endIcon={<ChevronRight className="size-4" />}
-      >
+      <Button startIcon={<UserPlus />} endIcon={<ChevronRight />}>
         Invite
       </Button>
       <Button
-        startIcon={<Send className="size-4" />}
+        startIcon={<Send />}
         variant="outline"
         loading
         loadingText="Sending…"
@@ -309,7 +306,7 @@ export const ConfirmMode: Story = {
       <Button
         {...args}
         confirm={{ text: "Click again to confirm", duration: 4000 }}
-        startIcon={<Trash2 className="size-4" />}
+        startIcon={<Trash2 />}
         onClick={() => {
           setDeleted(true)
         }}
@@ -337,7 +334,7 @@ export const ConfirmModeControlled: Story = {
   args: {
     children: "Delete record",
     variant: "destructive",
-    startIcon: <Trash2 className="size-4" />,
+    startIcon: <Trash2 />,
     confirm: { text: "Sure?", duration: 5000 },
   },
 }
@@ -387,10 +384,7 @@ export const Tooltip: Story = {
   },
   render: () => (
     <div className="flex flex-wrap items-center gap-6">
-      <Button
-        tooltip="Simple tooltip"
-        startIcon={<Download className="size-4" />}
-      >
+      <Button tooltip="Simple tooltip" startIcon={<Download />}>
         Download
       </Button>
       <Button
@@ -408,7 +402,7 @@ export const Tooltip: Story = {
       </Button>
       <Button
         tooltip={{ text: "Send email", side: "left" }}
-        startIcon={<Mail className="size-4" />}
+        startIcon={<Mail />}
         variant="outline"
       >
         Email
@@ -432,7 +426,7 @@ export const KitchenSink: Story = {
     size: "lg",
     fullWidth: false,
     rounded: "md",
-    startIcon: <Send className="size-4" />,
+    startIcon: <Send />,
     tooltip: "Deploy to production",
     loading: false,
   },

@@ -99,10 +99,9 @@ const dsTabsTriggerVariants = cva(
     variants: {
       variant: {
         default: [
-          "rounded-full border border-transparent!",
+          "rounded-full border border-transparent",
           "text-foreground/60 hover:text-foreground",
           "data-active:bg-background data-active:text-foreground data-active:shadow-xs",
-          "dark:data-active:border-input dark:data-active:bg-input/30",
         ],
         line: [
           "rounded-none bg-transparent",

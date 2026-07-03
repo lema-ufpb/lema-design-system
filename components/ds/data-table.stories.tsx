@@ -541,10 +541,10 @@ const RICH_COLUMNS: ColumnDef<Student>[] = [
         <span
           className={
             v >= 8.5
-              ? "font-semibold text-emerald-600 dark:text-emerald-400"
+              ? "font-semibold text-success"
               : v >= 7
                 ? "font-medium"
-                : "font-medium text-amber-600 dark:text-amber-400"
+                : "font-medium text-warning"
           }
         >
           {v.toFixed(1)}

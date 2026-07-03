@@ -22,9 +22,9 @@ export const badgeVariants = cva("flex-nowrap whitespace-nowrap", {
       warning: "bg-warning text-warning-foreground [a]:hover:bg-warning/80",
     },
     size: {
-      sm: "h-4 px-1.5 text-[10px] [&>svg]:size-2.5!",
-      md: "h-5 px-2 text-xs font-medium [&>svg]:size-3!",
-      lg: "h-6 px-2.5 text-sm font-medium [&>svg]:size-3.5!",
+      sm: "h-4 px-1.5 text-[10px] [&>svg]:size-2.5",
+      md: "h-5 px-2 text-xs font-medium [&>svg]:size-3",
+      lg: "h-6 px-2.5 text-sm font-medium [&>svg]:size-3.5",
     },
   },
   defaultVariants: { variant: "default", size: "md" },
@@ -175,7 +175,7 @@ function Badge({
             e.stopPropagation()
             onRemove?.()
           }}
-          className="ml-0.5 inline-flex items-center justify-center rounded-full transition-colors hover:bg-black/10 dark:hover:bg-white/10"
+          className="ml-0.5 inline-flex items-center justify-center rounded-full transition-colors hover:bg-accent"
         >
           <XIcon
             className={cn(
