@@ -59,7 +59,7 @@ export interface SelectProps extends VariantProps<typeof triggerVariants> {
 // ── Variants ──
 
 export const triggerVariants = cva(
-  "flex w-full items-center justify-between rounded-3xl border border-transparent bg-input/50 px-3 text-left font-medium transition-[color,box-shadow,background-color] outline-none hover:bg-input/80 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-placeholder:text-muted-foreground",
+  "flex w-full items-center justify-between rounded-xl border border-transparent bg-input/50 px-3 text-left font-medium transition-[color,box-shadow,background-color] outline-none hover:bg-input/80 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-placeholder:text-muted-foreground",
   {
     variants: {
       size: {
@@ -159,7 +159,7 @@ function Select({
         {label && <Skeleton className="h-4 w-20 rounded-md" />}
         <Skeleton
           className={cn(
-            "w-full rounded-3xl",
+            "w-full rounded-xl",
             size === "sm" ? "h-8" : size === "lg" ? "h-10" : "h-9"
           )}
         />

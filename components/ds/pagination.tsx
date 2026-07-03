@@ -18,7 +18,7 @@ import {
 const paginationLinkVariants = cva("", {
   variants: {
     rounded: {
-      full: "rounded-4xl",
+      full: "rounded-xl",
       light: "rounded-lg",
       none: "rounded-none",
     },

@@ -40,14 +40,14 @@ export const inputWrapperVariants = cva(
       rounded: {
         none: "rounded-none",
         light: "rounded-lg",
-        full: "rounded-3xl",
+        full: "rounded-full",
       },
       bordered: {
         true: "border bg-input/50 focus-within:border-ring has-[aria-invalid=true]:border-destructive",
         false: "bg-input/50",
       },
     },
-    defaultVariants: { size: "md", rounded: "full", bordered: true },
+    defaultVariants: { size: "md", rounded: "light", bordered: true },
   }
 )
 

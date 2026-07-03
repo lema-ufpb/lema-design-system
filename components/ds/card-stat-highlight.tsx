@@ -83,7 +83,7 @@ export type CardStatHighlightVariant =
   | "white"
 
 export const cardStatHighlightVariants = cva(
-  "relative overflow-hidden shadow-lg ring-0 dark:shadow-none",
+  "relative overflow-hidden shadow-lg ring-0",
   {
     variants: {
       variant: {

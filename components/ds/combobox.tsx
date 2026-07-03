@@ -49,7 +49,7 @@ export const comboboxTriggerVariants = cva(
 )
 
 const CONTENT_ROUNDED: Record<string, string> = {
-  full: "rounded-3xl",
+  full: "rounded-xl",
   md: "rounded-xl",
   none: "rounded-none",
 }
