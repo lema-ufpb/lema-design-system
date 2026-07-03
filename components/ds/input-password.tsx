@@ -22,14 +22,14 @@ const sizeConfig: Record<
 }
 
 const radiusConfig: Record<Radius, string> = {
-  pill: "rounded-3xl",
+  pill: "rounded-full",
   rounded: "rounded-lg",
   square: "rounded-none",
 }
 
 const variantConfig: Record<Variant, string> = {
   default: "",
-  white: "bg-white border-border dark:bg-input/50",
+  white: "bg-white border-border",
 }
 
 interface PasswordInputProps extends Omit<

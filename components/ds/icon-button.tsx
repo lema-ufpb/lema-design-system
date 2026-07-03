@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Loader2 } from "lucide-react"
+import { Spinner } from "@/components/ui/spinner"
 import { type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
@@ -76,7 +76,7 @@ export function IconButton({
       className={cn(roundedClass[rounded], loading && "cursor-wait", className)}
       {...props}
     >
-      {loading ? <Loader2 className="animate-spin" /> : icon}
+      {loading ? <Spinner /> : icon}
     </Button>
   )
 

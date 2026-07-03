@@ -2238,6 +2238,97 @@
           "target": "components/ds/tabs.tsx"
         }
       ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "title": "Attachment",
+      "description": "A file attachment component with support for media preview, title, description, actions, trigger overlay, and group layout. Composed of AttachmentGroup, AttachmentMedia, AttachmentContent, AttachmentTitle, AttachmentDescription, AttachmentActions, AttachmentAction, and AttachmentTrigger sub-components.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/attachment.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/attachment.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "A chat bubble component with support for sent/received variants, tail indicators, and group layout. Composed of BubbleGroup sub-component.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/bubble.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bubble.tsx"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "Marker",
+      "description": "A status and pin marker indicator for chat and list items with support for variant, pin, and side-by-side layout.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/marker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/marker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "A chat message component with support for align (start/end), avatar, content, header, and footer slots. Composed of MessageGroup, MessageAvatar, MessageContent, MessageHeader, and MessageFooter sub-components.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/message.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/message.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "title": "Message Scroller",
+      "description": "An auto-scrolling container for chat message lists with scroll-to-end/start buttons, visibility detection, and virtualized content support. Composed of MessageScrollerProvider, MessageScrollerViewport, MessageScrollerContent, MessageScrollerItem, and MessageScrollerButton sub-components.",
+      "dependencies": [
+        "lucide-react",
+        "@shadcn/react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/message-scroller.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/message-scroller.tsx"
+        }
+      ]
     }
   ]
 }

@@ -77,6 +77,7 @@ const meta = {
           "| `scrollable` | `boolean` | `false` | Enables scrollable body with sticky header/footer |",
           "| `loading` | `boolean` | `false` | Shows skeleton placeholders |",
           "| `showCloseButton` | `boolean` | `true` | Shows or hides the X close button |",
+          "| `maximize` | `boolean` | `false` | Shows expand/fullscreen toggle beside the close button |",
           '| `locale` | `UILocale` | `"en-US"` | Locale for button labels |',
         ].join("\n"),
       },
@@ -104,6 +105,10 @@ const meta = {
     showCloseButton: {
       control: "boolean",
       table: { defaultValue: { summary: "true" } },
+    },
+    maximize: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
     },
     closeOnConfirm: {
       control: "boolean",
@@ -549,6 +554,54 @@ export const NoCloseButton: Story = {
       description: {
         story:
           "Hide the X button via `showCloseButton={false}` to force the user to pick an action.",
+      },
+    },
+  },
+}
+
+// ── Maximize ──
+
+export const Maximize: Story = {
+  name: "Maximize — Fullscreen Toggle",
+  render: () => (
+    <Modal
+      size="lg"
+      maximize
+      title="Report Viewer"
+      description="Toggle the expand button to view in fullscreen."
+      trigger={<Button>Open Report</Button>}
+      onConfirm={() => {}}
+      closeOnConfirm
+    >
+      <div className="flex flex-col gap-4">
+        {Array.from({ length: 2 }).map((_, i) => (
+          <div
+            key={i}
+            className="rounded-lg border border-border bg-muted/30 p-4"
+          >
+            <p className="text-sm font-medium text-foreground">
+              Section {i + 1}
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        ))}
+      </div>
+    </Modal>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "Shows an **expand** button (`Maximize2` icon) beside the close button.",
+          "Click toggles to fullscreen (`h-dvh w-full`), replacing the icon with `Minimize2`.",
+          "Click again or close the modal to return to the original size.",
+          "",
+          "**Note:** `maximize` auto-suppresses DialogContent's built-in close button",
+          "to avoid duplicates — both close and maximize are rendered inside the header.",
+        ].join("\n"),
       },
     },
   },
