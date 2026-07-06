@@ -505,9 +505,9 @@ function DataTableEmpty({
   description?: string
 }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 py-16">
-      <div className="flex size-12 items-center justify-center rounded-full bg-muted">
-        <Table2 className="size-6 text-muted-foreground" />
+    <div className="flex flex-col items-center justify-center gap-4 py-16">
+      <div className="flex size-14 items-center justify-center rounded-2xl border border-dashed border-border bg-muted/50">
+        <Table2 className="size-7 text-muted-foreground" />
       </div>
       <div className="text-center">
         <p className="text-sm font-medium text-foreground">{message}</p>

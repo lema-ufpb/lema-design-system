@@ -120,7 +120,7 @@ Usa `SIZE_PRESETS`:
 | `loading={true}` com `data.length === 0` | `<DataTableSkeleton>` com Skeleton simulando header, toolbar, rows, pagination, footer |
 | `loading={true}` com `data.length > 0` | Refetch progress bar (shimmer) no topo + `opacity-50 pointer-events-none` nas linhas |
 | Busca global | Usa `<SearchBar>` integrado com suporte a voz (`voiceSearch`) e locale; filtro global via TanStack Table |
-| `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2 e mensagem "No data found" |
+| `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2, container `rounded-2xl border-dashed border-border` com `bg-muted/50`, mensagem "No data found" |
 | Paginação | `PaginationBar` com page range, ellipsis, previous/next, page size selector |
 | Paginação — arredondamento | `paginationRounded` prop (`"full"` → pill, `"light"` → `rounded-lg`, `"none"` → square) aplicada via CVA a `PaginationLink`, `PaginationPrevious`, `PaginationNext` |
 | Seleção | Checkbox `accent-primary` no header (select all) e cada linha |

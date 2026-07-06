@@ -46,6 +46,7 @@ Nenhuma — usa apenas as variantes compartilhadas de `card-stats-shared.tsx`:
 | `loading` | Skeletons para label, headerIcon, value, description |
 | `empty` | Label atenuado, "—" no valor, "Nothing to measure yet" |
 | Normal | Label + valor formatado + ícone. Trend icon renderizado apenas dentro do bloco `description` — se `description` for omitido, trend não aparece mesmo com `trend` definido |
+| hover | Default: `hover:-translate-y-0.5 hover:shadow-lg`. Muted: `hover:bg-accent`. Flat: `hover:bg-muted/50`. Todos com `transition-all duration-200`. |
 
 ## Stories
 
