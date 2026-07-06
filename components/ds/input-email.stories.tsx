@@ -186,6 +186,7 @@ export const Disabled: Story = {
 export const WithValue: Story = {
   args: {
     defaultValue: "support@lema.ufpb.br",
+    "aria-label": "Email address",
   },
   parameters: {
     docs: {

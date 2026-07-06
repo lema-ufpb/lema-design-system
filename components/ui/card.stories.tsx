@@ -132,7 +132,7 @@ export const WithAction: Story = {
           <CardTitle>Project Settings</CardTitle>
           <CardDescription>Manage your workspace preferences.</CardDescription>
           <CardAction>
-            <Button size="icon-sm" variant="ghost">
+            <Button size="icon-sm" variant="ghost" aria-label="More options">
               <MoreHorizontal className="size-4" />
             </Button>
           </CardAction>

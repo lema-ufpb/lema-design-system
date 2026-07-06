@@ -495,7 +495,7 @@ export const WithFooter: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <Award className="size-3.5 text-amber-500" />
+          <Award className="size-3.5 text-warning" />
           <span>Top score: English (91)</span>
         </span>
         <span className="flex items-center gap-1.5 text-muted-foreground/70">

@@ -654,7 +654,7 @@ export const WithFooter: Story = {
           Absence climbs from Feb to Jun across all subjects
         </span>
         <span className="flex items-center gap-1.5 text-muted-foreground/70">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           Portuguese best-performing — under 13%
         </span>
       </div>

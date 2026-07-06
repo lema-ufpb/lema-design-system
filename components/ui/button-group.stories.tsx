@@ -97,23 +97,23 @@ export const WithSeparator: Story = {
   },
   render: () => (
     <ButtonGroup>
-      <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm" aria-label="Align left">
         <AlignLeftIcon />
       </Button>
-      <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm" aria-label="Align center">
         <AlignCenterIcon />
       </Button>
-      <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm" aria-label="Align right">
         <AlignRightIcon />
       </Button>
       <ButtonGroupSeparator />
-      <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm" aria-label="Bold">
         <BoldIcon />
       </Button>
-      <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm" aria-label="Italic">
         <ItalicIcon />
       </Button>
-      <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm" aria-label="Underline">
         <UnderlineIcon />
       </Button>
     </ButtonGroup>
@@ -132,13 +132,13 @@ export const Vertical: Story = {
   render: () => (
     <div className="flex justify-center">
       <ButtonGroup orientation="vertical">
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" aria-label="Search">
           <SearchIcon />
         </Button>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" aria-label="Settings">
           <SettingsIcon />
         </Button>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" aria-label="User">
           <UserIcon />
         </Button>
       </ButtonGroup>
@@ -176,13 +176,13 @@ export const IconOnly: Story = {
   },
   render: () => (
     <ButtonGroup>
-      <Button variant="outline" size="icon-sm">
+      <Button variant="outline" size="icon-sm" aria-label="Bold">
         <BoldIcon />
       </Button>
-      <Button variant="outline" size="icon-sm">
+      <Button variant="outline" size="icon-sm" aria-label="Italic">
         <ItalicIcon />
       </Button>
-      <Button variant="outline" size="icon-sm">
+      <Button variant="outline" size="icon-sm" aria-label="Underline">
         <UnderlineIcon />
       </Button>
     </ButtonGroup>

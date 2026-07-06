@@ -428,7 +428,7 @@ export const WithFooter: Story = {
           </span>
         </div>
         <span className="flex items-center gap-1.5 text-muted-foreground/70">
-          <TrendingUp className="size-3 text-emerald-500" />
+          <TrendingUp className="size-3 text-success" />
           +4.2% vs. 2024.2
         </span>
       </div>

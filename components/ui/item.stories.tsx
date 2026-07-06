@@ -74,7 +74,7 @@ export const Default: Story = {
   },
   render: () => (
     <ItemGroup className="max-w-md">
-      <Item>
+      <Item role="listitem">
         <ItemMedia variant="icon">
           <StarIcon />
         </ItemMedia>
@@ -91,7 +91,7 @@ export const Default: Story = {
         </ItemActions>
       </Item>
       <ItemSeparator />
-      <Item>
+      <Item role="listitem">
         <ItemMedia variant="icon">
           <StarIcon />
         </ItemMedia>
@@ -117,24 +117,24 @@ export const Outline: Story = {
   },
   render: () => (
     <ItemGroup className="max-w-md">
-      <Item variant="outline">
+      <Item variant="outline" role="listitem">
         <ItemContent>
           <ItemTitle>Project Alpha</ItemTitle>
           <ItemDescription>Last updated 2 days ago</ItemDescription>
         </ItemContent>
         <ItemActions>
-          <Button size="icon-xs" variant="ghost">
+          <Button size="icon-xs" variant="ghost" aria-label="More options">
             <EllipsisVerticalIcon />
           </Button>
         </ItemActions>
       </Item>
-      <Item variant="outline">
+      <Item variant="outline" role="listitem">
         <ItemContent>
           <ItemTitle>Project Beta</ItemTitle>
           <ItemDescription>Last updated 5 days ago</ItemDescription>
         </ItemContent>
         <ItemActions>
-          <Button size="icon-xs" variant="ghost">
+          <Button size="icon-xs" variant="ghost" aria-label="More options">
             <EllipsisVerticalIcon />
           </Button>
         </ItemActions>
@@ -146,10 +146,10 @@ export const Outline: Story = {
 export const WithHeader: Story = {
   render: () => (
     <ItemGroup className="max-w-md">
-      <ItemHeader>
+      <ItemHeader role="presentation">
         <ItemTitle>Projects</ItemTitle>
       </ItemHeader>
-      <Item>
+      <Item role="listitem">
         <ItemMedia variant="icon">
           <StarIcon />
         </ItemMedia>
@@ -158,7 +158,7 @@ export const WithHeader: Story = {
           <ItemDescription>Component library and style guide.</ItemDescription>
         </ItemContent>
       </Item>
-      <ItemFooter>
+      <ItemFooter role="presentation">
         <span className="text-xs text-muted-foreground">3 items</span>
       </ItemFooter>
     </ItemGroup>

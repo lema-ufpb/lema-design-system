@@ -562,7 +562,7 @@ export const WithFooter: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           Strong positive correlation (r ≈ 0.91)
         </span>
         <span className="flex items-center gap-1.5 text-muted-foreground/70">
@@ -761,7 +761,7 @@ export const OutlierDetection: Story = {
     height: 340,
     footer: (
       <span className="flex items-center gap-1.5">
-        <AlertCircle className="size-3.5 text-amber-500" />
+        <AlertCircle className="size-3.5 text-warning" />
         Two outliers added manually — points far from the trend line warrant
         review
       </span>

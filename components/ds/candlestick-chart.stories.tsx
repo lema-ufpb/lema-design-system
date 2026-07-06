@@ -997,7 +997,7 @@ export const WithFooter: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           +16.3% from open (148.20) to close (173.10)
         </span>
         <span className="flex items-center gap-1.5 text-muted-foreground/70">

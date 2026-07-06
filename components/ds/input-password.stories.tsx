@@ -209,6 +209,7 @@ export const Disabled: Story = {
 export const WithValue: Story = {
   args: {
     defaultValue: "secret_password_123",
+    "aria-label": "Password",
   },
   parameters: {
     docs: {

@@ -98,7 +98,7 @@ export const WithButton: Story = {
       </InputGroup>
 
       <InputGroup>
-        <InputGroupButton>
+        <InputGroupButton aria-label="Search">
           <SearchIcon data-icon="inline-start" />
         </InputGroupButton>
         <InputGroupInput placeholder="Icon only" />
@@ -106,7 +106,10 @@ export const WithButton: Story = {
 
       <InputGroup>
         <InputGroupInput placeholder="Password" type="password" />
-        <InputGroupButton variant="ghost">
+        <InputGroupButton
+          variant="ghost"
+          aria-label="Toggle password visibility"
+        >
           <EyeIcon />
         </InputGroupButton>
       </InputGroup>
