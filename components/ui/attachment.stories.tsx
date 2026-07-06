@@ -339,7 +339,7 @@ export const WithTrigger: Story = {
   render: () => (
     <Attachment state="idle" orientation="vertical">
       <AttachmentTrigger asChild>
-        <button type="button" />
+        <button type="button" aria-label="Upload file" />
       </AttachmentTrigger>
       <AttachmentMedia variant="icon">
         <ImageIcon />

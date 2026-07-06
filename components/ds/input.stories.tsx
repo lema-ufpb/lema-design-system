@@ -214,6 +214,7 @@ export const BorderedVariants: Story = {
 export const WithError: Story = {
   args: {
     placeholder: "Email",
+    "aria-label": "Email",
     error: "Please enter a valid email address.",
     defaultValue: "invalid",
   },
@@ -222,6 +223,7 @@ export const WithError: Story = {
 export const WithCharCount: Story = {
   args: {
     placeholder: "Username",
+    "aria-label": "Username",
     maxLength: 20,
     showCount: true,
     defaultValue: "myuser",

@@ -397,6 +397,7 @@ export const Tooltip: Story = {
       <Button
         tooltip={{ text: "Destructive action", side: "right" }}
         variant="destructive"
+        aria-label="Delete"
       >
         <Trash2 className="size-4" />
       </Button>

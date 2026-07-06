@@ -6,7 +6,6 @@ import {
   Brush,
   CartesianGrid,
   ComposedChart,
-  Legend,
   Line,
   ReferenceLine as RechartsReferenceLine,
   ResponsiveContainer,
@@ -99,20 +98,6 @@ const MA_COLORS = [
   "var(--chart-4)",
   "var(--chart-5)",
 ]
-
-const LEGEND_LAYOUT: Record<
-  LegendPosition,
-  {
-    verticalAlign: "top" | "middle" | "bottom"
-    align: "left" | "center" | "right"
-    layout: "horizontal" | "vertical"
-  }
-> = {
-  top: { verticalAlign: "top", align: "center", layout: "horizontal" },
-  bottom: { verticalAlign: "bottom", align: "center", layout: "horizontal" },
-  left: { verticalAlign: "middle", align: "left", layout: "vertical" },
-  right: { verticalAlign: "middle", align: "right", layout: "vertical" },
-}
 
 // ── Skeleton ───────────────────────────────────────────────────────────────
 
@@ -850,6 +835,16 @@ export function CandlestickChart({
     [data, resolvedMAs]
   )
 
+  const legendPayload = React.useMemo(
+    () =>
+      resolvedMAs.map((ma) => ({
+        value: ma.label,
+        color: ma.color,
+        payload: { strokeDasharray: ma.dashed ? "5 3" : undefined },
+      })),
+    [resolvedMAs]
+  )
+
   const maxVolume = React.useMemo(
     () => Math.max(...data.map((d) => d.volume ?? 0)),
     [data]
@@ -1003,25 +998,6 @@ export function CandlestickChart({
             />
           )}
 
-          {showLegend && (
-            <Legend
-              {...LEGEND_LAYOUT[legendPosition]}
-              content={({ payload }) => (
-                <ChartLegend
-                  payload={payload as LegendPayloadEntry[]}
-                  hiddenSeries={hiddenSeries}
-                  onToggle={toggleSeries}
-                  positiveColor={positiveColor}
-                  negativeColor={negativeColor}
-                  vertical={
-                    legendPosition === "left" || legendPosition === "right"
-                  }
-                  locale={locale}
-                />
-              )}
-            />
-          )}
-
           {/* Reference lines */}
           {referenceLines?.map((rl, i) => (
             <RechartsReferenceLine
@@ -1121,6 +1097,18 @@ export function CandlestickChart({
           )}
         </ComposedChart>
       </ResponsiveContainer>
+
+      {showLegend && (
+        <ChartLegend
+          payload={legendPayload}
+          hiddenSeries={hiddenSeries}
+          onToggle={toggleSeries}
+          positiveColor={positiveColor}
+          negativeColor={negativeColor}
+          vertical={legendPosition === "left" || legendPosition === "right"}
+          locale={locale}
+        />
+      )}
 
       {footer && (
         <div

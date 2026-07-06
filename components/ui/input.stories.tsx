@@ -66,13 +66,25 @@ export const Default: Story = {
 export const Types: Story = {
   render: () => (
     <div className="flex w-full max-w-sm flex-col gap-4">
-      <Input type="text" placeholder="Text input" />
-      <Input type="email" placeholder="Email input" />
-      <Input type="password" placeholder="Password input" />
-      <Input type="number" placeholder="Number input" />
-      <Input type="search" placeholder="Search input" />
-      <Input type="tel" placeholder="Phone input" />
-      <Input type="url" placeholder="URL input" />
+      <Input type="text" placeholder="Text input" aria-label="Text input" />
+      <Input type="email" placeholder="Email input" aria-label="Email input" />
+      <Input
+        type="password"
+        placeholder="Password input"
+        aria-label="Password input"
+      />
+      <Input
+        type="number"
+        placeholder="Number input"
+        aria-label="Number input"
+      />
+      <Input
+        type="search"
+        placeholder="Search input"
+        aria-label="Search input"
+      />
+      <Input type="tel" placeholder="Phone input" aria-label="Phone input" />
+      <Input type="url" placeholder="URL input" aria-label="URL input" />
     </div>
   ),
 }
@@ -95,6 +107,7 @@ export const Disabled: Story = {
 
 export const WithValue: Story = {
   args: {
+    "aria-label": "Filled input",
     value: "Filled input value",
   },
 }
@@ -109,5 +122,6 @@ export const Invalid: Story = {
 export const File: Story = {
   args: {
     type: "file",
+    "aria-label": "File input",
   },
 }

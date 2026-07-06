@@ -54,6 +54,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     size: "default",
+    "aria-label": "Toggle switch",
   },
   parameters: {
     docs: {
@@ -76,8 +77,8 @@ export const Sizes: Story = {
   },
   render: () => (
     <div className="flex items-center gap-6">
-      <Switch size="sm" defaultChecked />
-      <Switch size="default" defaultChecked />
+      <Switch size="sm" defaultChecked aria-label="Small switch" />
+      <Switch size="default" defaultChecked aria-label="Default switch" />
     </div>
   ),
 }
@@ -87,7 +88,11 @@ export const Controlled: Story = {
     const [checked, setChecked] = React.useState(false)
     return (
       <div className="flex items-center gap-4">
-        <Switch checked={checked} onCheckedChange={setChecked} />
+        <Switch
+          checked={checked}
+          onCheckedChange={setChecked}
+          aria-label="Controlled switch"
+        />
         <span className="text-sm text-muted-foreground">
           Value: {checked ? "true" : "false"}
         </span>
@@ -100,21 +105,21 @@ export const States: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4">
-        <Switch />
+        <Switch aria-label="Unchecked switch" />
         <span className="text-sm text-muted-foreground">Unchecked</span>
       </div>
       <div className="flex items-center gap-4">
-        <Switch defaultChecked />
+        <Switch defaultChecked aria-label="Checked switch" />
         <span className="text-sm text-muted-foreground">Checked</span>
       </div>
       <div className="flex items-center gap-4">
-        <Switch disabled />
+        <Switch disabled aria-label="Disabled unchecked switch" />
         <span className="text-sm text-muted-foreground">
           Disabled unchecked
         </span>
       </div>
       <div className="flex items-center gap-4">
-        <Switch disabled defaultChecked />
+        <Switch disabled defaultChecked aria-label="Disabled checked switch" />
         <span className="text-sm text-muted-foreground">Disabled checked</span>
       </div>
     </div>

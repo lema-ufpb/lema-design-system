@@ -641,7 +641,7 @@ export const WithFooter: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           <span>+81.7% growth since week 1</span>
         </span>
         <span className="flex items-center gap-1 text-muted-foreground/70">
@@ -892,7 +892,7 @@ export const NegativeTrend: Story = {
     valueFormatter: (v) => formatValue(v, "float", { decimals: 1 }) + "%",
     footer: (
       <span className="flex items-center gap-1.5">
-        <TrendingDown className="size-3.5 text-emerald-500" />
+        <TrendingDown className="size-3.5 text-success" />
         Down from 8.2% to 4.9% — target reached in June
       </span>
     ),

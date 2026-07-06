@@ -165,6 +165,7 @@ function Avatar({
   const avatarElement = (
     <AvatarRoot
       data-slot="ds-avatar"
+      role="img"
       aria-label={ariaLabel}
       {...htmlProps}
       className={cn(avatarVariants({ size }), className)}

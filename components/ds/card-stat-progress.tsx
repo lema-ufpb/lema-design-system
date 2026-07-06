@@ -159,7 +159,7 @@ export function CardStatProgress({
       : pct >= 75
         ? "text-highlight-sky"
         : pct >= 50
-          ? "text-warning"
+          ? "text-amber-600"
           : "text-muted-foreground"
 
   const barColor =
@@ -168,7 +168,7 @@ export function CardStatProgress({
       : pct >= 75
         ? "[&>[data-slot=progress-indicator]]:bg-highlight-sky"
         : pct >= 50
-          ? "[&>[data-slot=progress-indicator]]:bg-warning"
+          ? "[&>[data-slot=progress-indicator]]:bg-amber-600"
           : ""
 
   return (
@@ -207,6 +207,7 @@ export function CardStatProgress({
         </div>
         <Progress
           value={pct}
+          aria-label={`${label}: ${pct}%`}
           className={cn(cardStatTrackHVariants({ size }), barColor)}
         />
         <div className="flex items-center justify-between">

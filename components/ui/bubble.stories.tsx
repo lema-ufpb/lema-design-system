@@ -152,12 +152,14 @@ export const WithReactions: Story = {
         <BubbleReactions side="bottom" align="end">
           <button
             type="button"
+            aria-label="Like"
             className="flex items-center gap-1 rounded-full px-1.5 py-0.5 text-xs transition-colors hover:bg-muted-foreground/10"
           >
             <ThumbsUpIcon className="size-3.5" />
           </button>
           <button
             type="button"
+            aria-label="Love"
             className="flex items-center gap-1 rounded-full px-1.5 py-0.5 text-xs transition-colors hover:bg-muted-foreground/10"
           >
             <HeartIcon className="size-3.5" />
@@ -169,6 +171,7 @@ export const WithReactions: Story = {
         <BubbleReactions side="bottom" align="start">
           <button
             type="button"
+            aria-label="Smile"
             className="flex items-center gap-1 rounded-full px-1.5 py-0.5 text-xs transition-colors hover:bg-muted-foreground/10"
           >
             <SmileIcon className="size-3.5" />
