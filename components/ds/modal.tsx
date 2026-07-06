@@ -32,11 +32,7 @@ import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 
 export type ModalSize = "sm" | "md" | "lg" | "xl" | "2xl" | "full"
 export type ModalIntent =
-  | "default"
-  | "destructive"
-  | "success"
-  | "warning"
-  | "info"
+  "default" | "destructive" | "success" | "warning" | "info"
 
 export interface ModalProps {
   /** Controlled open state */
@@ -170,12 +166,7 @@ const intentIcons: Record<ModalIntent, React.ReactNode> = {
 
 function getConfirmButtonProps(intent: ModalIntent): {
   variant:
-    | "default"
-    | "destructive"
-    | "outline"
-    | "ghost"
-    | "secondary"
-    | "link"
+    "default" | "destructive" | "outline" | "ghost" | "secondary" | "link"
   className?: string
 } {
   switch (intent) {
@@ -324,7 +315,7 @@ export function Modal({
               setMaximized(next)
               onMaximized?.(next)
             }}
-            aria-label={maximized ? "Minimize" : "Maximize"}
+            aria-label={maximized ? t.minimize : t.maximize}
           >
             {maximized ? (
               <Minimize2 className="size-3.5" />

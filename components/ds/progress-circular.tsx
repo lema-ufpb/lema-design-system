@@ -12,10 +12,7 @@ import { formatValue } from "@/lib/format-utils"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export type ProgressCircularIntent =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "destructive"
+  "primary" | "secondary" | "success" | "destructive"
 
 export type ProgressCircularSize = "sm" | "md" | "lg" | "xl"
 

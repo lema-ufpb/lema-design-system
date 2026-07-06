@@ -1066,7 +1066,10 @@ export function DataTable<TData extends object>({
           style={{ height: `${height}px` }}
           tabIndex={0}
           role="region"
-          aria-label={ariaLabel ?? `Table with ${data.length} rows`}
+          aria-label={
+            ariaLabel ??
+            `${i18n?.dataTable.tableWithRows ?? "Table with"} ${data.length} ${l.pagination.pluralItemName}`
+          }
           aria-busy={loading}
         >
           <Table className="block w-full" style={{ minWidth: minTableWidth }}>

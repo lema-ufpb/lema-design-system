@@ -44,6 +44,7 @@ Wrapper `<nav>` com `aria-label` via i18n.
 |------|------|--------|-------------|-----------|
 | `isActive` | `boolean` | — | Não | Marca como página ativa |
 | `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"icon"` | Não | Tamanho do botão |
+| `rounded` | `"full" \| "light" \| "none"` | `"full"` | Não | Arredondamento do link |
 
 ### PaginationPrevious / PaginationNext
 
@@ -51,6 +52,7 @@ Wrapper `<nav>` com `aria-label` via i18n.
 |------|------|--------|-------------|-----------|
 | `text` | `string` | i18n | Não | Texto do link |
 | `locale` | `UILocale` | `"en-US"` | Não | Localização do `aria-label` |
+| `rounded` | `"full" \| "light" \| "none"` | `"full"` | Não | Arredondamento do link |
 
 ### PaginationEllipsis
 

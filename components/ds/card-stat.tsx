@@ -2,6 +2,7 @@ import * as React from "react"
 import { BarChart2Icon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -136,7 +137,9 @@ export function CardStat({
             )}
           >
             <BarChart2Icon className="size-2.5 shrink-0" aria-hidden />
-            Nothing to measure yet
+            {locale
+              ? UI_I18N[locale as UILocale].cardStat.nothingToMeasure
+              : "Nothing to measure yet"}
           </p>
         </CardContent>
       </Card>

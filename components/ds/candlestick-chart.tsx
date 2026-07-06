@@ -483,8 +483,7 @@ function CandleTooltip({
   if (!active || !payload?.length) return null
 
   const candle = payload.find((p) => Array.isArray(p.value))?.payload as
-    | CandleDataPoint
-    | undefined
+    CandleDataPoint | undefined
   if (!candle) return null
 
   const isUp = candle.close >= candle.open

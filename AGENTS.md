@@ -16,7 +16,9 @@ lib/utils.ts         → cn() e utilidades
 app/globals.css      → tokens CSS (colors, radius, sidebar, charts, success/warning/risk-*)
 registry.json        → manifesto de exportação do design system
 .storybook/          → configuração do Storybook (vitest browser mode)
-docs/specs/          → specs de todos os componentes (117 arquivos — ui + custom)
+docs/specs/          → specs de todos os componentes (ui + custom)
+docs/specs/PRODUCT.md  → visão estratégica do produto (register, usuários, princípios)
+docs/specs/DESIGN.md   → documentação visual do design system (cores, tipografia, componentes)
 docs/templates/      → templates spec-first para novos componentes
 ```
 

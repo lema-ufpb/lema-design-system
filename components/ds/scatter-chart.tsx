@@ -23,13 +23,7 @@ import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 export type LegendPosition = "top" | "bottom" | "left" | "right"
 export type ScatterDotShape =
-  | "circle"
-  | "cross"
-  | "diamond"
-  | "square"
-  | "star"
-  | "triangle"
-  | "wye"
+  "circle" | "cross" | "diamond" | "square" | "star" | "triangle" | "wye"
 
 export interface ScatterPoint {
   x: number

@@ -4,6 +4,7 @@ import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react"
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Tooltip,
@@ -16,10 +17,7 @@ import { Progress } from "@/components/ui/progress"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export type ProgressBarIntent =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "destructive"
+  "primary" | "secondary" | "success" | "destructive"
 export type ProgressBarSize = "sm" | "md" | "lg"
 export type ProgressBarLabelLayout = "inline" | "above" | "below"
 
@@ -276,7 +274,10 @@ export function ProgressBar({
       value={clamped * 100}
       max={max}
       getValueLabel={getValueLabel}
-      aria-label={name ?? "Progress"}
+      aria-label={
+        name ??
+        (locale ? UI_I18N[locale as UILocale].progressBar.label : "Progress")
+      }
       aria-valuenow={Math.round(clamped * 100)}
       aria-valuemin={0}
       aria-valuemax={100}

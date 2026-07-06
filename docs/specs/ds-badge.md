@@ -27,8 +27,12 @@ Wrapper do `ui/badge` com variantes CVA estendidas: dot indicator, removable (cl
 | `removable` | `boolean` | `false` | | Exibe botão X para remover |
 | `icon` | `React.ReactNode` | — | | Ícone à esquerda do texto |
 | `maxCount` | `number` | — | | Se definido, exibe como contador (ex: `5`, `99+`) |
+| `count` | `number` | — | | Valor do contador (exibido quando `maxCount` definido) |
 | `onRemove` | `() => void` | — | | Callback ao clicar no X |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
+| `background` | `string` | — | | Sobrescreve bg via `--badge-background` |
+| `color` | `string` | — | | Sobrescreve cor via `--badge-color` |
+| `borderColor` | `string` | — | | Sobrescreve borda via `--badge-border-color` |
 | `locale` | `UILocale` | `"pt-BR"` | | Locale para i18n |
 | `className` | `string` | — | | Classes extras |
 

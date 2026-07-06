@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -139,7 +140,9 @@ export function CardStatProgress({
               cardStatDescriptionVariants({ size })
             )}
           >
-            No goal set yet
+            {pctLocale
+              ? UI_I18N[pctLocale as UILocale].cardStatProgress.noGoalSet
+              : "No goal set yet"}
           </p>
         </CardContent>
       </Card>

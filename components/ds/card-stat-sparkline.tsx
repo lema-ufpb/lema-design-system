@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -151,6 +152,7 @@ export interface CardStatSparklineProps extends FormatOptions {
   className?: string
   loading?: boolean
   empty?: boolean
+  locale?: UILocale
 }
 
 export function CardStatSparkline({
@@ -165,6 +167,7 @@ export function CardStatSparkline({
   className,
   loading,
   empty,
+  locale,
   ...fmt
 }: CardStatSparklineProps) {
   const sparklineW = size === "sm" ? 90 : size === "lg" ? 150 : 120
@@ -236,7 +239,9 @@ export function CardStatSparkline({
                 cardStatDescriptionVariants({ size })
               )}
             >
-              No history yet
+              {locale
+                ? UI_I18N[locale].cardStatSparkline.noHistory
+                : "No history yet"}
             </p>
           </div>
           <FlatSparklineSvg width={sparklineW} height={sparklineH} />

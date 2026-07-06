@@ -18,42 +18,47 @@ Painel slide-over que abre de qualquer borda da tela, combinando header opcional
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/drawer.tsx` |
-| Tipo | `registry:ui` (name: `ds-drawer`) |
-| Categoria | Painel / Sobreposição |
+| Campo      | Valor                                                                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ds/drawer.tsx`                                                                                                                      |
+| Tipo       | `registry:ui` (name: `ds-drawer`)                                                                                                               |
+| Categoria  | Painel / Sobreposição                                                                                                                           |
 | Depende de | `ui/drawer` (DrawerRoot, DrawerContent, DrawerTrigger, DrawerClose, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter), `lucide-react` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `direction` | `"bottom" \| "left" \| "right" \| "top"` | `"bottom"` | Não | Direção de abertura |
-| `title` | `ReactNode` | — | Não | Título no header |
-| `description` | `ReactNode` | — | Não | Descrição no header |
-| `trigger` | `ReactNode` | — | Não | Elemento que abre o drawer |
-| `footer` | `ReactNode` | — | Não | Conteúdo do rodapé |
-| `children` | `ReactNode` | — | Não | Conteúdo do body |
-| `showCloseButton` | `boolean` | `true` | Não | Exibe botão de fechar no header |
-| `open` | `boolean` | — | Não | Controla abertura (controlado) |
-| `onOpenChange` | `(open: boolean) => void` | — | Não | Callback de abertura/fechamento |
-| `className` | `string` | — | Não | Classes adicionais no body |
+| Prop                    | Tipo                                        | Padrão     | Obrigatória | Descrição                           |
+| ----------------------- | ------------------------------------------- | ---------- | ----------- | ----------------------------------- |
+| `direction`             | `"bottom" \| "left" \| "right" \| "top"`    | `"bottom"` | Não         | Direção de abertura                 |
+| `title`                 | `ReactNode`                                 | —          | Não         | Título no header                    |
+| `description`           | `ReactNode`                                 | —          | Não         | Descrição no header                 |
+| `trigger`               | `ReactNode`                                 | —          | Não         | Elemento que abre o drawer          |
+| `footer`                | `ReactNode`                                 | —          | Não         | Conteúdo do rodapé                  |
+| `children`              | `ReactNode`                                 | —          | Não         | Conteúdo do body                    |
+| `showCloseButton`       | `boolean`                                   | `true`     | Não         | Exibe botão de fechar no header     |
+| `open`                  | `boolean`                                   | —          | Não         | Controla abertura (controlado)      |
+| `onOpenChange`          | `(open: boolean) => void`                   | —          | Não         | Callback de abertura/fechamento     |
+| `locale`                | `UILocale`                                  | `"pt-BR"`  | Não         | Locale para i18n do close button    |
+| `shouldScaleBackground` | `boolean`                                   | —          | Não         | Escala o background ao abrir (vaul) |
+| `snapPoints`            | `(number \| string)[]`                      | —          | Não         | Snap points do vaul (bottom apenas) |
+| `activeSnapPoint`       | `number \| string \| null`                  | —          | Não         | Snap point ativo controlado         |
+| `setActiveSnapPoint`    | `(point: number \| string \| null) => void` | —          | Não         | Callback de mudança de snap point   |
+| `className`             | `string`                                    | —          | Não         | Classes adicionais no body          |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot |
-|-------|------|
-| `--popover` / `--popover-foreground` | Content (fundo e texto) |
-| `--muted-foreground` | `DrawerDescription` |
-| `--secondary` / `--muted-foreground` | Close button bg/text |
-| `--muted` | Drag handle (pill) |
-| `--border` | Borda do painel, footer divider |
-| `bg-black/30` + `backdrop-blur` | Overlay |
+| Token                                | Slot                            |
+| ------------------------------------ | ------------------------------- |
+| `--popover` / `--popover-foreground` | Content (fundo e texto)         |
+| `--muted-foreground`                 | `DrawerDescription`             |
+| `--secondary` / `--muted-foreground` | Close button bg/text            |
+| `--muted`                            | Drag handle (pill)              |
+| `--border`                           | Borda do painel, footer divider |
+| `bg-black/30` + `backdrop-blur`      | Overlay                         |
 
 > **Content delegado ao `ui/DrawerContent`:** o conteúdo do drawer usa `DrawerContent` de `ui/drawer.tsx` em vez de `DrawerPrimitive.Content` do vaul. O pseudo-elemento `::before` do `DrawerContent` é suprimido via `before:content-none` para evitar borda/sombra duplicada com os tokens do ds. Os `mt-24`/`mb-24` do `DrawerContent` são zerados via `data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=top]:mb-0`.
 
@@ -61,30 +66,31 @@ Painel slide-over que abre de qualquer borda da tela, combinando header opcional
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
+| Estado              | Comportamento                                                |
+| ------------------- | ------------------------------------------------------------ |
 | **Bottom (padrão)** | `inset-x-0 bottom-0 mt-24 max-h-[80vh]`, drag handle no topo |
-| **Top** | `inset-x-0 top-0 mb-24 max-h-[80vh]`, drag handle na base |
-| **Left** | `inset-y-0 left-0 w-3/4 sm:max-w-sm`, sem drag handle |
-| **Right** | `inset-y-0 right-0 w-3/4 sm:max-w-sm`, sem drag handle |
-| **Com header** | Título + descrição + close button (se `showCloseButton`) |
-| **Sem header** | Body ocupa toda altura, sem padding extra |
-| **Com footer** | Barra de ações com `border-t` |
-| **Controlado** | `open`/`onOpenChange` para controle externo |
-| **Drag** | Gesto de arrastar para fechar (bottom/top) |
-| **Fechamento** | Escape, overlay click, close button, drag |
+| **Top**             | `inset-x-0 top-0 mb-24 max-h-[80vh]`, drag handle na base    |
+| **Left**            | `inset-y-0 left-0 w-3/4 sm:max-w-sm`, sem drag handle        |
+| **Right**           | `inset-y-0 right-0 w-3/4 sm:max-w-sm`, sem drag handle       |
+| **Com header**      | Título + descrição + close button (se `showCloseButton`)     |
+| **Sem header**      | Body ocupa toda altura, sem padding extra                    |
+| **Com footer**      | Barra de ações com `border-t`                                |
+| **Controlado**      | `open`/`onOpenChange` para controle externo                  |
+| **Drag**            | Gesto de arrastar para fechar (bottom/top)                   |
+| **Fechamento**      | Escape, overlay click, close button, drag                    |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Gestos | Arrastar para fechar via `vaul` |
-| Fechamento | Escape, overlay, close button |
-| ARIA | Gerenciado pelo `vaul` (dialog role) |
-| Focus trap | Gerenciado pelo `vaul` |
-| Close button | `sr-only` "Fechar" |
+| Requisito    | Implementação                                                  |
+| ------------ | -------------------------------------------------------------- |
+| Gestos       | Arrastar para fechar via `vaul`                                |
+| Fechamento   | Escape, overlay, close button                                  |
+| ARIA         | Gerenciado pelo `vaul` (dialog role)                           |
+| Focus trap   | Gerenciado pelo `vaul`                                         |
+| Close button | `aria-label` via `UI_I18N[locale].dialog.close`                |
+| i18n         | `UI_I18N[locale].dialog.close` para aria-label do close button |
 
 ---
 
