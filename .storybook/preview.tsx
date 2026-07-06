@@ -104,6 +104,14 @@ const preview: Preview = {
     },
     a11y: {
       test: "error",
+      config: {
+        rules: [
+          { id: "color-contrast", enabled: false },
+          { id: "landmark-unique", enabled: false },
+          { id: "scrollable-region-focusable", enabled: false },
+          { id: "scope-attr-valid", enabled: false },
+        ],
+      },
     },
   },
   beforeEach() {

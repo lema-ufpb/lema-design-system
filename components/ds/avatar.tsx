@@ -187,7 +187,7 @@ function Avatar({
         <span
           data-slot="ds-avatar-status"
           className={statusVariants({ status, size })}
-          aria-label={statusLabel}
+          aria-hidden="true"
         />
       )}
     </AvatarRoot>
