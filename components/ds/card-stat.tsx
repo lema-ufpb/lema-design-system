@@ -44,9 +44,9 @@ export interface CardStatProps {
 }
 
 const VARIANT_CLASSES = {
-  default: undefined,
-  muted: "bg-muted shadow-none ring-0",
-  flat: "bg-background shadow-none ring-0",
+  default: "hover:-translate-y-0.5 hover:shadow-lg",
+  muted: "bg-muted shadow-none ring-0 hover:bg-accent",
+  flat: "bg-background shadow-none ring-0 hover:bg-muted/50",
 } as const
 
 export function CardStat({
@@ -74,7 +74,7 @@ export function CardStat({
     return (
       <Card
         size="sm"
-        className={cn(variantClass, className)}
+        className={cn("transition-all duration-200", variantClass, className)}
         data-slot="card-stat"
       >
         <CardHeader className="flex flex-row items-center justify-between">
@@ -97,7 +97,7 @@ export function CardStat({
     return (
       <Card
         size="sm"
-        className={cn(variantClass, className)}
+        className={cn("transition-all duration-200", variantClass, className)}
         data-slot="card-stat"
       >
         <CardHeader className="flex flex-row items-center justify-between">
@@ -158,7 +158,7 @@ export function CardStat({
   return (
     <Card
       size="sm"
-      className={cn(variantClass, className)}
+      className={cn("transition-all duration-200", variantClass, className)}
       data-slot="card-stat"
     >
       <CardHeader className="flex flex-row items-center justify-between">
