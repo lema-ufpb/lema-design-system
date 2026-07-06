@@ -40,6 +40,7 @@ O DS Tabs substitui o JSX aninhado do Radix (`TabsList > TabsTrigger > TabsConte
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Orientação do layout |
 | `responsive` | `boolean` | `false` | Collapsa para Accordion em mobile |
 | `forceAccordion` | `boolean` | `false` | Sempre renderiza como Accordion |
+| `activationMode` | `"automatic" \| "manual"` | `"automatic"` | Se abas ativam ao focar ou requerem clique |
 | `loading` | `boolean` | `false` | Mostra skeletons |
 | `skeletonCount` | `number` | items.length | Número de skeletons |
 | `locale` | `UILocale` | `"en-US"` | Locale para aria-labels |

@@ -86,7 +86,7 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 | Tamanho sm | `size-6` (24px), fallback `text-xs` |
 | Tamanho default | `size-8` (32px), fallback `text-sm` |
 | Tamanho lg | `size-10` (40px), fallback `text-base` |
-| AvatarGroup | Avatares sobrepostos com `[&>:not(:first-child)]:-ml-2` e `ring-2 ring-background` |
+| AvatarGroup | Avatares sobrepostos com `-space-x-2` e `ring-2 ring-background` |
 | AvatarBadge | Posicionado `absolute right-0 bottom-0` com `ring-2 ring-background` |
 
 ---
@@ -99,6 +99,7 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 | Fallback semântico | `AvatarFallback` exibe iniciais como fallback textual |
 | Badge | `span` sem role específico; conteúdo deve ser auto-descritivo |
 | Grupo | Container `div` sem role; uso de `aria-label` recomendado |
+| i18n | N/A — componente sem texto ou labels fixas |
 
 ---
 
@@ -115,5 +116,5 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 - [x] Escala tipográfica — fallback `text-sm` (default), `text-xs` (sm), `text-base` (lg)
 - [x] Tokens semânticos — `border`, `muted`, `muted-foreground`, `primary`, `primary-foreground`, `background`
 - [x] Badge — tamanhos proporcionais ao avatar (`size-2` sm, `size-2.5` default, `size-3` lg)
-- [x] Grupo — `[&>:not(:first-child)]:-ml-2` com `ring-2` para efeito de sobreposição (overlap negativo via `ml` individual em vez de `space-x` proibido)
+- [x] Grupo — `-space-x-2` com `ring-2` para efeito de sobreposição
 - [x] Borda overlay — `after:absolute after:inset-0 after:rounded-full after:border` com suporte a dark mode via `mix-blend-mode`

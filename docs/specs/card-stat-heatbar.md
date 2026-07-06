@@ -22,10 +22,13 @@
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | — | |
 
 Estende \`FormatOptions\`.
 
 `CardStatHeatbarZone`: `{ label: string, color: string, max: number }`
+
+Quando `locale` é fornecido, os labels das zonas e o badge "Pending" do empty state usam `UI_I18N[locale].cardStatGauge.*`.
 
 ---
 
@@ -47,6 +50,15 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatValueVariants`, `cardStatDescr
 - Tooltip com valor + nome da zona ativa
 - Labels das zonas abaixo da barra
 - Posição do marcador: sm=6px, md=10px, lg=12px (inline)
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| Progress bar | `role="progressbar"` com `aria-valuenow`, `aria-valuemin`, `aria-valuemax` e `aria-label={label}` |
+| SVG decorativo | `aria-hidden` nos SVGs decorativos |
+| Tooltip | Navegação por hover via `Tooltip` shadcn |
+| i18n | `UI_I18N[locale].cardStatGauge.*` para labels de zona e empty state |
 
 ## Stories
 

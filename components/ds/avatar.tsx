@@ -48,6 +48,7 @@ export interface AvatarGroupProps {
   max?: number
   size?: AvatarSize
   className?: string
+  locale?: UILocale
 }
 
 // ── Variants ──
@@ -213,6 +214,7 @@ function AvatarGroup({
   max,
   size = "md",
   className,
+  locale,
 }: AvatarGroupProps) {
   const childrenArray = React.Children.toArray(children)
   const visible = max ? childrenArray.slice(0, max) : childrenArray
@@ -235,7 +237,7 @@ function AvatarGroup({
             size === "xl" && "size-12",
             size === "2xl" && "size-16 text-sm"
           )}
-          aria-label={`+${overflow} more`}
+          aria-label={`+${overflow} ${locale ? UI_I18N[locale].avatar.more : "more"}`}
         >
           +{overflow}
         </div>

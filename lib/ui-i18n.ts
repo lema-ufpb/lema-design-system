@@ -69,6 +69,8 @@ export const UI_I18N: Record<
     modal: {
       confirm: string
       cancel: string
+      minimize: string
+      maximize: string
     }
     dataTable: {
       searchPlaceholder: string
@@ -77,6 +79,7 @@ export const UI_I18N: Record<
       of: string
       rows: string
       rowsPerPage: string
+      tableWithRows: string
     }
     pageLoader: { loading: string }
     pillGroup: { filterLabel: string }
@@ -126,6 +129,7 @@ export const UI_I18N: Record<
       busy: string
       away: string
       offline: string
+      more: string
     }
     select: {
       placeholder: string
@@ -133,6 +137,42 @@ export const UI_I18N: Record<
       noResults: string
       create: string
       selected: string
+    }
+    cardStatGauge: {
+      poor: string
+      fair: string
+      good: string
+      excellent: string
+      noReading: string
+      pending: string
+    }
+    cardStatHighlight: {
+      noSpotlight: string
+      spotlightDescription: string
+    }
+    cardStatList: {
+      listEmpty: string
+      listEmptyDescription: string
+    }
+    cardStat: {
+      nothingToMeasure: string
+    }
+    cardStatSparkline: {
+      noHistory: string
+    }
+    cardStatProgress: {
+      noGoalSet: string
+    }
+    searchCombo: {
+      placeholder: string
+      label: string
+      noResults: string
+      clearSearch: string
+      searchByVoice: string
+      stopRecording: string
+    }
+    progressBar: {
+      label: string
     }
   }
 > = {
@@ -235,6 +275,8 @@ export const UI_I18N: Record<
     modal: {
       confirm: "Confirm",
       cancel: "Cancel",
+      minimize: "Minimize",
+      maximize: "Maximize",
     },
     dataTable: {
       searchPlaceholder: "Search…",
@@ -243,6 +285,7 @@ export const UI_I18N: Record<
       of: "of",
       rows: "rows",
       rowsPerPage: "Rows per page",
+      tableWithRows: "Table with",
     },
     pageLoader: { loading: "Loading…" },
     pillGroup: { filterLabel: "Filter by" },
@@ -292,6 +335,7 @@ export const UI_I18N: Record<
       busy: "Busy",
       away: "Away",
       offline: "Offline",
+      more: "more",
     },
     select: {
       placeholder: "Select…",
@@ -299,6 +343,42 @@ export const UI_I18N: Record<
       noResults: "No results found.",
       create: "Create",
       selected: "selected",
+    },
+    cardStatGauge: {
+      poor: "Poor",
+      fair: "Fair",
+      good: "Good",
+      excellent: "Excellent",
+      noReading: "No reading",
+      pending: "Pending",
+    },
+    cardStatHighlight: {
+      noSpotlight: "No spotlight yet",
+      spotlightDescription: "Your headline KPI will appear here",
+    },
+    cardStatList: {
+      listEmpty: "List is empty",
+      listEmptyDescription: "Add metrics to start tracking",
+    },
+    cardStat: {
+      nothingToMeasure: "Nothing to measure yet",
+    },
+    cardStatSparkline: {
+      noHistory: "No history yet",
+    },
+    cardStatProgress: {
+      noGoalSet: "No goal set yet",
+    },
+    searchCombo: {
+      placeholder: "Search…",
+      label: "Search",
+      noResults: "No results found.",
+      clearSearch: "Clear search",
+      searchByVoice: "Search by voice",
+      stopRecording: "Stop recording",
+    },
+    progressBar: {
+      label: "Progress",
     },
   },
   "pt-BR": {
@@ -406,6 +486,8 @@ export const UI_I18N: Record<
     modal: {
       confirm: "Confirmar",
       cancel: "Cancelar",
+      minimize: "Minimizar",
+      maximize: "Maximizar",
     },
     dataTable: {
       searchPlaceholder: "Buscar…",
@@ -415,6 +497,7 @@ export const UI_I18N: Record<
       of: "de",
       rows: "linhas",
       rowsPerPage: "Linhas por página",
+      tableWithRows: "Tabela com",
     },
     pageLoader: { loading: "Carregando…" },
     pillGroup: { filterLabel: "Filtrar por" },
@@ -465,13 +548,50 @@ export const UI_I18N: Record<
       busy: "Ocupado",
       away: "Ausente",
       offline: "Offline",
+      more: "mais",
     },
     select: {
       placeholder: "Selecionar…",
-      search: "Buscar…",
+      search: "Pesquisar…",
       noResults: "Nenhum resultado encontrado.",
       create: "Criar",
       selected: "selecionado(s)",
+    },
+    cardStatGauge: {
+      poor: "Ruim",
+      fair: "Regular",
+      good: "Bom",
+      excellent: "Excelente",
+      noReading: "Sem leitura",
+      pending: "Pendente",
+    },
+    cardStatHighlight: {
+      noSpotlight: "Nenhum destaque ainda",
+      spotlightDescription: "Seu KPI principal aparecerá aqui",
+    },
+    cardStatList: {
+      listEmpty: "Lista vazia",
+      listEmptyDescription: "Adicione métricas para começar",
+    },
+    cardStat: {
+      nothingToMeasure: "Nada a medir ainda",
+    },
+    cardStatSparkline: {
+      noHistory: "Nenhum histórico ainda",
+    },
+    cardStatProgress: {
+      noGoalSet: "Nenhuma meta definida",
+    },
+    searchCombo: {
+      placeholder: "Pesquisar…",
+      label: "Pesquisar",
+      noResults: "Nenhum resultado encontrado.",
+      clearSearch: "Limpar pesquisa",
+      searchByVoice: "Pesquisar por voz",
+      stopRecording: "Parar gravação",
+    },
+    progressBar: {
+      label: "Progresso",
     },
   },
   "es-ES": {
@@ -576,6 +696,8 @@ export const UI_I18N: Record<
     modal: {
       confirm: "Confirmar",
       cancel: "Cancelar",
+      minimize: "Minimizar",
+      maximize: "Maximizar",
     },
     dataTable: {
       searchPlaceholder: "Buscar…",
@@ -584,6 +706,7 @@ export const UI_I18N: Record<
       of: "de",
       rows: "filas",
       rowsPerPage: "Filas por página",
+      tableWithRows: "Tabla con",
     },
     pageLoader: { loading: "Cargando…" },
     pillGroup: { filterLabel: "Filtrar por" },
@@ -633,6 +756,7 @@ export const UI_I18N: Record<
       busy: "Ocupado",
       away: "Ausente",
       offline: "Desconectado",
+      more: "más",
     },
     select: {
       placeholder: "Seleccionar…",
@@ -640,6 +764,42 @@ export const UI_I18N: Record<
       noResults: "Sin resultados.",
       create: "Crear",
       selected: "seleccionado(s)",
+    },
+    cardStatGauge: {
+      poor: "Malo",
+      fair: "Regular",
+      good: "Bueno",
+      excellent: "Excelente",
+      noReading: "Sin lectura",
+      pending: "Pendiente",
+    },
+    cardStatHighlight: {
+      noSpotlight: "Sin destacado aún",
+      spotlightDescription: "Su KPI principal aparecerá aquí",
+    },
+    cardStatList: {
+      listEmpty: "Lista vacía",
+      listEmptyDescription: "Agregue métricas para empezar",
+    },
+    cardStat: {
+      nothingToMeasure: "Nada que medir aún",
+    },
+    cardStatSparkline: {
+      noHistory: "Sin historial aún",
+    },
+    cardStatProgress: {
+      noGoalSet: "Ninguna meta establecida",
+    },
+    searchCombo: {
+      placeholder: "Buscar…",
+      label: "Buscar",
+      noResults: "Sin resultados.",
+      clearSearch: "Limpiar búsqueda",
+      searchByVoice: "Buscar por voz",
+      stopRecording: "Detener grabación",
+    },
+    progressBar: {
+      label: "Progreso",
     },
   },
   "fr-FR": {
@@ -751,6 +911,8 @@ export const UI_I18N: Record<
     modal: {
       confirm: "Confirmer",
       cancel: "Annuler",
+      minimize: "Minimiser",
+      maximize: "Maximiser",
     },
     dataTable: {
       searchPlaceholder: "Rechercher…",
@@ -760,6 +922,7 @@ export const UI_I18N: Record<
       of: "sur",
       rows: "lignes",
       rowsPerPage: "Lignes par page",
+      tableWithRows: "Tableau avec",
     },
     pageLoader: { loading: "Chargement…" },
     pillGroup: { filterLabel: "Filtrer par" },
@@ -810,6 +973,7 @@ export const UI_I18N: Record<
       busy: "Occupé",
       away: "Absent",
       offline: "Hors ligne",
+      more: "plus",
     },
     select: {
       placeholder: "Sélectionner…",
@@ -817,6 +981,42 @@ export const UI_I18N: Record<
       noResults: "Aucun résultat.",
       create: "Créer",
       selected: "sélectionné(s)",
+    },
+    cardStatGauge: {
+      poor: "Mauvais",
+      fair: "Moyen",
+      good: "Bon",
+      excellent: "Excellent",
+      noReading: "Aucune lecture",
+      pending: "En attente",
+    },
+    cardStatHighlight: {
+      noSpotlight: "Aucun point fort",
+      spotlightDescription: "Votre KPI principal apparaîtra ici",
+    },
+    cardStatList: {
+      listEmpty: "Liste vide",
+      listEmptyDescription: "Ajoutez des métriques pour commencer",
+    },
+    cardStat: {
+      nothingToMeasure: "Rien à mesurer",
+    },
+    cardStatSparkline: {
+      noHistory: "Aucun historique",
+    },
+    cardStatProgress: {
+      noGoalSet: "Aucun objectif défini",
+    },
+    searchCombo: {
+      placeholder: "Rechercher…",
+      label: "Rechercher",
+      noResults: "Aucun résultat.",
+      clearSearch: "Effacer la recherche",
+      searchByVoice: "Rechercher par voix",
+      stopRecording: "Arrêter l'enregistrement",
+    },
+    progressBar: {
+      label: "Progression",
     },
   },
 }

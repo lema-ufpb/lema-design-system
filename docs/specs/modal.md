@@ -6,7 +6,7 @@
 
 ## Propósito
 
-Wrapper sobre o `Dialog` (shadcn/ui) que adiciona `intent` com ícone + cor semântica, `size` responsivo, `scrollable` para body com sticky header/footer, `loading` esqueletos, suporte a `onConfirm` assíncrono com loading automático, e i18n nos labels dos botões.
+Wrapper sobre o `Dialog` (shadcn/ui) que adiciona `intent` com ícone + cor semântica, `size` responsivo, `scrollable` para body com sticky header/footer, `loading` esqueletos, suporte a `onConfirm` assíncrono com loading automático, maximize para tela cheia, e i18n nos labels dos botões.
 
 **Usar quando:** É necessário um modal com confirmação/cancelamento padronizados, com variantes visuais de intenção (destructive, success, warning, info) e opção de body scrollável.
 
@@ -33,7 +33,11 @@ Wrapper sobre o `Dialog` (shadcn/ui) que adiciona `intent` com ícone + cor sem�
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
 |------|------|--------|-------------|-----------|
 | `open` | `boolean` | — | Não | Estado controlado de abertura |
+| `defaultOpen` | `boolean` | — | Não | Estado inicial não-controlado |
 | `onOpenChange` | `(open: boolean) => void` | — | Não | Callback de mudança de estado |
+| `onEscapeKeyDown` | `(e: Event) => void` | — | Não | Callback ao pressionar Escape |
+| `onPointerDownOutside` | `(e: Event) => void` | — | Não | Callback ao clicar fora |
+| `onInteractOutside` | `(e: Event) => void` | — | Não | Callback ao interagir fora |
 | `trigger` | `ReactNode` | — | Não | Elemento que abre o modal |
 | `title` | `ReactNode` | — | Não | Título no header |
 | `description` | `ReactNode` | — | Não | Descrição no header |
@@ -51,6 +55,8 @@ Wrapper sobre o `Dialog` (shadcn/ui) que adiciona `intent` com ícone + cor sem�
 | `scrollable` | `boolean` | `false` | Não | Body scrollável com header/footer sticky |
 | `loading` | `boolean` | `false` | Não | Exibe Skeleton no body |
 | `showCloseButton` | `boolean` | `true` | Não | Exibe botão X no DialogContent |
+| `maximize` | `boolean` | `false` | Não | Exibe botão para expandir para tela cheia |
+| `onMaximized` | `(maximized: boolean) => void` | — | Não | Callback quando maximize muda |
 | `locale` | `UILocale` | `"en-US"` | Não | Localização dos labels |
 | `className` | `string` | — | Não | Classes adicionais no body |
 
@@ -108,6 +114,7 @@ A modal não aplica escala própria de tipografia — delega para os componentes
 | **Intent info** | Ícone `InfoIcon` sky-blue, sem cor special no confirm |
 | **Icon custom** | `icon` prop sobrescreve o ícone, mantém a cor do intent |
 | **Scrollable** | Header e footer sticky com `shrink-0` e bordas; body `overflow-y-auto flex-1` |
+| **Maximize** | Botão maximize/minimize no header; modal ocupa viewport inteiro quando ativo |
 | **Loading** | `<Skeleton>` com linhas proporcionais ao size (2-5 linhas) |
 | **Async confirm** | `onConfirm` retorna Promise → botão mostra spinner + desabilita |
 | **Close on confirm** | `closeOnConfirm` + `onConfirm` → DialogClose wrapping |
@@ -126,7 +133,9 @@ A modal não aplica escala própria de tipografia — delega para os componentes
 | Escape fecha | Gerenciado pelo `Dialog` |
 | ARIA labels | `DialogTitle`, `DialogDescription` |
 | Loading | `aria-busy` no skeleton container |
-| i18n | `UI_I18N[locale].modal.confirm` e `.cancel` |
+| Maximize button | `aria-label` com `UI_I18N[locale].modal.maximize` / `.minimize` |
+| Close button | `sr-only` com `UI_I18N[locale].dialog.close` |
+| i18n | `UI_I18N[locale].modal.confirm`, `.cancel`, `.maximize`, `.minimize` e `UI_I18N[locale].dialog.close` |
 
 ---
 
@@ -157,11 +166,12 @@ A modal não aplica escala própria de tipografia — delega para os componentes
 - [x] Suporte a `intent` com ícone + cor + botão de confirmação
 - [x] 6 tamanhos de `max-width` (sm/md/lg/xl/2xl/full)
 - [x] `scrollable` com sticky header/footer + body scrollável
+- [x] `maximize` com botão toggle e visual fullscreen
 - [x] `loading` com `<Skeleton>` de dimensões corretas por size
 - [x] Async `onConfirm` com loading state automático
 - [x] `closeOnConfirm` funcional
 - [x] Suporte controlado e não-controlado
-- [x] i18n nos labels dos botões
+- [x] i18n nos labels dos botões e aria-labels
 - [x] `cn()` para classes condicionais
 - [x] `gap-*` sempre, nunca `space-y-*`
 - [x] `truncate` para texto longo

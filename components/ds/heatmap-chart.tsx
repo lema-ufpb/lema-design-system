@@ -11,12 +11,7 @@ import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export type HeatmapPalette =
-  | "blue"
-  | "green"
-  | "orange"
-  | "purple"
-  | "red"
-  | "custom"
+  "blue" | "green" | "orange" | "purple" | "red" | "custom"
 
 export interface HeatmapCell {
   /** Column label */

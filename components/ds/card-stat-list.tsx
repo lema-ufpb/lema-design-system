@@ -3,6 +3,7 @@ import { cva } from "class-variance-authority"
 import { InboxIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -79,6 +80,7 @@ export interface CardStatListProps {
   className?: string
   loading?: boolean
   empty?: boolean
+  locale?: UILocale
 }
 
 const SKELETON_ROW_WIDTHS = ["w-36", "w-28", "w-40", "w-32"] as const
@@ -91,6 +93,7 @@ export function CardStatList({
   className,
   loading,
   empty,
+  locale,
 }: CardStatListProps) {
   if (loading) {
     return (
@@ -149,8 +152,14 @@ export function CardStatList({
         <CardContent data-slot="card-stat-list-empty">
           <CardStatEmptySlot
             icon={InboxIcon}
-            message="List is empty"
-            sub="Add metrics to start tracking"
+            message={
+              locale ? UI_I18N[locale].cardStatList.listEmpty : "List is empty"
+            }
+            sub={
+              locale
+                ? UI_I18N[locale].cardStatList.listEmptyDescription
+                : "Add metrics to start tracking"
+            }
             size={size}
           />
         </CardContent>

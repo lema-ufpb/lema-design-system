@@ -8,6 +8,7 @@ import { Search, X, Mic } from "lucide-react"
 import { useVirtualizer } from "@tanstack/react-virtual"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Spinner } from "@/components/ds/spinner"
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition"
 
@@ -70,6 +71,7 @@ export interface SearchComboProps extends Omit<
   onVoiceEnd?: () => void
   /** Callback fired when voice recognition encounters an error. */
   onVoiceError?: (error: string) => void
+  locale?: UILocale
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -373,7 +375,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
       onSearch,
       options,
       onSelectResult,
-      placeholder = "Search...",
+      placeholder,
       button = true,
       rounded = false,
       size = "md",
@@ -381,8 +383,9 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
       disabled = false,
       loading = false,
       autoFocus = true,
-      label = "Search",
-      emptyMessage = "No results found.",
+      label,
+      emptyMessage,
+      locale,
       voice = false,
       onVoiceStart,
       onVoiceEnd,
@@ -392,6 +395,14 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
     },
     ref
   ) => {
+    const resolvedPlaceholder =
+      placeholder ??
+      (locale ? UI_I18N[locale].searchCombo.placeholder : "Search...")
+    const resolvedLabel =
+      label ?? (locale ? UI_I18N[locale].searchCombo.label : "Search")
+    const resolvedEmptyMessage =
+      emptyMessage ??
+      (locale ? UI_I18N[locale].searchCombo.noResults : "No results found.")
     const displayResults = useMemo(() => options ?? [], [options])
     const [focused, setFocused] = useState(false)
     const [activeIndex, setActiveIndex] = useState<number>(-1)
@@ -628,7 +639,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
         ref={ref}
         className={cn(searchComboWrapperVariants({ size, loading }), className)}
         role="search"
-        aria-label={label}
+        aria-label={resolvedLabel}
         data-slot="search-combo"
         {...props}
       >
@@ -674,8 +685,8 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                   onChange(e.target.value)
                   setActiveIndex(-1)
                 }}
-                placeholder={placeholder}
-                aria-label={label}
+                placeholder={resolvedPlaceholder}
+                aria-label={resolvedLabel}
                 aria-expanded={isOpen}
                 aria-autocomplete="list"
                 aria-controls={listboxId}
@@ -696,7 +707,11 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                 {hasValue && !disabled && (
                   <button
                     onClick={handleClear}
-                    aria-label="Clear search"
+                    aria-label={
+                      locale
+                        ? UI_I18N[locale].searchCombo.clearSearch
+                        : "Clear search"
+                    }
                     type="button"
                     data-slot="search-combo-clear"
                     className={cn(searchComboActionButtonVariants({ border }))}
@@ -708,7 +723,13 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                   <button
                     onClick={isListening ? stopListening : startListening}
                     aria-label={
-                      isListening ? "Stop recording" : "Search by voice"
+                      isListening
+                        ? locale
+                          ? UI_I18N[locale].searchCombo.stopRecording
+                          : "Stop recording"
+                        : locale
+                          ? UI_I18N[locale].searchCombo.searchByVoice
+                          : "Search by voice"
                     }
                     type="button"
                     data-slot="search-combo-voice"
@@ -733,7 +754,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                     onSearch?.(value)
                     setFocused(false)
                   }}
-                  aria-label="Search"
+                  aria-label={resolvedLabel}
                   disabled={!hasValue || disabled}
                   data-state={focused ? "open" : "closed"}
                   data-slot="search-combo-search-button"
@@ -742,7 +763,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                     className={cn(["sm:hidden"])}
                     data-icon="inline-start"
                   />
-                  <span className="hidden sm:inline">Search</span>
+                  <span className="hidden sm:inline">{resolvedLabel}</span>
                 </button>
               )}
             </div>
@@ -767,7 +788,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                     className={cn(searchComboEmptyVariants())}
                     data-slot="search-combo-empty"
                   >
-                    {emptyMessage}
+                    {resolvedEmptyMessage}
                   </div>
                 </div>
               )}
