@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.1](https://github.com/lema-ufpb/design-system/compare/v1.6.0...v1.6.1) (2026-07-07)
+
+
+### 🐛 Bug Fixes
+
+* **a11y:** add accessible names to form controls, sliders, comboboxes, charts, and progress bars ([c284601](https://github.com/lema-ufpb/design-system/commit/c284601402a19b67978ea1cb0582ed0cd7013efc))
+* **ds:** resolve lint and test errors by installing missing dependencies ([480637c](https://github.com/lema-ufpb/design-system/commit/480637c8f884f19316921ea62e596a94f561c85b))
+
 ## [1.6.0](https://github.com/lema-ufpb/design-system/compare/v1.5.1...v1.6.0) (2026-07-03)
 
 
