@@ -108,10 +108,10 @@ const AVATAR_COLORS = [
   "bg-success/10 text-success",
   "bg-warning/10 text-warning",
   "bg-destructive/10 text-destructive",
-  "bg-info/10 text-info",
-  "bg-[#6366f1]/10 text-[#6366f1]",
-  "bg-[#ec4899]/10 text-[#ec4899]",
-  "bg-[#14b8a6]/10 text-[#14b8a6]",
+  "bg-highlight-sky/10 text-highlight-sky",
+  "bg-highlight-violet/10 text-highlight-violet",
+  "bg-secondary/10 text-secondary-foreground",
+  "bg-muted/10 text-muted-foreground",
 ]
 
 function getAvatarColor(name: string): string {

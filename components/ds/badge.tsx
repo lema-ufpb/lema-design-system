@@ -128,6 +128,7 @@ function Badge({
     <BadgeRoot
       data-slot="ds-badge"
       style={tokenStyle}
+      variant={variant as React.ComponentProps<typeof BadgeRoot>["variant"]}
       className={cn(
         badgeVariants({ variant, size }),
         background && "bg-(--badge-background)",
@@ -160,10 +161,7 @@ function Badge({
           {icon}
         </span>
       )}
-      <span
-        data-slot="ds-badge-text"
-        className="max-w-[200px] min-w-0 truncate"
-      >
+      <span data-slot="ds-badge-text" className="truncate">
         {showCount ? (count > 999 ? "99+" : count) : children}
       </span>
       {removable && (

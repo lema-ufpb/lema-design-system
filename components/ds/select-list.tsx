@@ -286,11 +286,11 @@ export function SelectList({
                 <div className="flex flex-1 items-center gap-3">
                   <Skeleton className="size-8 rounded-full" />
                   <div className="flex flex-col gap-2">
-                    <Skeleton className="h-4 w-[120px]" />
-                    <Skeleton className="h-3 w-[80px]" />
+                    <Skeleton className="h-4 w-30" />
+                    <Skeleton className="h-3 w-20" />
                   </div>
                 </div>
-                <Skeleton className="h-8 w-[80px] rounded-full" />
+                <Skeleton className="h-8 w-20 rounded-full" />
               </div>
             ))}
           </div>
