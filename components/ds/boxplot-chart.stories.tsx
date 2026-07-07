@@ -572,7 +572,7 @@ function LoadingDemo(props: React.ComponentProps<typeof BoxPlotChart>) {
     return () => clearTimeout(t)
   }, [loading])
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3">
       <BoxPlotChart {...props} loading={loading} />
       <div className="flex items-center gap-3 px-1">
         <button

@@ -42,12 +42,21 @@ export const inputWrapperVariants = cva(
         light: "rounded-lg",
         full: "rounded-full",
       },
+      variant: {
+        default: "bg-input/50",
+        muted: "bg-muted",
+      },
       bordered: {
-        true: "border bg-input/50 focus-within:border-ring has-[aria-invalid=true]:border-destructive",
-        false: "bg-input/50",
+        true: "border focus-within:border-ring has-[aria-invalid=true]:border-destructive",
+        false: "",
       },
     },
-    defaultVariants: { size: "md", rounded: "light", bordered: true },
+    defaultVariants: {
+      size: "md",
+      rounded: "light",
+      variant: "default",
+      bordered: true,
+    },
   }
 )
 
@@ -56,6 +65,7 @@ export const inputWrapperVariants = cva(
 function Input({
   size = "md",
   rounded = "full",
+  variant: inputVariant = "default",
   bordered = true,
   icon,
   iconPlacement = "left",
@@ -152,7 +162,12 @@ function Input({
       )}
       <div
         className={cn(
-          inputWrapperVariants({ size, rounded, bordered }),
+          inputWrapperVariants({
+            size,
+            rounded,
+            variant: inputVariant,
+            bordered,
+          }),
           className
         )}
       >

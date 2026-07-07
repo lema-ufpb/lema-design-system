@@ -371,7 +371,7 @@ export const Virtualized: Story = {
     }, [])
 
     return (
-      <div className="max-w-md space-y-2">
+      <div className="flex max-w-md flex-col gap-2">
         <p className="text-sm text-muted-foreground">
           {largeData.length} items — only visible rows are in the DOM
         </p>

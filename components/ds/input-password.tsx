@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 
 type Size = "sm" | "default" | "lg"
 type Radius = "pill" | "rounded" | "square"
-type Variant = "default" | "white"
+type Variant = "default" | "white" | "muted"
 
 const sizeConfig: Record<
   Size,
@@ -30,6 +30,7 @@ const radiusConfig: Record<Radius, string> = {
 const variantConfig: Record<Variant, string> = {
   default: "",
   white: "bg-white border-border",
+  muted: "bg-muted",
 }
 
 interface PasswordInputProps extends Omit<

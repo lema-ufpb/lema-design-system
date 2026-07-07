@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import { ToggleTheme, ThemeProvider } from "@/components/ds/toggle-theme"
+import { ToggleTheme } from "@/components/ds/toggle-theme"
+import { ThemeProvider } from "@/providers/theme"
 
 const meta = {
   title: "Actions/ToggleTheme",
@@ -12,7 +13,7 @@ const meta = {
         component: [
           "A theme selector dropdown toggle component utilizing `next-themes` under the hood to manage system/light/dark client settings.",
           "",
-          "Wrapper elements re-export `ThemeProvider` setup hooks and configure dropdown lists mapping icons to system presets.",
+          "The consuming project provides its own `ThemeProvider` (from `next-themes`) — this component only handles the toggle UI.",
           "",
           "## Design Tokens & Semantic Variables",
           "",
