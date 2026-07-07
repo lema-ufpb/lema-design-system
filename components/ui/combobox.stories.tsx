@@ -89,7 +89,10 @@ export const Default: Story = {
       <div className="flex flex-col gap-4">
         <Combobox value={value} onValueChange={setValue}>
           <div ref={anchorRef}>
-            <ComboboxInput placeholder="Pick a framework" />
+            <ComboboxInput
+              placeholder="Pick a framework"
+              aria-label="Pick a framework"
+            />
           </div>
           <ComboboxContent anchor={anchorRef.current}>
             <ComboboxList>
@@ -125,7 +128,11 @@ export const WithClear: Story = {
     return (
       <Combobox value={value} onValueChange={setValue}>
         <div ref={anchorRef}>
-          <ComboboxInput showClear placeholder="Pick a framework" />
+          <ComboboxInput
+            showClear
+            placeholder="Pick a framework"
+            aria-label="Pick a framework"
+          />
         </div>
         <ComboboxContent anchor={anchorRef.current}>
           <ComboboxList>
@@ -156,7 +163,11 @@ export const Disabled: Story = {
     return (
       <Combobox defaultOpen={false}>
         <div ref={anchorRef}>
-          <ComboboxInput disabled placeholder="Cannot interact" />
+          <ComboboxInput
+            disabled
+            placeholder="Cannot interact"
+            aria-label="Cannot interact"
+          />
         </div>
         <ComboboxContent anchor={anchorRef.current}>
           <ComboboxList>
@@ -198,7 +209,10 @@ export const WithGroups: Story = {
     return (
       <Combobox value={value} onValueChange={setValue}>
         <div ref={anchorRef}>
-          <ComboboxInput placeholder="Pick a framework" />
+          <ComboboxInput
+            placeholder="Pick a framework"
+            aria-label="Pick a framework"
+          />
         </div>
         <ComboboxContent anchor={anchorRef.current}>
           <ComboboxList>
@@ -243,7 +257,10 @@ export const MultiSelect: Story = {
               if (!item) return null
               return <ComboboxChip key={v}>{item.label}</ComboboxChip>
             })}
-            <ComboboxChipsInput placeholder="Add frameworks..." />
+            <ComboboxChipsInput
+              placeholder="Add frameworks..."
+              aria-label="Add frameworks"
+            />
           </ComboboxChips>
         </div>
         <ComboboxContent anchor={anchorRef.current}>
@@ -287,6 +304,7 @@ export const WithCustomFilter: Story = {
         <div ref={anchorRef}>
           <ComboboxInput
             placeholder="Type to filter..."
+            aria-label="Type to filter"
             value={search}
             onChange={(e) => setSearch(e.currentTarget.value)}
           />
@@ -339,7 +357,10 @@ export const ControlledValue: Story = {
         </div>
         <Combobox value={value} onValueChange={setValue}>
           <div ref={anchorRef}>
-            <ComboboxInput placeholder="Pick a framework" />
+            <ComboboxInput
+              placeholder="Pick a framework"
+              aria-label="Pick a framework"
+            />
           </div>
           <ComboboxContent anchor={anchorRef.current}>
             <ComboboxList>
@@ -380,7 +401,10 @@ export const WithBadgeValue: Story = {
               {selected.label}
             </Badge>
           ) : (
-            <ComboboxInput placeholder="Pick a framework" />
+            <ComboboxInput
+              placeholder="Pick a framework"
+              aria-label="Pick a framework"
+            />
           )}
         </div>
         <ComboboxContent anchor={anchorRef.current}>

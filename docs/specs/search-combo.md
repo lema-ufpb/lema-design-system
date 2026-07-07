@@ -39,7 +39,7 @@ Campo de busca com dropdown de resultados, virtual scrolling, destaque de texto 
 | `onSearch` | `(value: string) => void` | — | | Callback de submit/enter |
 | `options` | `SearchComboItem[]` | — | | Itens do dropdown |
 | `onSelectResult` | `(item: SearchComboItem) => void` | — | | Callback de seleção de item |
-| `placeholder` | `string` | `"Search..."` | | Placeholder |
+| `placeholder` | `string` | — | | Placeholder (fallback i18n: `UI_I18N[locale].searchCombo.placeholder`) |
 | `button` | `boolean` | `true` | | Mostrar botão submit |
 | `rounded` | `boolean` | `false` | | Borda pill (rounded-full) |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | | Tamanho |
@@ -47,16 +47,19 @@ Campo de busca com dropdown de resultados, virtual scrolling, destaque de texto 
 | `disabled` | `boolean` | `false` | | Desabilitado |
 | `loading` | `boolean` | `false` | | Loading (spinner no lugar do ícone) |
 | `autoFocus` | `boolean` | `true` | | Auto focus no mount |
-| `label` | `string` | `"Search"` | | Aria label do landmark |
-| `emptyMessage` | `string` | `"No results found."` | | Mensagem sem resultados |
+| `label` | `string` | — | | Aria label do landmark (fallback i18n: `UI_I18N[locale].searchCombo.label`) |
+| `emptyMessage` | `string` | — | | Mensagem sem resultados (fallback i18n: `UI_I18N[locale].searchCombo.noResults`) |
 | `voice` | `boolean` | `false` | | Habilitar reconhecimento de voz |
 | `onVoiceStart` | `() => void` | — | | Callback início de gravação |
 | `onVoiceEnd` | `() => void` | — | | Callback fim de gravação |
 | `onVoiceError` | `(error: string) => void` | — | | Callback erro de voz |
+| `locale` | `UILocale` | — | | Localização para labels de busca |
 
 Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "onSelect" | "results">`.
 
 **SearchComboItem:** `{ id: string | number, label: string, value?: string, group?: string, icon?: ReactNode, data?: unknown }`
+
+Quando `locale` é fornecido, os defaults de `placeholder`, `label`, `emptyMessage` e `aria-label` dos botões usam `UI_I18N[locale].searchCombo.*`.
 
 ---
 
@@ -180,10 +183,10 @@ Múltiplos slots, cada um com seu próprio `cva()`:
 | Listbox | `<ul role="listbox">` com `aria-label` |
 | Opções | `<li role="option">` + `aria-selected` |
 | Group headers | `<li role="presentation">` |
-| Botão clear | `aria-label="Clear search"` |
-| Botão voz | `aria-label` dinâmico ("Stop recording" / "Search by voice") |
+| Botão clear | `aria-label` dinâmico (fallback i18n: `UI_I18N[locale].searchCombo.clearSearch`) |
+| Botão voz | `aria-label` dinâmico ("Stop recording" / "Search by voice" ou `UI_I18N[locale].searchCombo.*`) |
 | Teclado | `ArrowDown`/`ArrowUp` navega, `Enter` seleciona, `Escape` fecha |
-| i18n | Não usa `UI_I18N` atualmente (strings em inglês inline) |
+| i18n | `UI_I18N[locale].searchCombo.*` para placeholder, label, emptyMessage, aria-labels |
 
 ---
 
@@ -217,4 +220,4 @@ Múltiplos slots, cada um com seu próprio `cva()`:
 - [x] `aria-label` no container, input, botões clear e voz
 - [x] `cn()` para classes condicionais
 - [x] Spacing usa apenas `gap-*`
-- [x] i18n: strings em inglês inline (não usa UI_I18N atualmente)
+- [x] i18n: `UI_I18N[locale].searchCombo.*` para placeholder, label, emptyMessage, aria-labels

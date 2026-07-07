@@ -56,7 +56,7 @@ export const Default: Story = {
   },
   render: () => (
     <Select>
-      <SelectTrigger className="w-48">
+      <SelectTrigger className="w-48" aria-label="Select a fruit">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -73,7 +73,7 @@ export const Sizes: Story = {
   render: () => (
     <div className="flex items-center gap-4">
       <Select defaultValue="sm">
-        <SelectTrigger size="sm" className="w-40">
+        <SelectTrigger size="sm" className="w-40" aria-label="Small select">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -82,7 +82,11 @@ export const Sizes: Story = {
         </SelectContent>
       </Select>
       <Select defaultValue="default">
-        <SelectTrigger size="default" className="w-40">
+        <SelectTrigger
+          size="default"
+          className="w-40"
+          aria-label="Default select"
+        >
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -105,7 +109,7 @@ export const WithGroups: Story = {
   },
   render: () => (
     <Select>
-      <SelectTrigger className="w-56">
+      <SelectTrigger className="w-56" aria-label="Select an option">
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
       <SelectContent>
@@ -129,7 +133,7 @@ export const WithGroups: Story = {
 export const PopperPosition: Story = {
   render: () => (
     <Select>
-      <SelectTrigger className="w-48">
+      <SelectTrigger className="w-48" aria-label="Popper position">
         <SelectValue placeholder="Popper position" />
       </SelectTrigger>
       <SelectContent position="popper">

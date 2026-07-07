@@ -7,7 +7,7 @@ Sistema de design oficial do [Laboratório de Economia e Modelagem Aplicada (LEM
 Este design system fornece um conjunto de componentes React Typescript de alta qualidade, com suporte a:
 
 - 🌙 Modo escuro/claro automático
-- ♿ Acessibilidade WCAG 2.1 AA
+- ♿ Acessibilidade WCAG 2.1 AA (`docs/accessibility.md`)
 - 🎨 Customização via CSS variables (Tailwind CSS v4)
 - 📱 Design responsivo
 - 🔍 TypeScript total
@@ -165,7 +165,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e s
 
 ```
 docs/
-├── specs/               # Specs de todos os componentes (117 arquivos — ui + custom)
+├── specs/               # Specs de todos os componentes (119 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -181,7 +181,7 @@ As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem s
 
 ### 📚 Specs existentes
 
-Todos os componentes (55 ui primitives + 57 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (60 ui primitives + 62 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### 📄 Spec template
 

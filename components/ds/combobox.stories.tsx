@@ -214,6 +214,7 @@ export const Default: Story = {
   args: {
     options: FRAMEWORKS,
     placeholder: "Select a framework…",
+    "aria-label": "Select a framework",
     maxWidth: "320px",
     size: "md",
     rounded: "md",

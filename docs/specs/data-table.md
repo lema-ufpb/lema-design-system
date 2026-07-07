@@ -42,7 +42,12 @@ Tabela de dados rica com sorting, filtragem global, paginação, seleção de li
 | `onVoiceEnd` | `() => void` | — | | Callback fim gravação |
 | `onVoiceError` | `(error: string) => void` | — | | Callback erro de voz |
 | `pagination` | `boolean` | `false` | | Habilita paginação |
+| `manualPagination` | `boolean` | `false` | | Paginação manual (server-side) |
+| `pageCount` | `number` | — | | Nº total de páginas (manualPagination) |
+| `rowCount` | `number` | — | | Nº total de linhas (manualPagination) |
 | `defaultPageSize` | `number` | `10` | | Tamanho inicial da página |
+| `pageIndex` | `number` | — | | Índice da página atual (controlado) |
+| `onPageChange` | `(pageIndex: number) => void` | — | | Callback de mudança de página |
 | `defaultGlobalFilter` | `string` | `""` | | Filtro global inicial |
 | `pageSizeOptions` | `number[]` | — | | Opções de items por página |
 | `selectRows` | `boolean` | `false` | | Habilita checkbox de seleção |
@@ -120,7 +125,7 @@ Usa `SIZE_PRESETS`:
 | `loading={true}` com `data.length === 0` | `<DataTableSkeleton>` com Skeleton simulando header, toolbar, rows, pagination, footer |
 | `loading={true}` com `data.length > 0` | Refetch progress bar (shimmer) no topo + `opacity-50 pointer-events-none` nas linhas |
 | Busca global | Usa `<SearchBar>` integrado com suporte a voz (`voiceSearch`) e locale; filtro global via TanStack Table |
-| `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2 e mensagem "No data found" |
+| `data.length === 0` e `loading={false}` | `DataTableEmpty` com ícone Table2, container `rounded-2xl border-dashed border-border` com `bg-muted/50`, mensagem "No data found" (ou `UI_I18N[locale].dataTable.*`) |
 | Paginação | `PaginationBar` com page range, ellipsis, previous/next, page size selector |
 | Paginação — arredondamento | `paginationRounded` prop (`"full"` → pill, `"light"` → `rounded-lg`, `"none"` → square) aplicada via CVA a `PaginationLink`, `PaginationPrevious`, `PaginationNext` |
 | Seleção | Checkbox `accent-primary` no header (select all) e cada linha |
@@ -136,13 +141,14 @@ Usa `SIZE_PRESETS`:
 | Requisito | Implementação |
 |-----------|--------------|
 | Role semântico | `<div role="region">` no viewport scrollável; `<div data-slot="data-table">` no root |
-| Rótulo | `aria-label` no viewport (fallback: "Table with N rows") |
+| Rótulo | `aria-label` no viewport (fallback: "Table with N rows" ou `UI_I18N[locale].dataTable.tableWithRows`) |
 | Busy | `aria-busy={loading}` no viewport |
 | Tabela semântica | `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` |
 | Cabeçalho sticky | `TableHeader sticky` com `sticky top-0 z-10` |
 | Checkbox | `aria-label` em cada checkbox com `accent-primary` |
 | Paginação | `aria-disabled` em previous/next desabilitados |
 | Teclado | Navegação tab nativa |
+| i18n | `UI_I18N[locale].dataTable.*` para searchPlaceholder, noData, noDataDescription, pagination labels e `UI_I18N[locale].pagination.*` para previous/next |
 
 ---
 
@@ -196,4 +202,4 @@ Usa `SIZE_PRESETS`:
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)
-- [x] Prop `locale` integrada via `UI_I18N` se houver strings fixas — usa `labels` props customizáveis
+- [x] Prop `locale` integrada via `UI_I18N` e `labels` props customizáveis

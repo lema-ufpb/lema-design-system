@@ -32,10 +32,8 @@ Alternador de tema claro/escuro/sistema usando `next-themes` com menu dropdown. 
 
 | Prop | Tipo | Padrão | Obrigatória | Descrição |
 |------|------|--------|-------------|-----------|
-| `labels.light` | `string` | `"Light"` | | Rótulo do item Light |
-| `labels.dark` | `string` | `"Dark"` | | Rótulo do item Dark |
-| `labels.system` | `string` | `"System"` | | Rótulo do item System |
-| `labels.trigger` | `string` | `"Toggle theme"` | | aria-label do botão |
+| `locale` | `UILocale` | `"en-US"` | | Locale para strings i18n (light, dark, system, trigger) |
+| `loading` | `boolean` | `false` | | Estado de carregamento |
 
 ---
 
@@ -75,10 +73,10 @@ Nenhum token direto. Os primitivos shadcn (`Button`, `DropdownMenu`) gerenciam s
 
 | Requisito | Implementação |
 |-----------|--------------|
-| Rótulo | `aria-label` no `DropdownMenuTrigger` via prop `trigger` |
+| Rótulo | `aria-label` no `DropdownMenuTrigger` via `UI_I18N[locale].toggleTheme.trigger` |
 | Dropdown | `DropdownMenuItem` com `onClick` para cada opção |
 | Teclado | Navegação nativa do DropdownMenu (shadcn/Radix) |
-| i18n | Labels customizáveis via props (sem `UI_I18N`) |
+| i18n | `UI_I18N[locale].toggleTheme.*`: `light`, `dark`, `system`, `trigger` |
 
 ---
 
@@ -100,4 +98,4 @@ Nenhum token direto. Os primitivos shadcn (`Button`, `DropdownMenu`) gerenciam s
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values) — N/A
-- [x] Prop `locale` integrada via `UI_I18N` — usa labels props customizáveis
+- [x] Prop `locale` integrada via `UI_I18N`

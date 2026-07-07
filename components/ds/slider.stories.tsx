@@ -84,6 +84,7 @@ export const Default: Story = {
     showMarks: false,
     loading: false,
     orientation: "horizontal",
+    label: "Slider",
   },
 }
 
@@ -92,6 +93,7 @@ export const Range: Story = {
     defaultValue: [30, 70],
     min: 0,
     max: 100,
+    label: "Range slider",
   },
 }
 
@@ -101,6 +103,7 @@ export const WithMarks: Story = {
     min: 0,
     max: 100,
     showMarks: true,
+    label: "Slider with marks",
   },
 }
 
@@ -116,6 +119,7 @@ export const CustomMarks: Story = {
       { value: 75, label: "75%" },
       { value: 100, label: "100%" },
     ],
+    label: "Custom marks slider",
   },
 }
 
@@ -125,6 +129,7 @@ export const WithTooltip: Story = {
     min: 0,
     max: 100,
     showTooltip: true,
+    label: "Slider with tooltip",
   },
 }
 
@@ -135,6 +140,7 @@ export const Vertical: Story = {
     max: 100,
     orientation: "vertical",
     showMarks: true,
+    label: "Vertical slider",
   },
 }
 
@@ -144,6 +150,7 @@ export const VerticalRange: Story = {
     min: 0,
     max: 100,
     orientation: "vertical",
+    label: "Vertical range",
   },
 }
 
@@ -160,6 +167,7 @@ export const Disabled: Story = {
     min: 0,
     max: 100,
     disabled: true,
+    label: "Disabled slider",
   },
 }
 

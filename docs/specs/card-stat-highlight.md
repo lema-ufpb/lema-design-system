@@ -19,9 +19,12 @@
 | `trend` | `CardStatTrend \| boolean` | — | |
 | `trendValue` | `string` | — | |
 | `icon` | `React.ElementType` | — | |
+| `background` | `string` | — | Override de cor de fundo via CSS token `--card-highlight-background` |
+| `color` | `string` | — | Override de cor de texto via CSS token `--card-highlight-color` |
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | — | |
 
 Estende \`FormatOptions\` + \`VariantProps<typeof cardStatHighlightVariants>\`.
 
@@ -62,6 +65,14 @@ Compartilhada: `cardStatLabelVariants`.
 - IconBox usa `bg-muted/10` (em vez de `bg-white/20`)
 - Skeletons mantêm `bg-muted` nativo (sem overlay)
 - `CardStatEmptySlot` com `inverted={false}` (texto escuro)
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| Decorative circles | `aria-hidden` nos spans circulares decorativos |
+| Empty state | `CardStatEmptySlot` com ícone e mensagem |
+| i18n | `UI_I18N[locale].cardStatHighlight.*` para empty state |
 
 ## Stories
 

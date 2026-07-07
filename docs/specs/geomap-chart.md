@@ -14,46 +14,51 @@ _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/geomap-chart.tsx` |
-| data-slot | `geomap-chart` |
-| Tipo | `registry:component` |
-| Categoria | `Data Display` |
+| Campo      | Valor                                                                                                                                                                                                                                                  |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Arquivo    | `components/ds/geomap-chart.tsx`                                                                                                                                                                                                                       |
+| data-slot  | `geomap-chart`                                                                                                                                                                                                                                         |
+| Tipo       | `registry:component`                                                                                                                                                                                                                                   |
+| Categoria  | `Data Display`                                                                                                                                                                                                                                         |
 | Depende de | `Skeleton` (shadcn/ui), `react-simple-maps` (ComposableMap, Geographies, Geography, Marker, ZoomableGroup), `@/components/ui/tooltip` (shadcn Tooltip, TooltipTrigger, TooltipContent, TooltipProvider), `geojson` (types), `class-variance-authority` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `geoData` | `FeatureCollection \| string` | — | ✓ | GeoJSON ou URL |
-| `featureIdProperty` | `string` | — | | Propriedade do feature usada como ID |
-| `data` | `GeoMapFeature[]` | `[]` | | Valores coropléticos |
-| `markers` | `GeoMapMarker[]` | `[]` | | Marcadores no mapa |
-| `title` | `string` | — | | Título |
-| `subtitle` | `string` | — | | Subtítulo |
-| `footer` | `React.ReactNode` | — | | Rodapé |
-| `height` | `number` | `400` | | Altura do canvas |
-| `projection` | `GeoProjection` | `"geoMercator"` | | Projeção D3 |
-| `projectionConfig` | `{ scale?, center?, rotate? }` | — | | Config da projeção |
-| `enableZoom` | `boolean` | `false` | | Zoom e pan via scroll/drag |
-| `zoomRange` | `[number, number]` | `[1, 8]` | | Range do zoom |
-| `colorRange` | `[string, string]` | — | | Cores para choropleth |
-| `defaultFill` | `string` | — | | Fill padrão das features |
-| `selectedFeatureIds` | `(string \| number)[]` | `[]` | | IDs selecionados |
-| `selectedStroke` | `string` | — | | Stroke das features selecionadas |
-| `showTooltip` | `boolean` | `true` | | Tooltip ao hover |
-| `showLegend` | `boolean` | — | | Exibe legenda (default: true se colorRange) |
-| `legendPosition` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right" \| "bottom"` | `"bottom-right"` | | Posição da legenda |
-| `legendLabel` | `string` | — | | Rótulo da escala |
-| `legendOrientation` | `"horizontal" \| "vertical"` | `"horizontal"` | | Orientação da legenda |
-| `onFeatureClick` | `(feature, originalId) => void` | — | | Callback clique em feature |
-| `onMarkerClick` | `(marker) => void` | — | | Callback clique em marcador |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
-| `className` | `string` | — | | Classes extras |
+| Prop                 | Tipo                                                                       | Padrão           | Obrigatória | Descrição                                         |
+| -------------------- | -------------------------------------------------------------------------- | ---------------- | ----------- | ------------------------------------------------- |
+| `geoData`            | `FeatureCollection \| string`                                              | —                | ✓           | GeoJSON ou URL                                    |
+| `featureIdProperty`  | `string`                                                                   | —                |             | Propriedade do feature usada como ID              |
+| `data`               | `GeoMapFeature[]`                                                          | `[]`             |             | Valores coropléticos                              |
+| `markers`            | `GeoMapMarker[]`                                                           | `[]`             |             | Marcadores no mapa                                |
+| `title`              | `string`                                                                   | —                |             | Título                                            |
+| `subtitle`           | `string`                                                                   | —                |             | Subtítulo                                         |
+| `footer`             | `React.ReactNode`                                                          | —                |             | Rodapé                                            |
+| `height`             | `number`                                                                   | `400`            |             | Altura do canvas                                  |
+| `projection`         | `GeoProjection`                                                            | `"geoMercator"`  |             | Projeção D3                                       |
+| `projectionConfig`   | `{ scale?, center?, rotate? }`                                             | —                |             | Config da projeção                                |
+| `enableZoom`         | `boolean`                                                                  | `false`          |             | Zoom e pan via scroll/drag                        |
+| `zoomRange`          | `[number, number]`                                                         | `[1, 8]`         |             | Range do zoom                                     |
+| `colorRange`         | `[string, string]`                                                         | —                |             | Cores para choropleth                             |
+| `defaultFill`        | `string`                                                                   | —                |             | Fill padrão das features                          |
+| `selectedFeatureIds` | `(string \| number)[]`                                                     | `[]`             |             | IDs selecionados                                  |
+| `selectedStroke`     | `string`                                                                   | —                |             | Stroke das features selecionadas                  |
+| `showTooltip`        | `boolean`                                                                  | `true`           |             | Tooltip ao hover                                  |
+| `showLegend`         | `boolean`                                                                  | —                |             | Exibe legenda (default: true se colorRange)       |
+| `legendPosition`     | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right" \| "bottom"` | `"bottom-right"` |             | Posição da legenda                                |
+| `legendLabel`        | `string`                                                                   | —                |             | Rótulo da escala                                  |
+| `legendOrientation`  | `"horizontal" \| "vertical"`                                               | `"horizontal"`   |             | Orientação da legenda                             |
+| `onFeatureClick`     | `(feature, originalId) => void`                                            | —                |             | Callback clique em feature                        |
+| `onMarkerClick`      | `(marker) => void`                                                         | —                |             | Callback clique em marcador                       |
+| `valueFormatter`     | `(value: number) => string`                                                | —                |             | Formata valores (fallback se `format` não suprir) |
+| `format`             | `FormatPreset`                                                             | —                |             | Preset de formatação                              |
+| `decimals`           | `number`                                                                   | —                |             | Casas decimais                                    |
+| `currency`           | `string`                                                                   | `"USD"`          |             | Código da moeda                                   |
+| `abbreviate`         | `boolean`                                                                  | `false`          |             | Abreviação locale-aware                           |
+| `locale`             | `UILocale`                                                                 | `"en-US"`        |             | Locale para formatação numérica                   |
+| `loading`            | `boolean`                                                                  | `false`          |             | Estado de carregamento                            |
+| `className`          | `string`                                                                   | —                |             | Classes extras                                    |
 
 > Estende `React.HTMLAttributes<HTMLDivElement>`.
 
@@ -62,8 +67,8 @@ _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON
 ## Variantes CVA
 
 | Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| — | — | — |
+| -------- | ------- | ------ |
+| —        | —       | —      |
 
 **Slots do componente:**
 
@@ -77,61 +82,61 @@ _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `text-foreground` | título, tooltip name, legend label, marker text |
-| `text-muted-foreground` | subtítulo, tooltip value, legend values, footer, empty state |
-| `bg-muted` | skeleton content, defaultFill |
-| `bg-card` | tooltip background, legend card background |
-| `bg-card/90` | legend overlay background |
-| `border-border` | footer divider, legend border, tooltip border |
-| `var(--muted)` | default fill fallback |
-| `var(--background)` | feature stroke |
-| `var(--primary)` | selected feature stroke, hover feature stroke |
-| `var(--chart-1)` | default marker fill |
-| `var(--muted-foreground)` | skeleton blobs |
+| Token                     | Slot onde é usado                                            |
+| ------------------------- | ------------------------------------------------------------ |
+| `text-foreground`         | título, tooltip name, legend label, marker text              |
+| `text-muted-foreground`   | subtítulo, tooltip value, legend values, footer, empty state |
+| `bg-muted`                | skeleton content, defaultFill                                |
+| `bg-card`                 | tooltip background, legend card background                   |
+| `bg-card/90`              | legend overlay background                                    |
+| `border-border`           | footer divider, legend border, tooltip border                |
+| `var(--muted)`            | default fill fallback                                        |
+| `var(--background)`       | feature stroke                                               |
+| `var(--primary)`          | selected feature stroke, hover feature stroke                |
+| `var(--chart-1)`          | default marker fill                                          |
+| `var(--muted-foreground)` | skeleton blobs                                               |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Título | — | `text-sm leading-tight font-semibold` | — |
-| Subtítulo | — | `text-xs` | — |
-| Tooltip name | — | `text-xs font-semibold` | — |
-| Tooltip value | — | `text-xs` | — |
-| Legend label | — | `text-xs font-medium` | — |
-| Legend values | — | `text-xs` | — |
-| Marker label | — | `fontSize: 10` (SVG) | — |
+| Slot          | sm  | md                                    | lg  |
+| ------------- | --- | ------------------------------------- | --- |
+| Título        | —   | `text-sm leading-tight font-semibold` | —   |
+| Subtítulo     | —   | `text-xs`                             | —   |
+| Tooltip name  | —   | `text-xs font-semibold`               | —   |
+| Tooltip value | —   | `text-xs`                             | —   |
+| Legend label  | —   | `text-xs font-medium`                 | —   |
+| Legend values | —   | `text-xs`                             | —   |
+| Marker label  | —   | `fontSize: 10` (SVG)                  | —   |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<GeoMapChartSkeleton>` com continent blobs via SVG ellipses. |
-| `geoData` como string | react-simple-maps fetches internamente. |
-| Choropleth | `colorRange` interpolado via `interpolateColor()` (hex → rgb). |
-| `selectedFeatureIds` | Features destacadas com `selectedStroke` (default: `var(--primary)`) e strokeWidth 1.5. |
-| Hover na feature | Tooltip posicionado (se showTooltip), stroke muda para primary, opacity 0.85. |
-| Marker label | Texto acima do círculo via SVG `<text>`. |
-| Zoom | `ZoomableGroup` com min/max zoom configurável. |
-| Legenda overlay | Posicionada absolute dentro do container do mapa. Vertical: estica altura (`inset-y-2`). Horizontal: anchored to corner. |
-| Legenda gradient | Hover interativo com shadcn Tooltip mostrando o valor na posição do mouse. |
-| Feature ID resolution | `resolveFeatureId()`: top-level id → featureIdProperty → properties.id → properties.ID. |
+| Estado                | Comportamento esperado                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `loading={true}`      | `<GeoMapChartSkeleton>` com continent blobs via SVG ellipses.                                                            |
+| `geoData` como string | react-simple-maps fetches internamente.                                                                                  |
+| Choropleth            | `colorRange` interpolado via `interpolateColor()` (hex → rgb).                                                           |
+| `selectedFeatureIds`  | Features destacadas com `selectedStroke` (default: `var(--primary)`) e strokeWidth 1.5.                                  |
+| Hover na feature      | Tooltip posicionado (se showTooltip), stroke muda para primary, opacity 0.85.                                            |
+| Marker label          | Texto acima do círculo via SVG `<text>`.                                                                                 |
+| Zoom                  | `ZoomableGroup` com min/max zoom configurável.                                                                           |
+| Legenda overlay       | Posicionada absolute dentro do container do mapa. Vertical: estica altura (`inset-y-2`). Horizontal: anchored to corner. |
+| Legenda gradient      | Hover interativo com shadcn Tooltip mostrando o valor na posição do mouse.                                               |
+| Feature ID resolution | `resolveFeatureId()`: top-level id → featureIdProperty → properties.id → properties.ID.                                  |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | `<div>` com attributes spread |
-| Tooltip | Posicionado por coordenada do mouse |
-| Legend gradient | `TooltipTrigger` asChild no gradiente, `TooltipContent` com valor |
-| i18n | Não usa UI_I18N (sem strings fixas) |
+| Requisito       | Implementação                                                                        |
+| --------------- | ------------------------------------------------------------------------------------ |
+| Role semântico  | `<div>` com attributes spread                                                        |
+| Tooltip         | Posicionado por coordenada do mouse                                                  |
+| Legend gradient | `TooltipTrigger` asChild no gradiente, `TooltipContent` com valor                    |
+| i18n            | `locale` usado para formatação numérica via `formatChartValue` (sem strings UI_I18N) |
 
 ---
 

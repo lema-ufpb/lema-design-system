@@ -22,12 +22,13 @@
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | — | |
 
 Estende \`FormatOptions\`.
 
 `CardStatGaugeZone`: `{ label: string, color: string, max: number }`
 
-Zonas padrão: Poor (risk-1, 25%), Fair (risk-2, 50%), Good (risk-3, 75%), Excellent (risk-4, 100%).
+Zonas padrão: Poor (risk-1, 25%), Fair (risk-2, 50%), Good (risk-3, 75%), Excellent (risk-4, 100%). Quando `locale` é fornecido, os labels das zonas usam `UI_I18N[locale].cardStatGauge.*`.
 
 ---
 
@@ -49,6 +50,15 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardSta
 - Percentual: `((value - min) / (max - min)) * 100` (clamp 0–100)
 - Zona ativa destacada com preenchimento sólido
 - Badge com nome da zona ativa
+- Estado `empty`: badge "No reading" (ou `UI_I18N[locale].cardStatGauge.noReading` se locale fornecido)
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| SVG decorativo | `aria-hidden` no elemento SVG |
+| Badge de zona | `aria-hidden` no badge (informação redundante com visual) |
+| i18n | `UI_I18N[locale].cardStatGauge.*` para labels de zona e empty state |
 
 ## Stories
 

@@ -501,7 +501,7 @@ export const WithFooter: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           <span>Up 18% over the last 3 months</span>
         </span>
         <span className="flex items-center gap-1 text-muted-foreground/70">
@@ -770,7 +770,7 @@ export const Loading: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           <span>Up 18% over the last 3 months</span>
         </span>
         <span className="flex items-center gap-1 text-muted-foreground/70">

@@ -18,8 +18,11 @@
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | — | |
 
 `CardStatListItem`: `{ label, value, trend?, trendValue?, format?, decimals?, locale?, currency?, valueFormatter? }`
+
+Quando `locale` é fornecido, as mensagens de empty state usam `UI_I18N[locale].cardStatList.*`.
 
 ---
 
@@ -41,6 +44,14 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardSta
 - Divisores: `border-t border-border/50` entre itens
 - Hover: `hover:bg-muted/40` nos itens
 - Tendência: ícone + trendValue inline com cor por direção
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| Lista semântica | `<ul>` / `<li>` com itens de lista |
+| Trend icons | `aria-hidden` nos ícones de tendência |
+| i18n | `UI_I18N[locale].cardStatList.*` para empty state |
 
 ## Stories
 

@@ -14,34 +14,34 @@ _Gráfico de box plot (caixa e bigodes) para visualização de distribuições e
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/boxplot-chart.tsx` |
-| data-slot | `boxplot-chart` |
-| Tipo | `registry:component` |
-| Categoria | `Data Display` |
+| Campo      | Valor                                                                          |
+| ---------- | ------------------------------------------------------------------------------ |
+| Arquivo    | `components/ds/boxplot-chart.tsx`                                              |
+| data-slot  | `boxplot-chart`                                                                |
+| Tipo       | `registry:component`                                                           |
+| Categoria  | `Data Display`                                                                 |
 | Depende de | `Skeleton` (shadcn/ui), `lucide-react` (BarChart2), `class-variance-authority` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `data` | `BoxPlotItem[]` | — | ✓ | Array de itens com min, q1, median, mean, q3, max, outliers |
-| `title` | `string` | — | | Título do gráfico |
-| `subtitle` | `string` | — | | Subtítulo do gráfico |
-| `footer` | `React.ReactNode` | — | | Rodapé do gráfico |
-| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | | Orientação dos boxes |
-| `height` | `number` | `320` | | Altura do canvas em px |
-| `showGrid` | `boolean` | `true` | | Exibe grid da escala de valores |
-| `showMean` | `boolean` | `true` | | Exibe losango na média |
-| `showOutliers` | `boolean` | `true` | | Exibe pontos de outliers |
-| `notched` | `boolean` | `false` | | Entalhe no box na mediana |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores dos ticks e tooltip |
-| `loading` | `boolean` | `false` | | Estado de carregamento com skeleton |
-| `locale` | `UILocale` | `"en-US"` | | Locale para i18n |
-| `className` | `string` | — | | Classes extras de layout |
+| Prop             | Tipo                         | Padrão       | Obrigatória | Descrição                                                   |
+| ---------------- | ---------------------------- | ------------ | ----------- | ----------------------------------------------------------- |
+| `data`           | `BoxPlotItem[]`              | —            | ✓           | Array de itens com min, q1, median, mean, q3, max, outliers |
+| `title`          | `string`                     | —            |             | Título do gráfico                                           |
+| `subtitle`       | `string`                     | —            |             | Subtítulo do gráfico                                        |
+| `footer`         | `React.ReactNode`            | —            |             | Rodapé do gráfico                                           |
+| `orientation`    | `"vertical" \| "horizontal"` | `"vertical"` |             | Orientação dos boxes                                        |
+| `height`         | `number`                     | `320`        |             | Altura do canvas em px                                      |
+| `showGrid`       | `boolean`                    | `true`       |             | Exibe grid da escala de valores                             |
+| `showMean`       | `boolean`                    | `true`       |             | Exibe losango na média                                      |
+| `showOutliers`   | `boolean`                    | `true`       |             | Exibe pontos de outliers                                    |
+| `notched`        | `boolean`                    | `false`      |             | Entalhe no box na mediana                                   |
+| `valueFormatter` | `(value: number) => string`  | —            |             | Formata valores dos ticks e tooltip                         |
+| `loading`        | `boolean`                    | `false`      |             | Estado de carregamento com skeleton                         |
+| `locale`         | `UILocale`                   | `"en-US"`    |             | Locale para i18n                                            |
+| `className`      | `string`                     | —            |             | Classes extras de layout                                    |
 
 > Estende `React.HTMLAttributes<HTMLDivElement>`.
 
@@ -50,10 +50,10 @@ _Gráfico de box plot (caixa e bigodes) para visualização de distribuições e
 ## Variantes CVA
 
 | Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| — | — | — |
+| -------- | ------- | ------ |
+| —        | —       | —      |
 
-*Sem variantes CVA dimensionais.*
+_Sem variantes CVA dimensionais._
 
 **Slots do componente:**
 
@@ -67,54 +67,54 @@ _Gráfico de box plot (caixa e bigodes) para visualização de distribuições e
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `text-foreground` | título, tooltip label, tooltip valores |
-| `text-muted-foreground` | subtítulo, ticks do eixo, footer, empty state |
-| `bg-muted` | empty state icon circle |
-| `bg-card` | tooltip background |
-| `border-border` | footer divider, empty state border, tooltip border, grid lines |
-| `var(--chart-1..5)` | fill dos boxes (cíclico) |
-| `var(--card)` | stroke do losango da média |
-| `var(--muted)` | grid lines, skeleton preenchimento |
-| `var(--foreground)` | label da categoria hover |
-| `var(--muted-foreground)` | label da categoria normal |
+| Token                     | Slot onde é usado                                              |
+| ------------------------- | -------------------------------------------------------------- |
+| `text-foreground`         | título, tooltip label, tooltip valores                         |
+| `text-muted-foreground`   | subtítulo, ticks do eixo, footer, empty state                  |
+| `bg-muted`                | empty state icon circle                                        |
+| `bg-card`                 | tooltip background                                             |
+| `border-border`           | footer divider, empty state border, tooltip border, grid lines |
+| `var(--chart-1..5)`       | fill dos boxes (cíclico)                                       |
+| `var(--card)`             | stroke do losango da média                                     |
+| `var(--muted)`            | grid lines, skeleton preenchimento                             |
+| `var(--foreground)`       | label da categoria hover                                       |
+| `var(--muted-foreground)` | label da categoria normal                                      |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Label text | `text-xs font-medium` | `text-sm font-medium` | `text-base font-medium` |
-| Value text | `text-xs font-semibold` | `text-sm font-semibold` | `text-base font-semibold` |
-| Título | — | `text-sm leading-tight font-semibold` | — |
-| Subtítulo | — | `text-xs` | — |
-| Tooltip estatísticas | — | `text-xs` labels / `text-xs font-semibold tabular-nums` values | — |
-| Eixo ticks | — | `fontSize: 11` (SVG) | — |
+| Slot                 | sm                      | md                                                             | lg                        |
+| -------------------- | ----------------------- | -------------------------------------------------------------- | ------------------------- |
+| Label text           | `text-xs font-medium`   | `text-sm font-medium`                                          | `text-base font-medium`   |
+| Value text           | `text-xs font-semibold` | `text-sm font-semibold`                                        | `text-base font-semibold` |
+| Título               | —                       | `text-sm leading-tight font-semibold`                          | —                         |
+| Subtítulo            | —                       | `text-xs`                                                      | —                         |
+| Tooltip estatísticas | —                       | `text-xs` labels / `text-xs font-semibold tabular-nums` values | —                         |
+| Eixo ticks           | —                       | `fontSize: 11` (SVG)                                           | —                         |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<BoxPlotChartSkeleton>` com boxes, grid, eixos simulados via Skeleton e SVG. |
-| `data.length === 0` | Empty state com ícone `BarChart2`, mensagens i18n `emptyState.*`, borda `border-dashed`. |
-| Hover no box | Tooltip flutuante com estatísticas completas (Max, Q3, Median, Mean, Q1, Min). Box fica `opacity: 1` com fill mais intenso. |
-| Outliers | Círculos vazados com stroke da cor do box. |
-| Notched | Path SVG customizado com entalhe na mediana. |
+| Estado              | Comportamento esperado                                                                                                      |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `loading={true}`    | `<BoxPlotChartSkeleton>` com boxes, grid, eixos simulados via Skeleton e SVG.                                               |
+| `data.length === 0` | Empty state com ícone `BarChart2`, mensagens i18n `emptyState.*`, borda `border-dashed`.                                    |
+| Hover no box        | Tooltip flutuante com estatísticas completas (Max, Q3, Median, Mean, Q1, Min). Box fica `opacity: 1` com fill mais intenso. |
+| Outliers            | Círculos vazados com stroke da cor do box.                                                                                  |
+| Notched             | Path SVG customizado com entalhe na mediana.                                                                                |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | `<div>` com attributes spread |
-| Tooltip | `pointer-events-none` pois segue o mouse |
-| Valores numéricos | `tabular-nums` nos tooltips |
-| i18n | `UI_I18N[locale].emptyState.*` para empty state |
+| Requisito         | Implementação                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- |
+| Role semântico    | `<div>` com attributes spread                                                                              |
+| Tooltip           | `pointer-events-none` pois segue o mouse                                                                   |
+| Valores numéricos | `tabular-nums` nos tooltips                                                                                |
+| i18n              | `UI_I18N[locale].boxplot.*` (max, q3, median, mean, q1, min) para tooltip + `UI_I18N[locale].emptyState.*` |
 
 ---
 

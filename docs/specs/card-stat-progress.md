@@ -3,7 +3,7 @@
 > Cartão de progresso com barra, valor atual vs goal, percentual e código de cores por faixa.
 
 **Arquivo:** `components/ds/card-stat-progress.tsx`
-**data-slot:** `card-stat-progress` (ainda não aplicado nos elementos `Card` do componente)
+**data-slot:** `card-stat-progress`
 
 ---
 
@@ -21,6 +21,7 @@
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | — | |
 
 Estende \`FormatOptions\`.
 
@@ -44,6 +45,13 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatValueVariants`, `cardStatDescr
 | `>= 75%` | `text-highlight-sky` | `bg-highlight-sky` |
 | `>= 50%` | `text-warning` | `bg-warning` |
 | `< 50%` | `text-muted-foreground` | (default) |
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| Progress bar | `<Progress>` shadcn com `role="progressbar"` implícito |
+| i18n | `UI_I18N[locale].cardStatProgress.*` para empty state |
 
 ## Stories
 

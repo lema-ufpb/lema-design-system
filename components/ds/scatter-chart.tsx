@@ -3,7 +3,6 @@
 import * as React from "react"
 import {
   CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Scatter,
   ScatterChart as RechartsScatterChart,
@@ -23,13 +22,7 @@ import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 export type LegendPosition = "top" | "bottom" | "left" | "right"
 export type ScatterDotShape =
-  | "circle"
-  | "cross"
-  | "diamond"
-  | "square"
-  | "star"
-  | "triangle"
-  | "wye"
+  "circle" | "cross" | "diamond" | "square" | "star" | "triangle" | "wye"
 
 export interface ScatterPoint {
   x: number
@@ -102,20 +95,6 @@ const CHART_COLORS = [
   "var(--chart-4)",
   "var(--chart-5)",
 ]
-
-const LEGEND_LAYOUT: Record<
-  LegendPosition,
-  {
-    verticalAlign: "top" | "middle" | "bottom"
-    align: "left" | "center" | "right"
-    layout: "horizontal" | "vertical"
-  }
-> = {
-  top: { verticalAlign: "top", align: "center", layout: "horizontal" },
-  bottom: { verticalAlign: "bottom", align: "center", layout: "horizontal" },
-  left: { verticalAlign: "middle", align: "left", layout: "vertical" },
-  right: { verticalAlign: "middle", align: "right", layout: "vertical" },
-}
 
 // ── Skeleton ───────────────────────────────────────────────────────────────
 
@@ -421,6 +400,7 @@ function ChartLegend({
             role="button"
             tabIndex={0}
             aria-pressed={hidden}
+            aria-label={entry.value}
             onClick={() => onToggle(entry.value)}
             onKeyDown={(e) =>
               (e.key === "Enter" || e.key === " ") && onToggle(entry.value)
@@ -682,6 +662,11 @@ export function ScatterChart({
 
   const colored = React.useMemo(() => assignColors(series), [series])
 
+  const legendPayload = React.useMemo(
+    () => colored.map((s) => ({ value: s.name, color: s.fill })),
+    [colored]
+  )
+
   const [hiddenSeries, setHiddenSeries] = React.useState<Set<string>>(new Set())
   const toggleSeries = React.useCallback((name: string) => {
     setHiddenSeries((prev) => {
@@ -910,20 +895,6 @@ export function ScatterChart({
             />
           )}
 
-          {showLegend && (
-            <Legend
-              {...LEGEND_LAYOUT[legendPosition]}
-              content={({ payload }) => (
-                <ChartLegend
-                  payload={payload as LegendPayloadEntry[]}
-                  hiddenSeries={hiddenSeries}
-                  onToggle={toggleSeries}
-                  vertical={isVerticalLegend}
-                />
-              )}
-            />
-          )}
-
           {/* Data series */}
           {enrichedSeries.map((s) => (
             <Scatter
@@ -961,6 +932,15 @@ export function ScatterChart({
             })}
         </RechartsScatterChart>
       </ResponsiveContainer>
+
+      {showLegend && (
+        <ChartLegend
+          payload={legendPayload}
+          hiddenSeries={hiddenSeries}
+          onToggle={toggleSeries}
+          vertical={isVerticalLegend}
+        />
+      )}
 
       {showBrush && (
         <ContinuousBrush

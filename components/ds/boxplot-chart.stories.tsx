@@ -489,7 +489,7 @@ export const ApiResponseTime: Story = {
     valueFormatter: (v) => formatValue(v, "integer") + "ms",
     footer: (
       <span className="flex items-center gap-1.5">
-        <AlertCircle className="size-3.5 text-amber-500" />
+        <AlertCircle className="size-3.5 text-warning" />
         /reports and /export endpoints exceed SLA — investigate caching
       </span>
     ),

@@ -153,6 +153,9 @@ function Select({
 
   const selectedOption = options.find((o) => o.value === value)
 
+  const triggerText =
+    selectedOption?.label ?? placeholder ?? i18n.select.placeholder
+
   if (loading) {
     return (
       <div className="flex flex-col gap-1.5">
@@ -189,6 +192,9 @@ function Select({
             variant="ghost"
             role="combobox"
             aria-expanded={open}
+            aria-label={
+              typeof triggerText === "string" ? triggerText : undefined
+            }
             disabled={disabled}
             aria-invalid={!!error}
             className={cn(
