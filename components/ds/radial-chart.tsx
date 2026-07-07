@@ -313,6 +313,7 @@ function ChartLegend({
             role="button"
             tabIndex={0}
             aria-pressed={hidden}
+            aria-label={item.name}
             onClick={() => onToggle(item.name)}
             onKeyDown={(e) =>
               (e.key === "Enter" || e.key === " ") && onToggle(item.name)

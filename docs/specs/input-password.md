@@ -34,6 +34,7 @@ Wrapper do `Input` shadcn com botão de olho para alternar entre `type="password
 |------|------|--------|-------------|-----------|
 | `size` | `"sm" \| "default" \| "lg"` | `"default"` | | Tamanho do input |
 | `radius` | `"pill" \| "rounded" \| "square"` | `"pill"` | | Arredondamento das bordas |
+| `variant` | `"default" \| "white"` | `"default"` | | Estilo visual (white para fundo branco) |
 | `locale` | `UILocale` | `"en-US"` | | Locale para i18n |
 | `className` | `string` | — | | Classes extras |
 

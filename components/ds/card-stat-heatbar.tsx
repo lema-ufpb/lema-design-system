@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -43,6 +44,7 @@ export interface CardStatHeatbarProps extends FormatOptions {
   className?: string
   loading?: boolean
   empty?: boolean
+  locale?: UILocale
 }
 
 // ── Variants ──
@@ -82,14 +84,41 @@ export function CardStatHeatbar({
   min = 0,
   max = 100,
   description,
-  zones = DEFAULT_HEATBAR_ZONES,
+  zones: zonesProp,
   icon: Icon,
   size = "md",
   className,
   loading,
   empty,
+  locale,
   ...fmt
 }: CardStatHeatbarProps) {
+  const zones =
+    zonesProp ??
+    (locale
+      ? [
+          {
+            label: UI_I18N[locale].cardStatGauge.poor,
+            color: "var(--color-risk-1)",
+            max: 25,
+          },
+          {
+            label: UI_I18N[locale].cardStatGauge.fair,
+            color: "var(--color-risk-2)",
+            max: 50,
+          },
+          {
+            label: UI_I18N[locale].cardStatGauge.good,
+            color: "var(--color-risk-3)",
+            max: 75,
+          },
+          {
+            label: UI_I18N[locale].cardStatGauge.excellent,
+            color: "var(--color-risk-4)",
+            max: 100,
+          },
+        ]
+      : DEFAULT_HEATBAR_ZONES)
   if (loading) {
     return (
       <Card size="sm" className={className} data-slot="card-stat-heatbar">
@@ -165,7 +194,7 @@ export function CardStatHeatbar({
                 cardStatDescriptionVariants({ size })
               )}
             >
-              Pending
+              {locale ? UI_I18N[locale].cardStatGauge.pending : "Pending"}
             </Badge>
           </div>
           <div className="relative pb-10">

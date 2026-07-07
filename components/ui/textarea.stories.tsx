@@ -59,6 +59,7 @@ export const Default: Story = {
 
 export const WithValue: Story = {
   args: {
+    "aria-label": "Message content",
     value: "This is a pre-filled textarea with some content.",
   },
 }
@@ -96,10 +97,10 @@ export const Invalid: Story = {
 export const Rows: Story = {
   render: () => (
     <div className="flex w-full max-w-sm flex-col gap-4">
-      <Textarea placeholder="Default rows" />
-      <Textarea rows={3} placeholder="3 rows" />
-      <Textarea rows={5} placeholder="5 rows" />
-      <Textarea rows={10} placeholder="10 rows" />
+      <Textarea placeholder="Default rows" aria-label="Default rows" />
+      <Textarea rows={3} placeholder="3 rows" aria-label="3 rows" />
+      <Textarea rows={5} placeholder="5 rows" aria-label="5 rows" />
+      <Textarea rows={10} placeholder="10 rows" aria-label="10 rows" />
     </div>
   ),
 }

@@ -1,13 +1,6 @@
 # Spec: ProgressBar
 
-> Preencha este template ANTES de escrever qualquer código.
-> Mova o arquivo preenchido para `docs/specs/[nome-componente].md` ao finalizar.
-
----
-
-## Propósito
-
-Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip, modo razão (valor/total) e múltiplos layouts de label (inline, above, below). Ideal para dashboards e formulários multi-etapa.
+> Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip, modo razão (valor/total) e múltiplos layouts de label (inline, above, below). Ideal para dashboards e formulários multi-etapa.
 
 **Usar quando:** exibir progresso linear de uma tarefa ou proporção  
 **Não usar quando:** necessário progresso circular (usar `ProgressCircular`)  
@@ -43,8 +36,12 @@ Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip,
 | `total` | `number` | — | | Valor total (modo razão) |
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `precision` | `number` | `0` | | Casas decimais do percentual |
+| `max` | `number` | `100` | | Valor máximo do progresso |
+| `getValueLabel` | `(value: number, max: number) => string` | — | | Função customizada para label de valor |
 | `tooltip` | `ReactNode` | — | | Conteúdo do tooltip |
-| `locale` | `string` | `"en-US"` | | Locale para formatação |
+| `locale` | `string` | `"en-US"` | | Locale para formatação e i18n |
+| `fillColor` | `string` | — | | Override de cor de fill via CSS token `--progress-fill` |
+| `trackColor` | `string` | — | | Override de cor de track via CSS token `--progress-track` |
 | `className` | `string` | — | | Classes extras |
 
 ---
@@ -111,8 +108,8 @@ Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip,
 |-----------|--------------|
 | Role semântico | `<ProgressPrimitive.Root>` com `role="progressbar"` implícito |
 | Valores numéricos | `aria-valuenow`, `aria-valuemin={0}`, `aria-valuemax={100}` |
-| Rótulo | `aria-label` no Root (fallback: `name ?? "Progress"`) |
-| i18n | Locale usado apenas para formatação numérica (`Intl.NumberFormat`) |
+| Rótulo | `aria-label` no Root (fallback: `name ?? UI_I18N[locale as UILocale].progressBar.label`) |
+| i18n | Locale usado para formatação numérica (`Intl.NumberFormat`) e `UI_I18N[locale as UILocale].progressBar.label` para aria-label |
 
 ---
 
@@ -149,4 +146,4 @@ Barra de progresso horizontal com label de porcentagem, suporte a nome, tooltip,
 - [x] `aria-label` ou label visível em todos os elementos interativos/informativos
 - [x] `cn()` para todas as classes condicionais
 - [x] Spacing usa apenas steps Tailwind (sem arbitrary values)
-- [x] Prop `locale` integrada via `UI_I18N` — usa `Intl.NumberFormat` com locale prop
+- [x] Prop `locale` integrada via `UI_I18N` e `Intl.NumberFormat`

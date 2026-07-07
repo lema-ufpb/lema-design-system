@@ -21,8 +21,9 @@
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | `"en-US"` | | Locale para strings i18n |
 
-Estende \`FormatOptions\`.
+Estende \`FormatOptions\` (inclui locale para formatação numérica).
 
 ---
 
@@ -42,6 +43,14 @@ Nenhuma — usa apenas as variantes compartilhadas:
 - Delta: `((current - previous) / |previous|) * 100`
 - Trending: `delta > 0.05 → "up"`, `delta < -0.05 → "down"`, else `"neutral"`
 - i18n: `currentLabel`/`previousLabel` via `UI_I18N[locale].cardStats`
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| Rótulo | Label visível para o nome do cartão |
+| Valores numéricos | `tabular-nums` nos valores current/previous |
+| i18n | `UI_I18N[locale].cardStats.*`: `thisPeriod`, `lastPeriod`, `noComparison` |
 
 ## Stories
 

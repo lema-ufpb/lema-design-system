@@ -34,8 +34,7 @@ export interface ButtonProps extends React.ComponentProps<typeof ButtonRoot> {
   confirm?: { text: string; duration?: number }
   /** Shows a tooltip on hover. Pass a string or `{ text, side }`. */
   tooltip?:
-    | string
-    | { text: string; side?: "top" | "right" | "bottom" | "left" }
+    string | { text: string; side?: "top" | "right" | "bottom" | "left" }
 }
 
 // ── CVA Variants ──

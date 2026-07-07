@@ -82,6 +82,9 @@ export const Variants: Story = {
             <TabsTrigger value="tab-2">Tab 2</TabsTrigger>
             <TabsTrigger value="tab-3">Tab 3</TabsTrigger>
           </TabsList>
+          <TabsContent value="tab-1">Content 1</TabsContent>
+          <TabsContent value="tab-2">Content 2</TabsContent>
+          <TabsContent value="tab-3">Content 3</TabsContent>
         </Tabs>
       </div>
       <div>
@@ -92,6 +95,9 @@ export const Variants: Story = {
             <TabsTrigger value="tab-2">Tab 2</TabsTrigger>
             <TabsTrigger value="tab-3">Tab 3</TabsTrigger>
           </TabsList>
+          <TabsContent value="tab-1">Content 1</TabsContent>
+          <TabsContent value="tab-2">Content 2</TabsContent>
+          <TabsContent value="tab-3">Content 3</TabsContent>
         </Tabs>
       </div>
     </div>
@@ -131,6 +137,9 @@ export const Disabled: Story = {
         </TabsTrigger>
         <TabsTrigger value="tab-3">Available</TabsTrigger>
       </TabsList>
+      <TabsContent value="tab-1">Active content</TabsContent>
+      <TabsContent value="tab-2">Disabled content</TabsContent>
+      <TabsContent value="tab-3">Available content</TabsContent>
     </Tabs>
   ),
 }

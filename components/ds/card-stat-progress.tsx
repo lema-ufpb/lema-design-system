@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -139,7 +140,9 @@ export function CardStatProgress({
               cardStatDescriptionVariants({ size })
             )}
           >
-            No goal set yet
+            {pctLocale
+              ? UI_I18N[pctLocale as UILocale].cardStatProgress.noGoalSet
+              : "No goal set yet"}
           </p>
         </CardContent>
       </Card>
@@ -156,7 +159,7 @@ export function CardStatProgress({
       : pct >= 75
         ? "text-highlight-sky"
         : pct >= 50
-          ? "text-warning"
+          ? "text-amber-600"
           : "text-muted-foreground"
 
   const barColor =
@@ -165,7 +168,7 @@ export function CardStatProgress({
       : pct >= 75
         ? "[&>[data-slot=progress-indicator]]:bg-highlight-sky"
         : pct >= 50
-          ? "[&>[data-slot=progress-indicator]]:bg-warning"
+          ? "[&>[data-slot=progress-indicator]]:bg-amber-600"
           : ""
 
   return (
@@ -204,6 +207,7 @@ export function CardStatProgress({
         </div>
         <Progress
           value={pct}
+          aria-label={`${label}: ${pct}%`}
           className={cn(cardStatTrackHVariants({ size }), barColor)}
         />
         <div className="flex items-center justify-between">

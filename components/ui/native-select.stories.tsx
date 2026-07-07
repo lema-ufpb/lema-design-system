@@ -63,7 +63,7 @@ export const Default: Story = {
     },
   },
   render: () => (
-    <NativeSelect defaultValue="option-1">
+    <NativeSelect defaultValue="option-1" aria-label="Select option">
       <NativeSelectOption value="option-1">Option 1</NativeSelectOption>
       <NativeSelectOption value="option-2">Option 2</NativeSelectOption>
       <NativeSelectOption value="option-3">Option 3</NativeSelectOption>
@@ -81,7 +81,7 @@ export const Small: Story = {
     },
   },
   render: () => (
-    <NativeSelect size="sm" defaultValue="option-1">
+    <NativeSelect size="sm" defaultValue="option-1" aria-label="Select option">
       <NativeSelectOption value="option-1">Option 1</NativeSelectOption>
       <NativeSelectOption value="option-2">Option 2</NativeSelectOption>
     </NativeSelect>
@@ -98,7 +98,7 @@ export const WithGroup: Story = {
     },
   },
   render: () => (
-    <NativeSelect defaultValue="apple">
+    <NativeSelect defaultValue="apple" aria-label="Select option">
       <NativeSelectOptGroup label="Fruits">
         <NativeSelectOption value="apple">Apple</NativeSelectOption>
         <NativeSelectOption value="banana">Banana</NativeSelectOption>
@@ -121,7 +121,7 @@ export const Disabled: Story = {
     },
   },
   render: () => (
-    <NativeSelect disabled defaultValue="option-1">
+    <NativeSelect disabled defaultValue="option-1" aria-label="Select option">
       <NativeSelectOption value="option-1">Option 1</NativeSelectOption>
       <NativeSelectOption value="option-2">Option 2</NativeSelectOption>
     </NativeSelect>

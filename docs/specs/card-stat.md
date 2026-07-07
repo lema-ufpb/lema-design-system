@@ -24,7 +24,7 @@
 | `loading` | `boolean` | `false` | | Estado de carregamento |
 | `empty` | `boolean` | `false` | | Estado vazio |
 
-Estende \`FormatOptions\` (\`format\`, \`decimals\`, \`locale\`, \`currency\`, \`valueFormatter\`).
+Estende \`FormatOptions\` (\`format\`, \`decimals\`, \`locale\`, \`currency\`, \`valueFormatter\`). Quando `locale` é fornecido, o empty state usa `UI_I18N[locale as UILocale].cardStat.nothingToMeasure`.
 
 ---
 
@@ -44,8 +44,16 @@ Nenhuma — usa apenas as variantes compartilhadas de `card-stats-shared.tsx`:
 | Estado | Comportamento |
 |--------|---------------|
 | `loading` | Skeletons para label, headerIcon, value, description |
-| `empty` | Label atenuado, "—" no valor, "Nothing to measure yet" |
+| `empty` | Label atenuado, "—" no valor, "Nothing to measure yet" (ou `UI_I18N[locale].cardStat.nothingToMeasure` se locale fornecido) |
 | Normal | Label + valor formatado + ícone. Trend icon renderizado apenas dentro do bloco `description` — se `description` for omitido, trend não aparece mesmo com `trend` definido |
+| hover | Default: `hover:-translate-y-0.5 hover:shadow-lg`. Muted: `hover:bg-accent`. Flat: `hover:bg-muted/50`. Todos com `transition-all duration-200`. |
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| Decorative icons | `aria-hidden="true"` no ícone do header |
+| i18n | `UI_I18N[locale as UILocale].cardStat.nothingToMeasure` no empty state |
 
 ## Stories
 

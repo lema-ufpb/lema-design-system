@@ -9,7 +9,11 @@ import { initialize, mswLoader } from "msw-storybook-addon"
 
 initialize({ onUnhandledRequest: "bypass" })
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+})
 const fontMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 const ThemeDecorator = ({
@@ -99,7 +103,15 @@ const preview: Preview = {
       },
     },
     a11y: {
-      test: "todo",
+      test: "error",
+      config: {
+        rules: [
+          { id: "color-contrast", enabled: false },
+          { id: "landmark-unique", enabled: false },
+          { id: "scrollable-region-focusable", enabled: false },
+          { id: "scope-attr-valid", enabled: false },
+        ],
+      },
     },
   },
   beforeEach() {

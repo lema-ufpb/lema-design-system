@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { BarChart2Icon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -74,13 +75,7 @@ export const cardStatHighlightTrendIconVariants = cva("", {
 })
 
 export type CardStatHighlightVariant =
-  | "primary"
-  | "emerald"
-  | "amber"
-  | "rose"
-  | "violet"
-  | "sky"
-  | "white"
+  "primary" | "emerald" | "amber" | "rose" | "violet" | "sky" | "white"
 
 export const cardStatHighlightVariants = cva(
   "relative overflow-hidden shadow-lg ring-0",
@@ -114,13 +109,14 @@ export interface CardStatHighlightProps
   empty?: boolean
   /**
    * Override card background via CSS token `--card-highlight-background`.
-   * Escapes the 7-variant enum. Accepts any CSS color or `var(--my-token)`.
+   * Accepts any CSS color or `var(--my-token)`.
    */
   background?: string
   /**
    * Override card text color via CSS token `--card-highlight-color`.
    */
   color?: string
+  locale?: UILocale
 }
 
 export function CardStatHighlight({
@@ -137,6 +133,7 @@ export function CardStatHighlight({
   empty,
   background,
   color,
+  locale,
   ...fmt
 }: CardStatHighlightProps) {
   const isWhiteVariant = variant === "white" && !background
@@ -239,8 +236,16 @@ export function CardStatHighlight({
         <CardContent className="relative" data-slot="card-stat-highlight-empty">
           <CardStatEmptySlot
             icon={BarChart2Icon}
-            message="No spotlight yet"
-            sub="Your headline KPI will appear here"
+            message={
+              locale
+                ? UI_I18N[locale].cardStatHighlight.noSpotlight
+                : "No spotlight yet"
+            }
+            sub={
+              locale
+                ? UI_I18N[locale].cardStatHighlight.spotlightDescription
+                : "Your headline KPI will appear here"
+            }
             inverted={!isWhiteVariant}
             size={size}
           />

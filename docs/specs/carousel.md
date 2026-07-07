@@ -1,107 +1,142 @@
-# Spec: Carousel
+# Spec: Carousel (DS)
 
-> Um carrossel/slider rolável para navegação horizontal ou vertical através de elementos.
+> Carrossel/slider de alto nível sobre Embla Carousel com variantes visuais, autoplay, dots de navegação, carregamento skeleton e i18n.
 
 ---
 
 ## Propósito
 
-O Carousel é um componente de navegação por slides construído sobre a biblioteca Embla Carousel. Composto por `Carousel` (provider de contexto com estado de scroll), `CarouselContent` (track rolável), `CarouselItem` (slide individual), `CarouselPrevious` e `CarouselNext` (botões de navegação). Suporta orientação `horizontal` (padrão) e `vertical`. Aceita `opts` e `plugins` do Embla para configuração avançada (loop, alinhamento, drag free, etc.) e `setApi` para acesso externo à API do Embla. A navegação por teclado (setas) é nativa via `onKeyDownCapture`. Os botões de navegação são wrappers do componente `Button` com `variant="outline"` e `size="icon-sm"` por padrão, posicionados nas laterais externas ao carrossel.
+Wrapper do `ui/carousel` (shadcn/Embla) que adiciona variantes visuais (`default`, `cards`, `showcase`, `minimal`), dots de navegação com `aria-label` i18n, autoplay configurável, `slidesPerView` responsivo, botões de navegação customizáveis e estado de carregamento com skeleton.
 
-**Usar quando:** Galerias de imagens, listas de cards horizontais, depoimentos em rotação, dashboards com múltiplos painéis navegáveis, showcases de produtos.
+**Usar quando:** Galerias de imagens, listas de cards horizontais, depoimentos em rotação, showcases de produtos com navegação rica.
 
-**Não usar quando:** O conteúdo deve ser todo visível simultaneamente (usar grid/flex). Para navegação por tabs entre visões, usar `Tabs`. Evitar para conteúdo crítico que precisa estar visível sem interação (ex: avisos).
+**Não usar quando:** Necessário controle total sobre o Embla raw (usar `ui/carousel` diretamente). Conteúdo crítico que precisa estar visível sem interação.
 
-**Alternativa se não se aplicar:** `Tabs` para alternância entre visões, `ScrollArea` para scroll livre, `flex overflow-x-auto` para scroll simples.
+**Alternativa se não se aplicar:** `ui/carousel` para controle granular, `Tabs` para alternância entre visões.
 
 ---
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/carousel.tsx` |
-| Tipo | `registry:ui` (name: `carousel`) |
-| Categoria | Layout / Slider |
-| Depende de | `button` |
+| Campo      | Valor                                                                                                                                                                                                                                               |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ds/carousel.tsx`                                                                                                                                                                                                                        |
+| data-slot  | `ds-carousel`                                                                                                                                                                                                                                       |
+| Tipo       | `registry:component`                                                                                                                                                                                                                                |
+| Categoria  | Layout / Slider                                                                                                                                                                                                                                     |
+| Depende de | `ui/carousel` (CarouselRoot, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, useCarousel), `embla-carousel-autoplay`, `Skeleton` (shadcn), `lucide-react` (ChevronLeftIcon, ChevronRightIcon), `class-variance-authority`, `ui-i18n` |
 
 ---
 
 ## API — Props
 
-### Carousel
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não | Direção do scroll |
-| `opts` | `CarouselOptions` (Embla) | — | Não | Opções do Embla (loop, align, dragFree, etc.) |
-| `plugins` | `CarouselPlugin[]` | — | Não | Plugins do Embla |
-| `setApi` | `(api: CarouselApi) => void` | — | Não | Callback para acessar API do Embla |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop                | Tipo                                               | Padrão         | Obrigatória | Descrição                                  |
+| ------------------- | -------------------------------------------------- | -------------- | ----------- | ------------------------------------------ |
+| `variant`           | `"default" \| "cards" \| "showcase" \| "minimal"`  | `"default"`    |             | Variante visual do carrossel               |
+| `orientation`       | `"horizontal" \| "vertical"`                       | `"horizontal"` |             | Direção do scroll                          |
+| `setApi`            | `(api: CarouselApi) => void`                       | —              |             | Callback para acessar API do Embla         |
+| `slidesPerView`     | `number \| { sm?, md?, lg? }`                      | —              |             | Slides visíveis por breakpoint             |
+| `autoplayInterval`  | `number`                                           | —              |             | Intervalo em ms para autoplay (0 desliga)  |
+| `pauseOnHover`      | `boolean`                                          | `true`         |             | Pausa autoplay no hover                    |
+| `showDots`          | `boolean`                                          | `true`         |             | Exibe dots de navegação                    |
+| `showProgress`      | `boolean`                                          | `false`        |             | Exibe barra de progresso do autoplay       |
+| `loading`           | `boolean`                                          | `false`        |             | Estado de carregamento com skeleton        |
+| `loadingSlideCount` | `number`                                           | `4`            |             | Nº de slides skeleton                      |
+| `locale`            | `UILocale`                                         | `"pt-BR"`      |             | Locale para i18n (`carousel.*`)            |
+| `navVariant`        | `"outline" \| "ghost" \| "primary" \| "secondary"` | `"outline"`    |             | Variante dos botões de navegação           |
+| `navSize`           | `"icon-sm" \| "icon" \| "icon-lg"`                 | `"icon-sm"`    |             | Tamanho dos botões de navegação            |
+| `navPosition`       | `"side" \| "overlay" \| "bottom" \| "none"`        | —              |             | Posição da navegação (default por variant) |
+| `dotVariant`        | `"filled" \| "outline"`                            | `"filled"`     |             | Estilo visual dos dots                     |
+| `dotPosition`       | `"bottom" \| "overlay"`                            | `"bottom"`     |             | Posição dos dots                           |
+| `loop`              | `boolean`                                          | `false`        |             | Loop infinito                              |
+| `align`             | `"start" \| "center" \| "end"`                     | `"start"`      |             | Alinhamento dos slides                     |
+| `skipSnaps`         | `boolean`                                          | `false`        |             | Pula snaps intermediários no scroll        |
+| `className`         | `string`                                           | —              |             | Classes adicionais                         |
+| `children`          | `React.ReactNode`                                  | —              | ✓           | Slides (`CarouselItem`)                    |
 
-### CarouselItem
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Largura responsiva do slide |
+---
 
-### CarouselPrevious / CarouselNext
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | Variantes do Button | `"outline"` | Não | Variante do botão |
-| `size` | Tamanhos do Button | `"icon-sm"` | Não | Tamanho do botão |
-| `className` | `string` | — | Não | Classes adicionais |
+## Variantes CVA
+
+| Dimensão  | Valores                                   | Padrão    |
+| --------- | ----------------------------------------- | --------- |
+| `variant` | `default`, `cards`, `showcase`, `minimal` | `default` |
+
+**Slots do componente:**
+
+- `carouselVariants` — container principal (padding, gap, rounded)
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| *(delega para Button)* | Botões Previous/Next usam tokens do Button (`--primary`, `--border`, `--ring`, etc.) |
+| Token                     | Slot onde é usado                               |
+| ------------------------- | ----------------------------------------------- |
+| `bg-card`                 | fundo do carrossel (variante cards)             |
+| `border-border`           | borda entre slides (variante cards)             |
+| `shadow-sm`               | sombra dos slides (variante showcase)           |
+| `bg-primary`              | dot ativo (filled), seta de navegação (primary) |
+| `bg-muted-foreground/30`  | dot inativo (filled)                            |
+| `border-primary`          | dot ativo (outline)                             |
+| `bg-muted`                | skeleton placeholder                            |
+| `text-primary-foreground` | seta de navegação (primary)                     |
+| `ring-ring`               | focus-visible dos dots e botões                 |
+| Tokens do `ui/button`     | botões Previous/Next (delegado)                 |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Horizontal | Slides em linha com `-ml-4` (gap via padding); botões laterais |
-| Vertical | Slides em coluna com `-mt-4`; botões superior/inferior (rotacionados 90°) |
-| Primeiro slide | Botão Previous desabilitado (`canScrollPrev = false`) |
-| Último slide | Botão Next desabilitado (`canScrollNext = false`) |
-| Navegação por teclado | `ArrowLeft`/`ArrowRight` (horizontal) |
-| Slide responsivo | `basis-full` por padrão; customizável via className (ex: `md:basis-1/2`) |
-| Loop | Configurado via `opts={{ loop: true }}` |
-| Posição do botão | `absolute` nas laterais externas com `-translate-y-1/2` |
+| Estado                      | Comportamento esperado                                                       |
+| --------------------------- | ---------------------------------------------------------------------------- |
+| `loading={true}`            | Skeleton com slides simulados (`loadingSlideCount`)                          |
+| `variant="cards"`           | Slides com fundo `bg-card`, borda, padding e gap; navegação lateral          |
+| `variant="showcase"`        | Slides com `shadow-sm`, navegação `overlay` (sobre o slide)                  |
+| `variant="minimal"`         | Sem navegação (`navPosition="none"`), apenas dots                            |
+| `autoplayInterval` definido | Plugin Autoplay do Embla ativado; `pauseOnHover` controla `stopOnMouseEnter` |
+| `showProgress=true`         | Barra de progresso animada sincronizada com autoplay                         |
+| `showDots=true`             | Dots de navegação com `role="tablist"` e `aria-label` i18n                   |
+| `slidesPerView` responsivo  | Objeto `{ sm, md, lg }` define `basis` via breakpoints                       |
+| `loop=true`                 | Scroll contínuo (Embla `loop` option)                                        |
+| Navegação lateral           | Botões Previous/Next posicionados `absolute` com `-translate-y-1/2`          |
+| `navPosition="overlay"`     | Botões sobrepostos ao slide com `z-10` e gaps ajustados                      |
+| `navPosition="bottom"`      | Botões centralizados abaixo do carrossel                                     |
+| `navPosition="none"`        | Botões ocultos                                                               |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| ARIA region | `role="region"` com `aria-roledescription="carousel"` |
-| ARIA slide | `role="group"` com `aria-roledescription="slide"` |
-| Navegação por teclado | `ArrowLeft`/`ArrowRight` via `onKeyDownCapture` |
-| Botões com sr-only | `Previous slide` / `Next slide` como texto `sr-only` |
-| Desabilitado | Botões desabilitados quando não há scroll disponível |
-| Touch/mouse drag | Navegação por arrasto nativa do Embla |
+| Requisito           | Implementação                                                             |
+| ------------------- | ------------------------------------------------------------------------- |
+| Dots de navegação   | `role="tablist"` no container, `role="tab"` + `aria-selected` em cada dot |
+| Rótulo dos dots     | `aria-label` via `UI_I18N[locale].carousel.goToSlide`                     |
+| Teclado             | Navegação por setas via Embla (`onKeyDownCapture`)                        |
+| Botões de navegação | `aria-label` via `UI_I18N[locale].carousel.previous` / `.next`            |
+| i18n                | `UI_I18N[locale].carousel.goToSlide`, `.previous`, `.next`                |
 
 ---
 
 ## Stories obrigatórias no Storybook
 
-- [x] `Default` — Carrossel horizontal com slides 1/2 md e 1/3 lg
-- [x] `SingleSlide` — Um slide inteiro por vez
-- [x] `Vertical` — Carrossel vertical com altura fixa
-- [x] `WithCustomOpts` — Loop infinito com alinhamento start
-
----
+- [x] `Default` — Default
+- [x] `Cards` — Cards
+- [x] `Showcase` — Showcase
+- [x] `Minimal` — Minimal
+- [x] `Vertical` — Vertical
+- [x] `Autoplay` — Autoplay
+- [x] `ResponsiveSlides` — Responsive Slides
+- [x] `WithDots` — With Dots
+- [x] `Loop` — Loop
+- [x] `LocalePTBR` — Locale PTBR
+- [x] `Loading` — Loading
+- [x] `NavPositions` — Nav Positions
 
 ## Checklist antes de implementar
 
-- [x] Context API — `CarouselContext` com `useCarousel()` hook
-- [x] Orientação — Eixo `x` (horizontal) ou `y` (vertical) no Embla
-- [x] Botões — Posicionamento absoluto com `-translate-y-1/2` (horizontal)
-- [x] Gap entre slides — Padding `pl-4` (horizontal) / `pt-4` (vertical) com margem negativa no content
-- [x] Keyboard — `ArrowLeft`/`ArrowRight` via `onKeyDownCapture`
-- [x] API pública — `setApi` para acesso externo, tipagem exportada `CarouselApi`
+- [x] Variantes visuais: default, cards, showcase, minimal
+- [x] Dots de navegação com i18n
+- [x] Autoplay com plugin Embla
+- [x] slidesPerView responsivo (sm/md/lg)
+- [x] Loading skeleton
+- [x] Locale integrado via `UI_I18N`

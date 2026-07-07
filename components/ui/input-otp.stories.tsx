@@ -60,7 +60,7 @@ export const Default: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { maxLength: 6 } as any,
   render: () => (
-    <InputOTP maxLength={6}>
+    <InputOTP maxLength={6} aria-label="One-time password">
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
@@ -80,7 +80,7 @@ export const FourDigits: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { maxLength: 4 } as any,
   render: () => (
-    <InputOTP maxLength={4}>
+    <InputOTP maxLength={4} aria-label="One-time password">
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />

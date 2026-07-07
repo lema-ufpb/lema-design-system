@@ -142,16 +142,16 @@ export const IconSizes: Story = {
   },
   render: () => (
     <div className="flex items-center gap-4">
-      <Button size="icon-xs" variant="outline">
+      <Button size="icon-xs" variant="outline" aria-label="Extra small icon">
         <StarIcon data-icon="inline-start" />
       </Button>
-      <Button size="icon-sm" variant="outline">
+      <Button size="icon-sm" variant="outline" aria-label="Small icon">
         <StarIcon data-icon="inline-start" />
       </Button>
-      <Button size="icon" variant="outline">
+      <Button size="icon" variant="outline" aria-label="Default icon">
         <StarIcon data-icon="inline-start" />
       </Button>
-      <Button size="icon-lg" variant="outline">
+      <Button size="icon-lg" variant="outline" aria-label="Large icon">
         <StarIcon data-icon="inline-start" />
       </Button>
     </div>

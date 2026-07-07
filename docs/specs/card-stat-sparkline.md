@@ -22,6 +22,7 @@
 | `className` | `string` | — | |
 | `loading` | `boolean` | `false` | |
 | `empty` | `boolean` | `false` | |
+| `locale` | `UILocale` | — | |
 
 Estende \`FormatOptions\`.
 
@@ -46,8 +47,15 @@ Nenhuma — usa apenas as variantes compartilhadas: `cardStatLabelVariants`, `ca
 | Estado | Comportamento |
 |--------|---------------|
 | `loading` | Skeletons para label, value, sparkline area |
-| `empty` | FlatSparklineSvg (linha tracejada), "No history yet" |
+| `empty` | FlatSparklineSvg (linha tracejada), "No history yet" (ou `UI_I18N[locale].cardStatSparkline.noHistory` se locale fornecido) |
 | Normal | Sparkline + valor formatado + TrendBadge ou descrição |
+
+## Acessibilidade
+
+| Requisito | Implementação |
+|-----------|--------------|
+| SVG decorativo | `aria-hidden` em todos os elementos SVG |
+| i18n | `UI_I18N[locale].cardStatSparkline.*` para empty state |
 
 ## Stories
 

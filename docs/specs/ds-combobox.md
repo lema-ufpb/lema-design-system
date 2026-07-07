@@ -52,6 +52,10 @@ Componente de entrada que combina trigger de seleção com popover contendo list
 | `maxDisplayed` | `number` | `3` | Não | Chips visíveis no multi-select |
 | `locale` | `UILocale` | `"en-US"` | Não | Localização dos textos |
 | `renderOption` | `(option, selected) => ReactNode` | — | Não | Slot de renderização customizada |
+| `side` | `"top" \| "right" \| "bottom" \| "left"` | — | Não | Lado do popover |
+| `align` | `"start" \| "center" \| "end"` | `"start"` | Não | Alinhamento do popover |
+| `sideOffset` | `number` | `4` | Não | Distância do popover ao trigger |
+| `alignOffset` | `number` | — | Não | Offset no eixo de alinhamento |
 | `aria-label` | `string` | — | Não | Nome acessível para o trigger (quando não há label visível) |
 | `aria-labelledby` | `string` | — | Não | ID do elemento que nomeia o trigger |
 
@@ -112,8 +116,9 @@ interface ComboboxOption {
 | Listbox | `role="listbox"`, `aria-multiselectable` (multi), `aria-selected`/`aria-disabled` por item |
 | Foco | Auto-focus na busca ao abrir; lista focada se sem busca |
 | Teclado | ↑↓ Enter Escape Tab gerenciados manualmente |
-| Clear button | `aria-label` i18n |
+| Clear button | `aria-label` via `UI_I18N[locale].combobox.clearSelection` |
 | Loading | Skeleton sem role específico (transição visual) |
+| i18n | `UI_I18N[locale].combobox.*`: `placeholder`, `searchPlaceholder`, `noResults`, `noOptions`, `selected`, `clearAll`, `clearSelection` |
 
 ---
 

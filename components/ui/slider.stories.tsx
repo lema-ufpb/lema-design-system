@@ -36,6 +36,7 @@ export const Default: Story = {
     defaultValue: [50],
     max: 100,
     min: 0,
+    "aria-label": "Slider value",
   },
   parameters: {
     docs: {
@@ -53,6 +54,7 @@ export const Range: Story = {
     max: 100,
     min: 0,
     step: 1,
+    "aria-label": "Range slider",
   },
   parameters: {
     docs: {
@@ -70,6 +72,7 @@ export const WithSteps: Story = {
     max: 10,
     min: 0,
     step: 2,
+    "aria-label": "Slider with steps",
   },
 }
 
@@ -79,6 +82,7 @@ export const Disabled: Story = {
     max: 100,
     min: 0,
     disabled: true,
+    "aria-label": "Disabled slider",
   },
   parameters: {
     docs: {

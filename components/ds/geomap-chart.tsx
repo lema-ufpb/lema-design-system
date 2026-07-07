@@ -33,11 +33,7 @@ export type GeoProjection =
 
 /** Where to render the choropleth color legend */
 export type LegendPosition =
-  | "top-left"
-  | "top-right"
-  | "bottom-left"
-  | "bottom-right"
-  | "bottom"
+  "top-left" | "top-right" | "bottom-left" | "bottom-right" | "bottom"
 
 /** Gradient bar direction in the color legend */
 export type LegendOrientation = "horizontal" | "vertical"

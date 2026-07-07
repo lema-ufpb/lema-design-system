@@ -39,6 +39,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     value: 50,
+    "aria-label": "Progress: 50%",
   },
   parameters: {
     docs: {
@@ -53,10 +54,10 @@ export const Default: Story = {
 export const States: Story = {
   render: () => (
     <div className="flex w-full max-w-md flex-col gap-4">
-      <Progress value={20} />
-      <Progress value={50} />
-      <Progress value={80} />
-      <Progress value={100} />
+      <Progress value={20} aria-label="Progress: 20%" />
+      <Progress value={50} aria-label="Progress: 50%" />
+      <Progress value={80} aria-label="Progress: 80%" />
+      <Progress value={100} aria-label="Progress: 100%" />
     </div>
   ),
 }
@@ -72,7 +73,7 @@ export const Indeterminate: Story = {
   },
   render: () => (
     <div className="w-full max-w-md">
-      <Progress value={undefined} />
+      <Progress value={undefined} aria-label="Loading progress" />
     </div>
   ),
 }

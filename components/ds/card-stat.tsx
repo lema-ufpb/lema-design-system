@@ -2,6 +2,7 @@ import * as React from "react"
 import { BarChart2Icon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -44,9 +45,9 @@ export interface CardStatProps {
 }
 
 const VARIANT_CLASSES = {
-  default: undefined,
-  muted: "bg-muted shadow-none ring-0",
-  flat: "bg-background shadow-none ring-0",
+  default: "hover:-translate-y-0.5 hover:shadow-lg",
+  muted: "bg-muted shadow-none ring-0 hover:bg-accent",
+  flat: "bg-background shadow-none ring-0 hover:bg-muted/50",
 } as const
 
 export function CardStat({
@@ -74,7 +75,7 @@ export function CardStat({
     return (
       <Card
         size="sm"
-        className={cn(variantClass, className)}
+        className={cn("transition-all duration-200", variantClass, className)}
         data-slot="card-stat"
       >
         <CardHeader className="flex flex-row items-center justify-between">
@@ -97,7 +98,7 @@ export function CardStat({
     return (
       <Card
         size="sm"
-        className={cn(variantClass, className)}
+        className={cn("transition-all duration-200", variantClass, className)}
         data-slot="card-stat"
       >
         <CardHeader className="flex flex-row items-center justify-between">
@@ -136,7 +137,9 @@ export function CardStat({
             )}
           >
             <BarChart2Icon className="size-2.5 shrink-0" aria-hidden />
-            Nothing to measure yet
+            {locale
+              ? UI_I18N[locale as UILocale].cardStat.nothingToMeasure
+              : "Nothing to measure yet"}
           </p>
         </CardContent>
       </Card>
@@ -158,7 +161,7 @@ export function CardStat({
   return (
     <Card
       size="sm"
-      className={cn(variantClass, className)}
+      className={cn("transition-all duration-200", variantClass, className)}
       data-slot="card-stat"
     >
       <CardHeader className="flex flex-row items-center justify-between">

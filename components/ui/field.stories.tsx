@@ -104,7 +104,12 @@ export const WithError: Story = {
     <Field className="max-w-sm" data-invalid>
       <FieldLabel>Password</FieldLabel>
       <FieldContent>
-        <Input type="password" defaultValue="abc" aria-invalid />
+        <Input
+          type="password"
+          defaultValue="abc"
+          aria-invalid
+          aria-label="Password"
+        />
         <FieldError
           errors={[
             { message: "Password must be at least 8 characters." },

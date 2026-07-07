@@ -505,9 +505,9 @@ function DataTableEmpty({
   description?: string
 }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 py-16">
-      <div className="flex size-12 items-center justify-center rounded-full bg-muted">
-        <Table2 className="size-6 text-muted-foreground" />
+    <div className="flex flex-col items-center justify-center gap-4 py-16">
+      <div className="flex size-14 items-center justify-center rounded-2xl border border-dashed border-border bg-muted/50">
+        <Table2 className="size-7 text-muted-foreground" />
       </div>
       <div className="text-center">
         <p className="text-sm font-medium text-foreground">{message}</p>
@@ -1066,7 +1066,10 @@ export function DataTable<TData extends object>({
           style={{ height: `${height}px` }}
           tabIndex={0}
           role="region"
-          aria-label={ariaLabel ?? `Table with ${data.length} rows`}
+          aria-label={
+            ariaLabel ??
+            `${i18n?.dataTable.tableWithRows ?? "Table with"} ${data.length} ${l.pagination.pluralItemName}`
+          }
           aria-busy={loading}
         >
           <Table className="block w-full" style={{ minWidth: minTableWidth }}>

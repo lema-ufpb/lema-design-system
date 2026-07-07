@@ -597,7 +597,7 @@ const RICH_COLUMNS: ColumnDef<Student>[] = [
     meta: { width: 80, align: "center" as const },
     cell: ({ getValue }) =>
       getValue<boolean>() ? (
-        <CheckCircle2 className="size-4 text-emerald-500" />
+        <CheckCircle2 className="size-4 text-success" />
       ) : (
         <span className="text-muted-foreground/30">—</span>
       ),
@@ -1302,7 +1302,7 @@ export const KitchenSink: Story = {
     footer: (
       <div className="flex w-full items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="size-3.5 text-emerald-500" />
+          <TrendingUp className="size-3.5 text-success" />
           Average GPA: 7.9
         </span>
         <span className="flex items-center gap-1 opacity-60">

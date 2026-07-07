@@ -48,6 +48,7 @@ Campo numérico com botões de incremento/decremento e input direto. Ideal para 
 | `onChange` | `(value: number) => void` | — | | Callback de mudança |
 | `onBlur` | `(e: FocusEvent<HTMLInputElement>) => void` | — | | Callback de blur |
 | `onKeyDown` | `(e: KeyboardEvent<HTMLInputElement>) => void` | — | | Callback de tecla no input |
+| `inputProps` | `Omit<ComponentProps<"input">, "type" \| "value" \| "onChange" \| …>` | — | | Props extras para o input nativo |
 
 Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange">` + `VariantProps<typeof counterVariants>`.
 
