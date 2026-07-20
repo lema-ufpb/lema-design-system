@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.2](https://github.com/lema-ufpb/design-system/compare/v1.6.1...v1.6.2) (2026-07-20)
+
+
+### 🐛 Bug Fixes
+
+* resolve lint errors, contrast issues, and design audit findings ([5fee73a](https://github.com/lema-ufpb/design-system/commit/5fee73a084bab20ce5ce9f5e71d0cbb9e858d986))
+* resolve test and lint errors, update workflows security and cleanup ([4221344](https://github.com/lema-ufpb/design-system/commit/422134457e03be4027768798174a974c029d7453))
+
 ## [1.6.1](https://github.com/lema-ufpb/design-system/compare/v1.6.0...v1.6.1) (2026-07-07)
 
 
