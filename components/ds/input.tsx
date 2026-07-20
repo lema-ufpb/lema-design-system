@@ -64,7 +64,7 @@ export const inputWrapperVariants = cva(
 
 function Input({
   size = "md",
-  rounded = "full",
+  rounded,
   variant: inputVariant = "default",
   bordered = true,
   icon,

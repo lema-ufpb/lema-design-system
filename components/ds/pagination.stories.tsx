@@ -181,7 +181,8 @@ export const RoundedFull: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Fully rounded buttons via `rounded="full"` (default).',
+        story:
+          'Fully rounded buttons via `rounded="full"`. The default is `rounded="md"` (`rounded-md`).',
       },
     },
   },

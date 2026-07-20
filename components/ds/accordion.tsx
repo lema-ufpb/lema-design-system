@@ -62,7 +62,7 @@ export const accordionVariants = cva("", {
       lg: "",
     },
     rounded: {
-      default: "rounded-2xl",
+      default: "rounded-lg",
       none: "rounded-none",
     },
     bordered: {

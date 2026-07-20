@@ -24,7 +24,7 @@ export interface ButtonProps extends React.ComponentProps<typeof ButtonRoot> {
   startIcon?: React.ReactNode
   /** Icon rendered after the button text. */
   endIcon?: React.ReactNode
-  /** Border radius. @default "full" */
+  /** Border radius. @default "md" */
   rounded?: "full" | "lg" | "md" | "none"
   /** Makes the button span the full width of its container. */
   fullWidth?: boolean
@@ -52,7 +52,7 @@ export const dsButtonVariants = cva("", {
     },
   },
   defaultVariants: {
-    rounded: "full",
+    rounded: "md",
   },
 })
 

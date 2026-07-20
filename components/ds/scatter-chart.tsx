@@ -211,7 +211,7 @@ function ScatterChartSkeleton({
                 cy={y}
                 r={SCATTER_DOT_RADII[i]}
                 fill="var(--muted)"
-                className="animate-pulse"
+                className="motion-safe:animate-pulse"
                 style={{ animationDelay: `${i * 0.06}s` }}
               />
             ))}

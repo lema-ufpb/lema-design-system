@@ -194,7 +194,7 @@ function RadarChartSkeleton({
             fillOpacity={0.2}
             stroke="var(--muted)"
             strokeWidth="1.5"
-            className="animate-pulse"
+            className="motion-safe:animate-pulse"
           />
           {/* Vertex dots */}
           {RADAR_OUTER.map(([x, y], i) => {
@@ -206,7 +206,7 @@ function RadarChartSkeleton({
                 cy={50 + (y - 50) * r}
                 r="2"
                 fill="var(--muted)"
-                className="animate-pulse"
+                className="motion-safe:animate-pulse"
                 style={{ animationDelay: `${i * 0.1}s` }}
               />
             )

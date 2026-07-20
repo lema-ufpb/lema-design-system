@@ -15,7 +15,7 @@ const config: StorybookConfig = {
     "@storybook/addon-mcp",
   ],
   framework: "@storybook/nextjs-vite",
-  staticDirs: ["../public", "../app"],
+  staticDirs: ["../public"],
   viteFinal: async (config) => {
     const version = (
       process.env.APP_VERSION ||

@@ -139,7 +139,8 @@ function Empty({
   return (
     <EmptyRoot
       data-slot="ds-empty"
-      role="region"
+      role="status"
+      aria-live="polite"
       aria-label={resolvedTitle}
       {...htmlProps}
       className={cn(emptyVariants({ compact }), className)}
