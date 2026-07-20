@@ -76,7 +76,7 @@ const dsTabsListVariants = cva(
       },
       orientation: {
         horizontal: "flex-row",
-        vertical: "h-fit flex-col rounded-2xl",
+        vertical: "h-fit flex-col rounded-xl",
       },
     },
     defaultVariants: {

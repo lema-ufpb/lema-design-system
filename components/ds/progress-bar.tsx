@@ -47,7 +47,7 @@ export interface ProgressBarProps
   getValueLabel?: (value: number, max: number) => string
   tooltip?: ReactNode
   /** Locale used for formatting the percentage label */
-  locale?: string
+  locale?: UILocale
   /**
    * Override fill color via CSS token `--progress-fill`.
    * Accepts any CSS color value or `var(--my-token)`.
@@ -275,8 +275,7 @@ export function ProgressBar({
       max={max}
       getValueLabel={getValueLabel}
       aria-label={
-        name ??
-        (locale ? UI_I18N[locale as UILocale].progressBar.label : "Progress")
+        name ?? (locale ? UI_I18N[locale].progressBar.label : "Progress")
       }
       aria-valuenow={Math.round(clamped * 100)}
       aria-valuemin={0}

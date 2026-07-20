@@ -37,7 +37,7 @@ const meta = {
           "| `loadingText` | `string` | — | Text shown next to the spinner; defaults to `children` |",
           "| `startIcon` | `ReactNode` | — | Icon rendered before the button label |",
           "| `endIcon` | `ReactNode` | — | Icon rendered after the button label |",
-          '| `rounded` | `"full" \\| "lg" \\| "md" \\| "none"` | `"full"` | Border radius |',
+          '| `rounded` | `"full" \\| "lg" \\| "md" \\| "none"` | `"md"` | Border radius |',
           "| `fullWidth` | `boolean` | `false` | Spans the full container width |",
           "| `debounceMs` | `number` | — | Minimum interval between clicks (ms) |",
           "| `confirm` | `{ text: string; duration?: number }` | — | Two-step confirmation for destructive actions |",

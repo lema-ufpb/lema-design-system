@@ -167,7 +167,7 @@ function BarChartSkeleton({
           </div>
 
           {/* Y-axis category labels */}
-          <div className="absolute top-2 bottom-8 left-0 flex w-[88px] flex-col items-end justify-around pr-2">
+          <div className="absolute top-2 bottom-8 left-0 flex w-22 flex-col items-end justify-around pr-2">
             {SKELETON_H_YAXIS_WIDTHS.map((w, i) => (
               <Skeleton
                 key={i}

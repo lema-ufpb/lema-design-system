@@ -59,16 +59,16 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 
 ### ⌨️ Comandos principais
 
-| Comando                          | Descrição                       |
-| :------------------------------- | :------------------------------ |
-| `npx ds add dashbox`        | Instala componente(s)           |
-| `npx ds update dashbox`     | Atualiza componente(s)          |
-| `npx ds list`               | Lista componentes disponíveis   |
-| `npx ds verify`             | Verifica drift vs lockfile      |
-| `npx ds diff dashbox`       | Diff local vs remoto            |
-| `npx ds sync --all --yes`   | Sincronização completa (CI)     |
-| `npx ds sync-tokens`        | Força refetch dos tokens CSS    |
-| `npx ds whoami`             | Valida o token de autenticação  |
+| Comando                   | Descrição                      |
+| :------------------------ | :----------------------------- |
+| `npx ds add dashbox`      | Instala componente(s)          |
+| `npx ds update dashbox`   | Atualiza componente(s)         |
+| `npx ds list`             | Lista componentes disponíveis  |
+| `npx ds verify`           | Verifica drift vs lockfile     |
+| `npx ds diff dashbox`     | Diff local vs remoto           |
+| `npx ds sync --all --yes` | Sincronização completa (CI)    |
+| `npx ds sync-tokens`      | Força refetch dos tokens CSS   |
+| `npx ds whoami`           | Valida o token de autenticação |
 
 O lockfile `ds.lock` é gerado automaticamente e **deve ser versionado** — é a fonte da verdade para reprodutibilidade e detecção de drift.
 
@@ -98,9 +98,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 | es-ES  | Español            |
 | fr-FR  | Français           |
 
-
 > O arquivo `lib/ui-i18n.ts` (dicionário i18n) é instalado automaticamente como dependência de registro para todos os componentes que suportam locale. Não é necessário instalá-lo manualmente.
-
 
 ### 💡 Uso
 
@@ -193,33 +191,33 @@ O template cobre: propósito de uso, API completa com tipos, variantes CVA por s
 
 Componentes base instalados via shadcn CLI, sem modificações:
 
-| Componente        | Descrição                                                                                          |
-| :---------------- | :------------------------------------------------------------------------------------------------- |
-| **Accordion**     | Conjunto de painéis empilhados e colapsáveis.                                                      |
-| **Attachment**    | Anexo de arquivo com preview de mídia, título, descrição, ações e overlay de trigger.              |
-| **Avatar**        | Elemento visual para representar usuários com fallback de iniciais.                                |
-| **Badge**         | Pequeno rótulo indicador de status ou categoria.                                                   |
-| **Bubble**        | Bolha de chat com variantes sent/received e suporte a tail.                                        |
-| **Button**        | Botão interativo com variantes (default, destructive, outline, etc).                               |
-| **Card**          | Container versátil com header, título, ação, descrição e footer.                                   |
-| **Combobox**      | Autocomplete com busca, navegação por teclado e suporte a grupos, construído sobre @base-ui/react. |
-| **Command**       | Menu de comandos rápido e acessível com busca integrada.                                           |
-| **Dialog**        | Modal sobreposto para interações críticas.                                                         |
-| **Dropdown Menu** | Menu flutuante acionado por um botão.                                                              |
-| **Drawer**        | Painel deslizante com suporte a 4 direções e gestos de arrastar.                                   |
-| **Input**         | Campo de entrada de texto padrão.                                                                  |
-| **Input Group**   | Conjunto de inputs agrupados com ícones ou botões.                                                 |
-| **Marker**        | Indicador de status/pin para itens de chat e lista.                                                |
-| **Message**       | Mensagem de chat com slots de avatar, conteúdo, header e footer.                                   |
-| **MessageScroller** | Container com auto-scroll para listas de mensagens e botões de navegação.                       |
-| **Popover**       | Conteúdo flutuante ancorado a um elemento.                                                         |
-| **Progress**      | Barra de progresso linear simples.                                                                 |
-| **Scroll Area**   | Área de rolagem customizada e acessível.                                                           |
-| **Skeleton**      | Placeholder de carregamento para estados vazios.                                                   |
-| **Spinner**       | Indicador de carregamento animado.                                                                 |
-| **Table**         | Componente responsivo de tabela com suporte a rolagem horizontal.                                  |
-| **Textarea**      | Campo de entrada de texto multilinha.                                                              |
-| **Tooltip**       | Breve descrição exibida ao passar o mouse.                                                         |
+| Componente          | Descrição                                                                                          |
+| :------------------ | :------------------------------------------------------------------------------------------------- |
+| **Accordion**       | Conjunto de painéis empilhados e colapsáveis.                                                      |
+| **Attachment**      | Anexo de arquivo com preview de mídia, título, descrição, ações e overlay de trigger.              |
+| **Avatar**          | Elemento visual para representar usuários com fallback de iniciais.                                |
+| **Badge**           | Pequeno rótulo indicador de status ou categoria.                                                   |
+| **Bubble**          | Bolha de chat com variantes sent/received e suporte a tail.                                        |
+| **Button**          | Botão interativo com variantes (default, destructive, outline, etc).                               |
+| **Card**            | Container versátil com header, título, ação, descrição e footer.                                   |
+| **Combobox**        | Autocomplete com busca, navegação por teclado e suporte a grupos, construído sobre @base-ui/react. |
+| **Command**         | Menu de comandos rápido e acessível com busca integrada.                                           |
+| **Dialog**          | Modal sobreposto para interações críticas.                                                         |
+| **Dropdown Menu**   | Menu flutuante acionado por um botão.                                                              |
+| **Drawer**          | Painel deslizante com suporte a 4 direções e gestos de arrastar.                                   |
+| **Input**           | Campo de entrada de texto padrão.                                                                  |
+| **Input Group**     | Conjunto de inputs agrupados com ícones ou botões.                                                 |
+| **Marker**          | Indicador de status/pin para itens de chat e lista.                                                |
+| **Message**         | Mensagem de chat com slots de avatar, conteúdo, header e footer.                                   |
+| **MessageScroller** | Container com auto-scroll para listas de mensagens e botões de navegação.                          |
+| **Popover**         | Conteúdo flutuante ancorado a um elemento.                                                         |
+| **Progress**        | Barra de progresso linear simples.                                                                 |
+| **Scroll Area**     | Área de rolagem customizada e acessível.                                                           |
+| **Skeleton**        | Placeholder de carregamento para estados vazios.                                                   |
+| **Spinner**         | Indicador de carregamento animado.                                                                 |
+| **Table**           | Componente responsivo de tabela com suporte a rolagem horizontal.                                  |
+| **Textarea**        | Campo de entrada de texto multilinha.                                                              |
+| **Tooltip**         | Breve descrição exibida ao passar o mouse.                                                         |
 
 Para adicionar novos componentes shadcn ao projeto:
 
@@ -233,11 +231,11 @@ Todos os componentes abaixo vivem em `components/ds/`.
 
 #### ⚡ Actions
 
-| Componente     | Descrição                                                                                                                    |
-| :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| **Button**     | Feature-rich button wrapping shadcn `Button`. Adiciona loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step confirmation, e tooltip integrado. |
-| **IconButton** | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.                           |
-| **ToggleTheme**| Botão dropdown para alternar entre temas claro, escuro e sistema. Re-exporta `ThemeProvider` e `useTheme` de `@/providers/theme` para configuração do app. |
+| Componente      | Descrição                                                                                                                                                                                                           |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Button**      | Feature-rich button wrapping shadcn `Button`. Adiciona loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step confirmation, e tooltip integrado. |
+| **IconButton**  | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.                                                                                                                  |
+| **ToggleTheme** | Botão dropdown para alternar entre temas claro, escuro e sistema. Re-exporta `ThemeProvider` e `useTheme` de `@/providers/theme` para configuração do app.                                                          |
 
 ```tsx
 import { Button } from "@/components/ds/button"
@@ -254,12 +252,12 @@ import { ToggleTheme } from "@/components/ds/toggle-theme"
 
 #### 📐 Layout
 
-| Componente     | Descrição                                                                                                |
-| :------------- | :------------------------------------------------------------------------------------------------------- |
-| **Dashbox**    | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge. |
-| **Dashrow**    | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.              |
-| **Drawer**     | Drawer completo com header, body scrollável, footer, snap points, scale background, event handlers e botão de fechar adaptável à direção.               |
-| **Modal**      | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, defaultOpen, body scrollável, async confirm com loading, event handlers e suporte a i18n. |
+| Componente  | Descrição                                                                                                                                                                   |
+| :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dashbox** | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge.                                                                    |
+| **Dashrow** | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.                                                                                 |
+| **Drawer**  | Drawer completo com header, body scrollável, footer, snap points, scale background, event handlers e botão de fechar adaptável à direção.                                   |
+| **Modal**   | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, defaultOpen, body scrollável, async confirm com loading, event handlers e suporte a i18n. |
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
@@ -292,14 +290,14 @@ import { Modal } from "@/components/ds/modal"
 
 #### 💬 Feedback
 
-| Componente     | Descrição                                                                                                                                                           |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Empty** (ds)      | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading. |
-| **PageLoader** | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
-| **Spinner**    | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                    |
-| **ProgressBar**| Indicador horizontal com preenchimento animado, intenções semânticas, posições de rótulo configuráveis, override de cores fill/track via CSS tokens e getValueLabel.                                                             |
-| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                      |
-| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                   |
+| Componente           | Descrição                                                                                                                                                                           |
+| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Empty** (ds)       | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.               |
+| **PageLoader**       | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
+| **Spinner**          | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                                    |
+| **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas, posições de rótulo configuráveis, override de cores fill/track via CSS tokens e getValueLabel.                |
+| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                            |
+| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                                          |
 
 ```tsx
 import { PageLoader } from "@/components/ds/page-loader"
@@ -325,14 +323,14 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 
 #### 📊 Exibição de Dados
 
-| Componente           | Descrição                                                                                                                                                                       |
-| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **CardStats**        | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Cada variante é instalável individualmente via `card-stat`, `card-stat-compact`, etc., ou todas de uma vez via o barrel `card-stats`. |
-| **MiniCard**         | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context. |
-| **DataTable**        | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas. |
-| **ScoreRow**         | Componente de linha de score com ícone configurável, score/total, barra de progresso com tooltip percentual localizada, status auto-derivado (success/warning/destructive), tamanhos sm/md/lg, suporte a ScoreRowList e loading skeleton. |
-| **Avatar** (ds)      | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading. |
-| **Badge** (ds)       | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning). |
+| Componente      | Descrição                                                                                                                                                                                                                                                                                                             |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CardStats**   | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Cada variante é instalável individualmente via `card-stat`, `card-stat-compact`, etc., ou todas de uma vez via o barrel `card-stats`. |
+| **MiniCard**    | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context.                                                          |
+| **DataTable**   | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas.                                                                                                                      |
+| **ScoreRow**    | Componente de linha de score com ícone configurável, score/total, barra de progresso com tooltip percentual localizada, status auto-derivado (success/warning/destructive), tamanhos sm/md/lg, suporte a ScoreRowList e loading skeleton.                                                                             |
+| **Avatar** (ds) | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.                                                                                               |
+| **Badge** (ds)  | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).                                                                                                                                                                       |
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
@@ -395,20 +393,20 @@ import { BarChart } from "@/components/ds/bar-chart"
 
 #### 📝 Formulários
 
-| Componente               | Descrição                                                                                          |
-| :----------------------- | :------------------------------------------------------------------------------------------------- |
-| **Counter**              | Input numérico com controles +/−, suporte a valor controlado/não-controlado e inputProps para atributos HTML nativos.                      |
-| **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state. |
-| **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                 |
-| **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                            |
-| **SearchBar**            | Input de busca expansível para headers com ícone toggle, dica de atalho de teclado e placeholders i18n. |
+| Componente               | Descrição                                                                                                                                                                                                                               |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Counter**              | Input numérico com controles +/−, suporte a valor controlado/não-controlado e inputProps para atributos HTML nativos.                                                                                                                   |
+| **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.                                                                                |
+| **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                                                                                                                                                      |
+| **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                                                                                                                                                                 |
+| **SearchBar**            | Input de busca expansível para headers com ícone toggle, dica de atalho de teclado e placeholders i18n.                                                                                                                                 |
 | **SearchCombo**          | Campo de busca com dropdown de autocomplete virtualizado, highlight de texto (com acentuação insensitive), navegação por teclado, agrupamento de resultados e reconhecimento de voz opcional. Mantido em `components/ds/search-combo/`. |
-| **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.          |
-| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips, renderização customizada e posicionamento configurável. |
-| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning, i18n placeholder/no-results, and skeleton loading. |
-| **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.             |
-| **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading. |
-| **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state. |
+| **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.                                                                                                                                               |
+| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips, renderização customizada e posicionamento configurável.                                                                                                         |
+| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning, i18n placeholder/no-results, and skeleton loading.                                                   |
+| **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.                                                                                                                                                  |
+| **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.                                                                                            |
+| **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.                                                                                                       |
 
 ```tsx
 import { Counter } from "@/components/ds/counter"
@@ -441,16 +439,16 @@ import { SearchCombo } from "@/components/ds/search-combo"
 
 #### 🧭 Navegação
 
-| Componente       | Descrição                                                                         |
-| :--------------- | :-------------------------------------------------------------------------------- |
-| **Accordion** (ds)  | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support. |
-| **Tabs**         | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, activation mode (automatic/manual), loading skeletons e fallback responsivo para Accordion em mobile. |
-| **FooterMenu**   | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase. |
-| **ScrollToTop**  | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n. |
-| **NavDots**      | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips. |
-| **NavUser**      | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.   |
-| **Pagination**   | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR e `rounded` variant (`full`/`light`/`none`). |
-| **StepProgress** | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical. |
+| Componente         | Descrição                                                                                                                                                                                                                                   |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Accordion** (ds) | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support. |
+| **Tabs**           | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, activation mode (automatic/manual), loading skeletons e fallback responsivo para Accordion em mobile.                                                           |
+| **FooterMenu**     | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase.                                                                                                                                                           |
+| **ScrollToTop**    | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n.                                                                                                                 |
+| **NavDots**        | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips.                                                                                                                                                           |
+| **NavUser**        | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.                                                                                                                                                             |
+| **Pagination**     | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR e `rounded` variant (`full`/`light`/`none`).                                                                                                                |
+| **StepProgress**   | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical.                                                                                                            |
 
 ```tsx
 import { Accordion } from "@/components/ds/accordion"
@@ -523,12 +521,12 @@ O sistema usa CSS variables para theming:
 
 ```css
 :root {
-  --risk-1: oklch(0.62 0.19 28);     /* Maior risco */
+  --risk-1: oklch(0.62 0.19 28); /* Maior risco */
   --risk-2: oklch(0.72 0.17 50);
   --risk-3: oklch(0.85 0.18 85);
-  --risk-4: oklch(0.92 0.15 105);    /* Menor risco */
-  --success: oklch(0.72 0.16 155);   /* Positivo */
-  --warning: oklch(0.78 0.14 75);    /* Atenção */
+  --risk-4: oklch(0.92 0.15 105); /* Menor risco */
+  --success: oklch(0.72 0.16 155); /* Positivo */
+  --warning: oklch(0.78 0.14 75); /* Atenção */
   --highlight-violet: oklch(0.68 0.18 295);
   --highlight-sky: oklch(0.72 0.12 225);
   --highlight-white: oklch(0.92 0.01 80);
@@ -599,11 +597,11 @@ Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código
 lint → test → build
 ```
 
-| Job | Nome | Comando |
-|-----|------|---------|
-| 1º | `🕵️‍♂️ Lint` | `npm run format:check` + `npm run lint` |
-| 2º | `🧪 Test` | `npm run test` (vitest browser mode, Chromium) |
-| 3º | `📦 Build` | `npm run build-storybook` |
+| Job | Nome       | Comando                                        |
+| --- | ---------- | ---------------------------------------------- |
+| 1º  | `🕵️‍♂️ Lint`  | `npm run format:check` + `npm run lint`        |
+| 2º  | `🧪 Test`  | `npm run test` (vitest browser mode, Chromium) |
+| 3º  | `📦 Build` | `npm run build-storybook`                      |
 
 PRs do release-please são **explicitamente ignorados** no job `lint` via `if: ${{ !startsWith(github.head_ref, 'release-please--') }}`.
 

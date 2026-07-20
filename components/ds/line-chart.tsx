@@ -220,7 +220,7 @@ function LineChartSkeleton({
               fill="none"
               stroke="var(--muted)"
               strokeWidth="2"
-              className="animate-pulse"
+              className="motion-safe:animate-pulse"
             />
             {/* Dots */}
             {SKELETON_LINE_DOTS.map(([x, y], i) => (
@@ -230,7 +230,7 @@ function LineChartSkeleton({
                 cy={y}
                 r="2.5"
                 fill="var(--muted)"
-                className="animate-pulse"
+                className="motion-safe:animate-pulse"
                 style={{ animationDelay: `${i * 0.09}s` }}
               />
             ))}

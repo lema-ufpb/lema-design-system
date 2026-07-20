@@ -146,7 +146,7 @@ const titleSkeletonH: Record<DashboxSize, string> = {
 // ── Private subcomponents ──────────────────────────────────────────────────
 
 const STATUS_DOT: Record<string, string> = {
-  live: "bg-success animate-pulse",
+  live: "bg-success motion-safe:animate-pulse",
   warning: "bg-warning",
   error: "bg-destructive",
   idle: "bg-muted-foreground/40",

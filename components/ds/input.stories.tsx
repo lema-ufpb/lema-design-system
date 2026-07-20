@@ -19,7 +19,7 @@ const meta = {
           '| `size` | `"sm" \\| "md" \\| "lg"` | `"md"` | Input height and font size |',
           "| `icon` | `ReactNode` | — | Leading or trailing icon element |",
           '| `iconPlacement` | `"left" \\| "right"` | `"left"` | Icon alignment |',
-          '| `rounded` | `"none" \\| "light" \\| "full"` | `"full"` | Border radius of the input wrapper |',
+          '| `rounded` | `"none" \\| "light" \\| "full"` | `"light"` | Border radius of the input wrapper |',
           "| `bordered` | `boolean` | `true` | Shows a visible border |",
           "| `clearable` | `boolean` | `false` | Shows a clear button when value is present |",
           "| `showCount` | `boolean` | `false` | Shows character count when `maxLength` is set |",
@@ -186,7 +186,7 @@ export const RoundedVariants: Story = {
       </div>
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">Full</span>
-        <Input rounded="full" placeholder="rounded-3xl (default)" />
+        <Input rounded="full" placeholder="rounded-full" />
       </div>
     </div>
   ),

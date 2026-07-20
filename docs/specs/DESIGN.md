@@ -9,7 +9,7 @@ colors:
   secondary: oklch(0.97 0 0)
   secondary-foreground: oklch(0.205 0 0)
   muted: oklch(0.97 0 0)
-  muted-foreground: oklch(0.556 0 0)
+  muted-foreground: oklch(0.48 0 0)
   accent: oklch(0.97 0 0)
   accent-foreground: oklch(0.205 0 0)
   destructive: oklch(0.577 0.245 27.325)
@@ -30,11 +30,11 @@ colors:
   highlight-sky-foreground: oklch(0.98 0 0)
   highlight-white: oklch(1 0 0)
   highlight-white-foreground: oklch(0.145 0 0)
-  chart-1: oklch(0.87 0 0)
-  chart-2: oklch(0.556 0 0)
-  chart-3: oklch(0.439 0 0)
-  chart-4: oklch(0.371 0 0)
-  chart-5: oklch(0.269 0 0)
+  chart-1: oklch(0.55 0.12 260)
+  chart-2: oklch(0.60 0.14 30)
+  chart-3: oklch(0.65 0.10 140)
+  chart-4: oklch(0.50 0.11 290)
+  chart-5: oklch(0.55 0.09 190)
   footer-heading: oklch(0.145 0 0)
   footer-link: oklch(0.556 0 0)
   footer-link-hover: oklch(0.145 0 0)
@@ -136,7 +136,7 @@ A paleta cromática segue a filosofia "neutralidade como tela em branco": cores 
 - **Surface** (`oklch(0.97 0 0)`): Secondary, muted, accent backgrounds. Cartões e superfícies elevadas.
 - **Surface Dark** (`oklch(0.269 0 0)`): Equivalente em dark mode.
 - **Border** (`oklch(0.922 0 0)`): Bordas divisórias, separadores.
-- **Muted Ink** (`oklch(0.556 0 0)`): Texto secundário, labels, placeholders.
+- **Muted Ink** (`oklch(0.48 0 0)`): Texto secundário, labels, placeholders.
 
 ### Accent (semantic)
 - **Success** (`oklch(0.55 0.17 155)`): Indicadores positivos, crescimento, completo.
@@ -155,7 +155,7 @@ A paleta cromática segue a filosofia "neutralidade como tela em branco": cores 
 - **Highlight White** (`oklch(1 0 0)`): Destaque overlay.
 
 ### Chart
-- **Chart 1–5**: Escala de cinzas de `oklch(0.87 0 0)` a `oklch(0.269 0 0)`, substituída pelos temas opcionais.
+- **Chart 1–5**: Paleta multicolorida neutra (azul, laranja, verde, roxo, ciano) com chroma 0.09–0.14. Substituída pelos temas opcionais (blue, green, violet) que aplicam sua própria família de matiz.
 
 ### Named Rules
 

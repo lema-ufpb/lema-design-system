@@ -118,12 +118,12 @@ const defaultItems: TabItem[] = [
     value: "account",
     label: "Account",
     content: (
-      <div className="space-y-4 pt-4">
+      <div className="flex flex-col gap-4 pt-4">
         <p className="text-sm text-muted-foreground">
           Manage your account settings, email preferences, and security options.
         </p>
         <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-1">
+          <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-muted-foreground">
               Name
             </label>
@@ -131,7 +131,7 @@ const defaultItems: TabItem[] = [
               John Doe
             </div>
           </div>
-          <div className="space-y-1">
+          <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-muted-foreground">
               Email
             </label>
@@ -147,7 +147,7 @@ const defaultItems: TabItem[] = [
     value: "security",
     label: "Security",
     content: (
-      <div className="space-y-4 pt-4">
+      <div className="flex flex-col gap-4 pt-4">
         <p className="text-sm text-muted-foreground">
           Configure two-factor authentication, active sessions, and password
           policies.
@@ -175,11 +175,11 @@ const defaultItems: TabItem[] = [
     value: "notifications",
     label: "Notifications",
     content: (
-      <div className="space-y-4 pt-4">
+      <div className="flex flex-col gap-4 pt-4">
         <p className="text-sm text-muted-foreground">
           Choose which notifications you receive and how they are delivered.
         </p>
-        <div className="space-y-3">
+        <div className="flex flex-col gap-3">
           {["Email alerts", "Push notifications", "Weekly digest"].map(
             (item) => (
               <label
@@ -633,7 +633,7 @@ export const KitchenSink: Story = {
         icon: Activity,
         count: 3,
         content: (
-          <div className="space-y-3 pt-4">
+          <div className="flex flex-col gap-3 pt-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
@@ -657,7 +657,7 @@ export const KitchenSink: Story = {
         icon: Users,
         count: 5,
         content: (
-          <div className="space-y-3 pt-4">
+          <div className="flex flex-col gap-3 pt-4">
             {[
               { name: "Alice", role: "Designer" },
               { name: "Bob", role: "Developer" },

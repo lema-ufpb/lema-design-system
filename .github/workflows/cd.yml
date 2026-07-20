@@ -72,6 +72,14 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: "🧹 Limpar imagens Docker não usadas"
+        if: always()
+        run: docker image prune -f
+
+      - name: "🧹 Limpar workspace do job (_work)"
+        if: always()
+        run: rm -rf "${{ github.workspace }}"
+
   update-argocd:
     name: "🔄 Update argocd-apps manifest"
     needs: build-and-push
@@ -122,3 +130,7 @@ jobs:
           fi
           git push origin main
           echo "🎉 Deploy configurado com sucesso!"
+
+      - name: "🧹 Limpar workspace do job (_work)"
+        if: always()
+        run: rm -rf "${{ github.workspace }}"

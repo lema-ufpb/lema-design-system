@@ -152,7 +152,7 @@ export const searchComboInputWrapperVariants = cva(
         false: "",
       },
       loading: {
-        true: "animate-pulse",
+        true: "bg-muted motion-safe:animate-pulse",
         false: "",
       },
     },

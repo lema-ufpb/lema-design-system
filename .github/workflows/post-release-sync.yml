@@ -4,6 +4,10 @@ on:
   release:
     types: [published]
 
+concurrency:
+  group: post-release-sync-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -29,5 +33,16 @@ jobs:
 
       - name: Commit and push
         run: |
+          if git diff --cached --quiet; then
+            echo "Nada para sincronizar, pulando commit."
+            exit 0
+          fi
           git commit -m "chore(release): sync develop after ${{ github.event.release.tag_name }}"
           git push origin develop
+
+      - name: "🧹 Limpar workspace do job (_work)"
+        if: always()
+        # NÃO remover o diretório github.workspace em si — o post-step do
+        # actions/checkout roda depois deste job e precisa que ele ainda
+        # exista (senão o runner falha ao iniciar o node com ENOENT).
+        run: find "${{ github.workspace }}" -mindepth 1 -delete

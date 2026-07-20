@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 
 type Size = "sm" | "default" | "lg"
 type Radius = "pill" | "rounded" | "square"
-type Variant = "default" | "white"
+type Variant = "default" | "white" | "muted"
 
 const sizeConfig: Record<Size, { inputClass: string; iconClass: string }> = {
   sm: { inputClass: "h-8 px-2.5 text-xs pr-7", iconClass: "right-2 size-3.5" },
@@ -22,6 +22,7 @@ const radiusConfig: Record<Radius, string> = {
 const variantConfig: Record<Variant, string> = {
   default: "bg-input/50",
   white: "bg-white border-border",
+  muted: "bg-muted",
 }
 
 interface EmailInputProps extends Omit<

@@ -2,11 +2,7 @@
 
 import { useSyncExternalStore } from "react"
 import { Sun, Moon, Monitor } from "lucide-react"
-import {
-  ThemeProvider as NextThemesProvider,
-  useTheme,
-} from "@/providers/theme"
-import type { ComponentProps } from "react"
+import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
@@ -16,17 +12,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-// ── ThemeProvider (re-exported for app-level setup) ────────────────────────
-
-export function ThemeProvider({
-  children,
-  ...props
-}: ComponentProps<typeof NextThemesProvider>) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
-}
-
-export { useTheme }
 
 // ── ToggleTheme ────────────────────────────────────────────────────────────
 

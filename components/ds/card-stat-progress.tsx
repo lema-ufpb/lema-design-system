@@ -159,7 +159,7 @@ export function CardStatProgress({
       : pct >= 75
         ? "text-highlight-sky"
         : pct >= 50
-          ? "text-amber-600"
+          ? "text-warning"
           : "text-muted-foreground"
 
   const barColor =
@@ -168,7 +168,7 @@ export function CardStatProgress({
       : pct >= 75
         ? "[&>[data-slot=progress-indicator]]:bg-highlight-sky"
         : pct >= 50
-          ? "[&>[data-slot=progress-indicator]]:bg-amber-600"
+          ? "[&>[data-slot=progress-indicator]]:bg-warning"
           : ""
 
   return (
