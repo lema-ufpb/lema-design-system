@@ -14,6 +14,11 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  # Runner self-hosted ainda não tem o bundle externals/node24 instalado —
+  # força as actions a rodarem no runtime Node 20 em vez do Node 24 default.
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"
+
 jobs:
   release-please:
     name: "📦 Run release-please"
