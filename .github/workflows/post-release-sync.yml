@@ -11,11 +11,6 @@ concurrency:
 permissions:
   contents: write
 
-env:
-  # Runner self-hosted ainda não tem o bundle externals/node24 instalado —
-  # força as actions a rodarem no runtime Node 20 em vez do Node 24 default.
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"
-
 jobs:
   sync-develop:
     name: Sync manifest, version, and changelog to develop
