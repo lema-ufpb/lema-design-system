@@ -110,7 +110,13 @@ export function Drawer({
           {(hasHeader || showCloseButton) && (
             <DrawerHeader className="shrink-0 text-left">
               <div className="flex items-center gap-2">
-                {title && <DrawerTitle className="flex-1">{title}</DrawerTitle>}
+                {title ? (
+                  <DrawerTitle className="flex-1">{title}</DrawerTitle>
+                ) : (
+                  <DrawerTitle className="sr-only">
+                    {UI_I18N[locale].dialog.title}
+                  </DrawerTitle>
+                )}
                 {showCloseButton && (
                   <DrawerClose
                     className={cn(

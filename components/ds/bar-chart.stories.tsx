@@ -730,7 +730,7 @@ function LoadingDemo(props: React.ComponentProps<typeof BarChart>) {
   }, [loading])
 
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3">
       <BarChart {...props} loading={loading} />
       <div className="flex items-center gap-3 px-1">
         <button

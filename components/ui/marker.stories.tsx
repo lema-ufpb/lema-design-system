@@ -154,7 +154,7 @@ export const SeparatorLabel: Story = {
     },
   },
   render: () => (
-    <div className="max-w-md space-y-3">
+    <div className="flex max-w-md flex-col gap-3">
       <div className="text-sm text-foreground">Previous section content</div>
       <Marker variant="separator">
         <MarkerContent>Today</MarkerContent>

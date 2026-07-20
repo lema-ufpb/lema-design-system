@@ -39,3 +39,10 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/${{ fromJSON(steps.release.outputs.pr).number }}/merge" \
             -d '{"merge_method":"merge"}'
+
+      - name: "🧹 Limpar workspace do job (_work)"
+        if: always()
+        # NÃO remover o diretório github.workspace em si — o post-step do
+        # actions/checkout roda depois deste job e precisa que ele ainda
+        # exista (senão o runner falha ao iniciar o node com ENOENT).
+        run: find "${{ github.workspace }}" -mindepth 1 -delete

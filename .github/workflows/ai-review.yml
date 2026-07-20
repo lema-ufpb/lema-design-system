@@ -5,6 +5,12 @@ on:
     types: [opened, synchronize, reopened]
     branches: [develop]
 
+# Cancela reviews antigos no mesmo PR quando há novo push — review de diff
+# desatualizado não tem valor.
+concurrency:
+  group: ai-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   pull-requests: write
@@ -186,6 +192,13 @@ jobs:
               issue_number: context.issue.number,
               body: `## 🤖 AI Code Review — LEMA-DS\n\n${review}\n\n---\n*opencode · ${model} · self-hosted*`
             });
+
+      - name: 🧹 Limpar workspace do job (_work)
+        if: always()
+        # NÃO remover o diretório github.workspace em si — o post-step do
+        # actions/checkout roda depois deste job e precisa que ele ainda
+        # exista (senão o runner falha ao iniciar o node com ENOENT).
+        run: find "${{ github.workspace }}" -mindepth 1 -delete
 
       - name: 🧹 Limpar arquivos temporários
         if: always()

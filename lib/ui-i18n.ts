@@ -3,7 +3,7 @@ export type UILocale = "en-US" | "pt-BR" | "es-ES" | "fr-FR"
 export const UI_I18N: Record<
   UILocale,
   {
-    dialog: { close: string }
+    dialog: { close: string; title: string }
     spinner: { loading: string }
     pagination: {
       navLabel: string
@@ -177,7 +177,7 @@ export const UI_I18N: Record<
   }
 > = {
   "en-US": {
-    dialog: { close: "Close" },
+    dialog: { close: "Close", title: "Dialog" },
     spinner: { loading: "Loading" },
     pagination: {
       navLabel: "pagination",
@@ -382,7 +382,7 @@ export const UI_I18N: Record<
     },
   },
   "pt-BR": {
-    dialog: { close: "Fechar" },
+    dialog: { close: "Fechar", title: "Diálogo" },
     spinner: { loading: "Carregando" },
     pagination: {
       navLabel: "paginação",
@@ -595,7 +595,7 @@ export const UI_I18N: Record<
     },
   },
   "es-ES": {
-    dialog: { close: "Cerrar" },
+    dialog: { close: "Cerrar", title: "Diálogo" },
     spinner: { loading: "Cargando" },
     pagination: {
       navLabel: "paginación",
@@ -803,7 +803,7 @@ export const UI_I18N: Record<
     },
   },
   "fr-FR": {
-    dialog: { close: "Fermer" },
+    dialog: { close: "Fermer", title: "Dialogue" },
     spinner: { loading: "Chargement" },
     pagination: {
       navLabel: "pagination",

@@ -17,9 +17,9 @@ export type CardStatSize = "sm" | "md" | "lg"
 export const cardStatLabelVariants = cva("", {
   variants: {
     size: {
-      sm: "text-xs font-medium tracking-wide uppercase",
-      md: "text-sm font-medium tracking-wide uppercase",
-      lg: "text-base font-medium tracking-wide uppercase",
+      sm: "text-xs font-medium",
+      md: "text-sm font-medium",
+      lg: "text-base font-medium",
     },
   },
   defaultVariants: { size: "md" },
