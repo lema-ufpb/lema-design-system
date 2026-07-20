@@ -17,9 +17,6 @@ permissions:
 
 env:
   KUSTOMIZATION_PATH: k8s/overlays/prod/lema-ufpb/kustomization.yml
-  # Runner self-hosted ainda não tem o bundle externals/node24 instalado —
-  # força as actions a rodarem no runtime Node 20 em vez do Node 24 default.
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"
 
 jobs:
   build-and-push:
@@ -81,7 +78,10 @@ jobs:
 
       - name: "🧹 Limpar workspace do job (_work)"
         if: always()
-        run: rm -rf "${{ github.workspace }}"
+        # NÃO remover o diretório github.workspace em si — os post-steps do
+        # checkout/buildx/login/build-push rodam depois deste job e precisam
+        # que ele ainda exista (senão o runner falha ao iniciar o node com ENOENT).
+        run: find "${{ github.workspace }}" -mindepth 1 -delete
 
   update-argocd:
     name: "🔄 Update argocd-apps manifest"
@@ -136,4 +136,7 @@ jobs:
 
       - name: "🧹 Limpar workspace do job (_work)"
         if: always()
-        run: rm -rf "${{ github.workspace }}"
+        # NÃO remover o diretório github.workspace em si — o post-step do
+        # actions/checkout roda depois deste job e precisa que ele ainda
+        # exista (senão o runner falha ao iniciar o node com ENOENT).
+        run: find "${{ github.workspace }}" -mindepth 1 -delete
