@@ -153,7 +153,7 @@ function BoxPlotChartSkeleton({
             {BOXPLOT_SKELETON_BOXES.map((box, i) => (
               <g
                 key={i}
-                className="animate-pulse"
+                className="motion-safe:animate-pulse"
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
                 {/* Whisker lines */}

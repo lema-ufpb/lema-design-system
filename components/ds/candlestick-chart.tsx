@@ -192,7 +192,7 @@ function CandlestickChartSkeleton({
             {CANDLE_DATA.map((c, i) => (
               <g
                 key={i}
-                className="animate-pulse"
+                className="motion-safe:animate-pulse"
                 style={{ animationDelay: `${i * 0.08}s` }}
               >
                 {/* Wick */}

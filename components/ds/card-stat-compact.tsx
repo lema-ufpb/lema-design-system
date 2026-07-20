@@ -53,8 +53,8 @@ export const cardStatIconBoxVariants = cva("", {
   variants: {
     size: {
       sm: "size-9 rounded-xl",
-      md: "size-10 rounded-2xl",
-      lg: "size-12 rounded-2xl",
+      md: "size-10 rounded-xl",
+      lg: "size-12 rounded-xl",
     },
   },
   defaultVariants: { size: "md" },

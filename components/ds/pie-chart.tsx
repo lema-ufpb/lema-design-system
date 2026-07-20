@@ -165,7 +165,7 @@ function PieChartSkeleton({
               key={i}
               d={sectorPath(50, 50, 40, start + 0.75, end - 0.75)}
               fill="var(--muted)"
-              className="animate-pulse"
+              className="motion-safe:animate-pulse"
               style={{ animationDelay: `${i * 0.12}s` }}
               suppressHydrationWarning
             />

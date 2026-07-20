@@ -290,14 +290,27 @@ TableBody.displayName = "TableBody"
 export const TableRow = React.forwardRef<
   HTMLTableRowElement,
   React.HTMLAttributes<HTMLTableRowElement> & { clickable?: boolean }
->(({ className, clickable, ...props }, ref) => (
+>(({ className, clickable, onClick, ...props }, ref) => (
   <tr
     ref={ref}
+    tabIndex={clickable ? 0 : undefined}
+    role={clickable ? "button" : undefined}
+    onKeyDown={
+      clickable
+        ? (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault()
+              onClick?.(e as unknown as React.MouseEvent<HTMLTableRowElement>)
+            }
+          }
+        : undefined
+    }
     className={cn(
       "border-b border-border/40 transition-colors duration-150 hover:bg-muted/40",
       clickable && "cursor-pointer",
       className
     )}
+    onClick={onClick}
     {...props}
   />
 ))
@@ -505,8 +518,12 @@ function DataTableEmpty({
   description?: string
 }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-16">
-      <div className="flex size-14 items-center justify-center rounded-2xl border border-dashed border-border bg-muted/50">
+    <div
+      role="status"
+      aria-live="polite"
+      className="flex flex-col items-center justify-center gap-4 py-16"
+    >
+      <div className="flex size-14 items-center justify-center rounded-xl border border-dashed border-border bg-muted/50">
         <Table2 className="size-7 text-muted-foreground" />
       </div>
       <div className="text-center">
@@ -1062,7 +1079,7 @@ export function DataTable<TData extends object>({
         {/* Scrollable viewport */}
         <div
           ref={parentRef}
-          className="relative w-full overflow-auto bg-card"
+          className="relative max-h-[80dvh] w-full overflow-auto bg-card"
           style={{ height: `${height}px` }}
           tabIndex={0}
           role="region"

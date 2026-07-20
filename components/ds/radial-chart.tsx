@@ -183,7 +183,7 @@ function RadialChartSkeleton({
                 stroke="var(--muted)"
                 strokeWidth={sw}
                 strokeLinecap="round"
-                className="animate-pulse"
+                className="motion-safe:animate-pulse"
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
             </g>
