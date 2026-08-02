@@ -567,6 +567,21 @@ export function LineChart({
     })
   }, [])
 
+  // Stable identity across renders — an inline arrow function here would give Recharts'
+  // Legend a new `content` type every render, forcing it to unmount/remount the legend
+  // subtree instead of reconciling it (and dropping click events along the way).
+  const renderLegendContent = React.useCallback(
+    (props: { payload?: unknown }) => (
+      <ChartLegend
+        payload={props.payload as LegendPayloadEntry[]}
+        hiddenSeries={hiddenSeries}
+        onToggle={toggleSeries}
+        vertical={legendPosition === "left" || legendPosition === "right"}
+      />
+    ),
+    [hiddenSeries, toggleSeries, legendPosition]
+  )
+
   if (loading) {
     return (
       <LineChartSkeleton
@@ -734,16 +749,7 @@ export function LineChart({
           {showLegend && (
             <Legend
               {...LEGEND_LAYOUT[legendPosition]}
-              content={({ payload }) => (
-                <ChartLegend
-                  payload={payload as LegendPayloadEntry[]}
-                  hiddenSeries={hiddenSeries}
-                  onToggle={toggleSeries}
-                  vertical={
-                    legendPosition === "left" || legendPosition === "right"
-                  }
-                />
-              )}
+              content={renderLegendContent}
             />
           )}
 
