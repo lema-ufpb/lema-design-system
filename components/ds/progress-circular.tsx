@@ -275,7 +275,7 @@ export const ProgressCircular = React.forwardRef<
               />
             ) : (
               <span className={cn(progressCircularValueVariants({ size }))}>
-                {`${percentage}%`}
+                {percentage}
               </span>
             )}
           </div>

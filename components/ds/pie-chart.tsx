@@ -406,8 +406,47 @@ function ChartLegend({
   position?: LegendPosition
   locale?: UILocale
 }) {
+  // Rendered through Recharts' <Legend> portal, whose container is itself a node
+  // managed elsewhere in the same React tree. React's synthetic click dispatch does
+  // not reliably resolve back to handlers on elements portaled this way, so toggling
+  // is wired through a native listener instead of onClick.
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const onToggleRef = React.useRef(onToggle)
+  React.useEffect(() => {
+    onToggleRef.current = onToggle
+  }, [onToggle])
+
+  React.useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+    const handleActivate = (label: string) => onToggleRef.current(label)
+    const handleClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest<HTMLElement>(
+        "[data-legend-label]"
+      )
+      if (target) handleActivate(target.dataset.legendLabel!)
+    }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Enter" && e.key !== " ") return
+      const target = (e.target as HTMLElement).closest<HTMLElement>(
+        "[data-legend-label]"
+      )
+      if (target) {
+        e.preventDefault()
+        handleActivate(target.dataset.legendLabel!)
+      }
+    }
+    container.addEventListener("click", handleClick)
+    container.addEventListener("keydown", handleKeyDown)
+    return () => {
+      container.removeEventListener("click", handleClick)
+      container.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
+
   return (
     <div
+      ref={containerRef}
       className={cn(
         "flex flex-col gap-1.5 px-1",
         position === "top" ? "mb-2" : "mt-2"
@@ -426,14 +465,11 @@ function ChartLegend({
         return (
           <div
             key={item.label}
+            data-legend-label={item.label}
             role="button"
             tabIndex={0}
             aria-pressed={hidden}
             aria-label={item.label}
-            onClick={() => onToggle(item.label)}
-            onKeyDown={(e) =>
-              (e.key === "Enter" || e.key === " ") && onToggle(item.label)
-            }
             className={cn(
               "flex cursor-pointer items-center gap-2 rounded px-1 py-0.5 select-none",
               "transition-opacity focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none",
@@ -571,6 +607,24 @@ export function PieChart({
     [centerValue, centerLabel, centerPercent, fmt]
   )
 
+  // Stable identity across renders — an inline arrow function here would give Recharts'
+  // Legend a new `content` type every render, forcing it to unmount/remount the legend
+  // subtree instead of reconciling it.
+  const renderLegendContent = React.useCallback(
+    () => (
+      <ChartLegend
+        items={items}
+        total={total}
+        hiddenLabels={hiddenLabels}
+        onToggle={toggleLabel}
+        fmt={fmt}
+        position={legendPosition}
+        locale={locale}
+      />
+    ),
+    [items, total, hiddenLabels, toggleLabel, fmt, legendPosition, locale]
+  )
+
   if (loading) {
     return (
       <PieChartSkeleton
@@ -655,17 +709,7 @@ export function PieChart({
           {showLegend && (
             <Legend
               {...LEGEND_LAYOUT[legendPosition]}
-              content={() => (
-                <ChartLegend
-                  items={items}
-                  total={total}
-                  hiddenLabels={hiddenLabels}
-                  onToggle={toggleLabel}
-                  fmt={fmt}
-                  position={legendPosition}
-                  locale={locale}
-                />
-              )}
+              content={renderLegendContent}
             />
           )}
 

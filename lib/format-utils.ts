@@ -77,11 +77,13 @@ export function formatValue(
       }).format(fmtValue)
       break
     case "percent":
-      formatted =
-        new Intl.NumberFormat(locale, {
-          minimumFractionDigits: decimals ?? 1,
-          maximumFractionDigits: decimals ?? 1,
-        }).format(fmtValue) + "%"
+      // `value` is a ratio (0-1) per the FormatPreset contract — Intl's
+      // style: "percent" multiplies by 100 and applies the locale-correct symbol/spacing.
+      formatted = new Intl.NumberFormat(locale, {
+        style: "percent",
+        minimumFractionDigits: decimals ?? 1,
+        maximumFractionDigits: decimals ?? 1,
+      }).format(fmtValue)
       break
     case "integer":
       formatted = new Intl.NumberFormat(locale, {
