@@ -1,6 +1,5 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import type { ColumnDef } from "@tanstack/react-table"
 import {
   TrendingUp,
   TrendingDown,
@@ -21,6 +20,7 @@ import {
   TableHead,
   TableCell,
   col,
+  type DataTableColumnDef,
 } from "@/components/ds/data-table"
 import { Badge } from "@/components/ui/badge"
 
@@ -44,16 +44,16 @@ const meta = {
           "",
           "**1. `col()` helper** — concise, covers most use cases:",
           "```tsx",
-          "const columns: ColumnDef<Student>[] = [",
+          "const columns: DataTableColumnDef<Student>[] = [",
           "  col({ key: 'name',   label: 'Name',   sortable: true }),",
           "  col({ key: 'gpa',    label: 'GPA',    align: 'center', sortable: true }),",
           "  col({ key: 'status', label: 'Status', cell: (_, row) => <Badge>{row.status}</Badge> }),",
           "]",
           "```",
           "",
-          "**2. Native `ColumnDef<T>`** — full TanStack Table API for advanced cases:",
+          "**2. Native `DataTableColumnDef<T>`** — full TanStack Table API for advanced cases:",
           "```tsx",
-          "const columns: ColumnDef<Student>[] = [",
+          "const columns: DataTableColumnDef<Student>[] = [",
           "  { accessorKey: 'name', header: ({ column }) => <SortButton column={column} />, ... },",
           "]",
           "```",
@@ -85,7 +85,7 @@ const meta = {
           "",
           "### `data`",
           "",
-          "A generic array of records typed as `TData[]`. Each record maps to one row. The `columns` prop (an array of `ColumnDef<TData>`) defines how each field is rendered.",
+          "A generic array of records typed as `TData[]`. Each record maps to one row. The `columns` prop (an array of `DataTableColumnDef<TData>`) defines how each field is rendered.",
           "",
           "```tsx",
           "interface Student {",
@@ -99,7 +99,7 @@ const meta = {
           "  { id: 1, name: 'Alice', gpa: 3.8, status: 'active' },",
           "]",
           "",
-          "const columns: ColumnDef<Student>[] = [",
+          "const columns: DataTableColumnDef<Student>[] = [",
           "  col({ key: 'name', label: 'Name' }),",
           "  col({ key: 'gpa', label: 'GPA', align: 'center' }),",
           "]",
@@ -108,14 +108,14 @@ const meta = {
           "| Param | Type | Required | Description |",
           "| --- | --- | --- | --- |",
           "| `data` | `TData[]` | ✓ | Row data — any shape, paired with `columns` |",
-          "| `columns` | `ColumnDef<TData>[]` | ✓ | Column definitions via `col()` helper or native TanStack API |",
+          "| `columns` | `DataTableColumnDef<TData>[]` | ✓ | Column definitions via `col()` helper or native TanStack API |",
           "",
           "## Component Props",
           "",
           "| Prop | Type | Default | Description |",
           "| --- | --- | --- | --- |",
           "| `data` | `TData[]` | — | (required) Row data |",
-          "| `columns` | `ColumnDef<TData>[]` | — | (required) Column definitions |",
+          "| `columns` | `DataTableColumnDef<TData>[]` | — | (required) Column definitions |",
           "| `title` | `string` | — | Table title |",
           "| `subtitle` | `string` | — | Table subtitle |",
           "| `footer` | `ReactNode` | — | Footer content |",
@@ -462,7 +462,7 @@ const STATUS_CONFIG: Record<
 }
 
 /** Simple columns — defined with the col() helper */
-const SIMPLE_COLUMNS: ColumnDef<Student>[] = [
+const SIMPLE_COLUMNS: DataTableColumnDef<Student>[] = [
   col({
     key: "enrollmentId",
     label: "Enrollment ID",
@@ -490,7 +490,7 @@ const SIMPLE_COLUMNS: ColumnDef<Student>[] = [
 ]
 
 /** Last column has no width — fills remaining space via flexGrow: 1 */
-const FLUID_COLUMNS: ColumnDef<Student>[] = [
+const FLUID_COLUMNS: DataTableColumnDef<Student>[] = [
   col({
     key: "enrollmentId",
     label: "Enrollment ID",
@@ -518,7 +518,7 @@ const FLUID_COLUMNS: ColumnDef<Student>[] = [
 ]
 
 /** Rich columns — mix of col() helpers and native ColumnDef with custom cells */
-const RICH_COLUMNS: ColumnDef<Student>[] = [
+const RICH_COLUMNS: DataTableColumnDef<Student>[] = [
   col({ key: "enrollmentId", label: "Enrollment ID", width: 130 }),
   col({ key: "name", label: "Name", width: 190, sortable: true }),
   col({ key: "course", label: "Course", width: 220, sortable: true }),
@@ -605,7 +605,7 @@ const RICH_COLUMNS: ColumnDef<Student>[] = [
 ]
 
 /** Many columns — for horizontal scroll demonstration */
-const MANY_COLUMNS: ColumnDef<Student>[] = [
+const MANY_COLUMNS: DataTableColumnDef<Student>[] = [
   col({
     key: "enrollmentId",
     label: "Enrollment ID",
@@ -652,7 +652,7 @@ const MANY_COLUMNS: ColumnDef<Student>[] = [
 
 const base = {
   data: STUDENTS_20 as unknown as object[],
-  columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+  columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
   height: 400,
 }
 
@@ -728,7 +728,7 @@ export const FluidLastColumn: Story = {
   },
   args: {
     data: STUDENTS_20 as unknown as object[],
-    columns: FLUID_COLUMNS as unknown as ColumnDef<object>[],
+    columns: FLUID_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Enrolled Students",
     subtitle:
       "Last column (City) has no width — it fills the remaining table width",
@@ -832,7 +832,7 @@ export const PaginationPtBR: Story = {
   },
   args: {
     data: STUDENTS_200 as unknown as object[],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Students — paginated",
     subtitle: 'locale="pt-BR" — labels resolved automatically from UI_I18N',
     pagination: true,
@@ -855,7 +855,7 @@ export const PaginationRoundedFull: Story = {
   },
   args: {
     data: STUDENTS_200 as unknown as object[],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Rounded Full",
     subtitle: 'paginationRounded="full" — pill-shaped buttons',
     pagination: true,
@@ -877,7 +877,7 @@ export const PaginationRoundedLight: Story = {
   },
   args: {
     data: STUDENTS_200 as unknown as object[],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Rounded Light",
     subtitle: 'paginationRounded="light" — subtle rounding',
     pagination: true,
@@ -899,7 +899,7 @@ export const PaginationRoundedNone: Story = {
   },
   args: {
     data: STUDENTS_200 as unknown as object[],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Rounded None",
     subtitle: 'paginationRounded="none" — square buttons',
     pagination: true,
@@ -949,7 +949,7 @@ export const WithCustomCells: Story = {
   },
   args: {
     data: STUDENTS_20 as unknown as object[],
-    columns: RICH_COLUMNS as unknown as ColumnDef<object>[],
+    columns: RICH_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Student Overview",
     subtitle: "Colour-coded GPA · status badge · scholarship icon",
     showSearch: true,
@@ -1069,7 +1069,7 @@ export const BulkAction: Story = {
       <div className="flex flex-col gap-4">
         <DataTable
           data={rows}
-          columns={SIMPLE_COLUMNS as unknown as ColumnDef<object>[]}
+          columns={SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[]}
           title="Students"
           subtitle="Select rows to reveal the bulk-delete toolbar button"
           selectRows
@@ -1258,7 +1258,7 @@ export const WithFooter: Story = {
   },
   args: {
     data: STUDENTS_20 as unknown as object[],
-    columns: RICH_COLUMNS as unknown as ColumnDef<object>[],
+    columns: RICH_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Enrolled Students",
     subtitle: "Source: SIGAA — 2025.1",
     height: 400,
@@ -1288,7 +1288,7 @@ export const KitchenSink: Story = {
   },
   args: {
     data: STUDENTS_200 as unknown as object[],
-    columns: RICH_COLUMNS as unknown as ColumnDef<object>[],
+    columns: RICH_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Faculty Portal — Student Progress",
     subtitle: "UFPB · Department of Computing · 2025.1",
     showSearch: true,
@@ -1339,7 +1339,7 @@ export const TenThousandRows: Story = {
     return (
       <DataTable
         data={data as unknown as object[]}
-        columns={SIMPLE_COLUMNS as unknown as ColumnDef<object>[]}
+        columns={SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[]}
         title="10 000 Rows"
         subtitle="Scroll to see virtualization in action — only visible rows are in the DOM"
         showSearch
@@ -1372,7 +1372,7 @@ export const HundredThousandRows: Story = {
     return (
       <DataTable
         data={data as unknown as object[]}
-        columns={SIMPLE_COLUMNS as unknown as ColumnDef<object>[]}
+        columns={SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[]}
         title="100 000 Rows"
         subtitle="Virtual DOM window: ~15 rows regardless of dataset size"
         height={480}
@@ -1397,7 +1397,7 @@ export const VirtualizedWithPagination: Story = {
     return (
       <DataTable
         data={data as unknown as object[]}
-        columns={SIMPLE_COLUMNS as unknown as ColumnDef<object>[]}
+        columns={SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[]}
         title="10 000 Rows with Pagination"
         showSearch
         pagination
@@ -1451,7 +1451,7 @@ export const LoadingSkeleton: Story = {
   },
   args: {
     data: [],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Enrolled Students",
     subtitle: "Academic term 2025.1",
     showSearch: true,
@@ -1502,7 +1502,7 @@ export const LoadingRefetch: Story = {
   },
   args: {
     data: STUDENTS_20 as unknown as object[],
-    columns: RICH_COLUMNS as unknown as ColumnDef<object>[],
+    columns: RICH_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "Enrolled Students",
     subtitle: "Background refresh in progress",
     showSearch: true,
@@ -1522,7 +1522,7 @@ export const EmptyState: Story = {
   },
   args: {
     data: [],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "No results",
     subtitle: "Try adjusting your filters or check back later",
     height: 340,
@@ -1541,7 +1541,7 @@ export const EmptyAfterSearch: Story = {
   },
   args: {
     data: STUDENTS_20 as unknown as object[],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "No results for this search",
     showSearch: true,
     defaultGlobalFilter: "zzz_no_match",
@@ -1565,7 +1565,7 @@ export const EmptyStatePtBR: Story = {
   },
   args: {
     data: [],
-    columns: SIMPLE_COLUMNS as unknown as ColumnDef<object>[],
+    columns: SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[],
     title: "No results",
     subtitle: "Try adjusting your filters or check back later",
     height: 340,
@@ -1581,12 +1581,12 @@ export const ColHelper: Story = {
     docs: {
       description: {
         story: [
-          "The exported `col<T>()` function converts a simple descriptor into a full `ColumnDef<T>`.",
+          "The exported `col<T>()` function converts a simple descriptor into a full `DataTableColumnDef<T>`.",
           "",
           "```tsx",
           "import { col } from '@/components/ds/data-table'",
           "",
-          "const columns: ColumnDef<Student>[] = [",
+          "const columns: DataTableColumnDef<Student>[] = [",
           "  // Sortable plain column",
           "  col({ key: 'name', label: 'Name', sortable: true }),",
           "",
