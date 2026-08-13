@@ -2329,6 +2329,26 @@
           "target": "components/ui/message-scroller.tsx"
         }
       ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions. Owns the ordered items, active item, answer state, validation, progress, and navigation. Composed of QuestionnaireItem, QuestionnaireProgress, QuestionnaireTitle, QuestionnaireDescription, QuestionnaireChoices, QuestionnaireChoice, QuestionnaireChoiceDescription, QuestionnaireInput, QuestionnaireError, QuestionnaireActions, QuestionnairePrevious, QuestionnaireSkip, QuestionnaireNext, and QuestionnaireSubmit sub-components.",
+      "dependencies": [
+        "lucide-react",
+        "@shadcn/react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/questionnaire.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/questionnaire.tsx"
+        }
+      ]
     }
   ]
 }
