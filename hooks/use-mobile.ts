@@ -2,10 +2,10 @@ import * as React from "react"
 
 const MOBILE_BREAKPOINT = 768
 
-function subscribe(onChange: () => void) {
+function subscribe(callback: () => void) {
   const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-  mql.addEventListener("change", onChange)
-  return () => mql.removeEventListener("change", onChange)
+  mql.addEventListener("change", callback)
+  return () => mql.removeEventListener("change", callback)
 }
 
 function getSnapshot() {
