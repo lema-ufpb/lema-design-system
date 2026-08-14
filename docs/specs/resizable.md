@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/resizable.tsx` |
-| Tipo | `registry:ui` (name: `resizable`) |
-| Categoria | Layout |
+| Campo      | Valor                                        |
+| ---------- | -------------------------------------------- |
+| Arquivo    | `components/ui/resizable.tsx`                |
+| Tipo       | `registry:ui` (name: `resizable`)            |
+| Categoria  | Layout                                       |
 | Depende de | `react-resizable-panels`, `@/lib/utils` (cn) |
 
 ---
@@ -29,57 +29,57 @@
 
 ### ResizablePanelGroup
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `orientation` | `"horizontal" \| "vertical"` | — | Sim | Direção dos painéis |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop          | Tipo                         | Padrão | Obrigatória | Descrição           |
+| ------------- | ---------------------------- | ------ | ----------- | ------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | —      | Sim         | Direção dos painéis |
+| `className`   | `string`                     | —      | Não         | Classes adicionais  |
 
 ### ResizablePanel
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `defaultSize` | `number` | — | Não | Tamanho inicial em % |
-| `minSize` | `number` | — | Não | Tamanho mínimo em % |
-| `maxSize` | `number` | — | Não | Tamanho máximo em % |
+| Prop          | Tipo     | Padrão | Obrigatória | Descrição            |
+| ------------- | -------- | ------ | ----------- | -------------------- |
+| `defaultSize` | `number` | —      | Não         | Tamanho inicial em % |
+| `minSize`     | `number` | —      | Não         | Tamanho mínimo em %  |
+| `maxSize`     | `number` | —      | Não         | Tamanho máximo em %  |
 
 ### ResizableHandle
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `withHandle` | `boolean` | — | Não | Renderiza alça visual de arraste |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop         | Tipo      | Padrão | Obrigatória | Descrição                        |
+| ------------ | --------- | ------ | ----------- | -------------------------------- |
+| `withHandle` | `boolean` | —      | Não         | Renderiza alça visual de arraste |
+| `className`  | `string`  | —      | Não         | Classes adicionais               |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--border` | Cor da linha divisória e alça |
-| `--ring` | Anel de foco no handle |
-| `--background` (via ring-offset-background) | Offset do focus ring |
+| Token                                       | Slot                          |
+| ------------------------------------------- | ----------------------------- |
+| `--border`                                  | Cor da linha divisória e alça |
+| `--ring`                                    | Anel de foco no handle        |
+| `--background` (via ring-offset-background) | Offset do focus ring          |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Arrastando | Handle focus-visible com `--ring` |
-| Horizontal | Handle como linha vertical (`w-px`) |
-| Vertical | Handle como linha horizontal (`h-px`) |
-| withHandle | Alça visual central rotacionada se horizontal |
-| Focus teclado | `focus-visible:ring-1` |
+| Estado        | Comportamento                                 |
+| ------------- | --------------------------------------------- |
+| Arrastando    | Handle focus-visible com `--ring`             |
+| Horizontal    | Handle como linha vertical (`w-px`)           |
+| Vertical      | Handle como linha horizontal (`h-px`)         |
+| withHandle    | Alça visual central rotacionada se horizontal |
+| Focus teclado | `focus-visible:ring-1`                        |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
+| Requisito                     | Implementação                    |
+| ----------------------------- | -------------------------------- |
 | Redimensionamento por teclado | `react-resizable-panels` (setas) |
-| Orientação ARIA | `aria-orientation` no separator |
-| Focus visível | `focus-visible:ring` no handle |
+| Orientação ARIA               | `aria-orientation` no separator  |
+| Focus visível                 | `focus-visible:ring` no handle   |
 
 ---
 

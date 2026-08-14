@@ -18,23 +18,23 @@ Wrapper do `Input` shadcn com ícone `Mail` à direita e configuração simplifi
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/input-email.tsx` |
-| data-slot | `input-email` |
-| Tipo | `registry:component` |
-| Categoria | `Form` |
-| Depende de | `Input` (shadcn/ui) |
+| Campo      | Valor                           |
+| ---------- | ------------------------------- |
+| Arquivo    | `components/ds/input-email.tsx` |
+| data-slot  | `input-email`                   |
+| Tipo       | `registry:component`            |
+| Categoria  | `Form`                          |
+| Depende de | `Input` (shadcn/ui)             |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"sm" \| "default" \| "lg"` | `"default"` | | Tamanho do input |
-| `radius` | `"pill" \| "rounded" \| "square"` | `"pill"` | | Arredondamento das bordas |
-| `className` | `string` | — | | Classes extras |
+| Prop        | Tipo                              | Padrão      | Obrigatória | Descrição                 |
+| ----------- | --------------------------------- | ----------- | ----------- | ------------------------- |
+| `size`      | `"sm" \| "default" \| "lg"`       | `"default"` |             | Tamanho do input          |
+| `radius`    | `"pill" \| "rounded" \| "square"` | `"pill"`    |             | Arredondamento das bordas |
+| `className` | `string`                          | —           |             | Classes extras            |
 
 Estende `Omit<React.ComponentProps<"input">, "type" | "size">`. O tipo é fixo como `"email"`.
 
@@ -48,34 +48,34 @@ Nenhuma. Usa `sizeConfig` e `radiusConfig` como objetos de configuração (não 
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `text-muted-foreground` | ícone Mail |
-| `pointer-events-none` | ícone (decorativo) |
+| Token                   | Slot onde é usado  |
+| ----------------------- | ------------------ |
+| `text-muted-foreground` | ícone Mail         |
+| `pointer-events-none`   | ícone (decorativo) |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | default | lg |
-|------|----|---------|----|
-| Input | `h-8 px-2.5 text-xs pr-7` | `h-9 pr-9` | `h-10 px-4 text-base pr-11` |
-| Ícone | `right-2 size-3.5` | `right-3 size-4` | `right-4 size-4` |
+| Slot  | sm                        | default          | lg                          |
+| ----- | ------------------------- | ---------------- | --------------------------- |
+| Input | `h-8 px-2.5 text-xs pr-7` | `h-9 pr-9`       | `h-10 px-4 text-base pr-11` |
+| Ícone | `right-2 size-3.5`        | `right-3 size-4` | `right-4 size-4`            |
 
-| Slot | pill | rounded | square |
-|------|------|---------|--------|
+| Slot          | pill          | rounded      | square         |
+| ------------- | ------------- | ------------ | -------------- |
 | Border radius | `rounded-3xl` | `rounded-lg` | `rounded-none` |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `disabled` | Herdado do `Input` shadcn (classe `disabled:` do Tailwind) |
-| Loading | Não implementado (usar Input diretamente para loading) |
-| Placeholder | Herdado do `Input` via props |
-| Validação | Não implementada (type="email" nativo do browser) |
+| Estado      | Comportamento esperado                                     |
+| ----------- | ---------------------------------------------------------- |
+| `disabled`  | Herdado do `Input` shadcn (classe `disabled:` do Tailwind) |
+| Loading     | Não implementado (usar Input diretamente para loading)     |
+| Placeholder | Herdado do `Input` via props                               |
+| Validação   | Não implementada (type="email" nativo do browser)          |
 
 > Sem loading/empty/error state próprio — é um wrapper puramente visual.
 
@@ -83,12 +83,12 @@ Nenhuma. Usa `sizeConfig` e `radiusConfig` como objetos de configuração (não 
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Type semântico | `type="email"` nativo |
-| Ícone decorativo | Nenhum aria-label (ícone decorativo sem role) |
-| Label | Deve ser fornecido externamente via prop `aria-label` ou `<label>` |
-| i18n | Não utiliza `UI_I18N` |
+| Requisito        | Implementação                                                      |
+| ---------------- | ------------------------------------------------------------------ |
+| Type semântico   | `type="email"` nativo                                              |
+| Ícone decorativo | Nenhum aria-label (ícone decorativo sem role)                      |
+| Label            | Deve ser fornecido externamente via prop `aria-label` ou `<label>` |
+| i18n             | Não utiliza `UI_I18N`                                              |
 
 ---
 

@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/tabs.tsx` |
-| Tipo | `registry:ui` (name: `tabs`) |
-| Categoria | Navegação / Abas |
+| Campo      | Valor                                  |
+| ---------- | -------------------------------------- |
+| Arquivo    | `components/ui/tabs.tsx`               |
+| Tipo       | `registry:ui` (name: `tabs`)           |
+| Categoria  | Navegação / Abas                       |
 | Depende de | `radix-ui`, `class-variance-authority` |
 
 ---
@@ -29,72 +29,72 @@
 
 ### Tabs (Root)
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `defaultValue` | `string` | — | Não | Aba ativa inicial |
-| `value` | `string` | — | Não | Aba ativa controlada |
-| `onValueChange` | `(value: string) => void` | — | Não | Callback de mudança |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não | Orientação |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop            | Tipo                         | Padrão         | Obrigatória | Descrição            |
+| --------------- | ---------------------------- | -------------- | ----------- | -------------------- |
+| `defaultValue`  | `string`                     | —              | Não         | Aba ativa inicial    |
+| `value`         | `string`                     | —              | Não         | Aba ativa controlada |
+| `onValueChange` | `(value: string) => void`    | —              | Não         | Callback de mudança  |
+| `orientation`   | `"horizontal" \| "vertical"` | `"horizontal"` | Não         | Orientação           |
+| `className`     | `string`                     | —              | Não         | Classes adicionais   |
 
 ### TabsList
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | `"default" \| "line"` | `"default"` | Não | Estilo visual da lista |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo                  | Padrão      | Obrigatória | Descrição              |
+| ----------- | --------------------- | ----------- | ----------- | ---------------------- |
+| `variant`   | `"default" \| "line"` | `"default"` | Não         | Estilo visual da lista |
+| `className` | `string`              | —           | Não         | Classes adicionais     |
 
 ### TabsTrigger
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Valor que identifica a aba |
-| `disabled` | `boolean` | — | Não | Desabilita o trigger |
+| Prop       | Tipo      | Padrão | Obrigatória | Descrição                  |
+| ---------- | --------- | ------ | ----------- | -------------------------- |
+| `value`    | `string`  | —      | Sim         | Valor que identifica a aba |
+| `disabled` | `boolean` | —      | Não         | Desabilita o trigger       |
 
 ### TabsContent
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Valor que vincula ao trigger |
+| Prop    | Tipo     | Padrão | Obrigatória | Descrição                    |
+| ------- | -------- | ------ | ----------- | ---------------------------- |
+| `value` | `string` | —      | Sim         | Valor que vincula ao trigger |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--muted` | Fundo da TabsList variante `default` |
-| `--foreground / 60%` | Texto de trigger inativo |
-| `--background` | Fundo do trigger ativo |
-| `--foreground` | Texto do trigger ativo / indicador line |
-| `--ring / 50%` | Anel de foco no trigger |
-| `--border` | Borda de containers e triggers |
-| `--input / 30%` | Borda do trigger ativo (dark) |
+| Token                | Slot                                    |
+| -------------------- | --------------------------------------- |
+| `--muted`            | Fundo da TabsList variante `default`    |
+| `--foreground / 60%` | Texto de trigger inativo                |
+| `--background`       | Fundo do trigger ativo                  |
+| `--foreground`       | Texto do trigger ativo / indicador line |
+| `--ring / 50%`       | Anel de foco no trigger                 |
+| `--border`           | Borda de containers e triggers          |
+| `--input / 30%`      | Borda do trigger ativo (dark)           |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
+| Estado                   | Comportamento                                             |
+| ------------------------ | --------------------------------------------------------- |
 | **Default (horizontal)** | Lista horizontal com fundo `bg-muted` e abas arredondadas |
-| **Line** | Lista sem fundo, indicador de linha animada via `::after` |
-| **Vertical** | Lista vertical à esquerda, `flex-col`, conteúdo à direita |
-| **Trigger ativo** | `bg-background`, `text-foreground` |
-| **Trigger inativo** | `text-foreground/60` |
-| **Trigger hover** | `hover:text-foreground` |
-| **Trigger disabled** | `opacity-50`, `pointer-events-none` |
-| **Focus** | `focus-visible:border-ring focus-visible:ring-[3px]` |
+| **Line**                 | Lista sem fundo, indicador de linha animada via `::after` |
+| **Vertical**             | Lista vertical à esquerda, `flex-col`, conteúdo à direita |
+| **Trigger ativo**        | `bg-background`, `text-foreground`                        |
+| **Trigger inativo**      | `text-foreground/60`                                      |
+| **Trigger hover**        | `hover:text-foreground`                                   |
+| **Trigger disabled**     | `opacity-50`, `pointer-events-none`                       |
+| **Focus**                | `focus-visible:border-ring focus-visible:ring-[3px]`      |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| ARIA | Radix fornece `role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls` |
-| Teclado | Navegação por setas (esquerda/direita ou cima/baixo dependendo da orientação) |
-| Foco | `focus-visible` com ring e outline |
+| Requisito | Implementação                                                                  |
+| --------- | ------------------------------------------------------------------------------ |
+| ARIA      | Radix fornece `role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls` |
+| Teclado   | Navegação por setas (esquerda/direita ou cima/baixo dependendo da orientação)  |
+| Foco      | `focus-visible` com ring e outline                                             |
 
 ---
 

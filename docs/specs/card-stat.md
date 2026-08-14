@@ -10,19 +10,19 @@
 
 ## Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `label` | `string` | — | ✓ | Rótulo do cartão |
-| `value` | `string \| number` | — | ✓ | Valor principal |
-| `size` | `CardStatSize` | `"md"` | | Tamanho do cartão |
-| `variant` | `"default" \| "muted" \| "flat"` | `"default"` | | Estilo visual do cartão |
-| `description` | `string` | — | | Descrição/rodapé |
-| `trend` | `CardStatTrend \| boolean` | `false` | | Direção da tendência |
-| `icon` | `React.ElementType` | — | | Ícone decorativo no header |
-| `valueClassName` | `string` | — | | Classes adicionais no valor |
-| `className` | `string` | — | | Classes extras |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
-| `empty` | `boolean` | `false` | | Estado vazio |
+| Prop             | Tipo                             | Padrão      | Obrigatória | Descrição                   |
+| ---------------- | -------------------------------- | ----------- | ----------- | --------------------------- |
+| `label`          | `string`                         | —           | ✓           | Rótulo do cartão            |
+| `value`          | `string \| number`               | —           | ✓           | Valor principal             |
+| `size`           | `CardStatSize`                   | `"md"`      |             | Tamanho do cartão           |
+| `variant`        | `"default" \| "muted" \| "flat"` | `"default"` |             | Estilo visual do cartão     |
+| `description`    | `string`                         | —           |             | Descrição/rodapé            |
+| `trend`          | `CardStatTrend \| boolean`       | `false`     |             | Direção da tendência        |
+| `icon`           | `React.ElementType`              | —           |             | Ícone decorativo no header  |
+| `valueClassName` | `string`                         | —           |             | Classes adicionais no valor |
+| `className`      | `string`                         | —           |             | Classes extras              |
+| `loading`        | `boolean`                        | `false`     |             | Estado de carregamento      |
+| `empty`          | `boolean`                        | `false`     |             | Estado vazio                |
 
 Estende \`FormatOptions\` (\`format\`, \`decimals\`, \`locale\`, \`currency\`, \`valueFormatter\`). Quando `locale` é fornecido, o empty state usa `UI_I18N[locale as UILocale].cardStat.nothingToMeasure`.
 
@@ -31,6 +31,7 @@ Estende \`FormatOptions\` (\`format\`, \`decimals\`, \`locale\`, \`currency\`, \
 ## CVA variants locais
 
 Nenhuma — usa apenas as variantes compartilhadas de `card-stats-shared.tsx`:
+
 - `cardStatLabelVariants`
 - `cardStatValueVariants`
 - `cardStatDescriptionVariants`
@@ -41,19 +42,19 @@ Nenhuma — usa apenas as variantes compartilhadas de `card-stats-shared.tsx`:
 
 ## Estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| `loading` | Skeletons para label, headerIcon, value, description |
-| `empty` | Label atenuado, "—" no valor, "Nothing to measure yet" (ou `UI_I18N[locale].cardStat.nothingToMeasure` se locale fornecido) |
-| Normal | Label + valor formatado + ícone. Trend icon renderizado apenas dentro do bloco `description` — se `description` for omitido, trend não aparece mesmo com `trend` definido |
-| hover | Default: `hover:-translate-y-0.5 hover:shadow-lg`. Muted: `hover:bg-accent`. Flat: `hover:bg-muted/50`. Todos com `transition-all duration-200`. |
+| Estado    | Comportamento                                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `loading` | Skeletons para label, headerIcon, value, description                                                                                                                      |
+| `empty`   | Label atenuado, "—" no valor, "Nothing to measure yet" (ou `UI_I18N[locale].cardStat.nothingToMeasure` se locale fornecido)                                               |
+| Normal    | Label + valor formatado + ícone. Trend icon renderizado apenas dentro do bloco `description` — se `description` for omitido, trend não aparece mesmo com `trend` definido |
+| hover     | Default: `hover:-translate-y-0.5 hover:shadow-lg`. Muted: `hover:bg-accent`. Flat: `hover:bg-muted/50`. Todos com `transition-all duration-200`.                          |
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Decorative icons | `aria-hidden="true"` no ícone do header |
-| i18n | `UI_I18N[locale as UILocale].cardStat.nothingToMeasure` no empty state |
+| Requisito        | Implementação                                                          |
+| ---------------- | ---------------------------------------------------------------------- |
+| Decorative icons | `aria-hidden="true"` no ícone do header                                |
+| i18n             | `UI_I18N[locale as UILocale].cardStat.nothingToMeasure` no empty state |
 
 ## Stories
 

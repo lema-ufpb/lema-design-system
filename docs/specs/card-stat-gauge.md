@@ -9,20 +9,20 @@
 
 ## Props
 
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `number` | — | ✓ |
-| `size` | `CardStatSize` | `"md"` | |
-| `min` | `number` | `0` | |
-| `max` | `number` | `100` | |
-| `zones` | `CardStatGaugeZone[]` | DEFAULT_GAUGE_ZONES | |
-| `description` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-| `locale` | `UILocale` | — | |
+| Prop          | Tipo                  | Padrão              | Obrigatória |
+| ------------- | --------------------- | ------------------- | ----------- |
+| `label`       | `string`              | —                   | ✓           |
+| `value`       | `number`              | —                   | ✓           |
+| `size`        | `CardStatSize`        | `"md"`              |             |
+| `min`         | `number`              | `0`                 |             |
+| `max`         | `number`              | `100`               |             |
+| `zones`       | `CardStatGaugeZone[]` | DEFAULT_GAUGE_ZONES |             |
+| `description` | `string`              | —                   |             |
+| `icon`        | `React.ElementType`   | —                   |             |
+| `className`   | `string`              | —                   |             |
+| `loading`     | `boolean`             | `false`             |             |
+| `empty`       | `boolean`             | `false`             |             |
+| `locale`      | `UILocale`            | —                   |             |
 
 Estende \`FormatOptions\`.
 
@@ -34,9 +34,9 @@ Zonas padrão: Poor (risk-1, 25%), Fair (risk-2, 50%), Good (risk-3, 75%), Excel
 
 ## CVA variants locais
 
-| Variant | sm | md | lg |
-|---------|----|----|----|
-| `cardStatGaugeMaxWVariants` | `max-w-32` | `max-w-40` | `max-w-48` |
+| Variant                      | sm                                                   | md                                                   | lg                                                   |
+| ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `cardStatGaugeMaxWVariants`  | `max-w-32`                                           | `max-w-40`                                           | `max-w-48`                                           |
 | `cardStatGaugeValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
 
 Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`, `cardStatBadgePaddingVariants`.
@@ -54,11 +54,11 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardSta
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| SVG decorativo | `aria-hidden` no elemento SVG |
-| Badge de zona | `aria-hidden` no badge (informação redundante com visual) |
-| i18n | `UI_I18N[locale].cardStatGauge.*` para labels de zona e empty state |
+| Requisito      | Implementação                                                       |
+| -------------- | ------------------------------------------------------------------- |
+| SVG decorativo | `aria-hidden` no elemento SVG                                       |
+| Badge de zona  | `aria-hidden` no badge (informação redundante com visual)           |
+| i18n           | `UI_I18N[locale].cardStatGauge.*` para labels de zona e empty state |
 
 ## Stories
 

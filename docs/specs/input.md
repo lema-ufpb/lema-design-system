@@ -18,56 +18,56 @@ Input de texto estilizado para formulários, suportando diversos tipos (text, pa
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/input.tsx` |
-| Tipo | `registry:ui` (name: `input`) |
-| Categoria | Formulário / Entrada |
-| Depende de | Nenhum |
+| Campo      | Valor                         |
+| ---------- | ----------------------------- |
+| Arquivo    | `components/ui/input.tsx`     |
+| Tipo       | `registry:ui` (name: `input`) |
+| Categoria  | Formulário / Entrada          |
+| Depende de | Nenhum                        |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `Input` | `React.ComponentProps<"input">` | — | — | Todas as props nativas de `<input>` |
-| `Input.type` | `string` | — | — | Tipo do input (text, password, email, etc.) |
+| Prop         | Tipo                            | Padrão | Obrigatória | Descrição                                   |
+| ------------ | ------------------------------- | ------ | ----------- | ------------------------------------------- |
+| `Input`      | `React.ComponentProps<"input">` | —      | —           | Todas as props nativas de `<input>`         |
+| `Input.type` | `string`                        | —      | —           | Tipo do input (text, password, email, etc.) |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot |
-|-------|------|
-| `bg-input/50` | Fundo do input |
-| `--foreground` | Cor do texto digitado |
-| `--muted-foreground` | Placeholder |
-| `--ring` / `border-ring` | Borda de foco |
-| `--destructive` | Borda de erro (`aria-invalid`) |
-| `--destructive/20` | Ring de foco em erro |
+| Token                    | Slot                           |
+| ------------------------ | ------------------------------ |
+| `bg-input/50`            | Fundo do input                 |
+| `--foreground`           | Cor do texto digitado          |
+| `--muted-foreground`     | Placeholder                    |
+| `--ring` / `border-ring` | Borda de foco                  |
+| `--destructive`          | Borda de erro (`aria-invalid`) |
+| `--destructive/20`       | Ring de foco em erro           |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Default** | Borda `border-transparent`, fundo `bg-input/50` |
-| **Focus** | `border-ring`, `ring-3 ring-ring/30` |
-| **Disabled** | `pointer-events-none`, `cursor-not-allowed`, `opacity-50` |
-| **Invalid** | `aria-invalid`: `border-destructive`, `ring-destructive/20` |
-| **Placeholder** | Cor `text-muted-foreground` |
-| **File** | Botão file nativo estilizado via `file:` utilities |
+| Estado          | Comportamento                                               |
+| --------------- | ----------------------------------------------------------- |
+| **Default**     | Borda `border-transparent`, fundo `bg-input/50`             |
+| **Focus**       | `border-ring`, `ring-3 ring-ring/30`                        |
+| **Disabled**    | `pointer-events-none`, `cursor-not-allowed`, `opacity-50`   |
+| **Invalid**     | `aria-invalid`: `border-destructive`, `ring-destructive/20` |
+| **Placeholder** | Cor `text-muted-foreground`                                 |
+| **File**        | Botão file nativo estilizado via `file:` utilities          |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| ARIA | `aria-invalid` para estado de erro |
-| Foco | `focus-visible:border-ring` com outline removido |
+| Requisito | Implementação                                    |
+| --------- | ------------------------------------------------ |
+| ARIA      | `aria-invalid` para estado de erro               |
+| Foco      | `focus-visible:border-ring` com outline removido |
 
 ---
 

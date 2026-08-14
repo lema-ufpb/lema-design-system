@@ -18,68 +18,71 @@ O Collapsible é um componente de disclosure simples que permite expandir/recolh
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/collapsible.tsx` |
-| Tipo | `registry:ui` (name: `collapsible`) |
-| Categoria | Layout / Disclosure |
-| Depende de | Nenhuma |
+| Campo      | Valor                               |
+| ---------- | ----------------------------------- |
+| Arquivo    | `components/ui/collapsible.tsx`     |
+| Tipo       | `registry:ui` (name: `collapsible`) |
+| Categoria  | Layout / Disclosure                 |
+| Depende de | Nenhuma                             |
 
 ---
 
 ## API — Props
 
 ### Collapsible (Root)
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `open` | `boolean` | — | Não | Estado controlado |
-| `defaultOpen` | `boolean` | — | Não | Estado inicial |
-| `onOpenChange` | `(open: boolean) => void` | — | Não | Callback de alternância |
-| `className` | `string` | — | Não | Classes adicionais |
-| `disabled` | `boolean` | — | Não | Desabilita interação |
+
+| Prop           | Tipo                      | Padrão | Obrigatória | Descrição               |
+| -------------- | ------------------------- | ------ | ----------- | ----------------------- |
+| `open`         | `boolean`                 | —      | Não         | Estado controlado       |
+| `defaultOpen`  | `boolean`                 | —      | Não         | Estado inicial          |
+| `onOpenChange` | `(open: boolean) => void` | —      | Não         | Callback de alternância |
+| `className`    | `string`                  | —      | Não         | Classes adicionais      |
+| `disabled`     | `boolean`                 | —      | Não         | Desabilita interação    |
 
 ### CollapsibleTrigger
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | — | Não | Renderiza como elemento filho |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo      | Padrão | Obrigatória | Descrição                     |
+| ----------- | --------- | ------ | ----------- | ----------------------------- |
+| `asChild`   | `boolean` | —      | Não         | Renderiza como elemento filho |
+| `className` | `string`  | —      | Não         | Classes adicionais            |
 
 ### CollapsibleContent
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Sim | Conteúdo colapsável |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição           |
+| ----------- | ----------- | ------ | ----------- | ------------------- |
+| `className` | `string`    | —      | Não         | Classes adicionais  |
+| `children`  | `ReactNode` | —      | Sim         | Conteúdo colapsável |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| *(nenhum)* | Componente delega estilo ao consumidor; nenhum token diretamente |
+| Token      | Slot onde é usado                                                |
+| ---------- | ---------------------------------------------------------------- |
+| _(nenhum)_ | Componente delega estilo ao consumidor; nenhum token diretamente |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Fechado | `CollapsibleContent` oculto via animação Radix (`data-closed`) |
-| Aberto | `CollapsibleContent` visível via animação Radix (`data-open`) |
-| Trigger | `group-data-open/collapsible` disponível para estilizar filhos (ex: rotacionar ícone) |
-| Disabled | Trigger não responde a clique |
-| Transição | Radix gerencia `enter`/`exit` animations |
+| Estado    | Comportamento esperado                                                                |
+| --------- | ------------------------------------------------------------------------------------- |
+| Fechado   | `CollapsibleContent` oculto via animação Radix (`data-closed`)                        |
+| Aberto    | `CollapsibleContent` visível via animação Radix (`data-open`)                         |
+| Trigger   | `group-data-open/collapsible` disponível para estilizar filhos (ex: rotacionar ícone) |
+| Disabled  | Trigger não responde a clique                                                         |
+| Transição | Radix gerencia `enter`/`exit` animations                                              |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| WAI-ARIA Disclosure | Radix fornece `aria-expanded` e `aria-controls` no trigger |
-| Navegação por teclado | Enter/Space para alternar (Radix) |
-| Foco | Trigger focável via Tab |
-| Estado de abertura | `data-open`/`data-closed` para estilização |
+| Requisito             | Implementação                                              |
+| --------------------- | ---------------------------------------------------------- |
+| WAI-ARIA Disclosure   | Radix fornece `aria-expanded` e `aria-controls` no trigger |
+| Navegação por teclado | Enter/Space para alternar (Radix)                          |
+| Foco                  | Trigger focável via Tab                                    |
+| Estado de abertura    | `data-open`/`data-closed` para estilização                 |
 
 ---
 

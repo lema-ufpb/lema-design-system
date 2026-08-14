@@ -18,12 +18,12 @@ Wrapper sobre a paginação shadcn/ui que adiciona suporte a locale para `aria-l
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/pagination.tsx` |
-| Tipo | `registry:ui` (name: `ds-pagination`) |
-| Categoria | Navegação |
-| Depende de | `lucide-react`, `button`, `ui-i18n` |
+| Campo      | Valor                                 |
+| ---------- | ------------------------------------- |
+| Arquivo    | `components/ds/pagination.tsx`        |
+| Tipo       | `registry:ui` (name: `ds-pagination`) |
+| Categoria  | Navegação                             |
+| Depende de | `lucide-react`, `button`, `ui-i18n`   |
 
 ---
 
@@ -31,66 +31,66 @@ Wrapper sobre a paginação shadcn/ui que adiciona suporte a locale para `aria-l
 
 ### Pagination
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `locale` | `UILocale` | `"en-US"` | Não | Localização dos `aria-label` |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo       | Padrão    | Obrigatória | Descrição                    |
+| ----------- | ---------- | --------- | ----------- | ---------------------------- |
+| `locale`    | `UILocale` | `"en-US"` | Não         | Localização dos `aria-label` |
+| `className` | `string`   | —         | Não         | Classes adicionais           |
 
 Wrapper `<nav>` com `aria-label` via i18n.
 
 ### PaginationLink
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `isActive` | `boolean` | — | Não | Marca como página ativa |
-| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"icon"` | Não | Tamanho do botão |
-| `rounded` | `"full" \| "light" \| "none"` | `"full"` | Não | Arredondamento do link |
+| Prop       | Tipo                                  | Padrão   | Obrigatória | Descrição               |
+| ---------- | ------------------------------------- | -------- | ----------- | ----------------------- |
+| `isActive` | `boolean`                             | —        | Não         | Marca como página ativa |
+| `size`     | `"default" \| "sm" \| "lg" \| "icon"` | `"icon"` | Não         | Tamanho do botão        |
+| `rounded`  | `"full" \| "light" \| "none"`         | `"full"` | Não         | Arredondamento do link  |
 
 ### PaginationPrevious / PaginationNext
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `text` | `string` | i18n | Não | Texto do link |
-| `locale` | `UILocale` | `"en-US"` | Não | Localização do `aria-label` |
-| `rounded` | `"full" \| "light" \| "none"` | `"full"` | Não | Arredondamento do link |
+| Prop      | Tipo                          | Padrão    | Obrigatória | Descrição                   |
+| --------- | ----------------------------- | --------- | ----------- | --------------------------- |
+| `text`    | `string`                      | i18n      | Não         | Texto do link               |
+| `locale`  | `UILocale`                    | `"en-US"` | Não         | Localização do `aria-label` |
+| `rounded` | `"full" \| "light" \| "none"` | `"full"`  | Não         | Arredondamento do link      |
 
 ### PaginationEllipsis
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `locale` | `UILocale` | `"en-US"` | Não | Localização do `sr-only` |
+| Prop     | Tipo       | Padrão    | Obrigatória | Descrição                |
+| -------- | ---------- | --------- | ----------- | ------------------------ |
+| `locale` | `UILocale` | `"en-US"` | Não         | Localização do `sr-only` |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
+| Token                                | Slot                                      |
+| ------------------------------------ | ----------------------------------------- |
 | `--primary` / `--primary-foreground` | Botão de página ativa (variant `outline`) |
-| `--border` / `--muted` | Botão inativo e hover (variant `ghost`) |
-| `--ring` / `--ring/30` | Anel de foco |
+| `--border` / `--muted`               | Botão inativo e hover (variant `ghost`)   |
+| `--ring` / `--ring/30`               | Anel de foco                              |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Página ativa | `isActive=true`, `aria-current="page"`, variant `outline` |
-| Página inativa | Variant `ghost` |
-| Ellipsis | Apenas visual, `aria-hidden`, `sr-only` via i18n |
-| Responsivo | Previous/Next exibem texto apenas em `sm:` |
+| Estado         | Comportamento                                             |
+| -------------- | --------------------------------------------------------- |
+| Página ativa   | `isActive=true`, `aria-current="page"`, variant `outline` |
+| Página inativa | Variant `ghost`                                           |
+| Ellipsis       | Apenas visual, `aria-hidden`, `sr-only` via i18n          |
+| Responsivo     | Previous/Next exibem texto apenas em `sm:`                |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
+| Requisito           | Implementação                                 |
+| ------------------- | --------------------------------------------- |
 | Navegação semântica | `<nav role="navigation" aria-label>` via i18n |
-| Página ativa | `aria-current="page"` |
-| Previous/Next | `aria-label` via i18n |
-| Ellipsis | `aria-hidden`, `sr-only` via i18n |
+| Página ativa        | `aria-current="page"`                         |
+| Previous/Next       | `aria-label` via i18n                         |
+| Ellipsis            | `aria-hidden`, `sr-only` via i18n             |
 
 ---
 

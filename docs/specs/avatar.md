@@ -18,88 +18,94 @@ O Avatar exibe a foto de perfil de um usuário com fallback automático para ini
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/avatar.tsx` |
-| Tipo | `registry:ui` (name: `avatar`) |
-| Categoria | Data Display |
-| Depende de | Nenhuma |
+| Campo      | Valor                          |
+| ---------- | ------------------------------ |
+| Arquivo    | `components/ui/avatar.tsx`     |
+| Tipo       | `registry:ui` (name: `avatar`) |
+| Categoria  | Data Display                   |
+| Depende de | Nenhuma                        |
 
 ---
 
 ## API — Props
 
 ### Avatar (Root)
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"default" \| "sm" \| "lg"` | `"default"` | Não | Tamanho do avatar |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo                        | Padrão      | Obrigatória | Descrição          |
+| ----------- | --------------------------- | ----------- | ----------- | ------------------ |
+| `size`      | `"default" \| "sm" \| "lg"` | `"default"` | Não         | Tamanho do avatar  |
+| `className` | `string`                    | —           | Não         | Classes adicionais |
 
 ### AvatarImage
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `src` | `string` | — | Sim | URL da imagem |
-| `alt` | `string` | — | Sim | Texto alternativo |
+
+| Prop  | Tipo     | Padrão | Obrigatória | Descrição         |
+| ----- | -------- | ------ | ----------- | ----------------- |
+| `src` | `string` | —      | Sim         | URL da imagem     |
+| `alt` | `string` | —      | Sim         | Texto alternativo |
 
 ### AvatarFallback
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `children` | `ReactNode` | — | Sim | Iniciais ou ícone de fallback |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição                     |
+| ----------- | ----------- | ------ | ----------- | ----------------------------- |
+| `children`  | `ReactNode` | —      | Sim         | Iniciais ou ícone de fallback |
+| `className` | `string`    | —      | Não         | Classes adicionais            |
 
 ### AvatarBadge
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ### AvatarGroup
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ### AvatarGroupCount
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--border` | Overlay de borda ao redor do avatar (`after:border`) |
-| `--muted` | Fundo do fallback e do AvatarGroupCount |
-| `--muted-foreground` | Cor do texto do fallback |
-| `--primary` | Fundo do badge de status |
-| `--primary-foreground` | Cor do ícone/texto do badge |
-| `--background` | Anel separador entre avatares no grupo (`ring-background`) |
+| Token                  | Slot onde é usado                                          |
+| ---------------------- | ---------------------------------------------------------- |
+| `--border`             | Overlay de borda ao redor do avatar (`after:border`)       |
+| `--muted`              | Fundo do fallback e do AvatarGroupCount                    |
+| `--muted-foreground`   | Cor do texto do fallback                                   |
+| `--primary`            | Fundo do badge de status                                   |
+| `--primary-foreground` | Cor do ícone/texto do badge                                |
+| `--background`         | Anel separador entre avatares no grupo (`ring-background`) |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Imagem carregada | Exibe `AvatarImage` com `object-cover` |
-| Imagem falhou/nula | Exibe `AvatarFallback` com iniciais |
-| Tamanho sm | `size-6` (24px), fallback `text-xs` |
-| Tamanho default | `size-8` (32px), fallback `text-sm` |
-| Tamanho lg | `size-10` (40px), fallback `text-base` |
-| AvatarGroup | Avatares sobrepostos com `-space-x-2` e `ring-2 ring-background` |
-| AvatarBadge | Posicionado `absolute right-0 bottom-0` com `ring-2 ring-background` |
+| Estado             | Comportamento esperado                                               |
+| ------------------ | -------------------------------------------------------------------- |
+| Imagem carregada   | Exibe `AvatarImage` com `object-cover`                               |
+| Imagem falhou/nula | Exibe `AvatarFallback` com iniciais                                  |
+| Tamanho sm         | `size-6` (24px), fallback `text-xs`                                  |
+| Tamanho default    | `size-8` (32px), fallback `text-sm`                                  |
+| Tamanho lg         | `size-10` (40px), fallback `text-base`                               |
+| AvatarGroup        | Avatares sobrepostos com `-space-x-2` e `ring-2 ring-background`     |
+| AvatarBadge        | Posicionado `absolute right-0 bottom-0` com `ring-2 ring-background` |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Imagem com alt | `AvatarImage` deve receber `alt` descritivo |
-| Fallback semântico | `AvatarFallback` exibe iniciais como fallback textual |
-| Badge | `span` sem role específico; conteúdo deve ser auto-descritivo |
-| Grupo | Container `div` sem role; uso de `aria-label` recomendado |
-| i18n | N/A — componente sem texto ou labels fixas |
+| Requisito          | Implementação                                                 |
+| ------------------ | ------------------------------------------------------------- |
+| Imagem com alt     | `AvatarImage` deve receber `alt` descritivo                   |
+| Fallback semântico | `AvatarFallback` exibe iniciais como fallback textual         |
+| Badge              | `span` sem role específico; conteúdo deve ser auto-descritivo |
+| Grupo              | Container `div` sem role; uso de `aria-label` recomendado     |
+| i18n               | N/A — componente sem texto ou labels fixas                    |
 
 ---
 

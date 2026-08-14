@@ -9,19 +9,19 @@
 
 ## Props
 
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `current` | `number` | — | ✓ |
-| `previous` | `number` | — | ✓ |
-| `size` | `CardStatSize` | `"md"` | |
-| `currentLabel` | `string` | i18n `thisPeriod` | |
-| `previousLabel` | `string` | i18n `lastPeriod` | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-| `locale` | `UILocale` | `"en-US"` | | Locale para strings i18n |
+| Prop            | Tipo                | Padrão            | Obrigatória |
+| --------------- | ------------------- | ----------------- | ----------- |
+| `label`         | `string`            | —                 | ✓           |
+| `current`       | `number`            | —                 | ✓           |
+| `previous`      | `number`            | —                 | ✓           |
+| `size`          | `CardStatSize`      | `"md"`            |             |
+| `currentLabel`  | `string`            | i18n `thisPeriod` |             |
+| `previousLabel` | `string`            | i18n `lastPeriod` |             |
+| `icon`          | `React.ElementType` | —                 |             |
+| `className`     | `string`            | —                 |             |
+| `loading`       | `boolean`           | `false`           |             |
+| `empty`         | `boolean`           | `false`           |             |
+| `locale`        | `UILocale`          | `"en-US"`         |             | Locale para strings i18n |
 
 Estende \`FormatOptions\` (inclui locale para formatação numérica).
 
@@ -30,6 +30,7 @@ Estende \`FormatOptions\` (inclui locale para formatação numérica).
 ## CVA variants locais
 
 Nenhuma — usa apenas as variantes compartilhadas:
+
 - `cardStatLabelVariants`
 - `cardStatValueVariants`
 - `cardStatDescriptionVariants`
@@ -46,11 +47,11 @@ Nenhuma — usa apenas as variantes compartilhadas:
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Rótulo | Label visível para o nome do cartão |
-| Valores numéricos | `tabular-nums` nos valores current/previous |
-| i18n | `UI_I18N[locale].cardStats.*`: `thisPeriod`, `lastPeriod`, `noComparison` |
+| Requisito         | Implementação                                                             |
+| ----------------- | ------------------------------------------------------------------------- |
+| Rótulo            | Label visível para o nome do cartão                                       |
+| Valores numéricos | `tabular-nums` nos valores current/previous                               |
+| i18n              | `UI_I18N[locale].cardStats.*`: `thisPeriod`, `lastPeriod`, `noComparison` |
 
 ## Stories
 

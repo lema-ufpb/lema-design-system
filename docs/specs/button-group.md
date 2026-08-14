@@ -18,69 +18,72 @@ O ButtonGroup agrupa múltiplos botões e inputs relacionados em um único bloco
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/button-group.tsx` |
-| Tipo | `registry:ui` (name: `button-group`) |
-| Categoria | Layout |
-| Depende de | `separator` |
+| Campo      | Valor                                |
+| ---------- | ------------------------------------ |
+| Arquivo    | `components/ui/button-group.tsx`     |
+| Tipo       | `registry:ui` (name: `button-group`) |
+| Categoria  | Layout                               |
+| Depende de | `separator`                          |
 
 ---
 
 ## API — Props
 
 ### ButtonGroup
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não | Direção do layout |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop          | Tipo                         | Padrão         | Obrigatória | Descrição          |
+| ------------- | ---------------------------- | -------------- | ----------- | ------------------ |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não         | Direção do layout  |
+| `className`   | `string`                     | —              | Não         | Classes adicionais |
 
 ### ButtonGroupText
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | `false` | Não | Renderiza como Slot |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo      | Padrão  | Obrigatória | Descrição           |
+| ----------- | --------- | ------- | ----------- | ------------------- |
+| `asChild`   | `boolean` | `false` | Não         | Renderiza como Slot |
+| `className` | `string`  | —       | Não         | Classes adicionais  |
 
 ### ButtonGroupSeparator
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Não | Orientação do separador |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop          | Tipo                         | Padrão       | Obrigatória | Descrição               |
+| ------------- | ---------------------------- | ------------ | ----------- | ----------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Não         | Orientação do separador |
+| `className`   | `string`                     | —            | Não         | Classes adicionais      |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--border` | Bordas externas e entre elementos do grupo |
-| `--muted` | Fundo do `ButtonGroupText` |
-| `--input` | Cor do separador (`ButtonGroupSeparator`) |
-| `--ring` | Focus ring no filho focado (`focus-visible:z-10`) |
+| Token      | Slot onde é usado                                 |
+| ---------- | ------------------------------------------------- |
+| `--border` | Bordas externas e entre elementos do grupo        |
+| `--muted`  | Fundo do `ButtonGroupText`                        |
+| `--input`  | Cor do separador (`ButtonGroupSeparator`)         |
+| `--ring`   | Focus ring no filho focado (`focus-visible:z-10`) |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
+| Estado              | Comportamento esperado                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
 | Horizontal (padrão) | Filhos lado a lado; primeiro `rounded-l-4xl`, último `rounded-r-4xl`; `border-l-0` nos seguintes |
-| Vertical | Filhos empilhados; primeiro `rounded-t-4xl`, último `rounded-b-4xl`; `border-t-0` nos seguintes |
-| Focus visible | Filho focado recebe `z-10` para sobrepor bordas adjacentes |
-| Com ButtonGroupText | Segmento estático com fundo `bg-muted` e `rounded-4xl` |
-| Com Separator | Separador vertical/horizontal com cor `bg-input` e altura/largura automática |
-| Com outline buttons | Bordas sincronizadas via `has-[>[data-variant=outline]]` |
+| Vertical            | Filhos empilhados; primeiro `rounded-t-4xl`, último `rounded-b-4xl`; `border-t-0` nos seguintes  |
+| Focus visible       | Filho focado recebe `z-10` para sobrepor bordas adjacentes                                       |
+| Com ButtonGroupText | Segmento estático com fundo `bg-muted` e `rounded-4xl`                                           |
+| Com Separator       | Separador vertical/horizontal com cor `bg-input` e altura/largura automática                     |
+| Com outline buttons | Bordas sincronizadas via `has-[>[data-variant=outline]]`                                         |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role group | `role="group"` no container |
-| Orientação | `data-orientation` para contexto |
-| Focus visible | `focus-visible:relative focus-visible:z-10` nos filhos para sobreposição de anéis |
-| Separação semântica | Separadores têm `role="presentation"` herdado do `Separator` |
+| Requisito           | Implementação                                                                     |
+| ------------------- | --------------------------------------------------------------------------------- |
+| Role group          | `role="group"` no container                                                       |
+| Orientação          | `data-orientation` para contexto                                                  |
+| Focus visible       | `focus-visible:relative focus-visible:z-10` nos filhos para sobreposição de anéis |
+| Separação semântica | Separadores têm `role="presentation"` herdado do `Separator`                      |
 
 ---
 

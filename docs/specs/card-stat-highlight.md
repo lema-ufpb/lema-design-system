@@ -9,22 +9,22 @@
 
 ## Props
 
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `string \| number` | — | ✓ |
-| `variant` | `CardStatHighlightVariant` | `"primary"` | |
-| `size` | `CardStatSize` | `"md"` | |
-| `description` | `string` | — | |
-| `trend` | `CardStatTrend \| boolean` | — | |
-| `trendValue` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `background` | `string` | — | Override de cor de fundo via CSS token `--card-highlight-background` |
-| `color` | `string` | — | Override de cor de texto via CSS token `--card-highlight-color` |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-| `locale` | `UILocale` | — | |
+| Prop          | Tipo                       | Padrão      | Obrigatória                                                          |
+| ------------- | -------------------------- | ----------- | -------------------------------------------------------------------- |
+| `label`       | `string`                   | —           | ✓                                                                    |
+| `value`       | `string \| number`         | —           | ✓                                                                    |
+| `variant`     | `CardStatHighlightVariant` | `"primary"` |                                                                      |
+| `size`        | `CardStatSize`             | `"md"`      |                                                                      |
+| `description` | `string`                   | —           |                                                                      |
+| `trend`       | `CardStatTrend \| boolean` | —           |                                                                      |
+| `trendValue`  | `string`                   | —           |                                                                      |
+| `icon`        | `React.ElementType`        | —           |                                                                      |
+| `background`  | `string`                   | —           | Override de cor de fundo via CSS token `--card-highlight-background` |
+| `color`       | `string`                   | —           | Override de cor de texto via CSS token `--card-highlight-color`      |
+| `className`   | `string`                   | —           |                                                                      |
+| `loading`     | `boolean`                  | `false`     |                                                                      |
+| `empty`       | `boolean`                  | `false`     |                                                                      |
+| `locale`      | `UILocale`                 | —           |                                                                      |
 
 Estende \`FormatOptions\` + \`VariantProps<typeof cardStatHighlightVariants>\`.
 
@@ -34,25 +34,25 @@ Estende \`FormatOptions\` + \`VariantProps<typeof cardStatHighlightVariants>\`.
 
 ### cardStatHighlightVariants (wrapper do cartão)
 
-| Variant | Classes |
-|---------|---------|
-| `primary` | `bg-primary text-primary-foreground` |
-| `emerald` | `bg-success text-success-foreground` |
-| `amber` | `bg-warning text-warning-foreground` |
-| `rose` | `bg-destructive text-white` |
-| `violet` | `bg-highlight-violet text-highlight-violet-foreground` |
-| `sky` | `bg-highlight-sky text-highlight-sky-foreground` |
-| `white` | `bg-white text-foreground` |
+| Variant   | Classes                                                |
+| --------- | ------------------------------------------------------ |
+| `primary` | `bg-primary text-primary-foreground`                   |
+| `emerald` | `bg-success text-success-foreground`                   |
+| `amber`   | `bg-warning text-warning-foreground`                   |
+| `rose`    | `bg-destructive text-white`                            |
+| `violet`  | `bg-highlight-violet text-highlight-violet-foreground` |
+| `sky`     | `bg-highlight-sky text-highlight-sky-foreground`       |
+| `white`   | `bg-white text-foreground`                             |
 
 ### Locais (dimensionamento)
 
-| Variant | sm | md | lg |
-|---------|----|----|----|
-| `cardStatHighlightBoxVariants` | `size-8 rounded-lg` | `size-9 rounded-xl` | `size-11 rounded-xl` |
-| `cardStatHighlightIconVariants` | `size-4` | `size-5` | `size-6` |
-| `cardStatHighlightValueVariants` | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
-| `cardStatHighlightDescVariants` | `text-xs` | `text-sm` | `text-base` |
-| `cardStatHighlightTrendIconVariants` | `size-3.5` | `size-4` | `size-5` |
+| Variant                              | sm                                                   | md                                                   | lg                                                   |
+| ------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `cardStatHighlightBoxVariants`       | `size-8 rounded-lg`                                  | `size-9 rounded-xl`                                  | `size-11 rounded-xl`                                 |
+| `cardStatHighlightIconVariants`      | `size-4`                                             | `size-5`                                             | `size-6`                                             |
+| `cardStatHighlightValueVariants`     | `text-2xl font-semibold tracking-tight tabular-nums` | `text-3xl font-semibold tracking-tight tabular-nums` | `text-4xl font-semibold tracking-tight tabular-nums` |
+| `cardStatHighlightDescVariants`      | `text-xs`                                            | `text-sm`                                            | `text-base`                                          |
+| `cardStatHighlightTrendIconVariants` | `size-3.5`                                           | `size-4`                                             | `size-5`                                             |
 
 Compartilhada: `cardStatLabelVariants`.
 
@@ -68,11 +68,11 @@ Compartilhada: `cardStatLabelVariants`.
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Decorative circles | `aria-hidden` nos spans circulares decorativos |
-| Empty state | `CardStatEmptySlot` com ícone e mensagem |
-| i18n | `UI_I18N[locale].cardStatHighlight.*` para empty state |
+| Requisito          | Implementação                                          |
+| ------------------ | ------------------------------------------------------ |
+| Decorative circles | `aria-hidden` nos spans circulares decorativos         |
+| Empty state        | `CardStatEmptySlot` com ícone e mensagem               |
+| i18n               | `UI_I18N[locale].cardStatHighlight.*` para empty state |
 
 ## Stories
 

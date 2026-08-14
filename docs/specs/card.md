@@ -18,72 +18,76 @@ O Card é o contêiente de superfície primário para agrupar informações rela
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/card.tsx` |
-| Tipo | `registry:ui` (name: `card`) |
-| Categoria | Layout / Container |
-| Depende de | Nenhuma |
+| Campo      | Valor                        |
+| ---------- | ---------------------------- |
+| Arquivo    | `components/ui/card.tsx`     |
+| Tipo       | `registry:ui` (name: `card`) |
+| Categoria  | Layout / Container           |
+| Depende de | Nenhuma                      |
 
 ---
 
 ## API — Props
 
 ### Card
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"default" \| "sm"` | `"default"` | Não | Preset de padding e gap |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo                | Padrão      | Obrigatória | Descrição               |
+| ----------- | ------------------- | ----------- | ----------- | ----------------------- |
+| `size`      | `"default" \| "sm"` | `"default"` | Não         | Preset de padding e gap |
+| `className` | `string`            | —           | Não         | Classes adicionais      |
 
 ### CardTitle
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ### CardDescription
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ### CardHeader, CardContent, CardFooter, CardAction
+
 Aceitam `className` e `children` padrão de `div`.
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--card` | Fundo do container |
-| `--card-foreground` | Cor do texto primário |
-| `--foreground` | Anel sutil (`ring-foreground/5`, dark: `ring-foreground/10`) |
-| `--font-heading` | Fonte do título (`font-heading text-base font-medium`) |
-| `--muted-foreground` | Cor da descrição |
+| Token                | Slot onde é usado                                            |
+| -------------------- | ------------------------------------------------------------ |
+| `--card`             | Fundo do container                                           |
+| `--card-foreground`  | Cor do texto primário                                        |
+| `--foreground`       | Anel sutil (`ring-foreground/5`, dark: `ring-foreground/10`) |
+| `--font-heading`     | Fonte do título (`font-heading text-base font-medium`)       |
+| `--muted-foreground` | Cor da descrição                                             |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Default size | `gap-6`, `py-6`, `px-6` para header/content/footer |
-| Small size | `gap-4`, `py-4`, `px-4` |
-| CardHeader com action | `grid-cols-[1fr_auto]` para layout título + ação |
-| CardHeader com descrição | `grid-rows-[auto_auto]` |
-| Imagem como primeiro filho | `pt-0` no card + `rounded-t-4xl` na imagem |
-| Container query | `@container/card-header` para responsividade do header |
+| Estado                     | Comportamento esperado                                 |
+| -------------------------- | ------------------------------------------------------ |
+| Default size               | `gap-6`, `py-6`, `px-6` para header/content/footer     |
+| Small size                 | `gap-4`, `py-4`, `px-4`                                |
+| CardHeader com action      | `grid-cols-[1fr_auto]` para layout título + ação       |
+| CardHeader com descrição   | `grid-rows-[auto_auto]`                                |
+| Imagem como primeiro filho | `pt-0` no card + `rounded-t-4xl` na imagem             |
+| Container query            | `@container/card-header` para responsividade do header |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Estrutura semântica | Elementos `div` com `data-slot` para contexto |
-| Título | `CardTitle` estilizado semanticamente |
-| Descrição | `CardDescription` vinculada semanticamente via contexto visual |
-| Ação | `CardAction` posicionado sem quebrar ordem de leitura |
-| Leitor de tela | Ordem DOM lógica (header > content > footer) |
+| Requisito           | Implementação                                                  |
+| ------------------- | -------------------------------------------------------------- |
+| Estrutura semântica | Elementos `div` com `data-slot` para contexto                  |
+| Título              | `CardTitle` estilizado semanticamente                          |
+| Descrição           | `CardDescription` vinculada semanticamente via contexto visual |
+| Ação                | `CardAction` posicionado sem quebrar ordem de leitura          |
+| Leitor de tela      | Ordem DOM lógica (header > content > footer)                   |
 
 ---
 

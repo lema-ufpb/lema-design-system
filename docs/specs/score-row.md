@@ -2,8 +2,8 @@
 
 Linha de item pontuada com ícone, label, score e barra de progresso opcional. Projetado para checklists de auditoria, formulários de avaliação e listas de notas.
 
-**Usar quando:** exibir um item com pontuação (score/total), seja em listas de auditoria, avaliação docente, indicadores, etc.  
-**Não usar quando:** o dado não tem score numérico ou a lista tem menos de 3 itens simples (preferir lista nativa).  
+**Usar quando:** exibir um item com pontuação (score/total), seja em listas de auditoria, avaliação docente, indicadores, etc.
+**Não usar quando:** o dado não tem score numérico ou a lista tem menos de 3 itens simples (preferir lista nativa).
 **Alternativa se não se aplicar:** `CardStat` para cards de métrica individual, lista HTML `<ul>` para itens sem score.
 
 ---

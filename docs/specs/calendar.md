@@ -18,72 +18,72 @@ O Calendar é um seletor de data completo construído sobre `react-day-picker` v
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/calendar.tsx` |
-| Tipo | `registry:ui` (name: `calendar`) |
-| Categoria | Form / Date Input |
-| Depende de | `button` |
+| Campo      | Valor                            |
+| ---------- | -------------------------------- |
+| Arquivo    | `components/ui/calendar.tsx`     |
+| Tipo       | `registry:ui` (name: `calendar`) |
+| Categoria  | Form / Date Input                |
+| Depende de | `button`                         |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `mode` | `"single" \| "multiple" \| "range"` | — | Sim (via DayPicker) | Modo de seleção |
-| `selected` | `Date \| Date[] \| DateRange` | — | Não | Data(s) selecionada(s) |
-| `onSelect` | `(date) => void` | — | Não | Callback de seleção |
-| `captionLayout` | `"label" \| "dropdown"` | `"label"` | Não | Tipo de navegação do mês/ano |
-| `showOutsideDays` | `boolean` | `true` | Não | Mostrar dias de meses adjacentes |
-| `buttonVariant` | `"default" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link"` | `"ghost"` | Não | Variante dos botões de navegação |
-| `showWeekNumber` | `boolean` | — | Não | Mostrar números de semana |
-| `numberOfMonths` | `number` | — | Não | Número de meses exibidos |
-| `locale` | `Locale` (react-day-picker) | — | Não | Localização |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop              | Tipo                                                                          | Padrão    | Obrigatória         | Descrição                        |
+| ----------------- | ----------------------------------------------------------------------------- | --------- | ------------------- | -------------------------------- |
+| `mode`            | `"single" \| "multiple" \| "range"`                                           | —         | Sim (via DayPicker) | Modo de seleção                  |
+| `selected`        | `Date \| Date[] \| DateRange`                                                 | —         | Não                 | Data(s) selecionada(s)           |
+| `onSelect`        | `(date) => void`                                                              | —         | Não                 | Callback de seleção              |
+| `captionLayout`   | `"label" \| "dropdown"`                                                       | `"label"` | Não                 | Tipo de navegação do mês/ano     |
+| `showOutsideDays` | `boolean`                                                                     | `true`    | Não                 | Mostrar dias de meses adjacentes |
+| `buttonVariant`   | `"default" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link"` | `"ghost"` | Não                 | Variante dos botões de navegação |
+| `showWeekNumber`  | `boolean`                                                                     | —         | Não                 | Mostrar números de semana        |
+| `numberOfMonths`  | `number`                                                                      | —         | Não                 | Número de meses exibidos         |
+| `locale`          | `Locale` (react-day-picker)                                                   | —         | Não                 | Localização                      |
+| `className`       | `string`                                                                      | —         | Não                 | Classes adicionais               |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--background` | Fundo do calendário |
-| `--muted` | Dia de hoje, hover, fundo de intervalo (range_start/end) |
-| `--primary` | Fundo do dia selecionado (selected, range_start, range_end) |
-| `--primary-foreground` | Texto do dia selecionado |
-| `--muted-foreground` | Cabeçalhos de dia da semana, dias outside/disabled |
-| `--popover` | Fundo dos dropdowns de mês/ano |
-| `--ring` / `--ring/50` | Focus ring no dia focado |
+| Token                  | Slot onde é usado                                           |
+| ---------------------- | ----------------------------------------------------------- |
+| `--background`         | Fundo do calendário                                         |
+| `--muted`              | Dia de hoje, hover, fundo de intervalo (range_start/end)    |
+| `--primary`            | Fundo do dia selecionado (selected, range_start, range_end) |
+| `--primary-foreground` | Texto do dia selecionado                                    |
+| `--muted-foreground`   | Cabeçalhos de dia da semana, dias outside/disabled          |
+| `--popover`            | Fundo dos dropdowns de mês/ano                              |
+| `--ring` / `--ring/50` | Focus ring no dia focado                                    |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Dia normal | Texto `text-foreground`, sem fundo |
-| Dia selecionado (single) | Fundo `bg-primary`, texto `text-primary-foreground` |
-| Range start/end | Fundo `bg-primary` com after pseudo-elemento para extensão visual |
-| Range middle | Fundo `bg-muted`, sem bordas arredondadas |
-| Hoje | Fundo `bg-muted` |
-| Fora do mês (outside) | Texto `text-muted-foreground` |
-| Desabilitado | `opacity-50 text-muted-foreground` |
-| Focado | `border-ring ring-[3px] ring-ring/50` |
-| Caption label | `text-sm font-medium` (label) ou com ícone chevron (dropdown) |
-| Navegação | Botões `buttonVariant="ghost"` com ChevronLeft/ChevronRight |
+| Estado                   | Comportamento esperado                                            |
+| ------------------------ | ----------------------------------------------------------------- |
+| Dia normal               | Texto `text-foreground`, sem fundo                                |
+| Dia selecionado (single) | Fundo `bg-primary`, texto `text-primary-foreground`               |
+| Range start/end          | Fundo `bg-primary` com after pseudo-elemento para extensão visual |
+| Range middle             | Fundo `bg-muted`, sem bordas arredondadas                         |
+| Hoje                     | Fundo `bg-muted`                                                  |
+| Fora do mês (outside)    | Texto `text-muted-foreground`                                     |
+| Desabilitado             | `opacity-50 text-muted-foreground`                                |
+| Focado                   | `border-ring ring-[3px] ring-ring/50`                             |
+| Caption label            | `text-sm font-medium` (label) ou com ícone chevron (dropdown)     |
+| Navegação                | Botões `buttonVariant="ghost"` com ChevronLeft/ChevronRight       |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| ARIA grid | `react-day-picker` fornece `role="grid"`, `aria-label` nos dias |
-| Navegação por teclado | Setas, Home/End, PageUp/PageDown (react-day-picker) |
-| Foco programático | `CalendarDayButton` foca via `useEffect` quando `modifiers.focused` |
-| Dias com aria-label | `data-day` com data localizada |
-| Legendas de mês/ano | Dropdowns selecionáveis com `aria-label` |
+| Requisito             | Implementação                                                       |
+| --------------------- | ------------------------------------------------------------------- |
+| ARIA grid             | `react-day-picker` fornece `role="grid"`, `aria-label` nos dias     |
+| Navegação por teclado | Setas, Home/End, PageUp/PageDown (react-day-picker)                 |
+| Foco programático     | `CalendarDayButton` foca via `useEffect` quando `modifiers.focused` |
+| Dias com aria-label   | `data-day` com data localizada                                      |
+| Legendas de mês/ano   | Dropdowns selecionáveis com `aria-label`                            |
 
 ---
 
