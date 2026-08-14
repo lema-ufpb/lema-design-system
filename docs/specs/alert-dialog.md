@@ -18,83 +18,88 @@ O AlertDialog é um modal de confirmação construído sobre `AlertDialogPrimiti
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/alert-dialog.tsx` |
-| Tipo | `registry:ui` (name: `alert-dialog`) |
-| Categoria | Overlay / Modal |
-| Depende de | `button` |
+| Campo      | Valor                                |
+| ---------- | ------------------------------------ |
+| Arquivo    | `components/ui/alert-dialog.tsx`     |
+| Tipo       | `registry:ui` (name: `alert-dialog`) |
+| Categoria  | Overlay / Modal                      |
+| Depende de | `button`                             |
 
 ---
 
 ## API — Props
 
 ### AlertDialog (Root)
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `defaultOpen` | `boolean` | — | Não | Abre o diálogo por padrão |
-| `open` | `boolean` | — | Não | Estado controlado |
-| `onOpenChange` | `(open: boolean) => void` | — | Não | Callback de abertura/fechamento |
+
+| Prop           | Tipo                      | Padrão | Obrigatória | Descrição                       |
+| -------------- | ------------------------- | ------ | ----------- | ------------------------------- |
+| `defaultOpen`  | `boolean`                 | —      | Não         | Abre o diálogo por padrão       |
+| `open`         | `boolean`                 | —      | Não         | Estado controlado               |
+| `onOpenChange` | `(open: boolean) => void` | —      | Não         | Callback de abertura/fechamento |
 
 ### AlertDialogContent
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"default" \| "sm"` | `"default"` | Não | Preset de tamanho que ajusta layout do header/footer |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo                | Padrão      | Obrigatória | Descrição                                            |
+| ----------- | ------------------- | ----------- | ----------- | ---------------------------------------------------- |
+| `size`      | `"default" \| "sm"` | `"default"` | Não         | Preset de tamanho que ajusta layout do header/footer |
+| `className` | `string`            | —           | Não         | Classes adicionais                                   |
 
 ### AlertDialogAction
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | `"default" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link"` | `"default"` | Não | Variante do Button |
-| `size` | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| ...` | `"default"` | Não | Tamanho do Button |
+
+| Prop      | Tipo                                                                          | Padrão      | Obrigatória | Descrição          |
+| --------- | ----------------------------------------------------------------------------- | ----------- | ----------- | ------------------ |
+| `variant` | `"default" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link"` | `"default"` | Não         | Variante do Button |
+| `size`    | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| ...`                          | `"default"` | Não         | Tamanho do Button  |
 
 ### AlertDialogCancel
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | `"default" \| ...` | `"outline"` | Não | Variante do Button |
-| `size` | `"default" \| ...` | `"default"` | Não | Tamanho do Button |
+
+| Prop      | Tipo               | Padrão      | Obrigatória | Descrição          |
+| --------- | ------------------ | ----------- | ----------- | ------------------ |
+| `variant` | `"default" \| ...` | `"outline"` | Não         | Variante do Button |
+| `size`    | `"default" \| ...` | `"default"` | Não         | Tamanho do Button  |
 
 ### AlertDialogMedia, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription
+
 Props padrão de `div` (ou `AlertDialogPrimitive.Title`/`Description`) com `className`.
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--background` | Overlay (`bg-black/30`) |
-| `--popover` | Fundo do conteúdo do diálogo |
-| `--popover-foreground` | Cor do texto primário |
-| `--muted` | Fundo do slot media (ícone circular) |
-| `--muted-foreground` | Cor da descrição |
-| `--font-heading` | Fonte do título (`font-heading`) |
-| `--foreground` | Anel sutil no conteúdo (`ring-foreground/5`) |
+| Token                  | Slot onde é usado                            |
+| ---------------------- | -------------------------------------------- |
+| `--background`         | Overlay (`bg-black/30`)                      |
+| `--popover`            | Fundo do conteúdo do diálogo                 |
+| `--popover-foreground` | Cor do texto primário                        |
+| `--muted`              | Fundo do slot media (ícone circular)         |
+| `--muted-foreground`   | Cor da descrição                             |
+| `--font-heading`       | Fonte do título (`font-heading`)             |
+| `--foreground`         | Anel sutil no conteúdo (`ring-foreground/5`) |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Aberto | Conteúdo centralizado com animação `zoom-in-95`; overlay visível com `fade-in` |
-| Fechado | Animação `zoom-out-95` + `fade-out` |
-| Default (size default) | `max-w-xs` em mobile, `max-w-md` em `sm:`; header `place-items-start` em desktop |
-| Small (size sm) | `max-w-xs`; footer em `grid-cols-2`; layout mais compacto |
-| Com media | Header ajusta grid para `grid-rows-[auto_auto_1fr]`; media ocupa `row-span-2` em desktop |
-| Focus visible | Botões Action/Cancel herdam focus ring do Button |
+| Estado                 | Comportamento esperado                                                                   |
+| ---------------------- | ---------------------------------------------------------------------------------------- |
+| Aberto                 | Conteúdo centralizado com animação `zoom-in-95`; overlay visível com `fade-in`           |
+| Fechado                | Animação `zoom-out-95` + `fade-out`                                                      |
+| Default (size default) | `max-w-xs` em mobile, `max-w-md` em `sm:`; header `place-items-start` em desktop         |
+| Small (size sm)        | `max-w-xs`; footer em `grid-cols-2`; layout mais compacto                                |
+| Com media              | Header ajusta grid para `grid-rows-[auto_auto_1fr]`; media ocupa `row-span-2` em desktop |
+| Focus visible          | Botões Action/Cancel herdam focus ring do Button                                         |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| WAI-ARIA Dialog | Herdado da Radix: `role="alertdialog"`, `aria-describedby`, `aria-labelledby` |
-| Foco armadilhado | Foco fica dentro do modal enquanto aberto (Radix) |
-| Fechamento com Escape | Comportamento padrão da Radix |
-| Overlay clicável | Não fecha ao clicar no overlay (comportamento AlertDialog) |
-| Navegação por Tab | Ordem lógica entre Cancel e Action |
+| Requisito             | Implementação                                                                 |
+| --------------------- | ----------------------------------------------------------------------------- |
+| WAI-ARIA Dialog       | Herdado da Radix: `role="alertdialog"`, `aria-describedby`, `aria-labelledby` |
+| Foco armadilhado      | Foco fica dentro do modal enquanto aberto (Radix)                             |
+| Fechamento com Escape | Comportamento padrão da Radix                                                 |
+| Overlay clicável      | Não fecha ao clicar no overlay (comportamento AlertDialog)                    |
+| Navegação por Tab     | Ordem lógica entre Cancel e Action                                            |
 
 ---
 

@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/sidebar.tsx` |
-| Tipo | `registry:ui` (name: `sidebar`) |
-| Categoria | Navegação / Layout |
+| Campo      | Valor                                                                                                                                                                                                                                                                                   |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ui/sidebar.tsx`                                                                                                                                                                                                                                                             |
+| Tipo       | `registry:ui` (name: `sidebar`)                                                                                                                                                                                                                                                         |
+| Categoria  | Navegação / Layout                                                                                                                                                                                                                                                                      |
 | Depende de | `radix-ui` (Slot), `@/hooks/use-mobile`, `@/components/ui/button`, `@/components/ui/input`, `@/components/ui/separator`, `@/components/ui/sheet`, `@/components/ui/skeleton`, `@/components/ui/tooltip`, `class-variance-authority`, `lucide-react` (PanelLeftIcon), `@/lib/utils` (cn) |
 
 ---
@@ -29,20 +29,20 @@
 
 ### SidebarProvider
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `defaultOpen` | `boolean` | `true` | Não | Estado inicial expandido |
-| `open` | `boolean` | — | Não | Estado controlado |
-| `onOpenChange` | `(open: boolean) => void` | — | Não | Callback de mudança |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop           | Tipo                      | Padrão | Obrigatória | Descrição                |
+| -------------- | ------------------------- | ------ | ----------- | ------------------------ |
+| `defaultOpen`  | `boolean`                 | `true` | Não         | Estado inicial expandido |
+| `open`         | `boolean`                 | —      | Não         | Estado controlado        |
+| `onOpenChange` | `(open: boolean) => void` | —      | Não         | Callback de mudança      |
+| `className`    | `string`                  | —      | Não         | Classes adicionais       |
 
 ### Sidebar
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `side` | `"left" \| "right"` | `"left"` | Não | Lado da tela |
-| `variant` | `"sidebar" \| "floating" \| "inset"` | `"sidebar"` | Não | Estilo visual |
-| `collapsible` | `"offcanvas" \| "icon" \| "none"` | `"offcanvas"` | Não | Comportamento de colapso |
+| Prop          | Tipo                                 | Padrão        | Obrigatória | Descrição                |
+| ------------- | ------------------------------------ | ------------- | ----------- | ------------------------ |
+| `side`        | `"left" \| "right"`                  | `"left"`      | Não         | Lado da tela             |
+| `variant`     | `"sidebar" \| "floating" \| "inset"` | `"sidebar"`   | Não         | Estilo visual            |
+| `collapsible` | `"offcanvas" \| "icon" \| "none"`    | `"offcanvas"` | Não         | Comportamento de colapso |
 
 ### SidebarTrigger
 
@@ -50,46 +50,46 @@ Botão que aciona `toggleSidebar()`. Props herdadas de `Button`.
 
 ### SidebarMenuButton
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | `false` | Não | Renderiza como filho via Slot |
-| `isActive` | `boolean` | `false` | Não | Estado ativo |
-| `variant` | `"default" \| "outline"` | `"default"` | Não | Variante visual |
-| `size` | `"default" \| "sm" \| "lg"` | `"default"` | Não | Tamanho |
-| `tooltip` | `string \| TooltipContentProps` | — | Não | Tooltip no modo colapsado |
+| Prop       | Tipo                            | Padrão      | Obrigatória | Descrição                     |
+| ---------- | ------------------------------- | ----------- | ----------- | ----------------------------- |
+| `asChild`  | `boolean`                       | `false`     | Não         | Renderiza como filho via Slot |
+| `isActive` | `boolean`                       | `false`     | Não         | Estado ativo                  |
+| `variant`  | `"default" \| "outline"`        | `"default"` | Não         | Variante visual               |
+| `size`     | `"default" \| "sm" \| "lg"`     | `"default"` | Não         | Tamanho                       |
+| `tooltip`  | `string \| TooltipContentProps` | —           | Não         | Tooltip no modo colapsado     |
 
 ### SidebarMenuAction
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | `false` | Não | Renderiza como filho |
-| `showOnHover` | `boolean` | `false` | Não | Exibe apenas no hover do item |
+| Prop          | Tipo      | Padrão  | Obrigatória | Descrição                     |
+| ------------- | --------- | ------- | ----------- | ----------------------------- |
+| `asChild`     | `boolean` | `false` | Não         | Renderiza como filho          |
+| `showOnHover` | `boolean` | `false` | Não         | Exibe apenas no hover do item |
 
 ### SidebarMenuSkeleton
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `showIcon` | `boolean` | `false` | Não | Exibe ícone esqueleto |
+| Prop       | Tipo      | Padrão  | Obrigatória | Descrição             |
+| ---------- | --------- | ------- | ----------- | --------------------- |
+| `showIcon` | `boolean` | `false` | Não         | Exibe ícone esqueleto |
 
 ### SidebarGroupLabel
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | `false` | Não | Renderiza como filho |
+| Prop      | Tipo      | Padrão  | Obrigatória | Descrição            |
+| --------- | --------- | ------- | ----------- | -------------------- |
+| `asChild` | `boolean` | `false` | Não         | Renderiza como filho |
 
 ### SidebarGroupAction
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | `false` | Não | Renderiza como filho |
+| Prop      | Tipo      | Padrão  | Obrigatória | Descrição            |
+| --------- | --------- | ------- | ----------- | -------------------- |
+| `asChild` | `boolean` | `false` | Não         | Renderiza como filho |
 
 ### SidebarMenuSubButton
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `asChild` | `boolean` | `false` | Não | Renderiza como filho |
-| `size` | `"sm" \| "md"` | `"md"` | Não | Tamanho |
-| `isActive` | `boolean` | `false` | Não | Estado ativo |
+| Prop       | Tipo           | Padrão  | Obrigatória | Descrição            |
+| ---------- | -------------- | ------- | ----------- | -------------------- |
+| `asChild`  | `boolean`      | `false` | Não         | Renderiza como filho |
+| `size`     | `"sm" \| "md"` | `"md"`  | Não         | Tamanho              |
+| `isActive` | `boolean`      | `false` | Não         | Estado ativo         |
 
 ### SidebarRail
 
@@ -98,56 +98,57 @@ Botão de borda para toggle por clique/arraste.
 ### useSidebar()
 
 Hook que retorna o contexto da sidebar:
-| Propriedade | Tipo | Descrição |
-|-------------|------|-----------|
-| `state` | `"expanded" \| "collapsed"` | Estado atual |
-| `open` | `boolean` | Se está aberto |
-| `setOpen` | `(open: boolean) => void` | Controlar abertura |
-| `openMobile` | `boolean` | Sheet mobile aberto |
-| `setOpenMobile` | `(open: boolean) => void` | Controlar sheet mobile |
-| `isMobile` | `boolean` | Detecta mobile |
-| `toggleSidebar` | `() => void` | Alterna estado |
+
+| Propriedade     | Tipo                        | Descrição              |
+| --------------- | --------------------------- | ---------------------- |
+| `state`         | `"expanded" \| "collapsed"` | Estado atual           |
+| `open`          | `boolean`                   | Se está aberto         |
+| `setOpen`       | `(open: boolean) => void`   | Controlar abertura     |
+| `openMobile`    | `boolean`                   | Sheet mobile aberto    |
+| `setOpenMobile` | `(open: boolean) => void`   | Controlar sheet mobile |
+| `isMobile`      | `boolean`                   | Detecta mobile         |
+| `toggleSidebar` | `() => void`                | Alterna estado         |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--sidebar` | Fundo primário do painel |
-| `--sidebar-foreground` | Cor do texto padrão |
-| `--sidebar-accent` | Hover/active de items |
-| `--sidebar-accent-foreground` | Texto no accent |
-| `--sidebar-border` | Bordas, separadores e rail |
-| `--sidebar-ring` | Anel de foco |
-| `--background` | Fundo do content (inset variant) |
+| Token                         | Slot                             |
+| ----------------------------- | -------------------------------- |
+| `--sidebar`                   | Fundo primário do painel         |
+| `--sidebar-foreground`        | Cor do texto padrão              |
+| `--sidebar-accent`            | Hover/active de items            |
+| `--sidebar-accent-foreground` | Texto no accent                  |
+| `--sidebar-border`            | Bordas, separadores e rail       |
+| `--sidebar-ring`              | Anel de foco                     |
+| `--background`                | Fundo do content (inset variant) |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Expandido | Largura `--sidebar-width` (16rem) |
-| Colapsado (icon) | Largura `--sidebar-width-icon` (3rem) |
-| Colapsado (offcanvas) | Painel desliza para fora da tela |
-| Flutuante | Padding interno, bordas arredondadas, sombra |
-| Inset | Painel sobreõe ao main content com margem |
-| Mobile | Abre como Sheet em tela cheia |
-| Teclado | `Cmd/Ctrl + B` para toggle global |
-| Cookie | Estado persiste por 7 dias via cookie |
+| Estado                | Comportamento                                |
+| --------------------- | -------------------------------------------- |
+| Expandido             | Largura `--sidebar-width` (16rem)            |
+| Colapsado (icon)      | Largura `--sidebar-width-icon` (3rem)        |
+| Colapsado (offcanvas) | Painel desliza para fora da tela             |
+| Flutuante             | Padding interno, bordas arredondadas, sombra |
+| Inset                 | Painel sobreõe ao main content com margem    |
+| Mobile                | Abre como Sheet em tela cheia                |
+| Teclado               | `Cmd/Ctrl + B` para toggle global            |
+| Cookie                | Estado persiste por 7 dias via cookie        |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Navegação por teclado | `Cmd/Ctrl+B` para toggle |
-| ARIA labels | `aria-label="Toggle Sidebar"` no rail e trigger |
-| Mobile acessível | Sheet com título e descrição `sr-only` |
-| Tooltips no colapso | `Tooltip` para menu buttons quando colapsado |
-| Focus visible | `focus-visible:ring-2` em items interativos |
+| Requisito             | Implementação                                   |
+| --------------------- | ----------------------------------------------- |
+| Navegação por teclado | `Cmd/Ctrl+B` para toggle                        |
+| ARIA labels           | `aria-label="Toggle Sidebar"` no rail e trigger |
+| Mobile acessível      | Sheet com título e descrição `sr-only`          |
+| Tooltips no colapso   | `Tooltip` para menu buttons quando colapsado    |
+| Focus visible         | `focus-visible:ring-2` em items interativos     |
 
 ---
 

@@ -18,48 +18,48 @@ Provider que define a direção de texto (esquerda-para-direita ou direita-para-
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/direction.tsx` |
-| Tipo | `registry:ui` (name: `direction`) |
-| Categoria | Provedor / Internacionalização |
-| Depende de | `radix-ui` |
+| Campo      | Valor                             |
+| ---------- | --------------------------------- |
+| Arquivo    | `components/ui/direction.tsx`     |
+| Tipo       | `registry:ui` (name: `direction`) |
+| Categoria  | Provedor / Internacionalização    |
+| Depende de | `radix-ui`                        |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `DirectionProvider.dir` | `"ltr" \| "rtl"` | — | Sim | Direção de texto |
-| `DirectionProvider.direction` | `"ltr" \| "rtl"` | — | — | Alias para `dir` |
-| `DirectionProvider.children` | `React.ReactNode` | — | Sim | Conteúdo a envolver |
-| `useDirection` | — | — | — | Hook que retorna direção atual |
+| Prop                          | Tipo              | Padrão | Obrigatória | Descrição                      |
+| ----------------------------- | ----------------- | ------ | ----------- | ------------------------------ |
+| `DirectionProvider.dir`       | `"ltr" \| "rtl"`  | —      | Sim         | Direção de texto               |
+| `DirectionProvider.direction` | `"ltr" \| "rtl"`  | —      | —           | Alias para `dir`               |
+| `DirectionProvider.children`  | `React.ReactNode` | —      | Sim         | Conteúdo a envolver            |
+| `useDirection`                | —                 | —      | —           | Hook que retorna direção atual |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot |
-|-------|------|
-| N/A | Nenhum token CSS — define atributo `dir` |
+| Token | Slot                                     |
+| ----- | ---------------------------------------- |
+| N/A   | Nenhum token CSS — define atributo `dir` |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **LTR** | Direção padrão (`"ltr"`) para idiomas ocidentais |
+| Estado  | Comportamento                                      |
+| ------- | -------------------------------------------------- |
+| **LTR** | Direção padrão (`"ltr"`) para idiomas ocidentais   |
 | **RTL** | Direção `"rtl"` para idiomas como árabe e hebraico |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Rolagem nativa | N/A — componente de contexto |
+| Requisito      | Implementação                                             |
+| -------------- | --------------------------------------------------------- |
+| Rolagem nativa | N/A — componente de contexto                              |
 | Atributo `dir` | Gerenciado pelo `Direction.DirectionProvider` do Radix UI |
 
 ---

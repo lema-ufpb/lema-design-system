@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/select.tsx` |
-| Tipo | `registry:ui` (name: `select`) |
-| Categoria | Formulário |
+| Campo      | Valor                                                                                               |
+| ---------- | --------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ui/select.tsx`                                                                          |
+| Tipo       | `registry:ui` (name: `select`)                                                                      |
+| Categoria  | Formulário                                                                                          |
 | Depende de | `radix-ui` (Select), `lucide-react` (ChevronDownIcon, ChevronUpIcon, CheckIcon), `@/lib/utils` (cn) |
 
 ---
@@ -29,64 +29,64 @@
 
 ### SelectTrigger
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"sm" \| "default"` | `"default"` | Não | Altura do trigger |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo                | Padrão      | Obrigatória | Descrição          |
+| ----------- | ------------------- | ----------- | ----------- | ------------------ |
+| `size`      | `"sm" \| "default"` | `"default"` | Não         | Altura do trigger  |
+| `className` | `string`            | —           | Não         | Classes adicionais |
 
 ### SelectContent
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `position` | `"item-aligned" \| "popper"` | `"item-aligned"` | Não | Estratégia de posicionamento |
-| `align` | `"start" \| "center" \| "end"` | `"center"` | Não | Alinhamento |
+| Prop       | Tipo                           | Padrão           | Obrigatória | Descrição                    |
+| ---------- | ------------------------------ | ---------------- | ----------- | ---------------------------- |
+| `position` | `"item-aligned" \| "popper"`   | `"item-aligned"` | Não         | Estratégia de posicionamento |
+| `align`    | `"start" \| "center" \| "end"` | `"center"`       | Não         | Alinhamento                  |
 
 ### SelectItem
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Valor do item |
-| `disabled` | `boolean` | — | Não | Estado desabilitado |
+| Prop       | Tipo      | Padrão | Obrigatória | Descrição           |
+| ---------- | --------- | ------ | ----------- | ------------------- |
+| `value`    | `string`  | —      | Sim         | Valor do item       |
+| `disabled` | `boolean` | —      | Não         | Estado desabilitado |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--input` / `--input/50` | Fundo do trigger |
-| `--muted-foreground` | Placeholder |
+| Token                                | Slot                      |
+| ------------------------------------ | ------------------------- |
+| `--input` / `--input/50`             | Fundo do trigger          |
+| `--muted-foreground`                 | Placeholder               |
 | `--popover` / `--popover-foreground` | Fundo e texto do dropdown |
-| `--accent` / `--accent-foreground` | Hover/focus nos items |
-| `--border` | Separador |
-| `--ring` / `--ring/30` | Anel de foco |
-| `--destructive` / `--destructive/20` | Estado de erro |
+| `--accent` / `--accent-foreground`   | Hover/focus nos items     |
+| `--border`                           | Separador                 |
+| `--ring` / `--ring/30`               | Anel de foco              |
+| `--destructive` / `--destructive/20` | Estado de erro            |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Trigger focus | Borda `--ring`, anel `--ring/30` |
-| Placeholder | Texto `--muted-foreground` via `data-placeholder` |
-| Dropdown aberto | Animação `fade-in` + `zoom-in-95` |
-| Item focado | Fundo `--accent`, texto `--accent-foreground` |
-| Item selecionado | Ícone `CheckIcon` via `ItemIndicator` |
-| Disabled | `opacity-50`, `cursor-not-allowed` |
-| Invalid | Borda `--destructive`, anel `--destructive/20` |
-| Popper position | Animações de translate adicionais |
+| Estado           | Comportamento                                     |
+| ---------------- | ------------------------------------------------- |
+| Trigger focus    | Borda `--ring`, anel `--ring/30`                  |
+| Placeholder      | Texto `--muted-foreground` via `data-placeholder` |
+| Dropdown aberto  | Animação `fade-in` + `zoom-in-95`                 |
+| Item focado      | Fundo `--accent`, texto `--accent-foreground`     |
+| Item selecionado | Ícone `CheckIcon` via `ItemIndicator`             |
+| Disabled         | `opacity-50`, `cursor-not-allowed`                |
+| Invalid          | Borda `--destructive`, anel `--destructive/20`    |
+| Popper position  | Animações de translate adicionais                 |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Navegação por teclado | Setas, Enter, Escape (Radix) |
-| Listbox role | Gerenciado pelo Radix |
-| Indicador de seleção | `CheckIcon` via `ItemIndicator` |
-| Scroll | `SelectScrollUpButton` e `SelectScrollDownButton` |
+| Requisito             | Implementação                                     |
+| --------------------- | ------------------------------------------------- |
+| Navegação por teclado | Setas, Enter, Escape (Radix)                      |
+| Listbox role          | Gerenciado pelo Radix                             |
+| Indicador de seleção  | `CheckIcon` via `ItemIndicator`                   |
+| Scroll                | `SelectScrollUpButton` e `SelectScrollDownButton` |
 
 ---
 

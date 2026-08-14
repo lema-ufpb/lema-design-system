@@ -40,4 +40,4 @@ O LEMA Design System tem como alvo **WCAG 2.1 AA** (Web Content Accessibility Gu
 
 ---
 
-*Este documento é atualizado conforme o design system evolui. Última revisão: julho de 2026.*
+_Este documento é atualizado conforme o design system evolui. Última revisão: julho de 2026._

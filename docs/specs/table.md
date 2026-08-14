@@ -16,12 +16,12 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/table.tsx` |
-| Tipo | `registry:ui` (name: `table`) |
-| Categoria | Dados / Tabela |
-| Depende de | Nenhuma |
+| Campo      | Valor                         |
+| ---------- | ----------------------------- |
+| Arquivo    | `components/ui/table.tsx`     |
+| Tipo       | `registry:ui` (name: `table`) |
+| Categoria  | Dados / Tabela                |
+| Depende de | Nenhuma                       |
 
 ---
 
@@ -29,51 +29,51 @@
 
 Cada subcomponente aceita `className` e props HTML nativas do elemento correspondente.
 
-| Componente | Elemento | Props |
-|------------|----------|-------|
-| `<Table>` | `<table>` | `React.ComponentProps<"table">` |
-| `<TableHeader>` | `<thead>` | `React.ComponentProps<"thead">` |
-| `<TableBody>` | `<tbody>` | `React.ComponentProps<"tbody">` |
-| `<TableFooter>` | `<tfoot>` | `React.ComponentProps<"tfoot">` |
-| `<TableRow>` | `<tr>` | `React.ComponentProps<"tr">` |
-| `<TableHead>` | `<th>` | `React.ComponentProps<"th">` |
-| `<TableCell>` | `<td>` | `React.ComponentProps<"td">` |
+| Componente       | Elemento    | Props                             |
+| ---------------- | ----------- | --------------------------------- |
+| `<Table>`        | `<table>`   | `React.ComponentProps<"table">`   |
+| `<TableHeader>`  | `<thead>`   | `React.ComponentProps<"thead">`   |
+| `<TableBody>`    | `<tbody>`   | `React.ComponentProps<"tbody">`   |
+| `<TableFooter>`  | `<tfoot>`   | `React.ComponentProps<"tfoot">`   |
+| `<TableRow>`     | `<tr>`      | `React.ComponentProps<"tr">`      |
+| `<TableHead>`    | `<th>`      | `React.ComponentProps<"th">`      |
+| `<TableCell>`    | `<td>`      | `React.ComponentProps<"td">`      |
 | `<TableCaption>` | `<caption>` | `React.ComponentProps<"caption">` |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--border` | Borda inferior das linhas (`border-b`) |
-| `--muted / 50%` | Fundo de header, footer e hover de linha |
-| `--foreground` | Texto do cabeçalho |
-| `--muted-foreground` | Texto do caption |
+| Token                | Slot                                     |
+| -------------------- | ---------------------------------------- |
+| `--border`           | Borda inferior das linhas (`border-b`)   |
+| `--muted / 50%`      | Fundo de header, footer e hover de linha |
+| `--foreground`       | Texto do cabeçalho                       |
+| `--muted-foreground` | Texto do caption                         |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Normal** | Tabela com `w-full`, `caption-bottom`, `text-sm` |
-| **Hover (linha)** | `hover:bg-muted/50` |
-| **Selecionado** | `data-[state=selected]:bg-muted` |
-| **Expansão** | `has-aria-expanded:bg-muted/50` |
-| **Responsivo** | Container com `overflow-x-auto` para scroll horizontal |
-| **Com checkbox** | `[&:has([role=checkbox])]:pr-0` para alinhamento |
+| Estado            | Comportamento                                          |
+| ----------------- | ------------------------------------------------------ |
+| **Normal**        | Tabela com `w-full`, `caption-bottom`, `text-sm`       |
+| **Hover (linha)** | `hover:bg-muted/50`                                    |
+| **Selecionado**   | `data-[state=selected]:bg-muted`                       |
+| **Expansão**      | `has-aria-expanded:bg-muted/50`                        |
+| **Responsivo**    | Container com `overflow-x-auto` para scroll horizontal |
+| **Com checkbox**  | `[&:has([role=checkbox])]:pr-0` para alinhamento       |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
+| Requisito | Implementação                                                      |
+| --------- | ------------------------------------------------------------------ |
 | Semântica | Elementos HTML nativos (`<table>`, `<thead>`, `<th>`, `<caption>`) |
-| Caption | `<caption>` com `sr-only` ou texto visível para descrever a tabela |
-| Navegação | Navegação por tab entre elementos interativos dentro das células |
-| Contraste | Tokens semânticos garantem contraste adequado |
+| Caption   | `<caption>` com `sr-only` ou texto visível para descrever a tabela |
+| Navegação | Navegação por tab entre elementos interativos dentro das células   |
+| Contraste | Tokens semânticos garantem contraste adequado                      |
 
 ---
 

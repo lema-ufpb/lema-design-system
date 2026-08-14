@@ -105,7 +105,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
 
-<Dashbox title="Status" locale="pt-BR" status="live" />
+;<Dashbox title="Status" locale="pt-BR" status="live" />
 // Badge mostra "Online", toolbar mostra "Atualizar", "Recolher" etc.
 ```
 
@@ -389,7 +389,11 @@ Componentes de visualização de dados construídos sobre Recharts e otimizados 
 ```tsx
 import { BarChart } from "@/components/ds/bar-chart"
 
-<BarChart data={data} categoryKey="name" dataKeys={[{ key: "total", label: "Total" }]} />
+;<BarChart
+  data={data}
+  categoryKey="name"
+  dataKeys={[{ key: "total", label: "Total" }]}
+/>
 ```
 
 #### 📝 Formulários

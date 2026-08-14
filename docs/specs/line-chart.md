@@ -6,55 +6,55 @@
 
 _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três variantes (line, area, area-stacked), curvas (linear, smooth, step), dots configuráveis, brush, grid, legenda interativa, linhas de referência, e labels nos eixos._
 
-**Usar quando:** Visualizar séries temporais, tendências, evolução de métricas ao longo do tempo. Variante `area` para ênfase em volume, `area-stacked` para composição de múltiplas séries.  
-**Não usar quando:** Comparações categóricas sem ordem natural (usar BarChart), proporções (usar PieChart), dados financeiros OHLC (usar CandlestickChart).  
+**Usar quando:** Visualizar séries temporais, tendências, evolução de métricas ao longo do tempo. Variante `area` para ênfase em volume, `area-stacked` para composição de múltiplas séries.
+**Não usar quando:** Comparações categóricas sem ordem natural (usar BarChart), proporções (usar PieChart), dados financeiros OHLC (usar CandlestickChart).
 **Alternativa se não se aplicar:** BarChart para categorias, RadarChart para comparações multidimensionais.
 
 ---
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/line-chart.tsx` |
-| data-slot | `line-chart` |
-| Tipo | `registry:component` |
-| Categoria | `Data Display` |
+| Campo      | Valor                                                                                                                                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ds/line-chart.tsx`                                                                                                                                                                                         |
+| data-slot  | `line-chart`                                                                                                                                                                                                           |
+| Tipo       | `registry:component`                                                                                                                                                                                                   |
+| Categoria  | `Data Display`                                                                                                                                                                                                         |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Area, AreaChart, Brush, CartesianGrid, Legend, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (TrendingUp), `class-variance-authority`, `format-utils` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `data` | `Record<string, string \| number>[]` | — | ✓ | Array de objetos do gráfico |
-| `dataKeys` | `LineChartKey[] \| string[]` | — | ✓ | Chaves para plotar (aceita string simples ou objeto com key/label/color/dashed) |
-| `categoryKey` | `string` | — | ✓ | Chave do eixo categórico (X) |
-| `title` | `string` | — | | Título |
-| `subtitle` | `string` | — | | Subtítulo |
-| `footer` | `React.ReactNode` | — | | Rodapé |
-| `variant` | `"line" \| "area" \| "area-stacked"` | `"line"` | | Tipo do gráfico |
-| `curve` | `"linear" \| "smooth" \| "step"` | `"smooth"` | | Interpolação da linha |
-| `dots` | `"none" \| "hover" \| "always"` | `"hover"` | | Visibilidade dos dots |
-| `height` | `number` | `280` | | Altura do canvas em px |
-| `showGrid` | `boolean` | `true` | | Exibe grid horizontal |
-| `showLegend` | `boolean` | `false` | | Exibe legenda |
-| `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | | Posição da legenda |
-| `showTooltip` | `boolean` | `true` | | Exibe tooltip |
-| `connectNulls` | `boolean` | `false` | | Conecta valores nulos |
-| `referenceLines` | `LineChartReferenceLine[]` | — | | Linhas de referência horizontais |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores (fallback se `format` não suprir) |
-| `format` | `FormatPreset` | — | | Preset de formatação |
-| `decimals` | `number` | — | | Casas decimais |
-| `currency` | `string` | `"USD"` | | Código da moeda |
-| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware |
-| `showBrush` | `boolean` | `false` | | Exibe brush para zoom |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
-| `locale` | `UILocale` | `"en-US"` | | Locale |
-| `xAxisLabel` | `string` | — | | Rótulo do eixo X |
-| `yAxisLabel` | `string` | — | | Rótulo do eixo Y |
-| `className` | `string` | — | | Classes extras |
+| Prop             | Tipo                                     | Padrão     | Obrigatória | Descrição                                                                       |
+| ---------------- | ---------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------- |
+| `data`           | `Record<string, string \| number>[]`     | —          | ✓           | Array de objetos do gráfico                                                     |
+| `dataKeys`       | `LineChartKey[] \| string[]`             | —          | ✓           | Chaves para plotar (aceita string simples ou objeto com key/label/color/dashed) |
+| `categoryKey`    | `string`                                 | —          | ✓           | Chave do eixo categórico (X)                                                    |
+| `title`          | `string`                                 | —          |             | Título                                                                          |
+| `subtitle`       | `string`                                 | —          |             | Subtítulo                                                                       |
+| `footer`         | `React.ReactNode`                        | —          |             | Rodapé                                                                          |
+| `variant`        | `"line" \| "area" \| "area-stacked"`     | `"line"`   |             | Tipo do gráfico                                                                 |
+| `curve`          | `"linear" \| "smooth" \| "step"`         | `"smooth"` |             | Interpolação da linha                                                           |
+| `dots`           | `"none" \| "hover" \| "always"`          | `"hover"`  |             | Visibilidade dos dots                                                           |
+| `height`         | `number`                                 | `280`      |             | Altura do canvas em px                                                          |
+| `showGrid`       | `boolean`                                | `true`     |             | Exibe grid horizontal                                                           |
+| `showLegend`     | `boolean`                                | `false`    |             | Exibe legenda                                                                   |
+| `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` |             | Posição da legenda                                                              |
+| `showTooltip`    | `boolean`                                | `true`     |             | Exibe tooltip                                                                   |
+| `connectNulls`   | `boolean`                                | `false`    |             | Conecta valores nulos                                                           |
+| `referenceLines` | `LineChartReferenceLine[]`               | —          |             | Linhas de referência horizontais                                                |
+| `valueFormatter` | `(value: number) => string`              | —          |             | Formata valores (fallback se `format` não suprir)                               |
+| `format`         | `FormatPreset`                           | —          |             | Preset de formatação                                                            |
+| `decimals`       | `number`                                 | —          |             | Casas decimais                                                                  |
+| `currency`       | `string`                                 | `"USD"`    |             | Código da moeda                                                                 |
+| `abbreviate`     | `boolean`                                | `false`    |             | Abreviação locale-aware                                                         |
+| `showBrush`      | `boolean`                                | `false`    |             | Exibe brush para zoom                                                           |
+| `loading`        | `boolean`                                | `false`    |             | Estado de carregamento                                                          |
+| `locale`         | `UILocale`                               | `"en-US"`  |             | Locale                                                                          |
+| `xAxisLabel`     | `string`                                 | —          |             | Rótulo do eixo X                                                                |
+| `yAxisLabel`     | `string`                                 | —          |             | Rótulo do eixo Y                                                                |
+| `className`      | `string`                                 | —          |             | Classes extras                                                                  |
 
 > Estende `React.HTMLAttributes<HTMLDivElement>`.
 
@@ -63,10 +63,10 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 ## Variantes CVA
 
 | Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| — | — | — |
+| -------- | ------- | ------ |
+| —        | —       | —      |
 
-*Sem variantes CVA dimensionais — usa props para variante visual.*
+_Sem variantes CVA dimensionais — usa props para variante visual._
 
 **Slots do componente:**
 
@@ -80,59 +80,59 @@ _Gráfico de linhas e áreas baseado em recharts AreaChart. Suporta três varian
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `text-foreground` | título, tooltip label, tooltip value |
-| `text-muted-foreground` | subtítulo, tooltip series name, axis ticks, axis labels, footer, empty state |
-| `bg-muted` | empty state icon circle |
-| `bg-card` | tooltip background, brush fill |
-| `border-border` | footer divider, empty state border, tooltip border, grid, axis, brush stroke |
-| `var(--chart-1..5)` | stroke das séries, gradient fills |
-| `var(--card)` | dot stroke, brush fill |
-| `var(--muted)` | skeleton fill |
-| `var(--muted-foreground)` | brush handle lines, reference line default |
+| Token                     | Slot onde é usado                                                            |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| `text-foreground`         | título, tooltip label, tooltip value                                         |
+| `text-muted-foreground`   | subtítulo, tooltip series name, axis ticks, axis labels, footer, empty state |
+| `bg-muted`                | empty state icon circle                                                      |
+| `bg-card`                 | tooltip background, brush fill                                               |
+| `border-border`           | footer divider, empty state border, tooltip border, grid, axis, brush stroke |
+| `var(--chart-1..5)`       | stroke das séries, gradient fills                                            |
+| `var(--card)`             | dot stroke, brush fill                                                       |
+| `var(--muted)`            | skeleton fill                                                                |
+| `var(--muted-foreground)` | brush handle lines, reference line default                                   |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Título | — | `text-sm leading-tight font-semibold` | — |
-| Subtítulo | — | `text-xs` | — |
-| Tooltip label | — | `text-xs font-semibold` | — |
-| Tooltip series + value | — | `text-xs` / `text-xs font-semibold tabular-nums` | — |
-| Legenda | — | `text-xs` | — |
-| Eixo ticks | — | `fontSize: 12` (SVG) | — |
-| Eixo labels | — | `fontSize: 11` (SVG) | — |
+| Slot                   | sm  | md                                               | lg  |
+| ---------------------- | --- | ------------------------------------------------ | --- |
+| Título                 | —   | `text-sm leading-tight font-semibold`            | —   |
+| Subtítulo              | —   | `text-xs`                                        | —   |
+| Tooltip label          | —   | `text-xs font-semibold`                          | —   |
+| Tooltip series + value | —   | `text-xs` / `text-xs font-semibold tabular-nums` | —   |
+| Legenda                | —   | `text-xs`                                        | —   |
+| Eixo ticks             | —   | `fontSize: 12` (SVG)                             | —   |
+| Eixo labels            | —   | `fontSize: 11` (SVG)                             | —   |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<LineChartSkeleton>` com linha poligonal, dots, grid, eixos simulados via SVG + Skeleton. |
-| `data.length === 0` | Empty state com ícone `TrendingUp`, mensagens i18n `emptyState.*`. |
-| `variant="area"` | Gradient fill semi-transparente por série (gradiente definido via SVG `<linearGradient>`). |
-| `variant="area-stacked"` | Áreas empilhadas via `stackId="stack"`. |
-| `dots="hover"` | Dots visíveis apenas no hover via `activeDot` (recharts). |
-| `dots="always"` | Dots sempre visíveis via prop `dot`. |
-| `dots="none"` | Sem dots em nenhum estado. |
-| `curve="step"` | `type="step"` no recharts. |
-| Hidden series | Toggle via legenda com `opacity-40` quando oculto. |
-| Referências | Badge retangular com label na extremidade direita. |
+| Estado                   | Comportamento esperado                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------ |
+| `loading={true}`         | `<LineChartSkeleton>` com linha poligonal, dots, grid, eixos simulados via SVG + Skeleton. |
+| `data.length === 0`      | Empty state com ícone `TrendingUp`, mensagens i18n `emptyState.*`.                         |
+| `variant="area"`         | Gradient fill semi-transparente por série (gradiente definido via SVG `<linearGradient>`). |
+| `variant="area-stacked"` | Áreas empilhadas via `stackId="stack"`.                                                    |
+| `dots="hover"`           | Dots visíveis apenas no hover via `activeDot` (recharts).                                  |
+| `dots="always"`          | Dots sempre visíveis via prop `dot`.                                                       |
+| `dots="none"`            | Sem dots em nenhum estado.                                                                 |
+| `curve="step"`           | `type="step"` no recharts.                                                                 |
+| Hidden series            | Toggle via legenda com `opacity-40` quando oculto.                                         |
+| Referências              | Badge retangular com label na extremidade direita.                                         |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
+| Requisito                    | Implementação                                   |
+| ---------------------------- | ----------------------------------------------- |
 | Itens de legenda interativos | `role="button"`, `tabIndex={0}`, `aria-pressed` |
-| Teclado na legenda | Enter e Espaço |
-| Valores numéricos | `tabular-nums` |
-| i18n | `UI_I18N[locale].emptyState.*` |
+| Teclado na legenda           | Enter e Espaço                                  |
+| Valores numéricos            | `tabular-nums`                                  |
+| i18n                         | `UI_I18N[locale].emptyState.*`                  |
 
 ---
 

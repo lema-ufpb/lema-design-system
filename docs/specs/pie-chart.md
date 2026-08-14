@@ -6,8 +6,8 @@
 
 _Gráfico de pizza/donut baseado em recharts PieChart. Suporta variantes pie e donut, legenda interativa com toggle de fatias, active shape expandido, labels percentuais externos, e label central no donut com valor total ou da fatia hovered._
 
-**Usar quando:** Mostrar proporções e composição de um todo — distribuição percentual, fatias de mercado, alocação orçamentária.  
-**Não usar quando:** Mais de 8 categorias (dificulta leitura), comparações precisas (usar BarChart), séries temporais (usar LineChart).  
+**Usar quando:** Mostrar proporções e composição de um todo — distribuição percentual, fatias de mercado, alocação orçamentária.
+**Não usar quando:** Mais de 8 categorias (dificulta leitura), comparações precisas (usar BarChart), séries temporais (usar LineChart).
 **Alternativa se não se aplicar:** BarChart horizontal para comparações, RadarChart para múltiplas dimensões.
 
 ---

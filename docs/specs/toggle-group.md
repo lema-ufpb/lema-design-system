@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/toggle-group.tsx` |
-| Tipo | `registry:ui` (name: `toggle-group`) |
-| Categoria | Ação / Alternância em grupo |
+| Campo      | Valor                                            |
+| ---------- | ------------------------------------------------ |
+| Arquivo    | `components/ui/toggle-group.tsx`                 |
+| Tipo       | `registry:ui` (name: `toggle-group`)             |
+| Categoria  | Ação / Alternância em grupo                      |
 | Depende de | `toggle`, `radix-ui`, `class-variance-authority` |
 
 ---
@@ -29,60 +29,60 @@
 
 ### ToggleGroup
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `type` | `"single" \| "multiple"` | — | Sim | Comportamento de seleção |
-| `variant` | `"default" \| "outline"` | — | Não | Estilo herdado pelos itens |
-| `size` | `"sm" \| "default" \| "lg"` | — | Não | Tamanho herdado pelos itens |
-| `spacing` | `number` | `2` | Não | Gap entre itens (0 = conectados) |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não | Direção do layout |
-| `value` | `string \| string[]` | — | Não | Valor(es) controlado(s) |
-| `defaultValue` | `string \| string[]` | — | Não | Valor(es) inicial(is) |
-| `onValueChange` | `(value) => void` | — | Não | Callback de mudança |
+| Prop            | Tipo                         | Padrão         | Obrigatória | Descrição                        |
+| --------------- | ---------------------------- | -------------- | ----------- | -------------------------------- |
+| `type`          | `"single" \| "multiple"`     | —              | Sim         | Comportamento de seleção         |
+| `variant`       | `"default" \| "outline"`     | —              | Não         | Estilo herdado pelos itens       |
+| `size`          | `"sm" \| "default" \| "lg"`  | —              | Não         | Tamanho herdado pelos itens      |
+| `spacing`       | `number`                     | `2`            | Não         | Gap entre itens (0 = conectados) |
+| `orientation`   | `"horizontal" \| "vertical"` | `"horizontal"` | Não         | Direção do layout                |
+| `value`         | `string \| string[]`         | —              | Não         | Valor(es) controlado(s)          |
+| `defaultValue`  | `string \| string[]`         | —              | Não         | Valor(es) inicial(is)            |
+| `onValueChange` | `(value) => void`            | —              | Não         | Callback de mudança              |
 
 ### ToggleGroupItem
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Valor do item |
-| `variant` | `"default" \| "outline"` | `"default"` | Não | Sobrescreve variante do grupo |
-| `size` | `"sm" \| "default" \| "lg"` | `"default"` | Não | Sobrescreve tamanho do grupo |
-| `disabled` | `boolean` | — | Não | Desabilita o item |
-| `aria-label` | `string` | — | Recomendado | Rótulo de acessibilidade |
+| Prop         | Tipo                        | Padrão      | Obrigatória | Descrição                     |
+| ------------ | --------------------------- | ----------- | ----------- | ----------------------------- |
+| `value`      | `string`                    | —           | Sim         | Valor do item                 |
+| `variant`    | `"default" \| "outline"`    | `"default"` | Não         | Sobrescreve variante do grupo |
+| `size`       | `"sm" \| "default" \| "lg"` | `"default"` | Não         | Sobrescreve tamanho do grupo  |
+| `disabled`   | `boolean`                   | —           | Não         | Desabilita o item             |
+| `aria-label` | `string`                    | —           | Recomendado | Rótulo de acessibilidade      |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--muted` | Fundo do item selecionado (`data-[state=on]`) e hover |
-| `--border` / `--input` | Borda da variante `outline` |
-| `--ring / 30%` | Anel de foco |
+| Token                  | Slot                                                  |
+| ---------------------- | ----------------------------------------------------- |
+| `--muted`              | Fundo do item selecionado (`data-[state=on]`) e hover |
+| `--border` / `--input` | Borda da variante `outline`                           |
+| `--ring / 30%`         | Anel de foco                                          |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Horizontal** | Layout `flex-row` com gap configurável |
-| **Vertical** | Layout `flex-col` com `items-stretch` |
-| **Com spacing > 0** | Gap entre itens com `rounded-3xl` individual |
+| Estado              | Comportamento                                                                          |
+| ------------------- | -------------------------------------------------------------------------------------- |
+| **Horizontal**      | Layout `flex-row` com gap configurável                                                 |
+| **Vertical**        | Layout `flex-col` com `items-stretch`                                                  |
+| **Com spacing > 0** | Gap entre itens com `rounded-3xl` individual                                           |
 | **Sem spacing (0)** | Itens conectados, bordas unificadas (primeiro `rounded-l-3xl`, último `rounded-r-3xl`) |
-| **Selecionado** | `data-[state=on]:bg-muted` |
-| **Focus** | `z-10 focus-visible:z-10` para sobreposição correta |
+| **Selecionado**     | `data-[state=on]:bg-muted`                                                             |
+| **Focus**           | `z-10 focus-visible:z-10` para sobreposição correta                                    |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role | Radix fornece `role="group"`, `aria-label` no grupo |
-| Teclado | Navegação por setas (horizontal ou vertical) |
-| Estado | `data-[state=on]` / `data-[state=off]` para cada item |
-| Rótulo | `aria-label` em cada item (especialmente ícones) |
+| Requisito | Implementação                                         |
+| --------- | ----------------------------------------------------- |
+| Role      | Radix fornece `role="group"`, `aria-label` no grupo   |
+| Teclado   | Navegação por setas (horizontal ou vertical)          |
+| Estado    | `data-[state=on]` / `data-[state=off]` para cada item |
+| Rótulo    | `aria-label` em cada item (especialmente ícones)      |
 
 ---
 

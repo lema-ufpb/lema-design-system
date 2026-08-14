@@ -185,14 +185,20 @@ import { Dashbox } from "@/components/ds/dashbox"
 import { Counter } from "@/components/ds/counter"
 import { DataTable } from "@/components/ds/data-table"
 
-<Dashbox title="Status" locale="pt-BR" status="live" />
-{/* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */}
+;<Dashbox title="Status" locale="pt-BR" status="live" />
+{
+  /* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */
+}
 
-<Counter locale="es-ES" defaultValue={5} />
-{/* → aria-label: "Contador", buttons: "Disminuir valor" / "Aumentar valor" */}
+;<Counter locale="es-ES" defaultValue={5} />
+{
+  /* → aria-label: "Contador", buttons: "Disminuir valor" / "Aumentar valor" */
+}
 
-<DataTable locale="pt-BR" data={rows} columns={cols} pagination />
-{/* → busca: "Buscar…", empty: "Nenhum dado encontrado", paginação: "Anterior" / "Próximo" */}
+;<DataTable locale="pt-BR" data={rows} columns={cols} pagination />
+{
+  /* → busca: "Buscar…", empty: "Nenhum dado encontrado", paginação: "Anterior" / "Próximo" */
+}
 ```
 
 The `locale` prop defaults to `"en-US"` when omitted. Extending to additional locales requires only adding a new entry to `UI_I18N` in `lib/ui-i18n.ts`.

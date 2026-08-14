@@ -48,13 +48,16 @@ Seu código-fonte **NÃO DEVE SER ALTERADO**. Se por qualquer motivo for alterad
 Cada componente em `components/ui/` e `components/ds/` **DEVE** ter seu arquivo de stories correspondente (`.stories.tsx` co-localizado no mesmo diretório). A falta de stories quebra a documentação do Storybook e o `make lint`.
 
 ### Tipografia (scale para sm/md/lg)
+
 ```
 label/nome:  sm → text-xs font-medium    md → text-sm font-medium    lg → text-base font-medium
 valor/num:   sm → text-xs font-semibold  md → text-sm font-semibold  lg → text-base font-semibold
 ```
+
 **Não usar** `text-sm/text-base/text-lg` em slots de componentes — essa escala está um passo acima do correto.
 
 ### Tokens de cor (nunca usar raw Tailwind para semântica)
+
 - Status positivo → `text-success` / `bg-success` / `text-success-foreground`
 - Atenção → `text-warning` / `bg-warning` / `text-warning-foreground`
 - Erro → `text-destructive`
@@ -66,30 +69,37 @@ valor/num:   sm → text-xs font-semibold  md → text-sm font-semibold  lg → 
 - Charts: `--chart-1` a `--chart-5`, nunca hex hardcoded
 
 ### Escala de tamanhos (sm/md/lg)
+
 Para componentes com variante de tamanho, sempre usar esta tabela:
 
-| Slot       | sm          | md          | lg           |
-|------------|-------------|-------------|--------------|
-| Icon       | `size-3.5`  | `size-4`    | `size-5`     |
-| Track/bar  | `h-2`       | `h-3`       | `h-4`        |
-| Row height | `h-7`       | `h-8`       | `h-9`        |
+| Slot       | sm         | md       | lg       |
+| ---------- | ---------- | -------- | -------- |
+| Icon       | `size-3.5` | `size-4` | `size-5` |
+| Track/bar  | `h-2`      | `h-3`    | `h-4`    |
+| Row height | `h-7`      | `h-8`    | `h-9`    |
 
 ### Icon sizing
+
 Nunca dimensionar ícones independentemente do container. Usar `size-*` (e nunca `w-* h-*`) quando isolados:
+
 - Inline sm: `size-3.5` · Inline base: `size-4` · Card header: `size-5` · Page heading: `size-6`
 
 ### Border radius (sempre usar tokens do design system)
+
 `rounded-sm` (0.6× radius), `rounded-md` (0.8×), `rounded-lg` (radius), `rounded-xl` (1.4×), `rounded-2xl` (1.8×), `rounded-3xl` (2.2×), `rounded-4xl` (2.6×), `rounded-full` (apenas circulares/pills)
 
 ### Interactive element heights
+
 `xs: h-6` · `sm: h-8` · `md: h-9` · `lg: h-10` · `xl: h-12`
 
 ### Data Display
+
 - Tabelas: row height `h-10` (standard) / `h-8` (compact); células numéricas com `tabular-nums`
 - Progresso: track `bg-muted`, fill `bg-primary` (ou `bg-success`/`bg-destructive`)
 - Charts: usar `--chart-1..5`, sempre com `Chart` wrapper do shadcn
 
 ### Padrão CVA single-file (components/ds/)
+
 ```tsx
 // Ordem obrigatória no arquivo:
 // 1. "use client" (se hooks/eventos)
@@ -101,9 +111,11 @@ Nunca dimensionar ícones independentemente do container. Usar `size-*` (e nunca
 ```
 
 ### Loading states
+
 Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real. Nunca `animate-pulse` em divs custom.
 
 ### Spacing e layout
+
 - `gap-*` sempre, nunca `space-y-*` ou `space-x-*`
 - `size-*` quando width = height (ícones, avatars)
 - Valores arbitrários proibidos: sem `gap-[7px]`, `px-[13px]`, etc.
@@ -112,9 +124,11 @@ Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real.
 - Sem `dark:` manual — usar tokens semânticos
 
 ### Testes
+
 `make test` deve passar após cada mudança. 840 testes em 118 arquivos via Vitest browser mode.
 
 ### Documentação Storybook
+
 - Título das stories segue o padrão `Categoria/Componente` (ex: `Actions/Button`, `Data Display/BarChart`, `Form/Counter`)
 - Stories obrigatórias por componente: Default, AllVariants, AllSizes, Loading, Disabled/Error, Locales (se i18n)
 - Testes de interação via `play` function com `@storybook/test`

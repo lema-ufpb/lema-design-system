@@ -6,8 +6,8 @@
 
 _Gráfico de box plot (caixa e bigodes) para visualização de distribuições estatísticas. Renderizado via SVG customizado (sem recharts). Suporta orientação vertical e horizontal, notches, marcador de média, outliers, tooltip flutuante com estatísticas completas (min, Q1, mediana, média, Q3, max)._
 
-**Usar quando:** Necessário mostrar distribuição estatística (mediana, quartis, outliers) de uma ou mais categorias — análise exploratória de dados, comparação de grupos.  
-**Não usar quando:** Dados agregados simples (usar BarChart), proporções (usar PieChart).  
+**Usar quando:** Necessário mostrar distribuição estatística (mediana, quartis, outliers) de uma ou mais categorias — análise exploratória de dados, comparação de grupos.
+**Não usar quando:** Dados agregados simples (usar BarChart), proporções (usar PieChart).
 **Alternativa se não se aplicar:** BarChart para valores únicos, ViolinPlot (não implementado).
 
 ---

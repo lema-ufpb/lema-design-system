@@ -18,80 +18,80 @@ O Button é o componente de ação primária do design system LEMA, construído 
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/button.tsx` |
-| Tipo | `registry:ui` (name: `button`) |
-| Categoria | Core / Action |
-| Depende de | Nenhuma |
+| Campo      | Valor                          |
+| ---------- | ------------------------------ |
+| Arquivo    | `components/ui/button.tsx`     |
+| Tipo       | `registry:ui` (name: `button`) |
+| Categoria  | Core / Action                  |
+| Depende de | Nenhuma                        |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | `"default" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link"` | `"default"` | Não | Estilo visual do botão |
-| `size` | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| "icon-xs" \| "icon-sm" \| "icon-lg"` | `"default"` | Não | Tamanho e padding |
-| `asChild` | `boolean` | `false` | Não | Renderiza como elemento filho via Slot |
-| `disabled` | `boolean` | — | Não | Estado desabilitado |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo                                                                                 | Padrão      | Obrigatória | Descrição                              |
+| ----------- | ------------------------------------------------------------------------------------ | ----------- | ----------- | -------------------------------------- |
+| `variant`   | `"default" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link"`        | `"default"` | Não         | Estilo visual do botão                 |
+| `size`      | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| "icon-xs" \| "icon-sm" \| "icon-lg"` | `"default"` | Não         | Tamanho e padding                      |
+| `asChild`   | `boolean`                                                                            | `false`     | Não         | Renderiza como elemento filho via Slot |
+| `disabled`  | `boolean`                                                                            | —           | Não         | Estado desabilitado                    |
+| `className` | `string`                                                                             | —           | Não         | Classes adicionais                     |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--primary` | Fundo da variante default |
-| `--primary-foreground` | Texto da variante default |
-| `--secondary` | Fundo da variante secondary |
-| `--secondary-foreground` | Texto da variante secondary |
-| `--border` | Borda da variante outline |
-| `--background` | Fundo da variante outline |
-| `--muted` | Hover da variante outline/ghost |
-| `--destructive` | Texto/borda da variante destructive |
+| Token                                   | Slot onde é usado                         |
+| --------------------------------------- | ----------------------------------------- |
+| `--primary`                             | Fundo da variante default                 |
+| `--primary-foreground`                  | Texto da variante default                 |
+| `--secondary`                           | Fundo da variante secondary               |
+| `--secondary-foreground`                | Texto da variante secondary               |
+| `--border`                              | Borda da variante outline                 |
+| `--background`                          | Fundo da variante outline                 |
+| `--muted`                               | Hover da variante outline/ghost           |
+| `--destructive`                         | Texto/borda da variante destructive       |
 | `--destructive/10` / `--destructive/20` | Fundo translúcido da variante destructive |
-| `--ring` / `--ring/30` | Focus ring (`focus-visible:ring-3`) |
-| `--input/30` | Hover da variante outline em dark mode |
+| `--ring` / `--ring/30`                  | Focus ring (`focus-visible:ring-3`)       |
+| `--input/30`                            | Hover da variante outline em dark mode    |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Default | Fundo `bg-primary`, texto `text-primary-foreground`, hover `bg-primary/80` |
-| Outline | Borda `border-border`, fundo `bg-background`, hover `bg-muted` |
-| Secondary | Fundo `bg-secondary`, hover `bg-secondary/80` |
-| Ghost | Fundo transparente, hover `bg-muted` |
-| Destructive | Fundo `bg-destructive/10`, texto `text-destructive`, hover `bg-destructive/20` |
-| Link | Texto `text-primary` com `underline-offset-4` e `hover:underline` |
-| Disabled | `opacity-50`, `pointer-events-none` |
-| Active (clique) | `translate-y-px` (exceto em `aria-haspopup`) |
-| Focus visible | `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30` |
-| Aria-expanded | Outline/ghost/secondary alteram fundo quando expandido |
-| Tamanho xs | `h-6 gap-1 px-2.5 text-xs` |
-| Tamanho sm | `h-8 gap-1 px-3` |
-| Tamanho default | `h-9 gap-1.5 px-3` |
-| Tamanho lg | `h-10 gap-1.5 px-4` |
-| Tamanho icon-xs | `size-6` |
-| Tamanho icon-sm | `size-8` |
-| Tamanho icon | `size-9` |
-| Tamanho icon-lg | `size-10` |
+| Estado          | Comportamento esperado                                                         |
+| --------------- | ------------------------------------------------------------------------------ |
+| Default         | Fundo `bg-primary`, texto `text-primary-foreground`, hover `bg-primary/80`     |
+| Outline         | Borda `border-border`, fundo `bg-background`, hover `bg-muted`                 |
+| Secondary       | Fundo `bg-secondary`, hover `bg-secondary/80`                                  |
+| Ghost           | Fundo transparente, hover `bg-muted`                                           |
+| Destructive     | Fundo `bg-destructive/10`, texto `text-destructive`, hover `bg-destructive/20` |
+| Link            | Texto `text-primary` com `underline-offset-4` e `hover:underline`              |
+| Disabled        | `opacity-50`, `pointer-events-none`                                            |
+| Active (clique) | `translate-y-px` (exceto em `aria-haspopup`)                                   |
+| Focus visible   | `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30`    |
+| Aria-expanded   | Outline/ghost/secondary alteram fundo quando expandido                         |
+| Tamanho xs      | `h-6 gap-1 px-2.5 text-xs`                                                     |
+| Tamanho sm      | `h-8 gap-1 px-3`                                                               |
+| Tamanho default | `h-9 gap-1.5 px-3`                                                             |
+| Tamanho lg      | `h-10 gap-1.5 px-4`                                                            |
+| Tamanho icon-xs | `size-6`                                                                       |
+| Tamanho icon-sm | `size-8`                                                                       |
+| Tamanho icon    | `size-9`                                                                       |
+| Tamanho icon-lg | `size-10`                                                                      |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role button | Nativo do elemento `<button>` |
+| Requisito     | Implementação                                                               |
+| ------------- | --------------------------------------------------------------------------- |
+| Role button   | Nativo do elemento `<button>`                                               |
 | Focus visible | `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30` |
-| Desabilitado | `disabled` nativo com estilos de `opacity-50` |
-| asChild | Permite `<a>` com `role="button"` quando necessário |
-| Ícones | `pointer-events-none` nos SVGs |
-| Aria-invalid | Suporte com borda e ring destrutivos |
+| Desabilitado  | `disabled` nativo com estilos de `opacity-50`                               |
+| asChild       | Permite `<a>` com `role="button"` quando necessário                         |
+| Ícones        | `pointer-events-none` nos SVGs                                              |
+| Aria-invalid  | Suporte com borda e ring destrutivos                                        |
 
 ---
 

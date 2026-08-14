@@ -16,51 +16,51 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/spinner.tsx` |
-| data-slot | `spinner` |
-| Tipo | `registry:ui` (name: `spinner`) |
-| Categoria | Feedback / Indicador |
-| Depende de | `lucide-react` |
+| Campo      | Valor                           |
+| ---------- | ------------------------------- |
+| Arquivo    | `components/ui/spinner.tsx`     |
+| data-slot  | `spinner`                       |
+| Tipo       | `registry:ui` (name: `spinner`) |
+| Categoria  | Feedback / Indicador            |
+| Depende de | `lucide-react`                  |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais (útil para `size-*` customizado) |
-| `...props` | `React.ComponentProps<"svg">` | — | Não | Props nativas SVG |
+| Prop        | Tipo                          | Padrão | Obrigatória | Descrição                                           |
+| ----------- | ----------------------------- | ------ | ----------- | --------------------------------------------------- |
+| `className` | `string`                      | —      | Não         | Classes adicionais (útil para `size-*` customizado) |
+| `...props`  | `React.ComponentProps<"svg">` | —      | Não         | Props nativas SVG                                   |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `currentColor` | Cor do ícone (herdada do texto do container pai) |
-| `size-4` (16px) | Tamanho padrão |
+| Token           | Slot                                             |
+| --------------- | ------------------------------------------------ |
+| `currentColor`  | Cor do ícone (herdada do texto do container pai) |
+| `size-4` (16px) | Tamanho padrão                                   |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Default** | `Loader2Icon` com `animate-spin`, `size-4`, cor do texto pai |
-| **Custom size** | Ajustável via `className` (ex: `size-3`, `size-6`, `size-8`) |
-| **Em contexto** | Acompanhado de texto de loading com `text-muted-foreground` |
-| **Apenas ícone** | Pode ser usado sem texto adjacente |
+| Estado           | Comportamento                                                |
+| ---------------- | ------------------------------------------------------------ |
+| **Default**      | `Loader2Icon` com `animate-spin`, `size-4`, cor do texto pai |
+| **Custom size**  | Ajustável via `className` (ex: `size-3`, `size-6`, `size-8`) |
+| **Em contexto**  | Acompanhado de texto de loading com `text-muted-foreground`  |
+| **Apenas ícone** | Pode ser usado sem texto adjacente                           |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role | `role="status"` |
-| Rótulo | `aria-label="Loading"` |
+| Requisito          | Implementação                                                 |
+| ------------------ | ------------------------------------------------------------- |
+| Role               | `role="status"`                                               |
+| Rótulo             | `aria-label="Loading"`                                        |
 | Movimento reduzido | `animate-spin` respeita `prefers-reduced-motion` via Tailwind |
 
 ---

@@ -16,50 +16,50 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/separator.tsx` |
-| Tipo | `registry:ui` (name: `separator`) |
-| Categoria | Layout |
+| Campo      | Valor                                      |
+| ---------- | ------------------------------------------ |
+| Arquivo    | `components/ui/separator.tsx`              |
+| Tipo       | `registry:ui` (name: `separator`)          |
+| Categoria  | Layout                                     |
 | Depende de | `radix-ui` (Separator), `@/lib/utils` (cn) |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não | Direção do separador |
-| `decorative` | `boolean` | `true` | Não | Se é puramente decorativo |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop          | Tipo                         | Padrão         | Obrigatória | Descrição                 |
+| ------------- | ---------------------------- | -------------- | ----------- | ------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Não         | Direção do separador      |
+| `decorative`  | `boolean`                    | `true`         | Não         | Se é puramente decorativo |
+| `className`   | `string`                     | —              | Não         | Classes adicionais        |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
+| Token      | Slot                   |
+| ---------- | ---------------------- |
 | `--border` | Cor da linha divisória |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Horizontal | Linha `h-px`, largura `w-full` |
-| Vertical | Linha `w-px`, auto altura `self-stretch` |
-| Decorativo | `aria-hidden` não é anunciado |
+| Estado     | Comportamento                            |
+| ---------- | ---------------------------------------- |
+| Horizontal | Linha `h-px`, largura `w-full`           |
+| Vertical   | Linha `w-px`, auto altura `self-stretch` |
+| Decorativo | `aria-hidden` não é anunciado            |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
+| Requisito  | Implementação                                |
+| ---------- | -------------------------------------------- |
 | Decorativo | `decorative=true` por padrão (não anunciado) |
-| Semântico | `decorative=false` para separador de seção |
-| Orientação | `aria-orientation` pelo Radix |
+| Semântico  | `decorative=false` para separador de seção   |
+| Orientação | `aria-orientation` pelo Radix                |
 
 ---
 
