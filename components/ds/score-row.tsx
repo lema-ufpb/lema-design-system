@@ -56,6 +56,12 @@ export interface ScoreRowProps extends HTMLAttributes<HTMLElement> {
    * Accepts any CSS color or `var(--my-token)`.
    */
   accent?: string
+  /**
+   * Optional tooltip content for the entire row. When provided, the row
+   * itself becomes the tooltip trigger (keyboard-focusable) and the
+   * built-in progress-bar tooltip is suppressed, avoiding nested tooltips.
+   */
+  tooltip?: React.ReactNode
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
@@ -295,6 +301,7 @@ export function ScoreRow({
   locale = "en-US",
   percentDecimals = 0,
   accent,
+  tooltip,
   className,
   onClick,
   ...props
@@ -474,44 +481,62 @@ export function ScoreRow({
       </div>
 
       {/*
-       * Progress bar wrapped in a Tooltip.
-       * The tooltip shows locale-aware percentage with correct decimal separator
-       * (e.g. "68 / 95 — 71,3%" in pt-BR, "68 / 95 — 71.3%" in en-US).
+       * Progress bar. When no row-level `tooltip` is set, it's wrapped in its
+       * own Tooltip showing locale-aware percentage with correct decimal
+       * separator (e.g. "68 / 95 — 71,3%" in pt-BR, "68 / 95 — 71.3%" in
+       * en-US). When `tooltip` is set, this per-bar tooltip is suppressed —
+       * the row-level tooltip below already covers it, avoiding nesting.
        */}
-      {showProgress && (
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="block">
-                <Progress
-                  value={ratio * 100}
-                  aria-label={`${t.scoreLabel}: ${percentText}`}
-                  className={cn(
-                    PROGRESS_HEIGHT[size],
-                    !accent && PROGRESS_INDICATOR_COLOR[resolvedStatus],
-                    accent &&
-                      "[&>[data-slot=progress-indicator]]:bg-(--score-accent)"
-                  )}
-                />
-              </span>
-            </TooltipTrigger>
-            <TooltipContent>
-              <span className="tabular-nums">
-                {score} / {total} — {percentText}
-              </span>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      )}
+      {showProgress &&
+        (() => {
+          const progress = (
+            <Progress
+              value={ratio * 100}
+              aria-label={`${t.scoreLabel}: ${percentText}`}
+              className={cn(
+                PROGRESS_HEIGHT[size],
+                !accent && PROGRESS_INDICATOR_COLOR[resolvedStatus],
+                accent &&
+                  "[&>[data-slot=progress-indicator]]:bg-(--score-accent)"
+              )}
+            />
+          )
+
+          if (tooltip) {
+            return <span className="block">{progress}</span>
+          }
+
+          return (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span
+                    tabIndex={0}
+                    className="block rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                  >
+                    {progress}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <span className="tabular-nums">
+                    {score} / {total} — {percentText}
+                  </span>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )
+        })()}
     </>
   )
+
+  let row: React.ReactElement
 
   if (isInteractive) {
     const buttonLabel = [title, description, `${t.scoreLabel}: ${scoreText}`]
       .filter(Boolean)
       .join(". ")
 
-    return (
+    row = (
       <button
         type="button"
         data-slot="score-row"
@@ -527,17 +552,34 @@ export function ScoreRow({
         {inner}
       </button>
     )
+  } else {
+    row = (
+      <div
+        data-slot="score-row"
+        style={tokenStyle}
+        tabIndex={tooltip ? 0 : undefined}
+        className={cn(
+          scoreRowVariants({ size }),
+          tooltip &&
+            "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-inset",
+          className
+        )}
+        {...props}
+      >
+        {inner}
+      </div>
+    )
   }
 
+  if (!tooltip) return row
+
   return (
-    <div
-      data-slot="score-row"
-      style={tokenStyle}
-      className={cn(scoreRowVariants({ size }), className)}
-      {...props}
-    >
-      {inner}
-    </div>
+    <TooltipProvider delayDuration={100}>
+      <Tooltip>
+        <TooltipTrigger asChild>{row}</TooltipTrigger>
+        <TooltipContent>{tooltip}</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   )
 }
 

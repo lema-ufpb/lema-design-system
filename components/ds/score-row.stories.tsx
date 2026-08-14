@@ -60,6 +60,7 @@ const meta = {
           "| `loading` | `boolean` | `false` | Skeleton loading state |",
           '| `locale` | `UILocale` | `"en-US"` | Locale for formatting |',
           "| `percentDecimals` | `number` | `0` | Decimal places in percentage tooltip |",
+          "| `tooltip` | `ReactNode` | — | Tooltip for the entire row; suppresses the progress-bar tooltip |",
         ].join("\n"),
       },
     },
@@ -107,6 +108,12 @@ const meta = {
     },
     icon: { table: { disable: true } },
     onClick: { table: { disable: true } },
+    tooltip: {
+      control: "text",
+      description:
+        "Tooltip content for the entire row. Suppresses the progress-bar tooltip to avoid nesting.",
+      table: { defaultValue: { summary: "" } },
+    },
   },
 } satisfies Meta<typeof ScoreRow>
 
@@ -788,6 +795,44 @@ export const PercentDecimals: Story = {
       description: {
         story:
           "The `percentDecimals` prop controls decimal places in the progress bar tooltip and aria-label. Three presets (0, 1, 2) demonstrate the effect. Hover the progress bar to see the tooltip.",
+      },
+    },
+  },
+}
+
+// ── Row Tooltip ────────────────────────────────────────────────────────────
+
+export const RowTooltip: Story = {
+  args: {
+    title: "Standard Audit",
+    description: "June 2025 baseline",
+    icon: FileTextIcon,
+    score: 68,
+    total: 95,
+    status: "auto",
+    showProgress: true,
+    tooltip: "68 of 95 items reviewed against the recommended capacity.",
+  },
+  render: (args) => (
+    <ScoreRowList>
+      <ScoreRow {...args} />
+      <ScoreRow
+        title="Teaching Evaluation"
+        description="2025.1 cycle"
+        icon={GraduationCapIcon}
+        score={42}
+        total={80}
+        status="auto"
+        showProgress
+        tooltip="42 of 80 evaluations submitted this cycle."
+      />
+    </ScoreRowList>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The `tooltip` prop wraps the entire row in a single, keyboard-focusable tooltip trigger and suppresses the progress bar's own tooltip — avoiding the nested-tooltip problem that occurs when hovering the progress bar inside a row that already has an outer tooltip. Tab to a row to reveal the tooltip via focus, or hover anywhere on the row (including the progress bar).",
       },
     },
   },
