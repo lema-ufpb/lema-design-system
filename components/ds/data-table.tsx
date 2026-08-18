@@ -1183,7 +1183,10 @@ export function DataTable<TData extends RowData>({
                         {canSort && (
                           <span
                             className={cn(
-                              "ml-auto shrink-0",
+                              meta?.align === "right" ||
+                                meta?.align === "center"
+                                ? "shrink-0"
+                                : "ml-auto shrink-0",
                               isSorted ? "opacity-100" : "opacity-60"
                             )}
                           >

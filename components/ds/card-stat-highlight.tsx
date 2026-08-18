@@ -254,7 +254,7 @@ export function CardStatHighlight({
     )
   }
 
-  const display = applyFormat(value, fmt)
+  const display = applyFormat(value, { ...fmt, locale })
   const trendDir = resolveTrend(trend)
   const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
 

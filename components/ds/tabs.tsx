@@ -93,7 +93,7 @@ const dsTabsTriggerVariants = cva(
     "disabled:pointer-events-none disabled:opacity-50",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     "group-data-[orientation=vertical]/tabs-list:w-full group-data-[orientation=vertical]/tabs-list:justify-start",
-    "data-active:text-foreground",
+    "data-[state=active]:text-foreground",
   ],
   {
     variants: {
@@ -101,28 +101,28 @@ const dsTabsTriggerVariants = cva(
         default: [
           "rounded-full border border-transparent",
           "text-foreground/60 hover:text-foreground",
-          "data-active:bg-background data-active:text-foreground data-active:shadow-xs",
+          "data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-xs",
         ],
         line: [
           "rounded-none bg-transparent",
           "text-foreground/60 hover:text-foreground",
-          "data-active:bg-transparent data-active:text-foreground",
+          "data-[state=active]:bg-transparent data-[state=active]:text-foreground",
           // Underline indicator
           "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity",
           "group-data-[orientation=horizontal]/tabs-list:after:inset-x-0 group-data-[orientation=horizontal]/tabs-list:after:-bottom-1 group-data-[orientation=horizontal]/tabs-list:after:h-0.5",
           "group-data-[orientation=vertical]/tabs-list:after:inset-y-0 group-data-[orientation=vertical]/tabs-list:after:-right-1 group-data-[orientation=vertical]/tabs-list:after:w-0.5",
-          "data-active:after:opacity-100",
+          "data-[state=active]:after:opacity-100",
         ],
         pill: [
           "rounded-full",
           "text-foreground/60 hover:bg-accent/50 hover:text-foreground",
-          "data-active:bg-primary data-active:text-primary-foreground data-active:shadow-xs",
-          "data-active:hover:bg-primary/90",
+          "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-xs",
+          "data-[state=active]:hover:bg-primary/90",
         ],
         segmented: [
           "rounded-md",
           "text-foreground/60 hover:text-foreground",
-          "data-active:bg-background data-active:text-foreground data-active:shadow-xs",
+          "data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-xs",
         ],
       },
       size: {

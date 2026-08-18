@@ -148,6 +148,7 @@ export function PageLoader({
     <div
       role="status"
       aria-busy={loading}
+      aria-hidden={!loading}
       aria-label={ariaLabel ?? t.loading}
       aria-live="polite"
       data-loading={loading}
@@ -161,9 +162,12 @@ export function PageLoader({
       )}
     >
       {variant === "bar" && (
-        <div aria-hidden className={cn(pageLoaderBarTrackVariants({ size }))}>
-          <div className={cn(pageLoaderBarFillVariants({ color }))} />
-        </div>
+        <>
+          <div aria-hidden className={cn(pageLoaderBarTrackVariants({ size }))}>
+            <div className={cn(pageLoaderBarFillVariants({ color }))} />
+          </div>
+          <span className="sr-only">{message ?? t.loading}</span>
+        </>
       )}
 
       {variant === "spinner" && (
