@@ -46,7 +46,7 @@ export const cardStatCompactValueVariants = cva("", {
       lg: "text-2xl font-semibold tracking-tight tabular-nums",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatIconBoxVariants = cva("", {
@@ -57,7 +57,7 @@ export const cardStatIconBoxVariants = cva("", {
       lg: "size-12 rounded-xl",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatIconInnerVariants = cva("", {
@@ -68,7 +68,7 @@ export const cardStatIconInnerVariants = cva("", {
       lg: "size-6",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export function CardStatCompact({
@@ -77,7 +77,7 @@ export function CardStatCompact({
   trend,
   trendValue,
   icon: Icon,
-  size = "md",
+  size = "sm",
   variant = "default",
   className,
   loading,

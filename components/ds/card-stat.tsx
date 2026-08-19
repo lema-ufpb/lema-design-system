@@ -61,7 +61,7 @@ export function CardStat({
   description,
   trend = false,
   icon: Icon,
-  size = "md",
+  size = "sm",
   variant = "default",
   valueFormatter,
   className,

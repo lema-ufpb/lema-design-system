@@ -104,7 +104,7 @@ export const Default: Story = {
     min: 0,
     max: 100,
     description: "Promoters vs detractors",
-    size: "md",
+    size: "sm",
   },
   parameters: {
     docs: {

@@ -134,7 +134,7 @@ export const Default: Story = {
     description: "vs last quarter",
     icon: DollarSignIcon,
     variant: "primary",
-    size: "md",
+    size: "sm",
   },
   parameters: {
     docs: {

@@ -116,7 +116,7 @@ export const Default: Story = {
     trend: "up",
     trendValue: "+26.8%",
     icon: DollarSignIcon,
-    size: "md",
+    size: "sm",
     variant: "default",
   },
   parameters: {

@@ -104,7 +104,7 @@ export const cardIconMediaVariants = cva(
         lg: "size-16",
       },
     },
-    defaultVariants: { size: "md" },
+    defaultVariants: { size: "sm" },
   }
 )
 
@@ -116,7 +116,7 @@ export const cardIconGlyphVariants = cva("", {
       lg: "size-7",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardIconTitleVariants = cva("font-semibold text-foreground", {
@@ -144,7 +144,7 @@ export const cardIconDescriptionVariants = cva(
         lg: "text-base",
       },
     },
-    defaultVariants: { size: "md" },
+    defaultVariants: { size: "sm" },
   }
 )
 
@@ -158,7 +158,7 @@ export const cardIconActionVariants = cva(
         lg: "text-base",
       },
     },
-    defaultVariants: { size: "md" },
+    defaultVariants: { size: "sm" },
   }
 )
 
@@ -210,7 +210,7 @@ export function CardIcon({
   description,
   tone = "primary",
   mediaStyle = "soft",
-  size = "md",
+  size = "sm",
   align = "center",
   titleUpper = false,
   badge,

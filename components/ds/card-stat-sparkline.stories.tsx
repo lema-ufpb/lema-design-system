@@ -139,7 +139,7 @@ export const Default: Story = {
     trend: "up",
     trendValue: "+5.2% vs last week",
     icon: EyeIcon,
-    size: "md",
+    size: "sm",
   },
   parameters: {
     docs: {

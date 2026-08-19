@@ -110,7 +110,7 @@ export const Default: Story = {
     currentLabel: "This month",
     previousLabel: "Last month",
     icon: DollarSignIcon,
-    size: "md",
+    size: "sm",
   },
   parameters: {
     docs: {

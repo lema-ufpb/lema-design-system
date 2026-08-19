@@ -48,7 +48,7 @@ export const cardStatGaugeMaxWVariants = cva("", {
       lg: "max-w-48",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatGaugeValueVariants = cva("", {
@@ -59,7 +59,7 @@ export const cardStatGaugeValueVariants = cva("", {
       lg: "text-4xl font-semibold tracking-tight tabular-nums",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 // ── Helpers ──
@@ -156,7 +156,7 @@ export function CardStatGauge({
   description,
   zones: zonesProp,
   icon: Icon,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,
