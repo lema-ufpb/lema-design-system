@@ -480,7 +480,7 @@ export function RadarChart({
   }
 
   const keys = normalizeKeys(dataKeys)
-  const axisStyle = { fontSize: 12, fill: "var(--muted-foreground)" }
+  const axisStyle = { fontSize: "12px", fill: "var(--muted-foreground)" }
 
   return (
     <div
@@ -514,7 +514,7 @@ export function RadarChart({
 
           {showRadiusAxis && (
             <PolarRadiusAxis
-              tick={{ fontSize: 10, fill: "var(--muted-foreground)" }}
+              tick={{ fontSize: "10px", fill: "var(--muted-foreground)" }}
               axisLine={false}
               tickLine={false}
               tickFormatter={fmt}
