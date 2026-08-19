@@ -28,23 +28,23 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 
 ## API — Props
 
-| Prop           | Tipo                                       | Padrão    | Obrigatória | Descrição                                |
-| -------------- | ------------------------------------------ | --------- | ----------- | ---------------------------------------- |
-| `title`        | `string`                                   | —         |             | Título exibido no header                 |
-| `description`  | `string`                                   | —         |             | Descrição abaixo do título               |
-| `children`     | `ReactNode`                                | —         |             | Conteúdo do body                         |
-| `toolbar`      | `ReactNode`                                | —         |             | Conteúdo custom extra na toolbar         |
-| `size`         | `"sm" \| "md" \| "lg"`                     | `"md"`    |             | Escala de tipografia interna             |
-| `bodyPadding`  | `"none" \| "sm" \| "md" \| "lg"`           | `"md"`    |             | Padding interno do body                  |
-| `loading`      | `boolean`                                  | `false`   |             | Exibe Skeleton no body                   |
-| `status`       | `"live" \| "warning" \| "error" \| "idle"` | —         |             | Exibe badge de status no header          |
-| `locale`       | `UILocale`                                 | `"en-US"` |             | Localização (en-US, pt-BR, es-ES, fr-FR) |
-| `statusLabels` | `Partial<Record<DashboxStatus, string>>`   | —         |             | Sobrescrita de labels de status          |
-| `onRefresh`    | `() => void`                               | —         |             | Callback de refresh (exibe botão)        |
-| `showMaximize` | `boolean`                                  | `true`    |             | Exibe botão maximize/fullscreen          |
-| `showMinimize` | `boolean`                                  | `true`    |             | Exibe botão minimize/collapse            |
-| `showToolbar`  | `boolean`                                  | `true`    |             | Exibe a toolbar inteira                  |
-| `className`    | `string`                                   | —         |             | Classes extras                           |
+| Prop           | Tipo                                                    | Padrão    | Obrigatória | Descrição                                                                                                                        |
+| -------------- | ------------------------------------------------------- | --------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `title`        | `string`                                                | —         |             | Título exibido no header                                                                                                         |
+| `description`  | `string`                                                | —         |             | Descrição abaixo do título                                                                                                       |
+| `children`     | `ReactNode \| (state: DashboxRenderState) => ReactNode` | —         |             | Conteúdo do body. Como função, recebe `{ maximized, minimized }` — usado para redimensionar conteúdo (ex.: gráfico) ao maximizar |
+| `toolbar`      | `ReactNode`                                             | —         |             | Conteúdo custom extra na toolbar                                                                                                 |
+| `size`         | `"sm" \| "md" \| "lg"`                                  | `"md"`    |             | Escala de tipografia interna                                                                                                     |
+| `bodyPadding`  | `"none" \| "sm" \| "md" \| "lg"`                        | `"md"`    |             | Padding interno do body                                                                                                          |
+| `loading`      | `boolean`                                               | `false`   |             | Exibe Skeleton no body                                                                                                           |
+| `status`       | `"live" \| "warning" \| "error" \| "idle"`              | —         |             | Exibe badge de status no header                                                                                                  |
+| `locale`       | `UILocale`                                              | `"en-US"` |             | Localização (en-US, pt-BR, es-ES, fr-FR)                                                                                         |
+| `statusLabels` | `Partial<Record<DashboxStatus, string>>`                | —         |             | Sobrescrita de labels de status                                                                                                  |
+| `onRefresh`    | `() => void`                                            | —         |             | Callback de refresh (exibe botão)                                                                                                |
+| `showMaximize` | `boolean`                                               | `true`    |             | Exibe botão maximize/fullscreen                                                                                                  |
+| `showMinimize` | `boolean`                                               | `true`    |             | Exibe botão minimize/collapse                                                                                                    |
+| `showToolbar`  | `boolean`                                               | `true`    |             | Exibe a toolbar inteira                                                                                                          |
+| `className`    | `string`                                                | —         |             | Classes extras                                                                                                                   |
 
 > Estende `HTMLAttributes<HTMLDivElement>` + `VariantProps<typeof dashboxVariants>`.
 
@@ -103,16 +103,17 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 
 ## Comportamentos e estados
 
-| Estado                           | Comportamento esperado                                                                    |
-| -------------------------------- | ----------------------------------------------------------------------------------------- |
-| `loading={true}`                 | `<Skeleton>` com 4 linhas (3 linhas de texto de 75%/100%/66% largura + 1 bloco h-24 full) |
-| `minimized`                      | Body oculto, header permanece, ícone muda para `Plus`                                     |
-| `maximized`                      | Container fica `fixed inset-0 z-9999 rounded-none`, toolbar mostra `Shrink`               |
-| `refreshing`                     | Botão refresh mostra `animate-spin`                                                       |
-| `status` não informado ou `idle` | Badge não é renderizado                                                                   |
-| Sem `onRefresh`                  | Botão refresh não aparece                                                                 |
-| `showToolbar={false}`            | Toolbar inteira omitida                                                                   |
-| Overflow de texto                | `title` no título com `title` attr nativo                                                 |
+| Estado                           | Comportamento esperado                                                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `loading={true}`                 | `<Skeleton>` com 4 linhas (3 linhas de texto de 75%/100%/66% largura + 1 bloco h-24 full)                                       |
+| `minimized`                      | Body oculto, header permanece, ícone muda para `Plus`                                                                           |
+| `maximized`                      | Container fica `fixed inset-0 z-9999 rounded-none`, toolbar mostra `Shrink`                                                     |
+| `refreshing`                     | Botão refresh mostra `animate-spin`                                                                                             |
+| `status` não informado ou `idle` | Badge não é renderizado                                                                                                         |
+| Sem `onRefresh`                  | Botão refresh não aparece                                                                                                       |
+| `showToolbar={false}`            | Toolbar inteira omitida                                                                                                         |
+| Overflow de texto                | `title` no título com `title` attr nativo                                                                                       |
+| `children` como função           | Recebe `{ maximized, minimized }` a cada render do body — não invocada quando `loading` (Skeleton) ou `minimized` (body oculto) |
 
 ---
 
@@ -141,6 +142,7 @@ Container de dashboard com header (título, descrição, status badge), toolbar 
 - [x] `NoPadding` — No Padding
 - [x] `WithProgressBars` — With Progress Bars
 - [x] `Sizes` — Sizes
+- [x] `MaximizeAwareContent` — Maximize Aware Content
 
 ## Checklist antes de implementar
 

@@ -22,7 +22,7 @@ const meta = {
           "| --- | --- | --- | --- |",
           "| `title` | `string` | — | Panel title |",
           "| `description` | `string` | — | Subtitle below the title |",
-          "| `children` | `ReactNode` | — | Body content |",
+          "| `children` | `ReactNode \\| (state: { maximized, minimized }) => ReactNode` | — | Body content, or a render function reacting to maximize/minimize state |",
           "| `toolbar` | `ReactNode` | — | Custom toolbar actions |",
           "| `size` | `sm` \\| `md` \\| `lg` | `md` | Size preset |",
           "| `bodyPadding` | `none` \\| `sm` \\| `md` \\| `lg` | `md` | Content area padding |",
@@ -415,6 +415,31 @@ export const Sizes: Story = {
     docs: {
       description: {
         story: "Comparison of all three size presets — sm, md, and lg.",
+      },
+    },
+  },
+}
+
+export const MaximizeAwareContent: Story = {
+  args: {
+    title: "Revenue Over Time",
+    description: "Click the fullscreen toggle to see the content react.",
+    children: ({ maximized }) => (
+      <div
+        className="flex w-full items-center justify-center rounded-lg border border-dashed border-border text-muted-foreground transition-all duration-300"
+        style={{ height: maximized ? "70vh" : 220 }}
+      >
+        {maximized
+          ? "Chart at full height — fills the fullscreen viewport"
+          : "Chart at standard height (220px)"}
+      </div>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "`children` can be a function receiving `{ maximized, minimized }`, so content (e.g. a chart) can grow to fill the fullscreen viewport and shrink back to its standard size when restored.",
       },
     },
   },
