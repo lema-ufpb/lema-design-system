@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
+import { measureAxisWidth } from "@/lib/chart-axis-width"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -732,20 +733,25 @@ export function ScatterChart({
     legendPosition === "left" || legendPosition === "right"
 
   const axisStyle = {
-    fontSize: 12,
+    fontSize: "12px",
     fill: "var(--muted-foreground)",
   }
 
   const axisLabelStyle = {
-    fontSize: 11,
+    fontSize: "11px",
     fill: "var(--muted-foreground)",
   }
 
   // Expand chart margins when axis labels are present to avoid clipping
   const marginBottom = xLabel ? 28 : 8
   const marginLeft = yLabel ? 8 : 8
-  // Give the rotated Y-axis label room to breathe away from the tick values
-  const yAxisWidth = yLabel ? 60 : 40
+  // Sized from the actual formatted tick values (not a fixed guess) so
+  // abbreviated currency ("R$ 800,0 mi") never wraps or clips — see
+  // lib/chart-axis-width.ts.
+  const yAxisValues = [0, ...series.flatMap((s) => s.data.map((p) => p.y))]
+  const yAxisWidth = measureAxisWidth(yAxisValues, yFormatter ?? fmt, {
+    padding: yLabel ? 52 : 32,
+  })
   const yAxisLabelOffset = yLabel ? 0 : 8
 
   if (loading) {

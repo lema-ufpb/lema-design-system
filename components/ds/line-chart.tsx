@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
+import { measureAxisWidth } from "@/lib/chart-axis-width"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -636,18 +637,26 @@ export function LineChart({
   const keys = normalizeKeys(dataKeys)
   const isArea = variant !== "line"
   const curveType = CURVE_TYPE[curve]
-  const axisStyle = { fontSize: 12, fill: "var(--muted-foreground)" }
+  const axisStyle = { fontSize: "12px", fill: "var(--muted-foreground)" }
 
   const axisLabelStyle = {
-    fontSize: 11,
+    fontSize: "11px",
     fill: "var(--muted-foreground)",
   }
 
   // Expand chart margins when axis labels are present to avoid clipping
   const marginBottom = xAxisLabel ? 28 : 4
   const marginLeft = yAxisLabel ? 8 : 4
-  // Give the rotated Y-axis label room to breathe away from the tick values
-  const yAxisWidth = yAxisLabel ? 60 : 40
+  // Sized from the actual formatted tick values (not a fixed guess) so
+  // abbreviated currency ("R$ 800,0 mi") never wraps or clips — see
+  // lib/chart-axis-width.ts.
+  const yAxisValues = [
+    0,
+    ...data.flatMap((d) => keys.map((k) => Number(d[k.key]))),
+  ]
+  const yAxisWidth = measureAxisWidth(yAxisValues, fmt, {
+    padding: yAxisLabel ? 52 : 32,
+  })
   const yAxisLabelOffset = yAxisLabel ? 0 : 10
 
   return (
