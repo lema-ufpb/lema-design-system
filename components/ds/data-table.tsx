@@ -1062,7 +1062,7 @@ export function DataTable<TData extends RowData>({
 
       {/* ── Toolbar ── */}
       {hasToolbarRow && (
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 px-4 py-2">
           <div className="flex items-center gap-2">
             {toolbar}
             {showDownload && (
@@ -1086,7 +1086,7 @@ export function DataTable<TData extends RowData>({
               onVoiceStart={onVoiceStart}
               onVoiceEnd={onVoiceEnd}
               onVoiceError={onVoiceError}
-              className="mt-2 mr-2 w-72 min-w-[140px]"
+              className="min-w-140px mt-2 mr-2 w-72"
             />
           )}
         </div>
@@ -1174,12 +1174,14 @@ export function DataTable<TData extends RowData>({
                         }}
                         onClick={header.column.getToggleSortingHandler()}
                       >
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
+                        <span className="min-w-0 flex-1 truncate">
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                        </span>
                         {canSort && (
                           <span
                             className={cn(
@@ -1273,7 +1275,7 @@ export function DataTable<TData extends RowData>({
                         <TableCell
                           key={cell.id}
                           className={cn(
-                            "flex items-center whitespace-nowrap",
+                            "flex items-center overflow-hidden text-ellipsis whitespace-nowrap",
                             pad,
                             font,
                             isSelect && "w-12 shrink-0 justify-center px-0",
