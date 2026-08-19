@@ -28,7 +28,7 @@ export const cardStatTrackHVariants = cva("", {
       lg: "h-4",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export interface CardStatProgressProps extends FormatOptions {
@@ -51,7 +51,7 @@ export function CardStatProgress({
   description,
   icon: Icon,
   showPercent = true,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,

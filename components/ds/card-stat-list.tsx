@@ -29,7 +29,7 @@ export const cardStatListRowPyVariants = cva("", {
       lg: "py-3",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatListTextVariants = cva("", {
@@ -40,7 +40,7 @@ export const cardStatListTextVariants = cva("", {
       lg: "text-base font-medium",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatListValueVariants = cva("", {
@@ -51,7 +51,7 @@ export const cardStatListValueVariants = cva("", {
       lg: "text-base font-semibold tabular-nums",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatListBadgeIconVariants = cva("", {
@@ -62,7 +62,7 @@ export const cardStatListBadgeIconVariants = cva("", {
       lg: "size-3.5",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export interface CardStatListItem extends FormatOptions {
@@ -89,7 +89,7 @@ export function CardStatList({
   label,
   items,
   icon: Icon,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,

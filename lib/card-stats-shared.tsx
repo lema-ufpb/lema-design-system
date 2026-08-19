@@ -22,7 +22,7 @@ export const cardStatLabelVariants = cva("", {
       lg: "text-base font-medium",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatValueVariants = cva("", {
@@ -33,7 +33,7 @@ export const cardStatValueVariants = cva("", {
       lg: "text-3xl font-semibold tracking-tight tabular-nums",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatDescriptionVariants = cva("", {
@@ -44,7 +44,7 @@ export const cardStatDescriptionVariants = cva("", {
       lg: "text-base",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatHeaderIconVariants = cva("", {
@@ -55,7 +55,7 @@ export const cardStatHeaderIconVariants = cva("", {
       lg: "size-5",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatTrendIconVariants = cva("shrink-0", {
@@ -66,7 +66,7 @@ export const cardStatTrendIconVariants = cva("shrink-0", {
       lg: "size-3.5",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatContentGapVariants = cva("", {
@@ -77,7 +77,7 @@ export const cardStatContentGapVariants = cva("", {
       lg: "gap-4",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatBadgePaddingVariants = cva("", {
@@ -88,7 +88,7 @@ export const cardStatBadgePaddingVariants = cva("", {
       lg: "px-2.5 py-1",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatBadgeTextVariants = cva("", {
@@ -99,7 +99,7 @@ export const cardStatBadgeTextVariants = cva("", {
       lg: "text-base font-semibold",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const TREND_ICONS: Record<CardStatTrend, React.ElementType> = {
@@ -127,7 +127,7 @@ export function resolveTrend(
 export function TrendBadge({
   trend,
   value,
-  size = "md",
+  size = "sm",
 }: {
   trend: CardStatTrend
   value: string
@@ -170,7 +170,7 @@ export function CardStatEmptySlot({
   message,
   sub,
   inverted = false,
-  size = "md",
+  size = "sm",
 }: {
   icon: React.ElementType
   message: string
