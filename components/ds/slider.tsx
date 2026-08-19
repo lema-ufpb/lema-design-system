@@ -122,7 +122,11 @@ function Slider({
   }
 
   const sliderElement = (
-    <div className="flex flex-col gap-2" data-slot="ds-slider">
+    <div
+      className="flex flex-col gap-2"
+      data-slot="ds-slider"
+      data-vaul-no-drag
+    >
       {label && (
         <span className="text-sm font-medium text-muted-foreground">
           {label}
