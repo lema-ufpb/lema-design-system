@@ -23,11 +23,23 @@ export type DashboxBodyPadding = "none" | "sm" | "md" | "lg"
 export type DashboxStatus = "live" | "warning" | "error" | "idle"
 export type DashboxLocale = UILocale
 
+/** Read-only toolbar state passed to `children` when used as a render function. */
+export interface DashboxRenderState {
+  maximized: boolean
+  minimized: boolean
+}
+
 export interface DashboxProps
-  extends VariantProps<typeof dashboxVariants>, HTMLAttributes<HTMLDivElement> {
+  extends
+    VariantProps<typeof dashboxVariants>,
+    Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   title?: string
   description?: string
-  children?: ReactNode
+  /**
+   * Body content. Pass a function to react to the toolbar's maximize/minimize
+   * state (e.g. growing a chart to fill the fullscreen viewport).
+   */
+  children?: ReactNode | ((state: DashboxRenderState) => ReactNode)
   toolbar?: ReactNode
   /** @default 'md' */
   bodyPadding?: DashboxBodyPadding
@@ -400,6 +412,8 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
                   <Skeleton className="h-4 w-2/3" />
                   <Skeleton className="h-24 w-full" />
                 </div>
+              ) : typeof children === "function" ? (
+                children({ maximized, minimized })
               ) : (
                 children
               )}
