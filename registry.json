@@ -34,6 +34,20 @@
       ]
     },
     {
+      "name": "chart-axis-width",
+      "type": "registry:lib",
+      "title": "Chart Axis Width",
+      "description": "Canvas-based text measurement that sizes a numeric Recharts axis to fit its actual formatted tick labels (currency, abbreviated units), instead of a fixed guess that wraps or clips long values.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "lib/chart-axis-width.ts",
+          "type": "registry:lib",
+          "target": "lib/chart-axis-width.ts"
+        }
+      ]
+    },
+    {
       "name": "accordion",
       "type": "registry:ui",
       "title": "Accordion",
@@ -1501,7 +1515,8 @@
       "registryDependencies": [
         "skeleton",
         "ui-i18n",
-        "format-utils"
+        "format-utils",
+        "chart-axis-width"
       ],
       "files": [
         {
@@ -1542,7 +1557,8 @@
       "registryDependencies": [
         "skeleton",
         "ui-i18n",
-        "format-utils"
+        "format-utils",
+        "chart-axis-width"
       ],
       "files": [
         {
@@ -1606,7 +1622,8 @@
       "registryDependencies": [
         "skeleton",
         "ui-i18n",
-        "format-utils"
+        "format-utils",
+        "chart-axis-width"
       ],
       "files": [
         {
@@ -1694,7 +1711,8 @@
       "registryDependencies": [
         "skeleton",
         "ui-i18n",
-        "format-utils"
+        "format-utils",
+        "chart-axis-width"
       ],
       "files": [
         {

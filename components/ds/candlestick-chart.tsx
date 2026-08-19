@@ -19,6 +19,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { CandlestickChart as CandlestickIcon } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
+import { measureAxisWidth } from "@/lib/chart-axis-width"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -863,7 +864,15 @@ export function CandlestickChart({
     })
   }, [])
 
-  const axisStyle = { fontSize: 12, fill: "var(--muted-foreground)" }
+  const axisStyle = { fontSize: "12px", fill: "var(--muted-foreground)" }
+  // Sized from the actual formatted tick values (not a fixed guess) so
+  // abbreviated currency ("R$ 800,0 mi") never wraps or clips — see
+  // lib/chart-axis-width.ts.
+  const priceAxisWidth = measureAxisWidth(
+    [0, ...data.flatMap((d) => [d.high, d.low, d.open, d.close])],
+    valueFmt,
+    { min: 56 }
+  )
 
   if (loading) {
     return (
@@ -973,7 +982,7 @@ export function CandlestickChart({
             axisLine={false}
             tickLine={false}
             tickFormatter={valueFmt}
-            width={56}
+            width={priceAxisWidth}
             domain={["auto", "auto"]}
           />
 

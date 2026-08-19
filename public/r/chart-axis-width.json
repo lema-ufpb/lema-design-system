@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-axis-width",
+  "title": "Chart Axis Width",
+  "description": "Canvas-based text measurement that sizes a numeric Recharts axis to fit its actual formatted tick labels (currency, abbreviated units), instead of a fixed guess that wraps or clips long values.",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "lib/chart-axis-width.ts",
+      "content": "/**\n * Estimates the pixel width Recharts should reserve for a numeric axis so\n * formatted tick labels never wrap or get clipped inside a fixed guess like\n * `width={40}`. A hardcoded width works for plain integers but breaks as\n * soon as the axis formats currency/abbreviated values (\"R$ 800,0 mi\") —\n * Recharts' internal `Text` component word-wraps (or drops leading tokens)\n * when the label doesn't fit the given width. Measures the actual formatted\n * candidate values via canvas instead of counting characters, since\n * currency symbols, abbreviation suffixes and decimal separators vary in\n * rendered width per locale/font.\n */\n\nlet measureCanvas: HTMLCanvasElement | null = null\n\nfunction measureTextWidth(text: string, font: string): number {\n  if (typeof document === \"undefined\") return text.length * 7\n  measureCanvas ??= document.createElement(\"canvas\")\n  const ctx = measureCanvas.getContext(\"2d\")\n  if (!ctx) return text.length * 7\n  ctx.font = font\n  return ctx.measureText(text).width\n}\n\n// Recharts' axis <text> has no explicit font-family, so it renders in\n// whatever font the host app applies to <body> (e.g. Inter via\n// next/font/google) — not the browser's generic \"system-ui\" fallback,\n// which measures noticeably narrower for some glyphs and under-reserves\n// axis width. Reading the live computed font keeps the canvas measurement\n// and the actual SVG text in the same typeface.\nfunction bodyFontFamily(): string {\n  if (typeof document === \"undefined\") return \"system-ui, sans-serif\"\n  return getComputedStyle(document.body).fontFamily || \"system-ui, sans-serif\"\n}\n\nexport function measureAxisWidth(\n  values: number[],\n  format: (value: number) => string,\n  options?: {\n    fontSize?: number\n    fontFamily?: string\n    padding?: number\n    min?: number\n  }\n): number {\n  const fontSize = options?.fontSize ?? 12\n  const fontFamily = options?.fontFamily ?? bodyFontFamily()\n  const padding = options?.padding ?? 32\n  const min = options?.min ?? 40\n\n  const finite = values.filter((v) => Number.isFinite(v))\n  if (finite.length === 0) return min\n\n  const font = `${fontSize}px ${fontFamily}`\n  const widest = [...new Set(finite)].reduce(\n    (max, value) => Math.max(max, measureTextWidth(format(value), font)),\n    0\n  )\n  return Math.max(min, Math.ceil(widest) + padding)\n}\n",
+      "type": "registry:lib",
+      "target": "lib/chart-axis-width.ts"
+    }
+  ],
+  "type": "registry:lib"
+}
