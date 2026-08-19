@@ -697,7 +697,7 @@ export function GeoMapChart({
           textAnchor="middle"
           y={-(m.size ?? 5) - 3}
           style={{
-            fontSize: 10,
+            fontSize: "10px",
             fill: "var(--foreground)",
             pointerEvents: "none",
           }}
