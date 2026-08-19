@@ -1174,14 +1174,23 @@ export function DataTable<TData extends RowData>({
                         }}
                         onClick={header.column.getToggleSortingHandler()}
                       >
-                        <span className="min-w-0 flex-1 truncate">
-                          {header.isPlaceholder
-                            ? null
-                            : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
-                        </span>
+                        {isSelect ? (
+                          header.isPlaceholder ? null : (
+                            flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )
+                          )
+                        ) : (
+                          <span className="min-w-0 flex-1 truncate">
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(
+                                  header.column.columnDef.header,
+                                  header.getContext()
+                                )}
+                          </span>
+                        )}
                         {canSort && (
                           <span
                             className={cn(
