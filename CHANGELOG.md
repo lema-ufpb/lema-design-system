@@ -2,7 +2,12 @@
 
 ## [1.6.4](https://github.com/lema-ufpb/design-system/compare/v1.6.3...v1.6.4) (2026-07-20)
 
+
 ### 🐛 Bug Fixes
+
+* update ([7e5dcc8](https://github.com/lema-ufpb/design-system/commit/7e5dcc8a4639d73bef72df3b089fccaf151039c8))
+
+## [1.6.3](https://github.com/lema-ufpb/design-system/compare/v1.6.2...v1.6.3) (2026-07-20)
 
 - update ([7e5dcc8](https://github.com/lema-ufpb/design-system/commit/7e5dcc8a4639d73bef72df3b089fccaf151039c8))
 
