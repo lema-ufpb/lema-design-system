@@ -16,21 +16,21 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/label.tsx` |
-| Tipo | `registry:ui` (name: `label`) |
-| Categoria | Formulário |
+| Campo      | Valor                                  |
+| ---------- | -------------------------------------- |
+| Arquivo    | `components/ui/label.tsx`              |
+| Tipo       | `registry:ui` (name: `label`)          |
+| Categoria  | Formulário                             |
 | Depende de | `radix-ui` (Label), `@/lib/utils` (cn) |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `htmlFor` | `string` | — | Não | ID do elemento associado |
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição                |
+| ----------- | -------- | ------ | ----------- | ------------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais       |
+| `htmlFor`   | `string` | —      | Não         | ID do elemento associado |
 
 Demais props propagadas para `LabelPrimitive.Root`.
 
@@ -38,28 +38,28 @@ Demais props propagadas para `LabelPrimitive.Root`.
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--foreground` | Cor do texto do label |
-| `opacity-50` | Diminuição de opacidade quando disabled/peer-disabled |
+| Token          | Slot                                                  |
+| -------------- | ----------------------------------------------------- |
+| `--foreground` | Cor do texto do label                                 |
+| `opacity-50`   | Diminuição de opacidade quando disabled/peer-disabled |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Normal | Exibe o texto do label com cor `--foreground` |
+| Estado               | Comportamento                                             |
+| -------------------- | --------------------------------------------------------- |
+| Normal               | Exibe o texto do label com cor `--foreground`             |
 | Disabled (grupo pai) | Opacidade 50% via `group-data-[disabled=true]:opacity-50` |
-| Peer disabled | Opacidade 50% quando o input anterior está disabled |
+| Peer disabled        | Opacidade 50% quando o input anterior está disabled       |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Vinculação a input | `htmlFor` com ID do input alvo |
+| Requisito            | Implementação                        |
+| -------------------- | ------------------------------------ |
+| Vinculação a input   | `htmlFor` com ID do input alvo       |
 | Atributo `data-slot` | `data-slot="label"` no elemento raiz |
 
 ---

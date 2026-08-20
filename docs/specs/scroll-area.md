@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/scroll-area.tsx` |
-| Tipo | `registry:ui` (name: `scroll-area`) |
-| Categoria | Layout |
+| Campo      | Valor                                       |
+| ---------- | ------------------------------------------- |
+| Arquivo    | `components/ui/scroll-area.tsx`             |
+| Tipo       | `registry:ui` (name: `scroll-area`)         |
+| Categoria  | Layout                                      |
 | Depende de | `radix-ui` (ScrollArea), `@/lib/utils` (cn) |
 
 ---
@@ -29,47 +29,47 @@
 
 ### ScrollArea
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `React.ReactNode` | — | Sim | Conteúdo com scroll |
+| Prop        | Tipo              | Padrão | Obrigatória | Descrição           |
+| ----------- | ----------------- | ------ | ----------- | ------------------- |
+| `className` | `string`          | —      | Não         | Classes adicionais  |
+| `children`  | `React.ReactNode` | —      | Sim         | Conteúdo com scroll |
 
 ### ScrollBar
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Não | Direção do scroll |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop          | Tipo                         | Padrão       | Obrigatória | Descrição          |
+| ------------- | ---------------------------- | ------------ | ----------- | ------------------ |
+| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Não         | Direção do scroll  |
+| `className`   | `string`                     | —            | Não         | Classes adicionais |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--border` | Cor do thumb do scroll |
+| Token       | Slot                     |
+| ----------- | ------------------------ |
+| `--border`  | Cor do thumb do scroll   |
 | `--ring/50` | Anel de foco no viewport |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Scroll vertical | Barra à direita, `w-2.5` |
-| Scroll horizontal | Barra abaixo, `h-2.5` |
-| Thumb | Arredondado `rounded-full`, cor `--border` |
-| Viewport focus | Anel `--ring/50` |
-| Touch | `touch-none` no scrollbar |
+| Estado            | Comportamento                              |
+| ----------------- | ------------------------------------------ |
+| Scroll vertical   | Barra à direita, `w-2.5`                   |
+| Scroll horizontal | Barra abaixo, `h-2.5`                      |
+| Thumb             | Arredondado `rounded-full`, cor `--border` |
+| Viewport focus    | Anel `--ring/50`                           |
+| Touch             | `touch-none` no scrollbar                  |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Foco de teclado | `focus-visible:ring-[3px]` no viewport |
-| Scroll via teclado | Navegação padrão (setas, PgUp/PgDn) |
+| Requisito          | Implementação                          |
+| ------------------ | -------------------------------------- |
+| Foco de teclado    | `focus-visible:ring-[3px]` no viewport |
+| Scroll via teclado | Navegação padrão (setas, PgUp/PgDn)    |
 
 ---
 

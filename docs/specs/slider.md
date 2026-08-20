@@ -16,27 +16,27 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/slider.tsx` |
-| Tipo | `registry:ui` (name: `slider`) |
-| Categoria | Formulário / Entrada |
-| Depende de | `radix-ui` |
+| Campo      | Valor                          |
+| ---------- | ------------------------------ |
+| Arquivo    | `components/ui/slider.tsx`     |
+| Tipo       | `registry:ui` (name: `slider`) |
+| Categoria  | Formulário / Entrada           |
+| Depende de | `radix-ui`                     |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `defaultValue` | `number[]` | — | Não | Array com valor(es) inicial(is) do(s) polegar(es) |
-| `value` | `number[]` | — | Não | Valor(es) controlado(s) |
-| `min` | `number` | `0` | Não | Valor mínimo do intervalo |
-| `max` | `number` | `100` | Não | Valor máximo do intervalo |
-| `step` | `number` | — | Não | Incremento entre valores |
-| `disabled` | `boolean` | — | Não | Desabilita a interação |
-| `orientation` | `"horizontal" \| "vertical"` | — | Não | Orientação do slider |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop           | Tipo                         | Padrão | Obrigatória | Descrição                                         |
+| -------------- | ---------------------------- | ------ | ----------- | ------------------------------------------------- |
+| `defaultValue` | `number[]`                   | —      | Não         | Array com valor(es) inicial(is) do(s) polegar(es) |
+| `value`        | `number[]`                   | —      | Não         | Valor(es) controlado(s)                           |
+| `min`          | `number`                     | `0`    | Não         | Valor mínimo do intervalo                         |
+| `max`          | `number`                     | `100`  | Não         | Valor máximo do intervalo                         |
+| `step`         | `number`                     | —      | Não         | Incremento entre valores                          |
+| `disabled`     | `boolean`                    | —      | Não         | Desabilita a interação                            |
+| `orientation`  | `"horizontal" \| "vertical"` | —      | Não         | Orientação do slider                              |
+| `className`    | `string`                     | —      | Não         | Classes adicionais                                |
 
 Demais props são herdadas de `SliderPrimitive.Root`.
 
@@ -44,36 +44,36 @@ Demais props são herdadas de `SliderPrimitive.Root`.
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--input / 90%` | Track de fundo |
-| `--primary` | Range preenchido |
-| `--white` | Thumb (polegar) |
-| `--ring / 30%` | Anel de foco/hover do thumb |
+| Token           | Slot                        |
+| --------------- | --------------------------- |
+| `--input / 90%` | Track de fundo              |
+| `--primary`     | Range preenchido            |
+| `--white`       | Thumb (polegar)             |
+| `--ring / 30%`  | Anel de foco/hover do thumb |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Normal** | Track horizontal com range na cor primária e thumbs arredondados |
-| **Hover (thumb)** | `ring-4 ring-ring/30` |
-| **Focus (thumb)** | `ring-4 ring-ring/30` + `outline-hidden` |
-| **Disabled** | `opacity-50` + `pointer-events-none` |
-| **Range (multi-thumb)** | Dois thumbs com range preenchido entre eles |
-| **Vertical** | Track vertical com `data-vertical:h-full data-vertical:w-2`, thumbs e layout vertical |
-| **Com steps** | Thumb snap aos valores do `step` |
+| Estado                  | Comportamento                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------- |
+| **Normal**              | Track horizontal com range na cor primária e thumbs arredondados                      |
+| **Hover (thumb)**       | `ring-4 ring-ring/30`                                                                 |
+| **Focus (thumb)**       | `ring-4 ring-ring/30` + `outline-hidden`                                              |
+| **Disabled**            | `opacity-50` + `pointer-events-none`                                                  |
+| **Range (multi-thumb)** | Dois thumbs com range preenchido entre eles                                           |
+| **Vertical**            | Track vertical com `data-vertical:h-full data-vertical:w-2`, thumbs e layout vertical |
+| **Com steps**           | Thumb snap aos valores do `step`                                                      |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Navegação por teclado | Radix Slider — setas direcionais, Home/End, PageUp/PageDown |
-| ARIA roles | `role="slider"` nativo do Radix, `aria-valuemin`, `aria-valuemax`, `aria-valuenow` |
-| Foco visível | `focus-visible:ring-4 focus-visible:ring-ring/30` |
+| Requisito             | Implementação                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| Navegação por teclado | Radix Slider — setas direcionais, Home/End, PageUp/PageDown                        |
+| ARIA roles            | `role="slider"` nativo do Radix, `aria-valuemin`, `aria-valuemax`, `aria-valuenow` |
+| Foco visível          | `focus-visible:ring-4 focus-visible:ring-ring/30`                                  |
 
 ---
 

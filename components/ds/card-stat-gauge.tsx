@@ -48,7 +48,7 @@ export const cardStatGaugeMaxWVariants = cva("", {
       lg: "max-w-48",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatGaugeValueVariants = cva("", {
@@ -59,7 +59,7 @@ export const cardStatGaugeValueVariants = cva("", {
       lg: "text-4xl font-semibold tracking-tight tabular-nums",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 // ── Helpers ──
@@ -156,7 +156,7 @@ export function CardStatGauge({
   description,
   zones: zonesProp,
   icon: Icon,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,
@@ -281,7 +281,7 @@ export function CardStatGauge({
     )
   }
 
-  const display = applyFormat(value, fmt)
+  const display = applyFormat(value, { ...fmt, locale })
   const pct = Math.min(100, Math.max(0, ((value - min) / (max - min)) * 100))
   const activeZone = zones.find((z) => pct <= z.max) ?? zones[zones.length - 1]
 

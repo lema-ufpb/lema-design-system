@@ -6,8 +6,8 @@
 
 _Mapa coroplético interativo baseado em react-simple-maps (D3). Suporta GeoJSON como objeto ou URL, projeções D3 configuráveis, zoom/pan, marcadores, color range para choropleth, seleção de features com stroke destacado, tooltip por feature/marker, e legenda de gradiente com overlay interativo (hover para inspecionar valor)._
 
-**Usar quando:** Visualizar dados geoespaciais — mapas de calor por região, indicadores por estado/país, localização de pontos de interesse.  
-**Não usar quando:** Dados não-geográficos (usar HeatmapChart ou BarChart), mapa sem polígonos (usar ScatterChart para coordenadas).  
+**Usar quando:** Visualizar dados geoespaciais — mapas de calor por região, indicadores por estado/país, localização de pontos de interesse.
+**Não usar quando:** Dados não-geográficos (usar HeatmapChart ou BarChart), mapa sem polígonos (usar ScatterChart para coordenadas).
 **Alternativa se não se aplicar:** BarChart para ranking por região, HeatmapChart para matriz.
 
 ---

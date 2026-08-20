@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/menubar.tsx` |
-| Tipo | `registry:ui` (name: `menubar`) |
-| Categoria | Navegação / Menu |
+| Campo      | Valor                                                                                  |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ui/menubar.tsx`                                                            |
+| Tipo       | `registry:ui` (name: `menubar`)                                                        |
+| Categoria  | Navegação / Menu                                                                       |
 | Depende de | `radix-ui` (Menubar), `lucide-react` (CheckIcon, ChevronRightIcon), `@/lib/utils` (cn) |
 
 ---
@@ -29,63 +29,63 @@
 
 ### Menubar (Root)
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ### MenubarTrigger
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 ### MenubarContent
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `align` | `"start" \| "center" \| "end"` | `"start"` | Não | Alinhamento do dropdown |
-| `alignOffset` | `number` | `-4` | Não | Offset de alinhamento |
-| `sideOffset` | `number` | `8` | Não | Distância do trigger |
+| Prop          | Tipo                           | Padrão    | Obrigatória | Descrição               |
+| ------------- | ------------------------------ | --------- | ----------- | ----------------------- |
+| `className`   | `string`                       | —         | Não         | Classes adicionais      |
+| `align`       | `"start" \| "center" \| "end"` | `"start"` | Não         | Alinhamento do dropdown |
+| `alignOffset` | `number`                       | `-4`      | Não         | Offset de alinhamento   |
+| `sideOffset`  | `number`                       | `8`       | Não         | Distância do trigger    |
 
 ### MenubarItem
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `inset` | `boolean` | — | Não | Aplica padding esquerdo para alinhamento |
-| `variant` | `"default" \| "destructive"` | `"default"` | Não | Variante visual |
+| Prop      | Tipo                         | Padrão      | Obrigatória | Descrição                                |
+| --------- | ---------------------------- | ----------- | ----------- | ---------------------------------------- |
+| `inset`   | `boolean`                    | —           | Não         | Aplica padding esquerdo para alinhamento |
+| `variant` | `"default" \| "destructive"` | `"default"` | Não         | Variante visual                          |
 
 ### MenubarCheckboxItem
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `checked` | `boolean` | — | Não | Estado marcado |
-| `inset` | `boolean` | — | Não | Padding esquerdo |
+| Prop      | Tipo      | Padrão | Obrigatória | Descrição        |
+| --------- | --------- | ------ | ----------- | ---------------- |
+| `checked` | `boolean` | —      | Não         | Estado marcado   |
+| `inset`   | `boolean` | —      | Não         | Padding esquerdo |
 
 ### MenubarRadioItem
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Valor do item |
-| `inset` | `boolean` | — | Não | Padding esquerdo |
+| Prop    | Tipo      | Padrão | Obrigatória | Descrição        |
+| ------- | --------- | ------ | ----------- | ---------------- |
+| `value` | `string`  | —      | Sim         | Valor do item    |
+| `inset` | `boolean` | —      | Não         | Padding esquerdo |
 
 ### MenubarLabel
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `inset` | `boolean` | — | Não | Padding esquerdo |
+| Prop    | Tipo      | Padrão | Obrigatória | Descrição        |
+| ------- | --------- | ------ | ----------- | ---------------- |
+| `inset` | `boolean` | —      | Não         | Padding esquerdo |
 
 ### MenubarSubTrigger
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `inset` | `boolean` | — | Não | Padding esquerdo |
+| Prop    | Tipo      | Padrão | Obrigatória | Descrição        |
+| ------- | --------- | ------ | ----------- | ---------------- |
+| `inset` | `boolean` | —      | Não         | Padding esquerdo |
 
 ### MenubarShortcut
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição          |
+| ----------- | -------- | ------ | ----------- | ------------------ |
+| `className` | `string` | —      | Não         | Classes adicionais |
 
 Demais sub-componentes (`MenubarMenu`, `MenubarGroup`, `MenubarPortal`, `MenubarRadioGroup`, `MenubarSeparator`, `MenubarSub`, `MenubarSubContent`) propagam props diretamente para o primitivo Radix.
 
@@ -93,39 +93,39 @@ Demais sub-componentes (`MenubarMenu`, `MenubarGroup`, `MenubarPortal`, `Menubar
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--border` | Borda externa da menubar |
-| `--muted` | Hover do trigger |
+| Token                                | Slot                      |
+| ------------------------------------ | ------------------------- |
+| `--border`                           | Borda externa da menubar  |
+| `--muted`                            | Hover do trigger          |
 | `--popover` / `--popover-foreground` | Fundo e texto do dropdown |
-| `--accent` / `--accent-foreground` | Hover/focus nos items |
-| `--destructive` / `--destructive/10` | Variante destrutiva |
-| `--border/50` | Separador |
-| `--muted-foreground` | Label e shortcut |
-| `ring-1 ring-foreground/5` | Anel sutil do popover |
+| `--accent` / `--accent-foreground`   | Hover/focus nos items     |
+| `--destructive` / `--destructive/10` | Variante destrutiva       |
+| `--border/50`                        | Separador                 |
+| `--muted-foreground`                 | Label e shortcut          |
+| `ring-1 ring-foreground/5`           | Anel sutil do popover     |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Hover no trigger | Fundo `--muted` |
-| Menu aberto | Trigger com `aria-expanded` |
-| Focus no item | Fundo `--accent`, texto `--accent-foreground` |
+| Estado                 | Comportamento                                   |
+| ---------------------- | ----------------------------------------------- |
+| Hover no trigger       | Fundo `--muted`                                 |
+| Menu aberto            | Trigger com `aria-expanded`                     |
+| Focus no item          | Fundo `--accent`, texto `--accent-foreground`   |
 | Item destrutivo focado | Fundo `--destructive/10`, texto `--destructive` |
-| Disabled | `pointer-events-none` + `opacity-50` |
-| Inset | Padding esquerdo aumentado via `pl-9.5` |
+| Disabled               | `pointer-events-none` + `opacity-50`            |
+| Inset                  | Padding esquerdo aumentado via `pl-9.5`         |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Navegação por teclado | `radix-ui` Menubar (setas, Enter, Escape) |
-| Roles ARIA | Gerenciado pelo Radix |
-| Item indicator | `MenubarPrimitive.ItemIndicator` com `CheckIcon` |
+| Requisito             | Implementação                                    |
+| --------------------- | ------------------------------------------------ |
+| Navegação por teclado | `radix-ui` Menubar (setas, Enter, Escape)        |
+| Roles ARIA            | Gerenciado pelo Radix                            |
+| Item indicator        | `MenubarPrimitive.ItemIndicator` com `CheckIcon` |
 
 ---
 

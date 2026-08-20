@@ -116,6 +116,7 @@ O LEMA Design System é um sistema de componentes institucional com personalidad
 O sistema rejeita explicitamente o visual genérico de dashboards SaaS (cinza-azulado, cartões idênticos, side-stripe borders, hero-metric templates), o tema Bootstrap (sombra exagerada, glassmorphism decorativo, gradients) e o excesso de decoração (gradient text, grid backgrounds, eyebrows em toda seção). O design serve aos dados, não compete com eles.
 
 **Key Characteristics:**
+
 - Chroma zero como base — fundos e superfícies são neutros verdadeiros, sem tingimento artificial
 - Tipografia mono para dados, sans para navegação e labels
 - Multi-tema (blue, green, violet) para identidade institucional sem perder coerência
@@ -127,10 +128,12 @@ O sistema rejeita explicitamente o visual genérico de dashboards SaaS (cinza-az
 A paleta cromática segue a filosofia "neutralidade como tela em branco": cores verdadeiramente neutras (chroma 0) como base, deixando que os dados falem. Os temas opcionais (blue, green, violet) adicionam personalidade institucional sem quebrar a neutralidade estrutural.
 
 ### Primary
+
 - **Ink** (`oklch(0.205 0 0)`): Título, texto de alto destaque, primary solid backgrounds. O preto quase absoluto garante contraste máximo em light mode.
 - **Ink Dim** (`oklch(0.145 0 0)`): Foreground padrão em light mode. Leitura longa.
 
 ### Neutral
+
 - **Paper** (`oklch(1 0 0)`): Background padrão (light). Branco puro, chroma zero.
 - **Paper Dark** (`oklch(0.145 0 0)`): Background padrão (dark). Preto quase absoluto.
 - **Surface** (`oklch(0.97 0 0)`): Secondary, muted, accent backgrounds. Cartões e superfícies elevadas.
@@ -139,22 +142,26 @@ A paleta cromática segue a filosofia "neutralidade como tela em branco": cores 
 - **Muted Ink** (`oklch(0.48 0 0)`): Texto secundário, labels, placeholders.
 
 ### Accent (semantic)
+
 - **Success** (`oklch(0.55 0.17 155)`): Indicadores positivos, crescimento, completo.
 - **Warning** (`oklch(0.75 0.18 75)`): Atenção, alertas moderados.
 - **Destructive** (`oklch(0.577 0.245 27.325)`): Erro, perigo, remoção.
 
 ### Risk
+
 - **Risk 1** (`oklch(0.62 0.19 28)`): Risco máximo (vermelho).
 - **Risk 2** (`oklch(0.72 0.17 50)`): Risco alto (laranja).
 - **Risk 3** (`oklch(0.85 0.18 85)`): Risco médio (amarelo).
 - **Risk 4** (`oklch(0.92 0.15 105)`): Risco baixo (lima).
 
 ### Highlights
+
 - **Highlight Violet** (`oklch(0.55 0.22 290)`): Destaque para cards e gráficos.
 - **Highlight Sky** (`oklch(0.58 0.18 240)`): Destaque alternativo.
 - **Highlight White** (`oklch(1 0 0)`): Destaque overlay.
 
 ### Chart
+
 - **Chart 1–5**: Paleta multicolorida neutra (azul, laranja, verde, roxo, ciano) com chroma 0.09–0.14. Substituída pelos temas opcionais (blue, green, violet) que aplicam sua própria família de matiz.
 
 ### Named Rules
@@ -171,6 +178,7 @@ A paleta cromática segue a filosofia "neutralidade como tela em branco": cores 
 **Character:** Uma só família sem serifa (Inter) para todo o texto — display, headline, body, label. A distinção visual vem de peso, tamanho e cor, não de troca de fonte. Geist Mono é reservado exclusivamente para dados, métricas, código e valores tabulares, reforçando a leitura técnica onde ela é necessária.
 
 ### Hierarchy
+
 - **Display** (700, `clamp(1.75rem, 3vw, 2.5rem)`, 1.2, -0.03em): Títulos de página e cabeçalhos de dashboard. Uso esparso — uma ocorrência por tela.
 - **Headline** (600, `clamp(1.25rem, 2vw, 1.75rem)`, 1.3): Títulos de seção e cards.
 - **Title** (600, `clamp(1rem, 1.5vw, 1.25rem)`, 1.4): Subtítulos, nomes de widget, títulos de tabela.
@@ -179,7 +187,9 @@ A paleta cromática segue a filosofia "neutralidade como tela em branco": cores 
 - **Mono** (400, `0.8125rem`, 1.5): Dados numéricos, código, timestamps, valores financeiros. Sempre `tabular-nums` ativado.
 
 ### Scale Conventions (sm/md/lg)
+
 Usar esta tabela em componentes com variante de tamanho:
+
 - Label/Nome sm: `text-xs (0.75rem) font-medium` → md: `text-sm (0.875rem) font-medium` → lg: `text-base (1rem) font-medium`
 - Valor/Número sm: `text-xs (0.75rem) font-semibold` → md: `text-sm (0.875rem) font-semibold` → lg: `text-base (1rem) font-semibold`
 
@@ -232,6 +242,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 ## 7. Components
 
 ### Buttons (ds/button)
+
 - **Shape:** `rounded-md` (0.5rem) ou `rounded-lg` (0.625rem) via variante `rounded`
 - **Primary:** Background `bg-primary`, texto `text-primary-foreground`, padding `h-9 px-4` (md)
 - **Hover / Focus:** Darken bg em 10%, outline ring no foco via teclado
@@ -241,6 +252,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 - **Extra:** `startIcon`, `endIcon` (Lucide, `size-4`), `loading`, `debounceMs`, `tooltip`, `fullWidth`
 
 ### Input Fields (ds/input, ds/input-email, ds/input-password)
+
 - **Shape:** `rounded-md` (0.5rem)
 - **Style:** Border `border-input` (oklch 0.922 0 0), bg `bg-background`, text `text-foreground`
 - **Focus:** Ring `ring-ring` (oklch 0.708 0 0) com outline offset 2px
@@ -251,6 +263,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 - **Input-password:** Toggle show/hide + force logout em múltiplas abas via BroadcastChannel
 
 ### Cards (card-stat, card-icon, mini-card)
+
 - **Shape:** `rounded-lg` (0.625rem)
 - **Background:** `bg-card` (white / dark surface)
 - **Shadow:** Nenhuma em repouso. Opcional `shadow-sm` apenas quando interativo
@@ -259,6 +272,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 - **Variações:** card-stat (métrica + label + ícone), card-stat-comparison (métrica + delta), card-icon (ícone + título), mini-card (compacto)
 
 ### Data Table (ds/data-table)
+
 - **Header:** `bg-muted`, `text-muted-foreground`, `font-medium`, `text-sm`
 - **Row height:** `h-10` (standard) / `h-8` (compact)
 - **Células numéricas:** `tabular-nums`, `text-right`
@@ -268,22 +282,26 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 - **Sort:** Indicador de direção no header, via @tanstack/react-table
 
 ### Dashboard Widgets (dashbox, dashrow)
+
 - **dashbox:** Container de widget com header (título + ações), corpo, footer. Padding `p-4`, gap `gap-4`
 - **dashrow:** Linha horizontal de dashboxes, gap `gap-4`, responsivo via grid `auto-fit`
 
 ### Charts (bar-chart, pie-chart, line-chart, etc.)
+
 - **Wrapper:** shadcn Chart com `--chart-1` a `--chart-5`
 - **Tooltip:** Sempre presente, com valor formatado + label
 - **Eixos:** `text-muted-foreground`, `text-xs`
 - **Espaçamento:** `p-4` mínimo ao redor do canvas
 
 ### Badge / Pill (ds/badge, ds/pill-group)
+
 - **Shape:** `rounded-full` (pill)
 - **Tamanhos:** sm (`text-xs px-1.5 py-0.5`), md (`text-xs px-2 py-0.5`), lg (`text-sm px-2.5 py-1`)
 - **Variants:** default, secondary, destructive, outline, success, warning
 - **Pill-group:** Grupo horizontal de pills com gap, wrap responsivo
 
 ### Modal / Dialog (ds/modal)
+
 - **Shape:** `rounded-xl` (0.875rem)
 - **Overlay:** `bg-black/50`, `backdrop-blur-sm`
 - **Padding:** `p-6`
@@ -291,6 +309,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 - **Footer:** Alinhado à direita, gap `gap-2`
 
 ### Navigation (nav-user, tabs, select, combobox)
+
 - **Nav-user:** Avatar + nome + email + dropdown de ações. Sem sombra, separado por `border-t` ou `bg-muted`
 - **Tabs:** `text-sm`, `font-medium`, active `text-foreground border-b-2 border-primary`, inactive `text-muted-foreground`
 - **Select / Combobox:** Trigger com `justify-between`, chevron `size-4`, dropdown com `shadow-md` + `rounded-md`
@@ -298,6 +317,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 ## 8. Do's and Don'ts
 
 ### Do:
+
 - **Do** usar chroma zero para fundos, superfícies e texto estrutural. A tela em branco é o canvas dos dados.
 - **Do** usar `tabular-nums` em todas as células de valor, métricas e dados financeiros.
 - **Do** usar `gap-*` para espaçamento — nunca `space-y-*` ou `space-x-*`.
@@ -309,6 +329,7 @@ A linguagem de formas é definida por **arestas suaves e consistentes**, com rai
 - **Do** colocar todo texto visível no dicionário i18n (`lib/ui-i18n.ts`).
 
 ### Don't:
+
 - **Don't** alterar o código-fonte de `components/ui/` — esses componentes são gerenciados exclusivamente pelo CLI shadcn.
 - **Don't** usar side-stripe borders (`border-left > 1px` colorido) em cards, listas ou callouts.
 - **Don't** usar gradient text (`background-clip: text` + gradient).

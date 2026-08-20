@@ -18,67 +18,67 @@ O Badge é um elemento de interface compacto que comunica status, categorias ou 
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/badge.tsx` |
-| Tipo | `registry:ui` (name: `badge`) |
-| Categoria | Data Display |
-| Depende de | Nenhuma |
+| Campo      | Valor                         |
+| ---------- | ----------------------------- |
+| Arquivo    | `components/ui/badge.tsx`     |
+| Tipo       | `registry:ui` (name: `badge`) |
+| Categoria  | Data Display                  |
+| Depende de | Nenhuma                       |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"` | `"default"` | Não | Variante visual |
-| `asChild` | `boolean` | `false` | Não | Renderiza como elemento filho via Slot |
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Conteúdo do badge |
+| Prop        | Tipo                                                                          | Padrão      | Obrigatória | Descrição                              |
+| ----------- | ----------------------------------------------------------------------------- | ----------- | ----------- | -------------------------------------- |
+| `variant`   | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"` | `"default"` | Não         | Variante visual                        |
+| `asChild`   | `boolean`                                                                     | `false`     | Não         | Renderiza como elemento filho via Slot |
+| `className` | `string`                                                                      | —           | Não         | Classes adicionais                     |
+| `children`  | `ReactNode`                                                                   | —           | Não         | Conteúdo do badge                      |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--primary` | Fundo da variante default |
-| `--primary-foreground` | Texto da variante default |
-| `--secondary` | Fundo da variante secondary |
-| `--secondary-foreground` | Texto da variante secondary |
-| `--destructive` | Texto e background translúcido da variante destructive |
-| `--border` | Borda da variante outline |
-| `--muted` / `--muted-foreground` | Hover da variante ghost/outline quando âncora |
-| `--ring` | Focus ring (`focus-visible:border-ring focus-visible:ring-[3px]`) |
+| Token                            | Slot onde é usado                                                 |
+| -------------------------------- | ----------------------------------------------------------------- |
+| `--primary`                      | Fundo da variante default                                         |
+| `--primary-foreground`           | Texto da variante default                                         |
+| `--secondary`                    | Fundo da variante secondary                                       |
+| `--secondary-foreground`         | Texto da variante secondary                                       |
+| `--destructive`                  | Texto e background translúcido da variante destructive            |
+| `--border`                       | Borda da variante outline                                         |
+| `--muted` / `--muted-foreground` | Hover da variante ghost/outline quando âncora                     |
+| `--ring`                         | Focus ring (`focus-visible:border-ring focus-visible:ring-[3px]`) |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Default | Fundo `bg-primary`, texto `text-primary-foreground` |
-| Secondary | Fundo `bg-secondary`, texto `text-secondary-foreground` |
-| Destructive | Texto `text-destructive`, fundo `bg-destructive/10` (light) / `bg-destructive/20` (dark) |
-| Outline | Borda `border-border`, texto `text-foreground`, hover com `bg-muted` |
-| Ghost | Fundo transparente, `hover:bg-muted hover:text-muted-foreground` |
-| Link | Texto `text-primary` com `hover:underline` |
-| Com ícone inline-start | Padding esquerdo reduzido via `has-data-[icon=inline-start]:pl-1.5` |
-| Com ícone inline-end | Padding direito reduzido via `has-data-[icon=inline-end]:pr-1.5` |
-| Focus visible | `focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50` |
-| Aria-invalid | Borda e ring em `--destructive` |
+| Estado                 | Comportamento esperado                                                                   |
+| ---------------------- | ---------------------------------------------------------------------------------------- |
+| Default                | Fundo `bg-primary`, texto `text-primary-foreground`                                      |
+| Secondary              | Fundo `bg-secondary`, texto `text-secondary-foreground`                                  |
+| Destructive            | Texto `text-destructive`, fundo `bg-destructive/10` (light) / `bg-destructive/20` (dark) |
+| Outline                | Borda `border-border`, texto `text-foreground`, hover com `bg-muted`                     |
+| Ghost                  | Fundo transparente, `hover:bg-muted hover:text-muted-foreground`                         |
+| Link                   | Texto `text-primary` com `hover:underline`                                               |
+| Com ícone inline-start | Padding esquerdo reduzido via `has-data-[icon=inline-start]:pl-1.5`                      |
+| Com ícone inline-end   | Padding direito reduzido via `has-data-[icon=inline-end]:pr-1.5`                         |
+| Focus visible          | `focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50`          |
+| Aria-invalid           | Borda e ring em `--destructive`                                                          |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Contraste de cor | Variantes usam `bg-primary`/`text-primary-foreground` para legibilidade |
-| Focus visible | `focus-visible:border-ring focus-visible:ring-[3px]` para navegação por teclado |
-| asChild | Permite renderizar como `<a>` para links semânticos |
-| Ícones | `pointer-events-none` nos SVGs para não interferir na interação |
-| Aria-invalid | Suporte a `aria-invalid` com estilos destrutivos |
+| Requisito        | Implementação                                                                   |
+| ---------------- | ------------------------------------------------------------------------------- |
+| Contraste de cor | Variantes usam `bg-primary`/`text-primary-foreground` para legibilidade         |
+| Focus visible    | `focus-visible:border-ring focus-visible:ring-[3px]` para navegação por teclado |
+| asChild          | Permite renderizar como `<a>` para links semânticos                             |
+| Ícones           | `pointer-events-none` nos SVGs para não interferir na interação                 |
+| Aria-invalid     | Suporte a `aria-invalid` com estilos destrutivos                                |
 
 ---
 

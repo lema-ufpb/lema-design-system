@@ -18,42 +18,42 @@ Campo de busca com dropdown de resultados, virtual scrolling, destaque de texto 
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/search-combo.tsx` (single-file, flattened de diretório multi-file) |
-| data-slot | `search-combo` | | |
-| Arquivos auxiliares | `components/ds/search-combo.stories.tsx` | | |
-| Hook | `@/hooks/use-speech-recognition` (compartilhado) |
-| Tipo | `registry:ui` |
-| Categoria | `Navigation` |
-| Depende de | `radix-ui`, `@tanstack/react-virtual`, `Spinner` (custom), `useSpeechRecognition` (hook compartilhado) |
+| Campo               | Valor                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------ |
+| Arquivo             | `components/ds/search-combo.tsx` (single-file, flattened de diretório multi-file)                      |
+| data-slot           | `search-combo`                                                                                         |     |     |
+| Arquivos auxiliares | `components/ds/search-combo.stories.tsx`                                                               |     |     |
+| Hook                | `@/hooks/use-speech-recognition` (compartilhado)                                                       |
+| Tipo                | `registry:ui`                                                                                          |
+| Categoria           | `Navigation`                                                                                           |
+| Depende de          | `radix-ui`, `@tanstack/react-virtual`, `Spinner` (custom), `useSpeechRecognition` (hook compartilhado) |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | ✓ | Valor controlado do input |
-| `onChange` | `(value: string) => void` | — | ✓ | Callback de mudança |
-| `onSearch` | `(value: string) => void` | — | | Callback de submit/enter |
-| `options` | `SearchComboItem[]` | — | | Itens do dropdown |
-| `onSelectResult` | `(item: SearchComboItem) => void` | — | | Callback de seleção de item |
-| `placeholder` | `string` | — | | Placeholder (fallback i18n: `UI_I18N[locale].searchCombo.placeholder`) |
-| `button` | `boolean` | `true` | | Mostrar botão submit |
-| `rounded` | `boolean` | `false` | | Borda pill (rounded-full) |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | | Tamanho |
-| `border` | `boolean` | `false` | | Modo borda destaque com bg-muted |
-| `disabled` | `boolean` | `false` | | Desabilitado |
-| `loading` | `boolean` | `false` | | Loading (spinner no lugar do ícone) |
-| `autoFocus` | `boolean` | `true` | | Auto focus no mount |
-| `label` | `string` | — | | Aria label do landmark (fallback i18n: `UI_I18N[locale].searchCombo.label`) |
-| `emptyMessage` | `string` | — | | Mensagem sem resultados (fallback i18n: `UI_I18N[locale].searchCombo.noResults`) |
-| `voice` | `boolean` | `false` | | Habilitar reconhecimento de voz |
-| `onVoiceStart` | `() => void` | — | | Callback início de gravação |
-| `onVoiceEnd` | `() => void` | — | | Callback fim de gravação |
-| `onVoiceError` | `(error: string) => void` | — | | Callback erro de voz |
-| `locale` | `UILocale` | — | | Localização para labels de busca |
+| Prop             | Tipo                              | Padrão  | Obrigatória | Descrição                                                                        |
+| ---------------- | --------------------------------- | ------- | ----------- | -------------------------------------------------------------------------------- |
+| `value`          | `string`                          | —       | ✓           | Valor controlado do input                                                        |
+| `onChange`       | `(value: string) => void`         | —       | ✓           | Callback de mudança                                                              |
+| `onSearch`       | `(value: string) => void`         | —       |             | Callback de submit/enter                                                         |
+| `options`        | `SearchComboItem[]`               | —       |             | Itens do dropdown                                                                |
+| `onSelectResult` | `(item: SearchComboItem) => void` | —       |             | Callback de seleção de item                                                      |
+| `placeholder`    | `string`                          | —       |             | Placeholder (fallback i18n: `UI_I18N[locale].searchCombo.placeholder`)           |
+| `button`         | `boolean`                         | `true`  |             | Mostrar botão submit                                                             |
+| `rounded`        | `boolean`                         | `false` |             | Borda pill (rounded-full)                                                        |
+| `size`           | `"sm" \| "md" \| "lg"`            | `"md"`  |             | Tamanho                                                                          |
+| `border`         | `boolean`                         | `false` |             | Modo borda destaque com bg-muted                                                 |
+| `disabled`       | `boolean`                         | `false` |             | Desabilitado                                                                     |
+| `loading`        | `boolean`                         | `false` |             | Loading (spinner no lugar do ícone)                                              |
+| `autoFocus`      | `boolean`                         | `true`  |             | Auto focus no mount                                                              |
+| `label`          | `string`                          | —       |             | Aria label do landmark (fallback i18n: `UI_I18N[locale].searchCombo.label`)      |
+| `emptyMessage`   | `string`                          | —       |             | Mensagem sem resultados (fallback i18n: `UI_I18N[locale].searchCombo.noResults`) |
+| `voice`          | `boolean`                         | `false` |             | Habilitar reconhecimento de voz                                                  |
+| `onVoiceStart`   | `() => void`                      | —       |             | Callback início de gravação                                                      |
+| `onVoiceEnd`     | `() => void`                      | —       |             | Callback fim de gravação                                                         |
+| `onVoiceError`   | `(error: string) => void`         | —       |             | Callback erro de voz                                                             |
+| `locale`         | `UILocale`                        | —       |             | Localização para labels de busca                                                 |
 
 Estende `Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "onSelect" | "results">`.
 
@@ -68,125 +68,135 @@ Quando `locale` é fornecido, os defaults de `placeholder`, `label`, `emptyMessa
 Múltiplos slots, cada um com seu próprio `cva()`:
 
 ### searchComboWrapperVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `size` | `sm`, `md`, `lg` | `md` |
-| `loading` | `true`, `false` | `false` |
+
+| Dimensão  | Valores          | Padrão  |
+| --------- | ---------------- | ------- |
+| `size`    | `sm`, `md`, `lg` | `md`    |
+| `loading` | `true`, `false`  | `false` |
 
 ### searchComboInputWrapperVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `size` | `sm`, `md`, `lg` | `md` |
-| `rounded` | `true`, `false` | `false` |
-| `border` | `true`, `false` | `false` |
-| `disabled` | `true`, `false` | `false` |
-| `loading` | `true`, `false` | `false` |
+
+| Dimensão   | Valores          | Padrão  |
+| ---------- | ---------------- | ------- |
+| `size`     | `sm`, `md`, `lg` | `md`    |
+| `rounded`  | `true`, `false`  | `false` |
+| `border`   | `true`, `false`  | `false` |
+| `disabled` | `true`, `false`  | `false` |
+| `loading`  | `true`, `false`  | `false` |
 
 ### searchComboInputVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `size` | `sm`, `md`, `lg` | `md` |
-| `border` | `true`, `false` | `false` |
+
+| Dimensão | Valores          | Padrão  |
+| -------- | ---------------- | ------- |
+| `size`   | `sm`, `md`, `lg` | `md`    |
+| `border` | `true`, `false`  | `false` |
 
 ### searchComboIconWrapperVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
+
+| Dimensão | Valores         | Padrão  |
+| -------- | --------------- | ------- |
 | `border` | `true`, `false` | `false` |
 
 ### searchComboActionButtonVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
+
+| Dimensão | Valores         | Padrão  |
+| -------- | --------------- | ------- |
 | `border` | `true`, `false` | `false` |
 
 ### searchComboSearchButtonVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `size` | `sm`, `md`, `lg` | `md` |
+
+| Dimensão  | Valores                                | Padrão  |
+| --------- | -------------------------------------- | ------- |
+| `size`    | `sm`, `md`, `lg`                       | `md`    |
 | `rounded` | `true`, `false` (ambos `rounded-none`) | `false` |
 
 ### searchComboResultItemVariants
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
+
+| Dimensão | Valores         | Padrão  |
+| -------- | --------------- | ------- |
 | `active` | `true`, `false` | `false` |
 
 ### searchComboHighlightVariants (sem variants — única classe)
+
 ### searchComboGroupHeaderVariants (sem variants — única classe)
+
 ### searchComboResultsListVariants (sem variants — única classe)
+
 ### searchComboEmptyVariants (sem variants — única classe)
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `bg-background` | input wrapper |
-| `bg-muted/50` | border mode fundo |
-| `bg-muted` | disabled |
-| `bg-accent` | item ativo/hover |
-| `bg-popover` | dropdown list |
-| `bg-primary/15` | highlight match |
-| `text-foreground` | input texto |
-| `text-muted-foreground` | ícone busca, placeholder, subtítulo, empty |
-| `text-primary` | highlight match, border mode ícone |
-| `text-primary-foreground` | botão submit texto |
-| `text-popover-foreground` | texto do item |
-| `text-destructive` | voice recording active |
-| `border-input` | input wrapper |
-| `border-border/80` | dropdown border |
-| `border-border/50` | item divisor |
-| `ring-ring/20` | focus ring |
-| `ring-primary/20` | border mode focus ring |
+| Token                     | Slot onde é usado                          |
+| ------------------------- | ------------------------------------------ |
+| `bg-background`           | input wrapper                              |
+| `bg-muted/50`             | border mode fundo                          |
+| `bg-muted`                | disabled                                   |
+| `bg-accent`               | item ativo/hover                           |
+| `bg-popover`              | dropdown list                              |
+| `bg-primary/15`           | highlight match                            |
+| `text-foreground`         | input texto                                |
+| `text-muted-foreground`   | ícone busca, placeholder, subtítulo, empty |
+| `text-primary`            | highlight match, border mode ícone         |
+| `text-primary-foreground` | botão submit texto                         |
+| `text-popover-foreground` | texto do item                              |
+| `text-destructive`        | voice recording active                     |
+| `border-input`            | input wrapper                              |
+| `border-border/80`        | dropdown border                            |
+| `border-border/50`        | item divisor                               |
+| `ring-ring/20`            | focus ring                                 |
+| `ring-primary/20`         | border mode focus ring                     |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Wrapper | `text-sm` | `text-base` | `text-lg` |
-| Input wrapper | `h-8 min-h-8` | `h-10 min-h-10` | `h-12 min-h-12` |
-| Input font | `text-sm` | `text-base` | `text-lg` |
+| Slot          | sm                            | md                          | lg                            |
+| ------------- | ----------------------------- | --------------------------- | ----------------------------- |
+| Wrapper       | `text-sm`                     | `text-base`                 | `text-lg`                     |
+| Input wrapper | `h-8 min-h-8`                 | `h-10 min-h-10`             | `h-12 min-h-12`               |
+| Input font    | `text-sm`                     | `text-base`                 | `text-lg`                     |
 | Submit button | `text-sm px-2.5 self-stretch` | `text-sm px-3 self-stretch` | `text-base px-4 self-stretch` |
-| Item height | `40px` (56px com subtitle) | — | — |
-| Group header | `32px` | — | — |
-| Max dropdown | `200px` | — | — |
+| Item height   | `40px` (56px com subtitle)    | —                           | —                             |
+| Group header  | `32px`                        | —                           | —                             |
+| Max dropdown  | `200px`                       | —                           | —                             |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `Spinner` no lugar do ícone Search; `pointer-events-none` no wrapper; `animate-pulse` no input wrapper |
-| `disabled={true}` | Input desabilitado; opacidade; cursor not-allowed |
-| `focused + options.length > 0` | Dropdown aberto com resultados |
-| `focused + value.length > 0 + options.length === 0` | Dropdown aberto com empty state |
-| `value.trim().length > 0` | Botão clear visível |
-| `voice + hasSpeechSupport` | Botão microfone visível; `text-destructive animate-pulse` quando gravando |
-| Enter sem dropdown | `onSearch` chamado |
-| Enter com dropdown | Item ativo selecionado |
-| Highlight | Separa texto em partes, renderiza `<mark>` nas correspondências (acentuação insensitive) |
-| Agrupamento | Group headers com labels uppercase |
-| Virtual scrolling | `@tanstack/react-virtual` com overscan 3 |
-| Scroll to index | `virtualizer.scrollToIndex` para item ativo |
+| Estado                                              | Comportamento esperado                                                                                 |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `loading={true}`                                    | `Spinner` no lugar do ícone Search; `pointer-events-none` no wrapper; `animate-pulse` no input wrapper |
+| `disabled={true}`                                   | Input desabilitado; opacidade; cursor not-allowed                                                      |
+| `focused + options.length > 0`                      | Dropdown aberto com resultados                                                                         |
+| `focused + value.length > 0 + options.length === 0` | Dropdown aberto com empty state                                                                        |
+| `value.trim().length > 0`                           | Botão clear visível                                                                                    |
+| `voice + hasSpeechSupport`                          | Botão microfone visível; `text-destructive animate-pulse` quando gravando                              |
+| Enter sem dropdown                                  | `onSearch` chamado                                                                                     |
+| Enter com dropdown                                  | Item ativo selecionado                                                                                 |
+| Highlight                                           | Separa texto em partes, renderiza `<mark>` nas correspondências (acentuação insensitive)               |
+| Agrupamento                                         | Group headers com labels uppercase                                                                     |
+| Virtual scrolling                                   | `@tanstack/react-virtual` com overscan 3                                                               |
+| Scroll to index                                     | `virtualizer.scrollToIndex` para item ativo                                                            |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | Container `role="search"` + `aria-label` |
-| Combobox | Input `role="combobox"` + `aria-expanded` + `aria-autocomplete="list"` + `aria-controls` |
-| Active descendant | `aria-activedescendant` apontando para `${listboxId}-option-${index}` |
-| Listbox | `<ul role="listbox">` com `aria-label` |
-| Opções | `<li role="option">` + `aria-selected` |
-| Group headers | `<li role="presentation">` |
-| Botão clear | `aria-label` dinâmico (fallback i18n: `UI_I18N[locale].searchCombo.clearSearch`) |
-| Botão voz | `aria-label` dinâmico ("Stop recording" / "Search by voice" ou `UI_I18N[locale].searchCombo.*`) |
-| Teclado | `ArrowDown`/`ArrowUp` navega, `Enter` seleciona, `Escape` fecha |
-| i18n | `UI_I18N[locale].searchCombo.*` para placeholder, label, emptyMessage, aria-labels |
+| Requisito         | Implementação                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| Role semântico    | Container `role="search"` + `aria-label`                                                        |
+| Combobox          | Input `role="combobox"` + `aria-expanded` + `aria-autocomplete="list"` + `aria-controls`        |
+| Active descendant | `aria-activedescendant` apontando para `${listboxId}-option-${index}`                           |
+| Listbox           | `<ul role="listbox">` com `aria-label`                                                          |
+| Opções            | `<li role="option">` + `aria-selected`                                                          |
+| Group headers     | `<li role="presentation">`                                                                      |
+| Botão clear       | `aria-label` dinâmico (fallback i18n: `UI_I18N[locale].searchCombo.clearSearch`)                |
+| Botão voz         | `aria-label` dinâmico ("Stop recording" / "Search by voice" ou `UI_I18N[locale].searchCombo.*`) |
+| Teclado           | `ArrowDown`/`ArrowUp` navega, `Enter` seleciona, `Escape` fecha                                 |
+| i18n              | `UI_I18N[locale].searchCombo.*` para placeholder, label, emptyMessage, aria-labels              |
 
 ---
 

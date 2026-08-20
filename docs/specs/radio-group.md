@@ -16,11 +16,11 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/radio-group.tsx` |
-| Tipo | `registry:ui` (name: `radio-group`) |
-| Categoria | Formulário |
+| Campo      | Valor                                       |
+| ---------- | ------------------------------------------- |
+| Arquivo    | `components/ui/radio-group.tsx`             |
+| Tipo       | `registry:ui` (name: `radio-group`)         |
+| Categoria  | Formulário                                  |
 | Depende de | `radix-ui` (RadioGroup), `@/lib/utils` (cn) |
 
 ---
@@ -29,55 +29,55 @@
 
 ### RadioGroup
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `defaultValue` | `string` | — | Não | Valor selecionado inicial |
-| `value` | `string` | — | Não | Valor controlado |
-| `onValueChange` | `(value: string) => void` | — | Não | Callback de mudança |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop            | Tipo                      | Padrão | Obrigatória | Descrição                 |
+| --------------- | ------------------------- | ------ | ----------- | ------------------------- |
+| `defaultValue`  | `string`                  | —      | Não         | Valor selecionado inicial |
+| `value`         | `string`                  | —      | Não         | Valor controlado          |
+| `onValueChange` | `(value: string) => void` | —      | Não         | Callback de mudança       |
+| `className`     | `string`                  | —      | Não         | Classes adicionais        |
 
 ### RadioGroupItem
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Valor do item |
-| `id` | `string` | — | Não | ID para vinculo com Label |
-| `disabled` | `boolean` | — | Não | Estado desabilitado |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo      | Padrão | Obrigatória | Descrição                 |
+| ----------- | --------- | ------ | ----------- | ------------------------- |
+| `value`     | `string`  | —      | Sim         | Valor do item             |
+| `id`        | `string`  | —      | Não         | ID para vinculo com Label |
+| `disabled`  | `boolean` | —      | Não         | Estado desabilitado       |
+| `className` | `string`  | —      | Não         | Classes adicionais        |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--input` / `--input/90` | Fundo do círculo não checado |
-| `--primary` / `--primary-foreground` | Círculo checado e indicador |
-| `--ring` / `--ring/30` | Anel de foco |
-| `--destructive` / `--destructive/20` | Borda/ring de erro |
+| Token                                | Slot                         |
+| ------------------------------------ | ---------------------------- |
+| `--input` / `--input/90`             | Fundo do círculo não checado |
+| `--primary` / `--primary-foreground` | Círculo checado e indicador  |
+| `--ring` / `--ring/30`               | Anel de foco                 |
+| `--destructive` / `--destructive/20` | Borda/ring de erro           |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Não checado | Borda transparente, fundo `--input/90` |
-| Checado | Fundo `--primary`, indicador `--primary-foreground` |
-| Focus | Borda `--ring`, anel `--ring/30` |
-| Disabled | `opacity-50`, `cursor-not-allowed` |
-| Invalid | Borda `--destructive`, anel `--destructive/20` |
+| Estado      | Comportamento                                       |
+| ----------- | --------------------------------------------------- |
+| Não checado | Borda transparente, fundo `--input/90`              |
+| Checado     | Fundo `--primary`, indicador `--primary-foreground` |
+| Focus       | Borda `--ring`, anel `--ring/30`                    |
+| Disabled    | `opacity-50`, `cursor-not-allowed`                  |
+| Invalid     | Borda `--destructive`, anel `--destructive/20`      |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Vinculação com Label | `id` no item + `htmlFor` no Label |
-| Role radiogroup | Gerenciado pelo Radix |
-| Navegação por teclado | Setas direcionais (Radix) |
-| Estados | `data-checked`, `aria-invalid`, `disabled` |
+| Requisito             | Implementação                              |
+| --------------------- | ------------------------------------------ |
+| Vinculação com Label  | `id` no item + `htmlFor` no Label          |
+| Role radiogroup       | Gerenciado pelo Radix                      |
+| Navegação por teclado | Setas direcionais (Radix)                  |
+| Estados               | `data-checked`, `aria-invalid`, `disabled` |
 
 ---
 

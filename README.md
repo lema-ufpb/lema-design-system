@@ -105,7 +105,7 @@ Todos os componentes com texto visível suportam internacionalização via prop 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
 
-<Dashbox title="Status" locale="pt-BR" status="live" />
+;<Dashbox title="Status" locale="pt-BR" status="live" />
 // Badge mostra "Online", toolbar mostra "Atualizar", "Recolher" etc.
 ```
 
@@ -179,7 +179,7 @@ As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem s
 
 ### 📚 Specs existentes
 
-Todos os componentes (60 ui primitives + 62 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (61 ui primitives + 62 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### 📄 Spec template
 
@@ -212,6 +212,7 @@ Componentes base instalados via shadcn CLI, sem modificações:
 | **MessageScroller** | Container com auto-scroll para listas de mensagens e botões de navegação.                          |
 | **Popover**         | Conteúdo flutuante ancorado a um elemento.                                                         |
 | **Progress**        | Barra de progresso linear simples.                                                                 |
+| **Questionnaire**   | Questionário multi-etapas com perguntas de escolha única, múltipla, texto livre e opção de pular.  |
 | **Scroll Area**     | Área de rolagem customizada e acessível.                                                           |
 | **Skeleton**        | Placeholder de carregamento para estados vazios.                                                   |
 | **Spinner**         | Indicador de carregamento animado.                                                                 |
@@ -388,7 +389,11 @@ Componentes de visualização de dados construídos sobre Recharts e otimizados 
 ```tsx
 import { BarChart } from "@/components/ds/bar-chart"
 
-<BarChart data={data} categoryKey="name" dataKeys={[{ key: "total", label: "Total" }]} />
+;<BarChart
+  data={data}
+  categoryKey="name"
+  dataKeys={[{ key: "total", label: "Total" }]}
+/>
 ```
 
 #### 📝 Formulários

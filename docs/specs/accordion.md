@@ -18,12 +18,12 @@ O Accordion permite organizar grandes quantidades de conteúdo em seções colap
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/accordion.tsx` |
-| Tipo | `registry:ui` (name: `accordion`) |
-| Categoria | Layout / Disclosure |
-| Depende de | Nenhuma |
+| Campo      | Valor                             |
+| ---------- | --------------------------------- |
+| Arquivo    | `components/ui/accordion.tsx`     |
+| Tipo       | `registry:ui` (name: `accordion`) |
+| Categoria  | Layout / Disclosure               |
+| Depende de | Nenhuma                           |
 
 ---
 
@@ -32,67 +32,71 @@ O Accordion permite organizar grandes quantidades de conteúdo em seções colap
 O Accordion expõe 4 subcomponentes. As props refletem diretamente as da Radix UI:
 
 ### Accordion (Root)
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `type` | `"single" \| "multiple"` | — | Sim | Modo de seleção |
-| `defaultValue` | `string \| string[]` | — | Não | Item(s) aberto(s) por padrão |
-| `collapsible` | `boolean` | — | Não | Permite fechar o item aberto (apenas `single`) |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop           | Tipo                     | Padrão | Obrigatória | Descrição                                      |
+| -------------- | ------------------------ | ------ | ----------- | ---------------------------------------------- |
+| `type`         | `"single" \| "multiple"` | —      | Sim         | Modo de seleção                                |
+| `defaultValue` | `string \| string[]`     | —      | Não         | Item(s) aberto(s) por padrão                   |
+| `collapsible`  | `boolean`                | —      | Não         | Permite fechar o item aberto (apenas `single`) |
+| `className`    | `string`                 | —      | Não         | Classes adicionais                             |
 
 ### AccordionItem
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `string` | — | Sim | Identificador único do item |
-| `className` | `string` | — | Não | Classes adicionais |
+
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição                   |
+| ----------- | -------- | ------ | ----------- | --------------------------- |
+| `value`     | `string` | —      | Sim         | Identificador único do item |
+| `className` | `string` | —      | Não         | Classes adicionais          |
 
 ### AccordionTrigger
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Conteúdo do cabeçalho |
-| `disabled` | `boolean` | — | Não | Desabilita o trigger (herdado da Radix UI) |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição                                  |
+| ----------- | ----------- | ------ | ----------- | ------------------------------------------ |
+| `className` | `string`    | —      | Não         | Classes adicionais                         |
+| `children`  | `ReactNode` | —      | Não         | Conteúdo do cabeçalho                      |
+| `disabled`  | `boolean`   | —      | Não         | Desabilita o trigger (herdado da Radix UI) |
 
 ### AccordionContent
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Conteúdo do painel |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição          |
+| ----------- | ----------- | ------ | ----------- | ------------------ |
+| `className` | `string`    | —      | Não         | Classes adicionais |
+| `children`  | `ReactNode` | —      | Não         | Conteúdo do painel |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--border` | Borda externa do Accordion e divisores entre itens (`not-last:border-b`) |
-| `--muted` | Fundo do item aberto (`data-open:bg-muted/50`) |
-| `--muted-foreground` | Cor dos ícones de chevron |
-| `--foreground` | Cor do texto do trigger e conteúdo |
+| Token                | Slot onde é usado                                                        |
+| -------------------- | ------------------------------------------------------------------------ |
+| `--border`           | Borda externa do Accordion e divisores entre itens (`not-last:border-b`) |
+| `--muted`            | Fundo do item aberto (`data-open:bg-muted/50`)                           |
+| `--muted-foreground` | Cor dos ícones de chevron                                                |
+| `--foreground`       | Cor do texto do trigger e conteúdo                                       |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Fechado (padrão) | Apenas o trigger é visível; conteúdo oculto |
-| Aberto | Conteúdo visível com animação `accordion-down`; fundo do item muda para `bg-muted/50` |
-| Transição | Animações `accordion-down` (abrir) e `accordion-up` (fechar) via `data-open` / `data-closed` |
-| Disabled | Trigger com `disabled` não responde a clique e fica `opacity-50` |
-| Hover | Trigger mostra underline |
-| Focus-visible | Trigger usa `outline-none` sem `focus-visible:ring` alternativo — indicador de foco ausente (apenas fallback nativo do Radix) |
+| Estado           | Comportamento esperado                                                                                                        |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Fechado (padrão) | Apenas o trigger é visível; conteúdo oculto                                                                                   |
+| Aberto           | Conteúdo visível com animação `accordion-down`; fundo do item muda para `bg-muted/50`                                         |
+| Transição        | Animações `accordion-down` (abrir) e `accordion-up` (fechar) via `data-open` / `data-closed`                                  |
+| Disabled         | Trigger com `disabled` não responde a clique e fica `opacity-50`                                                              |
+| Hover            | Trigger mostra underline                                                                                                      |
+| Focus-visible    | Trigger usa `outline-none` sem `focus-visible:ring` alternativo — indicador de foco ausente (apenas fallback nativo do Radix) |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| WAI-ARIA Accordion | Herdado da Radix UI: `aria-expanded` no trigger, `aria-controls` vinculado ao content |
-| Navegação por teclado | Teclas `ArrowDown`/`ArrowUp`/`Home`/`End` para navegação entre triggers (Radix) |
-| Estrutura semântica | `AccordionPrimitive.Header` envolve cada trigger; conteúdo dentro de `AccordionPrimitive.Content` |
-| Contraste de foco | Trigger usa `outline-none` sem indicador de foco customizado — indicador de foco ausente |
-| Screen reader | Chevrons têm `pointer-events-none` e não interferem na leitura |
+| Requisito             | Implementação                                                                                     |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| WAI-ARIA Accordion    | Herdado da Radix UI: `aria-expanded` no trigger, `aria-controls` vinculado ao content             |
+| Navegação por teclado | Teclas `ArrowDown`/`ArrowUp`/`Home`/`End` para navegação entre triggers (Radix)                   |
+| Estrutura semântica   | `AccordionPrimitive.Header` envolve cada trigger; conteúdo dentro de `AccordionPrimitive.Content` |
+| Contraste de foco     | Trigger usa `outline-none` sem indicador de foco customizado — indicador de foco ausente          |
+| Screen reader         | Chevrons têm `pointer-events-none` e não interferem na leitura                                    |
 
 ---
 

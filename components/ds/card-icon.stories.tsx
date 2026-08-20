@@ -97,7 +97,7 @@ const meta = {
       "Your starting point for the main performance indicators of the 2030 Agenda.",
     tone: "warning",
     mediaStyle: "soft",
-    size: "md",
+    size: "sm",
     align: "center",
     titleUpper: true,
   },
@@ -111,7 +111,7 @@ export const Default: Story = {
   args: {
     tone: "primary",
     mediaStyle: "soft",
-    size: "md",
+    size: "sm",
     align: "center",
     titleUpper: false,
   },

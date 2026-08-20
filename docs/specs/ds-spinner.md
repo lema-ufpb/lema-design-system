@@ -18,51 +18,51 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/spinner.tsx` |
-| Tipo | `registry:ui` (name: `ds-spinner`) |
-| Categoria | Feedback / Indicador |
-| Depende de | `lucide-react`, `ui-i18n` |
+| Campo      | Valor                              |
+| ---------- | ---------------------------------- |
+| Arquivo    | `components/ds/spinner.tsx`        |
+| Tipo       | `registry:ui` (name: `ds-spinner`) |
+| Categoria  | Feedback / Indicador               |
+| Depende de | `lucide-react`, `ui-i18n`          |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `locale` | `UILocale` | `"en-US"` | Não | Localização do `aria-label` |
-| `className` | `string` | — | Não | Classes adicionais (útil para `size-*` customizado) |
-| `...props` | `React.ComponentProps<"svg">` | — | Não | Props nativas SVG |
+| Prop        | Tipo                          | Padrão    | Obrigatória | Descrição                                           |
+| ----------- | ----------------------------- | --------- | ----------- | --------------------------------------------------- |
+| `locale`    | `UILocale`                    | `"en-US"` | Não         | Localização do `aria-label`                         |
+| `className` | `string`                      | —         | Não         | Classes adicionais (útil para `size-*` customizado) |
+| `...props`  | `React.ComponentProps<"svg">` | —         | Não         | Props nativas SVG                                   |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `currentColor` | Cor do ícone (herdada do container pai) |
-| `size-4` (16px) | Tamanho padrão |
+| Token           | Slot                                    |
+| --------------- | --------------------------------------- |
+| `currentColor`  | Cor do ícone (herdada do container pai) |
+| `size-4` (16px) | Tamanho padrão                          |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Default** | `Loader2Icon` com `animate-spin`, `size-4` |
-| **Custom size** | Ajustável via `className` (ex: `size-3`, `size-6`) |
-| **Em botão** | Uso inline com `data-icon="inline-start"` |
-| **Cor customizada** | Via `text-*` classes (ex: `text-primary`) |
+| Estado              | Comportamento                                      |
+| ------------------- | -------------------------------------------------- |
+| **Default**         | `Loader2Icon` com `animate-spin`, `size-4`         |
+| **Custom size**     | Ajustável via `className` (ex: `size-3`, `size-6`) |
+| **Em botão**        | Uso inline com `data-icon="inline-start"`          |
+| **Cor customizada** | Via `text-*` classes (ex: `text-primary`)          |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role | `role="status"` |
-| Rótulo | `aria-label` via `UI_I18N[locale].spinner.loading` |
+| Requisito          | Implementação                                                 |
+| ------------------ | ------------------------------------------------------------- |
+| Role               | `role="status"`                                               |
+| Rótulo             | `aria-label` via `UI_I18N[locale].spinner.loading`            |
 | Movimento reduzido | `animate-spin` respeita `prefers-reduced-motion` via Tailwind |
 
 ---

@@ -18,54 +18,54 @@ Popup rico que exibe conteúdo adicional (como perfil, preview, detalhes) quando
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/hover-card.tsx` |
-| Tipo | `registry:ui` (name: `hover-card`) |
-| Categoria | Feedback / Popover |
-| Depende de | `radix-ui` |
+| Campo      | Valor                              |
+| ---------- | ---------------------------------- |
+| Arquivo    | `components/ui/hover-card.tsx`     |
+| Tipo       | `registry:ui` (name: `hover-card`) |
+| Categoria  | Feedback / Popover                 |
+| Depende de | `radix-ui`                         |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `HoverCard` | `HoverCardPrimitive.Root.Props` | — | — | Root do hover card |
-| `HoverCardTrigger` | `HoverCardPrimitive.Trigger.Props` | — | — | Elemento gatilho |
-| `HoverCardContent.align` | `"start" \| "center" \| "end"` | `"center"` | — | Alinhamento do card |
-| `HoverCardContent.sideOffset` | `number` | `4` | — | Distância do gatilho |
-| `HoverCardContent` | `HoverCardPrimitive.Content.Props` | — | — | Conteúdo do card |
+| Prop                          | Tipo                               | Padrão     | Obrigatória | Descrição            |
+| ----------------------------- | ---------------------------------- | ---------- | ----------- | -------------------- |
+| `HoverCard`                   | `HoverCardPrimitive.Root.Props`    | —          | —           | Root do hover card   |
+| `HoverCardTrigger`            | `HoverCardPrimitive.Trigger.Props` | —          | —           | Elemento gatilho     |
+| `HoverCardContent.align`      | `"start" \| "center" \| "end"`     | `"center"` | —           | Alinhamento do card  |
+| `HoverCardContent.sideOffset` | `number`                           | `4`        | —           | Distância do gatilho |
+| `HoverCardContent`            | `HoverCardPrimitive.Content.Props` | —          | —           | Conteúdo do card     |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot |
-|-------|------|
-| `--popover` | `HoverCardContent` (fundo) |
-| `--popover-foreground` | Texto do conteúdo |
-| `--ring` / `--ring/5` | Borda sutil (`ring-1 ring-foreground/5`) |
+| Token                  | Slot                                     |
+| ---------------------- | ---------------------------------------- |
+| `--popover`            | `HoverCardContent` (fundo)               |
+| `--popover-foreground` | Texto do conteúdo                        |
+| `--ring` / `--ring/5`  | Borda sutil (`ring-1 ring-foreground/5`) |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Hover** | Card exibido via portal com animação `animate-in fade-in zoom-in` |
-| **Leave** | Card oculto com `animate-out fade-out zoom-out` |
-| **Aberto** | `w-72` padrão, `rounded-3xl`, `shadow-lg` |
+| Estado     | Comportamento                                                     |
+| ---------- | ----------------------------------------------------------------- |
+| **Hover**  | Card exibido via portal com animação `animate-in fade-in zoom-in` |
+| **Leave**  | Card oculto com `animate-out fade-out zoom-out`                   |
+| **Aberto** | `w-72` padrão, `rounded-3xl`, `shadow-lg`                         |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
+| Requisito      | Implementação                                  |
+| -------------- | ---------------------------------------------- |
 | Rolagem nativa | Radix UI gerencia delay de abertura/fechamento |
-| ARIA | Gerenciado pelo Radix UI |
-| Portal | Conteúdo via `HoverCardPrimitive.Portal` |
+| ARIA           | Gerenciado pelo Radix UI                       |
+| Portal         | Conteúdo via `HoverCardPrimitive.Portal`       |
 
 ---
 

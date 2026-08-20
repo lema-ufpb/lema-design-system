@@ -9,31 +9,31 @@
 
 Alternador de tema claro/escuro/sistema usando `next-themes` com menu dropdown. Exibe ícone dinâmico (Sun/Moon/Monitor) baseado no tema ativo.
 
-**Usar quando:** necessário toggle de tema no header/app layout  
-**Não usar quando:** tema fixo sem alternância  
+**Usar quando:** necessário toggle de tema no header/app layout
+**Não usar quando:** tema fixo sem alternância
 **Alternativa se não se aplicar:** Botão único de toggle (sem sistema)
 
 ---
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/toggle-theme.tsx` |
-| data-slot | `toggle-theme` |
-| Tipo | `registry:component` |
-| Categoria | `Navigation` |
-| Depende de | `Button`, `DropdownMenu` (shadcn), `@/providers/theme` (re-exporta `ThemeProvider` e `useTheme`), `lucide-react` |
+| Campo      | Valor                                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ds/toggle-theme.tsx`                                                                                       |
+| data-slot  | `toggle-theme`                                                                                                         |
+| Tipo       | `registry:component`                                                                                                   |
+| Categoria  | `Navigation`                                                                                                           |
+| Depende de | `Button`, `DropdownMenu` (shadcn), `@/providers/theme` (re-exporta `ThemeProvider` e `useTheme`), `lucide-react`       |
 | Re-exports | `ThemeProvider`, `useTheme` — consumíveis via `import { ThemeProvider, useTheme } from "@/components/ds/toggle-theme"` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `locale` | `UILocale` | `"en-US"` | | Locale para strings i18n (light, dark, system, trigger) |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
+| Prop      | Tipo       | Padrão    | Obrigatória | Descrição                                               |
+| --------- | ---------- | --------- | ----------- | ------------------------------------------------------- |
+| `locale`  | `UILocale` | `"en-US"` |             | Locale para strings i18n (light, dark, system, trigger) |
+| `loading` | `boolean`  | `false`   |             | Estado de carregamento                                  |
 
 ---
 
@@ -51,32 +51,32 @@ Nenhum token direto. Os primitivos shadcn (`Button`, `DropdownMenu`) gerenciam s
 
 ## Escala tipográfica e de tamanho
 
-| Propriedade | Valor |
-|-------------|-------|
-| Botão | `Button variant="ghost" size="icon"` (shadcn padrão) |
-| Ícone | Tamanho padrão Lucide (inherit do Button) |
+| Propriedade | Valor                                                |
+| ----------- | ---------------------------------------------------- |
+| Botão       | `Button variant="ghost" size="icon"` (shadcn padrão) |
+| Ícone       | Tamanho padrão Lucide (inherit do Button)            |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| Hydration | `mounted=false` → ícone `Monitor` (evita hydration mismatch) |
+| Estado         | Comportamento esperado                                                           |
+| -------------- | -------------------------------------------------------------------------------- |
+| Hydration      | `mounted=false` → ícone `Monitor` (evita hydration mismatch)                     |
 | `mounted=true` | Ícone dinâmico baseado no tema: `Sun` (light), `Moon` (dark), `Monitor` (system) |
-| Dropdown | 3 opções: Light, Dark, System com ícones |
-| Clique | `setTheme("light"|"dark"|"system")` via `next-themes` |
+| Dropdown       | 3 opções: Light, Dark, System com ícones                                         |
+| Clique         | `setTheme("light"                                                                | "dark" | "system")`via`next-themes` |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Rótulo | `aria-label` no `DropdownMenuTrigger` via `UI_I18N[locale].toggleTheme.trigger` |
-| Dropdown | `DropdownMenuItem` com `onClick` para cada opção |
-| Teclado | Navegação nativa do DropdownMenu (shadcn/Radix) |
-| i18n | `UI_I18N[locale].toggleTheme.*`: `light`, `dark`, `system`, `trigger` |
+| Requisito | Implementação                                                                   |
+| --------- | ------------------------------------------------------------------------------- |
+| Rótulo    | `aria-label` no `DropdownMenuTrigger` via `UI_I18N[locale].toggleTheme.trigger` |
+| Dropdown  | `DropdownMenuItem` com `onClick` para cada opção                                |
+| Teclado   | Navegação nativa do DropdownMenu (shadcn/Radix)                                 |
+| i18n      | `UI_I18N[locale].toggleTheme.*`: `light`, `dark`, `system`, `trigger`           |
 
 ---
 

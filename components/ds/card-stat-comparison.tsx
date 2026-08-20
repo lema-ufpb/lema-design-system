@@ -40,7 +40,7 @@ export function CardStatComparison({
   currentLabel,
   previousLabel,
   icon: Icon,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,

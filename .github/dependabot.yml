@@ -1,0 +1,77 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+    groups:
+      # next e eslint-config-next ficam fixos na mesma versão exata (sem
+      # caret) — precisam andar juntos em um único PR.
+      next-ecosystem:
+        patterns:
+          - "next"
+          - "eslint-config-next"
+      # storybook e os @storybook/* (exceto addon-mcp, que tem release
+      # cadence própria e versionamento independente) precisam resolver
+      # para a mesma versão. Um PR isolado para @storybook/nextjs-vite já
+      # deixou a árvore inválida (storybook@10.5.7 vs nextjs-vite exigindo
+      # ^10.5.8) e quebrou `make test` — sempre atualizar juntos.
+      storybook-ecosystem:
+        patterns:
+          - "storybook"
+          - "@storybook/addon-a11y"
+          - "@storybook/addon-docs"
+          - "@storybook/addon-vitest"
+          - "@storybook/nextjs-vite"
+          - "@chromatic-com/storybook"
+          - "eslint-plugin-storybook"
+    ignore:
+      # typescript-eslint (via eslint-config-next) ainda não suporta a API
+      # do TS 7 — bump quebra `npm run lint`. Remover quando houver suporte.
+      # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      # eslint-plugin-react (via eslint-config-next, fixo na versão do
+      # Next) só declara peer eslint até ^9.7 — bump para eslint 10 quebra
+      # `npm run lint` (context.getFilename removido no linter flat config).
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      # msw-storybook-addon v3 removeu os exports initialize/mswLoader que
+      # .storybook/preview.tsx usa — bump quebra `make test` ("does not
+      # provide an export named 'initialize'"). Remover quando o preview
+      # migrar para a API v3 (createPreviewAnnotations).
+      - dependency-name: "msw-storybook-addon"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "ci"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "docker"

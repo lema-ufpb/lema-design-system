@@ -9,54 +9,54 @@
 
 _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orientação vertical e horizontal, barras empilhadas, brush para zoom/scroll, legendas interativas (toggle de séries), e tooltip customizado com formato semântico._
 
-**Usar quando:** Necessário comparar valores categóricos (ex: vendas por mês, quantidade por categoria) com suporte a múltiplas séries, empilhamento e zoom via brush.  
-**Não usar quando:** Dados contínuos (usar LineChart), proporções (usar PieChart), ou distribuições estatísticas (usar BoxPlotChart).  
+**Usar quando:** Necessário comparar valores categóricos (ex: vendas por mês, quantidade por categoria) com suporte a múltiplas séries, empilhamento e zoom via brush.
+**Não usar quando:** Dados contínuos (usar LineChart), proporções (usar PieChart), ou distribuições estatísticas (usar BoxPlotChart).
 **Alternativa se não se aplicar:** LineChart para séries temporais, PieChart para proporções.
 
 ---
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/bar-chart.tsx` |
-| data-slot | `bar-chart` |
-| Tipo | `registry:component` |
-| Categoria | `Data Display` |
+| Campo      | Valor                                                                                                                                                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ds/bar-chart.tsx`                                                                                                                                                                        |
+| data-slot  | `bar-chart`                                                                                                                                                                                          |
+| Tipo       | `registry:component`                                                                                                                                                                                 |
+| Categoria  | `Data Display`                                                                                                                                                                                       |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Bar, BarChart, Brush, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis), `lucide-react` (BarChart2), `class-variance-authority`, `format-utils` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `data` | `Record<string, string \| number>[]` | — | ✓ | Array de objetos com valores do gráfico |
-| `dataKeys` | `BarChartKey[] \| string[]` | — | ✓ | Chaves para renderizar como barras (aceita string simples ou objeto com key/label/color) |
-| `categoryKey` | `string` | — | ✓ | Chave do objeto mapeada ao eixo categórico |
-| `title` | `string` | — | | Título do gráfico |
-| `subtitle` | `string` | — | | Subtítulo do gráfico |
-| `footer` | `React.ReactNode` | — | | Rodapé do gráfico |
-| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | | Orientação das barras |
-| `height` | `number` | `280` | | Altura do canvas em px |
-| `showGrid` | `boolean` | `true` | | Exibe linhas de grade |
-| `showLegend` | `boolean` | `false` | | Exibe legenda |
-| `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | | Posição da legenda |
-| `showTooltip` | `boolean` | `true` | | Exibe tooltip ao hover |
-| `stacked` | `boolean` | `false` | | Empilha todas as barras |
-| `barSize` | `number` | — | | Largura fixa da barra em px |
-| `rounded` | `boolean` | `true` | | Arredonda a borda superior das barras |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores dos ticks e tooltip (fallback se `format` não suprir) |
-| `format` | `FormatPreset` | — | | Preset de formatação (`"currency"`, `"percent"`, `"integer"`, `"float"`) |
-| `decimals` | `number` | — | | Casas decimais (quando `format="float"`) |
-| `currency` | `string` | `"USD"` | | Código da moeda (quando `format="currency"`) |
-| `abbreviate` | `boolean` | `false` | | Abreviação locale-aware (ex: 1.5k, 2,3 mi) |
-| `showBrush` | `boolean` | `false` | | Exibe brush para scroll/zoom (vertical apenas) |
-| `loading` | `boolean` | `false` | | Estado de carregamento com skeleton |
-| `locale` | `UILocale` | `"en-US"` | | Locale para i18n |
-| `xAxisLabel` | `string` | — | | Rótulo do eixo X |
-| `yAxisLabel` | `string` | — | | Rótulo do eixo Y |
-| `className` | `string` | — | | Classes extras de layout |
+| Prop             | Tipo                                     | Padrão       | Obrigatória | Descrição                                                                                |
+| ---------------- | ---------------------------------------- | ------------ | ----------- | ---------------------------------------------------------------------------------------- |
+| `data`           | `Record<string, string \| number>[]`     | —            | ✓           | Array de objetos com valores do gráfico                                                  |
+| `dataKeys`       | `BarChartKey[] \| string[]`              | —            | ✓           | Chaves para renderizar como barras (aceita string simples ou objeto com key/label/color) |
+| `categoryKey`    | `string`                                 | —            | ✓           | Chave do objeto mapeada ao eixo categórico                                               |
+| `title`          | `string`                                 | —            |             | Título do gráfico                                                                        |
+| `subtitle`       | `string`                                 | —            |             | Subtítulo do gráfico                                                                     |
+| `footer`         | `React.ReactNode`                        | —            |             | Rodapé do gráfico                                                                        |
+| `orientation`    | `"vertical" \| "horizontal"`             | `"vertical"` |             | Orientação das barras                                                                    |
+| `height`         | `number`                                 | `280`        |             | Altura do canvas em px                                                                   |
+| `showGrid`       | `boolean`                                | `true`       |             | Exibe linhas de grade                                                                    |
+| `showLegend`     | `boolean`                                | `false`      |             | Exibe legenda                                                                            |
+| `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"`   |             | Posição da legenda                                                                       |
+| `showTooltip`    | `boolean`                                | `true`       |             | Exibe tooltip ao hover                                                                   |
+| `stacked`        | `boolean`                                | `false`      |             | Empilha todas as barras                                                                  |
+| `barSize`        | `number`                                 | —            |             | Largura fixa da barra em px                                                              |
+| `rounded`        | `boolean`                                | `true`       |             | Arredonda a borda superior das barras                                                    |
+| `valueFormatter` | `(value: number) => string`              | —            |             | Formata valores dos ticks e tooltip (fallback se `format` não suprir)                    |
+| `format`         | `FormatPreset`                           | —            |             | Preset de formatação (`"currency"`, `"percent"`, `"integer"`, `"float"`)                 |
+| `decimals`       | `number`                                 | —            |             | Casas decimais (quando `format="float"`)                                                 |
+| `currency`       | `string`                                 | `"USD"`      |             | Código da moeda (quando `format="currency"`)                                             |
+| `abbreviate`     | `boolean`                                | `false`      |             | Abreviação locale-aware (ex: 1.5k, 2,3 mi)                                               |
+| `showBrush`      | `boolean`                                | `false`      |             | Exibe brush para scroll/zoom (vertical apenas)                                           |
+| `loading`        | `boolean`                                | `false`      |             | Estado de carregamento com skeleton                                                      |
+| `locale`         | `UILocale`                               | `"en-US"`    |             | Locale para i18n                                                                         |
+| `xAxisLabel`     | `string`                                 | —            |             | Rótulo do eixo X                                                                         |
+| `yAxisLabel`     | `string`                                 | —            |             | Rótulo do eixo Y                                                                         |
+| `className`      | `string`                                 | —            |             | Classes extras de layout                                                                 |
 
 > Estende `React.HTMLAttributes<HTMLDivElement>`.
 
@@ -65,10 +65,10 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 ## Variantes CVA
 
 | Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| — | — | — |
+| -------- | ------- | ------ |
+| —        | —       | —      |
 
-*Sem variantes CVA com size/intent — usa props para orientação e altura.*
+_Sem variantes CVA com size/intent — usa props para orientação e altura._
 
 **Slots do componente:**
 
@@ -82,55 +82,55 @@ _Componente de gráfico de barras (colunas) baseado em recharts. Suporta orienta
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `text-foreground` | título, tooltip label, tooltip value |
-| `text-muted-foreground` | subtítulo, tooltip nome da série, value axis ticks, category axis ticks, axis labels, footer, empty state |
-| `bg-muted` | empty state icon circle, tooltip cursor |
-| `bg-card` | tooltip background, brush handle fill |
-| `border-border` | footer divider, empty state border, tooltip border, grid lines, axis lines, brush stroke |
-| `var(--chart-1..5)` | fill das barras (cíclico) |
-| `var(--muted-foreground)` | brush handle lines |
-| `var(--card)` | brush handle fill |
-| `var(--muted)` | tooltip cursor |
+| Token                     | Slot onde é usado                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `text-foreground`         | título, tooltip label, tooltip value                                                                      |
+| `text-muted-foreground`   | subtítulo, tooltip nome da série, value axis ticks, category axis ticks, axis labels, footer, empty state |
+| `bg-muted`                | empty state icon circle, tooltip cursor                                                                   |
+| `bg-card`                 | tooltip background, brush handle fill                                                                     |
+| `border-border`           | footer divider, empty state border, tooltip border, grid lines, axis lines, brush stroke                  |
+| `var(--chart-1..5)`       | fill das barras (cíclico)                                                                                 |
+| `var(--muted-foreground)` | brush handle lines                                                                                        |
+| `var(--card)`             | brush handle fill                                                                                         |
+| `var(--muted)`            | tooltip cursor                                                                                            |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Label text | `text-xs font-medium` | `text-sm font-medium` | `text-base font-medium` |
-| Value text | `text-xs font-semibold` | `text-sm font-semibold` | `text-base font-semibold` |
-| Título | — | `text-sm leading-tight font-semibold` | — |
-| Subtítulo | — | `text-xs` | — |
-| Tooltip label | — | `text-xs font-semibold` | — |
-| Tooltip value | — | `text-xs font-semibold tabular-nums` | — |
-| Eixo labels | — | `fontSize: 11` (SVG) | — |
-| Eixo ticks | — | `fontSize: 12` (SVG) | — |
+| Slot          | sm                      | md                                    | lg                        |
+| ------------- | ----------------------- | ------------------------------------- | ------------------------- |
+| Label text    | `text-xs font-medium`   | `text-sm font-medium`                 | `text-base font-medium`   |
+| Value text    | `text-xs font-semibold` | `text-sm font-semibold`               | `text-base font-semibold` |
+| Título        | —                       | `text-sm leading-tight font-semibold` | —                         |
+| Subtítulo     | —                       | `text-xs`                             | —                         |
+| Tooltip label | —                       | `text-xs font-semibold`               | —                         |
+| Tooltip value | —                       | `text-xs font-semibold tabular-nums`  | —                         |
+| Eixo labels   | —                       | `fontSize: 11` (SVG)                  | —                         |
+| Eixo ticks    | —                       | `fontSize: 12` (SVG)                  | —                         |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<BarChartSkeleton>` com grid, eixos e barras simuladas via Skeleton. Dimensões baseadas na altura. Suporta orientação vertical/horizontal. |
+| Estado              | Comportamento esperado                                                                                                                             |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `loading={true}`    | `<BarChartSkeleton>` com grid, eixos e barras simuladas via Skeleton. Dimensões baseadas na altura. Suporta orientação vertical/horizontal.        |
 | `data.length === 0` | Empty state com ícone `BarChart2` em círculo `bg-muted`, mensagens `UI_I18N[locale].emptyState.noData` e `.dataWillAppear`, borda `border-dashed`. |
-| `hiddenSeries` | Toggle via legenda: séries ocultas com `opacity-40`; conjunto gerenciado por estado local `Set<string>`. |
-| Overflow texto | `truncate` aplicado nos labels dos eixos via SVG `text` (recharts). |
+| `hiddenSeries`      | Toggle via legenda: séries ocultas com `opacity-40`; conjunto gerenciado por estado local `Set<string>`.                                           |
+| Overflow texto      | `truncate` aplicado nos labels dos eixos via SVG `text` (recharts).                                                                                |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | `<div>` com attributes spread |
+| Requisito                    | Implementação                                                           |
+| ---------------------------- | ----------------------------------------------------------------------- |
+| Role semântico               | `<div>` com attributes spread                                           |
 | Itens de legenda interativos | `role="button"`, `tabIndex={0}`, `aria-pressed` indicando estado oculto |
-| Teclado na legenda | Enter e Espaço para toggle de série |
-| Valores numéricos | `tabular-nums` nos valores formatados |
-| i18n | `UI_I18N[locale].emptyState.*` para strings de empty state |
+| Teclado na legenda           | Enter e Espaço para toggle de série                                     |
+| Valores numéricos            | `tabular-nums` nos valores formatados                                   |
+| i18n                         | `UI_I18N[locale].emptyState.*` para strings de empty state              |
 
 ---
 

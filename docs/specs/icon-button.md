@@ -16,29 +16,29 @@ Botão com ícone + tooltip opcional. Encapsula o shadcn `Button` com `aria-labe
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/icon-button.tsx` |
-| data-slot | `icon-button` |
-| Tipo | `registry:component` (name: `icon-button`) |
-| Categoria | `Form` |
+| Campo      | Valor                                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Arquivo    | `components/ds/icon-button.tsx`                                                                                        |
+| data-slot  | `icon-button`                                                                                                          |
+| Tipo       | `registry:component` (name: `icon-button`)                                                                             |
+| Categoria  | `Form`                                                                                                                 |
 | Depende de | `Button` (shadcn), `Tooltip`, `TooltipContent`, `TooltipProvider`, `TooltipTrigger` (shadcn), `Loader2` (lucide-react) |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `icon` | `ReactNode` | — | ✓ | Ícone a exibir (tipicamente lucide) |
-| `label` | `string` | — | ✓ | Label acessível (aria-label e tooltip padrão) |
-| `tooltip` | `string \| false` | — | | Texto do tooltip; `false` desabilita; omite = usa `label` |
-| `tooltipSide` | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | | Lado do tooltip |
-| `variant` | `IconButtonVariant` (do shadcn Button) | `"ghost"` | | Variante visual |
-| `size` | `"icon-xs" \| "icon-sm" \| "icon" \| "icon-lg"` | `"icon"` | | Tamanho do botão |
-| `rounded` | `"none" \| "md" \| "full"` | `"md"` | | Border radius |
-| `loading` | `boolean` | `false` | | Exibe `Loader2` spinner e desabilita |
-| `disabled` | `boolean` | — | | Desabilita o botão |
+| Prop          | Tipo                                            | Padrão     | Obrigatória | Descrição                                                 |
+| ------------- | ----------------------------------------------- | ---------- | ----------- | --------------------------------------------------------- |
+| `icon`        | `ReactNode`                                     | —          | ✓           | Ícone a exibir (tipicamente lucide)                       |
+| `label`       | `string`                                        | —          | ✓           | Label acessível (aria-label e tooltip padrão)             |
+| `tooltip`     | `string \| false`                               | —          |             | Texto do tooltip; `false` desabilita; omite = usa `label` |
+| `tooltipSide` | `"top" \| "right" \| "bottom" \| "left"`        | `"bottom"` |             | Lado do tooltip                                           |
+| `variant`     | `IconButtonVariant` (do shadcn Button)          | `"ghost"`  |             | Variante visual                                           |
+| `size`        | `"icon-xs" \| "icon-sm" \| "icon" \| "icon-lg"` | `"icon"`   |             | Tamanho do botão                                          |
+| `rounded`     | `"none" \| "md" \| "full"`                      | `"md"`     |             | Border radius                                             |
+| `loading`     | `boolean`                                       | `false`    |             | Exibe `Loader2` spinner e desabilita                      |
+| `disabled`    | `boolean`                                       | —          |             | Desabilita o botão                                        |
 
 > Estende `Omit<React.ComponentProps<"button">, "children">`.
 
@@ -48,17 +48,17 @@ Botão com ícone + tooltip opcional. Encapsula o shadcn `Button` com `aria-labe
 
 Nenhuma própria. Usa `buttonVariants` do shadcn Button:
 
-| Dimensão | Valores (delegados ao shadcn Button) | Padrão |
-|----------|--------------------------------------|--------|
+| Dimensão  | Valores (delegados ao shadcn Button)                              | Padrão  |
+| --------- | ----------------------------------------------------------------- | ------- |
 | `variant` | `default`, `destructive`, `outline`, `secondary`, `ghost`, `link` | `ghost` |
-| `size` | `icon-xs`, `icon-sm`, `icon`, `icon-lg` | `icon` |
+| `size`    | `icon-xs`, `icon-sm`, `icon`, `icon-lg`                           | `icon`  |
 
 **Rounded** é gerenciado via lookup table interna:
 
-| Valor | Classe |
-|-------|--------|
+| Valor  | Classe         |
+| ------ | -------------- |
 | `none` | `rounded-none` |
-| `md` | `rounded-md` |
+| `md`   | `rounded-md`   |
 | `full` | `rounded-full` |
 
 ---
@@ -67,21 +67,21 @@ Nenhuma própria. Usa `buttonVariants` do shadcn Button:
 
 Nenhum diretamente. Os tokens vêm do shadcn `Button` através da prop `variant`:
 
-| Variant | Tokens (gerenciados pelo shadcn) |
-|---------|----------------------------------|
-| `ghost` | `hover:bg-accent hover:text-accent-foreground` |
-| `outline` | `border border-input bg-background` |
-| `destructive` | `bg-destructive text-destructive-foreground` |
-| etc. | (delegado ao shadcn) |
+| Variant       | Tokens (gerenciados pelo shadcn)               |
+| ------------- | ---------------------------------------------- |
+| `ghost`       | `hover:bg-accent hover:text-accent-foreground` |
+| `outline`     | `border border-input bg-background`            |
+| `destructive` | `bg-destructive text-destructive-foreground`   |
+| etc.          | (delegado ao shadcn)                           |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | Valor |
-|------|-------|
+| Slot            | Valor                                                       |
+| --------------- | ----------------------------------------------------------- |
 | Loading spinner | `className="animate-spin"` (tamanho gerenciado pelo Button) |
-| Rounded md | `rounded-md` |
+| Rounded md      | `rounded-md`                                                |
 
 Tamanhos de botão e ícone gerenciados pelo shadcn `Button` via prop `size` (`icon-xs`, `icon-sm`, `icon`, `icon-lg`).
 
@@ -89,26 +89,26 @@ Tamanhos de botão e ícone gerenciados pelo shadcn `Button` via prop `size` (`i
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | Exibe `<Loader2 className="animate-spin" />` no lugar do ícone, `aria-busy="true"`, `disabled`, `cursor-wait` |
-| `disabled` | Button disabled (shadcn), `cursor-wait` se loading |
-| `tooltip` não informado | Tooltip usa `label` como texto |
-| `tooltip={false}` | Tooltip não é renderizado (apenas button puro) |
-| `rounded` | Aplica classe de border radius ao button |
-| Sem tooltip | Apenas `<Button>` com `aria-label`, sem wrapper Tooltip |
+| Estado                  | Comportamento esperado                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `loading={true}`        | Exibe `<Loader2 className="animate-spin" />` no lugar do ícone, `aria-busy="true"`, `disabled`, `cursor-wait` |
+| `disabled`              | Button disabled (shadcn), `cursor-wait` se loading                                                            |
+| `tooltip` não informado | Tooltip usa `label` como texto                                                                                |
+| `tooltip={false}`       | Tooltip não é renderizado (apenas button puro)                                                                |
+| `rounded`               | Aplica classe de border radius ao button                                                                      |
+| Sem tooltip             | Apenas `<Button>` com `aria-label`, sem wrapper Tooltip                                                       |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Rótulo | `aria-label={label}` obrigatório no Button |
-| Estado busy | `aria-busy={loading \| undefined}` |
-| Tooltip | `TooltipTrigger asChild` envolvendo o Button |
+| Requisito     | Implementação                                     |
+| ------------- | ------------------------------------------------- |
+| Rótulo        | `aria-label={label}` obrigatório no Button        |
+| Estado busy   | `aria-busy={loading \| undefined}`                |
+| Tooltip       | `TooltipTrigger asChild` envolvendo o Button      |
 | Texto tooltip | `<p>{tooltipText}</p>` dentro de `TooltipContent` |
-| i18n | N/A — label é prop string, sem chave i18n |
+| i18n          | N/A — label é prop string, sem chave i18n         |
 
 ---
 
