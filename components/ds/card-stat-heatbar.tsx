@@ -249,7 +249,7 @@ export function CardStatHeatbar({
     )
   }
 
-  const display = applyFormat(value, fmt)
+  const display = applyFormat(value, { locale, ...fmt })
   const pct = Math.min(100, Math.max(0, ((value - min) / (max - min)) * 100))
   const activeZone = zones.find((z) => pct <= z.max) ?? zones[zones.length - 1]
 

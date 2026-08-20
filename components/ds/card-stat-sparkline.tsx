@@ -250,7 +250,7 @@ export function CardStatSparkline({
     )
   }
 
-  const display = applyFormat(value, fmt)
+  const display = applyFormat(value, { locale, ...fmt })
   const trendDir = resolveTrend(trend)
 
   return (
