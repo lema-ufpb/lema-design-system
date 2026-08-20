@@ -9,16 +9,16 @@
 
 ## Props
 
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `items` | `CardStatListItem[]` | — | ✓ |
-| `size` | `CardStatSize` | `"md"` | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-| `locale` | `UILocale` | — | |
+| Prop        | Tipo                 | Padrão  | Obrigatória |
+| ----------- | -------------------- | ------- | ----------- |
+| `label`     | `string`             | —       | ✓           |
+| `items`     | `CardStatListItem[]` | —       | ✓           |
+| `size`      | `CardStatSize`       | `"md"`  |             |
+| `icon`      | `React.ElementType`  | —       |             |
+| `className` | `string`             | —       |             |
+| `loading`   | `boolean`            | `false` |             |
+| `empty`     | `boolean`            | `false` |             |
+| `locale`    | `UILocale`           | —       |             |
 
 `CardStatListItem`: `{ label, value, trend?, trendValue?, format?, decimals?, locale?, currency?, valueFormatter? }`
 
@@ -28,12 +28,12 @@ Quando `locale` é fornecido, as mensagens de empty state usam `UI_I18N[locale].
 
 ## CVA variants locais
 
-| Variant | sm | md | lg |
-|---------|----|----|----|
-| `cardStatListRowPyVariants` | `py-2` | `py-2.5` | `py-3` |
-| `cardStatListTextVariants` | `text-xs font-medium` | `text-sm font-medium` | `text-base font-medium` |
-| `cardStatListValueVariants` | `text-xs font-semibold tabular-nums` | `text-sm font-semibold tabular-nums` | `text-base font-semibold tabular-nums` |
-| `cardStatListBadgeIconVariants` | `size-2.5` | `size-3` | `size-3.5` |
+| Variant                         | sm                                   | md                                   | lg                                     |
+| ------------------------------- | ------------------------------------ | ------------------------------------ | -------------------------------------- |
+| `cardStatListRowPyVariants`     | `py-2`                               | `py-2.5`                             | `py-3`                                 |
+| `cardStatListTextVariants`      | `text-xs font-medium`                | `text-sm font-medium`                | `text-base font-medium`                |
+| `cardStatListValueVariants`     | `text-xs font-semibold tabular-nums` | `text-sm font-semibold tabular-nums` | `text-base font-semibold tabular-nums` |
+| `cardStatListBadgeIconVariants` | `size-2.5`                           | `size-3`                             | `size-3.5`                             |
 
 Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`.
 
@@ -47,11 +47,11 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatDescriptionVariants`, `cardSta
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Lista semântica | `<ul>` / `<li>` com itens de lista |
-| Trend icons | `aria-hidden` nos ícones de tendência |
-| i18n | `UI_I18N[locale].cardStatList.*` para empty state |
+| Requisito       | Implementação                                     |
+| --------------- | ------------------------------------------------- |
+| Lista semântica | `<ul>` / `<li>` com itens de lista                |
+| Trend icons     | `aria-hidden` nos ícones de tendência             |
+| i18n            | `UI_I18N[locale].cardStatList.*` para empty state |
 
 ## Stories
 

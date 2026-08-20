@@ -18,24 +18,24 @@ O Checkbox é um campo de formulário de dois estados (marcado/desmarcado) const
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/checkbox.tsx` |
-| Tipo | `registry:ui` (name: `checkbox`) |
-| Categoria | Form / Input |
-| Depende de | Nenhuma |
+| Campo      | Valor                            |
+| ---------- | -------------------------------- |
+| Arquivo    | `components/ui/checkbox.tsx`     |
+| Tipo       | `registry:ui` (name: `checkbox`) |
+| Categoria  | Form / Input                     |
+| Depende de | Nenhuma                          |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `checked` | `boolean \| "indeterminate"` | — | Não | Estado controlado |
-| `onCheckedChange` | `(checked: CheckedState) => void` | — | Não | Callback de mudança |
-| `disabled` | `boolean` | — | Não | Estado desabilitado |
-| `id` | `string` | — | Não | ID para vincular ao label |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop              | Tipo                              | Padrão | Obrigatória | Descrição                 |
+| ----------------- | --------------------------------- | ------ | ----------- | ------------------------- |
+| `checked`         | `boolean \| "indeterminate"`      | —      | Não         | Estado controlado         |
+| `onCheckedChange` | `(checked: CheckedState) => void` | —      | Não         | Callback de mudança       |
+| `disabled`        | `boolean`                         | —      | Não         | Estado desabilitado       |
+| `id`              | `string`                          | —      | Não         | ID para vincular ao label |
+| `className`       | `string`                          | —      | Não         | Classes adicionais        |
 
 > Demais props herdadas de `CheckboxPrimitive.Root`.
 
@@ -43,41 +43,41 @@ O Checkbox é um campo de formulário de dois estados (marcado/desmarcado) const
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--input` | Fundo desmarcado (`bg-input/90`) |
-| `--primary` | Fundo quando marcado (`data-checked:bg-primary`) |
-| `--primary-foreground` | Cor do ícone check |
-| `--ring` / `--ring/30` | Focus ring (`focus-visible:ring-3`) |
-| `--destructive` | Borda e ring quando `aria-invalid` |
+| Token                  | Slot onde é usado                                |
+| ---------------------- | ------------------------------------------------ |
+| `--input`              | Fundo desmarcado (`bg-input/90`)                 |
+| `--primary`            | Fundo quando marcado (`data-checked:bg-primary`) |
+| `--primary-foreground` | Cor do ícone check                               |
+| `--ring` / `--ring/30` | Focus ring (`focus-visible:ring-3`)              |
+| `--destructive`        | Borda e ring quando `aria-invalid`               |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Unchecked | Fundo `bg-input/90`, sem borda visível (`border-transparent`) |
-| Checked | Fundo `bg-primary`, borda `border-primary`, ícone `text-primary-foreground` |
-| Indeterminate | Fundo `bg-primary`, exibe `CheckIcon` (comportamento Radix) |
-| Disabled | `opacity-50`, `cursor-not-allowed` |
-| Disabled via Field | `group-has-disabled/field:opacity-50` |
-| Focus visible | `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30` |
-| Aria-invalid | Borda `border-destructive`, ring `ring-destructive/20` |
-| Erro + checked | Borda `border-primary` (sobrescreve destructive) |
+| Estado             | Comportamento esperado                                                      |
+| ------------------ | --------------------------------------------------------------------------- |
+| Unchecked          | Fundo `bg-input/90`, sem borda visível (`border-transparent`)               |
+| Checked            | Fundo `bg-primary`, borda `border-primary`, ícone `text-primary-foreground` |
+| Indeterminate      | Fundo `bg-primary`, exibe `CheckIcon` (comportamento Radix)                 |
+| Disabled           | `opacity-50`, `cursor-not-allowed`                                          |
+| Disabled via Field | `group-has-disabled/field:opacity-50`                                       |
+| Focus visible      | `focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30` |
+| Aria-invalid       | Borda `border-destructive`, ring `ring-destructive/20`                      |
+| Erro + checked     | Borda `border-primary` (sobrescreve destructive)                            |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role checkbox | Nativo da Radix UI |
-| Estado ARIA | `aria-checked` gerenciado pela Radix |
-| Label vinculado | `id` + `<Label htmlFor>` para clique no label |
-| Navegação por teclado | Espaço para alternar (Radix), Tab para foco |
-| Focus visible | `focus-visible:border-ring focus-visible:ring-3` |
-| Indeterminado | `aria-checked="mixed"` (Radix) |
+| Requisito             | Implementação                                    |
+| --------------------- | ------------------------------------------------ |
+| Role checkbox         | Nativo da Radix UI                               |
+| Estado ARIA           | `aria-checked` gerenciado pela Radix             |
+| Label vinculado       | `id` + `<Label htmlFor>` para clique no label    |
+| Navegação por teclado | Espaço para alternar (Radix), Tab para foco      |
+| Focus visible         | `focus-visible:border-ring focus-visible:ring-3` |
+| Indeterminado         | `aria-checked="mixed"` (Radix)                   |
 
 ---
 

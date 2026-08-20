@@ -103,7 +103,7 @@ export const Default: Story = {
     abbreviate: false,
     description: "Based on 2,847 responses this month",
     icon: HeartIcon,
-    size: "md",
+    size: "sm",
     min: 0,
     max: 100,
   },

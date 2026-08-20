@@ -115,7 +115,7 @@ export const Default: Story = {
     description: "+20.1% from last month",
     trend: "up",
     icon: DollarSignIcon,
-    size: "md",
+    size: "sm",
     variant: "default",
   },
   parameters: {

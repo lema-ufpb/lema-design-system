@@ -105,7 +105,7 @@ export const Default: Story = {
     abbreviate: false,
     description: "Target by end of month",
     icon: ShoppingCartIcon,
-    size: "md",
+    size: "sm",
     showPercent: true,
   },
   parameters: {

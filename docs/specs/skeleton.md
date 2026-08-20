@@ -16,47 +16,47 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/skeleton.tsx` |
-| Tipo | `registry:ui` (name: `skeleton`) |
-| Categoria | Feedback |
-| Depende de | `@/lib/utils` (cn) |
+| Campo      | Valor                            |
+| ---------- | -------------------------------- |
+| Arquivo    | `components/ui/skeleton.tsx`     |
+| Tipo       | `registry:ui` (name: `skeleton`) |
+| Categoria  | Feedback                         |
+| Depende de | `@/lib/utils` (cn)               |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais (usar para definir width/height/shape) |
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição                                                 |
+| ----------- | -------- | ------ | ----------- | --------------------------------------------------------- |
+| `className` | `string` | —      | Não         | Classes adicionais (usar para definir width/height/shape) |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
+| Token     | Slot                        |
+| --------- | --------------------------- |
 | `--muted` | Cor de fundo do placeholder |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Carregando | Animação `animate-pulse` + `bg-muted` |
-| Shape retangular | Padrão `rounded-2xl` |
-| Shape circular | Sobrescrever com `rounded-full` |
-| Tamanho | Definido via `className` (h-4, w-20, etc) |
+| Estado           | Comportamento                             |
+| ---------------- | ----------------------------------------- |
+| Carregando       | Animação `animate-pulse` + `bg-muted`     |
+| Shape retangular | Padrão `rounded-2xl`                      |
+| Shape circular   | Sobrescrever com `rounded-full`           |
+| Tamanho          | Definido via `className` (h-4, w-20, etc) |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| ARIA | Sem role específica (elemento decorativo) |
+| Requisito           | Implementação                                           |
+| ------------------- | ------------------------------------------------------- |
+| ARIA                | Sem role específica (elemento decorativo)               |
 | Animação respeitada | `animate-pulse` com `prefers-reduced-motion` (Tailwind) |
 
 ---

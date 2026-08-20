@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run
 
 # ANSI Colors
 CYAN=\033[0;36m
@@ -16,6 +16,8 @@ help:
 	@echo "  🧹 $(GREEN)make lint$(RESET)             - Executa o ESLint e a verificação do TypeScript"
 	@echo "  💅 $(GREEN)make format$(RESET)           - Formata o código com o Prettier"
 	@echo "  🔍 $(GREEN)make format-check$(RESET)     - Verifica se o código está formatado"
+	@echo "  🪝 $(GREEN)make pre-commit-install$(RESET) - Instala os git hooks do pre-commit"
+	@echo "  🪝 $(GREEN)make pre-commit-run$(RESET)   - Roda todos os hooks do pre-commit"
 	@echo "  📦 $(GREEN)make build-storybook$(RESET)  - Faz o build estático do Storybook"
 	@echo "  🧪 $(GREEN)make test$(RESET)             - Roda os testes (inclui acessibilidade)"
 	@echo "  👀 $(GREEN)make test-watch$(RESET)       - Roda os testes em modo watch"
@@ -55,6 +57,16 @@ format-check:
 	npm run format:check
 	@echo "✨ $(GREEN)Código devidamente formatado!$(RESET)"
 
+pre-commit-install:
+	@command -v pre-commit >/dev/null 2>&1 || (echo "❌ $(YELLOW)pre-commit não encontrado. Instale com: brew install pre-commit$(RESET)" && exit 1)
+	@echo "🪝 $(CYAN)Instalando os git hooks do pre-commit...$(RESET)"
+	pre-commit install
+	@echo "✅ $(GREEN)Hooks instalados! Eles vão rodar automaticamente em cada commit.$(RESET)"
+
+pre-commit-run:
+	@command -v pre-commit >/dev/null 2>&1 || (echo "❌ $(YELLOW)pre-commit não encontrado. Instale com: brew install pre-commit$(RESET)" && exit 1)
+	@echo "🪝 $(CYAN)Rodando os hooks do pre-commit em todos os arquivos...$(RESET)"
+	pre-commit run --all-files
 
 build-docs:
 	@echo "📝 $(YELLOW)Gerando documentação machine-readable dos componentes...$(RESET)"

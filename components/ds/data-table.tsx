@@ -3,16 +3,25 @@
 import * as React from "react"
 import {
   type ColumnDef,
-  type SortingState,
+  type RowData,
+  columnFilteringFeature,
+  columnResizingFeature,
+  columnSizingFeature,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  flexRender,
+  globalFilteringFeature,
+  metaHelper,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  tableFeatures,
+  useTable,
   type PaginationState,
   type RowSelectionState,
-  type RowData,
-  flexRender,
-  useReactTable,
-  getCoreRowModel,
-  getSortedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
+  type SortingState,
 } from "@tanstack/react-table"
 import { useVirtualizer } from "@tanstack/react-virtual"
 import {
@@ -38,21 +47,43 @@ import {
 } from "@/components/ds/pagination"
 import { SearchBar } from "@/components/ds/search-bar"
 
-// ── ColumnMeta Augmentation ────────────────────────────────────────────────
-// Extends TanStack Table's column metadata type with layout and display hints.
+// ── Table Features ─────────────────────────────────────────────────────────
+// Explicit v9 feature registration. Column layout/display hints live in the
+// `columnMeta` type-only slot instead of global `ColumnMeta` declaration
+// merging.
 
-declare module "@tanstack/react-table" {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface ColumnMeta<TData extends RowData, TValue> {
-    align?: "left" | "center" | "right"
-    width?: number
-    flexGrow?: number
-    wrap?: boolean
-    format?: "percent" | "currency" | "number" | "money"
-    locale?: string
-    formatOptions?: Intl.NumberFormatOptions
-  }
+export interface DataTableColumnMeta {
+  align?: "left" | "center" | "right"
+  width?: number
+  flexGrow?: number
+  wrap?: boolean
+  format?: "percent" | "currency" | "number" | "money"
+  locale?: string
+  formatOptions?: Intl.NumberFormatOptions
 }
+
+const dataTableFeatures = tableFeatures({
+  columnFilteringFeature,
+  globalFilteringFeature,
+  rowSortingFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  columnSizingFeature,
+  columnResizingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  columnMeta: metaHelper<DataTableColumnMeta>(),
+})
+
+type DataTableFeatures = typeof dataTableFeatures
+
+/** `ColumnDef` pre-bound to the DataTable's registered features. */
+export type DataTableColumnDef<
+  TData extends RowData,
+  TValue = unknown,
+> = ColumnDef<DataTableFeatures, TData, TValue>
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -60,7 +91,7 @@ declare module "@tanstack/react-table" {
  * Convenience column descriptor. Pass to `col()` to produce a `ColumnDef`.
  * Use `ColumnDef<T>` directly when you need the full TanStack Table API.
  */
-export interface DataTableColumn<T> {
+export interface DataTableColumn<T extends RowData> {
   key: keyof T & string
   label: string
   width?: number
@@ -96,9 +127,9 @@ export interface DataTableLabels {
 }
 
 export interface DataTableProps<
-  TData,
+  TData extends RowData,
 > extends React.HTMLAttributes<HTMLDivElement> {
-  columns: ColumnDef<TData>[]
+  columns: DataTableColumnDef<TData>[]
   data: TData[]
 
   // Header
@@ -203,7 +234,9 @@ function formatValue(
  *   col({ key: "status", label: "Status", cell: (_, row) => <Badge>{row.status}</Badge> }),
  * ]
  */
-export function col<T extends object>(def: DataTableColumn<T>): ColumnDef<T> {
+export function col<T extends RowData>(
+  def: DataTableColumn<T>
+): DataTableColumnDef<T> {
   return {
     id: def.key,
     accessorKey: def.key,
@@ -234,7 +267,7 @@ export function col<T extends object>(def: DataTableColumn<T>): ColumnDef<T> {
 // ── Column sizing ──────────────────────────────────────────────────────────
 
 function colStyle(
-  meta: ColumnDef<unknown>["meta"],
+  meta: DataTableColumnMeta | undefined,
   override?: number
 ): React.CSSProperties {
   const w = override ?? meta?.width
@@ -351,7 +384,7 @@ TableCell.displayName = "TableCell"
 const SKELETON_WIDTHS = [72, 88, 56, 78, 92, 62, 82, 68, 52, 80]
 
 interface DataTableSkeletonProps {
-  columns: ColumnDef<unknown>[]
+  columns: ReadonlyArray<{ meta?: DataTableColumnMeta }>
   rowCount: number
   hasTitle?: boolean
   hasSubtitle?: boolean
@@ -721,7 +754,7 @@ const SIZE_PRESETS = {
 
 // ── DataTable ──────────────────────────────────────────────────────────────
 
-export function DataTable<TData extends object>({
+export function DataTable<TData extends RowData>({
   columns,
   data,
   title,
@@ -831,7 +864,7 @@ export function DataTable<TData extends object>({
 
   // ── Selection column ──
 
-  const selectionColumn = React.useMemo<ColumnDef<TData>>(
+  const selectionColumn = React.useMemo<DataTableColumnDef<TData>>(
     () => ({
       id: "__select__",
       meta: { width: 48 },
@@ -842,7 +875,10 @@ export function DataTable<TData extends object>({
           aria-label={l.selection.selectAll}
           checked={table.getIsAllPageRowsSelected()}
           ref={(el) => {
-            if (el) el.indeterminate = table.getIsSomePageRowsSelected()
+            if (el)
+              el.indeterminate =
+                table.getIsSomePageRowsSelected() &&
+                !table.getIsAllPageRowsSelected()
           }}
           onChange={table.getToggleAllPageRowsSelectedHandler()}
           className="size-4 cursor-pointer accent-primary"
@@ -869,7 +905,7 @@ export function DataTable<TData extends object>({
     [selectRows, selectionColumn, columns]
   )
 
-  // ── useReactTable ──
+  // ── useTable ──
 
   const paginationConfig = React.useMemo(() => {
     if (!pagination) return {}
@@ -884,7 +920,6 @@ export function DataTable<TData extends object>({
     }
     return {
       onPaginationChange: setPagination,
-      getPaginationRowModel: getPaginationRowModel(),
     }
   }, [pagination, manualPagination, pageCount, rowCount])
 
@@ -898,8 +933,8 @@ export function DataTable<TData extends object>({
     }
   }, [manualPagination, onPageChange, pagination, pagination_.pageIndex])
 
-  // eslint-disable-next-line react-hooks/incompatible-library
-  const table = useReactTable({
+  const table = useTable({
+    features: dataTableFeatures,
     data,
     columns: tableColumns,
     state: {
@@ -912,11 +947,6 @@ export function DataTable<TData extends object>({
     onGlobalFilterChange: handleGlobalFilter,
     onRowSelectionChange: setRowSelection,
     ...paginationConfig,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    ...(pagination &&
-      !manualPagination && { getPaginationRowModel: getPaginationRowModel() }),
     enableRowSelection: selectRows,
     globalFilterFn: "includesString",
     autoResetPageIndex: !manualPagination,
@@ -937,8 +967,14 @@ export function DataTable<TData extends object>({
   // ── Virtualization ──
 
   const parentRef = React.useRef<HTMLDivElement>(null)
-  const rows = table.getRowModel().rows
+  // `paginatedRowModel` is always registered (features are static), so when
+  // pagination is off we read the pre-paginated (sorted + filtered) model
+  // instead of letting the default page size silently slice the rows.
+  const rows = pagination
+    ? table.getRowModel().rows
+    : table.getPrePaginatedRowModel().rows
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const virtualizer = useVirtualizer({
     count: rows.length,
     getScrollElement: () => parentRef.current,
@@ -988,7 +1024,7 @@ export function DataTable<TData extends object>({
   if (loading && data.length === 0) {
     return (
       <DataTableSkeleton
-        columns={columns as ColumnDef<unknown>[]}
+        columns={columns}
         rowCount={skeletonRowCount}
         hasTitle={!!title}
         hasSubtitle={!!subtitle}
@@ -1026,7 +1062,7 @@ export function DataTable<TData extends object>({
 
       {/* ── Toolbar ── */}
       {hasToolbarRow && (
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 px-4 py-2">
           <div className="flex items-center gap-2">
             {toolbar}
             {showDownload && (
@@ -1050,7 +1086,7 @@ export function DataTable<TData extends object>({
               onVoiceStart={onVoiceStart}
               onVoiceEnd={onVoiceEnd}
               onVoiceError={onVoiceError}
-              className="mt-2 mr-2 w-72 min-w-[140px]"
+              className="min-w-140px mt-2 mr-2 w-72"
             />
           )}
         </div>
@@ -1109,7 +1145,7 @@ export function DataTable<TData extends object>({
                     const isSorted = header.column.getIsSorted()
                     const canSort = header.column.getCanSort()
 
-                    const sizedWidth = table.getState().columnSizing[header.id]
+                    const sizedWidth = table.state.columnSizing[header.id]
 
                     return (
                       <TableHead
@@ -1138,16 +1174,30 @@ export function DataTable<TData extends object>({
                         }}
                         onClick={header.column.getToggleSortingHandler()}
                       >
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
+                        {isSelect ? (
+                          header.isPlaceholder ? null : (
+                            flexRender(
                               header.column.columnDef.header,
                               header.getContext()
-                            )}
+                            )
+                          )
+                        ) : (
+                          <span className="min-w-0 flex-1 truncate">
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(
+                                  header.column.columnDef.header,
+                                  header.getContext()
+                                )}
+                          </span>
+                        )}
                         {canSort && (
                           <span
                             className={cn(
-                              "ml-auto shrink-0",
+                              meta?.align === "right" ||
+                                meta?.align === "center"
+                                ? "shrink-0"
+                                : "ml-auto shrink-0",
                               isSorted ? "opacity-100" : "opacity-60"
                             )}
                           >
@@ -1218,7 +1268,7 @@ export function DataTable<TData extends object>({
                       minWidth: minTableWidth,
                     }}
                   >
-                    {row.getVisibleCells().map((cell, ci) => {
+                    {row.getAllCells().map((cell, ci) => {
                       const meta = cell.column.columnDef.meta
                       const isSelect = cell.column.id === "__select__"
                       const colIdx = isSelect ? -1 : ci - (selectRows ? 1 : 0)
@@ -1234,7 +1284,7 @@ export function DataTable<TData extends object>({
                         <TableCell
                           key={cell.id}
                           className={cn(
-                            "flex items-center whitespace-nowrap",
+                            "flex items-center overflow-hidden text-ellipsis whitespace-nowrap",
                             pad,
                             font,
                             isSelect && "w-12 shrink-0 justify-center px-0",
@@ -1255,7 +1305,7 @@ export function DataTable<TData extends object>({
                               ? { width: 48, flexGrow: 0, flexShrink: 0 }
                               : colStyle(
                                   meta,
-                                  table.getState().columnSizing[cell.column.id]
+                                  table.state.columnSizing[cell.column.id]
                                 )),
                             left: stickyLeft,
                           }}
@@ -1287,14 +1337,14 @@ export function DataTable<TData extends object>({
         {/* ── Pagination bar ── */}
         {pagination && (
           <PaginationBar
-            pageIndex={table.getState().pagination.pageIndex}
+            pageIndex={table.state.pagination.pageIndex}
             pageCount={table.getPageCount()}
             totalRows={
               manualPagination && rowCount != null
                 ? rowCount
                 : table.getFilteredRowModel().rows.length
             }
-            pageSize={table.getState().pagination.pageSize}
+            pageSize={table.state.pagination.pageSize}
             pageSizeOptions={pageSizeOptions}
             canPrev={table.getCanPreviousPage()}
             canNext={table.getCanNextPage()}

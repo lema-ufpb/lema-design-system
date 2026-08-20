@@ -16,12 +16,12 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `lib/ui-i18n.ts` |
-| Tipo | `registry:lib` (name: `ui-i18n`) |
-| Categoria | Lib / Internacionalização |
-| Depende de | Nenhuma |
+| Campo      | Valor                            |
+| ---------- | -------------------------------- |
+| Arquivo    | `lib/ui-i18n.ts`                 |
+| Tipo       | `registry:lib` (name: `ui-i18n`) |
+| Categoria  | Lib / Internacionalização        |
+| Depende de | Nenhuma                          |
 
 ---
 
@@ -36,45 +36,45 @@ const UI_I18N: Record<UILocale, { ... }>
 
 ### Seções do dicionário
 
-| Seção | Descrição |
-|-------|-----------|
-| `dialog` | Rótulo do botão de fechar |
-| `spinner` | Texto de loading |
-| `pagination` | Navegação de página |
-| `counter` | Controle de incremento/decremento |
-| `command` | Paleta de comandos |
-| `selectList` | Seleção e busca |
-| `inputPassword` | Show/hide de senha |
-| `progressCircular` | Rótulo de progresso |
-| `riskLevelBar` | Rótulo de valor de risco |
-| `headerSearch` | Abertura/fechamento de busca |
-| `navDots` | Navegação de seção |
-| `footerMenu` | Rótulo de navegação do rodapé |
-| `stepProgress` | Rótulo de progresso |
-| `combobox` | Placeholder, busca, resultados vazios, seleção |
-| `modal` | Labels de confirmação e cancelamento (confirm, cancel) |
-| `dashbox` | Toolbar (refresh, collapse, expand, fullscreen) e status (live, warning, error, idle) |
-| `dashrow` | Redimensionamento de painéis |
-| `treemap` | Navegação de breadcrumb |
-| `scatterChart` | Início/fim de intervalo |
-| `candlestick` | Open, high, low, close, volume, bullish, bearish, MA |
-| `emptyState` | Nenhum dado / dados aparecerão |
-| `cardStats` | Rótulos de período atual e anterior |
-| `pieChart` | Total |
-| `scoreRow` | Loading e label de score |
-| `searchBar` | Placeholder, label, limpar, voice input |
-| `dataTable` | Busca, estados vazios, paginação (of, rows, rowsPerPage) |
+| Seção              | Descrição                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| `dialog`           | Rótulo do botão de fechar                                                             |
+| `spinner`          | Texto de loading                                                                      |
+| `pagination`       | Navegação de página                                                                   |
+| `counter`          | Controle de incremento/decremento                                                     |
+| `command`          | Paleta de comandos                                                                    |
+| `selectList`       | Seleção e busca                                                                       |
+| `inputPassword`    | Show/hide de senha                                                                    |
+| `progressCircular` | Rótulo de progresso                                                                   |
+| `riskLevelBar`     | Rótulo de valor de risco                                                              |
+| `headerSearch`     | Abertura/fechamento de busca                                                          |
+| `navDots`          | Navegação de seção                                                                    |
+| `footerMenu`       | Rótulo de navegação do rodapé                                                         |
+| `stepProgress`     | Rótulo de progresso                                                                   |
+| `combobox`         | Placeholder, busca, resultados vazios, seleção                                        |
+| `modal`            | Labels de confirmação e cancelamento (confirm, cancel)                                |
+| `dashbox`          | Toolbar (refresh, collapse, expand, fullscreen) e status (live, warning, error, idle) |
+| `dashrow`          | Redimensionamento de painéis                                                          |
+| `treemap`          | Navegação de breadcrumb                                                               |
+| `scatterChart`     | Início/fim de intervalo                                                               |
+| `candlestick`      | Open, high, low, close, volume, bullish, bearish, MA                                  |
+| `emptyState`       | Nenhum dado / dados aparecerão                                                        |
+| `cardStats`        | Rótulos de período atual e anterior                                                   |
+| `pieChart`         | Total                                                                                 |
+| `scoreRow`         | Loading e label de score                                                              |
+| `searchBar`        | Placeholder, label, limpar, voice input                                               |
+| `dataTable`        | Busca, estados vazios, paginação (of, rows, rowsPerPage)                              |
 
 ---
 
 ## Locales
 
-| Locale | Idioma |
-|--------|--------|
-| `en-US` | Inglês (EUA) |
+| Locale  | Idioma             |
+| ------- | ------------------ |
+| `en-US` | Inglês (EUA)       |
 | `pt-BR` | Português (Brasil) |
 | `es-ES` | Espanhol (Espanha) |
-| `fr-FR` | Francês (França) |
+| `fr-FR` | Francês (França)   |
 
 ---
 

@@ -16,25 +16,25 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/switch.tsx` |
-| Tipo | `registry:ui` (name: `switch`) |
-| Categoria | Formulário / Seleção binária |
-| Depende de | `radix-ui` |
+| Campo      | Valor                          |
+| ---------- | ------------------------------ |
+| Arquivo    | `components/ui/switch.tsx`     |
+| Tipo       | `registry:ui` (name: `switch`) |
+| Categoria  | Formulário / Seleção binária   |
+| Depende de | `radix-ui`                     |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"sm" \| "default"` | `"default"` | Não | Tamanho do switch |
-| `defaultChecked` | `boolean` | `false` | Não | Estado inicial marcado |
-| `checked` | `boolean` | — | Não | Estado controlado |
-| `onCheckedChange` | `(checked: boolean) => void` | — | Não | Callback de mudança |
-| `disabled` | `boolean` | `false` | Não | Desabilita interação |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop              | Tipo                         | Padrão      | Obrigatória | Descrição              |
+| ----------------- | ---------------------------- | ----------- | ----------- | ---------------------- |
+| `size`            | `"sm" \| "default"`          | `"default"` | Não         | Tamanho do switch      |
+| `defaultChecked`  | `boolean`                    | `false`     | Não         | Estado inicial marcado |
+| `checked`         | `boolean`                    | —           | Não         | Estado controlado      |
+| `onCheckedChange` | `(checked: boolean) => void` | —           | Não         | Callback de mudança    |
+| `disabled`        | `boolean`                    | `false`     | Não         | Desabilita interação   |
+| `className`       | `string`                     | —           | Não         | Classes adicionais     |
 
 Demais props são herdadas de `SwitchPrimitive.Root`.
 
@@ -42,42 +42,42 @@ Demais props são herdadas de `SwitchPrimitive.Root`.
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
-| `--primary` | Fundo quando checked |
-| `--input / 90%` | Fundo quando unchecked |
-| `--background` | Thumb (claro, unchecked light mode) |
-| `--primary-foreground` | Thumb (checked dark mode) |
-| `--foreground` | Thumb (unchecked dark mode) |
-| `--ring / 30%` | Anel de foco |
-| `--destructive / 20%` | Anel de estado inválido |
+| Token                  | Slot                                |
+| ---------------------- | ----------------------------------- |
+| `--primary`            | Fundo quando checked                |
+| `--input / 90%`        | Fundo quando unchecked              |
+| `--background`         | Thumb (claro, unchecked light mode) |
+| `--primary-foreground` | Thumb (checked dark mode)           |
+| `--foreground`         | Thumb (unchecked dark mode)         |
+| `--ring / 30%`         | Anel de foco                        |
+| `--destructive / 20%`  | Anel de estado inválido             |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Unchecked** | Fundo `bg-input/90`, thumb à esquerda |
-| **Checked** | Fundo `bg-primary`, thumb à direita |
-| **Unchecked dark** | Thumb `bg-foreground` |
-| **Checked dark** | Thumb `bg-primary-foreground` |
-| **Disabled unchecked** | `opacity-50`, `cursor-not-allowed` |
-| **Disabled checked** | `opacity-50`, mantém checked |
-| **Focus** | `focus-visible:ring-3 focus-visible:ring-ring/30` |
+| Estado                     | Comportamento                                      |
+| -------------------------- | -------------------------------------------------- |
+| **Unchecked**              | Fundo `bg-input/90`, thumb à esquerda              |
+| **Checked**                | Fundo `bg-primary`, thumb à direita                |
+| **Unchecked dark**         | Thumb `bg-foreground`                              |
+| **Checked dark**           | Thumb `bg-primary-foreground`                      |
+| **Disabled unchecked**     | `opacity-50`, `cursor-not-allowed`                 |
+| **Disabled checked**       | `opacity-50`, mantém checked                       |
+| **Focus**                  | `focus-visible:ring-3 focus-visible:ring-ring/30`  |
 | **Invalid (aria-invalid)** | Borda `border-destructive` + ring `destructive/20` |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role | `role="switch"` no Radix |
-| Rótulo | Associado a `<label>` ou `aria-label` |
+| Requisito    | Implementação                                    |
+| ------------ | ------------------------------------------------ |
+| Role         | `role="switch"` no Radix                         |
+| Rótulo       | Associado a `<label>` ou `aria-label`            |
 | Foco visível | `focus-visible:border-ring focus-visible:ring-3` |
-| Estado | `data-checked` / `data-unchecked` para estados |
-| Teclado | Space/Enter para alternar (nativo Radix) |
+| Estado       | `data-checked` / `data-unchecked` para estados   |
+| Teclado      | Space/Enter para alternar (nativo Radix)         |
 
 ---
 

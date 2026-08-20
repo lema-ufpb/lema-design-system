@@ -27,7 +27,7 @@ export const cardStatHighlightBoxVariants = cva("", {
       lg: "size-11 rounded-xl",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatHighlightIconVariants = cva("", {
@@ -38,7 +38,7 @@ export const cardStatHighlightIconVariants = cva("", {
       lg: "size-6",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatHighlightValueVariants = cva("", {
@@ -49,7 +49,7 @@ export const cardStatHighlightValueVariants = cva("", {
       lg: "text-4xl font-semibold tracking-tight tabular-nums",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatHighlightDescVariants = cva("", {
@@ -60,7 +60,7 @@ export const cardStatHighlightDescVariants = cva("", {
       lg: "text-base",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatHighlightTrendIconVariants = cva("", {
@@ -71,7 +71,7 @@ export const cardStatHighlightTrendIconVariants = cva("", {
       lg: "size-5",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export type CardStatHighlightVariant =
@@ -127,7 +127,7 @@ export function CardStatHighlight({
   trendValue,
   icon: Icon,
   variant = "primary",
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,
@@ -254,7 +254,7 @@ export function CardStatHighlight({
     )
   }
 
-  const display = applyFormat(value, fmt)
+  const display = applyFormat(value, { ...fmt, locale })
   const trendDir = resolveTrend(trend)
   const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
 

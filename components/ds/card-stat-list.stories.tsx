@@ -56,7 +56,7 @@ export const Default: Story = {
   args: {
     label: "Performance Overview",
     icon: BarChart2Icon,
-    size: "md",
+    size: "sm",
     items: [
       {
         label: "Sessions",

@@ -9,31 +9,31 @@
 
 _O que este componente resolve? Quando usar vs. alternativas existentes?_
 
-**Usar quando:** …  
-**Não usar quando:** …  
+**Usar quando:** …
+**Não usar quando:** …
 **Alternativa se não se aplicar:** …
 
 ---
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/[nome].tsx` |
-| Tipo | `registry:ui` |
-| Categoria | `Data Display` / `Form` / `Navigation` / `Feedback` / `Layout` |
-| Depende de | (primitivos shadcn usados: Card, Badge, Skeleton, etc.) |
+| Campo      | Valor                                                          |
+| ---------- | -------------------------------------------------------------- |
+| Arquivo    | `components/ds/[nome].tsx`                                     |
+| Tipo       | `registry:ui`                                                  |
+| Categoria  | `Data Display` / `Form` / `Navigation` / `Feedback` / `Layout` |
+| Depende de | (primitivos shadcn usados: Card, Badge, Skeleton, etc.)        |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `number` | — | ✓ | … |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | | Tamanho do componente |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
-| `className` | `string` | — | | Classes extras de layout |
+| Prop        | Tipo                   | Padrão  | Obrigatória | Descrição                |
+| ----------- | ---------------------- | ------- | ----------- | ------------------------ |
+| `value`     | `number`               | —       | ✓           | …                        |
+| `size`      | `"sm" \| "md" \| "lg"` | `"md"`  |             | Tamanho do componente    |
+| `loading`   | `boolean`              | `false` |             | Estado de carregamento   |
+| `className` | `string`               | —       |             | Classes extras de layout |
 
 > Estender `HTMLAttributes<HTMLDivElement>` (ou o elemento semântico correto) + `VariantProps<typeof *Variants>`.
 
@@ -43,11 +43,11 @@ _O que este componente resolve? Quando usar vs. alternativas existentes?_
 
 Liste todas as dimensões de variação. Cada dimensão vira um `variants` block no `cva()`.
 
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `size` | `sm`, `md`, `lg` | `md` |
+| Dimensão | Valores                             | Padrão    |
+| -------- | ----------------------------------- | --------- |
+| `size`   | `sm`, `md`, `lg`                    | `md`      |
 | `intent` | `primary`, `success`, `destructive` | `primary` |
-| … | … | … |
+| …        | …                                   | …         |
 
 **Slots do componente** (cada slot ganha seu próprio `*Variants`):
 
@@ -60,15 +60,15 @@ Liste todas as dimensões de variação. Cada dimensão vira um `variants` block
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `bg-muted` | track / fundo do componente |
-| `text-muted-foreground` | label/nome |
-| `text-foreground` | valor principal |
-| `bg-primary` | fill padrão |
-| `text-success` / `bg-success` | variante success |
-| `text-destructive` | variante destructive |
-| … | … |
+| Token                         | Slot onde é usado           |
+| ----------------------------- | --------------------------- |
+| `bg-muted`                    | track / fundo do componente |
+| `text-muted-foreground`       | label/nome                  |
+| `text-foreground`             | valor principal             |
+| `bg-primary`                  | fill padrão                 |
+| `text-success` / `bg-success` | variante success            |
+| `text-destructive`            | variante destructive        |
+| …                             | …                           |
 
 > Proibido: `bg-emerald-500`, `text-green-600`, qualquer cor Tailwind raw para semântica.
 
@@ -76,36 +76,36 @@ Liste todas as dimensões de variação. Cada dimensão vira um `variants` block
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Label text | `text-xs font-medium` | `text-sm font-medium` | `text-base font-medium` |
-| Value text | `text-xs font-semibold` | `text-sm font-semibold` | `text-base font-semibold` |
-| Altura do elemento | `h-7` | `h-8` | `h-9` |
-| Ícone | `size-3.5` | `size-4` | `size-5` |
+| Slot               | sm                      | md                      | lg                        |
+| ------------------ | ----------------------- | ----------------------- | ------------------------- |
+| Label text         | `text-xs font-medium`   | `text-sm font-medium`   | `text-base font-medium`   |
+| Value text         | `text-xs font-semibold` | `text-sm font-semibold` | `text-base font-semibold` |
+| Altura do elemento | `h-7`                   | `h-8`                   | `h-9`                     |
+| Ícone              | `size-3.5`              | `size-4`                | `size-5`                  |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<Skeleton>` com dimensões idênticas ao conteúdo real |
-| `disabled` | `opacity-50 pointer-events-none` via `data-disabled` |
-| Valor mínimo/máximo | … |
-| Empty / null | … |
-| Overflow de texto | `truncate` em todos os labels |
+| Estado              | Comportamento esperado                                |
+| ------------------- | ----------------------------------------------------- |
+| `loading={true}`    | `<Skeleton>` com dimensões idênticas ao conteúdo real |
+| `disabled`          | `opacity-50 pointer-events-none` via `data-disabled`  |
+| Valor mínimo/máximo | …                                                     |
+| Empty / null        | …                                                     |
+| Overflow de texto   | `truncate` em todos os labels                         |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Role semântico | `<div role="…">` ou elemento HTML nativo |
-| Rótulo | `aria-label` obrigatório quando sem label visível |
-| Valores numéricos | `aria-valuenow`, `aria-valuemin`, `aria-valuemax` |
-| Teclado | Teclas suportadas: … |
-| i18n | `UI_I18N[locale].componentName.*` para strings fixas |
+| Requisito         | Implementação                                        |
+| ----------------- | ---------------------------------------------------- |
+| Role semântico    | `<div role="…">` ou elemento HTML nativo             |
+| Rótulo            | `aria-label` obrigatório quando sem label visível    |
+| Valores numéricos | `aria-valuenow`, `aria-valuemin`, `aria-valuemax`    |
+| Teclado           | Teclas suportadas: …                                 |
+| i18n              | `UI_I18N[locale].componentName.*` para strings fixas |
 
 ---
 

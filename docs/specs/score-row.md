@@ -2,8 +2,8 @@
 
 Linha de item pontuada com ícone, label, score e barra de progresso opcional. Projetado para checklists de auditoria, formulários de avaliação e listas de notas.
 
-**Usar quando:** exibir um item com pontuação (score/total), seja em listas de auditoria, avaliação docente, indicadores, etc.  
-**Não usar quando:** o dado não tem score numérico ou a lista tem menos de 3 itens simples (preferir lista nativa).  
+**Usar quando:** exibir um item com pontuação (score/total), seja em listas de auditoria, avaliação docente, indicadores, etc.
+**Não usar quando:** o dado não tem score numérico ou a lista tem menos de 3 itens simples (preferir lista nativa).
 **Alternativa se não se aplicar:** `CardStat` para cards de métrica individual, lista HTML `<ul>` para itens sem score.
 
 ---
@@ -24,23 +24,24 @@ Linha de item pontuada com ícone, label, score e barra de progresso opcional. P
 
 ### ScoreRow
 
-| Prop                             | Tipo                                                             | Padrão         | Obrigatória | Descrição                                                             |
-| -------------------------------- | ---------------------------------------------------------------- | -------------- | ----------- | --------------------------------------------------------------------- |
-| `title`                          | `string`                                                         | —              | ✓           | Título do item                                                        |
-| `description`                    | `string`                                                         | —              |             | Descrição / subtítulo                                                 |
-| `icon`                           | `React.ElementType`                                              | `FileTextIcon` |             | Componente Lucide para o ícone                                        |
-| `score`                          | `number`                                                         | —              | ✓           | Valor atual da pontuação                                              |
-| `total`                          | `number`                                                         | —              | ✓           | Valor máximo da pontuação                                             |
-| `size`                           | `"sm" \| "md" \| "lg"`                                           | `"md"`         |             | Densidade da linha                                                    |
-| `status`                         | `"default" \| "success" \| "warning" \| "destructive" \| "auto"` | `"default"`    |             | Cor do ícone e score. `"auto"` deriva do ratio (score/total)          |
-| `scoreDisplay`                   | `"fraction" \| "percent" \| "raw"`                               | `"fraction"`   |             | Formato de exibição do score                                          |
-| `showProgress`                   | `boolean`                                                        | `true`         |             | Exibe barra de progresso na base da linha com tooltip                 |
-| `loading`                        | `boolean`                                                        | `false`        |             | Estado skeleton                                                       |
-| `locale`                         | `UILocale`                                                       | `"en-US"`      |             | Localização dos textos (`loading`, `scoreLabel`)                      |
-| `percentDecimals`                | `number`                                                         | `0`            |             | Casas decimais no percentual exibido no tooltip da barra e aria-label |
-| `onClick`                        | `() => void`                                                     | —              |             | Quando presente, renderiza como `<button>` com hover/focus-visible    |
-| `className`                      | `string`                                                         | —              |             | Classes extras                                                        |
-| `...HTMLAttributes<HTMLElement>` | —                                                                | —              |             | Demais atributos HTML (não aplicados se `onClick` presente)           |
+| Prop                             | Tipo                                                             | Padrão         | Obrigatória | Descrição                                                                                                                             |
+| -------------------------------- | ---------------------------------------------------------------- | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`                          | `string`                                                         | —              | ✓           | Título do item                                                                                                                        |
+| `description`                    | `string`                                                         | —              |             | Descrição / subtítulo                                                                                                                 |
+| `icon`                           | `React.ElementType`                                              | `FileTextIcon` |             | Componente Lucide para o ícone                                                                                                        |
+| `score`                          | `number`                                                         | —              | ✓           | Valor atual da pontuação                                                                                                              |
+| `total`                          | `number`                                                         | —              | ✓           | Valor máximo da pontuação                                                                                                             |
+| `size`                           | `"sm" \| "md" \| "lg"`                                           | `"md"`         |             | Densidade da linha                                                                                                                    |
+| `status`                         | `"default" \| "success" \| "warning" \| "destructive" \| "auto"` | `"default"`    |             | Cor do ícone e score. `"auto"` deriva do ratio (score/total)                                                                          |
+| `scoreDisplay`                   | `"fraction" \| "percent" \| "raw"`                               | `"fraction"`   |             | Formato de exibição do score                                                                                                          |
+| `showProgress`                   | `boolean`                                                        | `true`         |             | Exibe barra de progresso na base da linha com tooltip                                                                                 |
+| `loading`                        | `boolean`                                                        | `false`        |             | Estado skeleton                                                                                                                       |
+| `locale`                         | `UILocale`                                                       | `"en-US"`      |             | Localização dos textos (`loading`, `scoreLabel`)                                                                                      |
+| `percentDecimals`                | `number`                                                         | `0`            |             | Casas decimais no percentual exibido no tooltip da barra e aria-label                                                                 |
+| `onClick`                        | `() => void`                                                     | —              |             | Quando presente, renderiza como `<button>` com hover/focus-visible                                                                    |
+| `tooltip`                        | `React.ReactNode`                                                | —              |             | Tooltip da linha inteira; quando presente, suprime o tooltip da barra de progresso (evita aninhamento) e a linha vira trigger focável |
+| `className`                      | `string`                                                         | —              |             | Classes extras                                                                                                                        |
+| `...HTMLAttributes<HTMLElement>` | —                                                                | —              |             | Demais atributos HTML (não aplicados se `onClick` presente)                                                                           |
 
 ### ScoreRowList
 
@@ -113,6 +114,7 @@ Todas com `defaultVariants` declarados.
 | **Auto status**      | `status="auto"` deriva cor do ratio: ≥70% success, ≥40% warning, <40% destructive                                                                               |
 | **Score display**    | `fraction`: "42 / 95" · `percent`: "71,6%" (locale-aware, respeita `percentDecimals`) · `raw`: "42"                                                             |
 | **Progress bar**     | `showProgress=true` renderiza barra fina colorida na base + tooltip com percentual localizado                                                                   |
+| **Row tooltip**      | `tooltip` presente envolve a linha inteira (`<div>` ou `<button>`) num único `Tooltip` e desativa o tooltip próprio da barra de progresso, evitando aninhamento |
 | **Percent decimals** | `percentDecimals` controla casas decimais em todo percentual (score display, tooltip, aria-label). Usa `formatValue` de `@/lib/format-utils` com o locale ativo |
 | **Loading**          | `loading=true` renderiza `Skeleton` em todos os slots mantendo a estrutura visual                                                                               |
 | **Clickable**        | `onClick` presente transforma a linha em `<button>` com `hover:bg-accent` e `focus-visible:ring`                                                                |
@@ -122,18 +124,19 @@ Todas com `defaultVariants` declarados.
 
 ## Acessibilidade
 
-| Requisito       | Implementação                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------- |
-| Score semântico | Score visual com `aria-hidden`, `<span class="sr-only">` com texto localizado (`t.scoreLabel: 42 / 95`) |
-| Texto truncado  | `title` attribute nos spans de título e descrição para exibir texto completo ao passar o mouse          |
-| Progress bar    | `aria-label` no `<Progress>` e tooltip com `role="tooltip"`                                             |
-| Loading         | `aria-busy="true"` e `aria-label={t.loading}`                                                           |
-| Interactive     | Quando `onClick` presente, renderiza `<button>` com `aria-label` composto de título, descrição e score  |
-| Lista           | `ScoreRowList` com `role="list"`                                                                        |
-| Container ícone | `aria-hidden="true"` (decorativo)                                                                       |
-| Lucide icons    | Herdam `aria-hidden` do container (decorativos)                                                         |
-| Contraste       | Todos os tokens de cor são semânticos com opacidade controlada                                          |
-| i18n            | `UI_I18N[locale].scoreRow.*` para `scoreLabel`, `loading`, `comparing`                                  |
+| Requisito       | Implementação                                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| Score semântico | Score visual com `aria-hidden`, `<span class="sr-only">` com texto localizado (`t.scoreLabel: 42 / 95`)         |
+| Texto truncado  | `title` attribute nos spans de título e descrição para exibir texto completo ao passar o mouse                  |
+| Progress bar    | `aria-label` no `<Progress>` e tooltip com `role="tooltip"`; trigger tem `tabIndex={0}` e `focus-visible:ring`  |
+| Row tooltip     | Trigger da linha (`<div>` não-interativo) recebe `tabIndex={0}` e `focus-visible:ring`; `<button>` já é focável |
+| Loading         | `aria-busy="true"` e `aria-label={t.loading}`                                                                   |
+| Interactive     | Quando `onClick` presente, renderiza `<button>` com `aria-label` composto de título, descrição e score          |
+| Lista           | `ScoreRowList` com `role="list"`                                                                                |
+| Container ícone | `aria-hidden="true"` (decorativo)                                                                               |
+| Lucide icons    | Herdam `aria-hidden` do container (decorativos)                                                                 |
+| Contraste       | Todos os tokens de cor são semânticos com opacidade controlada                                                  |
+| i18n            | `UI_I18N[locale].scoreRow.*` para `scoreLabel`, `loading`, `comparing`                                          |
 
 ---
 
@@ -152,6 +155,7 @@ Todas com `defaultVariants` declarados.
 - [x] `CustomIcons` — Custom Icons
 - [x] `LocalePtBR` — Locale pt-BR
 - [x] `PercentDecimals` — Percent Decimals
+- [x] `RowTooltip` — Row Tooltip
 
 ## Checklist
 

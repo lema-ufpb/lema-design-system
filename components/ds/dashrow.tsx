@@ -70,7 +70,7 @@ export const dashrowContainerVariants = cva(
 )
 
 export const dashrowChildVariants = cva(
-  "flex w-full min-w-0 flex-col lg:w-auto",
+  "flex w-full min-w-0 flex-col lg:w-auto [&>*]:min-h-0 [&>*]:flex-1",
   {
     variants: {
       alignment: {

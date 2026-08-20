@@ -6,45 +6,45 @@
 
 _Gráfico de barras radiais (gauge) baseado em recharts RadialBarChart. Barras concêntricas em volta de um eixo angular. Suporta track de fundo, label central, domínio angular customizável (startAngle/endAngle) e maxValue para escala fixa._
 
-**Usar quando:** Mostrar progresso ou métricas em formato circular — KPIs, percentuais, metas, dashboards executivos. Ideal para single-value com label.  
-**Não usar quando:** Comparações precisas entre muitos itens (usar BarChart), proporções de um todo (usar PieChart).  
+**Usar quando:** Mostrar progresso ou métricas em formato circular — KPIs, percentuais, metas, dashboards executivos. Ideal para single-value com label.
+**Não usar quando:** Comparações precisas entre muitos itens (usar BarChart), proporções de um todo (usar PieChart).
 **Alternativa se não se aplicar:** PieChart donut para proporções, BarChart para rankings.
 
 ---
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/radial-chart.tsx` |
-| data-slot | `radial-chart` |
-| Tipo | `registry:component` |
-| Categoria | `Data Display` |
+| Campo      | Valor                                                                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Arquivo    | `components/ds/radial-chart.tsx`                                                                                                                                         |
+| data-slot  | `radial-chart`                                                                                                                                                           |
+| Tipo       | `registry:component`                                                                                                                                                     |
+| Categoria  | `Data Display`                                                                                                                                                           |
 | Depende de | `Skeleton` (shadcn/ui), `recharts` (Legend, PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip), `lucide-react` (Gauge), `class-variance-authority` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `data` | `RadialChartItem[]` | — | ✓ | Array de itens com name, value, color |
-| `title` | `string` | — | | Título |
-| `subtitle` | `string` | — | | Subtítulo |
-| `footer` | `React.ReactNode` | — | | Rodapé |
-| `height` | `number` | `320` | | Altura do canvas |
-| `showTrack` | `boolean` | `true` | | Arco de fundo (track) |
-| `showLegend` | `boolean` | `false` | | Exibe legenda |
-| `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | | Posição da legenda |
-| `showTooltip` | `boolean` | `true` | | Exibe tooltip |
-| `innerLabel` | `string` | — | | Label central |
-| `maxValue` | `number` | — | | Valor máximo para escala fixa (ideal para percentuais) |
-| `startAngle` | `number` | `90` | | Ângulo inicial (graus) |
-| `endAngle` | `number` | `-270` | | Ângulo final (graus) |
-| `valueFormatter` | `(value: number) => string` | — | | Formata valores |
-| `loading` | `boolean` | `false` | | Estado de carregamento |
-| `locale` | `UILocale` | `"en-US"` | | Locale |
-| `className` | `string` | — | | Classes extras |
+| Prop             | Tipo                                     | Padrão     | Obrigatória | Descrição                                              |
+| ---------------- | ---------------------------------------- | ---------- | ----------- | ------------------------------------------------------ |
+| `data`           | `RadialChartItem[]`                      | —          | ✓           | Array de itens com name, value, color                  |
+| `title`          | `string`                                 | —          |             | Título                                                 |
+| `subtitle`       | `string`                                 | —          |             | Subtítulo                                              |
+| `footer`         | `React.ReactNode`                        | —          |             | Rodapé                                                 |
+| `height`         | `number`                                 | `320`      |             | Altura do canvas                                       |
+| `showTrack`      | `boolean`                                | `true`     |             | Arco de fundo (track)                                  |
+| `showLegend`     | `boolean`                                | `false`    |             | Exibe legenda                                          |
+| `legendPosition` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` |             | Posição da legenda                                     |
+| `showTooltip`    | `boolean`                                | `true`     |             | Exibe tooltip                                          |
+| `innerLabel`     | `string`                                 | —          |             | Label central                                          |
+| `maxValue`       | `number`                                 | —          |             | Valor máximo para escala fixa (ideal para percentuais) |
+| `startAngle`     | `number`                                 | `90`       |             | Ângulo inicial (graus)                                 |
+| `endAngle`       | `number`                                 | `-270`     |             | Ângulo final (graus)                                   |
+| `valueFormatter` | `(value: number) => string`              | —          |             | Formata valores                                        |
+| `loading`        | `boolean`                                | `false`    |             | Estado de carregamento                                 |
+| `locale`         | `UILocale`                               | `"en-US"`  |             | Locale                                                 |
+| `className`      | `string`                                 | —          |             | Classes extras                                         |
 
 > Estende `React.HTMLAttributes<HTMLDivElement>`.
 
@@ -53,8 +53,8 @@ _Gráfico de barras radiais (gauge) baseado em recharts RadialBarChart. Barras c
 ## Variantes CVA
 
 | Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| — | — | — |
+| -------- | ------- | ------ |
+| —        | —       | —      |
 
 **Slots do componente:**
 
@@ -68,54 +68,54 @@ _Gráfico de barras radiais (gauge) baseado em recharts RadialBarChart. Barras c
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
-| `text-foreground` | título, tooltip name, tooltip value, center label value |
+| Token                   | Slot onde é usado                                          |
+| ----------------------- | ---------------------------------------------------------- |
+| `text-foreground`       | título, tooltip name, tooltip value, center label value    |
 | `text-muted-foreground` | subtítulo, tooltip, center label text, footer, empty state |
-| `bg-muted` | empty state icon circle, radial track (showTrack) |
-| `bg-card` | tooltip background |
-| `border-border` | footer divider, empty state border, tooltip border |
-| `var(--chart-1..5)` | fill das barras radiais |
-| `var(--muted)` | track background fill |
+| `bg-muted`              | empty state icon circle, radial track (showTrack)          |
+| `bg-card`               | tooltip background                                         |
+| `border-border`         | footer divider, empty state border, tooltip border         |
+| `var(--chart-1..5)`     | fill das barras radiais                                    |
+| `var(--muted)`          | track background fill                                      |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | md | lg |
-|------|----|----|----|
-| Título | — | `text-sm leading-tight font-semibold` | — |
-| Subtítulo | — | `text-xs` | — |
-| Center label value | — | `text-2xl leading-none font-semibold` | — |
-| Center label text (com value) | — | `text-xs` | — |
-| Center label text (sem value) | — | `text-sm font-medium` | — |
-| Tooltip name | — | `text-xs font-semibold` | — |
-| Tooltip value | — | `text-xs font-semibold tabular-nums` | — |
+| Slot                          | sm  | md                                    | lg  |
+| ----------------------------- | --- | ------------------------------------- | --- |
+| Título                        | —   | `text-sm leading-tight font-semibold` | —   |
+| Subtítulo                     | —   | `text-xs`                             | —   |
+| Center label value            | —   | `text-2xl leading-none font-semibold` | —   |
+| Center label text (com value) | —   | `text-xs`                             | —   |
+| Center label text (sem value) | —   | `text-sm font-medium`                 | —   |
+| Tooltip name                  | —   | `text-xs font-semibold`               | —   |
+| Tooltip value                 | —   | `text-xs font-semibold tabular-nums`  | —   |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `loading={true}` | `<RadialChartSkeleton>` com arcos SVG concêntricos animados. Suporta `hasInnerLabel`. |
-| `data.length === 0` | Empty state com ícone `Gauge`, mensagens i18n `emptyState.*`. |
-| `showTrack=true` | Arco de fundo com `fill: "var(--muted)"` via prop `background` do RadialBar. |
-| `maxValue` definido | `PolarAngleAxis` com domain `[0, maxValue]` para escala fixa (ex: 0-100). |
-| Center label | Exibido apenas se `innerLabel` for fornecido. Single-item: mostra valor formatado + label. |
-| `startAngle` / `endAngle` | Controlam o arco total. Default: 90 a -270 (3/4 de círculo começando no topo). |
-| Hidden items | Toggle via legenda com `opacity-40`. |
+| Estado                    | Comportamento esperado                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------ |
+| `loading={true}`          | `<RadialChartSkeleton>` com arcos SVG concêntricos animados. Suporta `hasInnerLabel`.      |
+| `data.length === 0`       | Empty state com ícone `Gauge`, mensagens i18n `emptyState.*`.                              |
+| `showTrack=true`          | Arco de fundo com `fill: "var(--muted)"` via prop `background` do RadialBar.               |
+| `maxValue` definido       | `PolarAngleAxis` com domain `[0, maxValue]` para escala fixa (ex: 0-100).                  |
+| Center label              | Exibido apenas se `innerLabel` for fornecido. Single-item: mostra valor formatado + label. |
+| `startAngle` / `endAngle` | Controlam o arco total. Default: 90 a -270 (3/4 de círculo começando no topo).             |
+| Hidden items              | Toggle via legenda com `opacity-40`.                                                       |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
+| Requisito                    | Implementação                                   |
+| ---------------------------- | ----------------------------------------------- |
 | Itens de legenda interativos | `role="button"`, `tabIndex={0}`, `aria-pressed` |
-| Teclado na legenda | Enter e Espaço |
-| Valores numéricos | `tabular-nums` |
-| i18n | `UI_I18N[locale].emptyState.*` |
+| Teclado na legenda           | Enter e Espaço                                  |
+| Valores numéricos            | `tabular-nums`                                  |
+| i18n                         | `UI_I18N[locale].emptyState.*`                  |
 
 ---
 

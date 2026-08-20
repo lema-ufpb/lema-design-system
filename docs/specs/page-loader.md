@@ -16,42 +16,42 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/page-loader.tsx` |
-| Tipo | `registry:component` |
-| Categoria | Feedback |
+| Campo      | Valor                                  |
+| ---------- | -------------------------------------- |
+| Arquivo    | `components/ds/page-loader.tsx`        |
+| Tipo       | `registry:component`                   |
+| Categoria  | Feedback                               |
 | Depende de | `Spinner` (ui), `cn`, `UI_I18N`, `cva` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `loading` | `boolean` | — | ✓ | Controla visibilidade e `aria-busy` |
-| `variant` | `"bar" \| "spinner"` | `"bar"` | | Padrão de UI |
-| `size` | `"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "4xl"` | `"md"` | | Escala (altura da barra, tamanho do spinner/fonte) |
-| `color` | `"primary" \| "success" \| "destructive"` | `"primary"` | | Cor semântica da barra/spinner |
-| `overlay` | `"ghost" \| "soft" \| "subtle" \| "solid" \| "none"` | `"soft"` | | Intensidade do fundo bloqueante |
-| `blur` | `boolean` | `false` | | Frosted glass (`backdrop-blur-xs`) |
-| `message` | `string` | — | | Texto exibido abaixo do spinner; usa i18n se omitido |
-| `locale` | `UILocale` | `"en-US"` | | Locale para string de carregamento |
-| `className` | `string` | — | | Classes extras no overlay |
+| Prop        | Tipo                                                 | Padrão      | Obrigatória | Descrição                                            |
+| ----------- | ---------------------------------------------------- | ----------- | ----------- | ---------------------------------------------------- |
+| `loading`   | `boolean`                                            | —           | ✓           | Controla visibilidade e `aria-busy`                  |
+| `variant`   | `"bar" \| "spinner"`                                 | `"bar"`     |             | Padrão de UI                                         |
+| `size`      | `"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "4xl"`     | `"md"`      |             | Escala (altura da barra, tamanho do spinner/fonte)   |
+| `color`     | `"primary" \| "success" \| "destructive"`            | `"primary"` |             | Cor semântica da barra/spinner                       |
+| `overlay`   | `"ghost" \| "soft" \| "subtle" \| "solid" \| "none"` | `"soft"`    |             | Intensidade do fundo bloqueante                      |
+| `blur`      | `boolean`                                            | `false`     |             | Frosted glass (`backdrop-blur-xs`)                   |
+| `message`   | `string`                                             | —           |             | Texto exibido abaixo do spinner; usa i18n se omitido |
+| `locale`    | `UILocale`                                           | `"en-US"`   |             | Locale para string de carregamento                   |
+| `className` | `string`                                             | —           |             | Classes extras no overlay                            |
 
 ---
 
 ## Variantes CVA
 
-| Dimensão | Valores | Padrão |
-|----------|---------|--------|
-| `overlay` | `ghost`, `soft`, `subtle`, `solid`, `none` | `soft` |
-| `blur` | `true`, `false` | `false` |
-| `size` (bar track) | `sm`, `md`, `lg`, `xl`, `2xl`, `4xl` | `md` |
-| `size` (spinner) | `sm`, `md`, `lg`, `xl`, `2xl`, `4xl` | `md` |
-| `size` (message) | `sm`, `md`, `lg`, `xl`, `2xl`, `4xl` | `md` |
-| `color` (bar fill) | `primary`, `success`, `destructive` | `primary` |
-| `color` (spinner) | `primary`, `success`, `destructive` | `primary` |
+| Dimensão           | Valores                                    | Padrão    |
+| ------------------ | ------------------------------------------ | --------- |
+| `overlay`          | `ghost`, `soft`, `subtle`, `solid`, `none` | `soft`    |
+| `blur`             | `true`, `false`                            | `false`   |
+| `size` (bar track) | `sm`, `md`, `lg`, `xl`, `2xl`, `4xl`       | `md`      |
+| `size` (spinner)   | `sm`, `md`, `lg`, `xl`, `2xl`, `4xl`       | `md`      |
+| `size` (message)   | `sm`, `md`, `lg`, `xl`, `2xl`, `4xl`       | `md`      |
+| `color` (bar fill) | `primary`, `success`, `destructive`        | `primary` |
+| `color` (spinner)  | `primary`, `success`, `destructive`        | `primary` |
 
 **Slots exportados:**
 
@@ -66,34 +66,35 @@
 
 ## Tokens de design utilizados
 
-| Token | Slot |
-|-------|------|
-| `bg-background/25` | overlay ghost |
-| `bg-background/50` | overlay soft |
-| `bg-background/80` | overlay subtle |
-| `bg-background/95` | overlay solid |
-| `bg-primary` / `bg-success` / `bg-destructive` | barra sólida |
-| `text-primary` / `text-success` / `text-destructive` | cor do spinner |
-| `text-muted-foreground` | texto de mensagem |
+| Token                                                | Slot              |
+| ---------------------------------------------------- | ----------------- |
+| `bg-background/25`                                   | overlay ghost     |
+| `bg-background/50`                                   | overlay soft      |
+| `bg-background/80`                                   | overlay subtle    |
+| `bg-background/95`                                   | overlay solid     |
+| `bg-primary` / `bg-success` / `bg-destructive`       | barra sólida      |
+| `text-primary` / `text-success` / `text-destructive` | cor do spinner    |
+| `text-muted-foreground`                              | texto de mensagem |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| `loading={true}` | `opacity-100 pointer-events-auto`, `aria-busy=true` |
-| `loading={false}` | `opacity-0 pointer-events-none`, `aria-busy=false` — fade-out suave |
-| `variant="bar"` | Barra no topo com `animate-loader-fill` (expande da esquerda para direita) |
-| `variant="spinner"` | Spinner `size-10` centralizado + mensagem abaixo |
-| `blur={true}` | `backdrop-blur-sm` no overlay |
-| `overlay="none"` | Sem fundo bloqueante (só a barra/spinner visível) |
+| Estado              | Comportamento                                                              |
+| ------------------- | -------------------------------------------------------------------------- |
+| `loading={true}`    | `opacity-100 pointer-events-auto`, `aria-busy=true`                        |
+| `loading={false}`   | `opacity-0 pointer-events-none`, `aria-busy=false` — fade-out suave        |
+| `variant="bar"`     | Barra no topo com `animate-loader-fill` (expande da esquerda para direita) |
+| `variant="spinner"` | Spinner `size-10` centralizado + mensagem abaixo                           |
+| `blur={true}`       | `backdrop-blur-sm` no overlay                                              |
+| `overlay="none"`    | Sem fundo bloqueante (só a barra/spinner visível)                          |
 
 ---
 
 ## Animação
 
 `@keyframes loader-fill` definida em `app/globals.css` via `@theme`:
+
 - 0%: `transform: scaleX(0)`
 - 50%: `transform: scaleX(1)`
 - 100%: `transform: scaleX(0)`
@@ -104,12 +105,12 @@
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Role | `role="status"` no wrapper |
-| Estado | `aria-busy={loading}` |
-| Rótulo | `aria-label={t.loading}` (i18n) |
-| Live region | `aria-live="polite"` |
+| Requisito       | Implementação                                        |
+| --------------- | ---------------------------------------------------- |
+| Role            | `role="status"` no wrapper                           |
+| Estado          | `aria-busy={loading}`                                |
+| Rótulo          | `aria-label={t.loading}` (i18n)                      |
+| Live region     | `aria-live="polite"`                                 |
 | Conteúdo visual | `aria-hidden` na barra e spinner (rótulo no wrapper) |
 
 ---
@@ -118,12 +119,12 @@
 
 Chave: `UI_I18N[locale].pageLoader.loading`
 
-| Locale | Valor |
-|--------|-------|
-| en-US | "Loading…" |
-| pt-BR | "Carregando…" |
-| es-ES | "Cargando…" |
-| fr-FR | "Chargement…" |
+| Locale | Valor         |
+| ------ | ------------- |
+| en-US  | "Loading…"    |
+| pt-BR  | "Carregando…" |
+| es-ES  | "Cargando…"   |
+| fr-FR  | "Chargement…" |
 
 ---
 

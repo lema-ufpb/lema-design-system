@@ -18,51 +18,51 @@ Elemento inline que exibe atalhos de teclado (ex.: ⌘K, ⌘S) em menus, tooltip
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/kbd.tsx` |
-| Tipo | `registry:ui` (name: `kbd`) |
-| Categoria | Data display |
-| Depende de | Nenhum |
+| Campo      | Valor                       |
+| ---------- | --------------------------- |
+| Arquivo    | `components/ui/kbd.tsx`     |
+| Tipo       | `registry:ui` (name: `kbd`) |
+| Categoria  | Data display                |
+| Depende de | Nenhum                      |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `Kbd` | `React.ComponentProps<"kbd">` | — | — | Elemento `<kbd>` estilizado |
-| `KbdGroup` | `React.ComponentProps<"div">` | — | — | Grupo de teclas |
+| Prop       | Tipo                          | Padrão | Obrigatória | Descrição                   |
+| ---------- | ----------------------------- | ------ | ----------- | --------------------------- |
+| `Kbd`      | `React.ComponentProps<"kbd">` | —      | —           | Elemento `<kbd>` estilizado |
+| `KbdGroup` | `React.ComponentProps<"div">` | —      | —           | Grupo de teclas             |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot |
-|-------|------|
-| `--muted` | Fundo do KBD |
-| `--muted-foreground` | Texto do KBD |
-| `--input` | Fundo quando dentro de InputGroup |
-| `--background` / `--foreground` | Adaptação para Tooltip |
+| Token                           | Slot                              |
+| ------------------------------- | --------------------------------- |
+| `--muted`                       | Fundo do KBD                      |
+| `--muted-foreground`            | Texto do KBD                      |
+| `--input`                       | Fundo quando dentro de InputGroup |
+| `--background` / `--foreground` | Adaptação para Tooltip            |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| **Default** | `bg-muted`, `text-muted-foreground`, `rounded-lg` |
-| **Em InputGroup** | `in-data-[slot=input-group]:bg-input` (fundo mais escuro) |
-| **Em Tooltip** | `in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background` |
-| **Grupo** | `KbdGroup` com `inline-flex gap-1` para agrupar teclas |
+| Estado            | Comportamento                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------ |
+| **Default**       | `bg-muted`, `text-muted-foreground`, `rounded-lg`                                                |
+| **Em InputGroup** | `in-data-[slot=input-group]:bg-input` (fundo mais escuro)                                        |
+| **Em Tooltip**    | `in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background` |
+| **Grupo**         | `KbdGroup` com `inline-flex gap-1` para agrupar teclas                                           |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Rolagem nativa | Elemento semântico `<kbd>` |
+| Requisito       | Implementação                                               |
+| --------------- | ----------------------------------------------------------- |
+| Rolagem nativa  | Elemento semântico `<kbd>`                                  |
 | Leitura de tela | Leitores de tela reconhecem `<kbd>` como entrada de teclado |
 
 ---

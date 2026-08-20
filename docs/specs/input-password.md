@@ -18,25 +18,25 @@ Wrapper do `Input` shadcn com botão de olho para alternar entre `type="password
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/input-password.tsx` |
-| data-slot | `input-password` |
-| Tipo | `registry:component` |
-| Categoria | `Form` |
-| Depende de | `Input`, `Button` (shadcn/ui) |
+| Campo      | Valor                              |
+| ---------- | ---------------------------------- |
+| Arquivo    | `components/ds/input-password.tsx` |
+| data-slot  | `input-password`                   |
+| Tipo       | `registry:component`               |
+| Categoria  | `Form`                             |
+| Depende de | `Input`, `Button` (shadcn/ui)      |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `size` | `"sm" \| "default" \| "lg"` | `"default"` | | Tamanho do input |
-| `radius` | `"pill" \| "rounded" \| "square"` | `"pill"` | | Arredondamento das bordas |
-| `variant` | `"default" \| "white"` | `"default"` | | Estilo visual (white para fundo branco) |
-| `locale` | `UILocale` | `"en-US"` | | Locale para i18n |
-| `className` | `string` | — | | Classes extras |
+| Prop        | Tipo                              | Padrão      | Obrigatória | Descrição                               |
+| ----------- | --------------------------------- | ----------- | ----------- | --------------------------------------- |
+| `size`      | `"sm" \| "default" \| "lg"`       | `"default"` |             | Tamanho do input                        |
+| `radius`    | `"pill" \| "rounded" \| "square"` | `"pill"`    |             | Arredondamento das bordas               |
+| `variant`   | `"default" \| "white"`            | `"default"` |             | Estilo visual (white para fundo branco) |
+| `locale`    | `UILocale`                        | `"en-US"`   |             | Locale para i18n                        |
+| `className` | `string`                          | —           |             | Classes extras                          |
 
 Estende `Omit<React.ComponentProps<"input">, "type" | "size">`. O tipo alterna entre `"password"` e `"text"` conforme estado.
 
@@ -50,36 +50,36 @@ Nenhuma. Usa `sizeConfig` e `radiusConfig` como objetos de configuração.
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|------------------|
+| Token                   | Slot onde é usado            |
+| ----------------------- | ---------------------------- |
 | `text-muted-foreground` | botão toggle (estado normal) |
-| `text-foreground` | botão toggle (hover) |
+| `text-foreground`       | botão toggle (hover)         |
 
 ---
 
 ## Escala tipográfica e de tamanho
 
-| Slot | sm | default | lg |
-|------|----|---------|----|
-| Input | `h-8 px-2.5 text-xs pr-7` | `h-9 pr-9` | `h-10 px-4 text-base pr-10` |
-| Botão | `icon-xs` (h-6 w-6) | `icon-sm` (h-7 w-7) | `icon` (h-9 w-9) |
-| Ícone | Eye/EyeOff (size-4 padrão do Button) | — | — |
+| Slot  | sm                                   | default             | lg                          |
+| ----- | ------------------------------------ | ------------------- | --------------------------- |
+| Input | `h-8 px-2.5 text-xs pr-7`            | `h-9 pr-9`          | `h-10 px-4 text-base pr-10` |
+| Botão | `icon-xs` (h-6 w-6)                  | `icon-sm` (h-7 w-7) | `icon` (h-9 w-9)            |
+| Ícone | Eye/EyeOff (size-4 padrão do Button) | —                   | —                           |
 
-| Slot | pill | rounded | square |
-|------|------|---------|--------|
+| Slot          | pill          | rounded      | square         |
+| ------------- | ------------- | ------------ | -------------- |
 | Border radius | `rounded-3xl` | `rounded-lg` | `rounded-none` |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|----------------------|
-| `disabled` | Herdado do `Input` shadcn via props |
-| Loading | Não implementado (usar Input diretamente para loading) |
-| Show password | `type="text"`, ícone `EyeOff`, aria-label i18n `hide` |
-| Hide password | `type="password"`, ícone `Eye`, aria-label i18n `show` |
-| Toggle | `useState<boolean>` interno, alterna ao clicar no botão |
+| Estado        | Comportamento esperado                                  |
+| ------------- | ------------------------------------------------------- |
+| `disabled`    | Herdado do `Input` shadcn via props                     |
+| Loading       | Não implementado (usar Input diretamente para loading)  |
+| Show password | `type="text"`, ícone `EyeOff`, aria-label i18n `hide`   |
+| Hide password | `type="password"`, ícone `Eye`, aria-label i18n `show`  |
+| Toggle        | `useState<boolean>` interno, alterna ao clicar no botão |
 
 > Sem loading/empty/error state próprio.
 
@@ -87,12 +87,12 @@ Nenhuma. Usa `sizeConfig` e `radiusConfig` como objetos de configuração.
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Type semântico | Alterna entre `type="password"` e `type="text"` |
-| Botão toggle | `aria-label` dinâmico via i18n (`show` / `hide`) |
-| TabIndex | `tabIndex={-1}` no botão toggle (não entra no tab order) |
-| i18n | `UI_I18N[locale].inputPassword.*`: `show`, `hide` |
+| Requisito      | Implementação                                            |
+| -------------- | -------------------------------------------------------- |
+| Type semântico | Alterna entre `type="password"` e `type="text"`          |
+| Botão toggle   | `aria-label` dinâmico via i18n (`show` / `hide`)         |
+| TabIndex       | `tabIndex={-1}` no botão toggle (não entra no tab order) |
+| i18n           | `UI_I18N[locale].inputPassword.*`: `show`, `hide`        |
 
 ---
 

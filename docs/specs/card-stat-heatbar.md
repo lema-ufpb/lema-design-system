@@ -9,20 +9,20 @@
 
 ## Props
 
-| Prop | Tipo | Padrão | Obrigatória |
-|------|------|--------|-------------|
-| `label` | `string` | — | ✓ |
-| `value` | `number` | — | ✓ |
-| `size` | `CardStatSize` | `"md"` | |
-| `min` | `number` | `0` | |
-| `max` | `number` | `100` | |
-| `zones` | `CardStatHeatbarZone[]` | DEFAULT_HEATBAR_ZONES | |
-| `description` | `string` | — | |
-| `icon` | `React.ElementType` | — | |
-| `className` | `string` | — | |
-| `loading` | `boolean` | `false` | |
-| `empty` | `boolean` | `false` | |
-| `locale` | `UILocale` | — | |
+| Prop          | Tipo                    | Padrão                | Obrigatória |
+| ------------- | ----------------------- | --------------------- | ----------- |
+| `label`       | `string`                | —                     | ✓           |
+| `value`       | `number`                | —                     | ✓           |
+| `size`        | `CardStatSize`          | `"md"`                |             |
+| `min`         | `number`                | `0`                   |             |
+| `max`         | `number`                | `100`                 |             |
+| `zones`       | `CardStatHeatbarZone[]` | DEFAULT_HEATBAR_ZONES |             |
+| `description` | `string`                | —                     |             |
+| `icon`        | `React.ElementType`     | —                     |             |
+| `className`   | `string`                | —                     |             |
+| `loading`     | `boolean`               | `false`               |             |
+| `empty`       | `boolean`               | `false`               |             |
+| `locale`      | `UILocale`              | —                     |             |
 
 Estende \`FormatOptions\`.
 
@@ -34,9 +34,9 @@ Quando `locale` é fornecido, os labels das zonas e o badge "Pending" do empty s
 
 ## CVA variants locais
 
-| Variant | sm | md | lg |
-|---------|----|----|----|
-| `cardStatTrackHVariants` | `h-2` | `h-3` | `h-4` |
+| Variant                     | sm        | md        | lg      |
+| --------------------------- | --------- | --------- | ------- |
+| `cardStatTrackHVariants`    | `h-2`     | `h-3`     | `h-4`   |
 | `cardStatMarkerTopVariants` | `top-1.5` | `top-2.5` | `top-3` |
 
 Compartilhadas: `cardStatLabelVariants`, `cardStatValueVariants`, `cardStatDescriptionVariants`, `cardStatHeaderIconVariants`, `cardStatContentGapVariants`, `cardStatBadgePaddingVariants`.
@@ -53,12 +53,12 @@ Compartilhadas: `cardStatLabelVariants`, `cardStatValueVariants`, `cardStatDescr
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|--------------|
-| Progress bar | `role="progressbar"` com `aria-valuenow`, `aria-valuemin`, `aria-valuemax` e `aria-label={label}` |
-| SVG decorativo | `aria-hidden` nos SVGs decorativos |
-| Tooltip | Navegação por hover via `Tooltip` shadcn |
-| i18n | `UI_I18N[locale].cardStatGauge.*` para labels de zona e empty state |
+| Requisito      | Implementação                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| Progress bar   | `role="progressbar"` com `aria-valuenow`, `aria-valuemin`, `aria-valuemax` e `aria-label={label}` |
+| SVG decorativo | `aria-hidden` nos SVGs decorativos                                                                |
+| Tooltip        | Navegação por hover via `Tooltip` shadcn                                                          |
+| i18n           | `UI_I18N[locale].cardStatGauge.*` para labels de zona e empty state                               |
 
 ## Stories
 

@@ -163,7 +163,7 @@ export function CardStatSparkline({
   trendValue,
   description,
   icon: Icon,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,

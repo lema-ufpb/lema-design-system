@@ -56,7 +56,7 @@ export const cardStatTrackHVariants = cva("", {
       lg: "h-4",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 export const cardStatMarkerTopVariants = cva("", {
@@ -67,7 +67,7 @@ export const cardStatMarkerTopVariants = cva("", {
       lg: "top-3",
     },
   },
-  defaultVariants: { size: "md" },
+  defaultVariants: { size: "sm" },
 })
 
 // ── Helpers ──
@@ -86,7 +86,7 @@ export function CardStatHeatbar({
   description,
   zones: zonesProp,
   icon: Icon,
-  size = "md",
+  size = "sm",
   className,
   loading,
   empty,

@@ -18,77 +18,81 @@ O Alert fornece um contêiner estilizado com função de `role="alert"` para com
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/alert.tsx` |
-| Tipo | `registry:ui` (name: `alert`) |
-| Categoria | Feedback / Notification |
-| Depende de | Nenhuma |
+| Campo      | Valor                         |
+| ---------- | ----------------------------- |
+| Arquivo    | `components/ui/alert.tsx`     |
+| Tipo       | `registry:ui` (name: `alert`) |
+| Categoria  | Feedback / Notification       |
+| Depende de | Nenhuma                       |
 
 ---
 
 ## API — Props
 
 ### Alert
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `variant` | `"default" \| "destructive"` | `"default"` | Não | Variante visual |
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Conteúdo (ícone + título + descrição + ação) |
+
+| Prop        | Tipo                         | Padrão      | Obrigatória | Descrição                                    |
+| ----------- | ---------------------------- | ----------- | ----------- | -------------------------------------------- |
+| `variant`   | `"default" \| "destructive"` | `"default"` | Não         | Variante visual                              |
+| `className` | `string`                     | —           | Não         | Classes adicionais                           |
+| `children`  | `ReactNode`                  | —           | Não         | Conteúdo (ícone + título + descrição + ação) |
 
 ### AlertTitle
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Texto do título |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição          |
+| ----------- | ----------- | ------ | ----------- | ------------------ |
+| `className` | `string`    | —      | Não         | Classes adicionais |
+| `children`  | `ReactNode` | —      | Não         | Texto do título    |
 
 ### AlertDescription
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Texto descritivo |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição          |
+| ----------- | ----------- | ------ | ----------- | ------------------ |
+| `className` | `string`    | —      | Não         | Classes adicionais |
+| `children`  | `ReactNode` | —      | Não         | Texto descritivo   |
 
 ### AlertAction
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Não | Elemento de ação (ex: botão) |
+
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição                    |
+| ----------- | ----------- | ------ | ----------- | ---------------------------- |
+| `className` | `string`    | —      | Não         | Classes adicionais           |
+| `children`  | `ReactNode` | —      | Não         | Elemento de ação (ex: botão) |
 
 ---
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| `--card` | Fundo do alert (ambas variantes) |
-| `--card-foreground` | Cor do texto na variante default |
-| `--destructive` | Cor do texto do título e ícone na variante destructive |
-| `--destructive/90` | Cor do texto da descrição na variante destructive |
-| `--muted-foreground` | Cor do texto da descrição na variante default |
+| Token                | Slot onde é usado                                      |
+| -------------------- | ------------------------------------------------------ |
+| `--card`             | Fundo do alert (ambas variantes)                       |
+| `--card-foreground`  | Cor do texto na variante default                       |
+| `--destructive`      | Cor do texto do título e ícone na variante destructive |
+| `--destructive/90`   | Cor do texto da descrição na variante destructive      |
+| `--muted-foreground` | Cor do texto da descrição na variante default          |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Padrão (default) | Fundo `bg-card`, texto `text-card-foreground`, descrição `text-muted-foreground` |
-| Destrutivo (destructive) | Título/ícone em `text-destructive`, descrição em `text-destructive/90` |
-| Com ícone | Ativa layout grid de 2 colunas (`has-[>svg]:grid-cols-[auto_1fr]`), ícone ocupa 2 linhas |
-| Sem ícone | Layout padrão empilhado verticalmente |
-| Com ação | Padding direito aumenta via `has-data-[slot=alert-action]:pr-18` |
-| Links | `AlertTitle` e `AlertDescription` aplicam `underline` e `underline-offset-3` em links |
+| Estado                   | Comportamento esperado                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| Padrão (default)         | Fundo `bg-card`, texto `text-card-foreground`, descrição `text-muted-foreground`         |
+| Destrutivo (destructive) | Título/ícone em `text-destructive`, descrição em `text-destructive/90`                   |
+| Com ícone                | Ativa layout grid de 2 colunas (`has-[>svg]:grid-cols-[auto_1fr]`), ícone ocupa 2 linhas |
+| Sem ícone                | Layout padrão empilhado verticalmente                                                    |
+| Com ação                 | Padding direito aumenta via `has-data-[slot=alert-action]:pr-18`                         |
+| Links                    | `AlertTitle` e `AlertDescription` aplicam `underline` e `underline-offset-3` em links    |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role alert | `role="alert"` no container principal |
-| Anúncio automático | Leitores de tela anunciam o conteúdo automaticamente ao renderizar |
-| Contraste de cor | Variante destructive usa `text-destructive` para título (deve ter contraste suficiente) |
-| Estrutura semântica | Título como `div` com `font-medium`, descrição como `div` separada |
+| Requisito           | Implementação                                                                           |
+| ------------------- | --------------------------------------------------------------------------------------- |
+| Role alert          | `role="alert"` no container principal                                                   |
+| Anúncio automático  | Leitores de tela anunciam o conteúdo automaticamente ao renderizar                      |
+| Contraste de cor    | Variante destructive usa `text-destructive` para título (deve ter contraste suficiente) |
+| Estrutura semântica | Título como `div` com `font-medium`, descrição como `div` separada                      |
 
 ---
 

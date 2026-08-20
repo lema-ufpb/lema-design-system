@@ -18,22 +18,22 @@ O AspectRatio é um wrapper puramente funcional que garante que seu conteúdo fi
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/aspect-ratio.tsx` |
-| Tipo | `registry:ui` (name: `aspect-ratio`) |
-| Categoria | Layout |
-| Depende de | Nenhuma |
+| Campo      | Valor                                |
+| ---------- | ------------------------------------ |
+| Arquivo    | `components/ui/aspect-ratio.tsx`     |
+| Tipo       | `registry:ui` (name: `aspect-ratio`) |
+| Categoria  | Layout                               |
+| Depende de | Nenhuma                              |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `ratio` | `number` | — | Não | Proporção largura/altura (ex: `16/9`, `4/3`, `1`) |
-| `className` | `string` | — | Não | Classes adicionais |
-| `children` | `ReactNode` | — | Sim | Conteúdo a ser mantido na proporção |
+| Prop        | Tipo        | Padrão | Obrigatória | Descrição                                         |
+| ----------- | ----------- | ------ | ----------- | ------------------------------------------------- |
+| `ratio`     | `number`    | —      | Não         | Proporção largura/altura (ex: `16/9`, `4/3`, `1`) |
+| `className` | `string`    | —      | Não         | Classes adicionais                                |
+| `children`  | `ReactNode` | —      | Sim         | Conteúdo a ser mantido na proporção               |
 
 > As demais props são herdadas de `AspectRatioPrimitive.Root`.
 
@@ -41,30 +41,30 @@ O AspectRatio é um wrapper puramente funcional que garante que seu conteúdo fi
 
 ## Tokens de design utilizados
 
-| Token | Slot onde é usado |
-|-------|-------------------|
-| *(nenhum)* | Componente puramente layout; sem tokens semânticos |
+| Token      | Slot onde é usado                                  |
+| ---------- | -------------------------------------------------- |
+| _(nenhum)_ | Componente puramente layout; sem tokens semânticos |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento esperado |
-|--------|-----------------------|
-| Renderização | Altura calculada como `largura / ratio` |
-| Redimensionamento | Altura atualiza automaticamente ao redimensionar o pai |
-| Overflow | Conteúdo filho com `object-cover` ou similar controla o preenchimento |
-| Filho ausente | Nenhum conteúdo renderizado |
+| Estado            | Comportamento esperado                                                |
+| ----------------- | --------------------------------------------------------------------- |
+| Renderização      | Altura calculada como `largura / ratio`                               |
+| Redimensionamento | Altura atualiza automaticamente ao redimensionar o pai                |
+| Overflow          | Conteúdo filho com `object-cover` ou similar controla o preenchimento |
+| Filho ausente     | Nenhum conteúdo renderizado                                           |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
+| Requisito           | Implementação                                                                 |
+| ------------------- | ----------------------------------------------------------------------------- |
 | Estrutura semântica | Nenhum role ou aria próprio; conteúdo filho é responsável pela acessibilidade |
-| Imagens | `alt` deve ser fornecido no elemento `<img>` filho |
-| Navegação | Não adiciona elementos focáveis |
+| Imagens             | `alt` deve ser fornecido no elemento `<img>` filho                            |
+| Navegação           | Não adiciona elementos focáveis                                               |
 
 ---
 

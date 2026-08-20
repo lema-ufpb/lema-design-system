@@ -16,49 +16,49 @@
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ui/progress.tsx` |
-| Tipo | `registry:ui` (name: `progress`) |
-| Categoria | Feedback |
+| Campo      | Valor                                     |
+| ---------- | ----------------------------------------- |
+| Arquivo    | `components/ui/progress.tsx`              |
+| Tipo       | `registry:ui` (name: `progress`)          |
+| Categoria  | Feedback                                  |
 | Depende de | `radix-ui` (Progress), `@/lib/utils` (cn) |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Obrigatória | Descrição |
-|------|------|--------|-------------|-----------|
-| `value` | `number` | — | Não | Valor 0-100. Omite para estado indeterminado |
-| `className` | `string` | — | Não | Classes adicionais |
+| Prop        | Tipo     | Padrão | Obrigatória | Descrição                                    |
+| ----------- | -------- | ------ | ----------- | -------------------------------------------- |
+| `value`     | `number` | —      | Não         | Valor 0-100. Omite para estado indeterminado |
+| `className` | `string` | —      | Não         | Classes adicionais                           |
 
 ---
 
 ## Tokens de design
 
-| Token | Slot |
-|-------|------|
+| Token       | Slot                              |
+| ----------- | --------------------------------- |
 | `--primary` | Cor de preenchimento do indicador |
-| `--muted` | Cor do track de fundo |
+| `--muted`   | Cor do track de fundo             |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado | Comportamento |
-|--------|---------------|
-| Determinado (value) | Indicador posicionado via `translateX(-${100 - value}%)` |
-| Indeterminado | `value` como `undefined` — sem preenchimento (track vazio) |
-| Transição | `transition-all` no indicador |
+| Estado              | Comportamento                                              |
+| ------------------- | ---------------------------------------------------------- |
+| Determinado (value) | Indicador posicionado via `translateX(-${100 - value}%)`   |
+| Indeterminado       | `value` como `undefined` — sem preenchimento (track vazio) |
+| Transição           | `transition-all` no indicador                              |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role | `progressbar` (Radix) |
-| Valor | `aria-valuenow` gerenciado pelo Radix |
+| Requisito           | Implementação                                      |
+| ------------------- | -------------------------------------------------- |
+| Role                | `progressbar` (Radix)                              |
+| Valor               | `aria-valuenow` gerenciado pelo Radix              |
 | Valor mínimo/máximo | `aria-valuemin="0"`, `aria-valuemax="100"` (Radix) |
 
 ---

@@ -5,9 +5,14 @@ import { Inter, Geist_Mono } from "next/font/google"
 import "../app/globals.css"
 import "./storybook.css"
 import MockDate from "mockdate"
-import { initialize, mswLoader } from "msw-storybook-addon"
+import { mswLoader } from "msw-storybook-addon/csf3"
 
-initialize({ onUnhandledRequest: "bypass" })
+async function setupMsw() {
+  const { setupWorker } = await import("msw/browser")
+  const worker = setupWorker()
+  await worker.start({ onUnhandledRequest: "bypass" })
+  return worker
+}
 
 const inter = Inter({
   subsets: ["latin"],
@@ -94,7 +99,7 @@ const preview: Preview = {
       )
     },
   ],
-  loaders: [mswLoader],
+  loaders: [mswLoader(setupMsw)],
   parameters: {
     controls: {
       matchers: {

@@ -16,11 +16,11 @@ O DS Button estende o shadcn `Button` com 7 funcionalidades adicionais em uma AP
 
 ## Localização
 
-| Campo | Valor |
-|-------|-------|
-| Arquivo | `components/ds/button.tsx` |
-| Categoria | Actions |
-| Importa | `Button as ButtonRoot` de `@/components/ui/button` |
+| Campo     | Valor                                              |
+| --------- | -------------------------------------------------- |
+| Arquivo   | `components/ds/button.tsx`                         |
+| Categoria | Actions                                            |
+| Importa   | `Button as ButtonRoot` de `@/components/ui/button` |
 
 ---
 
@@ -28,17 +28,17 @@ O DS Button estende o shadcn `Button` com 7 funcionalidades adicionais em uma AP
 
 Todas as props do shadcn `ButtonRoot` são herdadas (`variant`, `size`, `asChild`, `disabled`, `type`, etc.).
 
-| Prop | Tipo | Padrão | Descrição |
-|------|------|--------|-----------|
-| `loading` | `boolean` | `false` | Mostra um `Loader2` animado e desabilita o botão |
-| `loadingText` | `string` | — | Texto exibido ao lado do spinner (padrão: children) |
-| `startIcon` | `ReactNode` | — | Ícone antes do label |
-| `endIcon` | `ReactNode` | — | Ícone depois do label |
-| `rounded` | `"full" \| "lg" \| "md" \| "none"` | `"full"` | Border radius |
-| `fullWidth` | `boolean` | `false` | `w-full` |
-| `debounceMs` | `number` | — | Intervalo mínimo entre clicks (ms) |
-| `confirm` | `{ text: string; duration?: number }` | — | Two-step confirmation: 1o click mostra `text`, 2o dispara `onClick` |
-| `tooltip` | `string \| { text: string; side?: "top" \| "right" \| "bottom" \| "left" }` | — | Tooltip no hover |
+| Prop          | Tipo                                                                        | Padrão   | Descrição                                                           |
+| ------------- | --------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------- |
+| `loading`     | `boolean`                                                                   | `false`  | Mostra um `Loader2` animado e desabilita o botão                    |
+| `loadingText` | `string`                                                                    | —        | Texto exibido ao lado do spinner (padrão: children)                 |
+| `startIcon`   | `ReactNode`                                                                 | —        | Ícone antes do label                                                |
+| `endIcon`     | `ReactNode`                                                                 | —        | Ícone depois do label                                               |
+| `rounded`     | `"full" \| "lg" \| "md" \| "none"`                                          | `"full"` | Border radius                                                       |
+| `fullWidth`   | `boolean`                                                                   | `false`  | `w-full`                                                            |
+| `debounceMs`  | `number`                                                                    | —        | Intervalo mínimo entre clicks (ms)                                  |
+| `confirm`     | `{ text: string; duration?: number }`                                       | —        | Two-step confirmation: 1o click mostra `text`, 2o dispara `onClick` |
+| `tooltip`     | `string \| { text: string; side?: "top" \| "right" \| "bottom" \| "left" }` | —        | Tooltip no hover                                                    |
 
 ---
 
@@ -46,37 +46,37 @@ Todas as props do shadcn `ButtonRoot` são herdadas (`variant`, `size`, `asChild
 
 ### `dsButtonVariants`
 
-| Variant | Classes |
-|---------|---------|
+| Variant           | Classes                 |
+| ----------------- | ----------------------- |
 | `rounded: "full"` | `rounded-4xl` (default) |
-| `rounded: "lg"` | `rounded-xl` |
-| `rounded: "md"` | `rounded-md` |
-| `rounded: "none"` | `rounded-none` |
-| `fullWidth: true` | `w-full` |
+| `rounded: "lg"`   | `rounded-xl`            |
+| `rounded: "md"`   | `rounded-md`            |
+| `rounded: "none"` | `rounded-none`          |
+| `fullWidth: true` | `w-full`                |
 
 ---
 
 ## Comportamentos
 
-| Funcionalidade | Detalhes |
-|----------------|----------|
-| **Loading** | Renderiza `<Loader2 className="animate-spin">` + `loadingText ?? children`. `aria-busy` e `disabled` ativados. |
-| **Ícones** | `startIcon` e `endIcon` renderizados como irmãos de children com `gap-*` do ButtonRoot. |
-| **Confirm** | Estado interno `confirming`: 1o click troca label para `confirm.text` e inicia timer (`duration` padrão 3s). 2o click dispara `onClick`. Timer expira → reseta. |
-| **Debounce** | `lastClick` ref compara `Date.now()` — descarta clicks dentro do intervalo. |
-| **Tooltip** | Envolve o Button em `<TooltipProvider><Tooltip><TooltipTrigger asChild>`. Aceita `string` ou `{ text, side }`. |
-| **Disabled** | Combina `disabled \|\| loading \|\| (confirm && confirming)`. |
+| Funcionalidade | Detalhes                                                                                                                                                        |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Loading**    | Renderiza `<Loader2 className="animate-spin">` + `loadingText ?? children`. `aria-busy` e `disabled` ativados.                                                  |
+| **Ícones**     | `startIcon` e `endIcon` renderizados como irmãos de children com `gap-*` do ButtonRoot.                                                                         |
+| **Confirm**    | Estado interno `confirming`: 1o click troca label para `confirm.text` e inicia timer (`duration` padrão 3s). 2o click dispara `onClick`. Timer expira → reseta. |
+| **Debounce**   | `lastClick` ref compara `Date.now()` — descarta clicks dentro do intervalo.                                                                                     |
+| **Tooltip**    | Envolve o Button em `<TooltipProvider><Tooltip><TooltipTrigger asChild>`. Aceita `string` ou `{ text, side }`.                                                  |
+| **Disabled**   | Combina `disabled \|\| loading \|\| (confirm && confirming)`.                                                                                                   |
 
 ---
 
 ## Acessibilidade
 
-| Requisito | Implementação |
-|-----------|---------------|
-| Role button | Nativo (herdado do ButtonRoot) |
-| Loading | `aria-busy` |
+| Requisito   | Implementação                                                 |
+| ----------- | ------------------------------------------------------------- |
+| Role button | Nativo (herdado do ButtonRoot)                                |
+| Loading     | `aria-busy`                                                   |
 | Confirmação | Botão não desabilitado durante confirmação (`cursor-pointer`) |
-| Tooltip | Radix Tooltip com `TooltipContent` e `aria-label` |
+| Tooltip     | Radix Tooltip com `TooltipContent` e `aria-label`             |
 
 ---
 
