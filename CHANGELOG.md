@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.1](https://github.com/lema-ufpb/design-system/compare/v1.7.0...v1.7.1) (2026-08-20)
+
+
+### 🐛 Bug Fixes
+
+* **card-stat:** preserve locale when formatting percent values ([ceec83d](https://github.com/lema-ufpb/design-system/commit/ceec83df6d152020d26f6b1793e3c2bf45109159))
+
+
+### 🧹 Chores
+
+* release 1.7.1 ([0cadcbf](https://github.com/lema-ufpb/design-system/commit/0cadcbfb541bc5c8290554deed2587e005f04734))
+
 ## [1.7.0](https://github.com/lema-ufpb/design-system/compare/v1.6.4...v1.7.0) (2026-08-20)
 
 
