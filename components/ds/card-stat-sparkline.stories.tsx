@@ -151,6 +151,48 @@ export const Default: Story = {
   },
 }
 
+export const PercentLocale: Story = {
+  args: {
+    label: "Bounce Rate",
+    value: 0.324,
+    data: WEEKLY_BOUNCE,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Regression check: `value` is a 0-1 fraction rendered with `format="percent"`. The two cards use the same value with different `locale` — the headline must respect the decimal separator ("32,4%" for pt-BR vs "32.4%" for en-US).',
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <CardStatSparkline
+        label="Taxa de Rejeição"
+        value={0.324}
+        format="percent"
+        decimals={1}
+        locale="pt-BR"
+        data={WEEKLY_BOUNCE}
+        trend="down"
+        trendValue="−5,9% vs. semana anterior"
+        icon={ActivityIcon}
+      />
+      <CardStatSparkline
+        label="Bounce Rate"
+        value={0.324}
+        format="percent"
+        decimals={1}
+        locale="en-US"
+        data={WEEKLY_BOUNCE}
+        trend="down"
+        trendValue="−5.9% vs last week"
+        icon={ActivityIcon}
+      />
+    </div>
+  ),
+}
+
 export const Loading: Story = {
   args: {
     label: "Weekly Sessions",
@@ -290,7 +332,7 @@ export const AllSizes: Story = {
             />
             <CardStatSparkline
               label="Bounce Rate"
-              value={32.4}
+              value={0.324}
               format="percent"
               decimals={1}
               data={WEEKLY_BOUNCE}
@@ -351,7 +393,7 @@ export const AllMetrics: Story = {
       />
       <CardStatSparkline
         label="Bounce Rate"
-        value={32.4}
+        value={0.324}
         format="percent"
         decimals={1}
         data={WEEKLY_BOUNCE}

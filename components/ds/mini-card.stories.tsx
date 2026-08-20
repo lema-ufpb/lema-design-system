@@ -259,13 +259,13 @@ export const FormatValues: Story = {
         <div className="flex items-center gap-6">
           <MiniCard
             label="Capacity Used"
-            value={34.6}
+            value={0.346}
             format="percent"
             locale="pt-BR"
           />
           <MiniCard
             label="Coverage"
-            value={78.4}
+            value={0.784}
             format="percent"
             locale="pt-BR"
             intent="warning"
@@ -304,7 +304,7 @@ export const FormatValues: Story = {
             decimals={0}
           />
           <MiniCard label="Selected" value={53} format="integer" />
-          <MiniCard label="Coverage" value={78.4} format="percent" />
+          <MiniCard label="Coverage" value={0.784} format="percent" />
         </MiniCardGroup>
       </div>
     </div>
