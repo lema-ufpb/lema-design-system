@@ -267,7 +267,9 @@ export const AllSizes: Story = {
             />
             <CardStatHeatbar
               label="SLA Compliance"
-              value={98.7}
+              value={0.987}
+              min={0}
+              max={1}
               format="percent"
               decimals={1}
               description="Uptime target: 99.5%"
@@ -281,6 +283,59 @@ export const AllSizes: Story = {
           </div>
         </div>
       ))}
+    </div>
+  ),
+}
+
+export const PercentLocale: Story = {
+  args: {
+    label: "Escore de Risco",
+    value: 0.992,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Regression check: `value` is a 0-1 fraction rendered with `format="percent"`. The two cards use the same value with different `locale` — the headline must respect the decimal separator ("99,2%" for pt-BR vs "99.2%" for en-US), matching the sibling CardStatProgress component. Before the fix, `locale` was dropped when formatting the headline and both always rendered with a period regardless of the `locale` prop.',
+      },
+    },
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <CardStatHeatbar
+        label="Escore de Risco"
+        value={0.992}
+        min={0}
+        max={1}
+        format="percent"
+        decimals={1}
+        locale="pt-BR"
+        description="Média do segmento: 59,7%"
+        icon={ShieldCheckIcon}
+        zones={[
+          { label: "Baixo", color: "#10b981", max: 25 },
+          { label: "Moderado", color: "#f59e0b", max: 50 },
+          { label: "Alto", color: "#f97316", max: 75 },
+          { label: "Crítico", color: "#ef4444", max: 100 },
+        ]}
+      />
+      <CardStatHeatbar
+        label="Risk Score"
+        value={0.992}
+        min={0}
+        max={1}
+        format="percent"
+        decimals={1}
+        locale="en-US"
+        description="Segment average: 59.7%"
+        icon={ShieldCheckIcon}
+        zones={[
+          { label: "Low", color: "#10b981", max: 25 },
+          { label: "Moderate", color: "#f59e0b", max: 50 },
+          { label: "High", color: "#f97316", max: 75 },
+          { label: "Critical", color: "#ef4444", max: 100 },
+        ]}
+      />
     </div>
   ),
 }
@@ -335,7 +390,9 @@ export const AllHeatbars: Story = {
       />
       <CardStatHeatbar
         label="SLA Compliance"
-        value={98.7}
+        value={0.987}
+        min={0}
+        max={1}
         format="percent"
         decimals={1}
         description="Uptime target: 99.5%"

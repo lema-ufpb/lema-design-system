@@ -98,7 +98,7 @@ export const Dashboard: Story = {
         />
         <CardStatCompact
           label="Churn Rate"
-          value={2.4}
+          value={0.024}
           format="percent"
           decimals={1}
           trend="down"
@@ -138,7 +138,7 @@ export const Dashboard: Story = {
         />
         <CardStatSparkline
           label="Bounce Rate"
-          value={32.4}
+          value={0.324}
           format="percent"
           decimals={1}
           data={WEEKLY_BOUNCE}
@@ -215,7 +215,7 @@ export const Dashboard: Story = {
             },
             {
               label: "Bounce Rate",
-              value: 34.2,
+              value: 0.342,
               format: "percent",
               decimals: 1,
               trend: "down",
@@ -297,7 +297,7 @@ export const DashboardWithIconMiniCards: Story = {
         />
         <CardStatCompact
           label="Churn Rate"
-          value={2.4}
+          value={0.024}
           format="percent"
           decimals={1}
           trend="down"
@@ -335,7 +335,7 @@ export const DashboardWithIconMiniCards: Story = {
         />
         <CardStatSparkline
           label="Bounce Rate"
-          value={32.4}
+          value={0.324}
           format="percent"
           decimals={1}
           data={WEEKLY_BOUNCE}
@@ -408,7 +408,7 @@ export const DashboardWithIconMiniCards: Story = {
             },
             {
               label: "Bounce Rate",
-              value: 34.2,
+              value: 0.342,
               format: "percent",
               decimals: 1,
               trend: "down",
@@ -470,7 +470,7 @@ export const DashboardWithIconMiniCards: Story = {
         />
         <CardStatCompact
           label="Churn"
-          value={2.4}
+          value={0.024}
           format="percent"
           decimals={1}
           trend="down"
@@ -489,7 +489,7 @@ export const DashboardWithIconMiniCards: Story = {
         />
         <CardStatCompact
           label="Satisfaction"
-          value={87}
+          value={0.87}
           format="percent"
           decimals={0}
           icon={HeartIcon}

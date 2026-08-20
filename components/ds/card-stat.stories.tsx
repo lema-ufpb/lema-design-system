@@ -468,7 +468,7 @@ export const MutedVariant: Story = {
       <CardStat
         variant="muted"
         label="Bounce Rate"
-        value={8.4}
+        value={0.084}
         format="percent"
         description="−1.3% this week"
         trend="down"
@@ -524,7 +524,7 @@ export const FlatVariant: Story = {
       <CardStat
         variant="flat"
         label="Bounce Rate"
-        value={8.4}
+        value={0.084}
         format="percent"
         description="−1.3% this week"
         trend="down"
@@ -566,7 +566,7 @@ export const AllTrends: Story = {
       />
       <CardStat
         label="Bounce Rate"
-        value={8.4}
+        value={0.084}
         format="percent"
         description="−1.3% this week"
         trend="down"

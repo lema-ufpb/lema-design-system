@@ -230,7 +230,7 @@ export const AllSizes: Story = {
             />
             <CardStatCompact
               label="Churn Rate"
-              value={2.4}
+              value={0.024}
               format="percent"
               decimals={1}
               trend="down"
@@ -292,7 +292,7 @@ export const MutedVariant: Story = {
       <CardStatCompact
         variant="muted"
         label="Churn Rate"
-        value={2.4}
+        value={0.024}
         format="percent"
         decimals={1}
         trend="down"
@@ -350,7 +350,7 @@ export const FlatVariant: Story = {
       <CardStatCompact
         variant="flat"
         label="Churn Rate"
-        value={2.4}
+        value={0.024}
         format="percent"
         decimals={1}
         trend="down"
@@ -402,7 +402,7 @@ export const AllVariants: Story = {
       />
       <CardStatCompact
         label="Churn Rate"
-        value={2.4}
+        value={0.024}
         format="percent"
         decimals={1}
         trend="down"
