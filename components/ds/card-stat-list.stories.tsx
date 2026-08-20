@@ -67,7 +67,7 @@ export const Default: Story = {
       },
       {
         label: "Bounce Rate",
-        value: 34.2,
+        value: 0.342,
         format: "percent",
         decimals: 1,
         trend: "down",
@@ -102,6 +102,57 @@ export const Default: Story = {
           "Standard stacked metrics card displaying five performance indicators with trend icons and color-coded values.",
       },
     },
+  },
+}
+
+export const PercentLocale: Story = {
+  args: {
+    label: "Performance Overview",
+    items: [],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Regression check: item values are 0-1 fractions rendered with `format="percent"`. Items don\'t set their own `locale`, so they must inherit the card-level `locale` prop — the two cards use the same values with different `locale` and the decimal separator must follow ("34,2%" for pt-BR vs "34.2%" for en-US).',
+      },
+    },
+  },
+  render: () => {
+    const items = [
+      {
+        label: "Bounce Rate",
+        value: 0.342,
+        format: "percent" as const,
+        decimals: 1,
+        trend: "down" as const,
+        trendValue: "−3pts",
+      },
+      {
+        label: "Conversion Rate",
+        value: 0.084,
+        format: "percent" as const,
+        decimals: 1,
+        trend: "up" as const,
+        trendValue: "+1.2pts",
+      },
+    ]
+    return (
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <CardStatList
+          label="Visão Geral (pt-BR)"
+          icon={BarChart2Icon}
+          locale="pt-BR"
+          items={items}
+        />
+        <CardStatList
+          label="Overview (en-US)"
+          icon={BarChart2Icon}
+          locale="en-US"
+          items={items}
+        />
+      </div>
+    )
   },
 }
 
@@ -190,7 +241,7 @@ export const AllSizes: Story = {
               },
               {
                 label: "Bounce Rate",
-                value: 34.2,
+                value: 0.342,
                 format: "percent",
                 decimals: 1,
                 trend: "down",
@@ -231,7 +282,7 @@ export const TopChannels: Story = {
     items: [
       {
         label: "Organic Search",
-        value: 41.2,
+        value: 0.412,
         format: "percent",
         decimals: 1,
         trend: "up",
@@ -239,7 +290,7 @@ export const TopChannels: Story = {
       },
       {
         label: "Direct",
-        value: 22.7,
+        value: 0.227,
         format: "percent",
         decimals: 1,
         trend: "neutral",
@@ -247,7 +298,7 @@ export const TopChannels: Story = {
       },
       {
         label: "Social Media",
-        value: 18.4,
+        value: 0.184,
         format: "percent",
         decimals: 1,
         trend: "up",
@@ -255,7 +306,7 @@ export const TopChannels: Story = {
       },
       {
         label: "Email",
-        value: 11.3,
+        value: 0.113,
         format: "percent",
         decimals: 1,
         trend: "down",
@@ -263,7 +314,7 @@ export const TopChannels: Story = {
       },
       {
         label: "Paid Ads",
-        value: 6.4,
+        value: 0.064,
         format: "percent",
         decimals: 1,
         trend: "down",

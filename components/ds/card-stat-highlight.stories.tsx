@@ -311,7 +311,7 @@ export const AllSizes: Story = {
             />
             <CardStatHighlight
               label="Customer Satisfaction"
-              value={96.4}
+              value={0.964}
               format="percent"
               decimals={1}
               trend="up"
@@ -366,7 +366,7 @@ export const AllVariants: Story = {
       />
       <CardStatHighlight
         label="Customer Satisfaction"
-        value={96.4}
+        value={0.964}
         format="percent"
         decimals={1}
         trend="up"
@@ -407,7 +407,7 @@ export const AllVariants: Story = {
       />
       <CardStatHighlight
         label="Refund Rate"
-        value={1.8}
+        value={0.018}
         format="percent"
         decimals={1}
         trend="up"
@@ -469,7 +469,7 @@ export const ColorTokens: Story = {
       />
       <CardStatHighlight
         label="Success Token"
-        value={96.4}
+        value={0.964}
         format="percent"
         decimals={1}
         trend="up"

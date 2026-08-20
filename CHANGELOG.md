@@ -33,10 +33,28 @@
 
 ## [1.6.4](https://github.com/lema-ufpb/design-system/compare/v1.6.3...v1.6.4) (2026-07-20)
 
+- **a11y:** add accessible names to Slider thumb and Combobox buttons ([6560d44](https://github.com/lema-ufpb/design-system/commit/6560d44375906f6846c8904b63e31519ae3cfd40))
+- **charts:** stabilize legend toggling and percent formatting ([ea3e8e9](https://github.com/lema-ufpb/design-system/commit/ea3e8e93b49a05f3774500d12536c68500b66d7d))
+- **charts:** use string font sizes for polar and geo labels ([d83be95](https://github.com/lema-ufpb/design-system/commit/d83be95074ef45e3d869f0b3ab2e0804e5a27204))
+- checkbox column ([54a36c6](https://github.com/lema-ufpb/design-system/commit/54a36c6d4d3f4a0da292357a08131fde2481d80c))
+- **dashrow:** let children fill remaining row height ([57fbd9a](https://github.com/lema-ufpb/design-system/commit/57fbd9a69d9c24140492437e8cfcb8bf83df69eb))
+- **data-table:** add toolbar padding and truncate header and cell text ([3d2fcf3](https://github.com/lema-ufpb/design-system/commit/3d2fcf355b9d2ac06504e6e0a117dbd3926fad4f))
+- **deps:** align dependabot.yml with actual pinning intent ([02da735](https://github.com/lema-ufpb/design-system/commit/02da7354dca17192b8a65a1492f67ce74232a47f))
+- **deps:** resolve npm audit vulnerabilities and sync Storybook family ([01511b6](https://github.com/lema-ufpb/design-system/commit/01511b6b041fc12bc523cba171eabc552734d606))
+- **ds-slider:** prevent drag propagation in vaul drawers ([90650fa](https://github.com/lema-ufpb/design-system/commit/90650fa2ff21c79497d8d1b1e727c8cca0866b37))
+- **hooks:** avoid setState-in-effect in useIsMobile ([ffd86f2](https://github.com/lema-ufpb/design-system/commit/ffd86f28c4561cc4d7e7e6b4b78612be503de588))
+- **ui:** show focus ring on field-label container for wrapped controls ([94cd620](https://github.com/lema-ufpb/design-system/commit/94cd62034de309ed98482f89992740ebb2ed0ff9))
+
+### ♻️ Refactor
+
+- **card:** default card-stat components to size sm ([58379c3](https://github.com/lema-ufpb/design-system/commit/58379c308be53fb68b70db99d7a90165182f0fb0))
+- **data-table:** migrate to TanStack Table v9 API ([dc957c3](https://github.com/lema-ufpb/design-system/commit/dc957c3b3ef74d7edf966ea024f7c86074cff182))
+
+## [1.6.4](https://github.com/lema-ufpb/design-system/compare/v1.6.3...v1.6.4) (2026-07-20)
 
 ### 🐛 Bug Fixes
 
-* update ([7e5dcc8](https://github.com/lema-ufpb/design-system/commit/7e5dcc8a4639d73bef72df3b089fccaf151039c8))
+- update ([7e5dcc8](https://github.com/lema-ufpb/design-system/commit/7e5dcc8a4639d73bef72df3b089fccaf151039c8))
 
 ## [1.6.3](https://github.com/lema-ufpb/design-system/compare/v1.6.2...v1.6.3) (2026-07-20)
 

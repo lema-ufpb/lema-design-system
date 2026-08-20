@@ -190,7 +190,7 @@ export function CardStatList({
       <CardContent className="p-0">
         <ul>
           {items.map((item, i) => {
-            const display = applyFormat(item.value, item)
+            const display = applyFormat(item.value, { locale, ...item })
             const trendDir = resolveTrend(item.trend)
             const TrendIcon = trendDir ? TREND_ICONS[trendDir] : null
             const trendCls =
