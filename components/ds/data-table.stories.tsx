@@ -1,5 +1,6 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
+import type { SortingState } from "@tanstack/react-table"
 import {
   TrendingUp,
   TrendingDown,
@@ -128,6 +129,9 @@ const meta = {
           '| `paginationRounded` | `"full" \\| "light" \\| "none"` | — | Pagination button radius |',
           "| `loading` | `boolean` | `false` | Loading state |",
           "| `showSearch` | `boolean` | `false` | Show search bar |",
+          "| `manualSorting` | `boolean` | `false` | Server-side sorting |",
+          "| `sorting` | `SortingState` | — | Controlled sorting state |",
+          "| `onSortingChange` | `(sorting) => void` | — | Sorting change callback |",
           "| `pagination` | `boolean` | `false` | Enable pagination |",
           "| `manualPagination` | `boolean` | `false` | Server-side pagination |",
           "| `pageCount` | `number` | — | Total pages (manual pagination) |",
@@ -230,6 +234,10 @@ const meta = {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
+    manualSorting: {
+      control: "boolean",
+      table: { defaultValue: { summary: "false" } },
+    },
     locale: {
       control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
@@ -243,6 +251,8 @@ const meta = {
     onDownload: { table: { disable: true } },
     onRowClick: { table: { disable: true } },
     onPageChange: { table: { disable: true } },
+    sorting: { table: { disable: true } },
+    onSortingChange: { table: { disable: true } },
     labels: { table: { disable: true } },
     defaultGlobalFilter: { table: { disable: true } },
     pageSizeOptions: { table: { disable: true } },
@@ -798,6 +808,53 @@ export const Sortable: Story = {
     title: "Sortable columns",
     subtitle:
       "Click a header to sort — click again to reverse, third click to clear",
+  },
+}
+
+export const ManualSorting: Story = {
+  name: "Manual Sorting (server-side)",
+  parameters: {
+    docs: {
+      description: {
+        story: [
+          "With `manualSorting`, the table stops sorting rows itself — it only tracks the clicked column/direction via the controlled `sorting` prop and reports changes through `onSortingChange`.",
+          "",
+          "The consumer owns the actual ordering (e.g. re-fetching from a server with `?sort=` params) and passes back already-sorted `data`. Mirrors the `manualPagination` / `pageIndex` / `onPageChange` pattern.",
+        ].join("\n"),
+      },
+    },
+  },
+  args: { data: [], columns: [] },
+  render: () => {
+    const [sorting, setSorting] = React.useState<SortingState>([
+      { id: "name", desc: false },
+    ])
+
+    const sortedData = React.useMemo(() => {
+      const [sort] = sorting
+      if (!sort) return STUDENTS_20
+      const copy = [...STUDENTS_20]
+      copy.sort((a, b) => {
+        const av = a[sort.id as keyof Student]
+        const bv = b[sort.id as keyof Student]
+        const cmp = av < bv ? -1 : av > bv ? 1 : 0
+        return sort.desc ? -cmp : cmp
+      })
+      return copy
+    }, [sorting])
+
+    return (
+      <DataTable
+        data={sortedData as unknown as object[]}
+        columns={SIMPLE_COLUMNS as unknown as DataTableColumnDef<object>[]}
+        height={400}
+        title="Students — server-sorted"
+        subtitle="`data` is pre-sorted by the consumer; the table only reflects the active sort"
+        manualSorting
+        sorting={sorting}
+        onSortingChange={setSorting}
+      />
+    )
   },
 }
 

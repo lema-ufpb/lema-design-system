@@ -151,6 +151,9 @@ export interface DataTableProps<
   // Features
   loading?: boolean
   showSearch?: boolean
+  manualSorting?: boolean
+  sorting?: SortingState
+  onSortingChange?: (sorting: SortingState) => void
   pagination?: boolean
   manualPagination?: boolean
   pageCount?: number
@@ -221,6 +224,12 @@ function formatValue(
     default:
       return String(val)
   }
+}
+
+function sortingStatesEqual(a: SortingState, b: SortingState): boolean {
+  if (a === b) return true
+  if (a.length !== b.length) return false
+  return a.every((s, i) => s.id === b[i].id && s.desc === b[i].desc)
 }
 
 /**
@@ -769,6 +778,9 @@ export function DataTable<TData extends RowData>({
   rounded = true,
   paginationRounded,
   showSearch = false,
+  manualSorting = false,
+  sorting,
+  onSortingChange,
   pagination = false,
   manualPagination = false,
   pageCount,
@@ -841,7 +853,7 @@ export function DataTable<TData extends RowData>({
 
   // ── TanStack Table state ──
 
-  const [sorting, setSorting] = React.useState<SortingState>([])
+  const [sorting_, setSorting] = React.useState<SortingState>(sorting ?? [])
   const [globalFilter, setGlobalFilter] = React.useState(defaultGlobalFilter)
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({})
   const [pagination_, setPagination] = React.useState<PaginationState>({
@@ -861,6 +873,13 @@ export function DataTable<TData extends RowData>({
       setPagination((prev) => ({ ...prev, pageIndex }))
     }
   }, [pageIndex]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync internal sorting when external `sorting` prop changes
+  React.useEffect(() => {
+    if (sorting !== undefined && !sortingStatesEqual(sorting, sorting_)) {
+      setSorting(sorting)
+    }
+  }, [sorting]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Selection column ──
 
@@ -907,6 +926,21 @@ export function DataTable<TData extends RowData>({
 
   // ── useTable ──
 
+  const sortingConfig = React.useMemo(() => {
+    if (!manualSorting) return {}
+    return { manualSorting: true }
+  }, [manualSorting])
+
+  // Notify parent of sorting changes after render (never during render)
+  const prevSortingRef = React.useRef(sorting_)
+  React.useEffect(() => {
+    if (!manualSorting || !onSortingChange) return
+    if (!sortingStatesEqual(prevSortingRef.current, sorting_)) {
+      prevSortingRef.current = sorting_
+      onSortingChange(sorting_)
+    }
+  }, [manualSorting, onSortingChange, sorting_])
+
   const paginationConfig = React.useMemo(() => {
     if (!pagination) return {}
     if (manualPagination) {
@@ -938,7 +972,7 @@ export function DataTable<TData extends RowData>({
     data,
     columns: tableColumns,
     state: {
-      sorting,
+      sorting: sorting_,
       globalFilter,
       rowSelection,
       ...(pagination && { pagination: pagination_ }),
@@ -946,6 +980,7 @@ export function DataTable<TData extends RowData>({
     onSortingChange: setSorting,
     onGlobalFilterChange: handleGlobalFilter,
     onRowSelectionChange: setRowSelection,
+    ...sortingConfig,
     ...paginationConfig,
     enableRowSelection: selectRows,
     globalFilterFn: "includesString",
