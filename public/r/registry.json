@@ -980,7 +980,7 @@
         {
           "path": "components/ds/combobox.tsx",
           "type": "registry:ui",
-          "target": "components/ds/combobox.tsx"
+          "target": "components/ui/ds-combobox.tsx"
         }
       ]
     },
@@ -996,7 +996,7 @@
         {
           "path": "components/ds/drawer.tsx",
           "type": "registry:ui",
-          "target": "components/ds/drawer.tsx"
+          "target": "components/ui/ds-drawer.tsx"
         }
       ]
     },
@@ -1015,12 +1015,12 @@
         {
           "path": "components/ds/modal.tsx",
           "type": "registry:ui",
-          "target": "components/ds/modal.tsx"
+          "target": "components/ui/ds-modal.tsx"
         }
       ]
     },
     {
-      "name": "page-loader",
+      "name": "ds-page-loader",
       "type": "registry:ui",
       "title": "Page Loader",
       "description": "Full-page loading overlay with two variants: a shimmer bar fixed at the top of the viewport (bar) and a centered XL spinner (spinner). Controlled by a single loading prop with fade-in/out transition, semantic color options, and i18n support.",
@@ -1035,12 +1035,12 @@
         {
           "path": "components/ds/page-loader.tsx",
           "type": "registry:ui",
-          "target": "components/ds/page-loader.tsx"
+          "target": "components/ui/ds-page-loader.tsx"
         }
       ]
     },
     {
-      "name": "icon-button",
+      "name": "ds-icon-button",
       "type": "registry:ui",
       "title": "Icon Button",
       "description": "An icon-only button with optional tooltip, loading state, size and rounded variants built on the Button and Tooltip primitives.",
@@ -1052,12 +1052,12 @@
         {
           "path": "components/ds/icon-button.tsx",
           "type": "registry:ui",
-          "target": "components/ds/icon-button.tsx"
+          "target": "components/ui/ds-icon-button.tsx"
         }
       ]
     },
     {
-      "name": "dashbox",
+      "name": "ds-dashbox",
       "type": "registry:ui",
       "title": "Dashbox",
       "description": "A structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, status badge, and configurable body padding.",
@@ -1070,12 +1070,12 @@
         {
           "path": "components/ds/dashbox.tsx",
           "type": "registry:ui",
-          "target": "components/ds/dashbox.tsx"
+          "target": "components/ui/ds-dashbox.tsx"
         }
       ]
     },
     {
-      "name": "dashrow",
+      "name": "ds-dashrow",
       "type": "registry:ui",
       "title": "Dashrow",
       "description": "Responsive layout container for dashboard panels with resizable split ratios and N-child support.",
@@ -1086,7 +1086,7 @@
         {
           "path": "components/ds/dashrow.tsx",
           "type": "registry:ui",
-          "target": "components/ds/dashrow.tsx"
+          "target": "components/ui/ds-dashrow.tsx"
         }
       ]
     },
@@ -1112,7 +1112,7 @@
       ]
     },
     {
-      "name": "card-stat",
+      "name": "ds-card-stat",
       "type": "registry:ui",
       "title": "Card Stat",
       "description": "A statistical display card with label, value, trend indicator, optional icon, and loading skeleton.",
@@ -1128,12 +1128,12 @@
         {
           "path": "components/ds/card-stat.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat.tsx"
+          "target": "components/ui/ds-card-stat.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-compact",
+      "name": "ds-card-stat-compact",
       "type": "registry:ui",
       "title": "Card Stat Compact",
       "description": "A compact statistical card with trend badge, description, icon, and loading skeleton.",
@@ -1150,12 +1150,12 @@
         {
           "path": "components/ds/card-stat-compact.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-compact.tsx"
+          "target": "components/ui/ds-card-stat-compact.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-progress",
+      "name": "ds-card-stat-progress",
       "type": "registry:ui",
       "title": "Card Stat Progress",
       "description": "A statistical card with an embedded progress bar for showing completion or attainment levels.",
@@ -1173,12 +1173,12 @@
         {
           "path": "components/ds/card-stat-progress.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-progress.tsx"
+          "target": "components/ui/ds-card-stat-progress.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-comparison",
+      "name": "ds-card-stat-comparison",
       "type": "registry:ui",
       "title": "Card Stat Comparison",
       "description": "A side-by-side comparison card for current vs. previous period values with trend indicators.",
@@ -1195,12 +1195,12 @@
         {
           "path": "components/ds/card-stat-comparison.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-comparison.tsx"
+          "target": "components/ui/ds-card-stat-comparison.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-sparkline",
+      "name": "ds-card-stat-sparkline",
       "type": "registry:ui",
       "title": "Card Stat Sparkline",
       "description": "A statistical card with an inline sparkline chart for visual trend representation.",
@@ -1216,12 +1216,12 @@
         {
           "path": "components/ds/card-stat-sparkline.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-sparkline.tsx"
+          "target": "components/ui/ds-card-stat-sparkline.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-highlight",
+      "name": "ds-card-stat-highlight",
       "type": "registry:ui",
       "title": "Card Stat Highlight",
       "description": "A high-emphasis statistical card with a colored background for key metric prominence.",
@@ -1237,12 +1237,12 @@
         {
           "path": "components/ds/card-stat-highlight.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-highlight.tsx"
+          "target": "components/ui/ds-card-stat-highlight.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-list",
+      "name": "ds-card-stat-list",
       "type": "registry:ui",
       "title": "Card Stat List",
       "description": "A statistical card containing a list of labeled items with icons and trend indicators.",
@@ -1258,12 +1258,12 @@
         {
           "path": "components/ds/card-stat-list.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-list.tsx"
+          "target": "components/ui/ds-card-stat-list.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-gauge",
+      "name": "ds-card-stat-gauge",
       "type": "registry:ui",
       "title": "Card Stat Gauge",
       "description": "A statistical card with a gauge visualization for showing metrics within a target range.",
@@ -1279,12 +1279,12 @@
         {
           "path": "components/ds/card-stat-gauge.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-gauge.tsx"
+          "target": "components/ui/ds-card-stat-gauge.tsx"
         }
       ]
     },
     {
-      "name": "card-stat-heatbar",
+      "name": "ds-card-stat-heatbar",
       "type": "registry:ui",
       "title": "Card Stat Heatbar",
       "description": "A statistical card with a segmented heatbar visualization for multi-zone metric display.",
@@ -1301,36 +1301,36 @@
         {
           "path": "components/ds/card-stat-heatbar.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stat-heatbar.tsx"
+          "target": "components/ui/ds-card-stat-heatbar.tsx"
         }
       ]
     },
     {
-      "name": "card-stats",
+      "name": "ds-card-stats",
       "type": "registry:ui",
       "title": "Card Stats (All)",
       "description": "A portfolio of all statistical display cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, and CardStatHeatbar.",
       "registryDependencies": [
-        "card-stat",
-        "card-stat-compact",
-        "card-stat-progress",
-        "card-stat-comparison",
-        "card-stat-sparkline",
-        "card-stat-highlight",
-        "card-stat-list",
-        "card-stat-gauge",
-        "card-stat-heatbar"
+        "ds-card-stat",
+        "ds-card-stat-compact",
+        "ds-card-stat-progress",
+        "ds-card-stat-comparison",
+        "ds-card-stat-sparkline",
+        "ds-card-stat-highlight",
+        "ds-card-stat-list",
+        "ds-card-stat-gauge",
+        "ds-card-stat-heatbar"
       ],
       "files": [
         {
           "path": "components/ds/card-stats.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-stats.tsx"
+          "target": "components/ui/ds-card-stats.tsx"
         }
       ]
     },
     {
-      "name": "card-icon",
+      "name": "ds-card-icon",
       "type": "registry:ui",
       "title": "Card Icon",
       "description": "Feature / navigation card with a tinted icon medallion, title and description. Icon colour and background derive from a single semantic tone token. Supports soft/solid/outline media styles, three sizes, centred or left alignment, badge, link mode with hover lift, and a loading skeleton.",
@@ -1343,12 +1343,12 @@
         {
           "path": "components/ds/card-icon.tsx",
           "type": "registry:ui",
-          "target": "components/ds/card-icon.tsx"
+          "target": "components/ui/ds-card-icon.tsx"
         }
       ]
     },
     {
-      "name": "progress-bar",
+      "name": "ds-progress-bar",
       "type": "registry:ui",
       "title": "Progress Bar",
       "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, custom fill/track color overrides via CSS tokens, getValueLabel for custom label formatting, max prop, and semantic color intents. Built on the Radix UI Progress primitive.",
@@ -1360,12 +1360,12 @@
         {
           "path": "components/ds/progress-bar.tsx",
           "type": "registry:ui",
-          "target": "components/ds/progress-bar.tsx"
+          "target": "components/ui/ds-progress-bar.tsx"
         }
       ]
     },
     {
-      "name": "progress-circular",
+      "name": "ds-progress-circular",
       "type": "registry:ui",
       "title": "Progress Circular",
       "description": "Displays progress as a circular gauge with an animated stroke and centered value.",
@@ -1377,12 +1377,12 @@
         {
           "path": "components/ds/progress-circular.tsx",
           "type": "registry:ui",
-          "target": "components/ds/progress-circular.tsx"
+          "target": "components/ui/ds-progress-circular.tsx"
         }
       ]
     },
     {
-      "name": "risk-level-bar",
+      "name": "ds-risk-level-bar",
       "type": "registry:ui",
       "title": "Risk Level Bar",
       "description": "A segmented progress bar with a movable marker. Uses semantic tokens (--risk-1 to --risk-4) for flexible theming.",
@@ -1395,12 +1395,12 @@
         {
           "path": "components/ds/risk-level-bar.tsx",
           "type": "registry:ui",
-          "target": "components/ds/risk-level-bar.tsx"
+          "target": "components/ui/ds-risk-level-bar.tsx"
         }
       ]
     },
     {
-      "name": "score-row",
+      "name": "ds-score-row",
       "type": "registry:ui",
       "title": "Score Row",
       "description": "A scored list item pairing icon + label with a fractional score and optional progress bar. Includes ScoreRowList container for grouped items.",
@@ -1419,12 +1419,12 @@
         {
           "path": "components/ds/score-row.tsx",
           "type": "registry:ui",
-          "target": "components/ds/score-row.tsx"
+          "target": "components/ui/ds-score-row.tsx"
         }
       ]
     },
     {
-      "name": "scroll-to-top",
+      "name": "ds-scroll-to-top",
       "type": "registry:ui",
       "title": "Scroll to Top",
       "description": "Floating button with scroll-progress ring that reveals when scrolling upward past a threshold. Smart direction-aware visibility, Tooltip, i18n support, and multiple positions.",
@@ -1441,12 +1441,12 @@
         {
           "path": "components/ds/scroll-to-top.tsx",
           "type": "registry:ui",
-          "target": "components/ds/scroll-to-top.tsx"
+          "target": "components/ui/ds-scroll-to-top.tsx"
         }
       ]
     },
     {
-      "name": "mini-card",
+      "name": "ds-mini-card",
       "type": "registry:ui",
       "title": "Mini Card",
       "description": "Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost variants) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, and delta change indicators. Size propagates via context.",
@@ -1461,12 +1461,12 @@
         {
           "path": "components/ds/mini-card.tsx",
           "type": "registry:ui",
-          "target": "components/ds/mini-card.tsx"
+          "target": "components/ui/ds-mini-card.tsx"
         }
       ]
     },
     {
-      "name": "pill-group",
+      "name": "ds-pill-group",
       "type": "registry:ui",
       "title": "Pill Group",
       "description": "A horizontal filter bar with pill-shaped toggle buttons, item counts, per-item intent colors, icon support, and automatic scroll overflow with fade indicators.",
@@ -1483,12 +1483,12 @@
         {
           "path": "components/ds/pill-group.tsx",
           "type": "registry:ui",
-          "target": "components/ds/pill-group.tsx"
+          "target": "components/ui/ds-pill-group.tsx"
         }
       ]
     },
     {
-      "name": "step-progress",
+      "name": "ds-step-progress",
       "type": "registry:ui",
       "title": "Step Progress",
       "description": "A visual guide through a sequential multi-step process with horizontal and vertical orientations.",
@@ -1499,12 +1499,12 @@
         {
           "path": "components/ds/step-progress.tsx",
           "type": "registry:ui",
-          "target": "components/ds/step-progress.tsx"
+          "target": "components/ui/ds-step-progress.tsx"
         }
       ]
     },
     {
-      "name": "bar-chart",
+      "name": "ds-bar-chart",
       "type": "registry:ui",
       "title": "Bar Chart",
       "description": "A fully featured bar chart with tooltips, legend, stacking, rounded corners, and brush zoom.",
@@ -1522,12 +1522,12 @@
         {
           "path": "components/ds/bar-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/bar-chart.tsx"
+          "target": "components/ui/ds-bar-chart.tsx"
         }
       ]
     },
     {
-      "name": "boxplot-chart",
+      "name": "ds-boxplot-chart",
       "type": "registry:ui",
       "title": "Boxplot Chart",
       "description": "A fully custom SVG box-and-whisker chart with ResizeObserver for responsive layout, notch support, and outlier plotting.",
@@ -1541,12 +1541,12 @@
         {
           "path": "components/ds/boxplot-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/boxplot-chart.tsx"
+          "target": "components/ui/ds-boxplot-chart.tsx"
         }
       ]
     },
     {
-      "name": "candlestick-chart",
+      "name": "ds-candlestick-chart",
       "type": "registry:ui",
       "title": "Candlestick Chart",
       "description": "A financial candlestick chart with volume bars, moving averages, reference lines, and brush zoom.",
@@ -1564,12 +1564,12 @@
         {
           "path": "components/ds/candlestick-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/candlestick-chart.tsx"
+          "target": "components/ui/ds-candlestick-chart.tsx"
         }
       ]
     },
     {
-      "name": "geomap-chart",
+      "name": "ds-geomap-chart",
       "type": "registry:ui",
       "title": "Geomap Chart",
       "description": "A geographic map component for rendering GeoJSON/TopoJSON data with tooltips, zooming, choropleth, and point markers.",
@@ -1585,12 +1585,12 @@
         {
           "path": "components/ds/geomap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/geomap-chart.tsx"
+          "target": "components/ui/ds-geomap-chart.tsx"
         }
       ]
     },
     {
-      "name": "heatmap-chart",
+      "name": "ds-heatmap-chart",
       "type": "registry:ui",
       "title": "Heatmap Chart",
       "description": "A responsive heatmap chart built with pure CSS grid and color-mix for smooth color interpolation.",
@@ -1606,12 +1606,12 @@
         {
           "path": "components/ds/heatmap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/heatmap-chart.tsx"
+          "target": "components/ui/ds-heatmap-chart.tsx"
         }
       ]
     },
     {
-      "name": "line-chart",
+      "name": "ds-line-chart",
       "type": "registry:ui",
       "title": "Line Chart",
       "description": "A responsive line chart with plain lines, gradient area fills, stacked areas, reference lines, and brush zoom.",
@@ -1629,12 +1629,12 @@
         {
           "path": "components/ds/line-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/line-chart.tsx"
+          "target": "components/ui/ds-line-chart.tsx"
         }
       ]
     },
     {
-      "name": "pie-chart",
+      "name": "ds-pie-chart",
       "type": "registry:ui",
       "title": "Pie Chart",
       "description": "A responsive pie and donut chart with interactive center label, legend, and outer slice labels.",
@@ -1651,12 +1651,12 @@
         {
           "path": "components/ds/pie-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/pie-chart.tsx"
+          "target": "components/ui/ds-pie-chart.tsx"
         }
       ]
     },
     {
-      "name": "radar-chart",
+      "name": "ds-radar-chart",
       "type": "registry:ui",
       "title": "Radar Chart",
       "description": "A responsive radar (spider) chart for comparing multiple entities across the same set of dimensions.",
@@ -1673,12 +1673,12 @@
         {
           "path": "components/ds/radar-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/radar-chart.tsx"
+          "target": "components/ui/ds-radar-chart.tsx"
         }
       ]
     },
     {
-      "name": "radial-chart",
+      "name": "ds-radial-chart",
       "type": "registry:ui",
       "title": "Radial Chart",
       "description": "A responsive radial bar chart with concentric rings, single-metric gauge mode, and legend support.",
@@ -1695,12 +1695,12 @@
         {
           "path": "components/ds/radial-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/radial-chart.tsx"
+          "target": "components/ui/ds-radial-chart.tsx"
         }
       ]
     },
     {
-      "name": "scatter-chart",
+      "name": "ds-scatter-chart",
       "type": "registry:ui",
       "title": "Scatter Chart",
       "description": "A responsive scatter and bubble chart with trend lines, multi-series, and brush zoom.",
@@ -1718,12 +1718,12 @@
         {
           "path": "components/ds/scatter-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/scatter-chart.tsx"
+          "target": "components/ui/ds-scatter-chart.tsx"
         }
       ]
     },
     {
-      "name": "treemap-chart",
+      "name": "ds-treemap-chart",
       "type": "registry:ui",
       "title": "Treemap Chart",
       "description": "A responsive treemap chart with hierarchical drill-down, breadcrumb navigation, and aspect ratio control.",
@@ -1740,12 +1740,12 @@
         {
           "path": "components/ds/treemap-chart.tsx",
           "type": "registry:ui",
-          "target": "components/ds/treemap-chart.tsx"
+          "target": "components/ui/ds-treemap-chart.tsx"
         }
       ]
     },
     {
-      "name": "counter",
+      "name": "ds-counter",
       "type": "registry:ui",
       "title": "Counter",
       "description": "A precision numeric input with button controls, direct keyboard entry support, and inputProps passthrough for native HTML attributes.",
@@ -1757,12 +1757,12 @@
         {
           "path": "components/ds/counter.tsx",
           "type": "registry:ui",
-          "target": "components/ds/counter.tsx"
+          "target": "components/ui/ds-counter.tsx"
         }
       ]
     },
     {
-      "name": "input-email",
+      "name": "ds-input-email",
       "type": "registry:ui",
       "title": "Input Email",
       "description": "An email input field with a built-in mail icon and customizable size and radius variants.",
@@ -1773,12 +1773,12 @@
         {
           "path": "components/ds/input-email.tsx",
           "type": "registry:ui",
-          "target": "components/ds/input-email.tsx"
+          "target": "components/ui/ds-input-email.tsx"
         }
       ]
     },
     {
-      "name": "input-password",
+      "name": "ds-input-password",
       "type": "registry:ui",
       "title": "Input Password",
       "description": "A secure password input field with a toggle visibility button and custom size/radius options.",
@@ -1791,12 +1791,12 @@
         {
           "path": "components/ds/input-password.tsx",
           "type": "registry:ui",
-          "target": "components/ds/input-password.tsx"
+          "target": "components/ui/ds-input-password.tsx"
         }
       ]
     },
     {
-      "name": "select-list",
+      "name": "ds-select-list",
       "type": "registry:ui",
       "title": "Select List",
       "description": "A searchable list of items with selection state, support for groups, icons and virtual scrolling behavior.",
@@ -1814,12 +1814,12 @@
         {
           "path": "components/ds/select-list.tsx",
           "type": "registry:ui",
-          "target": "components/ds/select-list.tsx"
+          "target": "components/ui/ds-select-list.tsx"
         }
       ]
     },
     {
-      "name": "footer-menu",
+      "name": "ds-footer-menu",
       "type": "registry:ui",
       "title": "Footer Menu",
       "description": "A responsive footer navigation that displays in columns on desktop and as an accordion on mobile.",
@@ -1831,12 +1831,12 @@
         {
           "path": "components/ds/footer-menu.tsx",
           "type": "registry:ui",
-          "target": "components/ds/footer-menu.tsx"
+          "target": "components/ui/ds-footer-menu.tsx"
         }
       ]
     },
     {
-      "name": "header-search",
+      "name": "ds-header-search",
       "type": "registry:ui",
       "title": "Header Search",
       "description": "An expandable search button for use in page headers with smooth transition animations.",
@@ -1849,12 +1849,12 @@
         {
           "path": "components/ds/header-search.tsx",
           "type": "registry:ui",
-          "target": "components/ds/header-search.tsx"
+          "target": "components/ui/ds-header-search.tsx"
         }
       ]
     },
     {
-      "name": "nav-dots",
+      "name": "ds-nav-dots",
       "type": "registry:ui",
       "title": "Nav Dots",
       "description": "Dot-based section navigation with automatic scroll tracking and tooltips.",
@@ -1866,12 +1866,12 @@
         {
           "path": "components/ds/nav-dots.tsx",
           "type": "registry:ui",
-          "target": "components/ds/nav-dots.tsx"
+          "target": "components/ui/ds-nav-dots.tsx"
         }
       ]
     },
     {
-      "name": "nav-user",
+      "name": "ds-nav-user",
       "type": "registry:ui",
       "title": "Nav User",
       "description": "A user profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.",
@@ -1885,12 +1885,12 @@
         {
           "path": "components/ds/nav-user.tsx",
           "type": "registry:ui",
-          "target": "components/ds/nav-user.tsx"
+          "target": "components/ui/ds-nav-user.tsx"
         }
       ]
     },
     {
-      "name": "toggle-theme",
+      "name": "ds-toggle-theme",
       "type": "registry:ui",
       "title": "Toggle Theme",
       "description": "A dropdown button to switch between light, dark, and system themes. Re-exports ThemeProvider for app-level setup.",
@@ -1906,12 +1906,12 @@
         {
           "path": "components/ds/toggle-theme.tsx",
           "type": "registry:ui",
-          "target": "components/ds/toggle-theme.tsx"
+          "target": "components/ui/ds-toggle-theme.tsx"
         }
       ]
     },
     {
-      "name": "search-bar",
+      "name": "ds-search-bar",
       "type": "registry:ui",
       "title": "Search Bar",
       "description": "A full-width composable search bar with visual variants, keyboard shortcut hint, voice input, debounce, custom icon, and skeleton loading.",
@@ -1928,12 +1928,12 @@
         {
           "path": "components/ds/search-bar.tsx",
           "type": "registry:ui",
-          "target": "components/ds/search-bar.tsx"
+          "target": "components/ui/ds-search-bar.tsx"
         }
       ]
     },
     {
-      "name": "search-combo",
+      "name": "ds-search-combo",
       "type": "registry:ui",
       "title": "Search Combo",
       "description": "A search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.",
@@ -1950,12 +1950,12 @@
         {
           "path": "components/ds/search-combo.tsx",
           "type": "registry:ui",
-          "target": "components/ds/search-combo.tsx"
+          "target": "components/ui/ds-search-combo.tsx"
         }
       ]
     },
     {
-      "name": "data-table",
+      "name": "ds-data-table",
       "type": "registry:ui",
       "title": "Data Table",
       "description": "A high-performance virtualized data table with built-in toolbar, pagination, and sorting capabilities.",
@@ -1975,7 +1975,7 @@
         {
           "path": "components/ds/data-table.tsx",
           "type": "registry:ui",
-          "target": "components/ds/data-table.tsx"
+          "target": "components/ui/ds-data-table.tsx"
         }
       ]
     },
@@ -1995,7 +1995,7 @@
         {
           "path": "components/ds/spinner.tsx",
           "type": "registry:ui",
-          "target": "components/ds/spinner.tsx"
+          "target": "components/ui/ds-spinner.tsx"
         }
       ]
     },
@@ -2015,7 +2015,7 @@
         {
           "path": "components/ds/pagination.tsx",
           "type": "registry:ui",
-          "target": "components/ds/pagination.tsx"
+          "target": "components/ui/ds-pagination.tsx"
         }
       ]
     },
@@ -2036,7 +2036,7 @@
         {
           "path": "components/ds/badge.tsx",
           "type": "registry:ui",
-          "target": "components/ds/badge.tsx"
+          "target": "components/ui/ds-badge.tsx"
         }
       ]
     },
@@ -2058,7 +2058,7 @@
         {
           "path": "components/ds/empty.tsx",
           "type": "registry:ui",
-          "target": "components/ds/empty.tsx"
+          "target": "components/ui/ds-empty.tsx"
         }
       ]
     },
@@ -2080,7 +2080,7 @@
         {
           "path": "components/ds/switch.tsx",
           "type": "registry:ui",
-          "target": "components/ds/switch.tsx"
+          "target": "components/ui/ds-switch.tsx"
         }
       ]
     },
@@ -2101,7 +2101,7 @@
         {
           "path": "components/ds/accordion.tsx",
           "type": "registry:ui",
-          "target": "components/ds/accordion.tsx"
+          "target": "components/ui/ds-accordion.tsx"
         }
       ]
     },
@@ -2122,7 +2122,7 @@
         {
           "path": "components/ds/input.tsx",
           "type": "registry:ui",
-          "target": "components/ds/input.tsx"
+          "target": "components/ui/ds-input.tsx"
         }
       ]
     },
@@ -2144,7 +2144,7 @@
         {
           "path": "components/ds/avatar.tsx",
           "type": "registry:ui",
-          "target": "components/ds/avatar.tsx"
+          "target": "components/ui/ds-avatar.tsx"
         }
       ]
     },
@@ -2164,7 +2164,7 @@
         {
           "path": "components/ds/slider.tsx",
           "type": "registry:ui",
-          "target": "components/ds/slider.tsx"
+          "target": "components/ui/ds-slider.tsx"
         }
       ]
     },
@@ -2188,7 +2188,7 @@
         {
           "path": "components/ds/select.tsx",
           "type": "registry:ui",
-          "target": "components/ds/select.tsx"
+          "target": "components/ui/ds-select.tsx"
         }
       ]
     },
@@ -2209,7 +2209,7 @@
         {
           "path": "components/ds/button.tsx",
           "type": "registry:ui",
-          "target": "components/ds/button.tsx"
+          "target": "components/ui/ds-button.tsx"
         }
       ]
     },
@@ -2231,7 +2231,7 @@
         {
           "path": "components/ds/carousel.tsx",
           "type": "registry:ui",
-          "target": "components/ds/carousel.tsx"
+          "target": "components/ui/ds-carousel.tsx"
         }
       ]
     },
@@ -2253,7 +2253,7 @@
         {
           "path": "components/ds/tabs.tsx",
           "type": "registry:ui",
-          "target": "components/ds/tabs.tsx"
+          "target": "components/ui/ds-tabs.tsx"
         }
       ]
     },
