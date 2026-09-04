@@ -21,7 +21,10 @@ env:
 jobs:
   build-and-push:
     name: "🐳 Build & Push Docker Image"
-    runs-on: self-hosted
+    # ubuntu-latest (GitHub-hosted): o runner self-hosted está atrás de um
+    # firewall/proxy que retorna 403 "Request forbidden by administrative
+    # rules" ao autenticar no ghcr.io — ver run 33918878307.
+    runs-on: ubuntu-latest
     environment: prod
     outputs:
       image_tag: ${{ steps.set-tag.outputs.image_tag }}
