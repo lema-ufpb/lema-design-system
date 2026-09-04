@@ -104,8 +104,10 @@ jobs:
           curl -sLo /tmp/kustomize.tar.gz \
             "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.6.0/kustomize_v5.6.0_linux_amd64.tar.gz"
           tar -xzf /tmp/kustomize.tar.gz -C /tmp
-          sudo mv /tmp/kustomize /usr/local/bin/kustomize
-          kustomize version
+          mkdir -p "$HOME/.local/bin"
+          mv /tmp/kustomize "$HOME/.local/bin/kustomize"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/kustomize" version
 
       - name: "🔄 Update Kustomize image tag"
         run: |
