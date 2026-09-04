@@ -5,6 +5,7 @@
   "description": "An autocomplete combobox built on @base-ui/react with search, groups, multi-select chips, and keyboard navigation.",
   "dependencies": [
     "@base-ui/react",
+    "cn",
     "lucide-react"
   ],
   "registryDependencies": [

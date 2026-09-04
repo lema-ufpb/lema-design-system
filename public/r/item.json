@@ -5,6 +5,7 @@
   "description": "A list item component with media, content, title, description, actions, and size variants.",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "radix-ui"
   ],
   "registryDependencies": [

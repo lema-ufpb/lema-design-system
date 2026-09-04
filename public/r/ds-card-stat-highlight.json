@@ -4,6 +4,7 @@
   "title": "Card Stat Highlight",
   "description": "A high-emphasis statistical card with a colored background for key metric prominence.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

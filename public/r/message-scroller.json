@@ -4,8 +4,9 @@
   "title": "Message Scroller",
   "description": "An auto-scrolling container for chat message lists with scroll-to-end/start buttons, visibility detection, and virtualized content support. Composed of MessageScrollerProvider, MessageScrollerViewport, MessageScrollerContent, MessageScrollerItem, and MessageScrollerButton sub-components.",
   "dependencies": [
-    "lucide-react",
-    "@shadcn/react"
+    "@shadcn/react",
+    "cn",
+    "lucide-react"
   ],
   "registryDependencies": [
     "button"

@@ -4,9 +4,10 @@
   "title": "Search Combo",
   "description": "A search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.",
   "dependencies": [
-    "@tanstack/react-virtual",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "@tanstack/react-virtual",
+    "class-variance-authority"
   ],
   "registryDependencies": [
     "popover",

@@ -3,6 +3,10 @@
   "name": "ds-counter",
   "title": "Counter",
   "description": "A precision numeric input with button controls, direct keyboard entry support, and inputProps passthrough for native HTML attributes.",
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "skeleton",
     "ui-i18n"

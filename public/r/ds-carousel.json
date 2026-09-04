@@ -5,6 +5,8 @@
   "description": "Extended carousel with autoplay support via embla-carousel-autoplay, multiple nav variants (side/overlay/bottom/none), card/showcase/minimal display modes, dot indicators, responsive slides-per-view, external API control via setApi, i18n aria-labels, and skeleton loading. Wraps the shadcn Carousel primitive.",
   "dependencies": [
     "embla-carousel-autoplay",
+    "embla-carousel-react",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -4,7 +4,8 @@
   "title": "Field",
   "description": "A form field wrapper with label, description, error messages, and horizontal/vertical orientation variants.",
   "dependencies": [
-    "class-variance-authority"
+    "class-variance-authority",
+    "cn"
   ],
   "registryDependencies": [
     "label",

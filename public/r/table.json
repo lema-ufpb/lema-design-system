@@ -3,6 +3,9 @@
   "name": "table",
   "title": "Table",
   "description": "A responsive table component built using native HTML table elements styled with Tailwind CSS.",
+  "dependencies": [
+    "cn"
+  ],
   "registryDependencies": [],
   "files": [
     {

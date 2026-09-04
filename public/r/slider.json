@@ -4,6 +4,7 @@
   "title": "Slider",
   "description": "A range slider for numeric input with single or multiple thumb handles.",
   "dependencies": [
+    "cn",
     "radix-ui"
   ],
   "files": [

@@ -4,6 +4,7 @@
   "title": "Card Stat Gauge",
   "description": "A statistical card with a gauge visualization for showing metrics within a target range.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -3,6 +3,10 @@
   "name": "scroll-area",
   "title": "Scroll Area",
   "description": "A custom scroll wrapper that replaces browser scrollbars with cross-browser consistent, styling-flexible scroll rails.",
+  "dependencies": [
+    "cn",
+    "radix-ui"
+  ],
   "registryDependencies": [],
   "files": [
     {

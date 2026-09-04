@@ -3,6 +3,9 @@
   "name": "ds-drawer",
   "title": "Drawer UI",
   "description": "A full-featured drawer wrapper with optional header, scrollable body, footer, direction-aware close button, snap points, scale background, and escape/pointer-down-outside event handlers.",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "drawer"
   ],

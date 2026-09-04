@@ -4,6 +4,7 @@
   "title": "Calendar",
   "description": "A date picker with day selection, range support, and dropdown navigation.",
   "dependencies": [
+    "cn",
     "react-day-picker",
     "lucide-react"
   ],

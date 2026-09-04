@@ -3,6 +3,9 @@
   "name": "ds-progress-bar",
   "title": "Progress Bar",
   "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, custom fill/track color overrides via CSS tokens, getValueLabel for custom label formatting, max prop, and semantic color intents. Built on the Radix UI Progress primitive.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "skeleton",
     "tooltip"

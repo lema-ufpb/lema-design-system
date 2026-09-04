@@ -3,6 +3,9 @@
   "name": "kbd",
   "title": "Kbd",
   "description": "A keyboard key indicator for displaying keyboard shortcuts.",
+  "dependencies": [
+    "cn"
+  ],
   "files": [
     {
       "path": "components/ui/kbd.tsx",

@@ -3,6 +3,9 @@
   "name": "ds-nav-dots",
   "title": "Nav Dots",
   "description": "Dot-based section navigation with automatic scroll tracking and tooltips.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "tooltip",
     "ui-i18n"

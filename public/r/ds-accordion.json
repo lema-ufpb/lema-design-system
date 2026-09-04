@@ -4,6 +4,8 @@
   "title": "Accordion UI",
   "description": "Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support.",
   "dependencies": [
+    "radix-ui",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -5,6 +5,7 @@
   "description": "A container that groups related buttons or inputs with connected or separated styling.",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "radix-ui"
   ],
   "registryDependencies": [

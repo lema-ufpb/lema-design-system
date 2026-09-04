@@ -4,6 +4,7 @@
   "title": "Resizable",
   "description": "Resizable panel layouts with drag handles for adjustable split views.",
   "dependencies": [
+    "cn",
     "react-resizable-panels"
   ],
   "files": [

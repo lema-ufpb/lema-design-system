@@ -4,6 +4,7 @@
   "title": "Pagination",
   "description": "A semantic pagination component built with native <nav> and <ul> elements, prev/next links, and ellipsis.",
   "dependencies": [
+    "cn",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -3,6 +3,11 @@
   "name": "button",
   "title": "Button",
   "description": "An interactive button control used to trigger actions, submit forms, or navigate.",
+  "dependencies": [
+    "class-variance-authority",
+    "cn",
+    "radix-ui"
+  ],
   "registryDependencies": [],
   "files": [
     {

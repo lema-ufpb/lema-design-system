@@ -3,6 +3,10 @@
   "name": "ds-header-search",
   "title": "Header Search",
   "description": "An expandable search button for use in page headers with smooth transition animations.",
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "button",
     "input",

@@ -5,6 +5,7 @@
   "description": "A responsive collapsible sidebar with menu, groups, tooltips, and mobile sheet support.",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "radix-ui",
     "lucide-react"
   ],

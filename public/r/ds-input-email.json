@@ -3,6 +3,9 @@
   "name": "ds-input-email",
   "title": "Input Email",
   "description": "An email input field with a built-in mail icon and customizable size and radius variants.",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "input"
   ],

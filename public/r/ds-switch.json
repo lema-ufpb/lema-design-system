@@ -4,6 +4,7 @@
   "title": "Switch UI",
   "description": "Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

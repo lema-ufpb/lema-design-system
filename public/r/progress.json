@@ -3,6 +3,10 @@
   "name": "progress",
   "title": "Progress",
   "description": "A simple progress bar indicator designed to show status completion values.",
+  "dependencies": [
+    "cn",
+    "radix-ui"
+  ],
   "registryDependencies": [],
   "files": [
     {

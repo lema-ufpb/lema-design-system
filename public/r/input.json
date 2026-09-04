@@ -3,6 +3,9 @@
   "name": "input",
   "title": "Input",
   "description": "A fundamental form text input element styling standard inputs such as text, passwords, emails, numbers, search bars, and files.",
+  "dependencies": [
+    "cn"
+  ],
   "registryDependencies": [],
   "files": [
     {

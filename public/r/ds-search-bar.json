@@ -4,7 +4,8 @@
   "title": "Search Bar",
   "description": "A full-width composable search bar with visual variants, keyboard shortcut hint, voice input, debounce, custom icon, and skeleton loading.",
   "dependencies": [
-    "lucide-react"
+    "lucide-react",
+    "class-variance-authority"
   ],
   "registryDependencies": [
     "input",
