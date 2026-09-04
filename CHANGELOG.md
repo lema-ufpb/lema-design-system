@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0](https://github.com/lema-ufpb/design-system/compare/v1.8.0...v1.9.0) (2026-09-04)
+
+
+### ✨ Features
+
+* **components:** add copy-block, date-picker, file-upload, multi-select, rating and timeline ([c0bd30a](https://github.com/lema-ufpb/design-system/commit/c0bd30a96908b9cf1c90f6f4673c16335f389270))
+
+
+### ♻️ Refactor
+
+* **core:** update hooks, i18n and documentation ([e7bc465](https://github.com/lema-ufpb/design-system/commit/e7bc465262e87c06426c0165e1d3af3650d7f8fa))
+* rename ds components registry items to include ds- prefix ([6b5e57d](https://github.com/lema-ufpb/design-system/commit/6b5e57d42d67cd6c7e80a38451f7f16c765df4bf))
+
 ## [1.8.0](https://github.com/lema-ufpb/design-system/compare/v1.7.1...v1.8.0) (2026-08-25)
 
 ### ✨ Features
