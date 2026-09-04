@@ -163,7 +163,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e s
 
 ```
 docs/
-├── specs/               # Specs de todos os componentes (119 arquivos — ui + custom)
+├── specs/               # Specs de todos os componentes (126 arquivos — ui + custom)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -173,13 +173,13 @@ docs/
 1. **Preencher o template** `docs/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
-4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (840 testes em 118 arquivos)
+4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (917 testes em 130 arquivos)
 
 As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem seu propósito, API, variantes CVA, tokens e acessibilidade documentados.
 
 ### 📚 Specs existentes
 
-Todos os componentes (61 ui primitives + 62 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (61 ui primitives + 68 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
 
 ### 📄 Spec template
 
@@ -332,6 +332,9 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 | **ScoreRow**    | Componente de linha de score com ícone configurável, score/total, barra de progresso com tooltip percentual localizada, status auto-derivado (success/warning/destructive), tamanhos sm/md/lg, suporte a ScoreRowList e loading skeleton.                                                                             |
 | **Avatar** (ds) | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.                                                                                               |
 | **Badge** (ds)  | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).                                                                                                                                                                       |
+| **CopyBlock**   | Trecho de texto/código com botão de cópia acoplado, tooltip de estado copiado, 3 tamanhos e labels i18n.                                                                                                                                                                                                              |
+| **Rating**      | Avaliação por estrelas interativa com navegação por teclado (padrão radiogroup), ícone customizável, estados readonly/disabled e 3 tamanhos.                                                                                                                                                                          |
+| **Timeline**    | Linha do tempo vertical de eventos com conectores, dots com cor de status (outline/solid) e slots de ícone customizados.                                                                                                                                                                                              |
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
@@ -343,6 +346,16 @@ import { DataTable } from "@/components/ds/data-table"
 import { ScoreRow, ScoreRowList } from "@/components/ds/score-row"
 import { Avatar, AvatarGroup } from "@/components/ds/avatar"
 import { Badge } from "@/components/ds/badge"
+import { CopyBlock } from "@/components/ds/copy-block"
+import { Rating } from "@/components/ds/rating"
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineDot,
+  TimelineConnector,
+  TimelineContent,
+} from "@/components/ds/timeline"
 
 <MiniCardGroup variant="outlined" size="md" divide accent="success">
   <MiniCard label="Receita" value={124500} format="currency" locale="pt-BR" currency="BRL" delta="+26.8%" />
@@ -366,6 +379,18 @@ import { Badge } from "@/components/ds/badge"
 <Badge>Concluído</Badge>
 <Badge variant="success" dot>Aprovado</Badge>
 <Badge variant="warning" removable onRemove={handleDismiss}>Pendente</Badge>
+
+<CopyBlock value="npm install @lema-ufpb/design-system" locale="pt-BR" />
+<Rating value={3} max={5} onChange={setRating} locale="pt-BR" />
+<Timeline>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineDot status="success" solid />
+      <TimelineConnector />
+    </TimelineSeparator>
+    <TimelineContent>Pedido recebido</TimelineContent>
+  </TimelineItem>
+</Timeline>
 ```
 
 #### 📈 Gráficos
@@ -412,6 +437,9 @@ import { BarChart } from "@/components/ds/bar-chart"
 | **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.                                                                                                                                                  |
 | **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.                                                                                            |
 | **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.                                                                                                       |
+| **DatePicker**           | Seletor de data combinando um botão trigger e um Calendar em Popover, com formatação via date-fns localizada em 4 idiomas e 3 tamanhos.                                                                                                 |
+| **FileUpload**           | Área de upload com drag-and-drop, validação de tamanho máximo, barra de progresso de envio e labels i18n.                                                                                                                               |
+| **MultiSelect**          | Combobox multi-valor com chips removíveis, overflow por `maxCount`, filtro de busca e labels i18n.                                                                                                                                      |
 
 ```tsx
 import { Counter } from "@/components/ds/counter"
@@ -426,6 +454,9 @@ import { Select } from "@/components/ds/select"
 import { Slider } from "@/components/ds/slider"
 import { Switch } from "@/components/ds/switch"
 import { SearchCombo } from "@/components/ds/search-combo"
+import { DatePicker } from "@/components/ds/date-picker"
+import { FileUpload } from "@/components/ds/file-upload"
+import { MultiSelect } from "@/components/ds/multi-select"
 
 <Counter defaultValue={1} min={0} max={100} onChange={setValue} />
 <Input placeholder="Digite seu nome" clearable maxLength={100} locale="pt-BR" />
@@ -440,6 +471,10 @@ import { SearchCombo } from "@/components/ds/search-combo"
 <InputPassword placeholder="Senha" />
 <SearchBar onSearch={(term) => router.push(`/search?q=${term}`)} />
 <SearchCombo value={query} onChange={setQuery} options={results} onSearch={fetchResults} voice />
+
+<DatePicker date={date} onSelect={setDate} locale="pt-BR" />
+<FileUpload maxSizeMB={10} onUpload={handleUpload} locale="pt-BR" />
+<MultiSelect options={options} value={selected} onChange={setSelected} maxCount={3} locale="pt-BR" />
 ```
 
 #### 🧭 Navegação
@@ -561,7 +596,7 @@ make start            # Servidor produção
 make lint             # ESLint + typecheck + Prettier check
 make format           # Prettier
 make build-storybook  # Build Storybook estático
-make test             # Vitest (840 testes em 118 arquivos)
+make test             # Vitest (917 testes em 130 arquivos)
 make coverage         # Coverage com Vitest
 make registry         # Rebuild do registry.json (shadcn build)
 make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
