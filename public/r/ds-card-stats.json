@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-card-stats",
+  "title": "Card Stats (All)",
+  "description": "A portfolio of all statistical display cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, and CardStatHeatbar.",
+  "registryDependencies": [
+    "ds-card-stat",
+    "ds-card-stat-compact",
+    "ds-card-stat-progress",
+    "ds-card-stat-comparison",
+    "ds-card-stat-sparkline",
+    "ds-card-stat-highlight",
+    "ds-card-stat-list",
+    "ds-card-stat-gauge",
+    "ds-card-stat-heatbar"
+  ],
+  "files": [
+    {
+      "path": "components/ds/card-stats.tsx",
+      "content": "export type {\n  FormatPreset,\n  CardStatTrend,\n  CardStatSize,\n} from \"@/lib/card-stats-shared\"\n\nexport type { CardStatProps } from \"./card-stat\"\nexport { CardStat } from \"./card-stat\"\n\nexport type { CardStatCompactProps } from \"./card-stat-compact\"\nexport { CardStatCompact } from \"./card-stat-compact\"\n\nexport type { CardStatProgressProps } from \"./card-stat-progress\"\nexport { CardStatProgress } from \"./card-stat-progress\"\n\nexport type { CardStatComparisonProps } from \"./card-stat-comparison\"\nexport { CardStatComparison } from \"./card-stat-comparison\"\n\nexport type { CardStatSparklineProps } from \"./card-stat-sparkline\"\nexport { CardStatSparkline } from \"./card-stat-sparkline\"\n\nexport type {\n  CardStatHighlightVariant,\n  CardStatHighlightProps,\n} from \"./card-stat-highlight\"\nexport { CardStatHighlight } from \"./card-stat-highlight\"\n\nexport type { CardStatListItem, CardStatListProps } from \"./card-stat-list\"\nexport { CardStatList } from \"./card-stat-list\"\n\nexport type { CardStatGaugeZone, CardStatGaugeProps } from \"./card-stat-gauge\"\nexport { CardStatGauge } from \"./card-stat-gauge\"\n\nexport type {\n  CardStatHeatbarZone,\n  CardStatHeatbarProps,\n} from \"./card-stat-heatbar\"\nexport { CardStatHeatbar } from \"./card-stat-heatbar\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-card-stats.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
