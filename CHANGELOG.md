@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.1](https://github.com/lema-ufpb/design-system/compare/v1.9.0...v1.9.1) (2026-09-04)
+
+
+### 🐛 Bug Fixes
+
+* **cd:** rodar build-and-push no ubuntu-latest ([c3159d4](https://github.com/lema-ufpb/design-system/commit/c3159d431a8f7712569367c918d6e56a2155513c))
+* **cd:** run build-and-push job on ubuntu-latest instead of self-hosted ([3cb8c6c](https://github.com/lema-ufpb/design-system/commit/3cb8c6c16518d4cd25b88be5a9587025d77846db))
+
 ## [1.9.0](https://github.com/lema-ufpb/design-system/compare/v1.8.0...v1.9.0) (2026-09-04)
 
 
