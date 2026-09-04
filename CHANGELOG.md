@@ -2,10 +2,9 @@
 
 ## [1.8.0](https://github.com/lema-ufpb/design-system/compare/v1.7.1...v1.8.0) (2026-08-25)
 
-
 ### ✨ Features
 
-* **data-table:** add support for manual sorting via sorting state ([738d9e3](https://github.com/lema-ufpb/design-system/commit/738d9e3371d327598f6580ebf4749bbe09f97a3a))
+- **data-table:** add support for manual sorting via sorting state ([738d9e3](https://github.com/lema-ufpb/design-system/commit/738d9e3371d327598f6580ebf4749bbe09f97a3a))
 
 ## [1.7.1](https://github.com/lema-ufpb/design-system/compare/v1.7.0...v1.7.1) (2026-08-20)
 
