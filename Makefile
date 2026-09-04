@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run merge-dependabot
 
 # ANSI Colors
 CYAN=\033[0;36m
@@ -29,6 +29,7 @@ help:
 	@echo "  📥 $(GREEN)make shadcn-add-all$(RESET)   - Adiciona todos os componentes do shadcn (sobrescreve)"
 	@echo "  🧪 $(GREEN)make shadcn-add-all-dry$(RESET) - Simula a adição de todos os componentes"
 	@echo "  🔄 $(GREEN)make shadcn-update$(RESET)      - Atualiza todos os componentes primitivos para a versão mais recente"
+	@echo "  🤖 $(GREEN)make merge-dependabot$(RESET) - Faz o merge de todas as branches do dependabot (com -X ours)"
 	@echo ""
 	@echo "💡 $(YELLOW)Dica: Rode 'make dev' para começar a brincar!$(RESET)"
 
@@ -127,3 +128,11 @@ shadcn-update:
 	npx shadcn@latest add --all --overwrite
 	npm run format
 	@echo "✅ $(GREEN)Componentes atualizados para a versão mais recente do shadcn/ui!$(RESET)"
+
+merge-dependabot:
+	@echo "🤖 $(CYAN)Fazendo merge de todas as branches do dependabot...$(RESET)"
+	@for branch in $$(git branch -r | grep dependabot | sed 's/origin\///' | tr -d ' '); do \
+		echo "🔄 Merging origin/$$branch..."; \
+		git merge -X ours "origin/$$branch" -m "Merge dependabot branch $$branch" || true; \
+	done
+	@echo "✅ $(GREEN)Merge dos dependabots finalizado!$(RESET)"

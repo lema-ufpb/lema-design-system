@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: develop
-          token: ${{ secrets.GHCR_PAT }}
+          token: ${{ secrets.CICD_TOKEN }}
 
       - name: Copy release artifacts from main
         run: |

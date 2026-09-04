@@ -43,6 +43,25 @@ npx shadcn@latest add <component> --yes
 
 Seu código-fonte **NÃO DEVE SER ALTERADO**. Se por qualquer motivo for alterado, reinstale o primitivo com `npx shadcn@latest add <component> --yes` para restaurar a versão oficial. Isso inclui correções de tipos, ajustes de estilo, renomeação de props ou qualquer outra modificação manual.
 
+### Convenção de exportação no registry.json (prefixo ds-)
+
+Todo item do `registry.json` cujo arquivo-fonte está em `components/ds/` **DEVE**:
+
+- ter `name` prefixado com `ds-` (ex: `ds-card-stat`, `ds-search-bar`, `ds-button`)
+- ter `files[].target` apontando para `components/ui/ds-<nome>.tsx` — assim, ao instalar via `npx shadcn@latest add`, o arquivo cai na pasta `ui/` do consumidor (a única que ele tem por padrão), prefixado para não colidir com o primitivo que porventura estende (ex: `ui/button.tsx` + `ui/ds-button.tsx`)
+- manter `files[].path` inalterado, apontando para o arquivo real neste repo (`components/ds/<nome>.tsx`) — só `name` e `target` mudam, nunca o path de origem
+
+Itens cujo arquivo-fonte está em `components/ui/` (primitivos shadcn) **NÃO** levam prefixo: `name` e `target` seguem `components/ui/<nome>.tsx`.
+
+Ao renomear ou criar um item `ds-*`, atualize também qualquer `registryDependencies` em outros itens que referenciem o nome antigo/sem prefixo. Depois de editar `registry.json`:
+
+```bash
+make registry                          # reconstrói public/r/*.json
+node scripts/validate-registry.mjs     # valida path/registro (não valida name/target)
+```
+
+`make registry` não remove `public/r/<nome-antigo>.json` órfãos ao renomear um item — apague-os manualmente.
+
 ### Stories obrigatórios
 
 Cada componente em `components/ui/` e `components/ds/` **DEVE** ter seu arquivo de stories correspondente (`.stories.tsx` co-localizado no mesmo diretório). A falta de stories quebra a documentação do Storybook e o `make lint`.

@@ -174,6 +174,21 @@ export const UI_I18N: Record<
     progressBar: {
       label: string
     }
+    copyBlock: {
+      copy: string
+      copied: string
+    }
+    fileUpload: {
+      dragDrop: string
+      clickToBrowse: string
+      maxSizeLabel: string
+      uploading: string
+      fileTooLargeLabel: string
+      remove: string
+    }
+    datePicker: {
+      placeholder: string
+    }
   }
 > = {
   "en-US": {
@@ -379,6 +394,21 @@ export const UI_I18N: Record<
     },
     progressBar: {
       label: "Progress",
+    },
+    copyBlock: {
+      copy: "Copy",
+      copied: "Copied!",
+    },
+    fileUpload: {
+      dragDrop: "Drag and drop the file here",
+      clickToBrowse: "or click to select",
+      maxSizeLabel: "Max size",
+      uploading: "Uploading...",
+      fileTooLargeLabel: "File size must be under",
+      remove: "Remove file",
+    },
+    datePicker: {
+      placeholder: "Select a date",
     },
   },
   "pt-BR": {
@@ -593,6 +623,21 @@ export const UI_I18N: Record<
     progressBar: {
       label: "Progresso",
     },
+    copyBlock: {
+      copy: "Copiar",
+      copied: "Copiado!",
+    },
+    fileUpload: {
+      dragDrop: "Arraste e solte o arquivo aqui",
+      clickToBrowse: "ou clique para selecionar",
+      maxSizeLabel: "Tamanho máximo",
+      uploading: "Enviando...",
+      fileTooLargeLabel: "O arquivo deve ter no máximo",
+      remove: "Remover arquivo",
+    },
+    datePicker: {
+      placeholder: "Selecione uma data",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar", title: "Diálogo" },
@@ -800,6 +845,21 @@ export const UI_I18N: Record<
     },
     progressBar: {
       label: "Progreso",
+    },
+    copyBlock: {
+      copy: "Copiar",
+      copied: "¡Copiado!",
+    },
+    fileUpload: {
+      dragDrop: "Arrastra y suelta el archivo aquí",
+      clickToBrowse: "o haz clic para seleccionar",
+      maxSizeLabel: "Tamaño máximo",
+      uploading: "Subiendo...",
+      fileTooLargeLabel: "El archivo debe tener como máximo",
+      remove: "Eliminar archivo",
+    },
+    datePicker: {
+      placeholder: "Seleccionar fecha",
     },
   },
   "fr-FR": {
@@ -1017,6 +1077,21 @@ export const UI_I18N: Record<
     },
     progressBar: {
       label: "Progression",
+    },
+    copyBlock: {
+      copy: "Copier",
+      copied: "Copié !",
+    },
+    fileUpload: {
+      dragDrop: "Glissez-déposez le fichier ici",
+      clickToBrowse: "ou cliquez pour sélectionner",
+      maxSizeLabel: "Taille maximale",
+      uploading: "Envoi en cours...",
+      fileTooLargeLabel: "Le fichier doit faire au maximum",
+      remove: "Supprimer le fichier",
+    },
+    datePicker: {
+      placeholder: "Sélectionner une date",
     },
   },
 }

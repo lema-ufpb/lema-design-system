@@ -37,3 +37,10 @@ repos:
         language: system
         files: \.(ts|tsx)$
         pass_filenames: false
+
+      - id: registry
+        name: Registry (make registry)
+        entry: make registry
+        language: system
+        pass_filenames: false
+        always_run: true

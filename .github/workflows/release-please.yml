@@ -23,7 +23,7 @@ jobs:
         id: release
         uses: googleapis/release-please-action@v5
         with:
-          token: ${{ secrets.GHCR_PAT }}
+          token: ${{ secrets.CICD_TOKEN }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
@@ -31,7 +31,7 @@ jobs:
       - name: "🤖 Auto-merge release PR"
         if: steps.release.outputs.pr
         env:
-          GH_TOKEN: ${{ secrets.GHCR_PAT }}
+          GH_TOKEN: ${{ secrets.CICD_TOKEN }}
         run: |
           curl -X PUT \
             -H "Authorization: Bearer $GH_TOKEN" \
