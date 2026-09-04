@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.3](https://github.com/lema-ufpb/design-system/compare/v1.9.2...v1.9.3) (2026-09-04)
+
+
+### 🐛 Bug Fixes
+
+* **cd:** remover overlay dev inexistente no update-argocd ([a62e974](https://github.com/lema-ufpb/design-system/commit/a62e974b22c5ad01f992263b7ba22de0ec933884))
+* **cd:** remover overlay dev inexistente no update-argocd ([04d6afd](https://github.com/lema-ufpb/design-system/commit/04d6afdc33fdfb486e5be19692c036668685d2bd))
+
 ## [1.9.2](https://github.com/lema-ufpb/design-system/compare/v1.9.1...v1.9.2) (2026-09-04)
 
 
