@@ -115,7 +115,9 @@ jobs:
           IMAGE_NAME="ghcr.io/${{ github.repository }}"
           echo "🔄 Atualizando tag da imagem para ${IMAGE_NAME}:${IMAGE_TAG}..."
 
-          for overlay in prod dev; do
+          # O overlay "dev" foi removido do repo argocd-apps (colidia com os
+          # mesmos namespaces do "prod") — só "prod" existe hoje.
+          for overlay in prod; do
             dir="argocd-apps/apps/design-system/overlays/${overlay}"
             (cd "$dir" && kustomize edit set image "${IMAGE_NAME}=${IMAGE_NAME}:${IMAGE_TAG}")
             echo "  ✅ newTag atualizado (${overlay})"
