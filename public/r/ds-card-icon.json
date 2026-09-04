@@ -3,6 +3,10 @@
   "name": "ds-card-icon",
   "title": "Card Icon",
   "description": "Feature / navigation card with a tinted icon medallion, title and description. Icon colour and background derive from a single semantic tone token. Supports soft/solid/outline media styles, three sizes, centred or left alignment, badge, link mode with hover lift, and a loading skeleton.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "card",
     "badge",

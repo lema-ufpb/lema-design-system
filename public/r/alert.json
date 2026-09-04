@@ -4,7 +4,8 @@
   "title": "Alert",
   "description": "A contextual notification banner for displaying feedback messages with title, description, and optional action.",
   "dependencies": [
-    "class-variance-authority"
+    "class-variance-authority",
+    "cn"
   ],
   "files": [
     {

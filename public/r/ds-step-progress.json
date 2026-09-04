@@ -3,6 +3,10 @@
   "name": "ds-step-progress",
   "title": "Step Progress",
   "description": "A visual guide through a sequential multi-step process with horizontal and vertical orientations.",
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "ui-i18n"
   ],

@@ -4,6 +4,7 @@
   "title": "Toggle Theme",
   "description": "A dropdown button to switch between light, dark, and system themes. Re-exports ThemeProvider for app-level setup.",
   "dependencies": [
+    "lucide-react",
     "next-themes"
   ],
   "registryDependencies": [

@@ -4,6 +4,7 @@
   "title": "Tabs UI",
   "description": "Extended tabs with 4 variants (default/line/pill/segmented), 3 sizes, icons, count badges, loading skeletons, vertical orientation, activation mode (automatic/manual), and responsive accordion fallback on mobile. Wraps the shadcn Tabs primitive.",
   "dependencies": [
+    "class-variance-authority",
     "radix-ui",
     "lucide-react"
   ],

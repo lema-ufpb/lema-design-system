@@ -4,6 +4,7 @@
   "title": "Card Stat Heatbar",
   "description": "A statistical card with a segmented heatbar visualization for multi-zone metric display.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

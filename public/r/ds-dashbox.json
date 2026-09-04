@@ -3,6 +3,10 @@
   "name": "ds-dashbox",
   "title": "Dashbox",
   "description": "A structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, status badge, and configurable body padding.",
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "tooltip",
     "skeleton",

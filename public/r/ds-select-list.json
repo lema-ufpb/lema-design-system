@@ -4,7 +4,9 @@
   "title": "Select List",
   "description": "A searchable list of items with selection state, support for groups, icons and virtual scrolling behavior.",
   "dependencies": [
-    "@tanstack/react-virtual"
+    "lucide-react",
+    "@tanstack/react-virtual",
+    "class-variance-authority"
   ],
   "registryDependencies": [
     "button",

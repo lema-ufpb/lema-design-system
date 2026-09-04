@@ -4,8 +4,9 @@
   "title": "Bubble",
   "description": "A chat bubble component with support for sent/received variants, tail indicators, and group layout. Composed of BubbleGroup sub-component.",
   "dependencies": [
-    "radix-ui",
-    "class-variance-authority"
+    "class-variance-authority",
+    "cn",
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

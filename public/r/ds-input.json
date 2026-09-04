@@ -4,6 +4,7 @@
   "title": "Input UI",
   "description": "Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, i18n labels, and error state.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

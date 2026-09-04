@@ -3,6 +3,9 @@
   "name": "ds-progress-circular",
   "title": "Progress Circular",
   "description": "Displays progress as a circular gauge with an animated stroke and centered value.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "ui-i18n",
     "format-utils"

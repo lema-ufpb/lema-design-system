@@ -3,6 +3,9 @@
   "name": "textarea",
   "title": "Textarea",
   "description": "A multi-line text input field supporting dynamic sizing, transition glows, and custom invalid validation borders.",
+  "dependencies": [
+    "cn"
+  ],
   "registryDependencies": [],
   "files": [
     {

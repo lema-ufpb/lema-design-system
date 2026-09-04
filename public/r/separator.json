@@ -4,6 +4,7 @@
   "title": "Separator",
   "description": "A visual divider for separating content sections horizontally or vertically.",
   "dependencies": [
+    "cn",
     "radix-ui"
   ],
   "files": [

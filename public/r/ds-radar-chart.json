@@ -5,6 +5,7 @@
   "description": "A responsive radar (spider) chart for comparing multiple entities across the same set of dimensions.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

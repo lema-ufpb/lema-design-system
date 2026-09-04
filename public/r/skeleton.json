@@ -3,6 +3,9 @@
   "name": "skeleton",
   "title": "Skeleton",
   "description": "A placeholder loading state component shaped as elements to outline UI containers during data fetching lifecycle phases.",
+  "dependencies": [
+    "cn"
+  ],
   "registryDependencies": [],
   "files": [
     {

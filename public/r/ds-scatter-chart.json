@@ -5,6 +5,7 @@
   "description": "A responsive scatter and bubble chart with trend lines, multi-series, and brush zoom.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

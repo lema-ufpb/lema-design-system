@@ -4,6 +4,7 @@
   "title": "Heatmap Chart",
   "description": "A responsive heatmap chart built with pure CSS grid and color-mix for smooth color interpolation.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

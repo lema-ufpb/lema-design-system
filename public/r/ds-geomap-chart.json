@@ -4,7 +4,9 @@
   "title": "Geomap Chart",
   "description": "A geographic map component for rendering GeoJSON/TopoJSON data with tooltips, zooming, choropleth, and point markers.",
   "dependencies": [
-    "react-simple-maps"
+    "react-simple-maps",
+    "geojson",
+    "class-variance-authority"
   ],
   "registryDependencies": [
     "skeleton",

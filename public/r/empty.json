@@ -4,7 +4,8 @@
   "title": "Empty",
   "description": "A placeholder component for empty states with icon, title, description, and content slots.",
   "dependencies": [
-    "class-variance-authority"
+    "class-variance-authority",
+    "cn"
   ],
   "files": [
     {

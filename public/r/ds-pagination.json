@@ -4,6 +4,7 @@
   "title": "Pagination UI",
   "description": "A pagination component with locale-aware aria labels, prev/next links, and ellipsis support.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

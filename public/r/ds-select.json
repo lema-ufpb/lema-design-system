@@ -4,6 +4,7 @@
   "title": "Select UI",
   "description": "Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning (side/align/offset), i18n placeholder/no-results, and skeleton loading.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

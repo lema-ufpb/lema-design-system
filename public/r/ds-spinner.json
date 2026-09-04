@@ -4,6 +4,7 @@
   "title": "Spinner UI",
   "description": "An animated loader with locale-aware aria-labels, built on lucide-react Loader2Icon.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

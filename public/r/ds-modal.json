@@ -3,6 +3,10 @@
   "name": "ds-modal",
   "title": "Modal",
   "description": "A flexible modal dialog built on Dialog with size variants (sm/md/lg/xl/2xl/full), intent system (default/destructive/success/warning/info), defaultOpen for uncontrolled usage, scrollable body, auto async confirm tracking, loading skeleton, escape/pointer-down-outside/interact-outside event handlers, and i18n support.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "dialog",
     "button",

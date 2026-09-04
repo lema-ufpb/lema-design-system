@@ -3,6 +3,9 @@
   "name": "card",
   "title": "Card",
   "description": "A versatile card container with sub-components for header, title, action buttons, descriptions, body content, and footer actions.",
+  "dependencies": [
+    "cn"
+  ],
   "registryDependencies": [],
   "files": [
     {

@@ -3,6 +3,9 @@
   "name": "ds-slider",
   "title": "Slider UI",
   "description": "Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, i18n aria-labels, and skeleton loading.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "slider",
     "tooltip",

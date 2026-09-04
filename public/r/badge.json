@@ -3,6 +3,11 @@
   "name": "badge",
   "title": "Badge",
   "description": "A small visual indicator for categorization, counts, or status labels.",
+  "dependencies": [
+    "class-variance-authority",
+    "cn",
+    "radix-ui"
+  ],
   "registryDependencies": [],
   "files": [
     {

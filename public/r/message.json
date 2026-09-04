@@ -3,7 +3,9 @@
   "name": "message",
   "title": "Message",
   "description": "A chat message component with support for align (start/end), avatar, content, header, and footer slots. Composed of MessageGroup, MessageAvatar, MessageContent, MessageHeader, and MessageFooter sub-components.",
-  "dependencies": [],
+  "dependencies": [
+    "cn"
+  ],
   "registryDependencies": [],
   "files": [
     {

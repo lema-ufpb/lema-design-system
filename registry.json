@@ -52,6 +52,11 @@
       "type": "registry:ui",
       "title": "Accordion",
       "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+      "dependencies": [
+        "cn",
+        "radix-ui",
+        "lucide-react"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -66,6 +71,10 @@
       "type": "registry:ui",
       "title": "Avatar",
       "description": "An image element representing a user or entity, with a fallback display for when the image fails to load.",
+      "dependencies": [
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -80,6 +89,11 @@
       "type": "registry:ui",
       "title": "Badge",
       "description": "A small visual indicator for categorization, counts, or status labels.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -94,6 +108,11 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "An interactive button control used to trigger actions, submit forms, or navigate.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -108,6 +127,9 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "A versatile card container with sub-components for header, title, action buttons, descriptions, body content, and footer actions.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -124,6 +146,7 @@
       "description": "An autocomplete combobox built on @base-ui/react with search, groups, multi-select chips, and keyboard navigation.",
       "dependencies": [
         "@base-ui/react",
+        "cn",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -143,6 +166,11 @@
       "type": "registry:ui",
       "title": "Command",
       "description": "A fast, searchable command palette and menu list interface driven by keyboard navigation.",
+      "dependencies": [
+        "cmdk",
+        "cn",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "dialog",
         "input-group",
@@ -161,6 +189,11 @@
       "type": "registry:ui",
       "title": "Dialog",
       "description": "A modal overlay that interrupts the user with critical information or requires direct interaction.",
+      "dependencies": [
+        "cn",
+        "radix-ui",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button",
         "ui-i18n"
@@ -178,6 +211,10 @@
       "type": "registry:ui",
       "title": "Drawer",
       "description": "A slide-over panel built on vaul, supporting bottom, left, right, and top directions with drag-to-dismiss gestures.",
+      "dependencies": [
+        "cn",
+        "vaul"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -192,6 +229,11 @@
       "type": "registry:ui",
       "title": "Dropdown Menu",
       "description": "A popover style menu listing choices or operations that is triggered by a button control.",
+      "dependencies": [
+        "cn",
+        "radix-ui",
+        "lucide-react"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -206,6 +248,9 @@
       "type": "registry:ui",
       "title": "Input",
       "description": "A fundamental form text input element styling standard inputs such as text, passwords, emails, numbers, search bars, and files.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -220,6 +265,10 @@
       "type": "registry:ui",
       "title": "Input Group",
       "description": "An integrated form row that groups related inputs, text labels, prefix/suffix icons, keyboard shortcuts, and button actions.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "input",
@@ -238,6 +287,10 @@
       "type": "registry:ui",
       "title": "Popover",
       "description": "A rich information bubble popover displaying contextual content triggered by focus/click events.",
+      "dependencies": [
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -252,6 +305,10 @@
       "type": "registry:ui",
       "title": "Progress",
       "description": "A simple progress bar indicator designed to show status completion values.",
+      "dependencies": [
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -266,6 +323,10 @@
       "type": "registry:ui",
       "title": "Scroll Area",
       "description": "A custom scroll wrapper that replaces browser scrollbars with cross-browser consistent, styling-flexible scroll rails.",
+      "dependencies": [
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -280,6 +341,9 @@
       "type": "registry:ui",
       "title": "Skeleton",
       "description": "A placeholder loading state component shaped as elements to outline UI containers during data fetching lifecycle phases.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -294,6 +358,10 @@
       "type": "registry:ui",
       "title": "Spinner",
       "description": "An animated loader icon used to represent background processing, async submission delays, or loading data sequences.",
+      "dependencies": [
+        "cn",
+        "lucide-react"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -301,9 +369,6 @@
           "type": "registry:ui",
           "target": "components/ui/spinner.tsx"
         }
-      ],
-      "dependencies": [
-        "lucide-react"
       ]
     },
     {
@@ -311,6 +376,9 @@
       "type": "registry:ui",
       "title": "Textarea",
       "description": "A multi-line text input field supporting dynamic sizing, transition glows, and custom invalid validation borders.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -325,6 +393,10 @@
       "type": "registry:ui",
       "title": "Tooltip",
       "description": "A lightweight popup hint displaying auxiliary text descriptions when a cursor hovers over or focus lands on trigger targets.",
+      "dependencies": [
+        "cn",
+        "radix-ui"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -339,6 +411,9 @@
       "type": "registry:ui",
       "title": "Table",
       "description": "A responsive table component built using native HTML table elements styled with Tailwind CSS.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -354,6 +429,7 @@
       "title": "Pagination",
       "description": "A semantic pagination component built with native <nav> and <ul> elements, prev/next links, and ellipsis.",
       "dependencies": [
+        "cn",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -373,6 +449,7 @@
       "title": "Alert Dialog",
       "description": "A modal dialog that interrupts users with urgent information, actions, or confirmation prompts.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -392,7 +469,8 @@
       "title": "Alert",
       "description": "A contextual notification banner for displaying feedback messages with title, description, and optional action.",
       "dependencies": [
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn"
       ],
       "files": [
         {
@@ -424,6 +502,7 @@
       "title": "Breadcrumb",
       "description": "A navigation aid showing the user's location in a hierarchical page structure with separators and ellipsis.",
       "dependencies": [
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -442,6 +521,7 @@
       "description": "A container that groups related buttons or inputs with connected or separated styling.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -461,6 +541,7 @@
       "title": "Calendar",
       "description": "A date picker with day selection, range support, and dropdown navigation.",
       "dependencies": [
+        "cn",
         "react-day-picker",
         "lucide-react"
       ],
@@ -481,6 +562,7 @@
       "title": "Carousel",
       "description": "A sliding carousel for cycling through elements with previous/next navigation using Embla.",
       "dependencies": [
+        "cn",
         "embla-carousel-react",
         "lucide-react"
       ],
@@ -501,6 +583,7 @@
       "title": "Chart",
       "description": "A charting container with config-driven tooltips, legends, and CSS variable styling integration for Recharts.",
       "dependencies": [
+        "cn",
         "recharts"
       ],
       "files": [
@@ -517,6 +600,7 @@
       "title": "Checkbox",
       "description": "A form control for selecting one or more options from a set.",
       "dependencies": [
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -550,6 +634,7 @@
       "title": "Context Menu",
       "description": "A right-click context menu with items, submenus, checkboxes, radio items, and separators.",
       "dependencies": [
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -583,7 +668,8 @@
       "title": "Empty",
       "description": "A placeholder component for empty states with icon, title, description, and content slots.",
       "dependencies": [
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn"
       ],
       "files": [
         {
@@ -599,7 +685,8 @@
       "title": "Field",
       "description": "A form field wrapper with label, description, error messages, and horizontal/vertical orientation variants.",
       "dependencies": [
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn"
       ],
       "registryDependencies": [
         "label",
@@ -619,6 +706,7 @@
       "title": "Hover Card",
       "description": "A popover card that appears when hovering over a trigger element.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -635,6 +723,7 @@
       "title": "Input Otp",
       "description": "A one-time password input with individual slot groups and separators.",
       "dependencies": [
+        "cn",
         "input-otp",
         "lucide-react"
       ],
@@ -653,6 +742,7 @@
       "description": "A list item component with media, content, title, description, actions, and size variants.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -671,6 +761,9 @@
       "type": "registry:ui",
       "title": "Kbd",
       "description": "A keyboard key indicator for displaying keyboard shortcuts.",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "components/ui/kbd.tsx",
@@ -685,6 +778,7 @@
       "title": "Label",
       "description": "A form label element built on Radix UI Label primitive.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -701,6 +795,7 @@
       "title": "Menubar",
       "description": "A horizontal menu bar with dropdown menus, checkboxes, radio items, and submenus.",
       "dependencies": [
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -718,6 +813,7 @@
       "title": "Native Select",
       "description": "A styled native HTML select element with optgroup and option sub-components.",
       "dependencies": [
+        "cn",
         "lucide-react"
       ],
       "files": [
@@ -735,6 +831,7 @@
       "description": "A responsive navigation menu with trigger, content, viewport, and indicator sub-components.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -752,6 +849,7 @@
       "title": "Radio Group",
       "description": "A set of radio buttons for single-selection from a list of options.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -768,6 +866,7 @@
       "title": "Resizable",
       "description": "Resizable panel layouts with drag handles for adjustable split views.",
       "dependencies": [
+        "cn",
         "react-resizable-panels"
       ],
       "files": [
@@ -784,6 +883,7 @@
       "title": "Select",
       "description": "A dropdown select component with groups, labels, scroll buttons, and item selection.",
       "dependencies": [
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -801,6 +901,7 @@
       "title": "Separator",
       "description": "A visual divider for separating content sections horizontally or vertically.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -817,6 +918,7 @@
       "title": "Sheet",
       "description": "A slide-in panel (drawer) from any side of the screen with header, footer, and close button.",
       "dependencies": [
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -838,6 +940,7 @@
       "description": "A responsive collapsible sidebar with menu, groups, tooltips, and mobile sheet support.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui",
         "lucide-react"
       ],
@@ -863,6 +966,7 @@
       "title": "Slider",
       "description": "A range slider for numeric input with single or multiple thumb handles.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -897,6 +1001,7 @@
       "title": "Switch",
       "description": "A toggle switch control for binary settings with size variants.",
       "dependencies": [
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -914,6 +1019,7 @@
       "description": "A tabbed interface with list, trigger, and content panels supporting default and line variants.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -931,6 +1037,7 @@
       "description": "A two-state button for on/off toggling with variants and sizes.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui"
       ],
       "files": [
@@ -948,6 +1055,7 @@
       "description": "A group of toggle buttons for multi-selection with connected or separated styling.",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -967,7 +1075,9 @@
       "title": "Combobox UI",
       "description": "A batteries-included combobox with virtual scrolling, search, single/multi-select, groups, custom option rendering, and configurable popover positioning (side/align/offset).",
       "dependencies": [
-        "@tanstack/react-virtual"
+        "@tanstack/react-virtual",
+        "class-variance-authority",
+        "lucide-react"
       ],
       "registryDependencies": [
         "badge",
@@ -989,6 +1099,9 @@
       "type": "registry:ui",
       "title": "Drawer UI",
       "description": "A full-featured drawer wrapper with optional header, scrollable body, footer, direction-aware close button, snap points, scale background, and escape/pointer-down-outside event handlers.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "drawer"
       ],
@@ -1005,6 +1118,10 @@
       "type": "registry:ui",
       "title": "Modal",
       "description": "A flexible modal dialog built on Dialog with size variants (sm/md/lg/xl/2xl/full), intent system (default/destructive/success/warning/info), defaultOpen for uncontrolled usage, scrollable body, auto async confirm tracking, loading skeleton, escape/pointer-down-outside/interact-outside event handlers, and i18n support.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "dialog",
         "button",
@@ -1044,6 +1161,9 @@
       "type": "registry:ui",
       "title": "Icon Button",
       "description": "An icon-only button with optional tooltip, loading state, size and rounded variants built on the Button and Tooltip primitives.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "button",
         "tooltip"
@@ -1061,6 +1181,10 @@
       "type": "registry:ui",
       "title": "Dashbox",
       "description": "A structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, status badge, and configurable body padding.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "tooltip",
         "skeleton",
@@ -1079,6 +1203,9 @@
       "type": "registry:ui",
       "title": "Dashrow",
       "description": "Responsive layout container for dashboard panels with resizable split ratios and N-child support.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "ui-i18n"
       ],
@@ -1226,6 +1353,7 @@
       "title": "Card Stat Highlight",
       "description": "A high-emphasis statistical card with a colored background for key metric prominence.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1247,6 +1375,7 @@
       "title": "Card Stat List",
       "description": "A statistical card containing a list of labeled items with icons and trend indicators.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1268,6 +1397,7 @@
       "title": "Card Stat Gauge",
       "description": "A statistical card with a gauge visualization for showing metrics within a target range.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1289,6 +1419,7 @@
       "title": "Card Stat Heatbar",
       "description": "A statistical card with a segmented heatbar visualization for multi-zone metric display.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1334,6 +1465,10 @@
       "type": "registry:ui",
       "title": "Card Icon",
       "description": "Feature / navigation card with a tinted icon medallion, title and description. Icon colour and background derive from a single semantic tone token. Supports soft/solid/outline media styles, three sizes, centred or left alignment, badge, link mode with hover lift, and a loading skeleton.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "card",
         "badge",
@@ -1352,6 +1487,9 @@
       "type": "registry:ui",
       "title": "Progress Bar",
       "description": "Horizontal progress indicator with animated fill, configurable label positions, size presets, custom fill/track color overrides via CSS tokens, getValueLabel for custom label formatting, max prop, and semantic color intents. Built on the Radix UI Progress primitive.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "skeleton",
         "tooltip"
@@ -1369,6 +1507,9 @@
       "type": "registry:ui",
       "title": "Progress Circular",
       "description": "Displays progress as a circular gauge with an animated stroke and centered value.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "ui-i18n",
         "format-utils"
@@ -1386,6 +1527,9 @@
       "type": "registry:ui",
       "title": "Risk Level Bar",
       "description": "A segmented progress bar with a movable marker. Uses semantic tokens (--risk-1 to --risk-4) for flexible theming.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "skeleton",
         "ui-i18n",
@@ -1405,8 +1549,8 @@
       "title": "Score Row",
       "description": "A scored list item pairing icon + label with a fractional score and optional progress bar. Includes ScoreRowList container for grouped items.",
       "dependencies": [
-        "class-variance-authority",
-        "lucide-react"
+        "lucide-react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "progress",
@@ -1492,6 +1636,10 @@
       "type": "registry:ui",
       "title": "Step Progress",
       "description": "A visual guide through a sequential multi-step process with horizontal and vertical orientations.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "ui-i18n"
       ],
@@ -1510,6 +1658,7 @@
       "description": "A fully featured bar chart with tooltips, legend, stacking, rounded corners, and brush zoom.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1531,7 +1680,10 @@
       "type": "registry:ui",
       "title": "Boxplot Chart",
       "description": "A fully custom SVG box-and-whisker chart with ResizeObserver for responsive layout, notch support, and outlier plotting.",
-      "dependencies": [],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "skeleton",
         "ui-i18n",
@@ -1552,6 +1704,7 @@
       "description": "A financial candlestick chart with volume bars, moving averages, reference lines, and brush zoom.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1574,7 +1727,9 @@
       "title": "Geomap Chart",
       "description": "A geographic map component for rendering GeoJSON/TopoJSON data with tooltips, zooming, choropleth, and point markers.",
       "dependencies": [
-        "react-simple-maps"
+        "react-simple-maps",
+        "geojson",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "skeleton",
@@ -1595,6 +1750,7 @@
       "title": "Heatmap Chart",
       "description": "A responsive heatmap chart built with pure CSS grid and color-mix for smooth color interpolation.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1617,6 +1773,7 @@
       "description": "A responsive line chart with plain lines, gradient area fills, stacked areas, reference lines, and brush zoom.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1640,6 +1797,7 @@
       "description": "A responsive pie and donut chart with interactive center label, legend, and outer slice labels.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1662,6 +1820,7 @@
       "description": "A responsive radar (spider) chart for comparing multiple entities across the same set of dimensions.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1684,6 +1843,7 @@
       "description": "A responsive radial bar chart with concentric rings, single-metric gauge mode, and legend support.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1706,6 +1866,7 @@
       "description": "A responsive scatter and bubble chart with trend lines, multi-series, and brush zoom.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1729,6 +1890,7 @@
       "description": "A responsive treemap chart with hierarchical drill-down, breadcrumb navigation, and aspect ratio control.",
       "dependencies": [
         "recharts",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -1749,6 +1911,10 @@
       "type": "registry:ui",
       "title": "Counter",
       "description": "A precision numeric input with button controls, direct keyboard entry support, and inputProps passthrough for native HTML attributes.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "skeleton",
         "ui-i18n"
@@ -1766,6 +1932,9 @@
       "type": "registry:ui",
       "title": "Input Email",
       "description": "An email input field with a built-in mail icon and customizable size and radius variants.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "input"
       ],
@@ -1782,6 +1951,9 @@
       "type": "registry:ui",
       "title": "Input Password",
       "description": "A secure password input field with a toggle visibility button and custom size/radius options.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "input",
         "button",
@@ -1801,7 +1973,9 @@
       "title": "Select List",
       "description": "A searchable list of items with selection state, support for groups, icons and virtual scrolling behavior.",
       "dependencies": [
-        "@tanstack/react-virtual"
+        "lucide-react",
+        "@tanstack/react-virtual",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "button",
@@ -1823,6 +1997,10 @@
       "type": "registry:ui",
       "title": "Footer Menu",
       "description": "A responsive footer navigation that displays in columns on desktop and as an accordion on mobile.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "accordion",
         "ui-i18n"
@@ -1840,6 +2018,10 @@
       "type": "registry:ui",
       "title": "Header Search",
       "description": "An expandable search button for use in page headers with smooth transition animations.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "button",
         "input",
@@ -1858,6 +2040,9 @@
       "type": "registry:ui",
       "title": "Nav Dots",
       "description": "Dot-based section navigation with automatic scroll tracking and tooltips.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "tooltip",
         "ui-i18n"
@@ -1875,6 +2060,9 @@
       "type": "registry:ui",
       "title": "Nav User",
       "description": "A user profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "button",
         "dropdown-menu",
@@ -1895,6 +2083,7 @@
       "title": "Toggle Theme",
       "description": "A dropdown button to switch between light, dark, and system themes. Re-exports ThemeProvider for app-level setup.",
       "dependencies": [
+        "lucide-react",
         "next-themes"
       ],
       "registryDependencies": [
@@ -1916,7 +2105,8 @@
       "title": "Search Bar",
       "description": "A full-width composable search bar with visual variants, keyboard shortcut hint, voice input, debounce, custom icon, and skeleton loading.",
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "input",
@@ -1938,9 +2128,10 @@
       "title": "Search Combo",
       "description": "A search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting.",
       "dependencies": [
-        "@tanstack/react-virtual",
         "radix-ui",
-        "lucide-react"
+        "lucide-react",
+        "@tanstack/react-virtual",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "popover",
@@ -1985,6 +2176,7 @@
       "title": "Spinner UI",
       "description": "An animated loader with locale-aware aria-labels, built on lucide-react Loader2Icon.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2005,6 +2197,7 @@
       "title": "Pagination UI",
       "description": "A pagination component with locale-aware aria labels, prev/next links, and ellipsis support.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2025,6 +2218,7 @@
       "title": "Badge UI",
       "description": "Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2046,6 +2240,7 @@
       "title": "Empty UI",
       "description": "Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2068,6 +2263,7 @@
       "title": "Switch UI",
       "description": "Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2090,6 +2286,8 @@
       "title": "Accordion UI",
       "description": "Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support.",
       "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2111,6 +2309,7 @@
       "title": "Input UI",
       "description": "Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, i18n labels, and error state.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2132,6 +2331,7 @@
       "title": "Avatar UI",
       "description": "Extended avatar with size scale (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2153,6 +2353,9 @@
       "type": "registry:ui",
       "title": "Slider UI",
       "description": "Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, i18n aria-labels, and skeleton loading.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "slider",
         "tooltip",
@@ -2174,6 +2377,7 @@
       "title": "Select UI",
       "description": "Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning (side/align/offset), i18n placeholder/no-results, and skeleton loading.",
       "dependencies": [
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2220,6 +2424,8 @@
       "description": "Extended carousel with autoplay support via embla-carousel-autoplay, multiple nav variants (side/overlay/bottom/none), card/showcase/minimal display modes, dot indicators, responsive slides-per-view, external API control via setApi, i18n aria-labels, and skeleton loading. Wraps the shadcn Carousel primitive.",
       "dependencies": [
         "embla-carousel-autoplay",
+        "embla-carousel-react",
+        "class-variance-authority",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2241,6 +2447,7 @@
       "title": "Tabs UI",
       "description": "Extended tabs with 4 variants (default/line/pill/segmented), 3 sizes, icons, count badges, loading skeletons, vertical orientation, activation mode (automatic/manual), and responsive accordion fallback on mobile. Wraps the shadcn Tabs primitive.",
       "dependencies": [
+        "class-variance-authority",
         "radix-ui",
         "lucide-react"
       ],
@@ -2263,8 +2470,9 @@
       "title": "Attachment",
       "description": "A file attachment component with support for media preview, title, description, actions, trigger overlay, and group layout. Composed of AttachmentGroup, AttachmentMedia, AttachmentContent, AttachmentTitle, AttachmentDescription, AttachmentActions, AttachmentAction, and AttachmentTrigger sub-components.",
       "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn",
+        "radix-ui"
       ],
       "registryDependencies": [
         "button"
@@ -2283,8 +2491,9 @@
       "title": "Bubble",
       "description": "A chat bubble component with support for sent/received variants, tail indicators, and group layout. Composed of BubbleGroup sub-component.",
       "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn",
+        "radix-ui"
       ],
       "registryDependencies": [],
       "files": [
@@ -2301,8 +2510,9 @@
       "title": "Marker",
       "description": "A status and pin marker indicator for chat and list items with support for variant, pin, and side-by-side layout.",
       "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
+        "class-variance-authority",
+        "cn",
+        "radix-ui"
       ],
       "registryDependencies": [],
       "files": [
@@ -2318,7 +2528,9 @@
       "type": "registry:ui",
       "title": "Message",
       "description": "A chat message component with support for align (start/end), avatar, content, header, and footer slots. Composed of MessageGroup, MessageAvatar, MessageContent, MessageHeader, and MessageFooter sub-components.",
-      "dependencies": [],
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -2334,8 +2546,9 @@
       "title": "Message Scroller",
       "description": "An auto-scrolling container for chat message lists with scroll-to-end/start buttons, visibility detection, and virtualized content support. Composed of MessageScrollerProvider, MessageScrollerViewport, MessageScrollerContent, MessageScrollerItem, and MessageScrollerButton sub-components.",
       "dependencies": [
-        "lucide-react",
-        "@shadcn/react"
+        "@shadcn/react",
+        "cn",
+        "lucide-react"
       ],
       "registryDependencies": [
         "button"
@@ -2354,8 +2567,9 @@
       "title": "Questionnaire",
       "description": "A multi-step questionnaire with single-choice, multiple-choice, freeform, and skippable questions. Owns the ordered items, active item, answer state, validation, progress, and navigation. Composed of QuestionnaireItem, QuestionnaireProgress, QuestionnaireTitle, QuestionnaireDescription, QuestionnaireChoices, QuestionnaireChoice, QuestionnaireChoiceDescription, QuestionnaireInput, QuestionnaireError, QuestionnaireActions, QuestionnairePrevious, QuestionnaireSkip, QuestionnaireNext, and QuestionnaireSubmit sub-components.",
       "dependencies": [
-        "lucide-react",
-        "@shadcn/react"
+        "@shadcn/react",
+        "cn",
+        "lucide-react"
       ],
       "registryDependencies": [
         "button"
@@ -2365,6 +2579,131 @@
           "path": "components/ui/questionnaire.tsx",
           "type": "registry:ui",
           "target": "components/ui/questionnaire.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Componente interativo para avaliação baseada em ícones (estrelas).",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ds/rating.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-rating.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-copy-block",
+      "type": "registry:ui",
+      "title": "CopyBlock",
+      "description": "Exibe um trecho de texto ou código com um botão acoplado para cópia rápida.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/copy-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-copy-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-date-picker",
+      "type": "registry:ui",
+      "title": "DatePicker",
+      "description": "Seletor de data combinando um botão e um calendário (Popover).",
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "popover",
+        "calendar",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/date-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-date-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-multi-select",
+      "type": "registry:ui",
+      "title": "MultiSelect",
+      "description": "Combobox que permite selecionar múltiplos itens de uma lista.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "popover",
+        "command",
+        "badge",
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/multi-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-multi-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Exibe uma lista de eventos conectados por uma linha vertical.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/timeline.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-file-upload",
+      "type": "registry:ui",
+      "title": "FileUpload",
+      "description": "Área de upload de arquivos com suporte a arrastar e soltar e barra de progresso.",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "progress",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/file-upload.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-file-upload.tsx"
         }
       ]
     }

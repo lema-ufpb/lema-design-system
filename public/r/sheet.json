@@ -4,6 +4,7 @@
   "title": "Sheet",
   "description": "A slide-in panel (drawer) from any side of the screen with header, footer, and close button.",
   "dependencies": [
+    "cn",
     "radix-ui",
     "lucide-react"
   ],

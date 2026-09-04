@@ -4,6 +4,7 @@
   "title": "Avatar UI",
   "description": "Extended avatar with size scale (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -4,6 +4,7 @@
   "title": "Badge UI",
   "description": "Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

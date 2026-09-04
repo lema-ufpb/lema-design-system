@@ -5,6 +5,7 @@
   "description": "A responsive pie and donut chart with interactive center label, legend, and outer slice labels.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -4,8 +4,9 @@
   "title": "Attachment",
   "description": "A file attachment component with support for media preview, title, description, actions, trigger overlay, and group layout. Composed of AttachmentGroup, AttachmentMedia, AttachmentContent, AttachmentTitle, AttachmentDescription, AttachmentActions, AttachmentAction, and AttachmentTrigger sub-components.",
   "dependencies": [
-    "radix-ui",
-    "class-variance-authority"
+    "class-variance-authority",
+    "cn",
+    "radix-ui"
   ],
   "registryDependencies": [
     "button"

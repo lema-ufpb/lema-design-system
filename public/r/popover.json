@@ -3,6 +3,10 @@
   "name": "popover",
   "title": "Popover",
   "description": "A rich information bubble popover displaying contextual content triggered by focus/click events.",
+  "dependencies": [
+    "cn",
+    "radix-ui"
+  ],
   "registryDependencies": [],
   "files": [
     {

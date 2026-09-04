@@ -5,6 +5,7 @@
   "description": "A responsive radial bar chart with concentric rings, single-metric gauge mode, and legend support.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -4,6 +4,7 @@
   "title": "Switch",
   "description": "A toggle switch control for binary settings with size variants.",
   "dependencies": [
+    "cn",
     "radix-ui"
   ],
   "files": [

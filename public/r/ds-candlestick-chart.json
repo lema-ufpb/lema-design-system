@@ -5,6 +5,7 @@
   "description": "A financial candlestick chart with volume bars, moving averages, reference lines, and brush zoom.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

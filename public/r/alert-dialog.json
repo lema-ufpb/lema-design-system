@@ -4,6 +4,7 @@
   "title": "Alert Dialog",
   "description": "A modal dialog that interrupts users with urgent information, actions, or confirmation prompts.",
   "dependencies": [
+    "cn",
     "radix-ui"
   ],
   "registryDependencies": [

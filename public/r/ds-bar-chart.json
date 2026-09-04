@@ -5,6 +5,7 @@
   "description": "A fully featured bar chart with tooltips, legend, stacking, rounded corners, and brush zoom.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

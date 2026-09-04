@@ -3,6 +3,11 @@
   "name": "command",
   "title": "Command",
   "description": "A fast, searchable command palette and menu list interface driven by keyboard navigation.",
+  "dependencies": [
+    "cmdk",
+    "cn",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "dialog",
     "input-group",

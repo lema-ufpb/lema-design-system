@@ -4,8 +4,8 @@
   "title": "Score Row",
   "description": "A scored list item pairing icon + label with a fractional score and optional progress bar. Includes ScoreRowList container for grouped items.",
   "dependencies": [
-    "class-variance-authority",
-    "lucide-react"
+    "lucide-react",
+    "class-variance-authority"
   ],
   "registryDependencies": [
     "progress",

@@ -5,6 +5,7 @@
   "description": "A group of toggle buttons for multi-selection with connected or separated styling.",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "radix-ui"
   ],
   "registryDependencies": [

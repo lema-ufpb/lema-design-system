@@ -5,6 +5,7 @@
   "description": "A responsive treemap chart with hierarchical drill-down, breadcrumb navigation, and aspect ratio control.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

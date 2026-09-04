@@ -4,6 +4,7 @@
   "title": "Card Stat List",
   "description": "A statistical card containing a list of labeled items with icons and trend indicators.",
   "dependencies": [
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [

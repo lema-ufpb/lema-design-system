@@ -4,7 +4,9 @@
   "title": "Combobox UI",
   "description": "A batteries-included combobox with virtual scrolling, search, single/multi-select, groups, custom option rendering, and configurable popover positioning (side/align/offset).",
   "dependencies": [
-    "@tanstack/react-virtual"
+    "@tanstack/react-virtual",
+    "class-variance-authority",
+    "lucide-react"
   ],
   "registryDependencies": [
     "badge",

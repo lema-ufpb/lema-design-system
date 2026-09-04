@@ -4,6 +4,7 @@
   "title": "Carousel",
   "description": "A sliding carousel for cycling through elements with previous/next navigation using Embla.",
   "dependencies": [
+    "cn",
     "embla-carousel-react",
     "lucide-react"
   ],

@@ -3,6 +3,10 @@
   "name": "ds-footer-menu",
   "title": "Footer Menu",
   "description": "A responsive footer navigation that displays in columns on desktop and as an accordion on mobile.",
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "accordion",
     "ui-i18n"

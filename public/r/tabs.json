@@ -5,6 +5,7 @@
   "description": "A tabbed interface with list, trigger, and content panels supporting default and line variants.",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "radix-ui"
   ],
   "files": [

@@ -3,6 +3,9 @@
   "name": "ds-nav-user",
   "title": "Nav User",
   "description": "A user profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "button",
     "dropdown-menu",

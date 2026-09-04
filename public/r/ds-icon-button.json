@@ -3,6 +3,9 @@
   "name": "ds-icon-button",
   "title": "Icon Button",
   "description": "An icon-only button with optional tooltip, loading state, size and rounded variants built on the Button and Tooltip primitives.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "button",
     "tooltip"

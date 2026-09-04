@@ -3,6 +3,10 @@
   "name": "input-group",
   "title": "Input Group",
   "description": "An integrated form row that groups related inputs, text labels, prefix/suffix icons, keyboard shortcuts, and button actions.",
+  "dependencies": [
+    "class-variance-authority",
+    "cn"
+  ],
   "registryDependencies": [
     "button",
     "input",

@@ -3,6 +3,9 @@
   "name": "ds-dashrow",
   "title": "Dashrow",
   "description": "Responsive layout container for dashboard panels with resizable split ratios and N-child support.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "ui-i18n"
   ],

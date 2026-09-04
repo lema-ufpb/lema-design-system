@@ -3,7 +3,10 @@
   "name": "ds-boxplot-chart",
   "title": "Boxplot Chart",
   "description": "A fully custom SVG box-and-whisker chart with ResizeObserver for responsive layout, notch support, and outlier plotting.",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "skeleton",
     "ui-i18n",

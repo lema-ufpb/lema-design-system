@@ -5,6 +5,7 @@
   "description": "A responsive line chart with plain lines, gradient area fills, stacked areas, reference lines, and brush zoom.",
   "dependencies": [
     "recharts",
+    "class-variance-authority",
     "lucide-react"
   ],
   "registryDependencies": [
