@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.2](https://github.com/lema-ufpb/design-system/compare/v1.9.1...v1.9.2) (2026-09-04)
+
+
+### 🐛 Bug Fixes
+
+* **cd:** instalar kustomize sem sudo no job update-argocd ([d5b352a](https://github.com/lema-ufpb/design-system/commit/d5b352a6734cd3beed2d83a02d456e7f87181b71))
+* **cd:** instalar kustomize sem sudo no job update-argocd ([8b7a4be](https://github.com/lema-ufpb/design-system/commit/8b7a4be711305c41747e6ce8cb4ab592b57ca2ee))
+
 ## [1.9.1](https://github.com/lema-ufpb/design-system/compare/v1.9.0...v1.9.1) (2026-09-04)
 
 
