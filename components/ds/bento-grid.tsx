@@ -27,7 +27,7 @@ export interface BentoGridItemProps
 // ── Variants ──
 
 export const bentoGridVariants = cva(
-  "grid auto-rows-[minmax(12rem,auto)] grid-cols-2 gap-4 md:grid-cols-4"
+  "grid auto-rows-[minmax(12rem,auto)] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4"
 )
 
 export const bentoGridItemVariants = cva(

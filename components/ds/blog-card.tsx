@@ -114,7 +114,7 @@ export function BlogCard({ className, post, locale = "en-US", size = "md", featu
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {post.tags.slice(0, 3).map((tag) => (
-              <Badge key={tag} variant="secondary" className="h-5 rounded-full px-2 text-[10px] font-medium">
+              <Badge key={tag} variant="secondary" className="h-5 rounded-full px-2 text-xs font-medium">
                 {tag}
               </Badge>
             ))}

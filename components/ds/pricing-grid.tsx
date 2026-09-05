@@ -63,7 +63,7 @@ export function PricingGrid({
             {t.monthly}
           </ToggleGroupItem>
           <ToggleGroupItem value="yearly" className="rounded-full px-4 text-xs">
-            {t.yearly} <span className="ml-1 rounded-full bg-success px-1.5 py-0.5 text-[10px] text-success-foreground">{t.save} 20%</span>
+            {t.yearly} <span className="ml-1 rounded-full bg-success px-1.5 py-0.5 text-xs text-success-foreground">{t.save} 20%</span>
           </ToggleGroupItem>
         </ToggleGroup>
       </div>

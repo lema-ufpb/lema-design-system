@@ -63,7 +63,7 @@ export function BlogMeta({
   return (
     <div data-slot="blog-meta" className={cn(blogMetaVariants({ size }), className)} {...props}>
       {category && (
-        <Badge variant="outline" className="h-5 rounded-full px-2 text-[10px] font-medium">
+        <Badge variant="outline" className="h-5 rounded-full px-2 text-xs font-medium">
           {category}
         </Badge>
       )}

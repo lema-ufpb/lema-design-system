@@ -141,8 +141,11 @@ export const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
         {!selectedFile ? (
           <div
             ref={ref}
+            aria-label={t.dragDrop}
+            aria-describedby="file-upload-hint"
             className={cn(
               fileUploadVariants({ isDragActive, disabled, size }),
+              !disabled && "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
               className
             )}
             onDragOver={onDragOver}
@@ -166,8 +169,8 @@ export const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
               <p className="mt-1 text-center text-sm text-muted-foreground">
                 {t.clickToBrowse}
               </p>
-              <p className="mt-4 text-center text-xs text-muted-foreground">
-                {t.maxSize}
+              <p id="file-upload-hint" className="mt-4 text-center text-xs text-muted-foreground">
+                {t.maxSize} · {accept}
               </p>
             </label>
           </div>

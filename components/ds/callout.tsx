@@ -10,6 +10,16 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { cn } from "@/lib/utils"
 
+// ── Types ──
+
+export interface CalloutProps
+  extends
+    Omit<React.ComponentProps<typeof Alert>, "variant">,
+    VariantProps<typeof calloutVariants> {
+  title?: string
+  icon?: React.ReactNode
+}
+
 // ── Variants ──
 
 export const calloutVariants = cva("", {
@@ -29,16 +39,6 @@ export const calloutVariants = cva("", {
     variant: "default",
   },
 })
-
-// ── Types ──
-
-export interface CalloutProps
-  extends
-    Omit<React.ComponentProps<typeof Alert>, "variant">,
-    VariantProps<typeof calloutVariants> {
-  title?: string
-  icon?: React.ReactNode
-}
 
 // ── Component ──
 

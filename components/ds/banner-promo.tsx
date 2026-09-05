@@ -4,6 +4,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N } from "@/lib/ui-i18n"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -190,14 +191,14 @@ export function BannerPromo({
 
       {dismissible && (
         <button
-          aria-label="Dismiss"
+          aria-label={UI_I18N["pt-BR"].banner.dismiss}
           onClick={() => {
             setDismissed(true)
             onDismiss?.()
           }}
           className="absolute top-3 right-3 rounded-full p-1 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
-          <span className="sr-only">Dismiss</span>×
+          <span className="sr-only">{UI_I18N["pt-BR"].banner.dismiss}</span>×
         </button>
       )}
     </div>

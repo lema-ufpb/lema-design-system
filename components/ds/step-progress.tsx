@@ -67,7 +67,6 @@ export const stepCircleVariants = cva(
         current: [
           "border-2 border-primary bg-background text-primary",
           "shadow-[0_0_0_4px_theme(colors.primary.DEFAULT/20%)]",
-          "rounded-md bg-muted motion-safe:animate-pulse",
         ],
         upcoming: [
           "border-2 border-border bg-background text-muted-foreground",

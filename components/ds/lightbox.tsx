@@ -71,11 +71,11 @@ export function Lightbox({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         onKeyDown={handleKeyDown}
-        className="max-w-4xl overflow-hidden border-border/60 bg-black/95 p-1 sm:rounded-2xl"
+        className="max-w-4xl overflow-hidden border-border/60 bg-foreground/95 p-1 sm:rounded-2xl dark:bg-black/95"
       >
         <DialogTitle className="sr-only">{image.alt}</DialogTitle>
 
-        <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl bg-black">
+        <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl bg-background dark:bg-black">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={image.src}
@@ -113,10 +113,10 @@ export function Lightbox({
 
         <div className="flex items-center justify-between gap-3 px-3 pb-2">
           {image.caption && (
-            <p className="truncate text-sm text-white/80">{image.caption}</p>
+            <p className="truncate text-sm text-background/80 dark:text-white/80">{image.caption}</p>
           )}
           {images.length > 1 && (
-            <span className="ml-auto shrink-0 text-xs text-white/60 tabular-nums">
+            <span className="ml-auto shrink-0 text-xs text-background/60 dark:text-white/60 tabular-nums">
               {index + 1} {t.of} {images.length}
             </span>
           )}

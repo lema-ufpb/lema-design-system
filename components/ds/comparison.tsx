@@ -50,8 +50,8 @@ export function Comparison({ className, before, after, beforeLabel = "Before", a
         <div className="absolute left-2 top-2 rounded-full bg-background/80 px-2 py-1 text-xs font-medium backdrop-blur">{beforeLabel}</div>
       </div>
 
-      <div className="absolute inset-y-0 w-0.5 bg-white shadow-md" style={{ left: `${pos}%` }} aria-hidden="true">
-        <div className="absolute left-1/2 top-1/2 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border bg-white shadow-md" />
+      <div className="absolute inset-y-0 w-0.5 bg-card shadow-[0_0_0_1px_rgba(0,0,0,0.2)]" style={{ left: `${pos}%` }} aria-hidden="true">
+        <div className="absolute left-1/2 top-1/2 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-card shadow-md" />
       </div>
       <input
         type="range"
@@ -59,8 +59,11 @@ export function Comparison({ className, before, after, beforeLabel = "Before", a
         max={100}
         value={pos}
         onChange={(e) => setPos(Number(e.target.value))}
-        className="absolute inset-x-0 bottom-2 mx-auto w-32"
-        aria-label="Comparison slider"
+        className="absolute inset-x-0 bottom-2 mx-auto h-2 w-32 cursor-ew-resize"
+        aria-label={`${beforeLabel} vs ${afterLabel}`}
+        aria-valuenow={pos}
+        aria-valuemin={0}
+        aria-valuemax={100}
       />
     </div>
   )

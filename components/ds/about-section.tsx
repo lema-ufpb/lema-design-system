@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
@@ -34,7 +35,7 @@ export interface AboutSectionTeamMember {
 export interface AboutSectionProps extends Omit<
   React.HTMLAttributes<HTMLElement>,
   "title"
-> {
+>, VariantProps<typeof aboutSectionVariants> {
   kicker?: string
   title: React.ReactNode
   description?: string
@@ -46,6 +47,19 @@ export interface AboutSectionProps extends Omit<
   stats?: AboutSectionStat[]
   team?: AboutSectionTeamMember[]
 }
+
+// ── Variants ───────────────────────────────────────────────────────────────
+
+export const aboutSectionVariants = cva("w-full", {
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "text-sm",
+      lg: "text-base",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
 
 // ── Component ──
 

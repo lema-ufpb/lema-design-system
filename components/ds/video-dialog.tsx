@@ -36,7 +36,7 @@ export const videoDialogVariants = cva(
       variant: {
         default: "shadow-md hover:shadow-xl",
         minimal: "shadow-none",
-        glow: "shadow-[0_0_24px_rgba(var(--primary),0.2)] hover:shadow-[0_0_36px_rgba(var(--primary),0.35)]",
+        glow: "shadow-[0_0_24px_oklch(var(--primary)/0.2)] hover:shadow-[0_0_36px_oklch(var(--primary)/0.35)]",
       },
     },
     defaultVariants: {
@@ -53,7 +53,7 @@ export const playButtonVariants = cva(
         default: "size-14 bg-primary text-primary-foreground shadow-lg",
         minimal:
           "size-12 bg-background/80 text-foreground shadow-md backdrop-blur-sm",
-        glow: "size-16 bg-primary text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.5)]",
+        glow: "size-16 bg-primary text-primary-foreground shadow-[0_0_20px_oklch(var(--primary)/0.5)]",
       },
     },
     defaultVariants: {
@@ -122,7 +122,7 @@ export const VideoDialog = React.forwardRef<HTMLDivElement, VideoDialogProps>(
             />
 
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/40" />
+            <div className="absolute inset-0 bg-foreground/30 transition-colors duration-300 group-hover:bg-foreground/40 dark:bg-black/30 dark:group-hover:bg-black/40" />
 
             {/* Pulsing Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -141,7 +141,7 @@ export const VideoDialog = React.forwardRef<HTMLDivElement, VideoDialogProps>(
           </div>
         </DialogTrigger>
 
-        <DialogContent className="max-w-4xl overflow-hidden border-border/60 bg-black/90 p-1 sm:rounded-2xl">
+        <DialogContent className="max-w-4xl overflow-hidden border-border/60 bg-card/90 p-1 sm:rounded-2xl dark:bg-black/90">
           <DialogTitle className="sr-only">{title || label}</DialogTitle>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl">
             {open && (

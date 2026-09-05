@@ -36,6 +36,7 @@ export function Cursor({ className, name, color = "var(--primary)", x = 0, y = 0
   return (
     <div
       data-slot="cursor"
+      aria-hidden="true"
       className={cn(cursorVariants({ size }), className)}
       style={{ left: x, top: y, ...style }}
       {...props}
@@ -43,8 +44,8 @@ export function Cursor({ className, name, color = "var(--primary)", x = 0, y = 0
       <MousePointer2Icon className="shrink-0 rotate-12 fill-current" style={{ color }} aria-hidden="true" />
       {name && (
         <span
-          className="rounded-full px-2 py-0.5 text-xs font-medium text-white shadow-md"
-          style={{ backgroundColor: color }}
+          className="rounded-full border border-white/20 px-2 py-0.5 text-xs font-medium shadow-md"
+          style={{ backgroundColor: color, color: "white" }}
         >
           {name}
         </span>

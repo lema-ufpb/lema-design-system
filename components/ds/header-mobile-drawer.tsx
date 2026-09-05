@@ -131,7 +131,7 @@ export function HeaderMobileDrawer({
                     )}
                     <span className="flex-1 truncate">{item.label}</span>
                     {item.badge && (
-                      <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-primary-foreground">
+                      <span className="rounded-full bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">
                         {item.badge}
                       </span>
                     )}
@@ -166,7 +166,7 @@ export function HeaderMobileDrawer({
                     {item.label}
                   </span>
                   {item.badge && (
-                    <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-primary-foreground">
+                    <span className="rounded-full bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">
                       {item.badge}
                     </span>
                   )}

@@ -610,7 +610,7 @@ function ContinuousBrush({
       </div>
 
       {/* Value labels under handles */}
-      <div className="mt-0.5 flex justify-between text-[10px] text-muted-foreground">
+      <div className="mt-0.5 flex justify-between text-xs text-muted-foreground">
         <span>{display(low)}</span>
         <span>{display(high)}</span>
       </div>

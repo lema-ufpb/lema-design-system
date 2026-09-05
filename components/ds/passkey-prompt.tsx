@@ -127,12 +127,12 @@ export const PasskeyPrompt = React.forwardRef<
               <span className="text-xs font-semibold text-foreground">
                 {t.passkey}
               </span>
-              <span className="py-0.2 inline-flex items-center gap-0.5 rounded-full bg-primary/15 px-1.5 text-[9px] font-semibold text-primary">
+              <span className="py-0.2 inline-flex items-center gap-0.5 rounded-full bg-primary/15 px-1.5 text-xs font-semibold text-primary">
                 <SparklesIcon className="size-2.5" aria-hidden="true" />
                 Seguro
               </span>
             </div>
-            <span className="line-clamp-1 text-[11px] text-muted-foreground">
+            <span className="line-clamp-1 text-xs text-muted-foreground">
               {t.passkeyDescription}
             </span>
           </div>

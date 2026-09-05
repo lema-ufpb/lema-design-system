@@ -8,6 +8,16 @@ import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
 
+// ── Types ──
+
+export interface TimePickerProps
+  extends
+    Omit<React.ComponentProps<"input">, "size" | "type">,
+    VariantProps<typeof timePickerContainerVariants> {
+  loading?: boolean
+  invalid?: boolean
+}
+
 // ── Variants ──
 
 export const timePickerContainerVariants = cva(
@@ -41,16 +51,6 @@ export const timePickerInputVariants = cva(
     },
   }
 )
-
-// ── Types ──
-
-export interface TimePickerProps
-  extends
-    Omit<React.ComponentProps<"input">, "size" | "type">,
-    VariantProps<typeof timePickerContainerVariants> {
-  loading?: boolean
-  invalid?: boolean
-}
 
 // ── Component ──
 

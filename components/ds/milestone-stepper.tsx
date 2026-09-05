@@ -73,7 +73,7 @@ export function MilestoneStepper({
                   {item.year}
                 </span>
                 {item.badge && (
-                  <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+                  <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
                     {item.badge}
                   </span>
                 )}
@@ -101,7 +101,7 @@ export function MilestoneStepper({
                   {item.year}
                 </span>
                 {item.badge && (
-                  <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+                  <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
                     {item.badge}
                   </span>
                 )}

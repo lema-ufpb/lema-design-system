@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import {
   Breadcrumb,
@@ -52,8 +54,9 @@ export function Breadcrumbs({
             <span
               role="button"
               tabIndex={0}
+              aria-label={typeof item.label === "string" ? item.label : undefined}
               onClick={item.onClick}
-              className="cursor-pointer transition-colors hover:text-foreground"
+              className="cursor-pointer transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault()
@@ -79,7 +82,7 @@ export function Breadcrumbs({
               .slice(0, itemsBeforeEllipsis)
               .map((item) => renderItem(item, false))}
             <BreadcrumbItem>
-              <BreadcrumbEllipsis />
+              <BreadcrumbEllipsis aria-label="More breadcrumbs" />
             </BreadcrumbItem>
             <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>
             {items

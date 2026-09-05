@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
@@ -158,7 +160,7 @@ export function AboutSplitStory({
                     <span className="text-xs font-semibold text-foreground">
                       {floatingBadgeText}
                     </span>
-                    <span className="text-[11px] text-muted-foreground">
+                    <span className="text-xs text-muted-foreground">
                       {t.ourJourney}
                     </span>
                   </div>

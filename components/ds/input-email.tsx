@@ -21,7 +21,7 @@ const radiusConfig: Record<Radius, string> = {
 
 const variantConfig: Record<Variant, string> = {
   default: "bg-input/50",
-  white: "bg-white border-border",
+  white: "bg-card border-border",
   muted: "bg-muted",
 }
 

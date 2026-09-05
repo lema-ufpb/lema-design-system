@@ -47,6 +47,12 @@ export function ContributionGraph({
   loading = false,
   ...props
 }: ContributionGraphProps) {
+  const weeks = React.useMemo(
+    () => data ?? Array.from({ length: 20 }).map(() => Array.from({ length: 7 }).map(() => Math.floor(Math.random() * 5))),
+    [data]
+  )
+  const t = UI_I18N[locale].contributionGraph
+
   if (loading) {
     return (
       <div data-slot="contribution-graph-skeleton" className={cn(contributionGraphVariants({ size }), className)} {...props}>
@@ -55,19 +61,17 @@ export function ContributionGraph({
     )
   }
 
-  const weeks = data ?? Array.from({ length: 20 }).map(() => Array.from({ length: 7 }).map(() => Math.floor(Math.random() * 5)))
-  const t = UI_I18N[locale].contributionGraph
-
   return (
-    <div data-slot="contribution-graph" className={cn(contributionGraphVariants({ size }), className)} {...props}>
-      <div className="flex gap-1 overflow-x-auto">
+    <div data-slot="contribution-graph" role="img" aria-label={`Contribution graph: ${t.less} to ${t.more}`} className={cn(contributionGraphVariants({ size }), className)} {...props}>
+      <div className="flex gap-1 overflow-x-auto" aria-hidden="true">
         {weeks.map((week, wi) => (
           <div key={wi} className="flex flex-col gap-1">
             {week.map((level, di) => (
               <div
                 key={di}
+                aria-hidden="true"
+                title={level === 0 ? t.noContributions : `${level} contributions`}
                 className={cn("size-3 rounded-sm", levelClasses[Math.min(level, 4)])}
-                aria-label={level === 0 ? t.noContributions : `${level} contributions`}
               />
             ))}
           </div>

@@ -72,7 +72,7 @@ export const heroTitleVariants = cva(
         display: "text-5xl sm:text-6xl lg:text-7xl",
       },
       gradient: {
-        true: "bg-gradient-to-r from-foreground via-foreground/90 to-muted-foreground bg-clip-text text-transparent",
+        true: "text-foreground",
         false: "",
       },
     },

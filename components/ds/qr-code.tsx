@@ -37,7 +37,7 @@ export function QrCode({ className, value, size = 128, ...props }: QrCodeProps) 
   }, [value, size])
 
   return (
-    <div data-slot="qr-code" className={cn("rounded-2xl border bg-white p-3", className)} {...props}>
+    <div data-slot="qr-code" className={cn("rounded-2xl border bg-white dark:bg-white p-3", className)} {...props}>
       <canvas ref={canvasRef} width={size} height={size} className="size-full" aria-label={`QR for ${value}`} />
     </div>
   )

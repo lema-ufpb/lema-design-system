@@ -27,7 +27,7 @@ export const browserMockupVariants = cva(
         minimal: "border-border/50 bg-background/90 text-foreground shadow-sm",
         glass:
           "border-border/40 bg-background/60 text-foreground shadow-xl backdrop-blur-md",
-        terminal: "border-border/80 bg-zinc-950 text-zinc-100 shadow-2xl",
+        terminal: "border-border/80 bg-card text-card-foreground shadow-2xl dark:bg-zinc-950 dark:text-zinc-100",
       },
     },
     defaultVariants: {
@@ -75,7 +75,7 @@ export const BrowserMockup = React.forwardRef<
             className={cn(
               "flex h-10 items-center justify-between gap-4 border-b px-4",
               isTerminal
-                ? "border-zinc-800 bg-zinc-900/80 text-zinc-400"
+                ? "border-border/60 bg-muted/40 text-muted-foreground dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400"
                 : "border-border/60 bg-muted/40 text-muted-foreground"
             )}
           >

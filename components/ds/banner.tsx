@@ -96,7 +96,7 @@ export const bannerVariants = cva(
       {
         intent: "destructive",
         variant: "filled",
-        class: "border-destructive bg-destructive text-white",
+        class: "border-destructive bg-destructive text-destructive-foreground",
       },
       {
         intent: "promo",

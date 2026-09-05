@@ -1121,7 +1121,7 @@ export function DataTable<TData extends RowData>({
               onVoiceStart={onVoiceStart}
               onVoiceEnd={onVoiceEnd}
               onVoiceError={onVoiceError}
-              className="min-w-140px mt-2 mr-2 w-72"
+              className="min-w-36 mt-2 mr-2 w-full sm:w-72 max-w-full"
             />
           )}
         </div>
@@ -1150,7 +1150,7 @@ export function DataTable<TData extends RowData>({
         {/* Scrollable viewport */}
         <div
           ref={parentRef}
-          className="relative max-h-[80dvh] w-full overflow-auto bg-card"
+          className="relative max-h-[80dvh] w-full overflow-auto bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           style={{ height: `${height}px` }}
           tabIndex={0}
           role="region"

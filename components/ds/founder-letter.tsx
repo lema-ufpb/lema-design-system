@@ -87,7 +87,7 @@ export function FounderLetter({
                 alt={`Assinatura de ${authorName}`}
                 loading="lazy"
                 decoding="async"
-                className="h-10 w-auto opacity-75 dark:invert"
+                className="h-10 w-auto opacity-75"
               />
             </div>
           )}

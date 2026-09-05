@@ -42,7 +42,7 @@ export function TestimonialCard({ className, quote, author, rating, loading = fa
   return (
     <div data-slot="testimonial-card" className={cn("flex flex-col gap-4 rounded-2xl border bg-card p-6 text-card-foreground", className)} {...props}>
       {typeof rating === "number" && (
-        <div className="flex gap-1" aria-label={`${rating} stars`}>
+        <div role="img" className="flex gap-1" aria-label={`${rating} stars`}>
           {Array.from({ length: 5 }).map((_, i) => (
             <StarIcon key={i} className={cn("size-4", i < rating ? "fill-warning text-warning" : "text-muted-foreground/20")} />
           ))}

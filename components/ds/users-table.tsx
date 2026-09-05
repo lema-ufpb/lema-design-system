@@ -45,13 +45,13 @@ export function UsersTable({ className, users, loading = false, ...props }: User
           <div key={u.email} className="flex items-center gap-3 border-b p-3 last:border-0">
             <Avatar className="size-8">
               <AvatarImage src={u.avatarUrl ?? ""} alt={u.name} />
-              <AvatarFallback className="text-xs">{u.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+              <AvatarFallback className="text-xs tabular-nums">{u.name.slice(0, 2).toUpperCase()}</AvatarFallback>
             </Avatar>
             <div className="flex min-w-0 flex-1 flex-col">
               <span className="truncate text-sm font-medium text-foreground">{u.name}</span>
               <span className="truncate text-xs text-muted-foreground">{u.email}</span>
             </div>
-            <Badge variant="outline" className="rounded-full text-xs">
+            <Badge variant="outline" className="rounded-full text-xs tabular-nums">
               {u.role}
             </Badge>
             <span

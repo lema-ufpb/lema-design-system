@@ -251,7 +251,7 @@ function Input({
             data-slot="ds-input-error"
             className={cn(
               "text-destructive",
-              size === "sm" ? "text-[10px]" : "text-xs"
+              size === "sm" ? "text-xs" : "text-xs"
             )}
             role="alert"
           >
@@ -264,7 +264,7 @@ function Input({
             data-slot="ds-input-count"
             className={cn(
               "ml-auto text-muted-foreground",
-              size === "sm" ? "text-[10px]" : "text-xs"
+              size === "sm" ? "text-xs" : "text-xs"
             )}
             aria-live="polite"
           >

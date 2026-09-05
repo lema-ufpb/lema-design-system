@@ -155,7 +155,7 @@ export const FooterNewsletter = React.forwardRef<
         )}
 
         {showPrivacyNotice && !submitted && (
-          <p className="text-[11px] text-muted-foreground">{t.privacyNotice}</p>
+          <p className="text-xs text-muted-foreground">{t.privacyNotice}</p>
         )}
       </form>
     )

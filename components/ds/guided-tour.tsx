@@ -46,6 +46,14 @@ export const GuidedTour = React.forwardRef<HTMLDivElement, GuidedTourProps>(
     const isFirstStep = currentStep === 0
     const isLastStep = currentStep === steps.length - 1
 
+    React.useEffect(() => {
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") onSkip?.()
+      }
+      window.addEventListener("keydown", onKey)
+      return () => window.removeEventListener("keydown", onKey)
+    }, [onSkip])
+
     if (!step) return null
 
     return (
@@ -56,8 +64,11 @@ export const GuidedTour = React.forwardRef<HTMLDivElement, GuidedTourProps>(
           className
         )}
         data-slot="ds-guided-tour"
-        role="region"
+        role="dialog"
+        aria-modal="true"
         aria-label={step.title}
+        aria-live="polite"
+        tabIndex={-1}
         {...props}
       >
         <div className="mb-2 flex items-center justify-between gap-4">
@@ -78,7 +89,10 @@ export const GuidedTour = React.forwardRef<HTMLDivElement, GuidedTourProps>(
         <div className="mb-6 text-sm text-muted-foreground">{step.content}</div>
 
         <div className="mt-auto flex items-center justify-between">
-          <div className="flex gap-1">
+          <span className="sr-only" aria-live="polite">
+            {`Step ${currentStep + 1} of ${steps.length}`}
+          </span>
+          <div className="flex gap-1" role="progressbar" aria-valuenow={currentStep + 1} aria-valuemin={1} aria-valuemax={steps.length} aria-label={step.title}>
             {steps.map((s, index) => (
               <span
                 key={s.id}

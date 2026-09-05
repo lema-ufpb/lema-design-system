@@ -64,6 +64,9 @@ export function BannerCookie({
 }: BannerCookieProps) {
   const [dismissed, setDismissed] = React.useState(false)
 
+  const titleId = React.useId()
+  const descId = React.useId()
+
   if (dismissed) return null
 
   const t = UI_I18N[locale].banner
@@ -82,17 +85,21 @@ export function BannerCookie({
   return (
     <div
       data-slot="banner-cookie"
-      role="dialog"
-      aria-modal="true"
+      role="region"
       aria-label={resolvedTitle}
+      aria-labelledby={titleId}
+      aria-describedby={descId}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") setDismissed(true)
+      }}
       className={cn(bannerCookieVariants({ position, size }), className)}
       {...props}
     >
       <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <span className="text-sm font-semibold text-foreground">
+        <span id={titleId} className="text-sm font-semibold text-foreground">
           {resolvedTitle}
         </span>
-        <span className="text-sm leading-relaxed text-muted-foreground">
+        <span id={descId} className="text-sm leading-relaxed text-muted-foreground">
           {resolvedDesc}{" "}
           {learnMoreHref && (
             <a

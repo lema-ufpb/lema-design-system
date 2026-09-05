@@ -73,10 +73,10 @@ export function CompareSlider({
       </div>
 
       <div
-        className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.2)]"
+        className="pointer-events-none absolute inset-y-0 w-0.5 bg-card shadow-[0_0_0_1px_rgba(0,0,0,0.2)]"
         style={{ left: `${value}%` }}
       >
-        <div className="absolute top-1/2 left-1/2 flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-foreground shadow-lg">
+        <div className="absolute top-1/2 left-1/2 flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-lg">
           <ChevronsLeftRightIcon className="size-4" aria-hidden="true" />
         </div>
       </div>
@@ -88,7 +88,10 @@ export function CompareSlider({
         value={value}
         onChange={(event) => setValue(Number(event.target.value))}
         aria-label={label}
-        className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
+        aria-valuenow={value}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0 peer focus-visible:outline-none"
       />
     </div>
   )
