@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-testimonials",
+  "title": "Testimonials",
+  "description": "Grid de depoimentos 2-3 cols — blockus Testimonials.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-testimonial-card",
+    "ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/testimonials.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N, type UILocale } from \"@/lib/ui-i18n\"\nimport { TestimonialCard, type TestimonialCardProps } from \"./testimonial-card\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface TestimonialsProps extends React.HTMLAttributes<HTMLDivElement> {\n  title?: string\n  description?: string\n  items: TestimonialCardProps[]\n  columns?: 2 | 3\n  locale?: UILocale\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Testimonials({ className, title, description, items, columns = 3, locale = \"en-US\", loading = false, ...props }: TestimonialsProps) {\n  const t = UI_I18N[locale].testimonials\n\n  return (\n    <div data-slot=\"testimonials\" className={cn(\"flex flex-col gap-6\", className)} {...props}>\n      <div className=\"flex flex-col gap-2\">\n        <h2 className=\"text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl\">{title ?? t.title}</h2>\n        <p className=\"max-w-prose text-sm leading-relaxed text-muted-foreground text-pretty\">{description ?? t.description}</p>\n      </div>\n\n      {loading ? (\n        <div className={cn(\"grid gap-6\", columns === 2 ? \"md:grid-cols-2\" : \"md:grid-cols-2 lg:grid-cols-3\")}>\n          {Array.from({ length: 3 }).map((_, i) => (\n            <TestimonialCard key={i} quote=\"loading\" author={{ name: \"loading\" }} loading />\n          ))}\n        </div>\n      ) : (\n        <div className={cn(\"grid gap-6\", columns === 2 ? \"md:grid-cols-2\" : \"md:grid-cols-2 lg:grid-cols-3\")}>\n          {items.map((it) => (\n            <TestimonialCard key={it.quote} {...it} />\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-testimonials.tsx"
+    }
+  ],
+  "categories": [
+    "testimonials"
+  ],
+  "type": "registry:block"
+}

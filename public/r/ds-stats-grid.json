@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-stats-grid",
+  "title": "Stats Grid",
+  "description": "Grid de métricas 2-4 cols — blockus stats.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-stats"
+  ],
+  "files": [
+    {
+      "path": "components/ds/stats-grid.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { type UILocale } from \"@/lib/ui-i18n\"\nimport { Stats, type StatsProps } from \"./stats\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface StatsGridProps extends React.HTMLAttributes<HTMLDivElement> {\n  items: StatsProps[]\n  columns?: 2 | 3 | 4\n  locale?: UILocale\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function StatsGrid({ className, items, columns = 4, locale = \"en-US\", loading = false, ...props }: StatsGridProps) {\n  return (\n    <div data-slot=\"stats-grid\" className={cn(\"grid gap-4\", columns === 2 ? \"md:grid-cols-2\" : columns === 3 ? \"md:grid-cols-3\" : \"md:grid-cols-2 lg:grid-cols-4\", className)} {...props}>\n      {loading\n        ? Array.from({ length: columns }).map((_, i) => <Stats key={i} label=\"loading\" value=\"0\" loading />)\n        : items.map((it) => <Stats key={it.label} {...it} locale={locale} />)}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-stats-grid.tsx"
+    }
+  ],
+  "categories": [
+    "stats"
+  ],
+  "type": "registry:block"
+}

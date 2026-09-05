@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-profile",
+  "title": "Profile",
+  "description": "Card de perfil — ReUI Profile 9.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "avatar",
+    "button",
+    "badge",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/profile.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Card } from \"@/components/ui/card\"\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\"\nimport { Button } from \"@/components/ui/button\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface ProfileProps extends React.HTMLAttributes<HTMLDivElement> {\n  name: string\n  role?: string\n  bio?: string\n  avatarUrl?: string\n  stats?: { label: string; value: string }[]\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Profile({ className, name, role, bio, avatarUrl, stats, loading = false, ...props }: ProfileProps) {\n  if (loading) {\n    return (\n      <Card data-slot=\"profile-skeleton\" className={cn(\"p-6\", className)} {...props}>\n        <Skeleton className=\"h-32 w-full\" />\n      </Card>\n    )\n  }\n\n  const initials = name\n    .split(\" \")\n    .map((n) => n[0])\n    .join(\"\")\n    .slice(0, 2)\n    .toUpperCase()\n\n  return (\n    <Card data-slot=\"profile\" className={cn(\"p-6\", className)} {...props}>\n      <div className=\"flex flex-col gap-4\">\n        <div className=\"flex gap-4\">\n          <Avatar className=\"size-16\">\n            <AvatarImage src={avatarUrl ?? \"\"} alt={name} />\n            <AvatarFallback>{initials}</AvatarFallback>\n          </Avatar>\n          <div className=\"flex flex-col gap-1\">\n            <span className=\"text-sm font-semibold text-foreground\">{name}</span>\n            {role && <span className=\"text-xs text-muted-foreground\">{role}</span>}\n            {bio && <span className=\"line-clamp-2 text-xs leading-relaxed text-muted-foreground\">{bio}</span>}\n          </div>\n        </div>\n        {stats && stats.length > 0 && (\n          <div className=\"flex gap-2\">\n            {stats.map((s) => (\n              <Badge key={s.label} variant=\"secondary\" className=\"rounded-full\">\n                {s.value} {s.label}\n              </Badge>\n            ))}\n          </div>\n        )}\n        <Button size=\"sm\" className=\"w-fit rounded-full\">\n          Follow\n        </Button>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-profile.tsx"
+    }
+  ],
+  "categories": [
+    "profile"
+  ],
+  "type": "registry:block"
+}

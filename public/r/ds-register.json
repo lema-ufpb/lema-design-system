@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-register",
+  "title": "Register",
+  "description": "Formulário de cadastro com social — átomo base register.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input",
+    "button",
+    "checkbox",
+    "label",
+    "ds-input-password",
+    "ds-social-auth-group",
+    "ds-auth-separator",
+    "skeleton",
+    "ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/register.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N, type UILocale } from \"@/lib/ui-i18n\"\nimport { Button } from \"@/components/ui/button\"\nimport { Input } from \"@/components/ui/input\"\nimport { Label } from \"@/components/ui/label\"\nimport { Checkbox } from \"@/components/ui/checkbox\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\nimport { Field, FieldGroup, FieldLabel, FieldDescription } from \"@/components/ui/field\"\nimport { PasswordInput } from \"./input-password\"\nimport { SocialAuthGroup } from \"./social-auth-group\"\nimport { AuthSeparator } from \"./auth-separator\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface RegisterProps extends Omit<React.HTMLAttributes<HTMLDivElement>, \"onSubmit\"> {\n  onSubmit?: (data: { name: string; email: string; password: string }) => void\n  showSocial?: boolean\n  socials?: (\"google\" | \"github\" | \"apple\" | \"microsoft\")[]\n  locale?: UILocale\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Register({ className, onSubmit, showSocial = true, socials = [\"google\", \"github\"], locale = \"en-US\", loading = false, ...props }: RegisterProps) {\n  const [name, setName] = React.useState(\"\")\n  const [email, setEmail] = React.useState(\"\")\n  const [password, setPassword] = React.useState(\"\")\n  const [agree, setAgree] = React.useState(false)\n\n  const t = UI_I18N[locale].auth\n\n  if (loading) {\n    return (\n      <div data-slot=\"register-skeleton\" className={cn(\"flex flex-col gap-6 rounded-2xl border bg-card p-6\", className)} {...props}>\n        <Skeleton className=\"h-6 w-32\" />\n        <Skeleton className=\"h-4 w-full\" />\n        <Skeleton className=\"h-10 w-full\" />\n        <Skeleton className=\"h-10 w-full\" />\n        <Skeleton className=\"h-10 w-full\" />\n        <Skeleton className=\"h-10 w-full rounded-full\" />\n      </div>\n    )\n  }\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault()\n    if (!agree) return\n    onSubmit?.({ name, email, password })\n  }\n\n  return (\n    <div data-slot=\"register\" className={cn(\"flex flex-col gap-6 rounded-2xl border bg-card p-6\", className)} {...props}>\n      <div className=\"flex flex-col gap-2\">\n        <h2 className=\"text-lg font-semibold text-foreground\">{t.createAccount}</h2>\n        <p className=\"text-sm text-muted-foreground\">{t.termsAgreement}</p>\n      </div>\n\n      {showSocial && (\n        <>\n          <SocialAuthGroup providers={socials as never} locale={locale} />\n          <AuthSeparator>{t.orContinueWith}</AuthSeparator>\n        </>\n      )}\n\n      <form onSubmit={handleSubmit} className=\"flex flex-col gap-4\">\n        <FieldGroup>\n          <Field>\n            <FieldLabel htmlFor=\"register-name\">{t.name}</FieldLabel>\n            <Input id=\"register-name\" placeholder={t.namePlaceholder} value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} required />\n          </Field>\n          <Field>\n            <FieldLabel htmlFor=\"register-email\">{t.email}</FieldLabel>\n            <Input id=\"register-email\" type=\"email\" placeholder={t.emailPlaceholder} value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} required />\n          </Field>\n          <Field>\n            <FieldLabel htmlFor=\"register-password\">{t.password}</FieldLabel>\n            <PasswordInput id=\"register-password\" placeholder={t.passwordPlaceholder} value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} required />\n            <FieldDescription className=\"text-xs\">{t.ruleLength}</FieldDescription>\n          </Field>\n          <Field orientation=\"horizontal\">\n            <Checkbox id=\"register-terms\" checked={agree} onCheckedChange={(v) => setAgree(v === true)} required />\n            <Label htmlFor=\"register-terms\" className=\"text-xs font-normal leading-relaxed\">\n              {t.termsAgreement} <a href=\"#\" className=\"font-medium text-primary underline-offset-4 hover:underline\">{t.termsOfService}</a> {t.and}{\" \"}\n              <a href=\"#\" className=\"font-medium text-primary underline-offset-4 hover:underline\">{t.privacyPolicy}</a>\n            </Label>\n          </Field>\n        </FieldGroup>\n\n        <Button type=\"submit\" disabled={!agree} className=\"w-full rounded-full font-semibold\">\n          {t.createAccount}\n        </Button>\n      </form>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-register.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

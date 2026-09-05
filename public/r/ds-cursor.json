@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-cursor",
+  "title": "Cursor",
+  "description": "Cursor remoto com label para collab — adaptado Kibo.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/cursor.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { MousePointer2Icon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface CursorProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cursorVariants> {\n  name?: string\n  color?: string\n  x?: number\n  y?: number\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const cursorVariants = cva(\"pointer-events-none absolute z-50 flex items-center gap-1 transition-all duration-150\", {\n  variants: {\n    size: {\n      sm: \"[&_svg]:size-4\",\n      md: \"[&_svg]:size-5\",\n      lg: \"[&_svg]:size-6\",\n    },\n  },\n  defaultVariants: { size: \"md\" },\n})\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Cursor({ className, name, color = \"var(--primary)\", x = 0, y = 0, size = \"md\", style, ...props }: CursorProps) {\n  return (\n    <div\n      data-slot=\"cursor\"\n      className={cn(cursorVariants({ size }), className)}\n      style={{ left: x, top: y, ...style }}\n      {...props}\n    >\n      <MousePointer2Icon className=\"shrink-0 rotate-12 fill-current\" style={{ color }} aria-hidden=\"true\" />\n      {name && (\n        <span\n          className=\"rounded-full px-2 py-0.5 text-xs font-medium text-white shadow-md\"\n          style={{ backgroundColor: color }}\n        >\n          {name}\n        </span>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-cursor.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

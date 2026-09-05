@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-manifesto-statement",
+  "title": "Manifesto Statement",
+  "description": "Declaração de manifesto institucional com tipografia editorial grande e citações autorais.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/manifesto-statement.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface ManifestoStatementProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof manifestoStatementVariants> {\n  statement: React.ReactNode\n  eyebrow?: string\n  author?: string\n}\n\n// ── Variants ──\n\nexport const manifestoStatementVariants = cva(\n  \"relative flex flex-col transition-all\",\n  {\n    variants: {\n      size: {\n        default:\n          \"gap-4 [&_blockquote]:text-2xl md:[&_blockquote]:text-3xl lg:[&_blockquote]:text-4xl\",\n        lg: \"gap-5 [&_blockquote]:text-3xl md:[&_blockquote]:text-4xl lg:[&_blockquote]:text-5xl\",\n        xl: \"gap-6 [&_blockquote]:text-4xl md:[&_blockquote]:text-5xl lg:[&_blockquote]:text-6xl\",\n      },\n      align: {\n        left: \"items-start text-left\",\n        center: \"items-center text-center\",\n      },\n    },\n    defaultVariants: {\n      size: \"default\",\n      align: \"left\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport function ManifestoStatement({\n  statement,\n  eyebrow,\n  author,\n  size,\n  align,\n  className,\n  ...props\n}: ManifestoStatementProps) {\n  return (\n    <div\n      className={cn(manifestoStatementVariants({ size, align }), className)}\n      {...props}\n    >\n      {eyebrow && (\n        <span className=\"text-xs font-semibold tracking-widest text-primary uppercase\">\n          {eyebrow}\n        </span>\n      )}\n\n      <blockquote className=\"leading-[1.15] font-bold tracking-tight text-foreground\">\n        {statement}\n      </blockquote>\n\n      {author && (\n        <cite className=\"text-sm font-medium text-muted-foreground not-italic\">\n          — {author}\n        </cite>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-manifesto-statement.tsx"
+    }
+  ],
+  "categories": [
+    "about",
+    "marketing"
+  ],
+  "type": "registry:ui"
+}

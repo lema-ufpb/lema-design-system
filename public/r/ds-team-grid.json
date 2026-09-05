@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-team-grid",
+  "title": "Team Grid",
+  "description": "Grid de equipe com heading — blockus Team.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-team-card",
+    "ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/team-grid.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N, type UILocale } from \"@/lib/ui-i18n\"\nimport { TeamCard, type TeamCardProps } from \"./team-card\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface TeamMember extends Omit<TeamCardProps, \"size\" | \"loading\"> {\n  id?: string\n}\n\nexport interface TeamGridProps extends React.HTMLAttributes<HTMLDivElement> {\n  title?: string\n  description?: string\n  members: TeamMember[]\n  columns?: 3 | 4\n  locale?: UILocale\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function TeamGrid({ className, title, description, members, columns = 3, locale = \"en-US\", loading = false, ...props }: TeamGridProps) {\n  const t = UI_I18N[locale].team\n\n  return (\n    <div data-slot=\"team-grid\" className={cn(\"flex flex-col gap-6\", className)} {...props}>\n      <div className=\"flex flex-col gap-2\">\n        <h2 className=\"text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl\">{title ?? t.title}</h2>\n        <p className=\"max-w-prose text-sm leading-relaxed text-muted-foreground text-pretty\">{description ?? t.description}</p>\n      </div>\n\n      {loading ? (\n        <div className={cn(\"grid gap-6\", columns === 4 ? \"md:grid-cols-2 lg:grid-cols-4\" : \"md:grid-cols-2 lg:grid-cols-3\")}>\n          {Array.from({ length: 6 }).map((_, i) => (\n            <TeamCard key={i} name=\"loading\" loading />\n          ))}\n        </div>\n      ) : (\n        <div className={cn(\"grid gap-6\", columns === 4 ? \"md:grid-cols-2 lg:grid-cols-4\" : \"md:grid-cols-2 lg:grid-cols-3\")}>\n          {members.map((m) => (\n            <TeamCard key={m.name} {...m} />\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-team-grid.tsx"
+    }
+  ],
+  "categories": [
+    "team"
+  ],
+  "type": "registry:block"
+}

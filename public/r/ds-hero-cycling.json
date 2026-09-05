@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-hero-cycling",
+  "title": "HeroCycling",
+  "description": "Hero centralizado com título que alterna palavras — composto de ds-hero-section e ds-text-rotator.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge",
+    "ds-hero-section",
+    "ds-text-rotator"
+  ],
+  "files": [
+    {
+      "path": "components/ds/hero-cycling.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Badge } from \"@/components/ui/badge\"\nimport {\n  HeroActions,\n  HeroDescription,\n  HeroHeader,\n  HeroSection,\n  HeroTitle,\n} from \"./hero-section\"\nimport { TextRotator } from \"./text-rotator\"\n\n// ── Types ──\n\nexport interface HeroCyclingProps extends Omit<\n  React.HTMLAttributes<HTMLElement>,\n  \"title\"\n> {\n  kicker?: string\n  titlePrefix?: React.ReactNode\n  titleSuffix?: React.ReactNode\n  words: string[]\n  rotatorInterval?: number\n  description?: string\n  actions?: React.ReactNode\n}\n\n// ── Component ──\n\n/**\n * Centered hero whose title cycles through a list of words — composed from\n * `HeroSection` and `TextRotator`.\n */\nexport function HeroCycling({\n  kicker,\n  titlePrefix,\n  titleSuffix,\n  words,\n  rotatorInterval = 2500,\n  description,\n  actions,\n  className,\n  ...props\n}: HeroCyclingProps) {\n  return (\n    <HeroSection\n      align=\"center\"\n      className={className}\n      data-slot=\"hero-cycling\"\n      {...props}\n    >\n      {kicker && (\n        <HeroHeader>\n          <Badge variant=\"secondary\">{kicker}</Badge>\n        </HeroHeader>\n      )}\n\n      <HeroTitle>\n        {titlePrefix}\n        <TextRotator\n          words={words}\n          interval={rotatorInterval}\n          className=\"mx-2\"\n        />\n        {titleSuffix}\n      </HeroTitle>\n\n      {description && <HeroDescription>{description}</HeroDescription>}\n      {actions && <HeroActions>{actions}</HeroActions>}\n    </HeroSection>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-hero-cycling.tsx"
+    }
+  ],
+  "categories": [
+    "hero"
+  ],
+  "type": "registry:block"
+}

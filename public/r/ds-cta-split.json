@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-cta-split",
+  "title": "Cta Split",
+  "description": "CTA split imagem + conteúdo — blockus #09-16.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-cta"
+  ],
+  "files": [
+    {
+      "path": "components/ds/cta-split.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Cta, type CtaProps } from \"./cta\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface CtaSplitProps extends Omit<CtaProps, \"align\"> {\n  imageSrc?: string\n  imageAlt?: string\n  reverse?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function CtaSplit({ className, imageSrc, imageAlt, reverse = false, title, description, badge, primaryAction, secondaryAction, tone = \"default\", size = \"md\", loading = false, ...props }: CtaSplitProps) {\n  return (\n    <div\n      data-slot=\"cta-split\"\n      className={cn(\n        \"grid overflow-hidden rounded-3xl border bg-card\",\n        imageSrc ? \"md:grid-cols-2\" : \"grid-cols-1\",\n        tone === \"primary\" && \"border-transparent bg-primary\",\n        tone === \"glow\" && \"border-primary/20 shadow-xl shadow-primary/5\",\n        className\n      )}\n      {...props}\n    >\n      {imageSrc && !reverse && (\n        // eslint-disable-next-line @next/next/no-img-element\n        <img src={imageSrc} alt={imageAlt ?? title} className=\"hidden h-full w-full object-cover md:block\" />\n      )}\n\n      <div className=\"flex flex-col justify-center p-8 md:p-12\">\n        <Cta\n          badge={badge}\n          title={title}\n          description={description}\n          primaryAction={primaryAction}\n          secondaryAction={secondaryAction}\n          tone={tone === \"glow\" ? \"default\" : tone}\n          align=\"left\"\n          size={size}\n          loading={loading}\n          className=\"border-0 p-0 shadow-none\"\n        />\n      </div>\n\n      {imageSrc && reverse && (\n        // eslint-disable-next-line @next/next/no-img-element\n        <img src={imageSrc} alt={imageAlt ?? title} className=\"hidden h-full w-full object-cover md:block\" />\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-cta-split.tsx"
+    }
+  ],
+  "categories": [
+    "cta"
+  ],
+  "type": "registry:block"
+}

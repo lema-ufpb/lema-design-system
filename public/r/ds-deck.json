@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-deck",
+  "title": "Deck",
+  "description": "Swipe deck de cards — adaptado Kibo.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/deck.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface DeckProps extends React.HTMLAttributes<HTMLDivElement> {\n  cards: React.ReactNode[]\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Deck({ className, cards, ...props }: DeckProps) {\n  const [index, setIndex] = React.useState(0)\n  const startX = React.useRef(0)\n\n  const handlePointerDown = (e: React.PointerEvent) => {\n    startX.current = e.clientX\n    ;(e.target as Element).setPointerCapture(e.pointerId)\n  }\n\n  const handlePointerUp = (e: React.PointerEvent) => {\n    const dx = e.clientX - startX.current\n    if (dx < -50 && index < cards.length - 1) setIndex((i) => i + 1)\n    if (dx > 50 && index > 0) setIndex((i) => i - 1)\n  }\n\n  return (\n    <div data-slot=\"deck\" className={cn(\"relative h-64 w-full overflow-hidden rounded-2xl\", className)} {...props} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp}>\n      {cards.map((card, i) => (\n        <div\n          key={i}\n          className={cn(\n            \"absolute inset-0 rounded-2xl border bg-card p-6 shadow-md transition-all duration-300\",\n            i === index ? \"translate-x-0 opacity-100\" : i < index ? \"-translate-x-full opacity-0\" : \"translate-x-full opacity-0\"\n          )}\n          aria-hidden={i !== index}\n        >\n          {card}\n        </div>\n      ))}\n      <div className=\"absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5\">\n        {cards.map((_, i) => (\n          <button\n            key={i}\n            aria-label={`Go to card ${i + 1}`}\n            onClick={() => setIndex(i)}\n            className={cn(\"size-1.5 rounded-full transition-colors\", i === index ? \"bg-primary\" : \"bg-muted-foreground/30\")}\n          />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-deck.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

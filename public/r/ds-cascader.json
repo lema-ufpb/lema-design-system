@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-cascader",
+  "title": "Cascader",
+  "description": "Seleção em cascata níveis — ReUI Cascader.",
+  "dependencies": [],
+  "registryDependencies": [
+    "popover",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/ds/cascader.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/components/ui/popover\"\nimport { Button } from \"@/components/ui/button\"\nimport { ChevronRightIcon, CheckIcon } from \"lucide-react\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface CascaderOption {\n  label: string\n  value: string\n  children?: CascaderOption[]\n}\n\nexport interface CascaderProps extends React.HTMLAttributes<HTMLDivElement> {\n  options: CascaderOption[]\n  value?: string[]\n  onValueChange?: (value: string[]) => void\n  placeholder?: string\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Cascader({ className, options, value = [], onValueChange, placeholder = \"Select\", ...props }: CascaderProps) {\n  const [open, setOpen] = React.useState(false)\n  const [path, setPath] = React.useState<string[]>(value)\n\n  React.useEffect(() => setPath(value), [value])\n\n  const findPath = (opts: CascaderOption[], target: string[]): CascaderOption[] => {\n    const res: CascaderOption[] = []\n    let cur = opts\n    for (const v of target) {\n      const f = cur.find((o) => o.value === v)\n      if (!f) break\n      res.push(f)\n      cur = f.children ?? []\n    }\n    return res\n  }\n\n  const handleSelect = (level: number, opt: CascaderOption) => {\n    const next = [...path.slice(0, level), opt.value]\n    if (opt.children && opt.children.length > 0) {\n      setPath(next)\n    } else {\n      setPath(next)\n      onValueChange?.(next)\n      setOpen(false)\n    }\n  }\n\n  const display = findPath(options, path).map((o) => o.label).join(\" / \") || placeholder\n\n  const renderLevel = (opts: CascaderOption[], level: number) => (\n    <div key={level} className=\"min-w-40 border-r p-1 last:border-0\">\n      {opts.map((opt) => {\n        const active = path[level] === opt.value\n        return (\n          <button\n            key={opt.value}\n            onClick={() => handleSelect(level, opt)}\n            className={cn(\n              \"flex w-full items-center justify-between gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-muted\",\n              active && \"bg-muted\"\n            )}\n          >\n            <span className=\"truncate\">{opt.label}</span>\n            <span className=\"flex items-center gap-1\">\n              {active && !opt.children && <CheckIcon className=\"size-3\" />}\n              {opt.children && <ChevronRightIcon className=\"size-3 text-muted-foreground\" />}\n            </span>\n          </button>\n        )\n      })}\n    </div>\n  )\n\n  const levels: CascaderOption[][] = []\n  let cur = options\n  for (let i = 0; i <= path.length; i++) {\n    levels.push(cur)\n    const next = cur.find((o) => o.value === path[i])\n    if (next?.children) cur = next.children\n    else break\n  }\n\n  return (\n    <div data-slot=\"cascader\" className={cn(\"w-fit\", className)} {...props}>\n      <Popover open={open} onOpenChange={setOpen}>\n        <PopoverTrigger asChild>\n          <Button variant=\"outline\" className=\"min-w-48 justify-between rounded-xl\">\n            <span className=\"truncate\">{display}</span>\n            <ChevronRightIcon className=\"size-4 rotate-90 text-muted-foreground\" />\n          </Button>\n        </PopoverTrigger>\n        <PopoverContent className=\"flex gap-0 p-0\" align=\"start\">\n          {levels.map((lvl, idx) => renderLevel(lvl, idx))}\n        </PopoverContent>\n      </Popover>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-cascader.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -14,7 +14,12 @@ export const UI_I18N: Record<
       morePages: string
     }
     counter: { groupLabel: string; decrease: string; increase: string }
-    command: { title: string; description: string }
+    command: {
+      title: string
+      description: string
+      placeholder: string
+      empty: string
+    }
     selectList: { select: string; selected: string; clearSearch: string }
     inputPassword: { hide: string; show: string }
     progressCircular: { label: string }
@@ -189,6 +194,301 @@ export const UI_I18N: Record<
     datePicker: {
       placeholder: string
     }
+    tagInput: {
+      removeTag: string
+      addTag: string
+      maxReached: string
+    }
+    phoneInput: {
+      searchCountry: string
+      noCountryFound: string
+    }
+    filterBuilder: {
+      selectField: string
+      operator: string
+      value: string
+      valuePlaceholder: string
+      addRule: string
+      removeRule: string
+    }
+    guidedTour: {
+      skip: string
+      previous: string
+      next: string
+      finish: string
+    }
+    notificationCenter: {
+      title: string
+      markAllAsRead: string
+      empty: string
+    }
+    waitlistForm: {
+      placeholder: string
+      button: string
+      success: string
+      invalidEmail: string
+    }
+    contactForm: {
+      name: string
+      namePlaceholder: string
+      email: string
+      emailPlaceholder: string
+      subject: string
+      subjectPlaceholder: string
+      message: string
+      messagePlaceholder: string
+      topic: string
+      send: string
+      sending: string
+      success: string
+      error: string
+    }
+    lightbox: {
+      previous: string
+      next: string
+      of: string
+      close: string
+    }
+    videoDialog: {
+      playVideo: string
+      close: string
+    }
+    officeLocations: {
+      openNow: string
+      closed: string
+    }
+    stickyFeatureList: {
+      sectionNav: string
+    }
+    auth: {
+      login: string
+      signUp: string
+      email: string
+      emailPlaceholder: string
+      password: string
+      passwordPlaceholder: string
+      name: string
+      namePlaceholder: string
+      rememberMe: string
+      forgotPassword: string
+      dontHaveAccount: string
+      alreadyHaveAccount: string
+      createAccount: string
+      termsAgreement: string
+      termsOfService: string
+      privacyPolicy: string
+      and: string
+      orContinueWith: string
+      continueWith: string
+      passkey: string
+      passkeyDescription: string
+      sendMagicLink: string
+      checkYourEmail: string
+      magicLinkSent: string
+      openEmailApp: string
+      resendIn: string
+      resendCode: string
+      enterCode: string
+      verify: string
+      twoFactorTitle: string
+      twoFactorDescription: string
+      useAlternativeMethod: string
+      resetPasswordTitle: string
+      resetPasswordDescription: string
+      sendResetLink: string
+      backToLogin: string
+      resetLinkSent: string
+      passwordStrengthWeak: string
+      passwordStrengthMedium: string
+      passwordStrengthStrong: string
+      passwordStrengthVeryStrong: string
+      ruleLength: string
+      ruleUppercase: string
+      ruleNumber: string
+      ruleSpecial: string
+    }
+    snippet: {
+      copy: string
+      copied: string
+      copyCode: string
+    }
+    contributionGraph: {
+      less: string
+      more: string
+      noContributions: string
+    }
+    creditCard: {
+      cardNumber: string
+      cardHolder: string
+      expiry: string
+      cvc: string
+    }
+    stats: {
+      title: string
+      description: string
+      trendUp: string
+      trendDown: string
+      period: string
+    },
+    team: {
+      title: string
+      description: string
+      role: string
+      joinTeam: string
+      viewProfile: string
+    },
+    testimonials: {
+      title: string
+      description: string
+      quote: string
+      author: string
+      role: string
+    },
+    timeline: {
+      title: string
+      description: string
+      step: string
+      now: string
+    },
+    pricing: {
+      title: string
+      description: string
+      monthly: string
+      yearly: string
+      annual: string
+      perMonth: string
+      perYear: string
+      billedMonthly: string
+      billedAnnually: string
+      save: string
+      mostPopular: string
+      getStarted: string
+      contactSales: string
+      freeTrial: string
+      comparePlans: string
+      feature: string
+      features: string
+      included: string
+      notIncluded: string
+    }
+    integrations: {
+      title: string
+      description: string
+      searchPlaceholder: string
+      noResults: string
+      viewAll: string
+      connected: string
+      available: string
+    }
+    howItWorks: {
+      title: string
+      description: string
+      step: string
+    }
+    faqs: {
+      title: string
+      description: string
+      searchPlaceholder: string
+      noResults: string
+      noResultsDescription: string
+      stillHaveQuestions: string
+      contactUs: string
+      viewAll: string
+    }
+    cta: {
+      badge: string
+      getStarted: string
+      learnMore: string
+      tryFree: string
+      contactSales: string
+      subscribe: string
+      emailPlaceholder: string
+      noSpam: string
+      trustedBy: string
+    }
+    blog: {
+      readMore: string
+      readingTime: string
+      publishedOn: string
+      byAuthor: string
+      category: string
+      featured: string
+      latest: string
+      noPosts: string
+      noPostsDescription: string
+      searchPlaceholder: string
+      filterByCategory: string
+      allCategories: string
+      viewAll: string
+      minRead: string
+    }
+    banner: {
+      dismiss: string
+      announcement: string
+      promotion: string
+      cookieTitle: string
+      cookieDescription: string
+      acceptAll: string
+      decline: string
+      managePreferences: string
+      learnMore: string
+      appDownload: string
+      newsletterTitle: string
+      subscribe: string
+      marqueeLabel: string
+    }
+    header: {
+      menu: string
+      closeMenu: string
+      openMenu: string
+      skipToContent: string
+      toggleNav: string
+      search: string
+      notifications: string
+      cart: string
+      announcement: string
+      dismissAnnouncement: string
+    }
+    footer: {
+      newsletterTitle: string
+      newsletterDescription: string
+      newsletterPlaceholder: string
+      subscribe: string
+      subscribedSuccess: string
+      privacyNotice: string
+      allSystemsOperational: string
+      degradedPerformance: string
+      majorOutage: string
+      underMaintenance: string
+      uptime: string
+      downloadOn: string
+      appStore: string
+      googlePlay: string
+      getItOn: string
+      webApp: string
+      allRightsReserved: string
+      privacyPolicy: string
+      termsOfService: string
+      cookiePolicy: string
+      statusPage: string
+    }
+    about: {
+      mission: string
+      missionDescription: string
+      vision: string
+      visionDescription: string
+      values: string
+      ourStory: string
+      ourJourney: string
+      manifesto: string
+      leadership: string
+      culture: string
+      readFounderLetter: string
+      viewProjects: string
+      learnMore: string
+      milestones: string
+      milestonesDescription: string
+    }
   }
 > = {
   "en-US": {
@@ -210,6 +510,8 @@ export const UI_I18N: Record<
     command: {
       title: "Command Palette",
       description: "Search for a command to run...",
+      placeholder: "Type a command or search...",
+      empty: "No results found.",
     },
     selectList: {
       select: "Select",
@@ -410,6 +712,306 @@ export const UI_I18N: Record<
     datePicker: {
       placeholder: "Select a date",
     },
+    tagInput: {
+      removeTag: "Remove tag",
+      addTag: "Add tag",
+      maxReached: "Maximum limit reached",
+    },
+    phoneInput: {
+      searchCountry: "Search country...",
+      noCountryFound: "No country found.",
+    },
+    filterBuilder: {
+      selectField: "Select a field",
+      operator: "Operator",
+      value: "Value",
+      valuePlaceholder: "Filter value",
+      addRule: "Add rule",
+      removeRule: "Remove rule",
+    },
+    guidedTour: {
+      skip: "Skip",
+      previous: "Previous",
+      next: "Next",
+      finish: "Finish",
+    },
+    notificationCenter: {
+      title: "Notifications",
+      markAllAsRead: "Mark all as read",
+      empty: "No notifications",
+    },
+    waitlistForm: {
+      placeholder: "Enter your email address...",
+      button: "Join waitlist",
+      success: "Thank you! You have been added to the waitlist.",
+      invalidEmail: "Please enter a valid email address.",
+    },
+    contactForm: {
+      name: "Name",
+      namePlaceholder: "Your name",
+      email: "Email",
+      emailPlaceholder: "you@example.com",
+      subject: "Subject",
+      subjectPlaceholder: "How can we help?",
+      message: "Message",
+      messagePlaceholder: "Tell us more...",
+      topic: "Topic",
+      send: "Send message",
+      sending: "Sending...",
+      success: "Message sent! We'll get back to you soon.",
+      error: "Something went wrong. Please try again.",
+    },
+    lightbox: {
+      previous: "Previous image",
+      next: "Next image",
+      of: "of",
+      close: "Close",
+    },
+    videoDialog: {
+      playVideo: "Play video preview",
+      close: "Close video",
+    },
+    officeLocations: {
+      openNow: "Open now",
+      closed: "Closed",
+    },
+    stickyFeatureList: {
+      sectionNav: "Feature navigation",
+    },
+    auth: {
+      login: "Log in",
+      signUp: "Sign up",
+      email: "Email",
+      emailPlaceholder: "name@example.com",
+      password: "Password",
+      passwordPlaceholder: "Enter your password",
+      name: "Full name",
+      namePlaceholder: "John Doe",
+      rememberMe: "Remember me",
+      forgotPassword: "Forgot password?",
+      dontHaveAccount: "Don't have an account?",
+      alreadyHaveAccount: "Already have an account?",
+      createAccount: "Create account",
+      termsAgreement: "By clicking continue, you agree to our",
+      termsOfService: "Terms of Service",
+      privacyPolicy: "Privacy Policy",
+      and: "and",
+      orContinueWith: "Or continue with",
+      continueWith: "Continue with",
+      passkey: "Sign in with Passkey",
+      passkeyDescription: "Use Touch ID, Face ID, or your security key",
+      sendMagicLink: "Send Magic Link",
+      checkYourEmail: "Check your email",
+      magicLinkSent: "We sent a sign-in link to",
+      openEmailApp: "Open email app",
+      resendIn: "Resend in",
+      resendCode: "Resend code",
+      enterCode: "Enter verification code",
+      verify: "Verify",
+      twoFactorTitle: "Two-factor authentication",
+      twoFactorDescription: "Enter the 6-digit code sent to your device",
+      useAlternativeMethod: "Try another way",
+      resetPasswordTitle: "Reset your password",
+      resetPasswordDescription:
+        "Enter your email address and we'll send you a link to reset your password",
+      sendResetLink: "Send reset link",
+      backToLogin: "Back to log in",
+      resetLinkSent: "Instructions sent to your email",
+      passwordStrengthWeak: "Weak",
+      passwordStrengthMedium: "Medium",
+      passwordStrengthStrong: "Strong",
+      passwordStrengthVeryStrong: "Very strong",
+      ruleLength: "At least 8 characters",
+      ruleUppercase: "At least one uppercase letter",
+      ruleNumber: "At least one number",
+      ruleSpecial: "At least one special character",
+    },
+    snippet: {
+      copy: "Copy",
+      copied: "Copied!",
+      copyCode: "Copy code",
+    },
+    contributionGraph: {
+      less: "Less",
+      more: "More",
+      noContributions: "No contributions",
+    },
+    creditCard: {
+      cardNumber: "Card number",
+      cardHolder: "Card holder",
+      expiry: "Expiry",
+      cvc: "CVC",
+    },
+    stats: {
+      title: "Stats",
+      description: "Key metrics at a glance.",
+      trendUp: "Up",
+      trendDown: "Down",
+      period: "vs last period",
+    },
+    team: {
+      title: "Our team",
+      description: "Meet the people behind the product.",
+      role: "Role",
+      joinTeam: "Join our team",
+      viewProfile: "View profile",
+    },
+    testimonials: {
+      title: "What people say",
+      description: "Trusted by teams worldwide.",
+      quote: "Quote",
+      author: "Author",
+      role: "Role",
+    },
+    timeline: {
+      title: "Timeline",
+      description: "Our journey so far.",
+      step: "Step",
+      now: "Now",
+    },
+    pricing: {
+      title: "Pricing",
+      description: "Simple, transparent pricing.",
+      monthly: "Monthly",
+      yearly: "Yearly",
+      annual: "Annual",
+      perMonth: "/month",
+      perYear: "/year",
+      billedMonthly: "Billed monthly",
+      billedAnnually: "Billed annually",
+      save: "Save",
+      mostPopular: "Most popular",
+      getStarted: "Get started",
+      contactSales: "Contact sales",
+      freeTrial: "Free trial",
+      comparePlans: "Compare plans",
+      feature: "Feature",
+      features: "Features",
+      included: "Included",
+      notIncluded: "Not included",
+    },
+    integrations: {
+      title: "Integrations",
+      description: "Connect with your favorite tools.",
+      searchPlaceholder: "Search integrations...",
+      noResults: "No integrations found",
+      viewAll: "View all",
+      connected: "Connected",
+      available: "Available",
+    },
+    howItWorks: {
+      title: "How it works",
+      description: "Simple steps to get started.",
+      step: "Step",
+    },
+    faqs: {
+      title: "Frequently asked questions",
+      description: "Quick answers to common questions.",
+      searchPlaceholder: "Search questions...",
+      noResults: "No results found",
+      noResultsDescription: "Try different keywords.",
+      stillHaveQuestions: "Still have questions?",
+      contactUs: "Contact us",
+      viewAll: "View all FAQs",
+    },
+    cta: {
+      badge: "New",
+      getStarted: "Get started",
+      learnMore: "Learn more",
+      tryFree: "Try free",
+      contactSales: "Contact sales",
+      subscribe: "Subscribe",
+      emailPlaceholder: "Enter your email",
+      noSpam: "No spam. Unsubscribe anytime.",
+      trustedBy: "Trusted by",
+    },
+    blog: {
+      readMore: "Read more",
+      readingTime: "min read",
+      publishedOn: "Published on",
+      byAuthor: "By",
+      category: "Category",
+      featured: "Featured",
+      latest: "Latest",
+      noPosts: "No posts found",
+      noPostsDescription: "Try adjusting your search or filter.",
+      searchPlaceholder: "Search posts...",
+      filterByCategory: "Filter by category",
+      allCategories: "All",
+      viewAll: "View all",
+      minRead: "min",
+    },
+    header: {
+      menu: "Menu",
+      closeMenu: "Close menu",
+      openMenu: "Open menu",
+      skipToContent: "Skip to content",
+      toggleNav: "Toggle navigation",
+      search: "Search",
+      notifications: "Notifications",
+      cart: "Cart",
+      announcement: "Announcement",
+      dismissAnnouncement: "Dismiss announcement",
+    },
+    banner: {
+      dismiss: "Dismiss",
+      announcement: "Announcement",
+      promotion: "Promotion",
+      cookieTitle: "We use cookies",
+      cookieDescription: "We use cookies to improve your experience.",
+      acceptAll: "Accept all",
+      decline: "Decline",
+      managePreferences: "Manage preferences",
+      learnMore: "Learn more",
+      appDownload: "Download app",
+      newsletterTitle: "Stay updated",
+      subscribe: "Subscribe",
+      marqueeLabel: "Highlights",
+    },
+    footer: {
+      newsletterTitle: "Stay updated",
+      newsletterDescription:
+        "Subscribe to our newsletter for the latest updates, releases, and articles.",
+      newsletterPlaceholder: "Enter your email address",
+      subscribe: "Subscribe",
+      subscribedSuccess: "Thank you for subscribing!",
+      privacyNotice: "We respect your privacy. Unsubscribe at any time.",
+      allSystemsOperational: "All systems operational",
+      degradedPerformance: "Degraded performance",
+      majorOutage: "Major outage",
+      underMaintenance: "Under maintenance",
+      uptime: "uptime",
+      downloadOn: "Download on the",
+      appStore: "App Store",
+      googlePlay: "Google Play",
+      getItOn: "Get it on",
+      webApp: "Web App",
+      allRightsReserved: "All rights reserved.",
+      privacyPolicy: "Privacy Policy",
+      termsOfService: "Terms of Service",
+      cookiePolicy: "Cookie Policy",
+      statusPage: "Status Page",
+    },
+    about: {
+      mission: "Our Mission",
+      missionDescription:
+        "Empowering innovation through accessible, robust, and state-of-the-art software systems.",
+      vision: "Our Vision",
+      visionDescription:
+        "To be a premier university laboratory connecting cutting-edge academic research with high-impact software design.",
+      values: "Our Values",
+      ourStory: "Our Story",
+      ourJourney: "Our Journey",
+      manifesto: "Our Manifesto",
+      leadership: "Leadership",
+      culture: "Laboratory Culture",
+      readFounderLetter: "Read director's message",
+      viewProjects: "Explore research projects",
+      learnMore: "Learn more",
+      milestones: "Milestones & Achievements",
+      milestonesDescription:
+        "Key moments that defined our growth and academic impact.",
+    },
   },
   "pt-BR": {
     dialog: { close: "Fechar", title: "Diálogo" },
@@ -430,6 +1032,8 @@ export const UI_I18N: Record<
     command: {
       title: "Paleta de Comandos",
       description: "Pesquise um comando para executar...",
+      placeholder: "Digite um comando ou pesquise...",
+      empty: "Nenhum resultado encontrado.",
     },
     selectList: {
       select: "Selecionar",
@@ -638,6 +1242,307 @@ export const UI_I18N: Record<
     datePicker: {
       placeholder: "Selecione uma data",
     },
+    tagInput: {
+      removeTag: "Remover tag",
+      addTag: "Adicionar tag",
+      maxReached: "Limite máximo atingido",
+    },
+    phoneInput: {
+      searchCountry: "Buscar país...",
+      noCountryFound: "País não encontrado.",
+    },
+    filterBuilder: {
+      selectField: "Selecione um campo",
+      operator: "Operador",
+      value: "Valor",
+      valuePlaceholder: "Valor do filtro",
+      addRule: "Adicionar regra",
+      removeRule: "Remover regra",
+    },
+    guidedTour: {
+      skip: "Pular",
+      previous: "Anterior",
+      next: "Próximo",
+      finish: "Concluir",
+    },
+    notificationCenter: {
+      title: "Notificações",
+      markAllAsRead: "Marcar lidas",
+      empty: "Nenhuma notificação",
+    },
+    waitlistForm: {
+      placeholder: "Digite seu e-mail...",
+      button: "Entrar na lista",
+      success: "Obrigado! Você foi adicionado à lista de espera.",
+      invalidEmail: "Por favor, insira um e-mail válido.",
+    },
+    contactForm: {
+      name: "Nome",
+      namePlaceholder: "Seu nome",
+      email: "E-mail",
+      emailPlaceholder: "voce@exemplo.com",
+      subject: "Assunto",
+      subjectPlaceholder: "Como podemos ajudar?",
+      message: "Mensagem",
+      messagePlaceholder: "Conte mais detalhes...",
+      topic: "Assunto",
+      send: "Enviar mensagem",
+      sending: "Enviando...",
+      success: "Mensagem enviada! Retornaremos em breve.",
+      error: "Algo deu errado. Por favor, tente novamente.",
+    },
+    lightbox: {
+      previous: "Imagem anterior",
+      next: "Próxima imagem",
+      of: "de",
+      close: "Fechar",
+    },
+    videoDialog: {
+      playVideo: "Reproduzir vídeo de demonstração",
+      close: "Fechar vídeo",
+    },
+    officeLocations: {
+      openNow: "Aberto agora",
+      closed: "Fechado",
+    },
+    stickyFeatureList: {
+      sectionNav: "Navegação de recursos",
+    },
+    auth: {
+      login: "Entrar",
+      signUp: "Criar conta",
+      email: "E-mail",
+      emailPlaceholder: "seu.email@exemplo.com",
+      password: "Senha",
+      passwordPlaceholder: "Digite sua senha",
+      name: "Nome completo",
+      namePlaceholder: "Maria Silva",
+      rememberMe: "Lembrar de mim",
+      forgotPassword: "Esqueceu a senha?",
+      dontHaveAccount: "Não tem uma conta?",
+      alreadyHaveAccount: "Já possui uma conta?",
+      createAccount: "Criar minha conta",
+      termsAgreement: "Ao continuar, você concorda com nossos",
+      termsOfService: "Termos de Serviço",
+      privacyPolicy: "Política de Privacidade",
+      and: "e",
+      orContinueWith: "Ou continue com",
+      continueWith: "Continuar com",
+      passkey: "Entrar com Passkey",
+      passkeyDescription: "Use Touch ID, Face ID ou sua chave de segurança",
+      sendMagicLink: "Enviar Link de Acesso",
+      checkYourEmail: "Verifique seu e-mail",
+      magicLinkSent: "Enviamos um link de acesso para",
+      openEmailApp: "Abrir aplicativo de e-mail",
+      resendIn: "Reenviar em",
+      resendCode: "Reenviar código",
+      enterCode: "Digite o código de verificação",
+      verify: "Verificar código",
+      twoFactorTitle: "Autenticação em duas etapas",
+      twoFactorDescription:
+        "Digite o código de 6 dígitos enviado para seu dispositivo",
+      useAlternativeMethod: "Usar outro método",
+      resetPasswordTitle: "Recuperar sua senha",
+      resetPasswordDescription:
+        "Digite seu e-mail para receber as instruções de redefinição de senha",
+      sendResetLink: "Enviar instruções",
+      backToLogin: "Voltar para o login",
+      resetLinkSent: "Instruções enviadas para seu e-mail",
+      passwordStrengthWeak: "Fraca",
+      passwordStrengthMedium: "Média",
+      passwordStrengthStrong: "Forte",
+      passwordStrengthVeryStrong: "Muito forte",
+      ruleLength: "Mínimo de 8 caracteres",
+      ruleUppercase: "Pelo menos uma letra maiúscula",
+      ruleNumber: "Pelo menos um número",
+      ruleSpecial: "Pelo menos um caractere especial",
+    },
+    snippet: {
+      copy: "Copiar",
+      copied: "Copiado!",
+      copyCode: "Copiar código",
+    },
+    contributionGraph: {
+      less: "Menos",
+      more: "Mais",
+      noContributions: "Sem contribuições",
+    },
+    creditCard: {
+      cardNumber: "Número do cartão",
+      cardHolder: "Titular",
+      expiry: "Validade",
+      cvc: "CVC",
+    },
+    stats: {
+      title: "Métricas",
+      description: "Principais indicadores.",
+      trendUp: "Alta",
+      trendDown: "Queda",
+      period: "vs período anterior",
+    },
+    team: {
+      title: "Nossa equipe",
+      description: "Conheça quem faz acontecer.",
+      role: "Cargo",
+      joinTeam: "Junte-se a nós",
+      viewProfile: "Ver perfil",
+    },
+    testimonials: {
+      title: "O que dizem",
+      description: "Confiado por equipes no mundo.",
+      quote: "Depoimento",
+      author: "Autor",
+      role: "Cargo",
+    },
+    timeline: {
+      title: "Linha do tempo",
+      description: "Nossa jornada até aqui.",
+      step: "Etapa",
+      now: "Agora",
+    },
+    pricing: {
+      title: "Preços",
+      description: "Preços simples e transparentes.",
+      monthly: "Mensal",
+      yearly: "Anual",
+      annual: "Anual",
+      perMonth: "/mês",
+      perYear: "/ano",
+      billedMonthly: "Cobrado mensalmente",
+      billedAnnually: "Cobrado anualmente",
+      save: "Economize",
+      mostPopular: "Mais popular",
+      getStarted: "Começar",
+      contactSales: "Fale com vendas",
+      freeTrial: "Teste grátis",
+      comparePlans: "Comparar planos",
+      feature: "Recurso",
+      features: "Recursos",
+      included: "Incluso",
+      notIncluded: "Não incluso",
+    },
+    integrations: {
+      title: "Integrações",
+      description: "Conecte suas ferramentas favoritas.",
+      searchPlaceholder: "Buscar integrações...",
+      noResults: "Nenhuma integração encontrada",
+      viewAll: "Ver todas",
+      connected: "Conectado",
+      available: "Disponível",
+    },
+    howItWorks: {
+      title: "Como funciona",
+      description: "Passos simples para começar.",
+      step: "Etapa",
+    },
+    faqs: {
+      title: "Perguntas frequentes",
+      description: "Respostas rápidas para dúvidas comuns.",
+      searchPlaceholder: "Buscar perguntas...",
+      noResults: "Nenhum resultado",
+      noResultsDescription: "Tente outras palavras-chave.",
+      stillHaveQuestions: "Ainda tem dúvidas?",
+      contactUs: "Fale conosco",
+      viewAll: "Ver todas",
+    },
+    cta: {
+      badge: "Novo",
+      getStarted: "Começar agora",
+      learnMore: "Saiba mais",
+      tryFree: "Teste grátis",
+      contactSales: "Fale com vendas",
+      subscribe: "Inscrever-se",
+      emailPlaceholder: "Digite seu e-mail",
+      noSpam: "Sem spam. Cancele quando quiser.",
+      trustedBy: "Confiado por",
+    },
+    blog: {
+      readMore: "Ler mais",
+      readingTime: "min de leitura",
+      publishedOn: "Publicado em",
+      byAuthor: "Por",
+      category: "Categoria",
+      featured: "Destaque",
+      latest: "Recentes",
+      noPosts: "Nenhum post encontrado",
+      noPostsDescription: "Tente ajustar sua busca ou filtro.",
+      searchPlaceholder: "Buscar posts...",
+      filterByCategory: "Filtrar por categoria",
+      allCategories: "Todos",
+      viewAll: "Ver todos",
+      minRead: "min",
+    },
+    header: {
+      menu: "Menu",
+      closeMenu: "Fechar menu",
+      openMenu: "Abrir menu",
+      skipToContent: "Pular para o conteúdo",
+      toggleNav: "Alternar navegação",
+      search: "Buscar",
+      notifications: "Notificações",
+      cart: "Carrinho",
+      announcement: "Anúncio",
+      dismissAnnouncement: "Fechar anúncio",
+    },
+    banner: {
+      dismiss: "Dispensar",
+      announcement: "Anúncio",
+      promotion: "Promoção",
+      cookieTitle: "Usamos cookies",
+      cookieDescription: "Usamos cookies para melhorar sua experiência.",
+      acceptAll: "Aceitar todos",
+      decline: "Recusar",
+      managePreferences: "Gerenciar preferências",
+      learnMore: "Saiba mais",
+      appDownload: "Baixar app",
+      newsletterTitle: "Fique atualizado",
+      subscribe: "Inscrever-se",
+      marqueeLabel: "Destaques",
+    },
+    footer: {
+      newsletterTitle: "Fique atualizado",
+      newsletterDescription:
+        "Receba as novidades, lançamentos e artigos diretamente na sua caixa de entrada.",
+      newsletterPlaceholder: "Digite seu e-mail",
+      subscribe: "Inscrever-se",
+      subscribedSuccess: "Obrigado por se inscrever!",
+      privacyNotice: "Respeitamos sua privacidade. Cancele quando quiser.",
+      allSystemsOperational: "Todos os sistemas operacionais",
+      degradedPerformance: "Desempenho degradado",
+      majorOutage: "Interrupção do serviço",
+      underMaintenance: "Em manutenção programada",
+      uptime: "de disponibilidade",
+      downloadOn: "Baixar na",
+      appStore: "App Store",
+      googlePlay: "Google Play",
+      getItOn: "Disponível no",
+      webApp: "Web App",
+      allRightsReserved: "Todos os direitos reservados.",
+      privacyPolicy: "Política de Privacidade",
+      termsOfService: "Termos de Serviço",
+      cookiePolicy: "Política de Cookies",
+      statusPage: "Página de Status",
+    },
+    about: {
+      mission: "Nossa Missão",
+      missionDescription:
+        "Impulsionar a inovação através de soluções de software acessíveis, robustas e de alto nível de engenharia.",
+      vision: "Nossa Visão",
+      visionDescription:
+        "Ser referência universitária nacional na união entre pesquisa acadêmica de excelência e design digital de precisão.",
+      values: "Nossos Valores",
+      ourStory: "Nossa História",
+      ourJourney: "Nossa Trajetória",
+      manifesto: "Nosso Manifesto",
+      leadership: "Liderança",
+      culture: "Cultura do Laboratório",
+      readFounderLetter: "Mensagem da coordenação",
+      viewProjects: "Conhecer projetos",
+      learnMore: "Saiba mais",
+      milestones: "Marcos e Conquistas",
+      milestonesDescription:
+        "Momentos decisivos que moldaram nossa evolução e impacto acadêmico.",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar", title: "Diálogo" },
@@ -658,6 +1563,8 @@ export const UI_I18N: Record<
     command: {
       title: "Paleta de Comandos",
       description: "Busque un comando para ejecutar...",
+      placeholder: "Escriba un comando o busque...",
+      empty: "No se encontraron resultados.",
     },
     selectList: {
       select: "Seleccionar",
@@ -861,6 +1768,307 @@ export const UI_I18N: Record<
     datePicker: {
       placeholder: "Seleccionar fecha",
     },
+    tagInput: {
+      removeTag: "Eliminar etiqueta",
+      addTag: "Añadir etiqueta",
+      maxReached: "Límite máximo alcanzado",
+    },
+    phoneInput: {
+      searchCountry: "Buscar país...",
+      noCountryFound: "País no encontrado.",
+    },
+    filterBuilder: {
+      selectField: "Seleccione un campo",
+      operator: "Operador",
+      value: "Valor",
+      valuePlaceholder: "Valor del filtro",
+      addRule: "Añadir regla",
+      removeRule: "Eliminar regla",
+    },
+    guidedTour: {
+      skip: "Saltar",
+      previous: "Anterior",
+      next: "Siguiente",
+      finish: "Finalizar",
+    },
+    notificationCenter: {
+      title: "Notificaciones",
+      markAllAsRead: "Marcar como leídas",
+      empty: "No hay notificaciones",
+    },
+    waitlistForm: {
+      placeholder: "Introduce tu correo electrónico...",
+      button: "Unirse a la lista",
+      success: "¡Gracias! Te has añadido a la lista de espera.",
+      invalidEmail: "Por favor, introduce un correo válido.",
+    },
+    contactForm: {
+      name: "Nombre",
+      namePlaceholder: "Tu nombre",
+      email: "Correo electrónico",
+      emailPlaceholder: "tu@ejemplo.com",
+      subject: "Asunto",
+      subjectPlaceholder: "¿Cómo podemos ayudarte?",
+      message: "Mensaje",
+      messagePlaceholder: "Cuéntanos más...",
+      topic: "Tema",
+      send: "Enviar mensaje",
+      sending: "Enviando...",
+      success: "¡Mensaje enviado! Te responderemos pronto.",
+      error: "Algo salió mal. Por favor, inténtalo de nuevo.",
+    },
+    lightbox: {
+      previous: "Imagen anterior",
+      next: "Siguiente imagen",
+      of: "de",
+      close: "Cerrar",
+    },
+    videoDialog: {
+      playVideo: "Reproducir video de demostración",
+      close: "Cerrar video",
+    },
+    officeLocations: {
+      openNow: "Abierto ahora",
+      closed: "Cerrado",
+    },
+    stickyFeatureList: {
+      sectionNav: "Navegación de funciones",
+    },
+    auth: {
+      login: "Iniciar sesión",
+      signUp: "Registrarse",
+      email: "Correo electrónico",
+      emailPlaceholder: "nombre@ejemplo.com",
+      password: "Contraseña",
+      passwordPlaceholder: "Introduce tu contraseña",
+      name: "Nombre completo",
+      namePlaceholder: "Carlos Gómez",
+      rememberMe: "Recordarme",
+      forgotPassword: "¿Olvidaste tu contraseña?",
+      dontHaveAccount: "¿No tienes una cuenta?",
+      alreadyHaveAccount: "¿Ya tienes una cuenta?",
+      createAccount: "Crear cuenta",
+      termsAgreement: "Al continuar, aceptas nuestros",
+      termsOfService: "Términos de servicio",
+      privacyPolicy: "Política de privacidad",
+      and: "y",
+      orContinueWith: "O continúa con",
+      continueWith: "Continuar con",
+      passkey: "Iniciar con Passkey",
+      passkeyDescription: "Usa Touch ID, Face ID o tu llave de seguridad",
+      sendMagicLink: "Enviar enlace de acceso",
+      checkYourEmail: "Revisa tu correo",
+      magicLinkSent: "Hemos enviado un enlace de acceso a",
+      openEmailApp: "Abrir aplicación de correo",
+      resendIn: "Reenviar en",
+      resendCode: "Reenviar código",
+      enterCode: "Introduce el código de verificación",
+      verify: "Verificar",
+      twoFactorTitle: "Autenticación en dos pasos",
+      twoFactorDescription:
+        "Introduce el código de 6 dígitos enviado a tu dispositivo",
+      useAlternativeMethod: "Probar otro método",
+      resetPasswordTitle: "Recuperar contraseña",
+      resetPasswordDescription:
+        "Introduce tu correo para recibir las instrucciones de recuperación",
+      sendResetLink: "Enviar enlace de recuperación",
+      backToLogin: "Volver a iniciar sesión",
+      resetLinkSent: "Instrucciones enviadas a tu correo",
+      passwordStrengthWeak: "Débil",
+      passwordStrengthMedium: "Media",
+      passwordStrengthStrong: "Fuerte",
+      passwordStrengthVeryStrong: "Muy fuerte",
+      ruleLength: "Al menos 8 caracteres",
+      ruleUppercase: "Al menos una letra mayúscula",
+      ruleNumber: "Al menos un número",
+      ruleSpecial: "Al menos un carácter especial",
+    },
+    snippet: {
+      copy: "Copiar",
+      copied: "¡Copiado!",
+      copyCode: "Copiar código",
+    },
+    contributionGraph: {
+      less: "Menos",
+      more: "Más",
+      noContributions: "Sin contribuciones",
+    },
+    creditCard: {
+      cardNumber: "Número de tarjeta",
+      cardHolder: "Titular",
+      expiry: "Vencimiento",
+      cvc: "CVC",
+    },
+    stats: {
+      title: "Estadísticas",
+      description: "Métricas clave.",
+      trendUp: "Subida",
+      trendDown: "Bajada",
+      period: "vs período anterior",
+    },
+    team: {
+      title: "Nuestro equipo",
+      description: "Conoce al equipo.",
+      role: "Rol",
+      joinTeam: "Únete al equipo",
+      viewProfile: "Ver perfil",
+    },
+    testimonials: {
+      title: "Testimonios",
+      description: "Confiado por equipos.",
+      quote: "Cita",
+      author: "Autor",
+      role: "Rol",
+    },
+    timeline: {
+      title: "Línea de tiempo",
+      description: "Nuestro recorrido.",
+      step: "Paso",
+      now: "Ahora",
+    },
+    pricing: {
+      title: "Precios",
+      description: "Precios simples y transparentes.",
+      monthly: "Mensual",
+      yearly: "Anual",
+      annual: "Anual",
+      perMonth: "/mes",
+      perYear: "/año",
+      billedMonthly: "Facturado mensual",
+      billedAnnually: "Facturado anual",
+      save: "Ahorra",
+      mostPopular: "Más popular",
+      getStarted: "Empezar",
+      contactSales: "Contactar ventas",
+      freeTrial: "Prueba gratis",
+      comparePlans: "Comparar planes",
+      feature: "Característica",
+      features: "Características",
+      included: "Incluido",
+      notIncluded: "No incluido",
+    },
+    integrations: {
+      title: "Integraciones",
+      description: "Conecta tus herramientas favoritas.",
+      searchPlaceholder: "Buscar integraciones...",
+      noResults: "No se encontraron integraciones",
+      viewAll: "Ver todas",
+      connected: "Conectado",
+      available: "Disponible",
+    },
+    howItWorks: {
+      title: "Cómo funciona",
+      description: "Pasos simples para empezar.",
+      step: "Paso",
+    },
+    faqs: {
+      title: "Preguntas frecuentes",
+      description: "Respuestas rápidas a dudas comunes.",
+      searchPlaceholder: "Buscar preguntas...",
+      noResults: "Sin resultados",
+      noResultsDescription: "Prueba otras palabras clave.",
+      stillHaveQuestions: "¿Aún tienes dudas?",
+      contactUs: "Contáctanos",
+      viewAll: "Ver todas",
+    },
+    cta: {
+      badge: "Nuevo",
+      getStarted: "Empezar",
+      learnMore: "Saber más",
+      tryFree: "Prueba gratis",
+      contactSales: "Contactar ventas",
+      subscribe: "Suscribirse",
+      emailPlaceholder: "Introduce tu correo",
+      noSpam: "Sin spam. Cancela cuando quieras.",
+      trustedBy: "Confiado por",
+    },
+    blog: {
+      readMore: "Leer más",
+      readingTime: "min de lectura",
+      publishedOn: "Publicado el",
+      byAuthor: "Por",
+      category: "Categoría",
+      featured: "Destacado",
+      latest: "Recientes",
+      noPosts: "No se encontraron posts",
+      noPostsDescription: "Intenta ajustar tu búsqueda o filtro.",
+      searchPlaceholder: "Buscar posts...",
+      filterByCategory: "Filtrar por categoría",
+      allCategories: "Todos",
+      viewAll: "Ver todos",
+      minRead: "min",
+    },
+    header: {
+      menu: "Menú",
+      closeMenu: "Cerrar menú",
+      openMenu: "Abrir menú",
+      skipToContent: "Saltar al contenido",
+      toggleNav: "Alternar navegación",
+      search: "Buscar",
+      notifications: "Notificaciones",
+      cart: "Carrito",
+      announcement: "Anuncio",
+      dismissAnnouncement: "Cerrar anuncio",
+    },
+    banner: {
+      dismiss: "Descartar",
+      announcement: "Anuncio",
+      promotion: "Promoción",
+      cookieTitle: "Usamos cookies",
+      cookieDescription: "Usamos cookies para mejorar tu experiencia.",
+      acceptAll: "Aceptar todo",
+      decline: "Rechazar",
+      managePreferences: "Gestionar preferencias",
+      learnMore: "Saber más",
+      appDownload: "Descargar app",
+      newsletterTitle: "Mantente actualizado",
+      subscribe: "Suscribirse",
+      marqueeLabel: "Destacados",
+    },
+    footer: {
+      newsletterTitle: "Mantente al día",
+      newsletterDescription:
+        "Recibe las últimas novedades, lanzamientos y artículos directamente en tu correo.",
+      newsletterPlaceholder: "Introduce tu correo",
+      subscribe: "Suscribirse",
+      subscribedSuccess: "¡Gracias por suscribirte!",
+      privacyNotice: "Respetamos tu privacidad. Cancela cuando quieras.",
+      allSystemsOperational: "Todos los sistemas operativos",
+      degradedPerformance: "Rendimiento degradado",
+      majorOutage: "Interrupción del servicio",
+      underMaintenance: "En mantenimiento",
+      uptime: "de disponibilidad",
+      downloadOn: "Descargar en",
+      appStore: "App Store",
+      googlePlay: "Google Play",
+      getItOn: "Disponible en",
+      webApp: "Web App",
+      allRightsReserved: "Todos los derechos reservados.",
+      privacyPolicy: "Política de privacidad",
+      termsOfService: "Términos de servicio",
+      cookiePolicy: "Política de cookies",
+      statusPage: "Página de estado",
+    },
+    about: {
+      mission: "Nuestra Misión",
+      missionDescription:
+        "Impulsar la innovación mediante sistemas de software accesibles, robustos y de alta ingeniería.",
+      vision: "Nuestra Visión",
+      visionDescription:
+        "Ser un laboratorio universitario de referencia que conecta la investigación de vanguardia con el diseño digital.",
+      values: "Nuestros Valores",
+      ourStory: "Nuestra Historia",
+      ourJourney: "Nuestra Trayectoria",
+      manifesto: "Nuestro Manifiesto",
+      leadership: "Liderazgo",
+      culture: "Cultura del Laboratorio",
+      readFounderLetter: "Mensaje de la dirección",
+      viewProjects: "Explorar proyectos",
+      learnMore: "Saber más",
+      milestones: "Hitos y Logros",
+      milestonesDescription:
+        "Momentos clave que definieron nuestro crecimiento e impacto.",
+    },
   },
   "fr-FR": {
     dialog: { close: "Fermer", title: "Dialogue" },
@@ -881,6 +2089,8 @@ export const UI_I18N: Record<
     command: {
       title: "Palette de Commandes",
       description: "Recherchez une commande à exécuter...",
+      placeholder: "Tapez une commande ou recherchez...",
+      empty: "Aucun résultat trouvé.",
     },
     selectList: {
       select: "Sélectionner",
@@ -1092,6 +2302,309 @@ export const UI_I18N: Record<
     },
     datePicker: {
       placeholder: "Sélectionner une date",
+    },
+    tagInput: {
+      removeTag: "Supprimer l'étiquette",
+      addTag: "Ajouter une étiquette",
+      maxReached: "Limite maximale atteinte",
+    },
+    phoneInput: {
+      searchCountry: "Rechercher un pays...",
+      noCountryFound: "Aucun pays trouvé.",
+    },
+    filterBuilder: {
+      selectField: "Sélectionner un champ",
+      operator: "Opérateur",
+      value: "Valeur",
+      valuePlaceholder: "Valeur du filtre",
+      addRule: "Ajouter une règle",
+      removeRule: "Supprimer la règle",
+    },
+    guidedTour: {
+      skip: "Passer",
+      previous: "Précédent",
+      next: "Suivant",
+      finish: "Terminer",
+    },
+    notificationCenter: {
+      title: "Notifications",
+      markAllAsRead: "Marquer tout comme lu",
+      empty: "Aucune notification",
+    },
+    waitlistForm: {
+      placeholder: "Entrez votre adresse email...",
+      button: "Rejoindre la liste",
+      success: "Merci! Vous avez été ajouté à la liste d'attente.",
+      invalidEmail: "Veuillez entrer une adresse email valide.",
+    },
+    contactForm: {
+      name: "Nom",
+      namePlaceholder: "Votre nom",
+      email: "E-mail",
+      emailPlaceholder: "vous@exemple.com",
+      subject: "Sujet",
+      subjectPlaceholder: "Comment pouvons-nous vous aider ?",
+      message: "Message",
+      messagePlaceholder: "Dites-nous en plus...",
+      topic: "Sujet",
+      send: "Envoyer le message",
+      sending: "Envoi en cours...",
+      success: "Message envoyé ! Nous vous répondrons bientôt.",
+      error: "Une erreur est survenue. Veuillez réessayer.",
+    },
+    lightbox: {
+      previous: "Image précédente",
+      next: "Image suivante",
+      of: "sur",
+      close: "Fermer",
+    },
+    videoDialog: {
+      playVideo: "Lire la vidéo de démonstration",
+      close: "Fermer la vidéo",
+    },
+    officeLocations: {
+      openNow: "Ouvert maintenant",
+      closed: "Fermé",
+    },
+    stickyFeatureList: {
+      sectionNav: "Navigation des fonctionnalités",
+    },
+    auth: {
+      login: "Se connecter",
+      signUp: "Créer un compte",
+      email: "E-mail",
+      emailPlaceholder: "nom@exemple.com",
+      password: "Mot de passe",
+      passwordPlaceholder: "Entrez votre mot de passe",
+      name: "Nom complet",
+      namePlaceholder: "Claire Martin",
+      rememberMe: "Se souvenir de moi",
+      forgotPassword: "Mot de passe oublié ?",
+      dontHaveAccount: "Vous n'avez pas de compte ?",
+      alreadyHaveAccount: "Vous avez déjà un compte ?",
+      createAccount: "Créer un compte",
+      termsAgreement: "En continuant, vous acceptez nos",
+      termsOfService: "Conditions d'utilisation",
+      privacyPolicy: "Politique de confidentialité",
+      and: "et",
+      orContinueWith: "Ou continuer avec",
+      continueWith: "Continuer avec",
+      passkey: "Connexion avec Passkey",
+      passkeyDescription: "Utilisez Touch ID, Face ID ou votre clé de sécurité",
+      sendMagicLink: "Envoyer le lien magique",
+      checkYourEmail: "Vérifiez vos e-mails",
+      magicLinkSent: "Nous avons envoyé un lien de connexion à",
+      openEmailApp: "Ouvrir l'application d'e-mail",
+      resendIn: "Renvoyer dans",
+      resendCode: "Renvoyer le code",
+      enterCode: "Entrez le code de vérification",
+      verify: "Vérifier",
+      twoFactorTitle: "Authentification à deux facteurs",
+      twoFactorDescription:
+        "Entrez le code à 6 chiffres envoyé à votre appareil",
+      useAlternativeMethod: "Essayer une autre méthode",
+      resetPasswordTitle: "Réinitialiser votre mot de passe",
+      resetPasswordDescription:
+        "Entrez votre e-mail pour recevoir les instructions de réinitialisation",
+      sendResetLink: "Envoyer les instructions",
+      backToLogin: "Retour à la connexion",
+      resetLinkSent: "Instructions envoyées à votre e-mail",
+      passwordStrengthWeak: "Faible",
+      passwordStrengthMedium: "Moyen",
+      passwordStrengthStrong: "Fort",
+      passwordStrengthVeryStrong: "Très fort",
+      ruleLength: "Au moins 8 caractères",
+      ruleUppercase: "Au moins une lettre majuscule",
+      ruleNumber: "Au moins un chiffre",
+      ruleSpecial: "Au moins un caractère spécial",
+    },
+    snippet: {
+      copy: "Copier",
+      copied: "Copié !",
+      copyCode: "Copier le code",
+    },
+    contributionGraph: {
+      less: "Moins",
+      more: "Plus",
+      noContributions: "Aucune contribution",
+    },
+    creditCard: {
+      cardNumber: "Numéro de carte",
+      cardHolder: "Titulaire",
+      expiry: "Expiration",
+      cvc: "CVC",
+    },
+    stats: {
+      title: "Statistiques",
+      description: "Indicateurs clés.",
+      trendUp: "Hausse",
+      trendDown: "Baisse",
+      period: "vs période précédente",
+    },
+    team: {
+      title: "Notre équipe",
+      description: "Rencontrez l'équipe.",
+      role: "Rôle",
+      joinTeam: "Rejoignez-nous",
+      viewProfile: "Voir le profil",
+    },
+    testimonials: {
+      title: "Témoignages",
+      description: "Approuvé par des équipes.",
+      quote: "Citation",
+      author: "Auteur",
+      role: "Rôle",
+    },
+    timeline: {
+      title: "Chronologie",
+      description: "Notre parcours.",
+      step: "Étape",
+      now: "Maintenant",
+    },
+    pricing: {
+      title: "Tarifs",
+      description: "Tarifs simples et transparents.",
+      monthly: "Mensuel",
+      yearly: "Annuel",
+      annual: "Annuel",
+      perMonth: "/mois",
+      perYear: "/an",
+      billedMonthly: "Facturé mensuellement",
+      billedAnnually: "Facturé annuellement",
+      save: "Économisez",
+      mostPopular: "Plus populaire",
+      getStarted: "Commencer",
+      contactSales: "Contacter les ventes",
+      freeTrial: "Essai gratuit",
+      comparePlans: "Comparer les plans",
+      feature: "Fonctionnalité",
+      features: "Fonctionnalités",
+      included: "Inclus",
+      notIncluded: "Non inclus",
+    },
+    integrations: {
+      title: "Intégrations",
+      description: "Connectez vos outils préférés.",
+      searchPlaceholder: "Rechercher...",
+      noResults: "Aucune intégration trouvée",
+      viewAll: "Voir tout",
+      connected: "Connecté",
+      available: "Disponible",
+    },
+    howItWorks: {
+      title: "Comment ça marche",
+      description: "Étapes simples pour commencer.",
+      step: "Étape",
+    },
+    faqs: {
+      title: "Questions fréquentes",
+      description: "Réponses rapides aux questions courantes.",
+      searchPlaceholder: "Rechercher...",
+      noResults: "Aucun résultat",
+      noResultsDescription: "Essayez d'autres mots-clés.",
+      stillHaveQuestions: "Encore des questions ?",
+      contactUs: "Nous contacter",
+      viewAll: "Voir tout",
+    },
+    cta: {
+      badge: "Nouveau",
+      getStarted: "Commencer",
+      learnMore: "En savoir plus",
+      tryFree: "Essai gratuit",
+      contactSales: "Contacter les ventes",
+      subscribe: "S'abonner",
+      emailPlaceholder: "Entrez votre e-mail",
+      noSpam: "Pas de spam. Désabonnement à tout moment.",
+      trustedBy: "Approuvé par",
+    },
+    blog: {
+      readMore: "Lire plus",
+      readingTime: "min de lecture",
+      publishedOn: "Publié le",
+      byAuthor: "Par",
+      category: "Catégorie",
+      featured: "À la une",
+      latest: "Derniers",
+      noPosts: "Aucun article trouvé",
+      noPostsDescription: "Essayez d'ajuster votre recherche ou filtre.",
+      searchPlaceholder: "Rechercher...",
+      filterByCategory: "Filtrer par catégorie",
+      allCategories: "Tous",
+      viewAll: "Voir tout",
+      minRead: "min",
+    },
+    header: {
+      menu: "Menu",
+      closeMenu: "Fermer le menu",
+      openMenu: "Ouvrir le menu",
+      skipToContent: "Aller au contenu",
+      toggleNav: "Basculer la navigation",
+      search: "Rechercher",
+      notifications: "Notifications",
+      cart: "Panier",
+      announcement: "Annonce",
+      dismissAnnouncement: "Fermer l'annonce",
+    },
+    banner: {
+      dismiss: "Fermer",
+      announcement: "Annonce",
+      promotion: "Promotion",
+      cookieTitle: "Nous utilisons des cookies",
+      cookieDescription:
+        "Nous utilisons des cookies pour améliorer votre expérience.",
+      acceptAll: "Tout accepter",
+      decline: "Refuser",
+      managePreferences: "Gérer les préférences",
+      learnMore: "En savoir plus",
+      appDownload: "Télécharger l'app",
+      newsletterTitle: "Restez informé",
+      subscribe: "S'abonner",
+      marqueeLabel: "À la une",
+    },
+    footer: {
+      newsletterTitle: "Restez informé",
+      newsletterDescription:
+        "Abonnez-vous à notre newsletter pour recevoir les dernières actualités et mises à jour.",
+      newsletterPlaceholder: "Entrez votre e-mail",
+      subscribe: "S'abonner",
+      subscribedSuccess: "Merci pour votre inscription !",
+      privacyNotice:
+        "Nous respectons votre vie privée. Désabonnez-vous à tout moment.",
+      allSystemsOperational: "Tous les systèmes opérationnels",
+      degradedPerformance: "Performances dégradées",
+      majorOutage: "Panne majeure",
+      underMaintenance: "En maintenance",
+      uptime: "de disponibilité",
+      downloadOn: "Télécharger sur",
+      appStore: "App Store",
+      googlePlay: "Google Play",
+      getItOn: "Disponible sur",
+      webApp: "Application Web",
+      allRightsReserved: "Tous droits réservés.",
+      privacyPolicy: "Politique de confidentialité",
+      termsOfService: "Conditions d'utilisation",
+      cookiePolicy: "Politique relative aux cookies",
+      statusPage: "Page de statut",
+    },
+    about: {
+      mission: "Notre Mission",
+      missionDescription:
+        "Favoriser l'innovation grâce à des systèmes logiciels accessibles, robustes et à la pointe de la technologie.",
+      vision: "Notre Vision",
+      visionDescription:
+        "Être un laboratoire universitaire de premier plan alliant recherche d'excellence et design logiciel de précision.",
+      values: "Nos Valeurs",
+      ourStory: "Notre Histoire",
+      ourJourney: "Notre Parcours",
+      manifesto: "Notre Manifeste",
+      leadership: "Direction",
+      culture: "Culture du Laboratoire",
+      readFounderLetter: "Message de la direction",
+      viewProjects: "Découvrir les projets",
+      learnMore: "En savoir plus",
+      milestones: "Étapes et Réalisations",
+      milestonesDescription:
+        "Les moments clés qui ont forgé notre croissance et notre impact académique.",
     },
   },
 }

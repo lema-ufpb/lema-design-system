@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-sortable",
+  "title": "Sortable",
+  "description": "Lista arrastável vertical/grid — ReUI Sortable.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/sortable.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { GripVerticalIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface SortableItem {\n  id: string\n  content: React.ReactNode\n}\n\nexport interface SortableProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof sortableVariants> {\n  items: SortableItem[]\n  onReorder?: (items: SortableItem[]) => void\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const sortableVariants = cva(\"flex flex-col gap-2 rounded-2xl border bg-card p-3\", {\n  variants: {\n    size: {\n      sm: \"gap-1.5\",\n      md: \"gap-2\",\n    },\n  },\n  defaultVariants: { size: \"md\" },\n})\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Sortable({ className, items, onReorder, size = \"md\", ...props }: SortableProps) {\n  const [list, setList] = React.useState(items)\n\n  React.useEffect(() => setList(items), [items])\n\n  const move = (from: number, to: number) => {\n    const next = [...list]\n    const [m] = next.splice(from, 1)\n    next.splice(to, 0, m)\n    setList(next)\n    onReorder?.(next)\n  }\n\n  return (\n    <div data-slot=\"sortable\" className={cn(sortableVariants({ size }), className)} {...props}>\n      {list.map((it, idx) => (\n        <div\n          key={it.id}\n          className=\"flex items-center gap-2 rounded-xl border bg-background p-3\"\n          draggable\n          onDragStart={(e) => e.dataTransfer.setData(\"text/plain\", String(idx))}\n          onDragOver={(e) => e.preventDefault()}\n          onDrop={(e) => {\n            const from = Number(e.dataTransfer.getData(\"text/plain\"))\n            move(from, idx)\n          }}\n        >\n          <GripVerticalIcon className=\"size-4 shrink-0 text-muted-foreground\" aria-hidden=\"true\" />\n          <span className=\"flex-1 truncate text-sm\">{it.content}</span>\n          <div className=\"flex gap-1\">\n            <button\n              aria-label=\"Move up\"\n              disabled={idx === 0}\n              onClick={() => move(idx, idx - 1)}\n              className=\"size-6 rounded-md hover:bg-muted disabled:opacity-30\"\n            >\n              ↑\n            </button>\n            <button\n              aria-label=\"Move down\"\n              disabled={idx === list.length - 1}\n              onClick={() => move(idx, idx + 1)}\n              className=\"size-6 rounded-md hover:bg-muted disabled:opacity-30\"\n            >\n              ↓\n            </button>\n          </div>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-sortable.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

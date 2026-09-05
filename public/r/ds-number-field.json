@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-number-field",
+  "title": "Number Field",
+  "description": "Campo numérico com spinbuttons — ReUI Number Field.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "components/ds/number-field.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { MinusIcon, PlusIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Input } from \"@/components/ui/input\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface NumberFieldProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"onChange\">,\n    VariantProps<typeof numberFieldVariants> {\n  value?: number\n  defaultValue?: number\n  min?: number\n  max?: number\n  step?: number\n  onChange?: (value: number) => void\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const numberFieldVariants = cva(\"flex items-center gap-1 rounded-xl border bg-card p-1\", {\n  variants: {\n    size: {\n      sm: \"h-8\",\n      md: \"h-9\",\n    },\n  },\n  defaultVariants: { size: \"md\" },\n})\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function NumberField({ className, value: controlled, defaultValue = 0, min, max, step = 1, onChange, size = \"md\", ...props }: NumberFieldProps) {\n  const [internal, setInternal] = React.useState(defaultValue)\n  const isControlled = controlled !== undefined\n  const value = isControlled ? controlled : internal\n\n  const update = (next: number) => {\n    const clamped = Math.min(max ?? Infinity, Math.max(min ?? -Infinity, next))\n    if (!isControlled) setInternal(clamped)\n    onChange?.(clamped)\n  }\n\n  return (\n    <div data-slot=\"number-field\" className={cn(numberFieldVariants({ size }), className)} {...props}>\n      <Button\n        type=\"button\"\n        variant=\"ghost\"\n        size=\"icon\"\n        className=\"size-7 rounded-lg\"\n        aria-label=\"Decrease\"\n        onClick={() => update((value ?? 0) - step)}\n      >\n        <MinusIcon className=\"size-4\" />\n      </Button>\n      <Input\n        type=\"number\"\n        value={value}\n        onChange={(e) => update(Number(e.target.value))}\n        className=\"h-7 border-0 bg-transparent text-center tabular-nums focus-visible:ring-0\"\n        aria-label=\"Number field\"\n      />\n      <Button\n        type=\"button\"\n        variant=\"ghost\"\n        size=\"icon\"\n        className=\"size-7 rounded-lg\"\n        aria-label=\"Increase\"\n        onClick={() => update((value ?? 0) + step)}\n      >\n        <PlusIcon className=\"size-4\" />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-number-field.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

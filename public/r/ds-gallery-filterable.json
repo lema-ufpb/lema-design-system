@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-gallery-filterable",
+  "title": "GalleryFilterable",
+  "description": "Galeria de imagens com filtro de categorias — composto de ds-image-gallery e ds-pill-group.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-image-gallery",
+    "ds-pill-group"
+  ],
+  "files": [
+    {
+      "path": "components/ds/gallery-filterable.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport type { UILocale } from \"@/lib/ui-i18n\"\nimport {\n  ImageGallery,\n  type ImageGalleryAspect,\n  type ImageGalleryColumns,\n  type ImageGalleryItem,\n  type ImageGalleryLayout,\n} from \"./image-gallery\"\nimport { PillGroup } from \"./pill-group\"\n\n// ── Types ──\n\nexport interface GalleryFilterCategory {\n  value: string\n  label: string\n}\n\nexport interface GalleryFilterableItem extends ImageGalleryItem {\n  category: string\n}\n\nexport interface GalleryFilterableProps extends React.HTMLAttributes<HTMLDivElement> {\n  categories: GalleryFilterCategory[]\n  items: GalleryFilterableItem[]\n  allLabel?: string\n  layout?: ImageGalleryLayout\n  columns?: ImageGalleryColumns\n  aspect?: ImageGalleryAspect\n  locale?: UILocale\n}\n\nconst ALL_VALUE = \"__all__\"\n\n// ── Component ──\n\n/**\n * An image gallery with a category filter row above it — composed from\n * `ImageGallery` and `PillGroup`.\n */\nexport function GalleryFilterable({\n  categories,\n  items,\n  allLabel = \"All\",\n  layout,\n  columns,\n  aspect,\n  locale,\n  className,\n  ...props\n}: GalleryFilterableProps) {\n  const [active, setActive] = React.useState<string>(ALL_VALUE)\n\n  const filtered = React.useMemo(\n    () =>\n      active === ALL_VALUE\n        ? items\n        : items.filter((item) => item.category === active),\n    [active, items]\n  )\n\n  const pillItems = React.useMemo(\n    () => [{ value: ALL_VALUE, label: allLabel }, ...categories],\n    [allLabel, categories]\n  )\n\n  return (\n    <div\n      className={cn(\"flex flex-col gap-6\", className)}\n      data-slot=\"gallery-filterable\"\n      {...props}\n    >\n      <PillGroup\n        items={pillItems}\n        value={active}\n        onChange={(value) =>\n          setActive(\n            Array.isArray(value)\n              ? (value[0] ?? ALL_VALUE)\n              : (value ?? ALL_VALUE)\n          )\n        }\n        locale={locale}\n      />\n      <ImageGallery\n        items={filtered}\n        layout={layout}\n        columns={columns}\n        aspect={aspect}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-gallery-filterable.tsx"
+    }
+  ],
+  "categories": [
+    "gallery"
+  ],
+  "type": "registry:block"
+}

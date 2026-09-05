@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-blog-list",
+  "title": "Blog List",
+  "description": "Lista horizontal imagem à esquerda — blockus #08-12.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-blog-meta",
+    "ds-blog-author",
+    "separator",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/blog-list.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { type UILocale } from \"@/lib/ui-i18n\"\nimport { Separator } from \"@/components/ui/separator\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\nimport { BlogMeta } from \"./blog-meta\"\nimport { BlogAuthor } from \"./blog-author\"\nimport { type BlogPost } from \"./blog-card\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface BlogListProps extends React.HTMLAttributes<HTMLDivElement> {\n  posts: BlogPost[]\n  locale?: UILocale\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function BlogList({ className, posts, locale = \"en-US\", loading = false, ...props }: BlogListProps) {\n  if (loading) {\n    return (\n      <div data-slot=\"blog-list-skeleton\" className={cn(\"flex flex-col gap-6\", className)} {...props}>\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className=\"flex gap-4\">\n            <Skeleton className=\"h-28 w-40 shrink-0 rounded-xl\" />\n            <div className=\"flex flex-1 flex-col gap-2\">\n              <Skeleton className=\"h-3 w-24\" />\n              <Skeleton className=\"h-4 w-3/4\" />\n              <Skeleton className=\"h-3 w-full\" />\n              <Skeleton className=\"mt-auto h-6 w-24 rounded-full\" />\n            </div>\n          </div>\n        ))}\n      </div>\n    )\n  }\n\n  return (\n    <div data-slot=\"blog-list\" className={cn(\"flex flex-col\", className)} {...props}>\n      {posts.map((post, idx) => (\n        <div key={post.title}>\n          <a\n            href={post.href ?? \"#\"}\n            aria-label={post.title}\n            className=\"flex gap-4 py-6 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none\"\n          >\n            {post.imageSrc && (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img src={post.imageSrc} alt={post.imageAlt ?? post.title} className=\"hidden h-28 w-40 shrink-0 rounded-xl object-cover sm:block\" />\n            )}\n            <div className=\"flex min-w-0 flex-1 flex-col gap-2\">\n              <BlogMeta publishedAt={post.publishedAt} readingTime={post.readingTime} category={post.category} locale={locale} size=\"sm\" />\n              <h3 className=\"line-clamp-2 text-base font-semibold text-foreground\">{post.title}</h3>\n              {post.excerpt && <p className=\"line-clamp-2 text-sm leading-relaxed text-muted-foreground\">{post.excerpt}</p>}\n              {post.author && <BlogAuthor name={post.author.name} avatarUrl={post.author.avatarUrl} size=\"sm\" className=\"pt-1\" />}\n            </div>\n          </a>\n          {idx < posts.length - 1 && <Separator />}\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-blog-list.tsx"
+    }
+  ],
+  "categories": [
+    "blog"
+  ],
+  "type": "registry:block"
+}
