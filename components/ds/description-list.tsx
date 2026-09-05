@@ -4,6 +4,11 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
+// ── Types ──
+
+export type DescriptionListProps = React.HTMLAttributes<HTMLDListElement> &
+  VariantProps<typeof descriptionListVariants>
+
 // ── Variants ──
 
 export const descriptionListVariants = cva("text-sm", {
@@ -18,11 +23,6 @@ export const descriptionListVariants = cva("text-sm", {
     layout: "vertical",
   },
 })
-
-// ── Types ──
-
-export type DescriptionListProps = React.HTMLAttributes<HTMLDListElement> &
-  VariantProps<typeof descriptionListVariants>
 
 // ── Component ──
 

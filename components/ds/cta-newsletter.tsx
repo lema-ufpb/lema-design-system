@@ -42,8 +42,9 @@ export function CtaNewsletter({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const tWait = UI_I18N[locale].waitlistForm
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Invalid email")
+      setError(tWait.invalidEmail)
       setStatus("error")
       return
     }
@@ -55,7 +56,7 @@ export function CtaNewsletter({
       setStatus("success")
     } catch {
       setStatus("error")
-      setError("Failed")
+      setError(tWait.invalidEmail)
     }
   }
 
@@ -79,6 +80,9 @@ export function CtaNewsletter({
           <form onSubmit={handleSubmit} className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
             <Input
               type="email"
+              id="cta-newsletter-input"
+              aria-label={placeholder ?? t.emailPlaceholder}
+              aria-describedby={status === "error" ? "cta-newsletter-error" : undefined}
               placeholder={placeholder ?? t.emailPlaceholder}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -92,7 +96,7 @@ export function CtaNewsletter({
             </Button>
           </form>
         )}
-        {error && <p className="text-xs text-destructive">{error}</p>}
+        {error && <p id="cta-newsletter-error" role="alert" className="text-xs text-destructive">{error}</p>}
         {disclaimer ? (
           <p className="text-xs text-muted-foreground">{disclaimer}</p>
         ) : (

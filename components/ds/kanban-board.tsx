@@ -16,7 +16,7 @@ export const KanbanBoard = React.forwardRef<HTMLDivElement, KanbanBoardProps>(
       <ScrollArea className="w-full whitespace-nowrap">
         <div
           ref={ref}
-          className={cn("flex h-full min-h-[500px] gap-4 pb-4", className)}
+          className={cn("flex h-full min-h-125 gap-4 pb-4", className)}
           data-slot="ds-kanban-board"
           role="list"
           {...props}
@@ -43,7 +43,7 @@ export const KanbanColumn = React.forwardRef<HTMLDivElement, KanbanColumnProps>(
       <div
         ref={ref}
         className={cn(
-          "flex h-full w-80 shrink-0 flex-col rounded-xl bg-muted/50 p-3",
+          "flex h-full w-72 sm:w-80 shrink-0 flex-col rounded-xl bg-muted/50 p-3",
           className
         )}
         data-slot="ds-kanban-column"
@@ -81,10 +81,17 @@ export const KanbanCard = React.forwardRef<HTMLDivElement, KanbanCardProps>(
     return (
       <Card
         ref={ref}
-        className={cn("cursor-grab active:cursor-grabbing", className)}
+        className={cn("cursor-grab active:cursor-grabbing focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none", className)}
         data-slot="ds-kanban-card"
         role="listitem"
         tabIndex={0}
+        aria-grabbed={false}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            ;(e.currentTarget as HTMLElement).click()
+          }
+        }}
         {...props}
       >
         <CardHeader className="p-3">

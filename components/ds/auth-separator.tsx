@@ -51,11 +51,11 @@ export const AuthSeparator = React.forwardRef<
       {children && (
         <div className="relative flex justify-center">
           {variant === "badge" ? (
-            <span className="rounded-full border border-border/80 bg-background px-3 py-0.5 text-[11px] font-medium tracking-wider text-muted-foreground uppercase shadow-xs">
+            <span className="rounded-full border border-border/80 bg-background px-3 py-0.5 text-xs font-medium tracking-wider text-muted-foreground uppercase shadow-xs">
               {children}
             </span>
           ) : (
-            <span className="bg-background px-3 text-[11px] font-medium tracking-wider text-muted-foreground uppercase">
+            <span className="bg-background px-3 text-xs font-medium tracking-wider text-muted-foreground uppercase">
               {children}
             </span>
           )}

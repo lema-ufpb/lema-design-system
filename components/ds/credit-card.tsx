@@ -23,17 +23,17 @@ export interface CreditCardProps
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const creditCardVariants = cva("relative flex flex-col justify-between overflow-hidden rounded-2xl border p-6 text-white shadow-lg", {
+export const creditCardVariants = cva("relative flex max-w-full flex-col justify-between overflow-hidden rounded-2xl border p-6 shadow-lg", {
   variants: {
     variant: {
-      default: "bg-gradient-to-br from-primary to-primary/70 border-primary/20",
-      dark: "bg-gradient-to-br from-zinc-900 to-zinc-700 border-zinc-800",
-      light: "bg-gradient-to-br from-zinc-100 to-white text-foreground border-border",
+      default: "bg-gradient-to-br from-primary to-primary/70 border-primary/20 text-primary-foreground",
+      dark: "bg-gradient-to-br from-card to-muted border-border text-card-foreground dark:from-zinc-900 dark:to-zinc-700 dark:border-zinc-800 dark:text-white",
+      light: "bg-gradient-to-br from-card to-background text-foreground border-border",
     },
     size: {
-      sm: "h-40 w-64",
-      md: "h-48 w-80",
-      lg: "h-56 w-96",
+      sm: "h-40 w-64 max-w-full sm:w-64 w-full aspect-[1.6] h-auto",
+      md: "h-48 w-80 max-w-full sm:w-80 w-full aspect-[1.6] h-auto",
+      lg: "h-56 w-96 max-w-full sm:w-96 w-full aspect-[1.6] h-auto",
     },
   },
   defaultVariants: { variant: "default", size: "md" },
@@ -73,11 +73,11 @@ export function CreditCard({
         </span>
         <div className="flex items-end justify-between gap-4">
           <span className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-widest opacity-60">{t.cardHolder}</span>
+            <span className="text-xs uppercase tracking-widest opacity-60">{t.cardHolder}</span>
             <span className="truncate text-xs font-medium">{holder}</span>
           </span>
           <span className="flex flex-col text-right">
-            <span className="text-[10px] uppercase tracking-widest opacity-60">{t.expiry}</span>
+            <span className="text-xs uppercase tracking-widest opacity-60">{t.expiry}</span>
             <span className="text-xs font-medium tabular-nums">{expiry}</span>
           </span>
         </div>

@@ -140,7 +140,7 @@ export function HeaderUserMenu({
             {typeof notifications === "number" && notifications > 0 && (
               <span
                 aria-label={`${notifications} notifications`}
-                className="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground"
+                className="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground"
               >
                 {notifications > 99 ? "99+" : notifications}
               </span>

@@ -23,10 +23,25 @@ export function ImageZoom({ className, src, alt = "Zoom image", zoom = 2, ...pro
     setPos({ x: ((e.clientX - rect.left) / rect.width) * 100, y: ((e.clientY - rect.top) / rect.height) * 100 })
   }
 
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect()
+    const t = e.touches[0]
+    if (!t) return
+    setPos({ x: ((t.clientX - rect.left) / rect.width) * 100, y: ((t.clientY - rect.top) / rect.height) * 100 })
+  }
+
   return (
     <div
       data-slot="image-zoom"
-      className={cn("relative overflow-hidden rounded-2xl border bg-card", className)}
+      role="img"
+      aria-label={alt}
+      tabIndex={0}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      onTouchMove={handleTouchMove}
+      onTouchStart={() => setHover(true)}
+      onTouchEnd={() => setHover(false)}
+      className={cn("relative h-48 sm:h-64 w-full overflow-hidden rounded-2xl border bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none", className)}
       onMouseMove={handleMove}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

@@ -76,54 +76,58 @@ function TreeItem({
 
   if (hasChildren) {
     return (
-      <Collapsible
-        open={isOpen}
-        onOpenChange={setIsOpen}
-        className="flex flex-col gap-1"
-      >
-        <CollapsibleTrigger asChild>
-          <div
-            data-slot="tree-node"
-            data-selected={isSelected}
-            onClick={handleSelect}
-            className={cn(treeItemVariants())}
-            style={{ paddingLeft: `${paddingLeft + 8}px` }}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault()
-                handleSelect(e as unknown as React.MouseEvent)
-              }
-            }}
-          >
-            <ChevronRightIcon
-              className={cn(
-                "size-4 shrink-0 transition-transform duration-200",
-                isOpen && "rotate-90"
-              )}
-            />
-            {item.icon}
-            <span className="truncate">{item.name}</span>
-          </div>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          <ul className="flex flex-col gap-1">
+      <div role="none" className="flex flex-col gap-1">
+        <Collapsible
+          open={isOpen}
+          onOpenChange={setIsOpen}
+          className="flex flex-col gap-1"
+        >
+          <CollapsibleTrigger asChild>
+            <div
+              data-slot="tree-node"
+              data-selected={isSelected}
+              onClick={handleSelect}
+              className={cn(treeItemVariants())}
+              style={{ paddingLeft: `${paddingLeft + 8}px` }}
+              role="treeitem"
+              aria-expanded={isOpen}
+              aria-selected={isSelected}
+              aria-level={depth + 1}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  handleSelect(e as unknown as React.MouseEvent)
+                }
+                if (e.key === "ArrowRight" && !isOpen) setIsOpen(true)
+                if (e.key === "ArrowLeft" && isOpen) setIsOpen(false)
+              }}
+            >
+              <ChevronRightIcon
+                className={cn(
+                  "size-4 shrink-0 transition-transform duration-200",
+                  isOpen && "rotate-90"
+                )}
+              />
+              {item.icon}
+              <span className="truncate">{item.name}</span>
+            </div>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="flex flex-col gap-1" role="group">
             {item.children?.map((child) => (
-              <li key={child.id}>
-                <TreeItem
-                  item={child}
-                  depth={depth + 1}
-                  onSelect={onSelect}
-                  selectedId={selectedId}
-                  defaultExpandedIds={defaultExpandedIds}
-                  expandAll={expandAll}
-                />
-              </li>
+              <TreeItem
+                key={child.id}
+                item={child}
+                depth={depth + 1}
+                onSelect={onSelect}
+                selectedId={selectedId}
+                defaultExpandedIds={defaultExpandedIds}
+                expandAll={expandAll}
+              />
             ))}
-          </ul>
-        </CollapsibleContent>
-      </Collapsible>
+          </CollapsibleContent>
+        </Collapsible>
+      </div>
     )
   }
 
@@ -134,7 +138,9 @@ function TreeItem({
       onClick={handleSelect}
       className={cn(treeItemVariants())}
       style={{ paddingLeft: `${paddingLeft + 32}px` }} // 16px depth + 16px to align with text next to chevron
-      role="button"
+      role="treeitem"
+      aria-selected={isSelected}
+      aria-level={depth + 1}
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
@@ -158,21 +164,20 @@ export function TreeView({
   className,
 }: TreeViewProps) {
   return (
-    <div data-slot="tree-view" className={cn("flex flex-col gap-1", className)}>
-      <ul className="flex flex-col gap-1">
+    <div data-slot="tree-view" role="tree" aria-label="Tree view" className={cn("flex flex-col gap-1", className)}>
+      <div role="group" className="flex flex-col gap-1">
         {data.map((item) => (
-          <li key={item.id}>
-            <TreeItem
-              item={item}
-              depth={0}
-              onSelect={onSelect}
-              selectedId={selectedId}
-              defaultExpandedIds={defaultExpandedIds}
-              expandAll={expandAll}
-            />
-          </li>
+          <TreeItem
+            key={item.id}
+            item={item}
+            depth={0}
+            onSelect={onSelect}
+            selectedId={selectedId}
+            defaultExpandedIds={defaultExpandedIds}
+            expandAll={expandAll}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   )
 }

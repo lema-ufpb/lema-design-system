@@ -122,7 +122,7 @@ export function HeaderNav({
                         )}
                         <span className="truncate">{item.label}</span>
                         {item.badge && (
-                          <span className="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-primary-foreground">
+                          <span className="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">
                             {item.badge}
                           </span>
                         )}
@@ -151,7 +151,7 @@ export function HeaderNav({
                   )}
                   <span className="truncate">{item.label}</span>
                   {item.badge && (
-                    <span className="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-primary-foreground">
+                    <span className="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">
                       {item.badge}
                     </span>
                   )}
@@ -177,7 +177,7 @@ export function HeaderNav({
                                 )}
                                 <span className="truncate">{child.label}</span>
                                 {child.badge && (
-                                  <span className="ml-auto rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-primary-foreground">
+                                  <span className="ml-auto rounded-full bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">
                                     {child.badge}
                                   </span>
                                 )}

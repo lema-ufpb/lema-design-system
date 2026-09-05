@@ -192,6 +192,7 @@ function Select({
             variant="ghost"
             role="combobox"
             aria-expanded={open}
+            aria-controls={open ? "ds-select-listbox" : undefined}
             aria-label={
               typeof triggerText === "string" ? triggerText : undefined
             }
@@ -289,7 +290,7 @@ function Select({
           data-slot="ds-select-error"
           className={cn(
             "text-destructive",
-            size === "sm" ? "text-[10px]" : "text-xs"
+            size === "sm" ? "text-xs" : "text-xs"
           )}
           role="alert"
         >

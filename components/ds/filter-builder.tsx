@@ -103,7 +103,7 @@ export function FilterBuilder({
                 }
               >
                 <SelectTrigger
-                  className="w-full sm:w-[200px]"
+                  className="w-full sm:w-50"
                   aria-label={i18n.selectField}
                 >
                   <SelectValue placeholder={i18n.selectField} />
@@ -125,7 +125,7 @@ export function FilterBuilder({
                 disabled={availableOperators.length === 0}
               >
                 <SelectTrigger
-                  className="w-full sm:w-[150px]"
+                  className="w-full sm:w-36"
                   aria-label={i18n.operator}
                 >
                   <SelectValue placeholder={i18n.operator} />

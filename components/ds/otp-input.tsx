@@ -10,6 +10,16 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
 
+// ── Types ──
+
+export interface OTPInputProps
+  extends
+    Omit<React.ComponentProps<typeof InputOTP>, "size" | "render">,
+    VariantProps<typeof otpInputSlotVariants> {
+  loading?: boolean
+  invalid?: boolean
+}
+
 // ── Variants ──
 
 export const otpInputSlotVariants = cva("", {
@@ -24,16 +34,6 @@ export const otpInputSlotVariants = cva("", {
     size: "md",
   },
 })
-
-// ── Types ──
-
-export interface OTPInputProps
-  extends
-    Omit<React.ComponentProps<typeof InputOTP>, "size" | "render">,
-    VariantProps<typeof otpInputSlotVariants> {
-  loading?: boolean
-  invalid?: boolean
-}
 
 // ── Component ──
 

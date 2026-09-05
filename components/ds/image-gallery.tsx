@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
@@ -138,7 +140,7 @@ export function ImageGallery({
               className="size-full object-cover transition-transform duration-300 group-hover/gallery-item:scale-105"
             />
             {(item.caption || item.overlay) && (
-              <span className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-black/70 via-black/10 to-transparent p-4 text-sm font-medium text-white">
+              <span className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent p-4 text-sm font-medium text-background">
                 {item.overlay ?? item.caption}
               </span>
             )}

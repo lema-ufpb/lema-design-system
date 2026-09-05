@@ -25,8 +25,8 @@ export const footerWordmarkVariants = cva(
       },
       variant: {
         outline:
-          "text-transparent [-webkit-text-stroke:1px_hsl(var(--foreground)/0.12)] dark:[-webkit-text-stroke:1px_hsl(var(--foreground)/0.16)]",
-        muted: "text-foreground/[0.04] dark:text-foreground/[0.07]",
+          "text-transparent [-webkit-text-stroke:1px_hsl(var(--foreground)/0.12)]",
+        muted: "text-foreground/[0.04]",
         gradient:
           "bg-linear-to-b from-foreground/15 via-foreground/5 to-transparent bg-clip-text text-transparent",
       },

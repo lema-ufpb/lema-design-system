@@ -64,7 +64,7 @@ export function HeaderAnnouncement({
   const content = (
     <>
       {tag && (
-        <span className="hidden rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground sm:inline-flex">
+        <span className="hidden rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground sm:inline-flex">
           {tag}
         </span>
       )}

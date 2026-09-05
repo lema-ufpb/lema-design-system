@@ -46,7 +46,7 @@ export const appStoreBadgeEyebrowVariants = cva(
   "leading-none text-background/80",
   {
     variants: {
-      size: { sm: "text-[10px]", md: "text-xs", lg: "text-xs" },
+      size: { sm: "text-xs", md: "text-xs", lg: "text-xs" },
     },
     defaultVariants: { size: "md" },
   }

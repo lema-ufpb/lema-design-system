@@ -29,7 +29,7 @@ export const announcementBadgeVariants = cva(
           "border-border/60 bg-muted/60 text-muted-foreground backdrop-blur-sm hover:bg-muted hover:text-foreground",
         outline:
           "border-border bg-background text-foreground hover:bg-muted/50",
-        glow: "border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(var(--primary),0.15)] hover:bg-primary/20",
+        glow: "border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_oklch(var(--primary)/0.15)] hover:bg-primary/20",
         gradient:
           "border-border/40 bg-gradient-to-r from-primary/10 via-muted/40 to-primary/10 text-foreground hover:border-border",
       },
@@ -82,7 +82,7 @@ export const AnnouncementBadge = React.forwardRef<
         {icon && <span className="shrink-0">{icon}</span>}
 
         {tag && (
-          <span className="rounded-full bg-primary/15 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+          <span className="rounded-full bg-primary/15 px-1.5 py-0.5 text-xs font-semibold text-primary">
             {tag}
           </span>
         )}

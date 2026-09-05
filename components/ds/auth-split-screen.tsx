@@ -179,7 +179,7 @@ export const AuthSplitScreen = React.forwardRef<
                   <span className="text-xs leading-tight font-semibold text-foreground">
                     {testimonial.author}
                   </span>
-                  <span className="text-[11px] text-muted-foreground">
+                  <span className="text-xs text-muted-foreground">
                     {testimonial.role}
                   </span>
                 </div>

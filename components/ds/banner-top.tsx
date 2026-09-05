@@ -45,7 +45,7 @@ export function BannerTop({
       title={
         badge ? (
           <span className="inline-flex items-center gap-2">
-            <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
+            <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground">
               {badge}
             </span>
             {title && <span className="truncate">{title}</span>}

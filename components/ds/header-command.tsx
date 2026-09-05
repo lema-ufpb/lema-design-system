@@ -140,8 +140,8 @@ export function HeaderCommand({
               <SearchIcon className="size-3.5" />
               <span className="hidden lg:inline-flex">{searchPlaceholder}</span>
               <span className="hidden items-center gap-1 lg:inline-flex">
-                <Kbd className="h-5 px-1.5 text-[10px]">⌘</Kbd>
-                <Kbd className="h-5 px-1.5 text-[10px]">K</Kbd>
+                <Kbd className="h-5 px-1.5 text-xs">⌘</Kbd>
+                <Kbd className="h-5 px-1.5 text-xs">K</Kbd>
               </span>
             </Button>
 

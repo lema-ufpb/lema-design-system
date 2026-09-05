@@ -28,7 +28,7 @@ export const systemStatusBadgeVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-6 px-2 text-[11px]",
+        sm: "h-6 px-2 text-xs",
         md: "h-7 px-2.5 text-xs",
       },
     },

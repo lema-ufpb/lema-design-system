@@ -4,6 +4,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 
 // ── Types ──
 
@@ -14,6 +15,7 @@ export interface ColorPickerProps
   value?: string
   onChange?: (value: string) => void
   invalid?: boolean
+  locale?: UILocale
 }
 
 // ── Variants ──
@@ -61,6 +63,7 @@ export const ColorPicker = React.forwardRef<HTMLInputElement, ColorPickerProps>(
       value = "#000000",
       onChange,
       disabled,
+      locale = "pt-BR",
       ...props
     },
     ref
@@ -99,7 +102,7 @@ export const ColorPicker = React.forwardRef<HTMLInputElement, ColorPickerProps>(
               onChange={handleColorChange}
               disabled={disabled}
               className="absolute -inset-2 size-12 cursor-pointer border-0 p-0"
-              aria-label="Selecionar cor"
+              aria-label={locale ? UI_I18N[locale].input?.clear ?? "Select color" : "Select color"}
             />
           </div>
         </div>
