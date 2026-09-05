@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-event-calendar",
+  "title": "Event Calendar",
+  "description": "Calendário mensal com eventos — ReUI Event Calendar 6.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/event-calendar.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Card } from \"@/components/ui/card\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface CalendarEvent {\n  id: string\n  title: string\n  date: string // YYYY-MM-DD\n  color?: string\n}\n\nexport interface EventCalendarProps extends React.HTMLAttributes<HTMLDivElement> {\n  events: CalendarEvent[]\n  month?: Date\n  loading?: boolean\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const eventCalendarVariants = cva(\"w-full rounded-2xl border bg-card p-4\")\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function EventCalendar({ className, events, month = new Date(), loading = false, ...props }: EventCalendarProps) {\n  if (loading) {\n    return (\n      <div data-slot=\"event-calendar-skeleton\" className={cn(eventCalendarVariants(), className)} {...props}>\n        <Skeleton className=\"h-64 w-full\" />\n      </div>\n    )\n  }\n\n  const year = month.getFullYear()\n  const mon = month.getMonth()\n  const days = new Date(year, mon + 1, 0).getDate()\n  const startDay = new Date(year, mon, 1).getDay()\n\n  return (\n    <Card data-slot=\"event-calendar\" className={cn(eventCalendarVariants(), className)} {...props}>\n      <div className=\"mb-3 flex items-center justify-between\">\n        <h3 className=\"text-sm font-semibold text-foreground\">\n          {month.toLocaleDateString(\"pt-BR\", { month: \"long\", year: \"numeric\" })}\n        </h3>\n      </div>\n      <div className=\"grid grid-cols-7 gap-1 text-center text-xs text-muted-foreground\">\n        {[\"Dom\", \"Seg\", \"Ter\", \"Qua\", \"Qui\", \"Sex\", \"Sáb\"].map((d) => (\n          <span key={d} className=\"py-1\">\n            {d}\n          </span>\n        ))}\n        {Array.from({ length: startDay }).map((_, i) => (\n          <span key={`e-${i}`} />\n        ))}\n        {Array.from({ length: days }).map((_, i) => {\n          const day = i + 1\n          const iso = `${year}-${String(mon + 1).padStart(2, \"0\")}-${String(day).padStart(2, \"0\")}`\n          const dayEvents = events.filter((e) => e.date === iso)\n          return (\n            <div key={day} className=\"flex h-10 flex-col items-center justify-center rounded-md border border-transparent p-1 hover:bg-muted\">\n              <span className=\"text-xs tabular-nums\">{day}</span>\n              <div className=\"flex gap-0.5\">\n                {dayEvents.slice(0, 3).map((e) => (\n                  <span key={e.id} className=\"size-1 rounded-full bg-primary\" style={{ backgroundColor: e.color }} />\n                ))}\n              </div>\n            </div>\n          )\n        })}\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-event-calendar.tsx"
+    }
+  ],
+  "categories": [
+    "schedule"
+  ],
+  "type": "registry:block"
+}

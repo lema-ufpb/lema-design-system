@@ -2,48 +2,42 @@
 
 ## [1.9.4](https://github.com/lema-ufpb/design-system/compare/v1.9.3...v1.9.4) (2026-09-04)
 
-
 ### 🐛 Bug Fixes
 
-* **nginx:** remover exigência de token para baixar registro de componentes ([61746eb](https://github.com/lema-ufpb/design-system/commit/61746eb65a79ff131b9c7e7c80ecd75442d3711f))
-* **nginx:** remover exigência de token para baixar registro de componentes ([a6ecac2](https://github.com/lema-ufpb/design-system/commit/a6ecac2b3e4775157e42a5b227fdc586ca8a396c))
+- **nginx:** remover exigência de token para baixar registro de componentes ([61746eb](https://github.com/lema-ufpb/design-system/commit/61746eb65a79ff131b9c7e7c80ecd75442d3711f))
+- **nginx:** remover exigência de token para baixar registro de componentes ([a6ecac2](https://github.com/lema-ufpb/design-system/commit/a6ecac2b3e4775157e42a5b227fdc586ca8a396c))
 
 ## [1.9.3](https://github.com/lema-ufpb/design-system/compare/v1.9.2...v1.9.3) (2026-09-04)
 
-
 ### 🐛 Bug Fixes
 
-* **cd:** remover overlay dev inexistente no update-argocd ([a62e974](https://github.com/lema-ufpb/design-system/commit/a62e974b22c5ad01f992263b7ba22de0ec933884))
-* **cd:** remover overlay dev inexistente no update-argocd ([04d6afd](https://github.com/lema-ufpb/design-system/commit/04d6afdc33fdfb486e5be19692c036668685d2bd))
+- **cd:** remover overlay dev inexistente no update-argocd ([a62e974](https://github.com/lema-ufpb/design-system/commit/a62e974b22c5ad01f992263b7ba22de0ec933884))
+- **cd:** remover overlay dev inexistente no update-argocd ([04d6afd](https://github.com/lema-ufpb/design-system/commit/04d6afdc33fdfb486e5be19692c036668685d2bd))
 
 ## [1.9.2](https://github.com/lema-ufpb/design-system/compare/v1.9.1...v1.9.2) (2026-09-04)
 
-
 ### 🐛 Bug Fixes
 
-* **cd:** instalar kustomize sem sudo no job update-argocd ([d5b352a](https://github.com/lema-ufpb/design-system/commit/d5b352a6734cd3beed2d83a02d456e7f87181b71))
-* **cd:** instalar kustomize sem sudo no job update-argocd ([8b7a4be](https://github.com/lema-ufpb/design-system/commit/8b7a4be711305c41747e6ce8cb4ab592b57ca2ee))
+- **cd:** instalar kustomize sem sudo no job update-argocd ([d5b352a](https://github.com/lema-ufpb/design-system/commit/d5b352a6734cd3beed2d83a02d456e7f87181b71))
+- **cd:** instalar kustomize sem sudo no job update-argocd ([8b7a4be](https://github.com/lema-ufpb/design-system/commit/8b7a4be711305c41747e6ce8cb4ab592b57ca2ee))
 
 ## [1.9.1](https://github.com/lema-ufpb/design-system/compare/v1.9.0...v1.9.1) (2026-09-04)
 
-
 ### 🐛 Bug Fixes
 
-* **cd:** rodar build-and-push no ubuntu-latest ([c3159d4](https://github.com/lema-ufpb/design-system/commit/c3159d431a8f7712569367c918d6e56a2155513c))
-* **cd:** run build-and-push job on ubuntu-latest instead of self-hosted ([3cb8c6c](https://github.com/lema-ufpb/design-system/commit/3cb8c6c16518d4cd25b88be5a9587025d77846db))
+- **cd:** rodar build-and-push no ubuntu-latest ([c3159d4](https://github.com/lema-ufpb/design-system/commit/c3159d431a8f7712569367c918d6e56a2155513c))
+- **cd:** run build-and-push job on ubuntu-latest instead of self-hosted ([3cb8c6c](https://github.com/lema-ufpb/design-system/commit/3cb8c6c16518d4cd25b88be5a9587025d77846db))
 
 ## [1.9.0](https://github.com/lema-ufpb/design-system/compare/v1.8.0...v1.9.0) (2026-09-04)
 
-
 ### ✨ Features
 
-* **components:** add copy-block, date-picker, file-upload, multi-select, rating and timeline ([c0bd30a](https://github.com/lema-ufpb/design-system/commit/c0bd30a96908b9cf1c90f6f4673c16335f389270))
-
+- **components:** add copy-block, date-picker, file-upload, multi-select, rating and timeline ([c0bd30a](https://github.com/lema-ufpb/design-system/commit/c0bd30a96908b9cf1c90f6f4673c16335f389270))
 
 ### ♻️ Refactor
 
-* **core:** update hooks, i18n and documentation ([e7bc465](https://github.com/lema-ufpb/design-system/commit/e7bc465262e87c06426c0165e1d3af3650d7f8fa))
-* rename ds components registry items to include ds- prefix ([6b5e57d](https://github.com/lema-ufpb/design-system/commit/6b5e57d42d67cd6c7e80a38451f7f16c765df4bf))
+- **core:** update hooks, i18n and documentation ([e7bc465](https://github.com/lema-ufpb/design-system/commit/e7bc465262e87c06426c0165e1d3af3650d7f8fa))
+- rename ds components registry items to include ds- prefix ([6b5e57d](https://github.com/lema-ufpb/design-system/commit/6b5e57d42d67cd6c7e80a38451f7f16c765df4bf))
 
 ## [1.8.0](https://github.com/lema-ufpb/design-system/compare/v1.7.1...v1.8.0) (2026-08-25)
 

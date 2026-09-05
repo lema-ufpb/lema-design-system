@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-founder-letter",
+  "title": "Founder Letter",
+  "description": "Carta aberta ou mensagem do coordenador/diretor com retrato, prosa editorial, drop cap e assinatura.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/founder-letter.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface FounderLetterProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof founderLetterVariants> {\n  title: string\n  paragraphs: string[]\n  authorName: string\n  authorRole: string\n  authorAvatar?: string\n  authorSignature?: string\n  withDropCap?: boolean\n}\n\n// ── Variants ──\n\nexport const founderLetterVariants = cva(\n  \"relative overflow-hidden rounded-3xl border border-border bg-card p-8 transition-all md:p-12\",\n  {\n    variants: {\n      variant: {\n        default: \"shadow-xs\",\n        elevated: \"border-primary/20 shadow-lg\",\n        muted: \"bg-muted/40\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport function FounderLetter({\n  title,\n  paragraphs,\n  authorName,\n  authorRole,\n  authorAvatar,\n  authorSignature,\n  withDropCap = true,\n  variant,\n  className,\n  ...props\n}: FounderLetterProps) {\n  return (\n    <div\n      className={cn(founderLetterVariants({ variant }), className)}\n      {...props}\n    >\n      <div className=\"grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12\">\n        {/* Coluna do Autor / Liderança */}\n        <div className=\"flex flex-col items-start gap-4 border-b border-border/50 pb-6 md:border-r md:border-b-0 md:pr-6 md:pb-0\">\n          {authorAvatar ? (\n            /* eslint-disable-next-line @next/next/no-img-element */\n            <img\n              src={authorAvatar}\n              alt={authorName}\n              className=\"size-20 rounded-2xl border border-border object-cover shadow-xs\"\n            />\n          ) : (\n            <div className=\"flex size-20 items-center justify-center rounded-2xl border border-border bg-muted text-xl font-bold text-foreground\">\n              {authorName.charAt(0)}\n            </div>\n          )}\n\n          <div>\n            <h4 className=\"text-base font-semibold text-foreground\">\n              {authorName}\n            </h4>\n            <p className=\"text-xs text-muted-foreground\">{authorRole}</p>\n          </div>\n\n          {authorSignature && (\n            <div className=\"mt-2 pt-2\">\n              {/* eslint-disable-next-line @next/next/no-img-element */}\n              <img\n                src={authorSignature}\n                alt={`Assinatura de ${authorName}`}\n                className=\"h-10 w-auto opacity-75 dark:invert\"\n              />\n            </div>\n          )}\n        </div>\n\n        {/* Coluna do Conteúdo / Prosa */}\n        <div className=\"flex flex-col gap-4 md:col-span-2\">\n          <h3 className=\"text-xl font-bold tracking-tight text-foreground md:text-2xl\">\n            {title}\n          </h3>\n\n          <div className=\"flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground\">\n            {paragraphs.map((para, index) => (\n              <p\n                key={index}\n                className={cn(\n                  index === 0 &&\n                    withDropCap &&\n                    \"first-letter:float-left first-letter:mr-2 first-letter:text-4xl first-letter:leading-none first-letter:font-bold first-letter:text-primary\"\n                )}\n              >\n                {para}\n              </p>\n            ))}\n          </div>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-founder-letter.tsx"
+    }
+  ],
+  "categories": [
+    "about",
+    "marketing"
+  ],
+  "type": "registry:ui"
+}

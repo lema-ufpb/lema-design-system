@@ -691,7 +691,7 @@ function PaginationBar({
               href="#"
               text={prevLabel}
               rounded={rounded}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
                 onPrev()
               }}
@@ -714,7 +714,7 @@ function PaginationBar({
                   href="#"
                   isActive={p === pageIndex + 1}
                   rounded={rounded}
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault()
                     onPageChange(p - 1)
                   }}
@@ -735,7 +735,7 @@ function PaginationBar({
               href="#"
               text={nextLabel}
               rounded={rounded}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
                 onNext()
               }}

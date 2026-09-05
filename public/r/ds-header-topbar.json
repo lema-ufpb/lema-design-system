@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-header-topbar",
+  "title": "Header Topbar",
+  "description": "Barra utilitária acima do header com email, telefone, socials e locale selector.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "ds-social-links",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "components/ds/header-topbar.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { SocialLinks, type SocialLinkItem } from \"./social-links\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface HeaderTopbarProps extends React.HTMLAttributes<HTMLDivElement> {\n  email?: string\n  phone?: string\n  announcement?: React.ReactNode\n  socials?: SocialLinkItem[]\n  localeSelector?: React.ReactNode\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function HeaderTopbar({\n  className,\n  email,\n  phone,\n  announcement,\n  socials,\n  localeSelector,\n  ...props\n}: HeaderTopbarProps) {\n  if (\n    !email &&\n    !phone &&\n    !announcement &&\n    !socials?.length &&\n    !localeSelector\n  ) {\n    return null\n  }\n\n  return (\n    <div\n      data-slot=\"header-topbar\"\n      className={cn(\n        \"hidden h-8 w-full items-center justify-between gap-4 border-b border-border bg-muted/30 px-4 text-xs sm:px-6 md:flex\",\n        className\n      )}\n      {...props}\n    >\n      <div className=\"flex items-center gap-4\">\n        {email && (\n          <a\n            href={`mailto:${email}`}\n            className=\"truncate font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none\"\n          >\n            {email}\n          </a>\n        )}\n        {phone && (\n          <a\n            href={`tel:${phone.replace(/\\s/g, \"\")}`}\n            className=\"truncate font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none\"\n          >\n            {phone}\n          </a>\n        )}\n      </div>\n\n      {announcement && (\n        <div className=\"hidden max-w-md truncate text-center font-medium text-muted-foreground lg:block\">\n          {announcement}\n        </div>\n      )}\n\n      <div className=\"flex items-center gap-3\">\n        {socials && socials.length > 0 && (\n          <SocialLinks links={socials} variant=\"ghost\" size=\"sm\" gap=\"sm\" />\n        )}\n        {localeSelector && (\n          <span className=\"flex items-center gap-1 text-muted-foreground\">\n            {localeSelector}\n          </span>\n        )}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-header-topbar.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

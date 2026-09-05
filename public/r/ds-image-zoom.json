@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-image-zoom",
+  "title": "Image Zoom",
+  "description": "Zoom hover lens — adaptado Kibo.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/image-zoom.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface ImageZoomProps extends React.HTMLAttributes<HTMLDivElement> {\n  src: string\n  alt?: string\n  zoom?: number\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function ImageZoom({ className, src, alt = \"Zoom image\", zoom = 2, ...props }: ImageZoomProps) {\n  const [pos, setPos] = React.useState({ x: 50, y: 50 })\n  const [hover, setHover] = React.useState(false)\n\n  const handleMove = (e: React.MouseEvent) => {\n    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect()\n    setPos({ x: ((e.clientX - rect.left) / rect.width) * 100, y: ((e.clientY - rect.top) / rect.height) * 100 })\n  }\n\n  return (\n    <div\n      data-slot=\"image-zoom\"\n      className={cn(\"relative overflow-hidden rounded-2xl border bg-card\", className)}\n      onMouseMove={handleMove}\n      onMouseEnter={() => setHover(true)}\n      onMouseLeave={() => setHover(false)}\n      {...props}\n    >\n      {/* eslint-disable-next-line @next/next/no-img-element */}\n      <img src={src} alt={alt} className=\"h-64 w-full object-cover\" />\n      {hover && (\n        <div\n          className=\"pointer-events-none absolute inset-0\"\n          style={{\n            backgroundImage: `url(${src})`,\n            backgroundPosition: `${pos.x}% ${pos.y}%`,\n            backgroundSize: `${zoom * 100}%`,\n            backgroundRepeat: \"no-repeat\",\n          }}\n          aria-hidden=\"true\"\n        />\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-image-zoom.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

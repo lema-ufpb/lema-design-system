@@ -2326,6 +2326,298 @@
       ]
     },
     {
+      "name": "ds-tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "Input field that converts typed text into removable tags or pills.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/tag-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-tag-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-phone-input",
+      "type": "registry:ui",
+      "title": "Phone Input",
+      "description": "Phone input field with country code selection and flags.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "command",
+        "popover",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/phone-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-phone-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-otp-input",
+      "type": "registry:ui",
+      "title": "OTP Input",
+      "description": "An OTP input for verification codes.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input-otp",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/otp-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-otp-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-time-picker",
+      "type": "registry:ui",
+      "title": "Time Picker",
+      "description": "A time picker input.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/time-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-time-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-command-palette",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "A high-level command palette modal triggered by keyboard shortcuts.",
+      "registryDependencies": [
+        "command",
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "components/ds/command-palette.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-command-palette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-tree-view",
+      "type": "registry:ui",
+      "title": "Tree View",
+      "description": "A hierarchical data display component.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "components/ds/tree-view.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-tree-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-breadcrumbs",
+      "type": "registry:ui",
+      "title": "Breadcrumbs",
+      "description": "A data-driven breadcrumbs component.",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "files": [
+        {
+          "path": "components/ds/breadcrumbs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-breadcrumbs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-description-list",
+      "type": "registry:ui",
+      "title": "Description List",
+      "description": "A description list component.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ds/description-list.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-description-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-notification-center",
+      "type": "registry:ui",
+      "title": "Notification Center",
+      "description": "A notification center component.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ds/notification-center.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-notification-center.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-callout",
+      "type": "registry:ui",
+      "title": "Callout",
+      "description": "A highlighted alert component.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "components/ds/callout.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-callout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-color-picker",
+      "type": "registry:ui",
+      "title": "Color Picker",
+      "description": "A color picker input.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/ds/color-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-color-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-filter-builder",
+      "type": "registry:ui",
+      "title": "Filter Builder",
+      "description": "A complex component for building advanced query filters.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "select",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/filter-builder.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-filter-builder.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-kanban-board",
+      "type": "registry:ui",
+      "title": "Kanban Board",
+      "description": "A presentation component for Kanban boards.",
+      "registryDependencies": [
+        "card",
+        "badge",
+        "scroll-area"
+      ],
+      "files": [
+        {
+          "path": "components/ds/kanban-board.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-kanban-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-guided-tour",
+      "type": "registry:ui",
+      "title": "Guided Tour",
+      "description": "A presentation component for a guided tour or onboarding card.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/guided-tour.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-guided-tour.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-rich-text-editor",
+      "type": "registry:ui",
+      "title": "Rich Text Editor",
+      "description": "A presentation component that provides the structure for a rich text editor.",
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "components/ds/rich-text-editor.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-rich-text-editor.tsx"
+        }
+      ]
+    },
+    {
       "name": "ds-avatar",
       "type": "registry:ui",
       "title": "Avatar UI",
@@ -2704,6 +2996,3208 @@
           "path": "components/ds/file-upload.tsx",
           "type": "registry:ui",
           "target": "components/ui/ds-file-upload.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-announcement-badge",
+      "type": "registry:ui",
+      "title": "AnnouncementBadge",
+      "description": "Badge ou pill de anúncio para o topo de seções hero com micro-animação e suporte a ping.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/announcement-badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-announcement-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "Carrossel de rolagem contínua para logos de clientes, depoimentos ou cartões de dados.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-background-glow",
+      "type": "registry:ui",
+      "title": "BackgroundGlow",
+      "description": "Ambientação luminosa e texturas de fundo em CSS puro (Aurora, Spotlight, Beam e Grid-dots) para seções Hero.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/background-glow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-background-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-text-rotator",
+      "type": "registry:ui",
+      "title": "TextRotator",
+      "description": "Alternador animado de palavras-chave para headlines de destaque com suporte a acessibilidade e prefers-reduced-motion.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/text-rotator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-text-rotator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-browser-mockup",
+      "type": "registry:ui",
+      "title": "BrowserMockup",
+      "description": "Moldura simulando janela de navegador ou terminal de sistema operacional para screenshots e previews.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/browser-mockup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-browser-mockup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-video-dialog",
+      "type": "registry:ui",
+      "title": "VideoDialog",
+      "description": "Thumbnail de vídeo com overlay interativo, botão play pulsante e abertura de modal responsivo em Dialog.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/video-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-video-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-waitlist-form",
+      "type": "registry:ui",
+      "title": "WaitlistForm",
+      "description": "Formulário inline de pré-lançamento ou lista de espera para heróis de landing pages com feedback visual.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/waitlist-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-waitlist-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-section",
+      "type": "registry:ui",
+      "title": "HeroSection",
+      "description": "Shell de layout de seção Hero composível em subcomponentes atômicos com alinhamentos center, left e split.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/hero-section.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-hero-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-social-auth-group",
+      "type": "registry:ui",
+      "title": "SocialAuthGroup",
+      "description": "Grupo de botões para login social e institucional (Google, GitHub, Microsoft, Apple, Gov.br, CAFe).",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/social-auth-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-social-auth-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-password-strength-meter",
+      "type": "registry:ui",
+      "title": "PasswordStrengthMeter",
+      "description": "Indicador dinâmico de segurança de senha com 4 níveis semânticos e checklist de requisitos em tempo real.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/password-strength-meter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-password-strength-meter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-auth-separator",
+      "type": "registry:ui",
+      "title": "AuthSeparator",
+      "description": "Divisor estilizado com rótulo centralizado para transição entre autenticação social e credenciais tradicionais.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/auth-separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-auth-separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-passkey-prompt",
+      "type": "registry:ui",
+      "title": "PasskeyPrompt",
+      "description": "Botão e prompt para autenticação biométrica e chaves de segurança WebAuthn / Passkeys.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/passkey-prompt.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-passkey-prompt.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-two-factor-auth",
+      "type": "registry:ui",
+      "title": "TwoFactorAuth",
+      "description": "Desafio de autenticação em duas etapas (2FA) com suporte a código OTP de 6 dígitos e expiração.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input-otp",
+        "button",
+        "checkbox",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/two-factor-auth.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-two-factor-auth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-magic-link-form",
+      "type": "registry:ui",
+      "title": "MagicLinkForm",
+      "description": "Formulário de autenticação sem senha (magic link) com confirmação e temporizador de reenvio.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/magic-link-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-magic-link-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-login-form",
+      "type": "registry:ui",
+      "title": "LoginForm",
+      "description": "Bloco completo de formulário de login pronto para produção integrando social login, credenciais e passkey.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ds-social-auth-group",
+        "ds-auth-separator",
+        "ds-passkey-prompt",
+        "input",
+        "button",
+        "checkbox",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/login-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-login-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-signup-form",
+      "type": "registry:ui",
+      "title": "SignUpForm",
+      "description": "Bloco completo de cadastro de novos usuários com medidor de força de senha em tempo real.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ds-social-auth-group",
+        "ds-auth-separator",
+        "ds-password-strength-meter",
+        "input",
+        "button",
+        "checkbox",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/signup-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-signup-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-forgot-password-form",
+      "type": "registry:ui",
+      "title": "ForgotPasswordForm",
+      "description": "Bloco completo de recuperação de conta e redefinição de senha com instruções e confirmação.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "button",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/forgot-password-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-forgot-password-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-auth-split-screen",
+      "type": "registry:ui",
+      "title": "AuthSplitScreen",
+      "description": "Shell de layout de tela dividida (split-screen) completo com vitrine da marca, depoimento e estatísticas.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-background-glow",
+        "avatar",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/auth-split-screen.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-auth-split-screen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-office-locations",
+      "type": "registry:ui",
+      "title": "OfficeLocations",
+      "description": "Grid interativo de unidades e endereços com horários e status de funcionamento.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/office-locations.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-office-locations.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-press-wall",
+      "type": "registry:ui",
+      "title": "PressWall",
+      "description": "Mural de menções na imprensa, veículos de mídia e notícias institucionais.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/press-wall.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-press-wall.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-pull-quote",
+      "type": "registry:ui",
+      "title": "PullQuote",
+      "description": "Citação editorial destacada com avatar do autor e suporte a variantes de estilo.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/pull-quote.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-pull-quote.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-sticky-feature-list",
+      "type": "registry:ui",
+      "title": "StickyFeatureList",
+      "description": "Lista de recursos com barra lateral fixa e navegação contextual por seção.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/sticky-feature-list.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-sticky-feature-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-team-roster",
+      "type": "registry:ui",
+      "title": "TeamRoster",
+      "description": "Grid de apresentação de equipe, pesquisadores e colaboradores institucionais.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/team-roster.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-team-roster.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cursor-spotlight",
+      "type": "registry:ui",
+      "title": "CursorSpotlight",
+      "description": "Glow radial que segue o cursor do ponteiro, com fallback estático em prefers-reduced-motion.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/cursor-spotlight.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-cursor-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-bento-grid",
+      "type": "registry:ui",
+      "title": "BentoGrid",
+      "description": "Grid assimétrico com spans configuráveis para tiles de feature/mídia.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/bento-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-bento-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-app-store-badges",
+      "type": "registry:ui",
+      "title": "AppStoreBadges",
+      "description": "Botões de download para App Store e Google Play, com ícone e texto sobrescrevíveis.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/app-store-badges.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-app-store-badges.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-floating-card",
+      "type": "registry:ui",
+      "title": "FloatingCard",
+      "description": "Card com tilt 3D sutil ao seguir o ponteiro, para exibir screenshots/mockups em heroes.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/floating-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-floating-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-bento-features",
+      "type": "registry:block",
+      "title": "BentoFeatures",
+      "description": "Grid bento misturando tiles de feature com ícone e tiles de estatística — composto de ds-bento-grid e ds-card-stat.",
+      "categories": [
+        "bento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-bento-grid",
+        "ds-card-stat"
+      ],
+      "files": [
+        {
+          "path": "components/ds/bento-features.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-bento-features.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-bento-showcase",
+      "type": "registry:block",
+      "title": "BentoShowcase",
+      "description": "Grid bento exibindo screenshot de produto, preview de terminal e snippet de instalação — composto de ds-bento-grid, ds-floating-card, ds-browser-mockup e ds-copy-block.",
+      "categories": [
+        "bento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-bento-grid",
+        "ds-floating-card",
+        "ds-browser-mockup",
+        "ds-copy-block"
+      ],
+      "files": [
+        {
+          "path": "components/ds/bento-showcase.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-bento-showcase.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-bento-social-proof",
+      "type": "registry:block",
+      "title": "BentoSocialProof",
+      "description": "Grid bento misturando tiles de depoimento com um mural de logos — composto de ds-bento-grid, ds-pull-quote e ds-press-wall.",
+      "categories": [
+        "bento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-bento-grid",
+        "ds-pull-quote",
+        "ds-press-wall"
+      ],
+      "files": [
+        {
+          "path": "components/ds/bento-social-proof.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-bento-social-proof.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-bento-metrics",
+      "type": "registry:block",
+      "title": "BentoMetrics",
+      "description": "Grid bento combinando um gráfico de barras com uma tira de estatísticas — composto de ds-bento-grid, ds-bar-chart e ds-card-stat.",
+      "categories": [
+        "bento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-bento-grid",
+        "ds-bar-chart",
+        "ds-card-stat"
+      ],
+      "files": [
+        {
+          "path": "components/ds/bento-metrics.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-bento-metrics.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-contact-form",
+      "type": "registry:ui",
+      "title": "ContactForm",
+      "description": "Formulário de contato (nome, e-mail, assunto, tópico e mensagem) com estados idle/submitting/success/error.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "input",
+        "textarea",
+        "button",
+        "ds-pill-group",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/contact-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-contact-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-contact-channels",
+      "type": "registry:block",
+      "title": "ContactChannels",
+      "description": "Linha de cartões de canal de contato (e-mail, telefone, chat) — composto de ds-card-icon.",
+      "categories": [
+        "contact"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-card-icon"
+      ],
+      "files": [
+        {
+          "path": "components/ds/contact-channels.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-contact-channels.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-contact-split",
+      "type": "registry:block",
+      "title": "ContactSplit",
+      "description": "Seção de contato split com formulário de um lado e um slot flexível do outro — composto de ds-hero-section e ds-contact-form.",
+      "categories": [
+        "contact"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-hero-section",
+        "ds-contact-form",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "components/ds/contact-split.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-contact-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-image-gallery",
+      "type": "registry:ui",
+      "title": "ImageGallery",
+      "description": "Galeria de imagens flexível — grid, masonry ou linha com scroll-snap — com legenda/overlay opcional por item.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/image-gallery.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-image-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-lightbox",
+      "type": "registry:ui",
+      "title": "Lightbox",
+      "description": "Visualizador de imagem em tela cheia com navegação anterior/próxima, setas do teclado e tira de miniaturas.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/lightbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-lightbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-compare-slider",
+      "type": "registry:ui",
+      "title": "CompareSlider",
+      "description": "Slider de comparação antes/depois com clip-path, arrastável ou via teclado (range input nativo).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/compare-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-compare-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-gallery-filterable",
+      "type": "registry:block",
+      "title": "GalleryFilterable",
+      "description": "Galeria de imagens com filtro de categorias — composto de ds-image-gallery e ds-pill-group.",
+      "categories": [
+        "gallery"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-image-gallery",
+        "ds-pill-group"
+      ],
+      "files": [
+        {
+          "path": "components/ds/gallery-filterable.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-gallery-filterable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-gallery-video",
+      "type": "registry:block",
+      "title": "GalleryVideo",
+      "description": "Grid de vídeos que abrem em diálogo ao clicar — composto de ds-video-dialog.",
+      "categories": [
+        "gallery"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-video-dialog"
+      ],
+      "files": [
+        {
+          "path": "components/ds/gallery-video.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-gallery-video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-logo-cloud-stats",
+      "type": "registry:block",
+      "title": "LogoCloudStats",
+      "description": "Estatística em destaque acima de um mural de logos — composto de ds-press-wall.",
+      "categories": [
+        "logo-cloud"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-press-wall"
+      ],
+      "files": [
+        {
+          "path": "components/ds/logo-cloud-stats.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-logo-cloud-stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-logo-cloud-quotes",
+      "type": "registry:block",
+      "title": "LogoCloudQuotes",
+      "description": "Pares de logo do cliente + depoimento curto em grid de cartões — composto de ds-pull-quote.",
+      "categories": [
+        "logo-cloud"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-pull-quote"
+      ],
+      "files": [
+        {
+          "path": "components/ds/logo-cloud-quotes.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-logo-cloud-quotes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-logo-cloud-grouped",
+      "type": "registry:block",
+      "title": "LogoCloudGrouped",
+      "description": "Mural de logos com filtro de indústria/categoria — composto de ds-press-wall e ds-pill-group.",
+      "categories": [
+        "logo-cloud"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-press-wall",
+        "ds-pill-group"
+      ],
+      "files": [
+        {
+          "path": "components/ds/logo-cloud-grouped.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-logo-cloud-grouped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-logo-cloud-glow",
+      "type": "registry:block",
+      "title": "LogoCloudGlow",
+      "description": "Mural de logos centralizado dentro de um card com glow que reage ao ponteiro — composto de ds-press-wall e ds-cursor-spotlight.",
+      "categories": [
+        "logo-cloud"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-press-wall",
+        "ds-cursor-spotlight"
+      ],
+      "files": [
+        {
+          "path": "components/ds/logo-cloud-glow.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-logo-cloud-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-gallery-split",
+      "type": "registry:block",
+      "title": "GallerySplit",
+      "description": "Seção split com texto de um lado e colagem de imagens do outro — composto de ds-hero-section e ds-image-gallery.",
+      "categories": [
+        "gallery"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-hero-section",
+        "ds-image-gallery",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "components/ds/gallery-split.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-gallery-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-contact-bento",
+      "type": "registry:block",
+      "title": "ContactBento",
+      "description": "Grid bento com o formulário de contato como tile principal e tiles satélite — composto de ds-bento-grid e ds-contact-form.",
+      "categories": [
+        "contact",
+        "bento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-bento-grid",
+        "ds-contact-form"
+      ],
+      "files": [
+        {
+          "path": "components/ds/contact-bento.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-contact-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-bento",
+      "type": "registry:block",
+      "title": "HeroBento",
+      "description": "Hero centralizado seguido de um grid bento — composto de ds-hero-section e ds-bento-grid.",
+      "categories": [
+        "hero",
+        "bento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-hero-section",
+        "ds-bento-grid",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-bento.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-terminal",
+      "type": "registry:block",
+      "title": "HeroTerminal",
+      "description": "Hero split com preview de terminal/navegador — composto de ds-hero-section, ds-background-glow e ds-browser-mockup.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "ds-hero-section",
+        "ds-background-glow",
+        "ds-browser-mockup"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-terminal.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-cycling",
+      "type": "registry:block",
+      "title": "HeroCycling",
+      "description": "Hero centralizado com título que alterna palavras — composto de ds-hero-section e ds-text-rotator.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "ds-hero-section",
+        "ds-text-rotator"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-cycling.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-cycling.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-stats",
+      "type": "registry:block",
+      "title": "HeroStats",
+      "description": "Hero centralizado seguido de tira de estatísticas — composto de ds-hero-section e ds-card-stat.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "ds-hero-section",
+        "ds-card-stat"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-stats.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-video",
+      "type": "registry:block",
+      "title": "HeroVideo",
+      "description": "Hero centralizado com thumbnail de vídeo em diálogo — composto de ds-hero-section e ds-video-dialog.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "ds-hero-section",
+        "ds-video-dialog"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-video.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-waitlist",
+      "type": "registry:block",
+      "title": "HeroWaitlist",
+      "description": "Hero centralizado com captura de e-mail — composto de ds-hero-section e ds-waitlist-form.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "ds-hero-section",
+        "ds-waitlist-form"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-waitlist.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-waitlist.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-announcement",
+      "type": "registry:block",
+      "title": "HeroAnnouncement",
+      "description": "Hero centralizado com badge de anúncio e mural de logos em marquee — composto de ds-hero-section, ds-announcement-badge e ds-marquee.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-hero-section",
+        "ds-announcement-badge",
+        "ds-marquee"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-announcement.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-announcement.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-about-section",
+      "type": "registry:block",
+      "title": "AboutSection",
+      "description": "Bloco composto de página 'Sobre' — história + citação do fundador + tira de estatísticas + grid de equipe — construído a partir dos átomos ds-hero-section, ds-pull-quote, ds-card-stat e ds-team-roster.",
+      "categories": [
+        "about"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "ds-hero-section",
+        "ds-pull-quote",
+        "ds-card-stat",
+        "ds-team-roster"
+      ],
+      "files": [
+        {
+          "path": "components/ds/about-section.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-about-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-social-links",
+      "type": "registry:ui",
+      "title": "Social Links",
+      "description": "Linha acessível de canais sociais e comunitários com variantes visuais e detecção de ícones.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ds/social-links.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-social-links.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-newsletter",
+      "type": "registry:ui",
+      "title": "Footer Newsletter",
+      "description": "Captura atômica de e-mail para newsletter com validação, estado de envio e confirmação acessível.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-newsletter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-footer-newsletter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-system-status-badge",
+      "type": "registry:ui",
+      "title": "System Status Badge",
+      "description": "Indicador de disponibilidade operacional e saúde dos serviços em tempo real com dot animado.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/system-status-badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-system-status-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-wordmark",
+      "type": "registry:ui",
+      "title": "Footer Wordmark",
+      "description": "Letreiro tipográfico de rodapé de grande porte com corte outline, preenchimento sutil ou gradiente.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-wordmark.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-footer-wordmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-bottom-bar",
+      "type": "registry:ui",
+      "title": "Footer Bottom Bar",
+      "description": "Faixa inferior atômica com copyright dinâmico, links legais e ações acessórias.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-bottom-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-footer-bottom-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-simple",
+      "type": "registry:block",
+      "title": "Footer Simple",
+      "description": "Bloco de rodapé minimalista e centralizado com logotipo, links de navegação, canais sociais e copyright.",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-social-links",
+        "ds-system-status-badge",
+        "ds-footer-bottom-bar",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-simple.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-footer-simple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-mega",
+      "type": "registry:block",
+      "title": "Footer Mega",
+      "description": "Rodapé institucional completo com múltiplas colunas de links, apresentação de missão, newsletter e barra inferior.",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-social-links",
+        "ds-footer-newsletter",
+        "ds-system-status-badge",
+        "ds-app-store-badges",
+        "ds-footer-bottom-bar",
+        "ds-footer-menu",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-mega.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-footer-mega.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-cta",
+      "type": "registry:block",
+      "title": "Footer CTA",
+      "description": "Bloco de rodapé integrado com cartão de conversão de alto impacto posicionado antes dos links.",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ds-social-links",
+        "ds-footer-bottom-bar",
+        "ds-footer-menu",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-cta.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-footer-cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-footer-brand-backdrop",
+      "type": "registry:block",
+      "title": "Footer Brand Backdrop",
+      "description": "Rodapé de vanguarda com mega letreiro tipográfico de fundo, grade compacta de links, newsletter e status.",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-footer-wordmark",
+        "ds-social-links",
+        "ds-system-status-badge",
+        "ds-footer-bottom-bar",
+        "ds-footer-menu",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/footer-brand-backdrop.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-footer-brand-backdrop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header",
+      "type": "registry:ui",
+      "title": "Header",
+      "description": "Container semântico banner com variantes default/blurred/transparent/solid, sticky, tamanhos sm/md/lg e skip link i18n. Base para todos os headers.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-brand",
+      "type": "registry:ui",
+      "title": "Header Brand",
+      "description": "Identidade do header com logo medallion, título e subtítulo, tamanhos sm/md/lg e skeleton.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-brand.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-brand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-nav",
+      "type": "registry:ui",
+      "title": "Header Nav",
+      "description": "Navegação horizontal baseada em NavigationMenu com suporte a dropdown, mega custom content, badge e estados active.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "navigation-menu",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-actions",
+      "type": "registry:ui",
+      "title": "Header Actions",
+      "description": "Grupo de CTAs do header com variantes de Button, gap configurável e skeleton.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-actions.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-actions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-topbar",
+      "type": "registry:ui",
+      "title": "Header Topbar",
+      "description": "Barra utilitária acima do header com email, telefone, socials e locale selector.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-social-links",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-topbar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-topbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-announcement",
+      "type": "registry:ui",
+      "title": "Header Announcement",
+      "description": "Faixa de anúncio dismissível com tag, link e variantes default/outline/glow.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-announcement.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-announcement.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-user-menu",
+      "type": "registry:ui",
+      "title": "Header User Menu",
+      "description": "Avatar com DropdownMenu, badge de notificações e grupos de ações para header.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "dropdown-menu",
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-user-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-user-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-mobile-drawer",
+      "type": "registry:ui",
+      "title": "Header Mobile Drawer",
+      "description": "Sheet lateral para navegação mobile com accordion, brand header e footer de CTAs.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sheet",
+        "collapsible",
+        "button",
+        "separator",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-mobile-drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-header-mobile-drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-simple",
+      "type": "registry:block",
+      "title": "Header Simple",
+      "description": "Bloco minimal SaaS: brand + nav desktop + search + actions + mobile drawer.",
+      "categories": [
+        "header"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ds-header",
+        "ds-header-brand",
+        "ds-header-nav",
+        "ds-header-actions",
+        "ds-header-mobile-drawer",
+        "ds-header-search"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-simple.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-header-simple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-centered",
+      "type": "registry:block",
+      "title": "Header Centered",
+      "description": "Header com brand centralizado e nav abaixo, com split actions laterais.",
+      "categories": [
+        "header"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-header",
+        "ds-header-brand",
+        "ds-header-nav",
+        "ds-header-actions",
+        "ds-header-mobile-drawer"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-centered.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-header-centered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-with-topbar",
+      "type": "registry:block",
+      "title": "Header With Topbar",
+      "description": "HeaderSimple empilhado com Topbar e Announcement — padrão blockus com contato/social.",
+      "categories": [
+        "header"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-header-topbar",
+        "ds-header-announcement",
+        "ds-header-simple"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-with-topbar.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-header-with-topbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-mega",
+      "type": "registry:block",
+      "title": "Header Mega",
+      "description": "Mega dropdown com grid de links e feature card — e-commerce / docs.",
+      "categories": [
+        "header"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ds-header",
+        "ds-header-brand",
+        "ds-header-nav",
+        "ds-header-actions",
+        "ds-header-mobile-drawer"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-mega.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-header-mega.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-command",
+      "type": "registry:block",
+      "title": "Header Command",
+      "description": "Header SaaS com command palette (⌘K), busca global, user menu e notificações.",
+      "categories": [
+        "header"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "ds-header",
+        "ds-header-brand",
+        "ds-header-nav",
+        "ds-header-actions",
+        "ds-header-mobile-drawer",
+        "ds-header-user-menu",
+        "command",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-command.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-header-command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-header-transparent",
+      "type": "registry:block",
+      "title": "Header Transparent",
+      "description": "Header overlay hero que vira blurred ao scroll com threshold configurável.",
+      "categories": [
+        "header"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-header",
+        "ds-header-brand",
+        "ds-header-nav",
+        "ds-header-actions",
+        "ds-header-mobile-drawer"
+      ],
+      "files": [
+        {
+          "path": "components/ds/header-transparent.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-header-transparent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-values-card",
+      "type": "registry:ui",
+      "title": "Values Card",
+      "description": "Cartão atômico de princípio ou valor institucional com ícone, índice ordinal e variantes.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/values-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-values-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-manifesto-statement",
+      "type": "registry:ui",
+      "title": "Manifesto Statement",
+      "description": "Declaração de manifesto institucional com tipografia editorial grande e citações autorais.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/manifesto-statement.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-manifesto-statement.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-founder-letter",
+      "type": "registry:ui",
+      "title": "Founder Letter",
+      "description": "Carta aberta ou mensagem do coordenador/diretor com retrato, prosa editorial, drop cap e assinatura.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/founder-letter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-founder-letter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-culture-gallery",
+      "type": "registry:ui",
+      "title": "Culture Gallery",
+      "description": "Mosaico e grade fotográfica da cultura institucional e equipe em ação.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/culture-gallery.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-culture-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-milestone-stepper",
+      "type": "registry:ui",
+      "title": "Milestone Stepper",
+      "description": "Linha do tempo de marcos cronológicos e trajetória histórica com anos tabulares.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/milestone-stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-milestone-stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-mission-vision-cards",
+      "type": "registry:ui",
+      "title": "Mission Vision Cards",
+      "description": "Par contrastante de cartões para declaração articulada de Missão e Visão institucionais.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/mission-vision-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-mission-vision-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-about-split-story",
+      "type": "registry:block",
+      "title": "About Split Story",
+      "description": "Seção turnkey de história institucional em 2 colunas com badge, fotografia e métrica flutuante.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ds/about-split-story.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-about-split-story.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-about-values-grid",
+      "type": "registry:block",
+      "title": "About Values Grid",
+      "description": "Bloco turnkey completo de apresentação de valores e pilares com grid responsivo de ValuesCard.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "ds-values-card"
+      ],
+      "files": [
+        {
+          "path": "components/ds/about-values-grid.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-about-values-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-about-milestones",
+      "type": "registry:block",
+      "title": "About Milestones",
+      "description": "Bloco turnkey da trajetória histórica com cabeçalho de seção e MilestoneStepper.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "badge",
+        "ds-milestone-stepper"
+      ],
+      "files": [
+        {
+          "path": "components/ds/about-milestones.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-about-milestones.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-about-manifesto-hero",
+      "type": "registry:block",
+      "title": "About Manifesto Hero",
+      "description": "Hero imersivo de manifesto institucional combinando declaração tipográfica, métricas e CTAs.",
+      "categories": [
+        "about",
+        "marketing"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "ds-manifesto-statement"
+      ],
+      "files": [
+        {
+          "path": "components/ds/about-manifesto-hero.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-about-manifesto-hero.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Faixa full-width dismissível com intent, variante, posição e CTAs. Base blockus banners.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/banner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-banner-marquee",
+      "type": "registry:ui",
+      "title": "Banner Marquee",
+      "description": "Faixa com rolagem infinita horizontal para highlights — blockus banner #13.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/banner-marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-banner-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-banner-top",
+      "type": "registry:block",
+      "title": "Banner Top",
+      "description": "Bloco topo sticky com badge, título e CTA — blockus banners #01-04.",
+      "categories": [
+        "banner"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-banner"
+      ],
+      "files": [
+        {
+          "path": "components/ds/banner-top.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-banner-top.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-banner-promo",
+      "type": "registry:block",
+      "title": "Banner Promo",
+      "description": "Card promo centrado com gradiente/imagem e 1-2 CTAs — blockus #05-08.",
+      "categories": [
+        "banner"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/banner-promo.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-banner-promo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-banner-cookie",
+      "type": "registry:block",
+      "title": "Banner Cookie",
+      "description": "Barra de consentimento cookies fixed bottom/floating — blockus #09-12.",
+      "categories": [
+        "banner"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/banner-cookie.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-banner-cookie.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-banner-app",
+      "type": "registry:block",
+      "title": "Banner App",
+      "description": "Download de app com ícone, rating e store badges — blockus #14-17.",
+      "categories": [
+        "banner"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/banner-app.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-banner-app.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-blog-author",
+      "type": "registry:ui",
+      "title": "Blog Author",
+      "description": "Avatar + nome + role do autor para blog.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/blog-author.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-blog-author.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-blog-meta",
+      "type": "registry:ui",
+      "title": "Blog Meta",
+      "description": "Linha de metadados: data, reading time e categoria.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/blog-meta.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-blog-meta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-blog-card",
+      "type": "registry:ui",
+      "title": "Blog Card",
+      "description": "Card de post com imagem, categoria, título, excerpt, tags e autor — átomo base blog.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "avatar",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/blog-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-blog-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-blog-grid",
+      "type": "registry:block",
+      "title": "Blog Grid",
+      "description": "Grid responsivo 3 cols com filtros categoria + busca — blockus blog #01-07.",
+      "categories": [
+        "blog"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-blog-card",
+        "input",
+        "empty",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/blog-grid.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-blog-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-blog-list",
+      "type": "registry:block",
+      "title": "Blog List",
+      "description": "Lista horizontal imagem à esquerda — blockus #08-12.",
+      "categories": [
+        "blog"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-blog-meta",
+        "ds-blog-author",
+        "separator",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/blog-list.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-blog-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-blog-featured",
+      "type": "registry:block",
+      "title": "Blog Featured",
+      "description": "Hero featured grande + 2 cards laterais — blockus #15-22.",
+      "categories": [
+        "blog"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-blog-card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/blog-featured.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-blog-featured.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cta",
+      "type": "registry:ui",
+      "title": "Cta",
+      "description": "Container CTA core com badge, título, descrição e ações — átomo base CTA.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/cta.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cta-centered",
+      "type": "registry:block",
+      "title": "Cta Centered",
+      "description": "CTA centrado editorial — blockus CTA #01-08.",
+      "categories": [
+        "cta"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-cta"
+      ],
+      "files": [
+        {
+          "path": "components/ds/cta-centered.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-cta-centered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cta-split",
+      "type": "registry:block",
+      "title": "Cta Split",
+      "description": "CTA split imagem + conteúdo — blockus #09-16.",
+      "categories": [
+        "cta"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-cta"
+      ],
+      "files": [
+        {
+          "path": "components/ds/cta-split.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-cta-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cta-newsletter",
+      "type": "registry:block",
+      "title": "Cta Newsletter",
+      "description": "CTA com captura email inline — blockus #17-24.",
+      "categories": [
+        "cta"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-cta",
+        "input",
+        "button",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/cta-newsletter.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-cta-newsletter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-faqs",
+      "type": "registry:ui",
+      "title": "Faqs",
+      "description": "Seção FAQ core com heading, accordion, busca opcional.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-accordion",
+        "input",
+        "empty",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/faqs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-faqs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-faqs-tabs",
+      "type": "registry:block",
+      "title": "Faqs Tabs",
+      "description": "FAQs agrupadas por abas — blockus #03 #07.",
+      "categories": [
+        "faqs"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-faqs",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "components/ds/faqs-tabs.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-faqs-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-faqs-support",
+      "type": "registry:block",
+      "title": "Faqs Support",
+      "description": "FAQs com card suporte lateral — blockus #14 #19.",
+      "categories": [
+        "faqs"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-faqs",
+        "card",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ds/faqs-support.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-faqs-support.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-how-it-works",
+      "type": "registry:ui",
+      "title": "How It Works",
+      "description": "Seção explicativa em passos numerados com variante horizontal/vertical.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/how-it-works.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-how-it-works.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-how-it-works-timeline",
+      "type": "registry:block",
+      "title": "How It Works Timeline",
+      "description": "Timeline vertical com linha conectora — blockus #03 #10 #17.",
+      "categories": [
+        "how-it-works"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-how-it-works"
+      ],
+      "files": [
+        {
+          "path": "components/ds/how-it-works-timeline.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-how-it-works-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-integration-tile",
+      "type": "registry:ui",
+      "title": "Integration Tile",
+      "description": "Tile de integração com logo e status — átomo base integrations.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/integration-tile.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-integration-tile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-integrations",
+      "type": "registry:block",
+      "title": "Integrations",
+      "description": "Grid de integrações com busca — blockus #01-12.",
+      "categories": [
+        "integrations"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-integration-tile",
+        "input",
+        "empty",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/integrations.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-integrations.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-integrations-marquee",
+      "type": "registry:block",
+      "title": "Integrations Marquee",
+      "description": "Parede de logos em marquee infinita — blockus #13-24.",
+      "categories": [
+        "integrations"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-integration-tile"
+      ],
+      "files": [
+        {
+          "path": "components/ds/integrations-marquee.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-integrations-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-pricing-card",
+      "type": "registry:ui",
+      "title": "Pricing Card",
+      "description": "Card de plano com preço, badge popular, features e CTA — átomo base pricing.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/pricing-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-pricing-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-pricing-grid",
+      "type": "registry:block",
+      "title": "Pricing Grid",
+      "description": "Grid 3 cards + toggle mensal/anual — blockus #02 #04 #12.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-pricing-card",
+        "toggle-group",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/pricing-grid.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-pricing-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-pricing-comparison",
+      "type": "registry:block",
+      "title": "Pricing Comparison",
+      "description": "Tabela comparativa feature × plano — blockus #06.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "table"
+      ],
+      "files": [
+        {
+          "path": "components/ds/pricing-comparison.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-pricing-comparison.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-team-card",
+      "type": "registry:ui",
+      "title": "Team Card",
+      "description": "Card de membro com avatar, cargo e bio — átomo base Team.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/team-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-team-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-team-grid",
+      "type": "registry:block",
+      "title": "Team Grid",
+      "description": "Grid de equipe com heading — blockus Team.",
+      "categories": [
+        "team"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-team-card",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/team-grid.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-team-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-testimonial-card",
+      "type": "registry:ui",
+      "title": "Testimonial Card",
+      "description": "Card depoimento com quote e rating — átomo base Testimonials.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/testimonial-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-testimonial-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-testimonials",
+      "type": "registry:block",
+      "title": "Testimonials",
+      "description": "Grid de depoimentos 2-3 cols — blockus Testimonials.",
+      "categories": [
+        "testimonials"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-testimonial-card",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/testimonials.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-testimonials.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-register",
+      "type": "registry:ui",
+      "title": "Register",
+      "description": "Formulário de cadastro com social — átomo base register.",
+      "dependencies": [],
+      "registryDependencies": [
+        "input",
+        "button",
+        "checkbox",
+        "label",
+        "ds-input-password",
+        "ds-social-auth-group",
+        "ds-auth-separator",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/register.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-register.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-register-simple",
+      "type": "registry:block",
+      "title": "Register Simple",
+      "description": "Card cadastro centrado — blockus register #01-08.",
+      "categories": [
+        "register"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-register",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "components/ds/register-simple.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-register-simple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-register-split",
+      "type": "registry:block",
+      "title": "Register Split",
+      "description": "Split screen imagem + formulário — blockus #09-22.",
+      "categories": [
+        "register"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-register",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "components/ds/register-split.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-register-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-stats",
+      "type": "registry:ui",
+      "title": "Stats",
+      "description": "Faixa de métricas com trend — átomo base stats.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "badge",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/stats.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-stats-grid",
+      "type": "registry:block",
+      "title": "Stats Grid",
+      "description": "Grid de métricas 2-4 cols — blockus stats.",
+      "categories": [
+        "stats"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-stats"
+      ],
+      "files": [
+        {
+          "path": "components/ds/stats-grid.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-stats-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "Cursor remoto com label para collab — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/cursor.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-gantt",
+      "type": "registry:ui",
+      "title": "Gantt",
+      "description": "Timeline Gantt com barras e progresso — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/gantt.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-gantt.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-contribution-graph",
+      "type": "registry:ui",
+      "title": "Contribution Graph",
+      "description": "Graph estilo GitHub 7x20 — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/contribution-graph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-contribution-graph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-snippet",
+      "type": "registry:ui",
+      "title": "Snippet",
+      "description": "Tabbed code com copy — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "tabs",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/snippet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-snippet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-image-crop",
+      "type": "registry:ui",
+      "title": "Image Crop",
+      "description": "Crop com drag e zoom slider — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "components/ds/image-crop.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-image-crop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-image-zoom",
+      "type": "registry:ui",
+      "title": "Image Zoom",
+      "description": "Zoom hover lens — adaptado Kibo.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/image-zoom.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-image-zoom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-credit-card",
+      "type": "registry:ui",
+      "title": "Credit Card",
+      "description": "Card visual com gradient e brand — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/credit-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-credit-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-ticker",
+      "type": "registry:ui",
+      "title": "Ticker",
+      "description": "Faixa financeira scroll — adaptado Kibo.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/ticker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-ticker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-comparison",
+      "type": "registry:ui",
+      "title": "Comparison",
+      "description": "Before/after slider — adaptado Kibo.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/comparison.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-comparison.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-deck",
+      "type": "registry:ui",
+      "title": "Deck",
+      "description": "Swipe deck de cards — adaptado Kibo.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/deck.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-deck.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-qr-code",
+      "type": "registry:ui",
+      "title": "Qr Code",
+      "description": "QR code placeholder — adaptado Kibo.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/qr-code.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-qr-code.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-settings",
+      "type": "registry:block",
+      "title": "Settings",
+      "description": "Tabs de configurações — ReUI Settings 16.",
+      "categories": [
+        "settings"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "tabs",
+        "card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/settings.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-settings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-event-calendar",
+      "type": "registry:block",
+      "title": "Event Calendar",
+      "description": "Calendário mensal com eventos — ReUI Event Calendar 6.",
+      "categories": [
+        "schedule"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/event-calendar.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-event-calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-schedule",
+      "type": "registry:block",
+      "title": "Schedule",
+      "description": "Grade semanal com slots — ReUI Schedule 10.",
+      "categories": [
+        "schedule"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/schedule.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-schedule.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-billing",
+      "type": "registry:block",
+      "title": "Billing",
+      "description": "Card de plano e fatura — ReUI Billing.",
+      "categories": [
+        "billing"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/billing.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-billing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-users-table",
+      "type": "registry:block",
+      "title": "Users Table",
+      "description": "Tabela de usuários com avatar e status — ReUI Users.",
+      "categories": [
+        "users"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "avatar",
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/users-table.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-users-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-product-card",
+      "type": "registry:ui",
+      "title": "Product Card",
+      "description": "Card de produto eCommerce — ReUI Product Card.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/product-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-product-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-checkout",
+      "type": "registry:block",
+      "title": "Checkout",
+      "description": "Resumo de pedido — ReUI Checkout.",
+      "categories": [
+        "ecommerce"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "button",
+        "separator",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/checkout.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-checkout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-filter-sidebar",
+      "type": "registry:block",
+      "title": "Filter Sidebar",
+      "description": "Filtros categoria e preço — ReUI Filter Sidebar.",
+      "categories": [
+        "ecommerce"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "checkbox",
+        "label",
+        "slider",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/filter-sidebar.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-filter-sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-ai-chat",
+      "type": "registry:block",
+      "title": "AI Chat",
+      "description": "Chat assistente — ReUI AI Chat 12.",
+      "categories": [
+        "ai"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "input",
+        "avatar",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/ai-chat.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-ai-chat.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-onboarding",
+      "type": "registry:block",
+      "title": "Onboarding",
+      "description": "Passos de onboarding com progresso — ReUI Onboarding 9.",
+      "categories": [
+        "onboarding"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "button",
+        "progress",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/onboarding.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-onboarding.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-profile",
+      "type": "registry:block",
+      "title": "Profile",
+      "description": "Card de perfil — ReUI Profile 9.",
+      "categories": [
+        "profile"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "avatar",
+        "button",
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/profile.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-profile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-wizard",
+      "type": "registry:block",
+      "title": "Wizard",
+      "description": "Wizard multi-step — ReUI Wizard 7.",
+      "categories": [
+        "wizard"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "button",
+        "progress",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/wizard.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-wizard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-sortable",
+      "type": "registry:ui",
+      "title": "Sortable",
+      "description": "Lista arrastável vertical/grid — ReUI Sortable.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/sortable.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-sortable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-cascader",
+      "type": "registry:ui",
+      "title": "Cascader",
+      "description": "Seleção em cascata níveis — ReUI Cascader.",
+      "dependencies": [],
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ds/cascader.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-cascader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "description": "Campo numérico com spinbuttons — ReUI Number Field.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/ds/number-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-number-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "Busca autocomplete async — ReUI Autocomplete.",
+      "dependencies": [],
+      "registryDependencies": [
+        "popover",
+        "input",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/autocomplete.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-autocomplete.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Wizard com validação per-step — ReUI Stepper.",
+      "dependencies": [],
+      "registryDependencies": [
+        "ds-step-progress",
+        "card",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ds/stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-stepper.tsx"
         }
       ]
     }

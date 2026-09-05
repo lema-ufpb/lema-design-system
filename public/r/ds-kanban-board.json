@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-kanban-board",
+  "title": "Kanban Board",
+  "description": "A presentation component for Kanban boards.",
+  "registryDependencies": [
+    "card",
+    "badge",
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "components/ds/kanban-board.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\nimport { Card, CardContent, CardHeader, CardTitle } from \"@/components/ui/card\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { ScrollArea, ScrollBar } from \"@/components/ui/scroll-area\"\n\n// ── KanbanBoard ──\n\nexport type KanbanBoardProps = React.HTMLAttributes<HTMLDivElement>\n\nexport const KanbanBoard = React.forwardRef<HTMLDivElement, KanbanBoardProps>(\n  ({ className, children, ...props }, ref) => {\n    return (\n      <ScrollArea className=\"w-full whitespace-nowrap\">\n        <div\n          ref={ref}\n          className={cn(\"flex h-full min-h-[500px] gap-4 pb-4\", className)}\n          data-slot=\"ds-kanban-board\"\n          role=\"list\"\n          {...props}\n        >\n          {children}\n        </div>\n        <ScrollBar orientation=\"horizontal\" />\n      </ScrollArea>\n    )\n  }\n)\nKanbanBoard.displayName = \"KanbanBoard\"\n\n// ── KanbanColumn ──\n\nexport interface KanbanColumnProps extends React.HTMLAttributes<HTMLDivElement> {\n  title: string\n  count?: number\n}\n\nexport const KanbanColumn = React.forwardRef<HTMLDivElement, KanbanColumnProps>(\n  ({ className, title, count, children, ...props }, ref) => {\n    return (\n      <div\n        ref={ref}\n        className={cn(\n          \"flex h-full w-80 shrink-0 flex-col rounded-xl bg-muted/50 p-3\",\n          className\n        )}\n        data-slot=\"ds-kanban-column\"\n        role=\"listitem\"\n        aria-label={`${title}${count !== undefined ? `, ${count} items` : \"\"}`}\n        {...props}\n      >\n        <div className=\"mb-3 flex items-center justify-between px-1\">\n          <h3 className=\"text-sm font-semibold\">{title}</h3>\n          {count !== undefined && (\n            <Badge variant=\"secondary\" className=\"rounded-full px-2 text-xs\">\n              {count}\n            </Badge>\n          )}\n        </div>\n        <div className=\"flex flex-1 flex-col gap-2 overflow-y-auto\" role=\"list\">\n          {children}\n        </div>\n      </div>\n    )\n  }\n)\nKanbanColumn.displayName = \"KanbanColumn\"\n\n// ── KanbanCard ──\n\nexport interface KanbanCardProps extends React.HTMLAttributes<HTMLDivElement> {\n  title: string\n  description?: string\n  tags?: string[]\n}\n\nexport const KanbanCard = React.forwardRef<HTMLDivElement, KanbanCardProps>(\n  ({ className, title, description, tags, children, ...props }, ref) => {\n    return (\n      <Card\n        ref={ref}\n        className={cn(\"cursor-grab active:cursor-grabbing\", className)}\n        data-slot=\"ds-kanban-card\"\n        role=\"listitem\"\n        tabIndex={0}\n        {...props}\n      >\n        <CardHeader className=\"p-3\">\n          {tags && tags.length > 0 && (\n            <div className=\"mb-2 flex flex-wrap gap-1\">\n              {tags.map((tag) => (\n                <Badge key={tag} variant=\"outline\" className=\"text-xs\">\n                  {tag}\n                </Badge>\n              ))}\n            </div>\n          )}\n          <CardTitle className=\"text-sm\">{title}</CardTitle>\n          {description && (\n            <p className=\"mt-1 line-clamp-2 text-xs whitespace-normal text-muted-foreground\">\n              {description}\n            </p>\n          )}\n        </CardHeader>\n        {children && <CardContent className=\"p-3 pt-0\">{children}</CardContent>}\n      </Card>\n    )\n  }\n)\nKanbanCard.displayName = \"KanbanCard\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-kanban-board.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

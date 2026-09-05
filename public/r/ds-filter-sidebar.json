@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-filter-sidebar",
+  "title": "Filter Sidebar",
+  "description": "Filtros categoria e preço — ReUI Filter Sidebar.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "checkbox",
+    "label",
+    "slider",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/filter-sidebar.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Card } from \"@/components/ui/card\"\nimport { Checkbox } from \"@/components/ui/checkbox\"\nimport { Label } from \"@/components/ui/label\"\nimport { Slider } from \"@/components/ui/slider\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface FilterSidebarProps extends React.HTMLAttributes<HTMLDivElement> {\n  categories?: string[]\n  priceRange?: [number, number]\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function FilterSidebar({ className, categories = [\"Shoes\", \"Clothing\", \"Accessories\"], priceRange = [0, 500], loading = false, ...props }: FilterSidebarProps) {\n  if (loading) {\n    return (\n      <Card data-slot=\"filter-sidebar-skeleton\" className={cn(\"p-4\", className)} {...props}>\n        <Skeleton className=\"h-48 w-full\" />\n      </Card>\n    )\n  }\n\n  return (\n    <Card data-slot=\"filter-sidebar\" className={cn(\"p-4\", className)} {...props}>\n      <div className=\"flex flex-col gap-6\">\n        <div className=\"flex flex-col gap-3\">\n          <h4 className=\"text-xs font-semibold text-foreground\">Category</h4>\n          {categories.map((c) => (\n            <Label key={c} className=\"flex items-center gap-2 text-xs font-normal\">\n              <Checkbox />\n              {c}\n            </Label>\n          ))}\n        </div>\n        <div className=\"flex flex-col gap-3\">\n          <h4 className=\"text-xs font-semibold text-foreground\">Price</h4>\n          <Slider defaultValue={priceRange} min={0} max={500} step={10} />\n          <span className=\"text-xs text-muted-foreground tabular-nums\">\n            ${priceRange[0]} — ${priceRange[1]}\n          </span>\n        </div>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-filter-sidebar.tsx"
+    }
+  ],
+  "categories": [
+    "ecommerce"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-ai-chat",
+  "title": "AI Chat",
+  "description": "Chat assistente — ReUI AI Chat 12.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "button",
+    "input",
+    "avatar",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/ai-chat.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Card } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { Input } from \"@/components/ui/input\"\nimport { Avatar, AvatarFallback } from \"@/components/ui/avatar\"\nimport { SendIcon } from \"lucide-react\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface ChatMessage {\n  id: string\n  role: \"user\" | \"assistant\"\n  content: string\n}\n\nexport interface AiChatProps extends React.HTMLAttributes<HTMLDivElement> {\n  messages?: ChatMessage[]\n  onSend?: (message: string) => void\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function AiChat({ className, messages = [], onSend, loading = false, ...props }: AiChatProps) {\n  const [input, setInput] = React.useState(\"\")\n\n  if (loading) {\n    return (\n      <Card data-slot=\"ai-chat-skeleton\" className={cn(\"p-4\", className)} {...props}>\n        <Skeleton className=\"h-64 w-full\" />\n      </Card>\n    )\n  }\n\n  return (\n    <Card data-slot=\"ai-chat\" className={cn(\"flex h-80 flex-col p-4\", className)} {...props}>\n      <div className=\"flex flex-1 flex-col gap-3 overflow-y-auto\">\n        {messages.map((m) => (\n          <div key={m.id} className={cn(\"flex gap-2\", m.role === \"user\" ? \"justify-end\" : \"justify-start\")}>\n            {m.role === \"assistant\" && (\n              <Avatar className=\"size-6\">\n                <AvatarFallback className=\"text-xs\">AI</AvatarFallback>\n              </Avatar>\n            )}\n            <span\n              className={cn(\n                \"max-w-[70%] rounded-2xl px-3 py-2 text-xs leading-relaxed\",\n                m.role === \"user\" ? \"bg-primary text-primary-foreground\" : \"bg-muted text-foreground\"\n              )}\n            >\n              {m.content}\n            </span>\n          </div>\n        ))}\n      </div>\n      <div className=\"mt-3 flex gap-2\">\n        <Input\n          placeholder=\"Ask something...\"\n          value={input}\n          onChange={(e) => setInput(e.target.value)}\n          className=\"h-9 rounded-full\"\n          onKeyDown={(e) => {\n            if (e.key === \"Enter\" && input) {\n              onSend?.(input)\n              setInput(\"\")\n            }\n          }}\n        />\n        <Button\n          size=\"icon\"\n          className=\"size-9 rounded-full\"\n          onClick={() => {\n            if (input) {\n              onSend?.(input)\n              setInput(\"\")\n            }\n          }}\n        >\n          <SendIcon className=\"size-4\" />\n        </Button>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-ai-chat.tsx"
+    }
+  ],
+  "categories": [
+    "ai"
+  ],
+  "type": "registry:block"
+}

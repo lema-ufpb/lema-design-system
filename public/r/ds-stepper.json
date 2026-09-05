@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-stepper",
+  "title": "Stepper",
+  "description": "Wizard com validação per-step — ReUI Stepper.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-step-progress",
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/ds/stepper.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { StepProgress, type StepItem } from \"./step-progress\"\nimport { Card } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {\n  steps: StepItem[]\n  currentId: string\n  onStepChange?: (id: string) => void\n  orientation?: \"horizontal\" | \"vertical\"\n  size?: \"sm\" | \"md\" | \"lg\"\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Stepper({ className, steps, currentId, onStepChange, orientation = \"horizontal\", size = \"md\", ...props }: StepperProps) {\n  const idx = steps.findIndex((s) => s.id === currentId)\n\n  return (\n    <Card data-slot=\"stepper\" className={cn(\"p-4\", className)} {...props}>\n      <StepProgress steps={steps} currentStepId={currentId} orientation={orientation} size={size} onStepClick={onStepChange} />\n      <div className=\"mt-4 flex justify-between gap-2\">\n        <Button variant=\"ghost\" size=\"sm\" disabled={idx <= 0} onClick={() => onStepChange?.(steps[idx - 1]?.id)} className=\"rounded-full\">\n          Back\n        </Button>\n        <Button size=\"sm\" disabled={idx === steps.length - 1} onClick={() => onStepChange?.(steps[idx + 1]?.id)} className=\"rounded-full\">\n          Next\n        </Button>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-stepper.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -206,7 +206,7 @@ export const SearchBar = React.forwardRef<HTMLDivElement, SearchBarProps>(
       onStart: onVoiceStart,
       onEnd: onVoiceEnd,
       onError: onVoiceError,
-      onResult: (transcript) => {
+      onResult: (transcript: string) => {
         if (!isControlled) setInternalValue(transcript)
         if (debounceTimer.current) clearTimeout(debounceTimer.current)
         onChange?.(transcript)

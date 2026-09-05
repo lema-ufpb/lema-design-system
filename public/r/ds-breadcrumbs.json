@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-breadcrumbs",
+  "title": "Breadcrumbs",
+  "description": "A data-driven breadcrumbs component.",
+  "registryDependencies": [
+    "breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "components/ds/breadcrumbs.tsx",
+      "content": "import * as React from \"react\"\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/components/ui/breadcrumb\"\n\n// ── Types ──\n\nexport interface BreadcrumbItemData {\n  id: string\n  label: React.ReactNode\n  href?: string\n  onClick?: () => void\n}\n\nexport interface BreadcrumbsProps {\n  items: BreadcrumbItemData[]\n  separator?: React.ReactNode\n  itemsBeforeEllipsis?: number\n  itemsAfterEllipsis?: number\n  className?: string\n}\n\n// ── Component ──\n\nexport function Breadcrumbs({\n  items,\n  separator,\n  itemsBeforeEllipsis = 1,\n  itemsAfterEllipsis = 2,\n  className,\n}: BreadcrumbsProps) {\n  const shouldTruncate =\n    items.length > itemsBeforeEllipsis + itemsAfterEllipsis + 1\n\n  const renderItem = (item: BreadcrumbItemData, isLast: boolean) => {\n    return (\n      <React.Fragment key={item.id}>\n        <BreadcrumbItem>\n          {isLast ? (\n            <BreadcrumbPage>{item.label}</BreadcrumbPage>\n          ) : item.href ? (\n            <BreadcrumbLink href={item.href} onClick={item.onClick}>\n              {item.label}\n            </BreadcrumbLink>\n          ) : (\n            <span\n              role=\"button\"\n              tabIndex={0}\n              onClick={item.onClick}\n              className=\"cursor-pointer transition-colors hover:text-foreground\"\n              onKeyDown={(e) => {\n                if (e.key === \"Enter\" || e.key === \" \") {\n                  e.preventDefault()\n                  item.onClick?.()\n                }\n              }}\n            >\n              {item.label}\n            </span>\n          )}\n        </BreadcrumbItem>\n        {!isLast && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}\n      </React.Fragment>\n    )\n  }\n\n  return (\n    <Breadcrumb className={className} data-slot=\"ds-breadcrumbs\">\n      <BreadcrumbList>\n        {shouldTruncate ? (\n          <>\n            {items\n              .slice(0, itemsBeforeEllipsis)\n              .map((item) => renderItem(item, false))}\n            <BreadcrumbItem>\n              <BreadcrumbEllipsis />\n            </BreadcrumbItem>\n            <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>\n            {items\n              .slice(items.length - itemsAfterEllipsis)\n              .map((item, index) =>\n                renderItem(item, index === itemsAfterEllipsis - 1)\n              )}\n          </>\n        ) : (\n          items.map((item, index) =>\n            renderItem(item, index === items.length - 1)\n          )\n        )}\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-breadcrumbs.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

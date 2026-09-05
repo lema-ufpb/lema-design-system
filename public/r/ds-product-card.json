@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-product-card",
+  "title": "Product Card",
+  "description": "Card de produto eCommerce — ReUI Product Card.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "badge",
+    "button",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/product-card.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Card } from \"@/components/ui/card\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Button } from \"@/components/ui/button\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {\n  title: string\n  price: string\n  originalPrice?: string\n  imageSrc?: string\n  badge?: string\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function ProductCard({ className, title, price, originalPrice, imageSrc, badge, loading = false, ...props }: ProductCardProps) {\n  if (loading) {\n    return (\n      <Card data-slot=\"product-card-skeleton\" className={cn(\"overflow-hidden p-0\", className)} {...props}>\n        <Skeleton className=\"h-40 w-full\" />\n        <div className=\"p-4\">\n          <Skeleton className=\"h-4 w-3/4\" />\n        </div>\n      </Card>\n    )\n  }\n\n  return (\n    <Card data-slot=\"product-card\" className={cn(\"overflow-hidden p-0 transition-all hover:shadow-md\", className)} {...props}>\n      {imageSrc && (\n        // eslint-disable-next-line @next/next/no-img-element\n        <img src={imageSrc} alt={title} className=\"h-40 w-full object-cover\" />\n      )}\n      <div className=\"flex flex-col gap-2 p-4\">\n        <div className=\"flex items-center justify-between gap-2\">\n          <h3 className=\"truncate text-sm font-medium text-foreground\">{title}</h3>\n          {badge && <Badge className=\"rounded-full text-xs\">{badge}</Badge>}\n        </div>\n        <div className=\"flex items-baseline gap-2\">\n          <span className=\"text-sm font-bold tabular-nums text-foreground\">{price}</span>\n          {originalPrice && <span className=\"text-xs text-muted-foreground line-through tabular-nums\">{originalPrice}</span>}\n        </div>\n        <Button size=\"sm\" className=\"mt-2 w-full rounded-full\">\n          Add to cart\n        </Button>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-product-card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
