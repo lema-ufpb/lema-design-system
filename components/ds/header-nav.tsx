@@ -158,9 +158,9 @@ export function HeaderNav({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   {item.content ? (
-                    <div className="min-w-[320px] p-2">{item.content}</div>
+                    <div className="min-w-80 p-2">{item.content}</div>
                   ) : (
-                    <ul className="grid min-w-[320px] gap-1 p-2 md:w-[400px] md:grid-cols-2 lg:w-[500px]">
+                    <ul className="grid min-w-80 gap-1 p-2 md:w-[400px] md:grid-cols-2 lg:w-[500px]">
                       {item.children?.map((child) => (
                         <li key={child.label}>
                           <NavigationMenuLink asChild>

@@ -87,8 +87,8 @@ export const stepConnectorVariants = cva(
   {
     variants: {
       orientation: {
-        horizontal: "mt-0 h-[2px] w-full",
-        vertical: "mx-auto mt-2 mb-2 min-h-[1.5rem] w-[2px]",
+        horizontal: "mt-0 h-0.5 w-full",
+        vertical: "mx-auto mt-2 mb-2 min-h-6 w-0.5",
       },
       status: {
         complete: "bg-primary",
@@ -112,7 +112,7 @@ export const stepTitleVariants = cva(
   {
     variants: {
       orientation: {
-        horizontal: "mt-3 max-w-[110px] px-1 text-center text-xs",
+        horizontal: "mt-3 max-w-28 px-1 text-center text-xs",
         vertical: "ml-4 pt-1 text-start text-sm",
       },
       status: {
@@ -130,7 +130,7 @@ export const stepDescriptionVariants = cva(
   {
     variants: {
       orientation: {
-        horizontal: "max-w-[120px] text-center",
+        horizontal: "max-w-30 text-center",
         vertical: "ml-4 text-start",
       },
     },

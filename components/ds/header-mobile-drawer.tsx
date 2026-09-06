@@ -86,7 +86,7 @@ export function HeaderMobileDrawer({
       <SheetContent
         id="header-mobile-drawer"
         side={side}
-        className="flex w-[320px] flex-col gap-0 p-0 sm:max-w-[320px]"
+        className="flex w-80 flex-col gap-0 p-0 sm:max-w-80"
         data-slot="header-mobile-drawer"
       >
         <SheetHeader className="border-b p-4">
