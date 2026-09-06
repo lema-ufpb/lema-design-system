@@ -379,6 +379,11 @@ export const UI_I18N: Record<
       included: string
       notIncluded: string
     }
+    billing: {
+      nextBilling: string
+      manage: string
+      invoices: string
+    }
     integrations: {
       title: string
       description: string
@@ -941,6 +946,11 @@ export const UI_I18N: Record<
       features: "Features",
       included: "Included",
       notIncluded: "Not included",
+    },
+    billing: {
+      nextBilling: "Next billing",
+      manage: "Manage",
+      invoices: "Invoices",
     },
     integrations: {
       title: "Integrations",
@@ -1517,6 +1527,11 @@ export const UI_I18N: Record<
       included: "Incluso",
       notIncluded: "Não incluso",
     },
+    billing: {
+      nextBilling: "Próxima cobrança",
+      manage: "Gerenciar",
+      invoices: "Faturas",
+    },
     integrations: {
       title: "Integrações",
       description: "Conecte suas ferramentas favoritas.",
@@ -2086,6 +2101,11 @@ export const UI_I18N: Record<
       features: "Características",
       included: "Incluido",
       notIncluded: "No incluido",
+    },
+    billing: {
+      nextBilling: "Próxima facturación",
+      manage: "Gestionar",
+      invoices: "Facturas",
     },
     integrations: {
       title: "Integraciones",
@@ -2666,6 +2686,11 @@ export const UI_I18N: Record<
       features: "Fonctionnalités",
       included: "Inclus",
       notIncluded: "Non inclus",
+    },
+    billing: {
+      nextBilling: "Prochaine facturation",
+      manage: "Gérer",
+      invoices: "Factures",
     },
     integrations: {
       title: "Intégrations",
