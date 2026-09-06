@@ -2564,10 +2564,43 @@
       ]
     },
     {
+      "name": "ds-form-builder",
+      "type": "registry:ui",
+      "title": "Form Builder",
+      "description": "Gera um formulário validado a partir de um schema zod (validação) e uma lista de campos (rótulo, tipo de widget, opções) — react-hook-form + Field/FieldGroup.",
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers"
+      ],
+      "registryDependencies": [
+        "field",
+        "button",
+        "input",
+        "textarea",
+        "select",
+        "switch",
+        "checkbox",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "components/ds/form-builder.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-form-builder.tsx"
+        }
+      ]
+    },
+    {
       "name": "ds-kanban-board",
       "type": "registry:ui",
       "title": "Kanban Board",
-      "description": "A presentation component for Kanban boards.",
+      "description": "Kanban board com drag-and-drop real (@dnd-kit) — reordena e move cards entre colunas por ponteiro ou teclado.",
+      "dependencies": [
+        "@dnd-kit/core",
+        "@dnd-kit/sortable",
+        "@dnd-kit/utilities"
+      ],
       "registryDependencies": [
         "card",
         "badge",
@@ -3486,6 +3519,59 @@
           "path": "components/ds/cursor-spotlight.tsx",
           "type": "registry:ui",
           "target": "components/ui/ds-cursor-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-animated-number",
+      "type": "registry:ui",
+      "title": "AnimatedNumber",
+      "description": "Contador numérico animado com formatação por locale e fallback sr-only para leitores de tela.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/animated-number.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-animated-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-scroll-reveal",
+      "type": "registry:ui",
+      "title": "ScrollReveal",
+      "description": "Wrapper que revela filhos com fade/slide ao entrar no viewport, via IntersectionObserver — visível de imediato em prefers-reduced-motion.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/scroll-reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-scroll-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-border-beam",
+      "type": "registry:ui",
+      "title": "BorderBeam",
+      "description": "Brilho que percorre a borda do container pai via offset-path (correto em qualquer proporção), em CSS puro — oculto em prefers-reduced-motion.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/border-beam.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-border-beam.tsx"
         }
       ]
     },
@@ -6025,8 +6111,11 @@
         "card",
         "button",
         "input",
-        "avatar",
-        "skeleton"
+        "skeleton",
+        "empty",
+        "message",
+        "message-scroller",
+        "bubble"
       ],
       "files": [
         {
@@ -6198,6 +6287,514 @@
           "path": "components/ds/stepper.tsx",
           "type": "registry:ui",
           "target": "components/ui/ds-stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-team-switcher",
+      "type": "registry:ui",
+      "title": "Team Switcher",
+      "description": "Seletor de equipe para sidebar com DropdownMenu, logo, plano e atalho — inspirado em shadcn sidebar-07 TeamSwitcher.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "dropdown-menu",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/team-switcher.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-team-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-sidebar-search",
+      "type": "registry:ui",
+      "title": "Sidebar Search",
+      "description": "Campo de busca para sidebar com label sr-only e ícone — inspirado em shadcn sidebar SearchForm.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/sidebar-search.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-sidebar-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-app-sidebar",
+      "type": "registry:block",
+      "title": "App Sidebar",
+      "description": "Sidebar completa com TeamSwitcher, Search, NavMain colapsável, Projects, NavUser e Rail — compõe sidebar shadcn 07 + 16.",
+      "categories": [
+        "sidebar",
+        "layout"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "collapsible",
+        "dropdown-menu",
+        "skeleton",
+        "ds-team-switcher",
+        "ds-sidebar-search",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/app-sidebar.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-app-sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-section-cards",
+      "type": "registry:ui",
+      "title": "Section Cards",
+      "description": "Grid de cards estatísticos com gradiente, badge trend e footer — extraído de shadcn dashboard-01 SectionCards.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/section-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-section-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-auth-card",
+      "type": "registry:block",
+      "title": "Auth Card",
+      "description": "Shell de autenticação unificado com variantes centered/muted/split/cover — consolida shadcn login-01..05 e signup-01..05.",
+      "categories": [
+        "auth",
+        "layout"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/auth-card.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-auth-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-dashboard",
+      "type": "registry:block",
+      "title": "Dashboard",
+      "description": "Shell de dashboard com AppSidebar, Header, SectionCards, Chart e DataTable — replica shadcn dashboard-01.",
+      "categories": [
+        "dashboard",
+        "layout"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "ds-app-sidebar",
+        "ds-section-cards",
+        "sidebar",
+        "separator",
+        "skeleton",
+        "ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/dashboard.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-dashboard-layout",
+      "type": "registry:ui",
+      "title": "Dashboard Layout",
+      "description": "A base layout for complex dashboards with sidebar and header.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn"
+      ],
+      "registryDependencies": [
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "components/ds/dashboard-layout.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-dashboard-layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-settings-view",
+      "type": "registry:ui",
+      "title": "Settings View",
+      "description": "A complex view for settings area separated by internal navigation.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn"
+      ],
+      "registryDependencies": [
+        "tabs",
+        "button",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "components/ds/settings-view.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-settings-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-tilt-card",
+      "type": "registry:ui",
+      "title": "Tilt Card",
+      "description": "Card 3D com tilt no mousemove, glare radial e fallback prefers-reduced-motion — inspirado em Aceternity 3D Card + Wobble Card.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/tilt-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-tilt-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "Card com spotlight radial seguindo o mouse — inspirado em Aceternity Card Spotlight.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "card",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/spotlight-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-spotlight-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-tracing-beam",
+      "type": "registry:ui",
+      "title": "Tracing Beam",
+      "description": "Feixe vertical que acompanha o scroll com thumb e gradiente — inspirado em Aceternity Tracing Beam.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/tracing-beam.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-tracing-beam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-typewriter",
+      "type": "registry:ui",
+      "title": "Typewriter",
+      "description": "Texto com efeito typewriter/flip/generate, cursor piscante e suporte a reduced-motion — inspirado em Aceternity Text Generate + Typewriter + Flip Words.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/typewriter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-typewriter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-aurora-background",
+      "type": "registry:ui",
+      "title": "Aurora Background",
+      "description": "Fundo aurora com gradientes animados, grid sutil e máscara radial — inspirado em Aceternity Aurora + Sparkles + Wavy.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/aurora-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-aurora-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-floating-dock",
+      "type": "registry:ui",
+      "title": "Floating Dock",
+      "description": "Dock flutuante com magnificação no hover e fallback grid mobile — inspirado em Aceternity Floating Dock.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/ds/floating-dock.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-floating-dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-layers",
+      "type": "registry:block",
+      "title": "Hero Layers",
+      "description": "Hero com screenshots em camadas sobrepostas (Layers) — inspirado em Launch UI Hero Layers.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-layers.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-layers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-hero-glow",
+      "type": "registry:block",
+      "title": "Hero Glow",
+      "description": "Hero com glow radial superior e grid sutil — inspirado em Launch UI Hero Top Glow.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/hero-glow.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-hero-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-feature-sticky",
+      "type": "registry:block",
+      "title": "Feature Sticky",
+      "description": "Seção feature com texto e mockup sticky (left/right) — inspirado em Launch UI Feature Sticky.",
+      "categories": [
+        "feature"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/feature-sticky.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-feature-sticky.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-marquee-duo",
+      "type": "registry:ui",
+      "title": "Marquee Duo",
+      "description": "Marquee duplo (2 rows) com direção oposta e pause on hover — inspirado em Launch UI Social Proof Marquee 2 Rows.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "card",
+        "avatar",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/marquee-duo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-marquee-duo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-navbar-floating",
+      "type": "registry:block",
+      "title": "Navbar Floating",
+      "description": "Navbar flutuante com blur, borda e menu mobile — inspirado em Launch UI Navbar Floating.",
+      "categories": [
+        "header",
+        "navbar"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/navbar-floating.tsx",
+          "type": "registry:block",
+          "target": "components/ui/ds-navbar-floating.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-screenshot",
+      "type": "registry:ui",
+      "title": "Screenshot",
+      "description": "Screenshot theme-aware (light/dark) com otimização e skeleton — inspirado em Launch UI Screenshot.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/screenshot.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-screenshot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-mockup",
+      "type": "registry:ui",
+      "title": "Mockup",
+      "description": "Mockup com frames small/large/mobile e sombra — inspirado em Launch UI Mockup.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ds/mockup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-mockup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-glow",
+      "type": "registry:ui",
+      "title": "Glow",
+      "description": "Glow posicional (top/above/center/below) com radial gradient blur — inspirado em Launch UI Glow.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/glow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-glass",
+      "type": "registry:ui",
+      "title": "Glass",
+      "description": "Glassmorphism com 5 variantes (glass-1..5) e backdrop-blur — inspirado em Launch UI Glass.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/glass.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-glass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-fade",
+      "type": "registry:ui",
+      "title": "Fade",
+      "description": "Fade mask com variantes x/y/top/bottom/left/right — inspirado em Launch UI Fade.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/fade.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-fade.tsx"
         }
       ]
     }

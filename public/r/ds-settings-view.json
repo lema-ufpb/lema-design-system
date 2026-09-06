@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-settings-view",
+  "title": "Settings View",
+  "description": "A complex view for settings area separated by internal navigation.",
+  "dependencies": [
+    "class-variance-authority",
+    "cn"
+  ],
+  "registryDependencies": [
+    "tabs",
+    "button",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "components/ds/settings-view.tsx",
+      "content": "import * as React from \"react\"\nimport { cva } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/components/ui/tabs\"\n\n// ── Types ──\n\nexport interface SettingsSection {\n  id: string\n  title: string\n  content: React.ReactNode\n}\n\nexport interface SettingsViewProps extends React.HTMLAttributes<HTMLDivElement> {\n  title: string\n  description?: string\n  sections: SettingsSection[]\n  defaultSection?: string\n}\n\n// ── Variants ──\n\nexport const settingsContainerVariants = cva(\"flex flex-col gap-6 md:gap-8\", {\n  variants: {},\n  defaultVariants: {},\n})\n\nexport const settingsHeaderVariants = cva(\n  \"flex flex-col gap-1 border-b border-border pb-6\",\n  {\n    variants: {},\n    defaultVariants: {},\n  }\n)\n\nexport const settingsTitleVariants = cva(\n  \"text-2xl font-semibold tracking-tight text-foreground\",\n  {\n    variants: {},\n    defaultVariants: {},\n  }\n)\n\nexport const settingsDescVariants = cva(\"text-sm text-muted-foreground\", {\n  variants: {},\n  defaultVariants: {},\n})\n\nexport const settingsLayoutVariants = cva(\n  \"flex flex-col gap-8 md:flex-row md:items-start\",\n  {\n    variants: {},\n    defaultVariants: {},\n  }\n)\n\nexport const settingsSidebarVariants = cva(\"w-full shrink-0 md:w-64\", {\n  variants: {},\n  defaultVariants: {},\n})\n\nexport const settingsContentVariants = cva(\"max-w-4xl flex-1\", {\n  variants: {},\n  defaultVariants: {},\n})\n\n// ── Component ──\n\nexport const SettingsView = React.forwardRef<HTMLDivElement, SettingsViewProps>(\n  (\n    { className, title, description, sections, defaultSection, ...props },\n    ref\n  ) => {\n    const defaultTab =\n      defaultSection || (sections.length > 0 ? sections[0].id : undefined)\n\n    if (!defaultTab) return null\n\n    return (\n      <div\n        ref={ref}\n        className={cn(settingsContainerVariants(), className)}\n        {...props}\n      >\n        <div className={settingsHeaderVariants()}>\n          <h2 id=\"settings-view-title\" className={settingsTitleVariants()}>\n            {title}\n          </h2>\n          {description && (\n            <p className={settingsDescVariants()}>{description}</p>\n          )}\n        </div>\n\n        <Tabs\n          defaultValue={defaultTab}\n          orientation=\"vertical\"\n          className={settingsLayoutVariants()}\n        >\n          <aside className={settingsSidebarVariants()}>\n            <TabsList variant=\"line\" className=\"w-full\">\n              {sections.map((section) => (\n                <TabsTrigger\n                  key={section.id}\n                  value={section.id}\n                  className=\"w-full justify-start text-left\"\n                >\n                  {section.title}\n                </TabsTrigger>\n              ))}\n            </TabsList>\n          </aside>\n\n          <div className={settingsContentVariants()}>\n            {sections.map((section) => (\n              <TabsContent\n                key={section.id}\n                value={section.id}\n                className=\"mt-0 outline-none\"\n              >\n                {section.content}\n              </TabsContent>\n            ))}\n          </div>\n        </Tabs>\n      </div>\n    )\n  }\n)\nSettingsView.displayName = \"SettingsView\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-settings-view.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

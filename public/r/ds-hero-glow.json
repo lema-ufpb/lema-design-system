@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-hero-glow",
+  "title": "Hero Glow",
+  "description": "Hero com glow radial superior e grid sutil — inspirado em Launch UI Hero Top Glow.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "badge",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/hero-glow.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──\n\nexport interface HeroGlowProps\n  extends\n    React.HTMLAttributes<HTMLElement>,\n    VariantProps<typeof heroGlowVariants> {\n  badge?: string\n  title?: string\n  description?: string\n  actions?: React.ReactNode\n  glowColor?: string\n  loading?: boolean\n}\n\n// ── Variants ──\n\nexport const heroGlowVariants = cva(\n  \"relative flex w-full flex-col items-center overflow-hidden bg-background px-4 py-16 text-center sm:px-6 sm:py-20\",\n  {\n    variants: {\n      glow: {\n        top: \"\",\n        center: \"\",\n        none: \"\",\n      },\n    },\n    defaultVariants: {\n      glow: \"top\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport function HeroGlow({\n  className,\n  glow = \"top\",\n  badge = \"New version of Launch UI is out!\",\n  title = \"Give your big idea the design it deserves\",\n  description = \"Professionally designed blocks and templates built with React, shadcn/ui and Tailwind that will help your product stand out.\",\n  actions,\n  glowColor = \"hsl(var(--primary) / 0.18)\",\n  loading = false,\n  ...props\n}: HeroGlowProps) {\n  if (loading) {\n    return (\n      <section\n        data-slot=\"hero-glow-skeleton\"\n        className={cn(heroGlowVariants({ glow }), className)}\n        {...props}\n      >\n        <Skeleton className=\"h-6 w-48 rounded-full\" />\n        <Skeleton className=\"mt-4 h-10 w-[520px] max-w-full\" />\n        <Skeleton className=\"mt-3 h-4 w-[640px] max-w-full\" />\n        <Skeleton className=\"mt-6 h-10 w-36 rounded-full\" />\n      </section>\n    )\n  }\n\n  return (\n    <section\n      data-slot=\"hero-glow\"\n      className={cn(heroGlowVariants({ glow }), className)}\n      {...props}\n    >\n      {glow !== \"none\" && (\n        <div\n          aria-hidden=\"true\"\n          className={cn(\n            \"pointer-events-none absolute left-1/2 h-[420px] w-[880px] -translate-x-1/2 rounded-full blur-[48px]\",\n            glow === \"top\" ? \"-top-48\" : \"top-1/2 -translate-y-1/2\"\n          )}\n          style={{\n            background: `radial-gradient(60% 60% at 50% 50%, ${glowColor} 0%, transparent 70%)`,\n          }}\n        />\n      )}\n      {badge && (\n        <Badge\n          variant=\"outline\"\n          className=\"rounded-full border-primary/20 bg-primary/5 px-3 py-1 text-xs\"\n        >\n          {badge}\n        </Badge>\n      )}\n      <h1 className=\"relative z-10 mt-4 max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl\">\n        {title}\n      </h1>\n      <p className=\"relative z-10 mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base\">\n        {description}\n      </p>\n      {actions && (\n        <div className=\"relative z-10 mt-6 flex flex-wrap items-center justify-center gap-3\">\n          {actions}\n        </div>\n      )}\n      {/* subtle grid */}\n      <div className=\"pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.18)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.18)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_85%)] bg-[size:28px_28px] opacity-30\" />\n    </section>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-hero-glow.tsx"
+    }
+  ],
+  "categories": [
+    "hero"
+  ],
+  "type": "registry:block"
+}

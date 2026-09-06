@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "components/ds/cta-centered.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Cta, type CtaProps } from \"./cta\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport type CtaCenteredProps = Omit<CtaProps, \"align\">\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function CtaCentered({ className, ...props }: CtaCenteredProps) {\n  return (\n    <div data-slot=\"cta-centered\" className={cn(\"mx-auto max-w-3xl\", className)}>\n      <Cta align=\"center\" {...props} />\n    </div>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Cta, type CtaProps } from \"./cta\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport type CtaCenteredProps = Omit<CtaProps, \"align\">\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function CtaCentered({ className, ...props }: CtaCenteredProps) {\n  return (\n    <div\n      data-slot=\"cta-centered\"\n      className={cn(\"mx-auto max-w-3xl\", className)}\n    >\n      <Cta align=\"center\" {...props} />\n    </div>\n  )\n}\n",
       "type": "registry:block",
       "target": "components/ui/ds-cta-centered.tsx"
     }

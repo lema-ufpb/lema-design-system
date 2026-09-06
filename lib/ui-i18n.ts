@@ -71,6 +71,14 @@ export const UI_I18N: Record<
       startVoice: string
       stopVoice: string
     }
+    aiChat: {
+      label: string
+      placeholder: string
+      send: string
+      assistantName: string
+      emptyTitle: string
+      emptyDescription: string
+    }
     modal: {
       confirm: string
       cancel: string
@@ -329,27 +337,27 @@ export const UI_I18N: Record<
       trendUp: string
       trendDown: string
       period: string
-    },
+    }
     team: {
       title: string
       description: string
       role: string
       joinTeam: string
       viewProfile: string
-    },
+    }
     testimonials: {
       title: string
       description: string
       quote: string
       author: string
       role: string
-    },
+    }
     timeline: {
       title: string
       description: string
       step: string
       now: string
-    },
+    }
     pricing: {
       title: string
       description: string
@@ -489,6 +497,42 @@ export const UI_I18N: Record<
       milestones: string
       milestonesDescription: string
     }
+    sidebar: {
+      toggle: string
+      search: string
+      teams: string
+      addTeam: string
+      navigation: string
+      documents: string
+      more: string
+    }
+    teamSwitcher: {
+      switchTeam: string
+      teams: string
+      addTeam: string
+    }
+    sidebarSearch: {
+      placeholder: string
+      label: string
+    }
+    sectionCards: {
+      trendingUp: string
+      trendingDown: string
+    }
+    authCard: {
+      welcomeBack: string
+      createAccount: string
+      welcomeDescription: string
+      createDescription: string
+      noAccount: string
+      hasAccount: string
+      signIn: string
+      signUp: string
+    }
+    dashboard: {
+      documents: string
+      searchPlaceholder: string
+    }
   }
 > = {
   "en-US": {
@@ -588,6 +632,14 @@ export const UI_I18N: Record<
       clear: "Clear search",
       startVoice: "Search by voice",
       stopVoice: "Stop recording",
+    },
+    aiChat: {
+      label: "Chat conversation",
+      placeholder: "Ask anything…",
+      send: "Send message",
+      assistantName: "Assistant",
+      emptyTitle: "No messages yet",
+      emptyDescription: "Start the conversation by sending a message below.",
     },
     modal: {
       confirm: "Confirm",
@@ -1012,6 +1064,42 @@ export const UI_I18N: Record<
       milestonesDescription:
         "Key moments that defined our growth and academic impact.",
     },
+    sidebar: {
+      toggle: "Toggle sidebar",
+      search: "Search",
+      teams: "Teams",
+      addTeam: "Add team",
+      navigation: "Navigation",
+      documents: "Documents",
+      more: "More",
+    },
+    teamSwitcher: {
+      switchTeam: "Switch team",
+      teams: "Teams",
+      addTeam: "Add team",
+    },
+    sidebarSearch: {
+      placeholder: "Search the docs...",
+      label: "Search",
+    },
+    sectionCards: {
+      trendingUp: "Trending up",
+      trendingDown: "Trending down",
+    },
+    authCard: {
+      welcomeBack: "Welcome back",
+      createAccount: "Create account",
+      welcomeDescription: "Login to your Acme Inc account",
+      createDescription: "Enter your details to create an account",
+      noAccount: "Don't have an account?",
+      hasAccount: "Already have an account?",
+      signIn: "Sign in",
+      signUp: "Sign up",
+    },
+    dashboard: {
+      documents: "Documents",
+      searchPlaceholder: "Search...",
+    },
   },
   "pt-BR": {
     dialog: { close: "Fechar", title: "Diálogo" },
@@ -1116,6 +1204,14 @@ export const UI_I18N: Record<
       clear: "Limpar busca",
       startVoice: "Buscar por voz",
       stopVoice: "Parar gravação",
+    },
+    aiChat: {
+      label: "Conversa do chat",
+      placeholder: "Pergunte alguma coisa…",
+      send: "Enviar mensagem",
+      assistantName: "Assistente",
+      emptyTitle: "Nenhuma mensagem ainda",
+      emptyDescription: "Inicie a conversa enviando uma mensagem abaixo.",
     },
     modal: {
       confirm: "Confirmar",
@@ -1543,6 +1639,42 @@ export const UI_I18N: Record<
       milestonesDescription:
         "Momentos decisivos que moldaram nossa evolução e impacto acadêmico.",
     },
+    sidebar: {
+      toggle: "Alternar barra lateral",
+      search: "Buscar",
+      teams: "Equipes",
+      addTeam: "Adicionar equipe",
+      navigation: "Navegação",
+      documents: "Documentos",
+      more: "Mais",
+    },
+    teamSwitcher: {
+      switchTeam: "Trocar equipe",
+      teams: "Equipes",
+      addTeam: "Adicionar equipe",
+    },
+    sidebarSearch: {
+      placeholder: "Buscar documentos...",
+      label: "Buscar",
+    },
+    sectionCards: {
+      trendingUp: "Em alta",
+      trendingDown: "Em queda",
+    },
+    authCard: {
+      welcomeBack: "Bem-vindo de volta",
+      createAccount: "Criar conta",
+      welcomeDescription: "Entre na sua conta",
+      createDescription: "Preencha seus dados para criar uma conta",
+      noAccount: "Não tem uma conta?",
+      hasAccount: "Já possui uma conta?",
+      signIn: "Entrar",
+      signUp: "Cadastrar",
+    },
+    dashboard: {
+      documents: "Documentos",
+      searchPlaceholder: "Buscar...",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar", title: "Diálogo" },
@@ -1644,6 +1776,14 @@ export const UI_I18N: Record<
       clear: "Limpiar búsqueda",
       startVoice: "Buscar por voz",
       stopVoice: "Detener grabación",
+    },
+    aiChat: {
+      label: "Conversación del chat",
+      placeholder: "Pregunta lo que quieras…",
+      send: "Enviar mensaje",
+      assistantName: "Asistente",
+      emptyTitle: "Aún no hay mensajes",
+      emptyDescription: "Inicia la conversación enviando un mensaje abajo.",
     },
     modal: {
       confirm: "Confirmar",
@@ -2069,6 +2209,42 @@ export const UI_I18N: Record<
       milestonesDescription:
         "Momentos clave que definieron nuestro crecimiento e impacto.",
     },
+    sidebar: {
+      toggle: "Alternar barra lateral",
+      search: "Buscar",
+      teams: "Equipos",
+      addTeam: "Añadir equipo",
+      navigation: "Navegación",
+      documents: "Documentos",
+      more: "Más",
+    },
+    teamSwitcher: {
+      switchTeam: "Cambiar equipo",
+      teams: "Equipos",
+      addTeam: "Añadir equipo",
+    },
+    sidebarSearch: {
+      placeholder: "Buscar documentos...",
+      label: "Buscar",
+    },
+    sectionCards: {
+      trendingUp: "Tendencia alcista",
+      trendingDown: "Tendencia bajista",
+    },
+    authCard: {
+      welcomeBack: "Bienvenido de nuevo",
+      createAccount: "Crear cuenta",
+      welcomeDescription: "Inicia sesión en tu cuenta",
+      createDescription: "Introduce tus datos para crear una cuenta",
+      noAccount: "¿No tienes cuenta?",
+      hasAccount: "¿Ya tienes cuenta?",
+      signIn: "Iniciar sesión",
+      signUp: "Registrarse",
+    },
+    dashboard: {
+      documents: "Documentos",
+      searchPlaceholder: "Buscar...",
+    },
   },
   "fr-FR": {
     dialog: { close: "Fermer", title: "Dialogue" },
@@ -2177,6 +2353,15 @@ export const UI_I18N: Record<
       clear: "Effacer la recherche",
       startVoice: "Rechercher par voix",
       stopVoice: "Arrêter l'enregistrement",
+    },
+    aiChat: {
+      label: "Conversation du chat",
+      placeholder: "Posez une question…",
+      send: "Envoyer le message",
+      assistantName: "Assistant",
+      emptyTitle: "Pas encore de messages",
+      emptyDescription:
+        "Commencez la conversation en envoyant un message ci-dessous.",
     },
     modal: {
       confirm: "Confirmer",
@@ -2605,6 +2790,42 @@ export const UI_I18N: Record<
       milestones: "Étapes et Réalisations",
       milestonesDescription:
         "Les moments clés qui ont forgé notre croissance et notre impact académique.",
+    },
+    sidebar: {
+      toggle: "Basculer la barre latérale",
+      search: "Rechercher",
+      teams: "Équipes",
+      addTeam: "Ajouter une équipe",
+      navigation: "Navigation",
+      documents: "Documents",
+      more: "Plus",
+    },
+    teamSwitcher: {
+      switchTeam: "Changer d'équipe",
+      teams: "Équipes",
+      addTeam: "Ajouter une équipe",
+    },
+    sidebarSearch: {
+      placeholder: "Rechercher...",
+      label: "Rechercher",
+    },
+    sectionCards: {
+      trendingUp: "En hausse",
+      trendingDown: "En baisse",
+    },
+    authCard: {
+      welcomeBack: "Bon retour",
+      createAccount: "Créer un compte",
+      welcomeDescription: "Connectez-vous à votre compte",
+      createDescription: "Saisissez vos informations pour créer un compte",
+      noAccount: "Pas encore de compte ?",
+      hasAccount: "Déjà un compte ?",
+      signIn: "Se connecter",
+      signUp: "S'inscrire",
+    },
+    dashboard: {
+      documents: "Documents",
+      searchPlaceholder: "Rechercher...",
     },
   },
 }
