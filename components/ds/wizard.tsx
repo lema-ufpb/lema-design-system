@@ -61,7 +61,14 @@ export function Wizard({
   return (
     <Card data-slot="wizard" className={cn("p-6", className)} {...props}>
       <div className="flex flex-col gap-4">
-        <Progress value={progress} className="h-1" />
+        <Progress
+          value={progress}
+          aria-label={`Step ${idx + 1} of ${steps.length}: ${step?.title ?? ""}`}
+          aria-valuenow={Math.round(progress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          className="h-1"
+        />
         <div className="flex gap-2">
           {steps.map((s, i) => (
             <button

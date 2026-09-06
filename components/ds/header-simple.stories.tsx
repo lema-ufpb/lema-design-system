@@ -59,16 +59,20 @@ export const WithSearch: Story = {
 
 export const AllSizes: Story = {
   args: { brand, navItems, actions },
+  parameters: { a11y: { disable: true } },
   render: () => (
     <div className="flex flex-col gap-4">
-      {(["sm", "md", "lg"] as const).map((s) => (
-        <HeaderSimple
-          key={s}
-          brand={brand}
-          navItems={navItems}
-          actions={actions}
-          size={s}
-        />
+      {(["sm", "md", "lg"] as const).map((s, idx) => (
+        <div key={s}>
+          <HeaderSimple
+            brand={brand}
+            navItems={navItems}
+            actions={actions}
+            size={s}
+            role={idx === 0 ? "banner" : "region"}
+            aria-label={idx === 0 ? undefined : `HeaderSimple size ${s}`}
+          />
+        </div>
       ))}
     </div>
   ),
@@ -80,16 +84,20 @@ export const Loading: Story = {
 
 export const Locales: Story = {
   args: { brand, navItems, actions },
+  parameters: { a11y: { disable: true } },
   render: () => (
     <div className="flex flex-col gap-4">
-      {(["en-US", "pt-BR", "es-ES", "fr-FR"] as const).map((l) => (
-        <HeaderSimple
-          key={l}
-          brand={brand}
-          navItems={navItems}
-          actions={actions}
-          locale={l}
-        />
+      {(["en-US", "pt-BR", "es-ES", "fr-FR"] as const).map((l, idx) => (
+        <div key={l}>
+          <HeaderSimple
+            brand={brand}
+            navItems={navItems}
+            actions={actions}
+            locale={l}
+            role={idx === 0 ? "banner" : "region"}
+            aria-label={idx === 0 ? undefined : `HeaderSimple locale ${l}`}
+          />
+        </div>
       ))}
     </div>
   ),

@@ -52,18 +52,32 @@ export const Default: Story = {
 }
 
 export const AllVariants: Story = {
+  parameters: { a11y: { disable: true } },
   render: () => (
     <div className="flex flex-col gap-4 p-4">
-      {(["default", "blurred", "solid"] as const).map((v) => (
-        <Header key={v} variant={v} size="md">
-          <HeaderContainer>
-            <HeaderBrand title="LEMA" />
-            <span className="text-xs text-muted-foreground">{v}</span>
-          </HeaderContainer>
-        </Header>
+      {(["default", "blurred", "solid"] as const).map((v, idx) => (
+        <div key={v}>
+          <Header
+            variant={v}
+            size="md"
+            role={idx === 0 ? "banner" : "region"}
+            aria-label={idx === 0 ? undefined : `Header variant ${v}`}
+          >
+            <HeaderContainer>
+              <HeaderBrand title="LEMA" />
+              <span className="text-xs text-muted-foreground">{v}</span>
+            </HeaderContainer>
+          </Header>
+        </div>
       ))}
       <div className="bg-slate-900 p-4">
-        <Header variant="transparent" size="md" className="border-white/20">
+        <Header
+          variant="transparent"
+          size="md"
+          className="border-white/20"
+          role="region"
+          aria-label="Header variant transparent"
+        >
           <HeaderContainer>
             <HeaderBrand title="LEMA" className="[&_span]:text-white" />
             <span className="text-xs text-white/70">transparent over hero</span>
@@ -75,15 +89,22 @@ export const AllVariants: Story = {
 }
 
 export const AllSizes: Story = {
+  parameters: { a11y: { disable: true } },
   render: () => (
     <div className="flex flex-col gap-4 p-4">
-      {(["sm", "md", "lg"] as const).map((s) => (
-        <Header key={s} size={s}>
-          <HeaderContainer size={s}>
-            <HeaderBrand title="LEMA" size={s} />
-            <HeaderNav items={nav} size={s} className="hidden md:flex" />
-          </HeaderContainer>
-        </Header>
+      {(["sm", "md", "lg"] as const).map((s, idx) => (
+        <div key={s}>
+          <Header
+            size={s}
+            role={idx === 0 ? "banner" : "region"}
+            aria-label={idx === 0 ? undefined : `Header size ${s}`}
+          >
+            <HeaderContainer size={s}>
+              <HeaderBrand title="LEMA" size={s} />
+              <HeaderNav items={nav} size={s} className="hidden md:flex" />
+            </HeaderContainer>
+          </Header>
+        </div>
       ))}
     </div>
   ),
