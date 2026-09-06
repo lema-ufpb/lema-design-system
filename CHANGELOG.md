@@ -2,7 +2,13 @@
 
 ## [1.9.4](https://github.com/lema-ufpb/design-system/compare/v1.9.3...v1.9.4) (2026-09-04)
 
+
 ### 🐛 Bug Fixes
+
+* **nginx:** remover exigência de token para baixar registro de componentes ([61746eb](https://github.com/lema-ufpb/design-system/commit/61746eb65a79ff131b9c7e7c80ecd75442d3711f))
+* **nginx:** remover exigência de token para baixar registro de componentes ([a6ecac2](https://github.com/lema-ufpb/design-system/commit/a6ecac2b3e4775157e42a5b227fdc586ca8a396c))
+
+## [1.9.3](https://github.com/lema-ufpb/design-system/compare/v1.9.2...v1.9.3) (2026-09-04)
 
 - **nginx:** remover exigência de token para baixar registro de componentes ([61746eb](https://github.com/lema-ufpb/design-system/commit/61746eb65a79ff131b9c7e7c80ecd75442d3711f))
 - **nginx:** remover exigência de token para baixar registro de componentes ([a6ecac2](https://github.com/lema-ufpb/design-system/commit/a6ecac2b3e4775157e42a5b227fdc586ca8a396c))
