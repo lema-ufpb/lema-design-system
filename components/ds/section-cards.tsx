@@ -98,7 +98,7 @@ export function SectionCards({
         "grid grid-cols-1 gap-4 px-4 lg:px-6",
         sectionCardsVariants({ columns, variant }),
         variant === "gradient" &&
-          "*:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs dark:*:data-[slot=card]:bg-card",
+          "*:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs",
         className
       )}
       {...props}

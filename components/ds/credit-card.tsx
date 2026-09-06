@@ -31,7 +31,7 @@ export const creditCardVariants = cva(
       variant: {
         default:
           "border-primary/20 bg-gradient-to-br from-primary to-primary/70 text-primary-foreground",
-        dark: "border-border bg-gradient-to-br from-card to-muted text-card-foreground dark:border-zinc-800 dark:from-zinc-900 dark:to-zinc-700 dark:text-white",
+        dark: "border-border bg-gradient-to-br from-card to-muted text-card-foreground",
         light:
           "border-border bg-gradient-to-br from-card to-background text-foreground",
       },

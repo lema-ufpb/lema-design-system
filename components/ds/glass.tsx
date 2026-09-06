@@ -19,11 +19,11 @@ export const glassVariants = cva(
   {
     variants: {
       variant: {
-        "1": "border-border bg-gradient-to-b from-card/80 to-card/40 dark:border-border/10 dark:from-card/5 dark:to-card/0",
-        "2": "border-border bg-gradient-to-b from-card to-card/80 dark:border-border/10 dark:from-card/10 dark:to-card/5",
-        "3": "border-border border-t-border/20 bg-gradient-to-b from-card/30 to-card/20 dark:border-border/10 dark:border-t-border/20 dark:from-primary/5 dark:to-primary/[0.02]",
-        "4": "border-border border-b-input/90 bg-gradient-to-b from-card/60 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/10 dark:to-primary/5",
-        "5": "border-border border-b-input bg-gradient-to-b from-card to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/15 dark:to-primary/5",
+        "1": "border-border bg-gradient-to-b from-card/80 to-card/40",
+        "2": "border-border bg-gradient-to-b from-card to-card/80",
+        "3": "border-border border-t-border/20 bg-gradient-to-b from-card/30 to-card/20",
+        "4": "border-border border-b-input/90 bg-gradient-to-b from-card/60 to-card/20",
+        "5": "border-border border-b-input bg-gradient-to-b from-card to-card/20",
       },
     },
     defaultVariants: {

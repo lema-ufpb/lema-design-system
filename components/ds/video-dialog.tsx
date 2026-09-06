@@ -121,8 +121,8 @@ export const VideoDialog = React.forwardRef<HTMLDivElement, VideoDialogProps>(
               className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-foreground/30 transition-colors duration-300 group-hover:bg-foreground/40 dark:bg-black/30 dark:group-hover:bg-black/40" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-foreground/30 transition-colors duration-300 group-hover:bg-foreground/40" />
 
             {/* Pulsing Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -141,7 +141,7 @@ export const VideoDialog = React.forwardRef<HTMLDivElement, VideoDialogProps>(
           </div>
         </DialogTrigger>
 
-        <DialogContent className="max-w-4xl overflow-hidden border-border/60 bg-card/90 p-1 sm:rounded-2xl dark:bg-black/90">
+        <DialogContent className="max-w-4xl overflow-hidden border-border/60 bg-card/90 p-1 sm:rounded-2xl">
           <DialogTitle className="sr-only">{title || label}</DialogTitle>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl">
             {open && (

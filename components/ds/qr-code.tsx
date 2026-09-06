@@ -45,7 +45,8 @@ export function QrCode({
   return (
     <div
       data-slot="qr-code"
-      className={cn("rounded-2xl border bg-white p-3 dark:bg-white", className)}
+      // QR requires white background for scannability — exempt from token rule
+      className={cn("rounded-2xl border bg-white p-3", className)}
       {...props}
     >
       <canvas
