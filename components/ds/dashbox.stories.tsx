@@ -4,7 +4,7 @@ import { Dashbox } from "@/components/ds/dashbox"
 import { ProgressBar } from "@/components/ds/progress-bar"
 
 const meta = {
-  title: "Layout/Dashbox",
+  title: "Blocks/Dashbox",
   component: Dashbox,
   tags: ["autodocs"],
   parameters: {

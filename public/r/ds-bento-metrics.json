@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-bento-metrics",
+  "title": "BentoMetrics",
+  "description": "Grid bento combinando um gráfico de barras com uma tira de estatísticas — composto de ds-bento-grid, ds-bar-chart e ds-card-stat.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-bento-grid",
+    "ds-bar-chart",
+    "ds-card-stat"
+  ],
+  "files": [
+    {
+      "path": "components/ds/bento-metrics.tsx",
+      "content": "import * as React from \"react\"\n\nimport { BarChart, type BarChartKey } from \"./bar-chart\"\nimport { BentoGrid, BentoGridItem, type BentoGridItemSpan } from \"./bento-grid\"\nimport { CardStat } from \"./card-stat\"\n\n// ── Types ──\n\nexport interface BentoMetricsStat {\n  label: string\n  value: string | number\n  colSpan?: BentoGridItemSpan\n}\n\nexport interface BentoMetricsProps extends React.HTMLAttributes<HTMLDivElement> {\n  stats: BentoMetricsStat[]\n  chartTitle?: string\n  chartData: Record<string, string | number>[]\n  chartDataKeys: BarChartKey[] | string[]\n  chartCategoryKey: string\n}\n\n// ── Component ──\n\n/**\n * A bento grid pairing a bar chart tile with a strip of stat tiles —\n * composed from `BentoGrid`, `BarChart` and `CardStat`.\n */\nexport function BentoMetrics({\n  stats,\n  chartTitle,\n  chartData,\n  chartDataKeys,\n  chartCategoryKey,\n  className,\n  ...props\n}: BentoMetricsProps) {\n  return (\n    <BentoGrid className={className} data-slot=\"bento-metrics\" {...props}>\n      <BentoGridItem\n        colSpan={2}\n        rowSpan={2}\n        className=\"items-stretch justify-start\"\n      >\n        <BarChart\n          title={chartTitle}\n          data={chartData}\n          dataKeys={chartDataKeys}\n          categoryKey={chartCategoryKey}\n          className=\"w-full\"\n        />\n      </BentoGridItem>\n\n      {stats.map((stat) => (\n        <BentoGridItem\n          key={stat.label}\n          colSpan={stat.colSpan ?? 1}\n          className=\"border-0 bg-transparent p-0 hover:translate-y-0 hover:shadow-none\"\n        >\n          <CardStat\n            label={stat.label}\n            value={stat.value}\n            variant=\"flat\"\n            className=\"h-full w-full\"\n          />\n        </BentoGridItem>\n      ))}\n    </BentoGrid>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-bento-metrics.tsx"
+    }
+  ],
+  "categories": [
+    "bento"
+  ],
+  "type": "registry:block"
+}

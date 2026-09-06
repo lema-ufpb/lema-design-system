@@ -462,7 +462,7 @@ export function HeatmapChart({
                       {/* Value label */}
                       {showValues && (
                         <span
-                          className="pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none font-semibold tabular-nums"
+                          className="pointer-events-none absolute inset-0 flex items-center justify-center text-xs leading-none font-semibold tabular-nums"
                           style={{ color: textColor }}
                         >
                           {cell.label ?? fmt(cell.value)}

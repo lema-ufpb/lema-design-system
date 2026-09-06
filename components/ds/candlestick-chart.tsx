@@ -491,7 +491,7 @@ function CandleTooltip({
           {fullDateFmt(candle.date, locale)}
         </p>
         <span
-          className="rounded px-1.5 py-0.5 text-[10px] font-semibold tabular-nums"
+          className="rounded px-1.5 py-0.5 text-xs font-semibold tabular-nums"
           style={{ backgroundColor: `${color}22`, color }}
         >
           {sign}

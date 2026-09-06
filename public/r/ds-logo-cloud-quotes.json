@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-logo-cloud-quotes",
+  "title": "LogoCloudQuotes",
+  "description": "Pares de logo do cliente + depoimento curto em grid de cartões — composto de ds-pull-quote.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-pull-quote"
+  ],
+  "files": [
+    {
+      "path": "components/ds/logo-cloud-quotes.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { PullQuote } from \"./pull-quote\"\n\n// ── Types ──\n\nexport interface LogoCloudQuoteItem {\n  logo: React.ReactNode\n  quote: string\n  name: string\n  role?: string\n  avatarFallback?: string\n}\n\nexport interface LogoCloudQuotesProps extends React.HTMLAttributes<HTMLDivElement> {\n  items: LogoCloudQuoteItem[]\n}\n\n// ── Component ──\n\n/**\n * Customer logo paired with a short testimonial, in a card grid — composed\n * from `PullQuote`.\n */\nexport function LogoCloudQuotes({\n  items,\n  className,\n  ...props\n}: LogoCloudQuotesProps) {\n  return (\n    <div\n      className={cn(\"grid grid-cols-1 gap-6 sm:grid-cols-2\", className)}\n      data-slot=\"logo-cloud-quotes\"\n      {...props}\n    >\n      {items.map((item) => (\n        <div\n          key={item.name}\n          className=\"flex flex-col gap-4 rounded-2xl border border-border bg-card p-6\"\n        >\n          <div className=\"h-6 w-auto [&_img]:h-full [&_img]:w-auto [&_img]:object-contain [&_svg]:h-full [&_svg]:w-auto\">\n            {item.logo}\n          </div>\n          <PullQuote\n            size=\"sm\"\n            quote={item.quote}\n            name={item.name}\n            role={item.role}\n            avatarFallback={item.avatarFallback}\n          />\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-logo-cloud-quotes.tsx"
+    }
+  ],
+  "categories": [
+    "logo-cloud"
+  ],
+  "type": "registry:block"
+}

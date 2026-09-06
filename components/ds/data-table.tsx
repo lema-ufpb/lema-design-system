@@ -691,7 +691,7 @@ function PaginationBar({
               href="#"
               text={prevLabel}
               rounded={rounded}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
                 onPrev()
               }}
@@ -714,7 +714,7 @@ function PaginationBar({
                   href="#"
                   isActive={p === pageIndex + 1}
                   rounded={rounded}
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault()
                     onPageChange(p - 1)
                   }}
@@ -735,7 +735,7 @@ function PaginationBar({
               href="#"
               text={nextLabel}
               rounded={rounded}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
                 onNext()
               }}
@@ -1121,7 +1121,7 @@ export function DataTable<TData extends RowData>({
               onVoiceStart={onVoiceStart}
               onVoiceEnd={onVoiceEnd}
               onVoiceError={onVoiceError}
-              className="min-w-140px mt-2 mr-2 w-72"
+              className="mt-2 mr-2 w-full max-w-full min-w-36 sm:w-72"
             />
           )}
         </div>
@@ -1150,7 +1150,7 @@ export function DataTable<TData extends RowData>({
         {/* Scrollable viewport */}
         <div
           ref={parentRef}
-          className="relative max-h-[80dvh] w-full overflow-auto bg-card"
+          className="relative max-h-[80dvh] w-full overflow-auto bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           style={{ height: `${height}px` }}
           tabIndex={0}
           role="region"

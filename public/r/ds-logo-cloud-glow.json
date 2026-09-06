@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-logo-cloud-glow",
+  "title": "LogoCloudGlow",
+  "description": "Mural de logos centralizado dentro de um card com glow que reage ao ponteiro — composto de ds-press-wall e ds-cursor-spotlight.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-press-wall",
+    "ds-cursor-spotlight"
+  ],
+  "files": [
+    {
+      "path": "components/ds/logo-cloud-glow.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { CursorSpotlight, type CursorSpotlightTone } from \"./cursor-spotlight\"\nimport { PressWall } from \"./press-wall\"\n\n// ── Types ──\n\nexport interface LogoCloudGlowProps extends React.HTMLAttributes<HTMLDivElement> {\n  kicker?: string\n  tone?: CursorSpotlightTone\n  children: React.ReactNode\n}\n\n// ── Component ──\n\n/**\n * A centered logo wall inside a glowing card that reacts to the pointer —\n * composed from `PressWall` and `CursorSpotlight`.\n */\nexport function LogoCloudGlow({\n  kicker,\n  tone = \"primary\",\n  children,\n  className,\n  ...props\n}: LogoCloudGlowProps) {\n  return (\n    <CursorSpotlight\n      tone={tone}\n      className={cn(\n        \"rounded-3xl border border-border bg-card px-6 py-12\",\n        className\n      )}\n      data-slot=\"logo-cloud-glow\"\n      {...props}\n    >\n      <PressWall kicker={kicker}>{children}</PressWall>\n    </CursorSpotlight>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-logo-cloud-glow.tsx"
+    }
+  ],
+  "categories": [
+    "logo-cloud"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-integrations",
+  "title": "Integrations",
+  "description": "Grid de integrações com busca — blockus #01-12.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-integration-tile",
+    "input",
+    "empty",
+    "ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/integrations.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N, type UILocale } from \"@/lib/ui-i18n\"\nimport { Input } from \"@/components/ui/input\"\nimport { Empty, EmptyTitle, EmptyDescription } from \"@/components/ui/empty\"\nimport { IntegrationTile, type IntegrationTileProps } from \"./integration-tile\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface Integration extends Omit<\n  IntegrationTileProps,\n  \"locale\" | \"loading\" | \"size\"\n> {\n  id?: string\n}\n\nexport interface IntegrationsProps extends React.HTMLAttributes<HTMLDivElement> {\n  title?: string\n  description?: string\n  integrations: Integration[]\n  searchable?: boolean\n  search?: string\n  onSearchChange?: (value: string) => void\n  locale?: UILocale\n  loading?: boolean\n  columns?: 3 | 4\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Integrations({\n  className,\n  title,\n  description,\n  integrations,\n  searchable = false,\n  search: controlledSearch,\n  onSearchChange,\n  locale = \"en-US\",\n  loading = false,\n  columns = 3,\n  ...props\n}: IntegrationsProps) {\n  const [internalSearch, setInternalSearch] = React.useState(\"\")\n  const isControlled = controlledSearch !== undefined\n  const search = isControlled ? controlledSearch : internalSearch\n\n  const handleChange = (v: string) => {\n    if (!isControlled) setInternalSearch(v)\n    onSearchChange?.(v)\n  }\n\n  const filtered = React.useMemo(() => {\n    if (!search) return integrations\n    const q = search.toLowerCase()\n    return integrations.filter(\n      (it) =>\n        it.name.toLowerCase().includes(q) ||\n        it.description?.toLowerCase().includes(q)\n    )\n  }, [integrations, search])\n\n  const t = UI_I18N[locale].integrations\n\n  return (\n    <div\n      data-slot=\"integrations\"\n      className={cn(\"flex flex-col gap-6\", className)}\n      {...props}\n    >\n      <div className=\"flex flex-col gap-2\">\n        <h2 className=\"text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl\">\n          {title ?? t.title}\n        </h2>\n        <p className=\"max-w-prose text-sm leading-relaxed text-pretty text-muted-foreground\">\n          {description ?? t.description}\n        </p>\n      </div>\n\n      {searchable && (\n        <Input\n          placeholder={t.searchPlaceholder}\n          value={search}\n          onChange={(e) => handleChange(e.target.value)}\n          className=\"max-w-sm\"\n        />\n      )}\n\n      {loading ? (\n        <div\n          className={cn(\n            \"grid gap-4\",\n            columns === 4\n              ? \"md:grid-cols-2 lg:grid-cols-4\"\n              : \"md:grid-cols-2 lg:grid-cols-3\"\n          )}\n        >\n          {Array.from({ length: 6 }).map((_, i) => (\n            <IntegrationTile key={i} name=\"loading\" loading />\n          ))}\n        </div>\n      ) : filtered.length === 0 ? (\n        <Empty className=\"py-8\">\n          <EmptyTitle>{t.noResults}</EmptyTitle>\n          <EmptyDescription>{t.description}</EmptyDescription>\n        </Empty>\n      ) : (\n        <div\n          className={cn(\n            \"grid gap-4\",\n            columns === 4\n              ? \"md:grid-cols-2 lg:grid-cols-4\"\n              : \"md:grid-cols-2 lg:grid-cols-3\"\n          )}\n        >\n          {filtered.map((it) => (\n            <IntegrationTile key={it.name} {...it} locale={locale} />\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-integrations.tsx"
+    }
+  ],
+  "categories": [
+    "integrations"
+  ],
+  "type": "registry:block"
+}

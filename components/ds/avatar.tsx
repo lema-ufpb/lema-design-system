@@ -69,7 +69,7 @@ export const avatarVariants = cva("", {
 export const initialsVariants = cva("", {
   variants: {
     size: {
-      sm: "text-[10px]",
+      sm: "text-xs",
       md: "text-xs",
       lg: "text-sm",
       xl: "text-base",
@@ -232,7 +232,7 @@ function AvatarGroup({
           data-slot="ds-avatar-group-count"
           className={cn(
             "relative flex shrink-0 items-center justify-center rounded-full bg-muted text-xs font-medium text-muted-foreground ring-2 ring-background",
-            size === "sm" && "size-6 text-[10px]",
+            size === "sm" && "size-6 text-xs",
             size === "md" && "size-8",
             size === "lg" && "size-10",
             size === "xl" && "size-12",

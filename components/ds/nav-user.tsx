@@ -42,7 +42,7 @@ export interface UserMenuItem {
 }
 
 export function NavUser({ user, groups = [], loading = false }: UserMenuProps) {
-  if (loading || !user) {
+  if (loading) {
     return (
       <div
         data-slot="nav-user-skeleton"
@@ -57,6 +57,8 @@ export function NavUser({ user, groups = [], loading = false }: UserMenuProps) {
       </div>
     )
   }
+
+  if (!user) return null
 
   const initials = user.name
     .split(" ")

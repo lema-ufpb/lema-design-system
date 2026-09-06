@@ -314,11 +314,11 @@ export function CardStatGauge({
         </p>
         <span
           className={cn(
-            "rounded-full font-semibold text-white",
+            "rounded-full font-semibold text-primary-foreground",
             cardStatBadgePaddingVariants({ size }),
             cardStatDescriptionVariants({ size })
           )}
-          style={{ backgroundColor: activeZone.color }}
+          style={{ backgroundColor: activeZone.color, color: "white" }}
           aria-hidden
         >
           {activeZone.label}

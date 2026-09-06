@@ -12,6 +12,54 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
+// ── Types ──────────────────────────────────────────────────────────────────
+
+export type NavDotsContainerVariantProps = VariantProps<
+  typeof navDotsContainerVariants
+>
+export type NavDotsDotVariantProps = VariantProps<typeof navDotsDotVariants>
+export type NavDotsPosition = "left" | "right"
+export type NavDotsOrientation = "vertical" | "horizontal"
+
+/** A section entry for dot navigation. */
+export interface NavDotsSection {
+  /** Element ID used for scroll targeting */
+  id: string
+  /** Label shown in the tooltip */
+  label: string
+}
+
+/**
+ * NavDots — dot-based section navigation with scroll tracking and tooltips.
+ *
+ * Automatically detects which section is in view via `IntersectionObserver`
+ * and highlights the corresponding dot. Clicking a dot smooth-scrolls to
+ * that section. Supports vertical (side rail) and horizontal (bottom bar)
+ * orientations.
+ *
+ * Uses the shadcn `Tooltip` primitive for accessible, animated labels.
+ */
+export interface NavDotsProps
+  extends NavDotsContainerVariantProps, React.HTMLAttributes<HTMLDivElement> {
+  /** Array of sections to navigate between */
+  sections: NavDotsSection[]
+  /** Initially active section index */
+  active?: number
+  /** Enable smooth scroll when clicking a dot */
+  scrollOnClick?: boolean
+  /**
+   * Scroll container to observe. Defaults to `null` which means the
+   * component will walk up the DOM to find the nearest scrollable ancestor.
+   * Pass a ref or `"window"` to override.
+   */
+  scrollContainer?: React.RefObject<HTMLElement | null> | "window" | null
+  /** IntersectionObserver rootMargin (default: "0px") */
+  scrollMargin?: string
+  /** Callback when the active section changes */
+  onActiveChange?: (index: number) => void
+  locale?: UILocale
+}
+
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const navDotsContainerVariants = cva(
@@ -86,54 +134,6 @@ export const navDotsDotVariants = cva(
     },
   }
 )
-
-// ── Types ──────────────────────────────────────────────────────────────────
-
-export type NavDotsContainerVariantProps = VariantProps<
-  typeof navDotsContainerVariants
->
-export type NavDotsDotVariantProps = VariantProps<typeof navDotsDotVariants>
-export type NavDotsPosition = "left" | "right"
-export type NavDotsOrientation = "vertical" | "horizontal"
-
-/** A section entry for dot navigation. */
-export interface NavDotsSection {
-  /** Element ID used for scroll targeting */
-  id: string
-  /** Label shown in the tooltip */
-  label: string
-}
-
-/**
- * NavDots — dot-based section navigation with scroll tracking and tooltips.
- *
- * Automatically detects which section is in view via `IntersectionObserver`
- * and highlights the corresponding dot. Clicking a dot smooth-scrolls to
- * that section. Supports vertical (side rail) and horizontal (bottom bar)
- * orientations.
- *
- * Uses the shadcn `Tooltip` primitive for accessible, animated labels.
- */
-export interface NavDotsProps
-  extends NavDotsContainerVariantProps, React.HTMLAttributes<HTMLDivElement> {
-  /** Array of sections to navigate between */
-  sections: NavDotsSection[]
-  /** Initially active section index */
-  active?: number
-  /** Enable smooth scroll when clicking a dot */
-  scrollOnClick?: boolean
-  /**
-   * Scroll container to observe. Defaults to `null` which means the
-   * component will walk up the DOM to find the nearest scrollable ancestor.
-   * Pass a ref or `"window"` to override.
-   */
-  scrollContainer?: React.RefObject<HTMLElement | null> | "window" | null
-  /** IntersectionObserver rootMargin (default: "0px") */
-  scrollMargin?: string
-  /** Callback when the active section changes */
-  onActiveChange?: (index: number) => void
-  locale?: UILocale
-}
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 

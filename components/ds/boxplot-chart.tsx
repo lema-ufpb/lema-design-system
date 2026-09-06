@@ -700,12 +700,17 @@ export function BoxPlotChart({
   React.useEffect(() => {
     const el = containerRef.current
     if (!el) return
+    let raf = 0
     const ro = new ResizeObserver(([entry]) => {
-      setWidth(entry.contentRect.width)
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => setWidth(entry.contentRect.width))
     })
     ro.observe(el)
     setWidth(el.clientWidth)
-    return () => ro.disconnect()
+    return () => {
+      cancelAnimationFrame(raf)
+      ro.disconnect()
+    }
   }, [])
 
   const fmt = React.useCallback(

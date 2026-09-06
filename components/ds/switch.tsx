@@ -133,7 +133,7 @@ function Switch({
           data-slot="ds-switch-error"
           className={cn(
             "text-destructive",
-            size === "sm" ? "text-[10px]" : "text-xs"
+            size === "sm" ? "text-xs" : "text-xs"
           )}
           role="alert"
         >

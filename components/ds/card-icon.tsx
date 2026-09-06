@@ -50,7 +50,7 @@ export const CARD_ICON_TONES: Record<
   },
   destructive: {
     soft: "bg-destructive/10 text-destructive",
-    solid: "bg-destructive text-white",
+    solid: "bg-destructive text-destructive-foreground",
     outline: "border border-destructive/30 text-destructive",
   },
   violet: {

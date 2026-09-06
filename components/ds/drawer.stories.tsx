@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 
 const meta = {
-  title: "Layout/Drawer",
+  title: "Blocks/Drawer",
   component: Drawer,
   tags: ["autodocs"],
   parameters: {

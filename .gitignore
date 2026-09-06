@@ -40,3 +40,4 @@ storybook-static
 .agents
 .impeccable/
 graphify-out
+.playwright-mcp

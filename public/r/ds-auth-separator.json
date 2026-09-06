@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-auth-separator",
+  "title": "AuthSeparator",
+  "description": "Divisor estilizado com rótulo centralizado para transição entre autenticação social e credenciais tradicionais.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/auth-separator.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface AuthSeparatorProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof authSeparatorVariants> {}\n\n// ── Variants ──\n\nexport const authSeparatorVariants = cva(\n  \"relative my-4 flex w-full items-center justify-center\",\n  {\n    variants: {\n      variant: {\n        default: \"\",\n        badge: \"\",\n        gradient: \"\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport const AuthSeparator = React.forwardRef<\n  HTMLDivElement,\n  AuthSeparatorProps\n>(({ className, variant = \"default\", children, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(authSeparatorVariants({ variant }), className)}\n      {...props}\n    >\n      <div className=\"absolute inset-0 flex items-center\" aria-hidden=\"true\">\n        {variant === \"gradient\" ? (\n          <div className=\"h-px w-full bg-gradient-to-r from-transparent via-border to-transparent\" />\n        ) : (\n          <div className=\"w-full border-t border-border/70\" />\n        )}\n      </div>\n\n      {children && (\n        <div className=\"relative flex justify-center\">\n          {variant === \"badge\" ? (\n            <span className=\"rounded-full border border-border/80 bg-background px-3 py-0.5 text-xs font-medium tracking-wider text-muted-foreground uppercase shadow-xs\">\n              {children}\n            </span>\n          ) : (\n            <span className=\"bg-background px-3 text-xs font-medium tracking-wider text-muted-foreground uppercase\">\n              {children}\n            </span>\n          )}\n        </div>\n      )}\n    </div>\n  )\n})\nAuthSeparator.displayName = \"AuthSeparator\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-auth-separator.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

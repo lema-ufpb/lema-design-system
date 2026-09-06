@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-faqs-support",
+  "title": "Faqs Support",
+  "description": "FAQs com card suporte lateral — blockus #14 #19.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-faqs",
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/ds/faqs-support.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N } from \"@/lib/ui-i18n\"\nimport { Card, CardContent } from \"@/components/ui/card\"\nimport { Button } from \"@/components/ui/button\"\nimport { Faqs, type FaqsProps } from \"./faqs\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface FaqsSupportProps extends FaqsProps {\n  supportTitle?: string\n  supportDescription?: string\n  supportAction?: { label: string; href?: string; onClick?: () => void }\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function FaqsSupport({\n  className,\n  supportTitle,\n  supportDescription,\n  supportAction,\n  locale = \"en-US\",\n  ...faqsProps\n}: FaqsSupportProps) {\n  const t = UI_I18N[locale].faqs\n\n  return (\n    <div\n      data-slot=\"faqs-support\"\n      className={cn(\"grid gap-6 lg:grid-cols-3\", className)}\n    >\n      <div className=\"lg:col-span-2\">\n        <Faqs locale={locale} {...faqsProps} />\n      </div>\n      <Card className=\"h-fit rounded-2xl p-6\">\n        <CardContent className=\"flex flex-col gap-3 p-0\">\n          <h3 className=\"text-base font-semibold text-foreground\">\n            {supportTitle ?? t.stillHaveQuestions}\n          </h3>\n          {supportDescription && (\n            <p className=\"text-sm leading-relaxed text-muted-foreground\">\n              {supportDescription}\n            </p>\n          )}\n          {supportAction &&\n            (supportAction.href ? (\n              <Button asChild className=\"mt-2 w-fit rounded-full\">\n                <a href={supportAction.href} onClick={supportAction.onClick}>\n                  {supportAction.label}\n                </a>\n              </Button>\n            ) : (\n              <Button\n                className=\"mt-2 w-fit rounded-full\"\n                onClick={supportAction.onClick}\n              >\n                {supportAction.label}\n              </Button>\n            ))}\n          {!supportAction && (\n            <Button className=\"mt-2 w-fit rounded-full\">{t.contactUs}</Button>\n          )}\n        </CardContent>\n      </Card>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-faqs-support.tsx"
+    }
+  ],
+  "categories": [
+    "faqs"
+  ],
+  "type": "registry:block"
+}

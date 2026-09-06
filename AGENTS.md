@@ -16,8 +16,8 @@ lib/utils.ts         → cn() e utilidades
 app/globals.css      → tokens CSS (colors, radius, sidebar, charts, success/warning/risk-*)
 registry.json        → manifesto de exportação do design system
 .storybook/          → configuração do Storybook (vitest browser mode)
-docs/specs/          → specs de todos os componentes (ui + custom)
-docs/specs/PRODUCT.md  → visão estratégica do produto (register, usuários, princípios)
+docs/specs/          → specs de todos os componentes (ui + custom) — 316 specs (325 itens no registry)
+docs/specs/PRODUCT.md  → visão estratégica do produto (registry, usuários, princípios)
 docs/specs/DESIGN.md   → documentação visual do design system (cores, tipografia, componentes)
 docs/templates/      → templates spec-first para novos componentes
 ```
@@ -28,8 +28,8 @@ docs/templates/      → templates spec-first para novos componentes
 - Tailwind CSS v4 (`@theme inline`, sem `tailwind.config.js`)
 - shadcn/ui (`radix` base, estilo `luma`, package manager: `npm`)
 - CVA (`class-variance-authority`) para variantes
-- Storybook 10 com Vitest browser mode (`make test` = 840 testes em 118 arquivos)
-- i18n: `UI_I18N[locale]` de `@/lib/ui-i18n`
+- Storybook 10 com Vitest browser mode (`make test` > 1000 testes em 160+ arquivos — 325 itens no registry, 250+ `components/ds`)
+- i18n: `UI_I18N[locale]` de `@/lib/ui-i18n` (4 locales, 300+ chaves)
 
 ## Regras críticas — sempre aplicar
 
