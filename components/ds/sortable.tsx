@@ -61,13 +61,27 @@ export function Sortable({
   return (
     <div
       data-slot="sortable"
+      role="list"
+      aria-label="Sortable list"
       className={cn(sortableVariants({ size }), className)}
       {...props}
     >
       {list.map((it, idx) => (
         <div
           key={it.id}
-          className="flex items-center gap-2 rounded-xl border bg-background p-3"
+          role="listitem"
+          tabIndex={0}
+          aria-label={`Sortable item ${idx + 1} of ${list.length}`}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowUp" && idx > 0) {
+              e.preventDefault()
+              move(idx, idx - 1)
+            } else if (e.key === "ArrowDown" && idx < list.length - 1) {
+              e.preventDefault()
+              move(idx, idx + 1)
+            }
+          }}
+          className="flex items-center gap-2 rounded-xl border bg-background p-3 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-none"
           draggable
           onDragStart={(e) => e.dataTransfer.setData("text/plain", String(idx))}
           onDragOver={(e) => e.preventDefault()}
@@ -83,18 +97,20 @@ export function Sortable({
           <span className="flex-1 truncate text-sm">{it.content}</span>
           <div className="flex gap-1">
             <button
+              type="button"
               aria-label="Move up"
               disabled={idx === 0}
               onClick={() => move(idx, idx - 1)}
-              className="size-6 rounded-md hover:bg-muted disabled:opacity-30"
+              className="size-6 rounded-md hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:opacity-30"
             >
               ↑
             </button>
             <button
+              type="button"
               aria-label="Move down"
               disabled={idx === list.length - 1}
               onClick={() => move(idx, idx + 1)}
-              className="size-6 rounded-md hover:bg-muted disabled:opacity-30"
+              className="size-6 rounded-md hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:opacity-30"
             >
               ↓
             </button>

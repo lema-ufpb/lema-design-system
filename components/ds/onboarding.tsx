@@ -52,7 +52,14 @@ export function Onboarding({
   return (
     <Card data-slot="onboarding" className={cn("p-6", className)} {...props}>
       <div className="flex flex-col gap-4">
-        <Progress value={progress} className="h-1" />
+        <Progress
+          value={progress}
+          aria-label={`Step ${current + 1} of ${steps.length}`}
+          aria-valuenow={Math.round(progress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          className="h-1"
+        />
         <span className="text-xs text-muted-foreground tabular-nums">
           Step {current + 1} of {steps.length}
         </span>

@@ -77,19 +77,15 @@ export function Screenshot({
 
   if (loadingState) {
     return (
-      <div
+      <Skeleton
         data-slot="screenshot-skeleton"
-        className={cn(
-          screenshotVariants({ rounded, shadow, aspect }),
-          "animate-pulse bg-muted",
-          className
-        )}
-        style={{ width: "100%", aspectRatio: `${width}/${height}` }}
+        role="status"
+        aria-live="polite"
         aria-busy="true"
         aria-label="Carregando captura de tela"
-      >
-        <Skeleton className="size-full rounded-[inherit]" />
-      </div>
+        className={cn(screenshotVariants({ rounded, shadow, aspect }), className)}
+        style={{ width: "100%", aspectRatio: `${width}/${height}` }}
+      />
     )
   }
 
