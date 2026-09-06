@@ -107,8 +107,8 @@ export const WaitlistForm = React.forwardRef<
     }
 
     const isPill = variant === "pill"
-    const inputHeight = size === "sm" ? "h-8" : size === "lg" ? "h-11" : "h-10"
-    const buttonHeight = size === "sm" ? "h-7" : size === "lg" ? "h-10" : "h-9"
+    const inputHeight = size === "sm" ? "h-8" : size === "lg" ? "h-10" : "h-9"
+    const buttonHeight = size === "sm" ? "h-8" : size === "lg" ? "h-10" : "h-9"
 
     return (
       <form

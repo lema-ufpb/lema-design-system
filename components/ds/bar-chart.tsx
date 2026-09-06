@@ -179,7 +179,7 @@ function BarChartSkeleton({
           </div>
 
           {/* Horizontal bars — cascade top to bottom */}
-          <div className="absolute top-2 right-1 bottom-8 left-[92px] flex flex-col justify-around gap-[4%] py-[1%]">
+          <div className="absolute top-2 right-1 bottom-8 left-[92px] flex flex-col justify-around gap-2 py-1">
             {SKELETON_H_BAR_WIDTHS.map((pct, i) => (
               <Skeleton
                 key={i}
@@ -228,7 +228,7 @@ function BarChartSkeleton({
           </div>
 
           {/* Bars — wave cascade from left to right */}
-          <div className="absolute top-2 right-1 bottom-8 left-11 flex items-end gap-[3%] px-[1%]">
+          <div className="absolute top-2 right-1 bottom-8 left-11 flex items-end gap-2 px-1">
             {SKELETON_BAR_HEIGHTS.map((pct, i) => (
               <Skeleton
                 key={i}
