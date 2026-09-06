@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-app-store-badges",
+  "title": "AppStoreBadges",
+  "description": "Botões de download para App Store e Google Play, com ícone e texto sobrescrevíveis.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ds/app-store-badges.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { Apple, PlayCircle } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport type AppStoreBadgeStore = \"apple\" | \"google\"\n\nexport interface AppStoreBadgeLink {\n  href: string\n  store: AppStoreBadgeStore\n  /** Small top line, e.g. \"Download on the\". Defaults per store. */\n  eyebrow?: string\n  /** Bold store name, e.g. \"App Store\". Defaults per store. */\n  storeName?: string\n  /** Overrides the default icon (use your own brand-compliant mark). */\n  icon?: React.ElementType\n}\n\nexport interface AppStoreBadgesProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof appStoreBadgeVariants> {\n  links: AppStoreBadgeLink[]\n}\n\n// ── Variants ──\n\nexport const appStoreBadgeVariants = cva(\n  \"inline-flex shrink-0 items-center gap-2.5 rounded-lg bg-foreground px-4 text-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none\",\n  {\n    variants: {\n      size: {\n        sm: \"h-10 [&_svg]:size-5\",\n        md: \"h-12 [&_svg]:size-6\",\n        lg: \"h-14 [&_svg]:size-7\",\n      },\n    },\n    defaultVariants: { size: \"md\" },\n  }\n)\n\nexport const appStoreBadgeEyebrowVariants = cva(\n  \"leading-none text-background/80\",\n  {\n    variants: {\n      size: { sm: \"text-xs\", md: \"text-xs\", lg: \"text-xs\" },\n    },\n    defaultVariants: { size: \"md\" },\n  }\n)\n\nexport const appStoreBadgeNameVariants = cva(\"leading-none font-semibold\", {\n  variants: {\n    size: { sm: \"text-sm\", md: \"text-base\", lg: \"text-lg\" },\n  },\n  defaultVariants: { size: \"md\" },\n})\n\n// ── Helpers ──\n\nconst DEFAULT_ICON: Record<AppStoreBadgeStore, React.ElementType> = {\n  apple: Apple,\n  google: PlayCircle,\n}\n\nconst DEFAULT_EYEBROW: Record<AppStoreBadgeStore, string> = {\n  apple: \"Download on the\",\n  google: \"GET IT ON\",\n}\n\nconst DEFAULT_STORE_NAME: Record<AppStoreBadgeStore, string> = {\n  apple: \"App Store\",\n  google: \"Google Play\",\n}\n\n// ── Component ──\n\nexport function AppStoreBadges({\n  links,\n  size = \"md\",\n  className,\n  ...props\n}: AppStoreBadgesProps) {\n  return (\n    <div\n      className={cn(\"flex flex-wrap items-center gap-3\", className)}\n      data-slot=\"app-store-badges\"\n      {...props}\n    >\n      {links.map(({ href, store, eyebrow, storeName, icon }) => {\n        const Icon = icon ?? DEFAULT_ICON[store]\n        const label = `${eyebrow ?? DEFAULT_EYEBROW[store]} ${storeName ?? DEFAULT_STORE_NAME[store]}`\n\n        return (\n          <a\n            key={store}\n            href={href}\n            aria-label={label}\n            className={cn(appStoreBadgeVariants({ size }))}\n          >\n            <Icon aria-hidden=\"true\" />\n            <span className=\"flex flex-col items-start\">\n              <span className={cn(appStoreBadgeEyebrowVariants({ size }))}>\n                {eyebrow ?? DEFAULT_EYEBROW[store]}\n              </span>\n              <span className={cn(appStoreBadgeNameVariants({ size }))}>\n                {storeName ?? DEFAULT_STORE_NAME[store]}\n              </span>\n            </span>\n          </a>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-app-store-badges.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

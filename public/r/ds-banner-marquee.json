@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-banner-marquee",
+  "title": "Banner Marquee",
+  "description": "Faixa com rolagem infinita horizontal para highlights — blockus banner #13.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/banner-marquee.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N, type UILocale } from \"@/lib/ui-i18n\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface BannerMarqueeProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof bannerMarqueeVariants> {\n  items: string[]\n  separator?: React.ReactNode\n  speed?: \"slow\" | \"normal\" | \"fast\"\n  direction?: \"left\" | \"right\"\n  pauseOnHover?: boolean\n  locale?: UILocale\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const bannerMarqueeVariants = cva(\n  \"relative flex w-full items-center overflow-hidden border py-2\",\n  {\n    variants: {\n      intent: {\n        default: \"border-border bg-muted text-muted-foreground\",\n        promo: \"border-primary/20 bg-primary text-primary-foreground\",\n        contrast: \"border-foreground bg-foreground text-background\",\n      },\n      size: {\n        sm: \"h-8 text-xs\",\n        md: \"h-9 text-xs\",\n        lg: \"h-10 text-sm\",\n      },\n    },\n    defaultVariants: {\n      intent: \"default\",\n      size: \"md\",\n    },\n  }\n)\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function BannerMarquee({\n  className,\n  items,\n  separator = \"·\",\n  speed = \"normal\",\n  direction = \"left\",\n  pauseOnHover = true,\n  intent = \"default\",\n  size = \"md\",\n  locale = \"en-US\",\n  ...props\n}: BannerMarqueeProps) {\n  const duration = speed === \"slow\" ? \"30s\" : speed === \"fast\" ? \"10s\" : \"20s\"\n\n  // Duplicate items for seamless loop\n  const loopItems = [...items, ...items]\n\n  return (\n    <div\n      data-slot=\"banner-marquee\"\n      role=\"region\"\n      aria-label={UI_I18N[locale].banner.marqueeLabel}\n      className={cn(\n        bannerMarqueeVariants({ intent, size }),\n        pauseOnHover && \"group/marquee\",\n        className\n      )}\n      {...props}\n    >\n      <div\n        className={cn(\n          \"flex w-max items-center gap-6\",\n          \"animate-[marquee-x_var(--duration)_linear_infinite]\",\n          pauseOnHover && \"group-hover/marquee:[animation-play-state:paused]\",\n          direction === \"right\" && \"[animation-direction:reverse]\"\n        )}\n        style={{ \"--duration\": duration } as React.CSSProperties}\n      >\n        {loopItems.map((item, idx) => (\n          <span\n            key={`${item}-${idx}`}\n            className=\"flex items-center gap-6 whitespace-nowrap\"\n          >\n            <span className=\"font-medium tracking-wide\">{item}</span>\n            <span className=\"opacity-60\" aria-hidden=\"true\">\n              {separator}\n            </span>\n          </span>\n        ))}\n      </div>\n      <div\n        className={cn(\n          \"flex w-max items-center gap-6\",\n          \"animate-[marquee-x_var(--duration)_linear_infinite]\",\n          pauseOnHover && \"group-hover/marquee:[animation-play-state:paused]\",\n          direction === \"right\" && \"[animation-direction:reverse]\"\n        )}\n        style={{ \"--duration\": duration } as React.CSSProperties}\n        aria-hidden=\"true\"\n      >\n        {loopItems.map((item, idx) => (\n          <span\n            key={`${item}-${idx}-dup`}\n            className=\"flex items-center gap-6 whitespace-nowrap\"\n          >\n            <span className=\"font-medium tracking-wide\">{item}</span>\n            <span className=\"opacity-60\">{separator}</span>\n          </span>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-banner-marquee.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -142,7 +142,9 @@ function Slider({
                 <div>
                   <SliderRoot
                     data-slot="ds-slider-root"
-                    aria-label={label}
+                    aria-label={
+                      label || (props["aria-label"] as string) || "Slider"
+                    }
                     min={min}
                     max={max}
                     value={Array.isArray(value) ? value : [value]}
@@ -170,7 +172,7 @@ function Slider({
         ) : (
           <SliderRoot
             data-slot="ds-slider-root"
-            aria-label={label}
+            aria-label={label || (props["aria-label"] as string) || "Slider"}
             min={min}
             max={max}
             value={Array.isArray(value) ? value : [value]}

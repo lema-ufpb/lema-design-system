@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-rich-text-editor",
+  "title": "Rich Text Editor",
+  "description": "A presentation component that provides the structure for a rich text editor.",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "components/ds/rich-text-editor.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface RichTextEditorProps extends React.HTMLAttributes<HTMLDivElement> {\n  invalid?: boolean\n}\n\n// ── Component ──\n\nexport const RichTextEditor = React.forwardRef<\n  HTMLDivElement,\n  RichTextEditorProps\n>(({ className, invalid, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        \"flex flex-col overflow-hidden rounded-lg border bg-background transition-[color,box-shadow,border-color] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30\",\n        invalid &&\n          \"border-destructive focus-within:border-destructive focus-within:ring-destructive/20\",\n        className\n      )}\n      data-slot=\"ds-rich-text-editor\"\n      {...props}\n    />\n  )\n})\nRichTextEditor.displayName = \"RichTextEditor\"\n\nexport const RichTextToolbar = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        \"flex flex-wrap items-center gap-1 border-b bg-muted/40 p-1.5\",\n        className\n      )}\n      data-slot=\"ds-rich-text-toolbar\"\n      {...props}\n    />\n  )\n})\nRichTextToolbar.displayName = \"RichTextToolbar\"\n\nexport const RichTextContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        \"min-h-[150px] p-3 text-sm focus-visible:outline-none\",\n        \"[&_ol]:list-decimal [&_ol]:pl-5\",\n        \"[&_ul]:list-disc [&_ul]:pl-5\",\n        \"[&_h1]:mb-2 [&_h1]:text-2xl [&_h1]:font-bold\",\n        \"[&_h2]:mb-2 [&_h2]:text-xl [&_h2]:font-bold\",\n        \"[&_h3]:mb-2 [&_h3]:text-lg [&_h3]:font-bold\",\n        \"[&_p]:mb-2\",\n        className\n      )}\n      data-slot=\"ds-rich-text-content\"\n      {...props}\n    />\n  )\n})\nRichTextContent.displayName = \"RichTextContent\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-rich-text-editor.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

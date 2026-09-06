@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-otp-input",
+  "title": "OTP Input",
+  "description": "An OTP input for verification codes.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input-otp",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/otp-input.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSlot,\n} from \"@/components/ui/input-otp\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface OTPInputProps\n  extends\n    Omit<React.ComponentProps<typeof InputOTP>, \"size\" | \"render\">,\n    VariantProps<typeof otpInputSlotVariants> {\n  loading?: boolean\n  invalid?: boolean\n}\n\n// ── Variants ──\n\nexport const otpInputSlotVariants = cva(\"\", {\n  variants: {\n    size: {\n      sm: \"h-8 w-8 text-xs\",\n      md: \"h-10 w-10 text-sm\",\n      lg: \"h-12 w-12 text-base\",\n    },\n  },\n  defaultVariants: {\n    size: \"md\",\n  },\n})\n\n// ── Component ──\n\nexport const DsOtpInput = React.forwardRef<\n  React.ElementRef<typeof InputOTP>,\n  OTPInputProps\n>(\n  (\n    {\n      size = \"md\",\n      loading = false,\n      invalid = false,\n      maxLength = 6,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    if (loading) {\n      const slots = Array.from({ length: maxLength })\n      return (\n        <div className={cn(\"flex items-center gap-2\", className)}>\n          {slots.map((_, i) => (\n            <Skeleton\n              key={i}\n              className={cn(\n                \"rounded-md\",\n                size === \"sm\"\n                  ? \"h-8 w-8\"\n                  : size === \"lg\"\n                    ? \"h-12 w-12\"\n                    : \"h-10 w-10\"\n              )}\n            />\n          ))}\n        </div>\n      )\n    }\n\n    const slotsArray = Array.from({ length: maxLength })\n\n    return (\n      <InputOTP\n        ref={ref}\n        maxLength={maxLength}\n        containerClassName={cn(className)}\n        {...props}\n      >\n        <InputOTPGroup className={cn(invalid && \"aria-invalid\")}>\n          {slotsArray.map((_, i) => (\n            <InputOTPSlot\n              key={i}\n              index={i}\n              className={cn(\n                otpInputSlotVariants({ size }),\n                invalid && \"aria-invalid\"\n              )}\n            />\n          ))}\n        </InputOTPGroup>\n      </InputOTP>\n    )\n  }\n)\nDsOtpInput.displayName = \"DsOtpInput\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-otp-input.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

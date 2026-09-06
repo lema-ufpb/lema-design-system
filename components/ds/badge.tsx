@@ -9,46 +9,6 @@ import { Badge as BadgeRoot } from "@/components/ui/badge"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Skeleton } from "@/components/ui/skeleton"
 
-// ── Variants ──
-
-export const badgeVariants = cva("flex-nowrap whitespace-nowrap", {
-  variants: {
-    variant: {
-      default: "",
-      secondary: "",
-      destructive: "",
-      outline: "",
-      success: "bg-success text-success-foreground [a]:hover:bg-success/80",
-      warning: "bg-warning text-warning-foreground [a]:hover:bg-warning/80",
-    },
-    size: {
-      sm: "h-4 px-1.5 text-[10px] [&>svg]:size-2.5",
-      md: "h-5 px-2 text-xs font-medium [&>svg]:size-3",
-      lg: "h-6 px-2.5 text-sm font-medium [&>svg]:size-3.5",
-    },
-  },
-  defaultVariants: { variant: "default", size: "md" },
-})
-
-export const badgeDotVariants = cva("rounded-full", {
-  variants: {
-    variant: {
-      default: "bg-current",
-      secondary: "bg-current",
-      destructive: "bg-current",
-      outline: "bg-current",
-      success: "bg-current",
-      warning: "bg-current",
-    },
-    size: {
-      sm: "size-1.5",
-      md: "size-2",
-      lg: "size-2.5",
-    },
-  },
-  defaultVariants: { variant: "default", size: "md" },
-})
-
 // ── Types ──
 
 export interface BadgeProps
@@ -80,6 +40,46 @@ export interface BadgeProps
    */
   borderColor?: string
 }
+
+// ── Variants ──
+
+export const badgeVariants = cva("flex-nowrap whitespace-nowrap", {
+  variants: {
+    variant: {
+      default: "",
+      secondary: "",
+      destructive: "",
+      outline: "",
+      success: "bg-success text-success-foreground [a]:hover:bg-success/80",
+      warning: "bg-warning text-warning-foreground [a]:hover:bg-warning/80",
+    },
+    size: {
+      sm: "h-4 px-1.5 text-xs [&>svg]:size-2.5",
+      md: "h-5 px-2 text-xs font-medium [&>svg]:size-3",
+      lg: "h-6 px-2.5 text-sm font-medium [&>svg]:size-3.5",
+    },
+  },
+  defaultVariants: { variant: "default", size: "md" },
+})
+
+export const badgeDotVariants = cva("rounded-full", {
+  variants: {
+    variant: {
+      default: "bg-current",
+      secondary: "bg-current",
+      destructive: "bg-current",
+      outline: "bg-current",
+      success: "bg-current",
+      warning: "bg-current",
+    },
+    size: {
+      sm: "size-1.5",
+      md: "size-2",
+      lg: "size-2.5",
+    },
+  },
+  defaultVariants: { variant: "default", size: "md" },
+})
 
 // ── Component ──
 
@@ -173,7 +173,7 @@ function Badge({
             e.stopPropagation()
             onRemove?.()
           }}
-          className="ml-0.5 inline-flex items-center justify-center rounded-full transition-colors hover:bg-accent"
+          className="-m-1 ml-0.5 inline-flex size-5 items-center justify-center rounded-full p-1 transition-colors hover:bg-accent"
         >
           <XIcon
             className={cn(

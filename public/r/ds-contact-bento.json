@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-contact-bento",
+  "title": "ContactBento",
+  "description": "Grid bento com o formulário de contato como tile principal e tiles satélite — composto de ds-bento-grid e ds-contact-form.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-bento-grid",
+    "ds-contact-form"
+  ],
+  "files": [
+    {
+      "path": "components/ds/contact-bento.tsx",
+      "content": "import * as React from \"react\"\n\nimport { BentoGrid, BentoGridItem } from \"./bento-grid\"\nimport { ContactForm, type ContactFormProps } from \"./contact-form\"\n\n// ── Types ──\n\nexport interface ContactBentoProps extends React.HTMLAttributes<HTMLDivElement> {\n  formProps?: ContactFormProps\n  /** Additional `BentoGridItem` tiles rendered beside the form (office locations, stats...). */\n  children?: React.ReactNode\n}\n\n// ── Component ──\n\n/**\n * A bento grid with a contact form as its hero tile, plus any number of\n * satellite tiles — composed from `BentoGrid` and `ContactForm`.\n */\nexport function ContactBento({\n  formProps,\n  children,\n  className,\n  ...props\n}: ContactBentoProps) {\n  return (\n    <BentoGrid className={className} data-slot=\"contact-bento\" {...props}>\n      <BentoGridItem\n        colSpan={2}\n        rowSpan={2}\n        className=\"items-stretch justify-center\"\n      >\n        <ContactForm {...formProps} />\n      </BentoGridItem>\n      {children}\n    </BentoGrid>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-contact-bento.tsx"
+    }
+  ],
+  "categories": [
+    "contact",
+    "bento"
+  ],
+  "type": "registry:block"
+}

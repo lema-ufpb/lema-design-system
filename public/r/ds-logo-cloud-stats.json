@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-logo-cloud-stats",
+  "title": "LogoCloudStats",
+  "description": "Estatística em destaque acima de um mural de logos — composto de ds-press-wall.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-press-wall"
+  ],
+  "files": [
+    {
+      "path": "components/ds/logo-cloud-stats.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { PressWall } from \"./press-wall\"\n\n// ── Types ──\n\nexport interface LogoCloudStatsProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Big headline, e.g. \"Trusted by 500+ companies\". */\n  headline: React.ReactNode\n  description?: string\n  kicker?: string\n  /** `PressWallLogo` items rendered below. */\n  children: React.ReactNode\n}\n\n// ── Component ──\n\n/**\n * A big headline stat sitting above a logo wall — composed from\n * `PressWall`.\n */\nexport function LogoCloudStats({\n  headline,\n  description,\n  kicker,\n  children,\n  className,\n  ...props\n}: LogoCloudStatsProps) {\n  return (\n    <div\n      className={cn(\"flex flex-col items-center gap-8 text-center\", className)}\n      data-slot=\"logo-cloud-stats\"\n      {...props}\n    >\n      <div className=\"flex flex-col gap-2\">\n        <p className=\"text-3xl font-semibold tracking-tight text-foreground sm:text-4xl\">\n          {headline}\n        </p>\n        {description && <p className=\"text-muted-foreground\">{description}</p>}\n      </div>\n\n      <PressWall kicker={kicker} className=\"w-full\">\n        {children}\n      </PressWall>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-logo-cloud-stats.tsx"
+    }
+  ],
+  "categories": [
+    "logo-cloud"
+  ],
+  "type": "registry:block"
+}

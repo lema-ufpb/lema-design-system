@@ -441,7 +441,10 @@ export function Dashrow({
               aria-valuemin={15}
               aria-valuemax={85}
               tabIndex={0}
-              className={cn(dashrowDividerVariants(), "group/divider")}
+              className={cn(
+                dashrowDividerVariants(),
+                "group/divider -mx-2 min-h-11 min-w-8 px-2"
+              )}
             >
               <div
                 data-slot="dashrow-divider-handle"

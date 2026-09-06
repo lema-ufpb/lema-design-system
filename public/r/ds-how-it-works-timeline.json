@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-how-it-works-timeline",
+  "title": "How It Works Timeline",
+  "description": "Timeline vertical com linha conectora — blockus #03 #10 #17.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-how-it-works"
+  ],
+  "files": [
+    {
+      "path": "components/ds/how-it-works-timeline.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { HowItWorks, type HowItWorksProps } from \"./how-it-works\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport type HowItWorksTimelineProps = Omit<HowItWorksProps, \"orientation\">\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function HowItWorksTimeline({\n  className,\n  ...props\n}: HowItWorksTimelineProps) {\n  return (\n    <div\n      data-slot=\"how-it-works-timeline\"\n      className={cn(\"relative\", className)}\n    >\n      <div\n        className=\"absolute top-6 bottom-6 left-5 hidden w-px bg-border md:block\"\n        aria-hidden=\"true\"\n      />\n      <HowItWorks orientation=\"vertical\" {...props} />\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-how-it-works-timeline.tsx"
+    }
+  ],
+  "categories": [
+    "how-it-works"
+  ],
+  "type": "registry:block"
+}

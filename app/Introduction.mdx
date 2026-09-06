@@ -7,17 +7,19 @@ import { VERSION } from "../lib/version"
 
 **LEMA-DS** is the official design system and component library for the [Laboratório de Economia e Modelagem Aplicada (LEMA)](https://lema.ufpb.br) at Universidade Federal da Paraíba (UFPB). It provides a modern, accessible, and themeable set of React components built on shadcn/ui and Radix UI Primitives.
 
+> **Registry:** `325` items (`261` `ds-*` + `62` primitives + `3` libs) — `316` specs in `docs/specs/` — `250+` `components/ds` composites — consumable via `npx shadcn@latest add ds-<name>` → `components/ui/ds-<name>.tsx`.
+
 ## 🛠️ The Stack
 
 - **[React 19](https://react.dev/)**: Core UI library.
 - **[Next.js 16](https://nextjs.org/)**: Application framework.
 - **[TypeScript](https://www.typescriptlang.org/)**: End-to-end type safety.
-- **[Tailwind CSS v4](https://tailwindcss.com/)**: Utility-first styling engine.
-- **[Radix UI](https://www.radix-ui.com/)**: Headless accessibility primitives.
-- **[shadcn/ui](https://ui.shadcn.com/)**: Base component layer.
-- **[class-variance-authority](https://cva.style/)**: Type-safe component variants.
-- **[Storybook](https://storybook.js.org/)**: Component documentation.
-- **[Vitest](https://vitest.dev/)**: Unit testing.
+- **[Tailwind CSS v4](https://tailwindcss.com/)**: Utility-first styling (`@theme inline`, no `tailwind.config.js`).
+- **[Radix UI](https://www.radix-ui.com/)**: Headless accessibility primitives (base `radix`, style `luma`).
+- **[shadcn/ui](https://ui.shadcn.com/)**: Base component layer (`components/ui` — 62 primitives, never edit manually).
+- **[class-variance-authority](https://cva.style/)**: Type-safe `cva()` variants with `defaultVariants`.
+- **[Storybook 10](https://storybook.js.org/)**: Documentation + Vitest browser mode (`make test`).
+- **[Vitest](https://vitest.dev/)**: Unit + a11y testing.
 
 ---
 
@@ -27,106 +29,74 @@ The library is organized into three layers:
 
 ### 1. Foundation
 
-The core "DNA" of the design system — semantic tokens, typography, color palette, and theme configuration.
+The core "DNA" — semantic tokens, typography, color palette, and theme configuration.
 
-- **Color Tokens**: `--background`, `--foreground`, `--primary`, `--muted`, `--border`, and their dark-mode counterparts.
-- **Risk Tokens**: Custom semantic tokens (`--risk-1` to `--risk-4`) for data visualization and risk indicators.
-- **Theme Support**: Seamless switching between Light, Dark, and System modes via `ToggleTheme`.
-- **Internationalization (i18n)**: All UI strings are centralized in `lib/ui-i18n.ts` and localized via an optional `locale` prop (`"en-US"`, `"pt-BR"`, `"es-ES"`, `"fr-FR"`). Each component auto-installs the i18n dictionary as a registry dependency.
+- **Color Tokens**: `--background`, `--foreground`, `--primary`, `--muted`, `--border`, and dark-mode counterparts.
+- **Risk Tokens**: `--risk-1` … `--risk-4` for data visualization.
+- **Highlight/Chart Tokens**: `--highlight-violet/sky/white`, `--chart-1` … `--chart-5` (never raw hex).
+- **Theme Support**: Light / Dark / System via `ToggleTheme` + `next-themes`.
+- **Internationalization (i18n)**: Centralized in `lib/ui-i18n.ts` (`en-US`, `pt-BR`, `es-ES`, `fr-FR`) — `locale` prop auto-installs `ui-i18n` registry dependency.
 
 ### 2. Shadcn UI Primitives
 
-Atomic, accessible base components installed via the shadcn CLI — used as building blocks for the custom layer above.
+Atomic, accessible base components in `components/ui/` — **never edit manually**, update only via `npx shadcn@latest add <component> --yes`.
 
-- **Form**: [Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Input Group](/docs/shadcn-ui-inputgroup--docs), [Textarea](/docs/shadcn-ui-textarea--docs), [Badge](/docs/shadcn-ui-badge--docs), [Questionnaire](/docs/shadcn-ui-questionnaire--docs)
-- **Overlay**: [Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Dropdown Menu](/docs/shadcn-ui-dropdownmenu--docs), [Popover](/docs/shadcn-ui-popover--docs), [Tooltip](/docs/shadcn-ui-tooltip--docs)
-- **Display**: [Avatar](/docs/shadcn-ui-avatar--docs), [Accordion](/docs/shadcn-ui-accordion--docs), [Card](/docs/shadcn-ui-card--docs), [Progress](/docs/shadcn-ui-progress--docs), [Skeleton](/docs/shadcn-ui-skeleton--docs), [Spinner](/docs/shadcn-ui-spinner--docs), [Table](/docs/shadcn-ui-table--docs)
+- **Form**: [Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Input Group](/docs/shadcn-ui-inputgroup--docs), [Textarea](/docs/shadcn-ui-textarea--docs), [Badge](/docs/shadcn-ui-badge--docs), [Questionnaire](/docs/shadcn-ui-questionnaire--docs), [Calendar](/docs/shadcn-ui-calendar--docs), [Checkbox](/docs/shadcn-ui-checkbox--docs), [Field](/docs/shadcn-ui-field--docs)
+- **Overlay**: [Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Dropdown Menu](/docs/shadcn-ui-dropdownmenu--docs), [Popover](/docs/shadcn-ui-popover--docs), [Tooltip](/docs/shadcn-ui-tooltip--docs), [Sheet](/docs/shadcn-ui-sheet--docs), [Alert Dialog](/docs/shadcn-ui-alertdialog--docs)
+- **Display**: [Avatar](/docs/shadcn-ui-avatar--docs), [Accordion](/docs/shadcn-ui-accordion--docs), [Card](/docs/shadcn-ui-card--docs), [Progress](/docs/shadcn-ui-progress--docs), [Skeleton](/docs/shadcn-ui-skeleton--docs), [Spinner](/docs/shadcn-ui-spinner--docs), [Table](/docs/shadcn-ui-table--docs), [Badge](/docs/shadcn-ui-badge--docs), [Empty](/docs/shadcn-ui-empty--docs)
 - **Chat**: [Attachment](/docs/shadcn-ui-attachment--docs), [Bubble](/docs/shadcn-ui-bubble--docs), [Marker](/docs/shadcn-ui-marker--docs), [Message](/docs/shadcn-ui-message--docs), [MessageScroller](/docs/shadcn-ui-messagescroller--docs)
-- **Layout**: [Scroll Area](/docs/shadcn-ui-scrollarea--docs), [Command](/docs/shadcn-ui-command--docs)
-- **Navigation**: [Pagination](/docs/shadcn-ui-pagination--docs)
+- **Layout**: [Scroll Area](/docs/shadcn-ui-scrollarea--docs), [Command](/docs/shadcn-ui-command--docs), [Resizable](/docs/shadcn-ui-resizable--docs), [Sidebar](/docs/shadcn-ui-sidebar--docs)
+- **Navigation**: [Pagination](/docs/shadcn-ui-pagination--docs), [Breadcrumb](/docs/shadcn-ui-breadcrumb--docs), [Tabs](/docs/shadcn-ui-tabs--docs), [Navigation Menu](/docs/shadcn-ui-navigationmenu--docs)
+- **62 primitives total** — see `registry.json` + `components/ui/`.
 
 ### 3. Custom UI Components
 
-Custom components live in `components/ds/`. Shared utilities and helpers in `lib/` provide CVA variants, i18n dictionaries, and formatting utilities reused across the component family. Each component is individually registered in `registry.json` (type `registry:ui`), with barrel entries listing sub-components as `registryDependencies`. Install individually or in bulk via the [LEMA registry](https://ds.lema.ufpb.br/r/registry.json).
+`261` composites in `components/ds/` + `3` libs (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/card-stats-shared.tsx`). Each registered in `registry.json` as `ds-*` (`files[].target: components/ui/ds-<name>.tsx` to avoid collision) and installable via `npx shadcn@latest add ds-<name>`. Spec-first: every component has `docs/specs/ds-<name>.md` + colocated `.stories.tsx`.
 
 #### Actions
 
-- **[Button](/docs/actions-button--docs)**: Feature-rich button with loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step destructive confirmation, and built-in tooltip via Radix. Wraps the shadcn `Button` primitive.
-- **[IconButton](/docs/actions-iconbutton--docs)**: Icon-only button with optional tooltip, loading state, and configurable size and rounding.
-- **[ToggleTheme](/docs/actions-toggletheme--docs)**: Dropdown button to switch between light, dark, and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app-level setup.
+- [Button](/docs/actions-button--docs), [IconButton](/docs/actions-iconbutton--docs), [ToggleTheme](/docs/actions-toggletheme--docs)
 
 #### Layout & Containers
 
-- **[Dashrow](/docs/ui-dashrow--docs)**: Responsive layout container for dashboard panels with resizable split ratios and N-child support.
-- **[Dashbox](/docs/ui-dashbox--docs)**: Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton, and status badge.
-- **[DrawerUI](/docs/ui-drawerui--docs)**: Full-featured drawer wrapper with header, scrollable body, footer, direction-aware close button, snap points, scale background, and event handlers for escape/pointer-down-outside. Supports bottom, left, right, and top directions.
-- **[Modal](/docs/ui-modal--docs)**: Flexible modal dialog built on Dialog with 6 size variants, 5 intent colors, defaultOpen for uncontrolled usage, scrollable body, auto async confirm tracking, loading skeleton, escape/pointer-down-outside/interact-outside event handlers, and i18n support.
+- [Dashrow](/docs/ui-dashrow--docs), [Dashbox](/docs/ui-dashbox--docs), [DrawerUI](/docs/ui-drawerui--docs), [Modal](/docs/ui-modal--docs), [Dashboard](/docs/layout-dashboard--docs) (`AppSidebar` + `SectionCards` + `DataTable`), [AppSidebar](/docs/navigation-appsidebar--docs) (`TeamSwitcher` + `SidebarSearch`), [SectionCards](/docs/data-display-sectioncards--docs)
 
 #### Data Display
 
-- **[CardStats](/docs/data-display-cardstats-dashboard--docs)**: Portfolio of 9 KPI card variants — CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. All share CVA variants from `lib/card-stats-shared.tsx`. Each variant is installable individually (`card-stat`, `card-stat-compact`, etc.) or all at once via the `card-stats` barrel (which lists all variants as `registryDependencies`).
-- **[MiniCard](/docs/data-display-minicard--docs)**: Compact stat label+value unit for horizontal summary strips. Compose with MiniCardGroup (pill, outlined, elevated, ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators, and number formatting. Size propagates via context.
-- **[DataTable](/docs/data-display-datatable--docs)**: High-performance virtualized data table with built-in toolbar, pagination, sorting, and `locale` prop for automatic i18n label resolution (search placeholder, empty state, pagination labels).
-- **[Avatar](/docs/data-display-avatar--docs)**: Extended avatar with 5 sizes, status dots, initials color generator, image loading status callback, delay fallback, group overflow, tooltip, and skeleton loading.
-- **[Badge](/docs/data-display-badge--docs)**: Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).
-- **[CopyBlock](/docs/data-display-copyblock--docs)**: Text/code snippet with a copy-to-clipboard button, copied-state tooltip, 3 sizes, and i18n labels.
-- **[Rating](/docs/data-display-rating--docs)**: Interactive star rating with keyboard navigation (radiogroup pattern), custom icon support, readonly/disabled states, and 3 sizes.
-- **[Timeline](/docs/data-display-timeline--docs)**: Vertical event timeline with connector lines, status-colored dots (outline/solid), and custom icon slots.
+- [CardStats](/docs/data-display-cardstats-dashboard--docs) (9 variants via `lib/card-stats-shared.tsx`), [MiniCard](/docs/data-display-minicard--docs), [DataTable](/docs/data-display-datatable--docs) (virtualized, TanStack Table v9), [Avatar](/docs/data-display-avatar--docs), [Badge](/docs/data-display-badge--docs), [CopyBlock](/docs/data-display-copyblock--docs), [Rating](/docs/data-display-rating--docs), [Timeline](/docs/data-display-timeline--docs), [DescriptionList](/docs/ui-descriptionlist--docs), [Empty](/docs/feedback-empty--docs)
 
-#### Charts
+#### Charts (13)
 
-Data visualization components built on Recharts (and pure SVG for Boxplot) and tailored for the LEMA design system.
-
-- **[BarChart](/docs/data-display-barchart--docs)**: Bar chart with tooltips, legend, stacking, rounded corners, and brush zoom.
-- **[BoxplotChart](/docs/data-display-boxplotchart--docs)**: Custom SVG box-and-whisker chart with notch support and outlier plotting.
-- **[CandlestickChart](/docs/data-display-candlestickchart--docs)**: Financial candlestick chart with volume, moving averages, reference lines, and brush.
-- **[GeomapChart](/docs/data-display-geomapchart--docs)**: Interactive geographic map for rendering GeoJSON/TopoJSON data with tooltips, zoom, choropleth, and markers.
-- **[HeatmapChart](/docs/data-display-heatmapchart--docs)**: Heatmap matrix with CSS grid and color-mix for smooth interpolation.
-- **[LineChart](/docs/data-display-linechart--docs)**: Line chart with gradient areas, stacked areas, reference lines, and brush.
-- **[PieChart](/docs/data-display-piechart--docs)**: Pie/donut chart with interactive center label, legend, and outer slice labels.
-- **[RadarChart](/docs/data-display-radarchart--docs)**: Radar/spider chart for multivariate data with polygon or circular grid.
-- **[RadialChart](/docs/data-display-radialchart--docs)**: Radial bar chart with concentric rings and semicircular gauge mode.
-- **[ScatterChart](/docs/data-display-scatterchart--docs)**: Scatter/bubble chart with trend lines, multi-series, and brush.
-- **[TreemapChart](/docs/data-display-treemapchart--docs)**: Treemap with hierarchical drill-down, breadcrumb navigation, and aspect ratio control.
+- [BarChart](/docs/data-display-barchart--docs), [LineChart](/docs/data-display-linechart--docs), [PieChart](/docs/data-display-piechart--docs), [RadarChart](/docs/data-display-radarchart--docs), [RadialChart](/docs/data-display-radialchart--docs), [BoxplotChart](/docs/data-display-boxplotchart--docs), [CandlestickChart](/docs/data-display-candlestickchart--docs), [GeomapChart](/docs/data-display-geomapchart--docs), [HeatmapChart](/docs/data-display-heatmapchart--docs), [ScatterChart](/docs/data-display-scatterchart--docs), [TreemapChart](/docs/data-display-treemapchart--docs), [ContributionGraph](/docs/ui-contributiongraph--docs), [Gantt](/docs/ui-gantt--docs)
 
 #### Feedback
 
-- **[PageLoader](/docs/feedback-pageloader--docs)**: Full-page loading overlay with a top shimmer bar (`bar`) or a centered XL spinner (`spinner`). Controlled by a single `loading` prop with smooth fade-in/out, semantic color options (`primary`, `success`, `destructive`), optional frosted-glass overlay, and i18n support.
-- **[Spinner](/docs/feedback-spinner--docs)**: Animated loading indicator with localized `aria-label` via `locale` prop.
-- **[ProgressBar](/docs/feedback-progressbar--docs)**: Horizontal progress indicator with animated fill, configurable label positions, custom fill/track color overrides via CSS tokens, getValueLabel for custom label formatting, and semantic color intents.
-- **[ProgressCircular](/docs/feedback-progresscircular--docs)**: Circular gauge with animated SVG stroke and centered percentage value.
-- **[RiskLevelBar](/docs/feedback-risklevelbar--docs)**: Segmented bar with movable marker using `--risk-1` to `--risk-4` semantic tokens.
-- **[Empty](/docs/feedback-empty--docs)**: Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.
+- [PageLoader](/docs/feedback-pageloader--docs), [Spinner](/docs/feedback-spinner--docs), [ProgressBar](/docs/feedback-progressbar--docs), [ProgressCircular](/docs/feedback-progresscircular--docs), [RiskLevelBar](/docs/feedback-risklevelbar--docs), [Empty](/docs/feedback-empty--docs), [Callout](/docs/ui-callout--docs), [Banner](/docs/ui-banner--docs)
 
 #### Navigation
 
-- **[Tabs](/docs/navigation-tabs--docs)**: Declarative tab component powered by Radix. Pass an `items` array with `value`, `label`, optional `icon`, `count`, `disabled`, and `content`. Four variants (`default`, `line`, `pill`, `segmented`), three sizes, vertical orientation, and responsive accordion fallback on mobile.
-- **[NavDots](/docs/navigation-navdots--docs)**: Dot-based section navigation with automatic scroll tracking and tooltips.
-- **[NavUser](/docs/navigation-navuser--docs)**: User profile dropdown menu for navigation headers, built on DropdownMenu and Avatar.
-- **[HeaderSearch](/docs/navigation-headersearch--docs)**: Smoothly expanding search bar for page headers.
-- **[FooterMenu](/docs/navigation-footermenu--docs)**: Responsive footer — columns on desktop, accordion on mobile.
-- **[ScrollToTop](/docs/ui-scrolltotop--docs)**: Floating button with scroll-progress ring and direction-aware visibility for quick top-of-page navigation.
-- **[Pagination](/docs/navigation-pagination--docs)**: Semantic pagination with `locale` prop for "Anterior"/"Próxima" labels, and `rounded` variant (`full`/`light`/`none`).
-- **[StepProgress](/docs/navigation-stepprogress--docs)**: Multi-step process guide with status indicators in horizontal or vertical orientations.
-- **[Accordion](/docs/navigation-accordion--docs)**: Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, i18n aria-labels, skeleton loading, and nested accordion support.
+- [Tabs](/docs/navigation-tabs--docs), [NavDots](/docs/navigation-navdots--docs), [NavUser](/docs/navigation-navuser--docs), [HeaderSearch](/docs/navigation-headersearch--docs), [FooterMenu](/docs/navigation-footermenu--docs), [ScrollToTop](/docs/ui-scrolltotop--docs), [Pagination](/docs/navigation-pagination--docs), [StepProgress](/docs/navigation-stepprogress--docs), [Accordion](/docs/navigation-accordion--docs), [Breadcrumbs](/docs/navigation-breadcrumbs--docs), [TreeView](/docs/ui-treeview--docs)
 
-#### Forms
+#### Forms (30+)
 
-- **[Input](/docs/form-input--docs)**: Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.
-- **[Select](/docs/form-select--docs)**: Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning (side/align/offset), i18n placeholder/no-results, and skeleton loading.
-- **[Slider](/docs/form-slider--docs)**: Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.
-- **[Switch](/docs/form-switch--docs)**: Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.
-- **[Counter](/docs/form-counter--docs)**: Numeric input with +/− button controls and controlled/uncontrolled value support.
-- **[Input Email](/docs/forms-emailinput--docs)**: Email field with a built-in mail icon and size/radius variants.
-- **[Input Password](/docs/forms-passwordinput--docs)**: Password field with a toggle visibility button and size/radius variants.
-- **[SearchBar](/docs/forms-searchbar--docs)**: Smoothly expanding search input for page headers with icon toggle, keyboard shortcut hint, and i18n placeholders.
-- **[SearchCombo](/docs/forms-searchcombo--docs)**: Search field with autocomplete dropdown, keyboard navigation, grouped results, voice recognition, and text highlighting. Maintained in `components/ds/search-combo/` with independent support files.
-- **[Combobox](/docs/form-combobox--docs)**: Autocomplete input with search filtering, keyboard navigation, group support, and configurable popover positioning (side/align/offset), built on @base-ui/react.
-- **[ComboboxUI](/docs/form-comboboxui--docs)**: Enhanced combobox with virtual scrolling, single/multi select with chips, custom option rendering, full search, and configurable popover positioning.
-- **[SelectList](/docs/form-selectlist--docs)**: Searchable list with selection state, groups, icons, and virtual scrolling for large data sets.
-- **[DatePicker](/docs/form-datepicker--docs)**: Date picker combining a trigger button and a Popover-hosted Calendar, with date-fns locale formatting across 4 languages and 3 sizes.
-- **[FileUpload](/docs/form-fileupload--docs)**: Drag-and-drop upload zone with max-size validation, upload progress bar, and i18n labels.
-- **[MultiSelect](/docs/form-multiselect--docs)**: Multi-value combobox with removable badge chips, max-count overflow, search filtering, and i18n labels.
+- [Input](/docs/form-input--docs), [Select](/docs/form-select--docs), [Slider](/docs/form-slider--docs), [Switch](/docs/form-switch--docs), [Counter](/docs/form-counter--docs), [InputEmail](/docs/forms-emailinput--docs), [InputPassword](/docs/forms-passwordinput--docs), [SearchBar](/docs/forms-searchbar--docs), [SearchCombo](/docs/forms-searchcombo--docs), [Combobox](/docs/form-combobox--docs), [SelectList](/docs/form-selectlist--docs), [DatePicker](/docs/form-datepicker--docs), [FileUpload](/docs/form-fileupload--docs), [MultiSelect](/docs/form-multiselect--docs), [Autocomplete](/docs/ui-autocomplete--docs), [Cascader](/docs/ui-cascader--docs), [PhoneInput](/docs/ui-phoneinput--docs), [TagInput](/docs/ui-taginput--docs), [OtpInput](/docs/ui-otpinput--docs)
+
+#### Marketing (80+)
+
+- **Hero**: [HeroSection](/docs/hero-herosection--docs), [HeroLayers](/docs/hero-herolayers--docs), [HeroGlow](/docs/hero-heroglow--docs), [HeroBento](/docs/hero-herobento--docs), [HeroTerminal](/docs/hero-heroterminal--docs), [HeroVideo](/docs/hero-herovideo--docs)
+- **Bento**: [BentoGrid](/docs/ui-bentogrid--docs), [BentoFeatures](/docs/ui-bentofeatures--docs), [BentoShowcase](/docs/ui-bentoshowcase--docs), [BentoMetrics](/docs/ui-bentometrics--docs)
+- **CTA/Pricing/Testimonials/Team/LogoCloud/Blog/FAQ/Contact**: [PricingGrid](/docs/pricing-pricinggrid--docs), [Testimonials](/docs/testimonials-testimonials--docs), [TeamGrid](/docs/team-teamgrid--docs), [LogoCloudGlow](/docs/ui-logocloudglow--docs), [BlogGrid](/docs/blog-bloggrid--docs), [Faqs](/docs/faqs-faqs--docs), [ContactBento](/docs/contact-contactbento--docs)
+- **Headers/Footers**: 12× `header-*` (`header-simple`, `header-mega`, `header-transparent`, `header-floating` via `navbar-floating`), 8× `footer-*`
+
+#### Effects (Aceternity-inspired, new)
+
+- [TiltCard](/docs/effects-tiltcard--docs) (3D tilt + glare), [SpotlightCard](/docs/effects-spotlightcard--docs) (radial follow), [TracingBeam](/docs/effects-tracingbeam--docs) (scroll beam), [Typewriter](/docs/effects-typewriter--docs) (typewriter/flip/generate), [AuroraBackground](/docs/effects-aurorabackground--docs), [FloatingDock](/docs/navigation-floatingdock--docs), [MarqueeDuo](/docs/marketing-marqueeduo--docs) (2-row marquee)
+
+#### Utilities (Launch UI-inspired, new)
+
+- [Screenshot](/docs/media-screenshot--docs) (theme-aware light/dark), [Mockup](/docs/media-mockup--docs) (small/large/mobile), [Glow](/docs/utilities-glow--docs) (positional radial), [Glass](/docs/utilities-glass--docs) (glass-1..5), [Fade](/docs/utilities-fade--docs) (mask x/y/top…)
+
+> Full list: `registry.json` (`261` `ds-*`) + `public/r/*.json` rebuild via `make registry`. Use `npx shadcn@latest add ds-<name>` or `npx ds add <name>` via `@lema-ufpb/ds-sync`.
 
 ---
 
@@ -134,99 +104,74 @@ Data visualization components built on Recharts (and pure SVG for Boxplot) and t
 
 ### Via `@lema-ufpb/ds-sync` (recommended for UFPB projects)
 
-For institutional projects, use our dedicated CLI on [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) with auth, lockfile, drift detection, and CI support:
-
 ```bash
 npm install -D @lema-ufpb/ds-sync
 ```
 
-Configure in `.env.local`:
+`.env.local`:
 
 ```env
 LEMA_DS_TOKEN=<your-token>
 LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 ```
 
-Common commands:
-
 ```bash
-npx ds add dashbox bar-chart        # Install component(s)
-npx ds update progress-bar          # Update component(s)
-npx ds verify                       # Drift detection
-npx ds sync --all --yes             # CI mode
+npx ds add dashbox bar-chart
+npx ds add ds-tilt-card ds-spotlight-card
+npx ds verify
+npx ds sync --all --yes
 ```
 
-> 🔑 Token provided by LEMA's NOC. Lockfile `ds.lock` is auto-generated and **must be committed**.
+> 🔑 Token via LEMA NOC. `ds.lock` must be committed.
 
 ### Via shadcn CLI
 
-Any component can also be added directly via the standard shadcn CLI:
-
 ```bash
-npx ds add <component-name>
-
-# Examples:
-npx ds add dashbox
-npx ds add progress-bar
-npx ds add search-combo
+npx shadcn@latest add ds-card-stat
+npx shadcn@latest add ds-hero-layers
+npx shadcn@latest add ds-dashboard
 ```
 
-> The shared i18n dictionary (`lib/ui-i18n.ts`) is automatically installed as a registry dependency for every locale-aware component.
+> `lib/ui-i18n.ts` auto-installs as `registry:lib` dependency for locale-aware components.
 
 ---
 
 ## 🌐 Internationalization
 
-Components display UI labels (tooltips, aria-labels, status text, empty state messages) based on the `locale` prop. The dictionary supports four locales:
+Four locales via `UI_I18N[locale]` (`lib/ui-i18n.ts`):
 
 | Code  | Language           |
-| :---- | :----------------- |
+| ----- | ------------------ |
 | en-US | English (default)  |
 | pt-BR | Português (Brasil) |
 | es-ES | Español            |
-| fr-FR | Fran&ccedil;ais    |
+| fr-FR | Français           |
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
-import { Counter } from "@/components/ds/counter"
-import { DataTable } from "@/components/ds/data-table"
-
 ;<Dashbox title="Status" locale="pt-BR" status="live" />
-{
-  /* → Badge: "Online", toolbar: "Atualizar", "Recolher", ... */
-}
-
-;<Counter locale="es-ES" defaultValue={5} />
-{
-  /* → aria-label: "Contador", buttons: "Disminuir valor" / "Aumentar valor" */
-}
-
-;<DataTable locale="pt-BR" data={rows} columns={cols} pagination />
-{
-  /* → busca: "Buscar…", empty: "Nenhum dado encontrado", paginação: "Anterior" / "Próximo" */
-}
+// → "Online", "Atualizar", "Recolher"
 ```
 
-The `locale` prop defaults to `"en-US"` when omitted. Extending to additional locales requires only adding a new entry to `UI_I18N` in `lib/ui-i18n.ts`.
+`locale` defaults to `en-US`. Extend by adding entry to `UI_I18N`.
 
 ---
 
 ## 🌟 Key Features
 
-- **Accessibility (a11y)**: Every component follows WAI-ARIA guidelines with full keyboard navigation support. See our [Accessibility Statement](/docs/ui-accessibility--docs) for WCAG 2.1 AA compliance details.
-- **Dark / Light themes**: All colors use shadcn semantic tokens and adapt automatically via CSS variables.
-- **Responsiveness**: Mobile-first approach — complex components like `FooterMenu` switch layouts based on viewport.
-- **Type Safety**: 100% TypeScript with CVA-powered variant props for a bulletproof developer experience.
-- **Registry-ready**: Each component is individually registered in `registry.json` (type `registry:ui` or `registry:lib`) and installable via `npx ds add <component-name>` without copying the repo. Barrel entries aggregate sub-components as `registryDependencies` for bulk install.
+- **Accessibility**: WAI-ARIA, keyboard nav, `prefers-reduced-motion` fallbacks, `axe` checks in Vitest. [Accessibility Statement](/docs/ui-accessibility--docs) (WCAG 2.1 AA).
+- **Themes**: Semantic tokens (`bg-primary`, `text-muted-foreground`, `bg-success`, `bg-risk-1`…`4`, `bg-muted`) auto-adapt light/dark, no manual `dark:` overrides.
+- **Responsiveness**: Mobile-first, `@container` queries, `SidebarProvider` responsive.
+- **Type Safety**: 100% TypeScript + CVA `VariantProps`.
+- **Spec-First**: Every `components/ds/*.tsx` has `docs/specs/ds-*.md` + colocated `.stories.tsx` — `316` specs total.
+- **Registry-Ready**: `325` items in `registry.json`, `public/r/*.json` via `make registry`.
 
 ---
 
 ## 🚀 Getting Started
 
-Browse the documentation in the sidebar. Each component page includes:
+Each component page includes **Playground** (CVA variants), **Code Snippets** (`cn()` + tokens), and **API Docs** (props, `VariantProps`, defaults).
 
-- **Interactive Playground**: Test all variants and props in real-time.
-- **Code Examples**: Copy-paste ready snippets.
-- **API Documentation**: Every prop, type, and default value.
+Browse via sidebar — categories: `Actions`, `Data Display`, `Charts`, `Forms`, `Navigation`, `Layout`, `Hero`, `Bento`, `Marketing`, `Effects`, `Utilities`, `Feedback`.
 
 Enjoy building with **LEMA-DS**!

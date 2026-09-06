@@ -125,36 +125,36 @@ npx ds add ui-i18n
 ```
 design-system/
 ├── app/
-│   ├── globals.css         # Tokens CSS e temas
+│   ├── globals.css         # Tokens CSS e temas (Tailwind v4 @theme inline)
+│   ├── Introduction.mdx    # Intro Storybook (v{VERSION}, 325 itens, 261 ds)
 │   └── layout.tsx          # Layout raiz com ThemeProvider
 ├── components/
-│   ├── ui/                 # Primitivos shadcn (base)
+│   ├── ui/                 # Primitivos shadcn — 62, nunca editar (npx shadcn add)
 │   │   ├── button.tsx
 │   │   ├── card.tsx
 │   │   ├── input.tsx
-│   │   └── ...
-│   └── ds/                 # Componentes customizados
+│   │   └── ... (62)
+│   └── ds/                 # Compostos — 261 (CVA single-file, i18n, Skeleton)
 │       ├── dashbox.tsx
 │       ├── bar-chart.tsx
 │       ├── data-table.tsx
-│       ├── search-combo/
-│       │   ├── index.tsx
-│       │   ├── types.ts
-│       │   ├── variants.ts
-│       │   ├── search-combo.stories.tsx
-│       │   └── hooks/
-│       └── ...
+│       ├── tilt-card.tsx          # Aceternity 3D/Wobble
+│       ├── hero-layers.tsx        # Launch UI Layers
+│       ├── screenshot.tsx         # Launch UI theme-aware
+│       └── ... (250+)
 ├── lib/
-│   ├── utils.ts                    # Utilitários (cn)
-│   ├── ui-i18n.ts                  # Dicionário i18n compartilhado (multi-locale)
-│   ├── format-utils.ts             # Formatação numérica localizada (Intl.NumberFormat)
-│   ├── card-stats-shared.tsx       # CVA variants, TrendBadge, helpers da família CardStat
-│   └── version.ts                  # Constante de versão do app
-├── providers/
-│   └── theme.tsx           # ThemeProvider custom com suporte a color themes
-├── .storybook/             # Configuração Storybook
-├── registry.json           # Registro shadcn
-└── Makefile                # Scripts de build
+│   ├── utils.ts                    # cn()
+│   ├── ui-i18n.ts                  # Dicionário 4 locales (300+ chaves)
+│   ├── format-utils.ts             # Intl.NumberFormat + abrev.
+│   ├── card-stats-shared.tsx       # CVA família CardStat (9 variantes)
+│   └── version.ts                  # __APP_VERSION__
+├── providers/theme.tsx     # ThemeProvider (next-themes)
+├── .storybook/             # Storybook 10 + Vitest browser
+├── registry.json           # 325 itens (261 ds-* → components/ui/ds-*.tsx)
+├── public/r/               # shadcn build output
+├── docs/specs/             # 316 specs (spec-first)
+├── docs/templates/component-spec.md
+└── Makefile                # make dev/lint/test/registry
 ```
 
 ## 📋 Desenvolvimento Orientado a Spec (Spec-Driven)
@@ -163,7 +163,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e s
 
 ```
 docs/
-├── specs/               # Specs de todos os componentes (126 arquivos — ui + custom)
+├── specs/               # Specs de todos os componentes (316 arquivos — 62 ui + 261 ds, 325 itens no registry)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -173,13 +173,13 @@ docs/
 1. **Preencher o template** `docs/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
-4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro) + `make test` (917 testes em 130 arquivos)
+4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro — `325` itens) + `make test` (>1000 testes em 160+ arquivos)
 
 As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem seu propósito, API, variantes CVA, tokens e acessibilidade documentados.
 
 ### 📚 Specs existentes
 
-Todos os componentes (61 ui primitives + 68 custom) já possuem spec documentada em `docs/specs/`. Cada spec detalha propósito, API, variantes CVA, tokens, escala tipográfica, estados (loading/empty/disabled), acessibilidade e stories obrigatórias — servindo como fonte de verdade para manutenção e evolução.
+Todos os componentes (`62` ui primitives + `261` ds + `3` libs = `325` registry items) possuem spec documentada em `docs/specs/` (`316` specs). Cada spec detalha propósito, API, variantes CVA, tokens (`bg-success`, `bg-risk-1`…`4`, `--chart-1`…`5`), escala tipográfica `sm=text-xs/md=text-sm/lg=text-base`, estados (loading `Skeleton`/empty/disabled), acessibilidade (`aria-*`, `prefers-reduced-motion`) e stories obrigatórias — fonte de verdade spec-first.
 
 ### 📄 Spec template
 
@@ -596,9 +596,9 @@ make start            # Servidor produção
 make lint             # ESLint + typecheck + Prettier check
 make format           # Prettier
 make build-storybook  # Build Storybook estático
-make test             # Vitest (917 testes em 130 arquivos)
+make test             # Vitest (>1000 testes em 160+ arquivos)
 make coverage         # Coverage com Vitest
-make registry         # Rebuild do registry.json (shadcn build)
+make registry         # Rebuild do registry.json (shadcn build — 325 itens)
 make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
 make clean            # Limpar artefatos
 ```

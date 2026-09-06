@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-pricing-grid",
+  "title": "Pricing Grid",
+  "description": "Grid 3 cards + toggle mensal/anual — blockus #02 #04 #12.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-pricing-card",
+    "toggle-group",
+    "skeleton",
+    "ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/pricing-grid.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { UI_I18N, type UILocale } from \"@/lib/ui-i18n\"\nimport { ToggleGroup, ToggleGroupItem } from \"@/components/ui/toggle-group\"\nimport { PricingCard, type PricingCardProps } from \"./pricing-card\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface PricingPlan extends Omit<\n  PricingCardProps,\n  \"price\" | \"originalPrice\"\n> {\n  monthlyPrice: number\n  yearlyPrice?: number\n  originalMonthlyPrice?: number\n  originalYearlyPrice?: number\n}\n\nexport interface PricingGridProps extends React.HTMLAttributes<HTMLDivElement> {\n  title?: string\n  description?: string\n  plans: PricingPlan[]\n  billing?: \"monthly\" | \"yearly\"\n  onBillingChange?: (billing: \"monthly\" | \"yearly\") => void\n  locale?: UILocale\n  loading?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function PricingGrid({\n  className,\n  title,\n  description,\n  plans,\n  billing = \"monthly\",\n  onBillingChange,\n  locale = \"en-US\",\n  loading = false,\n  ...props\n}: PricingGridProps) {\n  const [internalBilling, setInternalBilling] = React.useState(billing)\n  const isControlled = onBillingChange !== undefined\n  const resolvedBilling = isControlled ? billing : internalBilling\n\n  const handleBilling = (v: string) => {\n    if (!v) return\n    const val = v as \"monthly\" | \"yearly\"\n    if (!isControlled) setInternalBilling(val)\n    onBillingChange?.(val)\n  }\n\n  const t = UI_I18N[locale].pricing\n\n  return (\n    <div\n      data-slot=\"pricing-grid\"\n      className={cn(\"flex flex-col gap-8\", className)}\n      {...props}\n    >\n      <div className=\"flex flex-col items-center gap-4 text-center\">\n        <h2 className=\"text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl\">\n          {title ?? t.title}\n        </h2>\n        {description && (\n          <p className=\"max-w-prose text-sm leading-relaxed text-pretty text-muted-foreground md:text-base\">\n            {description ?? t.description}\n          </p>\n        )}\n        <ToggleGroup\n          type=\"single\"\n          value={resolvedBilling}\n          onValueChange={handleBilling}\n          variant=\"outline\"\n          size=\"sm\"\n          className=\"rounded-full border p-1\"\n        >\n          <ToggleGroupItem\n            value=\"monthly\"\n            className=\"rounded-full px-4 text-xs\"\n          >\n            {t.monthly}\n          </ToggleGroupItem>\n          <ToggleGroupItem value=\"yearly\" className=\"rounded-full px-4 text-xs\">\n            {t.yearly}{\" \"}\n            <span className=\"ml-1 rounded-full bg-success px-1.5 py-0.5 text-xs text-success-foreground\">\n              {t.save} 20%\n            </span>\n          </ToggleGroupItem>\n        </ToggleGroup>\n      </div>\n\n      {loading ? (\n        <div className=\"grid gap-6 md:grid-cols-3\">\n          {Array.from({ length: 3 }).map((_, i) => (\n            <Skeleton key={i} className=\"h-96 rounded-3xl\" />\n          ))}\n        </div>\n      ) : (\n        <div className=\"grid gap-6 md:grid-cols-3\">\n          {plans.map((plan) => {\n            const price =\n              resolvedBilling === \"yearly\" && plan.yearlyPrice !== undefined\n                ? plan.yearlyPrice\n                : plan.monthlyPrice\n            const originalPrice =\n              resolvedBilling === \"yearly\" &&\n              plan.originalYearlyPrice !== undefined\n                ? plan.originalYearlyPrice\n                : plan.originalMonthlyPrice\n            return (\n              <PricingCard\n                key={plan.name}\n                {...plan}\n                price={price}\n                originalPrice={originalPrice}\n                period={resolvedBilling === \"yearly\" ? \"year\" : \"month\"}\n                locale={locale}\n              />\n            )\n          })}\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-pricing-grid.tsx"
+    }
+  ],
+  "categories": [
+    "pricing"
+  ],
+  "type": "registry:block"
+}

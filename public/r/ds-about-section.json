@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-about-section",
+  "title": "AboutSection",
+  "description": "Bloco composto de página 'Sobre' — história + citação do fundador + tira de estatísticas + grid de equipe — construído a partir dos átomos ds-hero-section, ds-pull-quote, ds-card-stat e ds-team-roster.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "ds-hero-section",
+    "ds-pull-quote",
+    "ds-card-stat",
+    "ds-team-roster"
+  ],
+  "files": [
+    {
+      "path": "components/ds/about-section.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { CardStat } from \"./card-stat\"\nimport {\n  HeroDescription,\n  HeroHeader,\n  HeroSection,\n  HeroTitle,\n} from \"./hero-section\"\nimport { PullQuote } from \"./pull-quote\"\nimport {\n  TeamRoster,\n  TeamRosterCard,\n  type TeamRosterSocialLink,\n} from \"./team-roster\"\n\n// ── Types ──\n\nexport interface AboutSectionStat {\n  label: string\n  value: string | number\n}\n\nexport interface AboutSectionTeamMember {\n  name: string\n  role?: string\n  avatarSrc?: string\n  avatarFallback?: string\n  social?: TeamRosterSocialLink[]\n}\n\nexport interface AboutSectionProps\n  extends\n    Omit<React.HTMLAttributes<HTMLElement>, \"title\">,\n    VariantProps<typeof aboutSectionVariants> {\n  kicker?: string\n  title: React.ReactNode\n  description?: string\n  quote?: string\n  quoteName?: string\n  quoteRole?: string\n  quoteAvatarSrc?: string\n  quoteAvatarFallback?: string\n  stats?: AboutSectionStat[]\n  team?: AboutSectionTeamMember[]\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const aboutSectionVariants = cva(\"w-full\", {\n  variants: {\n    size: {\n      sm: \"text-xs\",\n      md: \"text-sm\",\n      lg: \"text-base\",\n    },\n  },\n  defaultVariants: { size: \"md\" },\n})\n\n// ── Component ──\n\n/**\n * Composed \"About\" page section — story + founder quote + stats strip + team\n * grid — built entirely from existing ds/ atoms (HeroSection, PullQuote,\n * CardStat, TeamRoster). A ready-to-drop block, mirroring the \"story + values\n * + stats\" combo pattern common to About pages.\n */\nexport function AboutSection({\n  kicker,\n  title,\n  description,\n  quote,\n  quoteName,\n  quoteRole,\n  quoteAvatarSrc,\n  quoteAvatarFallback,\n  stats = [],\n  team = [],\n  className,\n  ...props\n}: AboutSectionProps) {\n  return (\n    <HeroSection\n      align=\"center\"\n      className={className}\n      data-slot=\"about-section\"\n      {...props}\n    >\n      {kicker && (\n        <HeroHeader>\n          <Badge variant=\"secondary\">{kicker}</Badge>\n        </HeroHeader>\n      )}\n\n      <HeroTitle>{title}</HeroTitle>\n\n      {description && <HeroDescription>{description}</HeroDescription>}\n\n      {quote && (\n        <PullQuote\n          align=\"center\"\n          tone=\"violet\"\n          size=\"sm\"\n          quote={quote}\n          name={quoteName}\n          role={quoteRole}\n          avatarSrc={quoteAvatarSrc}\n          avatarFallback={quoteAvatarFallback}\n          className=\"mt-8 max-w-2xl\"\n        />\n      )}\n\n      {stats.length > 0 && (\n        <div\n          className={cn(\n            \"mt-12 grid w-full grid-cols-2 gap-4\",\n            stats.length >= 4 ? \"sm:grid-cols-4\" : \"sm:grid-cols-3\"\n          )}\n        >\n          {stats.map((stat) => (\n            <CardStat\n              key={stat.label}\n              label={stat.label}\n              value={stat.value}\n              variant=\"flat\"\n            />\n          ))}\n        </div>\n      )}\n\n      {team.length > 0 && (\n        <TeamRoster columns={4} className=\"mt-12 w-full\">\n          {team.map((member) => (\n            <TeamRosterCard key={member.name} {...member} />\n          ))}\n        </TeamRoster>\n      )}\n    </HeroSection>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-about-section.tsx"
+    }
+  ],
+  "categories": [
+    "about"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-callout",
+  "title": "Callout",
+  "description": "A highlighted alert component.",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "components/ds/callout.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport {\n  InfoIcon,\n  CheckCircleIcon,\n  AlertTriangleIcon,\n  AlertCircleIcon,\n} from \"lucide-react\"\n\nimport { Alert, AlertDescription, AlertTitle } from \"@/components/ui/alert\"\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface CalloutProps\n  extends\n    Omit<React.ComponentProps<typeof Alert>, \"variant\">,\n    VariantProps<typeof calloutVariants> {\n  title?: string\n  icon?: React.ReactNode\n}\n\n// ── Variants ──\n\nexport const calloutVariants = cva(\"\", {\n  variants: {\n    variant: {\n      default: \"border-transparent bg-muted text-foreground\",\n      info: \"border-highlight-sky bg-highlight-sky text-foreground [&>svg]:text-primary\",\n      success:\n        \"border-success bg-success/10 text-success-foreground [&>svg]:text-success\",\n      warning:\n        \"border-warning bg-warning/10 text-warning-foreground [&>svg]:text-warning\",\n      destructive:\n        \"border-destructive bg-destructive/10 text-destructive [&>svg]:text-destructive\",\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n  },\n})\n\n// ── Component ──\n\nexport const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(\n  (\n    { className, variant = \"default\", title, icon, children, ...props },\n    ref\n  ) => {\n    let DefaultIcon = null\n\n    switch (variant) {\n      case \"info\":\n        DefaultIcon = <InfoIcon className=\"size-4\" />\n        break\n      case \"success\":\n        DefaultIcon = <CheckCircleIcon className=\"size-4\" />\n        break\n      case \"warning\":\n        DefaultIcon = <AlertTriangleIcon className=\"size-4\" />\n        break\n      case \"destructive\":\n        DefaultIcon = <AlertCircleIcon className=\"size-4\" />\n        break\n    }\n\n    const Icon = icon ?? DefaultIcon\n\n    return (\n      <Alert\n        ref={ref}\n        className={cn(calloutVariants({ variant }), className)}\n        data-slot=\"ds-callout\"\n        {...props}\n      >\n        {Icon}\n        {title && <AlertTitle>{title}</AlertTitle>}\n        <AlertDescription>{children}</AlertDescription>\n      </Alert>\n    )\n  }\n)\nCallout.displayName = \"Callout\"\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-callout.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

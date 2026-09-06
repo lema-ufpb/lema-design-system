@@ -256,14 +256,32 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
       setTimeout(() => setRefreshing(false), 600)
     }, [onRefresh])
 
+    React.useEffect(() => {
+      if (!maximized) return
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setMaximized(false)
+      }
+      window.addEventListener("keydown", onKey)
+      const prev = document.body.style.overflow
+      document.body.style.overflow = "hidden"
+      return () => {
+        window.removeEventListener("keydown", onKey)
+        document.body.style.overflow = prev
+      }
+    }, [maximized])
+
     return (
       <TooltipProvider delayDuration={300}>
         <div
           ref={ref}
           data-slot="dashbox"
+          role={maximized ? "dialog" : undefined}
+          aria-modal={maximized ? true : undefined}
+          aria-label={maximized ? title : undefined}
+          tabIndex={maximized ? -1 : undefined}
           className={cn(
             dashboxVariants({ size }),
-            maximized && "fixed! inset-0 z-50 rounded-none",
+            maximized && "fixed! inset-0 z-50 overflow-auto rounded-none",
             className
           )}
           {...props}

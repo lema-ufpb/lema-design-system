@@ -1,0 +1,67 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite"
+import { FooterBrandBackdrop } from "./footer-brand-backdrop"
+import type { FooterGroupData } from "./footer-menu"
+
+const sampleColumns: FooterGroupData[] = [
+  {
+    title: "Ecossistema",
+    options: [
+      { name: "Laboratórios", url: "#" },
+      { name: "Pesquisa & Extensão", url: "#" },
+      { name: "Publicações", url: "#" },
+    ],
+  },
+  {
+    title: "Desenvolvimento",
+    options: [
+      { name: "Design System", url: "#" },
+      { name: "Repositórios Git", url: "#" },
+      { name: "Padrões Web", url: "#" },
+    ],
+  },
+  {
+    title: "Universidade",
+    options: [
+      { name: "Portal UFPB", url: "#" },
+      { name: "Reitoria", url: "#" },
+      { name: "Transparência", url: "#" },
+    ],
+  },
+]
+
+const meta: Meta<typeof FooterBrandBackdrop> = {
+  title: "Blocks/FooterBrandBackdrop",
+  component: FooterBrandBackdrop,
+  tags: ["autodocs"],
+  args: {
+    wordmarkText: "LEMA",
+    wordmarkVariant: "outline",
+    columns: sampleColumns,
+    showStatusBadge: true,
+  },
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
+
+export const MutedVariant: Story = {
+  args: {
+    wordmarkVariant: "muted",
+  },
+}
+
+export const GradientVariant: Story = {
+  args: {
+    wordmarkVariant: "gradient",
+  },
+}
+
+export const CustomInstitution: Story = {
+  args: {
+    wordmarkText: "UFPB",
+    wordmarkVariant: "outline",
+    brandName: "Universidade Federal da Paraíba",
+  },
+}

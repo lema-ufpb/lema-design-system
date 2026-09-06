@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-logo-cloud-grouped",
+  "title": "LogoCloudGrouped",
+  "description": "Mural de logos com filtro de indústria/categoria — composto de ds-press-wall e ds-pill-group.",
+  "dependencies": [],
+  "registryDependencies": [
+    "ds-press-wall",
+    "ds-pill-group"
+  ],
+  "files": [
+    {
+      "path": "components/ds/logo-cloud-grouped.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport type { UILocale } from \"@/lib/ui-i18n\"\nimport { PillGroup } from \"./pill-group\"\nimport { PressWall, PressWallLogo } from \"./press-wall\"\n\n// ── Types ──\n\nexport interface LogoCloudGroup {\n  value: string\n  label: string\n}\n\nexport interface LogoCloudGroupedItem {\n  label: string\n  group: string\n  content: React.ReactNode\n  href?: string\n}\n\nexport interface LogoCloudGroupedProps extends React.HTMLAttributes<HTMLDivElement> {\n  groups: LogoCloudGroup[]\n  items: LogoCloudGroupedItem[]\n  allLabel?: string\n  kicker?: string\n  locale?: UILocale\n}\n\nconst ALL_VALUE = \"__all__\"\n\n// ── Component ──\n\n/**\n * A logo wall with an industry/category filter above it — composed from\n * `PressWall` and `PillGroup`.\n */\nexport function LogoCloudGrouped({\n  groups,\n  items,\n  allLabel = \"All\",\n  kicker,\n  locale,\n  className,\n  ...props\n}: LogoCloudGroupedProps) {\n  const [active, setActive] = React.useState<string>(ALL_VALUE)\n\n  const filtered = React.useMemo(\n    () =>\n      active === ALL_VALUE\n        ? items\n        : items.filter((item) => item.group === active),\n    [active, items]\n  )\n\n  const pillItems = React.useMemo(\n    () => [{ value: ALL_VALUE, label: allLabel }, ...groups],\n    [allLabel, groups]\n  )\n\n  return (\n    <div\n      className={cn(\"flex flex-col items-center gap-8\", className)}\n      data-slot=\"logo-cloud-grouped\"\n      {...props}\n    >\n      <PillGroup\n        items={pillItems}\n        value={active}\n        onChange={(value) =>\n          setActive(\n            Array.isArray(value)\n              ? (value[0] ?? ALL_VALUE)\n              : (value ?? ALL_VALUE)\n          )\n        }\n        locale={locale}\n      />\n      <PressWall kicker={kicker} className=\"w-full\">\n        {filtered.map((item) => (\n          <PressWallLogo key={item.label} label={item.label} href={item.href}>\n            {item.content}\n          </PressWallLogo>\n        ))}\n      </PressWall>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/ui/ds-logo-cloud-grouped.tsx"
+    }
+  ],
+  "categories": [
+    "logo-cloud"
+  ],
+  "type": "registry:block"
+}
