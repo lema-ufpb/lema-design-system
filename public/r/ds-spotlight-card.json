@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-spotlight-card",
+  "title": "Spotlight Card",
+  "description": "Card com spotlight radial seguindo o mouse — inspirado em Aceternity Card Spotlight.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "card",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "components/ds/spotlight-card.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──\n\nexport interface SpotlightCardProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof spotlightCardVariants> {\n  spotlightColor?: string\n  spotlightRadius?: number\n  title?: string\n  description?: string\n  loading?: boolean\n}\n\n// ── Variants ──\n\nexport const spotlightCardVariants = cva(\n  \"group relative overflow-hidden border bg-card text-card-foreground transition-colors\",\n  {\n    variants: {\n      radius: {\n        sm: \"rounded-sm\",\n        md: \"rounded-lg\",\n        lg: \"rounded-xl\",\n        xl: \"rounded-2xl\",\n      },\n      variant: {\n        default: \"shadow-sm hover:shadow-md\",\n        muted: \"bg-muted/40\",\n        outline: \"bg-transparent\",\n      },\n    },\n    defaultVariants: {\n      radius: \"xl\",\n      variant: \"default\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport function SpotlightCard({\n  className,\n  radius = \"xl\",\n  variant = \"default\",\n  spotlightColor = \"hsl(var(--primary) / 0.12)\",\n  spotlightRadius = 380,\n  title,\n  description,\n  loading = false,\n  children,\n  onMouseMove,\n  ...props\n}: SpotlightCardProps) {\n  const ref = React.useRef<HTMLDivElement>(null)\n\n  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    onMouseMove?.(e)\n    if (!ref.current) return\n    const rect = ref.current.getBoundingClientRect()\n    const x = e.clientX - rect.left\n    const y = e.clientY - rect.top\n    ref.current.style.setProperty(\"--mx\", `${x}px`)\n    ref.current.style.setProperty(\"--my\", `${y}px`)\n  }\n\n  if (loading) {\n    return (\n      <div\n        data-slot=\"spotlight-card-skeleton\"\n        className={cn(\n          spotlightCardVariants({ radius, variant }),\n          \"p-6\",\n          className\n        )}\n        {...props}\n      >\n        <Skeleton className=\"h-5 w-40\" />\n        <Skeleton className=\"mt-2 h-4 w-full\" />\n        <Skeleton className=\"mt-2 h-4 w-3/4\" />\n      </div>\n    )\n  }\n\n  return (\n    <Card\n      ref={ref}\n      data-slot=\"spotlight-card\"\n      onMouseMove={handleMove}\n      className={cn(\n        spotlightCardVariants({ radius, variant }),\n        \"relative isolate\",\n        className\n      )}\n      style={\n        {\n          \"--mx\": \"50%\",\n          \"--my\": \"50%\",\n        } as React.CSSProperties\n      }\n      {...props}\n    >\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100\"\n        style={{\n          background: `radial-gradient(${spotlightRadius}px circle at var(--mx) var(--my), ${spotlightColor}, transparent 70%)`,\n        }}\n      />\n      {(title || description) && (\n        <CardHeader>\n          {title && <CardTitle className=\"text-base\">{title}</CardTitle>}\n          {description && <CardDescription>{description}</CardDescription>}\n        </CardHeader>\n      )}\n      <CardContent className={cn(!title && !description && \"pt-6\")}>\n        {children}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ds-spotlight-card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
