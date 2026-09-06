@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { NumberField } from "./number-field"
 
 const meta = {
-  title: "ReUI/NumberField",
+  title: "Form/NumberField",
   component: NumberField,
   tags: ["autodocs"],
 } satisfies Meta<typeof NumberField>

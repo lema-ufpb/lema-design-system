@@ -40,7 +40,11 @@ export function FaqsTabs({
   const [active, setActive] = React.useState(defaultGroup ?? groups[0]?.id)
 
   return (
-    <div data-slot="faqs-tabs" className={cn("flex flex-col gap-6", className)} {...props}>
+    <div
+      data-slot="faqs-tabs"
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <Tabs value={active} onValueChange={setActive}>
         <TabsList>
           {groups.map((g) => (

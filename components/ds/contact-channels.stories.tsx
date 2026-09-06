@@ -27,7 +27,7 @@ const channels = [
 ]
 
 const meta = {
-  title: "Layout/ContactChannels",
+  title: "Blocks/ContactChannels",
   component: ContactChannels,
   parameters: {
     layout: "padded",

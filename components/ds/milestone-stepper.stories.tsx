@@ -32,7 +32,7 @@ const sampleMilestones = [
 ]
 
 const meta: Meta<typeof MilestoneStepper> = {
-  title: "About/MilestoneStepper",
+  title: "Blocks/MilestoneStepper",
   component: MilestoneStepper,
   tags: ["autodocs"],
   parameters: {

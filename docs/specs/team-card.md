@@ -14,37 +14,37 @@ Reuso em grid 3-4 cols.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/team-card.tsx` |
-| Tipo | `registry:ui` (name: `ds-team-card`) |
-| Categoria | Team |
+| Campo      | Valor                                        |
+| ---------- | -------------------------------------------- |
+| Arquivo    | `components/ds/team-card.tsx`                |
+| Tipo       | `registry:ui` (name: `ds-team-card`)         |
+| Categoria  | Team                                         |
 | Depende de | `Avatar`, `Badge`, `Skeleton`, `SocialLinks` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `name` | `string` | ✓ |  |
-| `role` | `string` | — | `text-xs text-muted-foreground` |
-| `bio` | `string` | — | `line-clamp-2 text-sm` |
-| `avatarUrl` | `string` | — |  |
-| `socials` | `SocialLinkItem[]` | — |  |
-| `size` | `"sm" \| "md"` | `"md"` | Avatar `size-16/20` |
-| `locale` | `UILocale` | `"en-US"` |  |
-| `loading` | `boolean` | `false` |  |
+| Prop        | Tipo               | Padrão    | Descrição                       |
+| ----------- | ------------------ | --------- | ------------------------------- |
+| `name`      | `string`           | ✓         |                                 |
+| `role`      | `string`           | —         | `text-xs text-muted-foreground` |
+| `bio`       | `string`           | —         | `line-clamp-2 text-sm`          |
+| `avatarUrl` | `string`           | —         |                                 |
+| `socials`   | `SocialLinkItem[]` | —         |                                 |
+| `size`      | `"sm" \| "md"`     | `"md"`    | Avatar `size-16/20`             |
+| `locale`    | `UILocale`         | `"en-US"` |                                 |
+| `loading`   | `boolean`          | `false`   |                                 |
 
 ---
 
 ## Tokens
 
-| Token | Slot |
-|---|---|
-| `bg-card border` | card `rounded-2xl p-5 gap-3` |
-| `text-foreground font-medium text-sm` | name |
-| `text-muted-foreground text-xs` | role |
+| Token                                 | Slot                         |
+| ------------------------------------- | ---------------------------- |
+| `bg-card border`                      | card `rounded-2xl p-5 gap-3` |
+| `text-foreground font-medium text-sm` | name                         |
+| `text-muted-foreground text-xs`       | role                         |
 
 ---
 

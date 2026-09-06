@@ -173,7 +173,7 @@ function Badge({
             e.stopPropagation()
             onRemove?.()
           }}
-          className="ml-0.5 inline-flex size-5 items-center justify-center rounded-full p-1 -m-1 transition-colors hover:bg-accent"
+          className="-m-1 ml-0.5 inline-flex size-5 items-center justify-center rounded-full p-1 transition-colors hover:bg-accent"
         >
           <XIcon
             className={cn(

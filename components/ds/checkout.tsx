@@ -18,7 +18,10 @@ export interface CheckoutItem {
   quantity: number
 }
 
-export interface CheckoutProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof checkoutVariants> {
+export interface CheckoutProps
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof checkoutVariants> {
   items: CheckoutItem[]
   total: string
   loading?: boolean
@@ -40,10 +43,22 @@ export const checkoutVariants = cva("p-6", {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Checkout({ className, items, total, loading = false, locale = "en-US", size = "md", ...props }: CheckoutProps) {
+export function Checkout({
+  className,
+  items,
+  total,
+  loading = false,
+  locale = "en-US",
+  size = "md",
+  ...props
+}: CheckoutProps) {
   if (loading) {
     return (
-      <Card data-slot="checkout-skeleton" className={cn("p-6", className)} {...props}>
+      <Card
+        data-slot="checkout-skeleton"
+        className={cn("p-6", className)}
+        {...props}
+      >
         <Skeleton className="h-32 w-full" />
       </Card>
     )
@@ -52,21 +67,30 @@ export function Checkout({ className, items, total, loading = false, locale = "e
   const t = UI_I18N[locale].auth
 
   return (
-    <Card data-slot="checkout" className={cn(checkoutVariants({ size }), className)} {...props}>
+    <Card
+      data-slot="checkout"
+      className={cn(checkoutVariants({ size }), className)}
+      {...props}
+    >
       <div className="flex flex-col gap-4">
         <h3 className="text-sm font-semibold text-foreground">Order summary</h3>
         {items.map((it, idx) => (
-          <div key={`${it.name}-${idx}`} className="flex items-center justify-between gap-2 text-sm">
+          <div
+            key={`${it.name}-${idx}`}
+            className="flex items-center justify-between gap-2 text-sm"
+          >
             <span className="truncate text-muted-foreground">
               {it.name} ×{it.quantity}
             </span>
-            <span className="tabular-nums text-foreground">{it.price}</span>
+            <span className="text-foreground tabular-nums">{it.price}</span>
           </div>
         ))}
         <Separator />
         <div className="flex items-center justify-between gap-2">
           <span className="text-sm font-medium text-foreground">Total</span>
-          <span className="text-sm font-bold tabular-nums text-foreground">{total}</span>
+          <span className="text-sm font-bold text-foreground tabular-nums">
+            {total}
+          </span>
         </div>
         <Button className="w-full rounded-full">{t.login}</Button>
       </div>

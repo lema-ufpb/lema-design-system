@@ -12,25 +12,25 @@ Listagem paginada de `IntegrationTile`.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/integrations.tsx` |
-| Tipo | `registry:block` (name: `ds-integrations`) |
-| Categoria | Integrations |
-| Depende de | `IntegrationTile`, `Input`, `Empty` |
+| Campo      | Valor                                      |
+| ---------- | ------------------------------------------ |
+| Arquivo    | `components/ds/integrations.tsx`           |
+| Tipo       | `registry:block` (name: `ds-integrations`) |
+| Categoria  | Integrations                               |
+| Depende de | `IntegrationTile`, `Input`, `Empty`        |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `title` | `string` | i18n |  |
-| `description` | `string` | i18n |  |
-| `integrations` | `Integration[]` | ✓ |  |
-| `searchable` | `boolean` | `false` |  |
-| `locale` | `UILocale` | `"en-US"` |  |
-| `loading` | `boolean` | `false` |  |
+| Prop           | Tipo            | Padrão    | Descrição |
+| -------------- | --------------- | --------- | --------- |
+| `title`        | `string`        | i18n      |           |
+| `description`  | `string`        | i18n      |           |
+| `integrations` | `Integration[]` | ✓         |           |
+| `searchable`   | `boolean`       | `false`   |           |
+| `locale`       | `UILocale`      | `"en-US"` |           |
+| `loading`      | `boolean`       | `false`   |           |
 
 `Integration = {name, description, icon, iconSrc, status, href}`
 
@@ -38,11 +38,11 @@ Listagem paginada de `IntegrationTile`.
 
 ## Comportamentos
 
-| Estado | Comportamento |
-|---|---|
-| `searchable` | `Input` filtra client-side |
-| `empty` | `Empty noResults` i18n |
-| `loading` | 6 `IntegrationTile loading` |
+| Estado       | Comportamento               |
+| ------------ | --------------------------- |
+| `searchable` | `Input` filtra client-side  |
+| `empty`      | `Empty noResults` i18n      |
+| `loading`    | 6 `IntegrationTile loading` |
 
 Grid `md:2 lg:3 xl:4 gap-4`.
 

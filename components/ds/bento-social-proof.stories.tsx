@@ -31,7 +31,7 @@ const logos = ["Forbes", "TechCrunch", "Wired", "The Verge"].map((name) => ({
 }))
 
 const meta = {
-  title: "Layout/BentoSocialProof",
+  title: "Blocks/BentoSocialProof",
   component: BentoSocialProof,
   parameters: {
     layout: "padded",

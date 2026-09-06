@@ -28,7 +28,7 @@ const items = [
 ]
 
 const meta = {
-  title: "Layout/LogoCloudQuotes",
+  title: "Blocks/LogoCloudQuotes",
   component: LogoCloudQuotes,
   parameters: {
     layout: "padded",

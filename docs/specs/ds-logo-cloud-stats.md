@@ -15,23 +15,23 @@ Estatística/headline em destaque acima de um mural de logos, remontando os bloc
 
 ## Localização
 
-| Campo      | Valor                                             |
-| ---------- | ------------------------------------------------------ |
-| Arquivo    | `components/ds/logo-cloud-stats.tsx`                     |
-| Tipo       | `registry:block` (name: `ds-logo-cloud-stats`)          |
-| Categoria  | `Layout`                                                 |
-| Depende de | `ds-press-wall`                                          |
+| Campo      | Valor                                          |
+| ---------- | ---------------------------------------------- |
+| Arquivo    | `components/ds/logo-cloud-stats.tsx`           |
+| Tipo       | `registry:block` (name: `ds-logo-cloud-stats`) |
+| Categoria  | `Layout`                                       |
+| Depende de | `ds-press-wall`                                |
 
 ---
 
 ## API — Props
 
-| Prop          | Tipo               | Obrigatória | Descrição                          |
-| -------------- | -------------------- | ----------- | -------------------------------------- |
-| `headline`    | `React.ReactNode`   | ✓           | Estatística/headline em destaque        |
-| `description` | `string`            |             | Texto de apoio abaixo do headline       |
-| `kicker`      | `string`            |             | Repassado ao `PressWall`                |
-| `children`    | `React.ReactNode`   | ✓           | `PressWallLogo` itens                    |
+| Prop          | Tipo              | Obrigatória | Descrição                         |
+| ------------- | ----------------- | ----------- | --------------------------------- |
+| `headline`    | `React.ReactNode` | ✓           | Estatística/headline em destaque  |
+| `description` | `string`          |             | Texto de apoio abaixo do headline |
+| `kicker`      | `string`          |             | Repassado ao `PressWall`          |
+| `children`    | `React.ReactNode` | ✓           | `PressWallLogo` itens             |
 
 ---
 

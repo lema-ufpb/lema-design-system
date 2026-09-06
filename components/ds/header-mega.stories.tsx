@@ -39,7 +39,7 @@ const nav = [
 ]
 
 const meta = {
-  title: "Navigation/HeaderMega",
+  title: "Blocks/HeaderMega",
   component: HeaderMega,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },

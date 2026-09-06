@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { HeroTerminal } from "./hero-terminal"
 
 const meta = {
-  title: "Layout/HeroTerminal",
+  title: "Blocks/HeroTerminal",
   component: HeroTerminal,
   parameters: {
     layout: "fullscreen",

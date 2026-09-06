@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeroWaitlist } from "./hero-waitlist"
 
 const meta = {
-  title: "Layout/HeroWaitlist",
+  title: "Blocks/HeroWaitlist",
   component: HeroWaitlist,
   parameters: {
     layout: "fullscreen",

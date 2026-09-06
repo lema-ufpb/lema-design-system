@@ -3,7 +3,7 @@ import { BoxIcon } from "lucide-react"
 import { HeaderBrand } from "./header-brand"
 
 const meta = {
-  title: "Navigation/HeaderBrand",
+  title: "Blocks/HeaderBrand",
   component: HeaderBrand,
   tags: ["autodocs"],
   argTypes: {

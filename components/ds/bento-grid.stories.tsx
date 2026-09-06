@@ -3,7 +3,7 @@ import { BarChart3, ShieldCheck, Sparkles, Zap } from "lucide-react"
 import { BentoGrid, BentoGridItem } from "./bento-grid"
 
 const meta = {
-  title: "Layout/BentoGrid",
+  title: "Blocks/BentoGrid",
   component: BentoGrid,
   parameters: {
     layout: "padded",

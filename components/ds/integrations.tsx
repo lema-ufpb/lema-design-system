@@ -10,7 +10,10 @@ import { IntegrationTile, type IntegrationTileProps } from "./integration-tile"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
-export interface Integration extends Omit<IntegrationTileProps, "locale" | "loading" | "size"> {
+export interface Integration extends Omit<
+  IntegrationTileProps,
+  "locale" | "loading" | "size"
+> {
   id?: string
 }
 
@@ -53,16 +56,28 @@ export function Integrations({
   const filtered = React.useMemo(() => {
     if (!search) return integrations
     const q = search.toLowerCase()
-    return integrations.filter((it) => it.name.toLowerCase().includes(q) || it.description?.toLowerCase().includes(q))
+    return integrations.filter(
+      (it) =>
+        it.name.toLowerCase().includes(q) ||
+        it.description?.toLowerCase().includes(q)
+    )
   }, [integrations, search])
 
   const t = UI_I18N[locale].integrations
 
   return (
-    <div data-slot="integrations" className={cn("flex flex-col gap-6", className)} {...props}>
+    <div
+      data-slot="integrations"
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl">{title ?? t.title}</h2>
-        <p className="max-w-prose text-sm leading-relaxed text-muted-foreground text-pretty">{description ?? t.description}</p>
+        <h2 className="text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl">
+          {title ?? t.title}
+        </h2>
+        <p className="max-w-prose text-sm leading-relaxed text-pretty text-muted-foreground">
+          {description ?? t.description}
+        </p>
       </div>
 
       {searchable && (
@@ -75,7 +90,14 @@ export function Integrations({
       )}
 
       {loading ? (
-        <div className={cn("grid gap-4", columns === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-2 lg:grid-cols-3")}>
+        <div
+          className={cn(
+            "grid gap-4",
+            columns === 4
+              ? "md:grid-cols-2 lg:grid-cols-4"
+              : "md:grid-cols-2 lg:grid-cols-3"
+          )}
+        >
           {Array.from({ length: 6 }).map((_, i) => (
             <IntegrationTile key={i} name="loading" loading />
           ))}
@@ -86,7 +108,14 @@ export function Integrations({
           <EmptyDescription>{t.description}</EmptyDescription>
         </Empty>
       ) : (
-        <div className={cn("grid gap-4", columns === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-2 lg:grid-cols-3")}>
+        <div
+          className={cn(
+            "grid gap-4",
+            columns === 4
+              ? "md:grid-cols-2 lg:grid-cols-4"
+              : "md:grid-cols-2 lg:grid-cols-3"
+          )}
+        >
           {filtered.map((it) => (
             <IntegrationTile key={it.name} {...it} locale={locale} />
           ))}

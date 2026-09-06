@@ -5,7 +5,7 @@ import { BentoGrid, BentoGridItem } from "./bento-grid"
 import { HeroBento } from "./hero-bento"
 
 const meta = {
-  title: "Layout/HeroBento",
+  title: "Blocks/HeroBento",
   component: HeroBento,
   parameters: {
     layout: "fullscreen",

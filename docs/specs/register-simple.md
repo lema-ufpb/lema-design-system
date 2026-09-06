@@ -12,12 +12,12 @@ Wrapper `Register` centrado com `Badge` topo.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/register-simple.tsx` |
-| Tipo | `registry:block` (name: `ds-register-simple`) |
-| Categoria | Register |
-| Depende de | `Register` |
+| Campo      | Valor                                         |
+| ---------- | --------------------------------------------- |
+| Arquivo    | `components/ds/register-simple.tsx`           |
+| Tipo       | `registry:block` (name: `ds-register-simple`) |
+| Categoria  | Register                                      |
+| Depende de | `Register`                                    |
 
 ---
 

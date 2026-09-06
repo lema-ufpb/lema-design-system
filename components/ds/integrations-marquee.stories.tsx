@@ -2,10 +2,14 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BoxIcon } from "lucide-react"
 import { IntegrationsMarquee } from "./integrations-marquee"
 
-const row = Array.from({ length: 6 }).map((_, i) => ({ name: `App ${i + 1}`, icon: <BoxIcon />, status: "available" as const }))
+const row = Array.from({ length: 6 }).map((_, i) => ({
+  name: `App ${i + 1}`,
+  icon: <BoxIcon />,
+  status: "available" as const,
+}))
 
 const meta = {
-  title: "Integrations/IntegrationsMarquee",
+  title: "Blocks/IntegrationsMarquee",
   component: IntegrationsMarquee,
   tags: ["autodocs"],
 } satisfies Meta<typeof IntegrationsMarquee>

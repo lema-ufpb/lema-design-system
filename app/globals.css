@@ -303,4 +303,10 @@
       transform: translateY(-100%);
     }
   }
+
+  @keyframes border-beam-move {
+    to {
+      offset-distance: 100%;
+    }
+  }
 }

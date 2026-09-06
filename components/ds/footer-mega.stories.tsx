@@ -47,7 +47,7 @@ const sampleBrand = (
 )
 
 const meta: Meta<typeof FooterMega> = {
-  title: "Layout/FooterMega",
+  title: "Blocks/FooterMega",
   component: FooterMega,
   tags: ["autodocs"],
   args: {

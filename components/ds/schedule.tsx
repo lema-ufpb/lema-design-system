@@ -23,31 +23,55 @@ export interface ScheduleProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const scheduleVariants = cva("w-full overflow-x-auto rounded-2xl border bg-card p-4")
+export const scheduleVariants = cva(
+  "w-full overflow-x-auto rounded-2xl border bg-card p-4"
+)
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Schedule({ className, days = ["Seg", "Ter", "Qua", "Qui", "Sex"], slots, loading = false, ...props }: ScheduleProps) {
+export function Schedule({
+  className,
+  days = ["Seg", "Ter", "Qua", "Qui", "Sex"],
+  slots,
+  loading = false,
+  ...props
+}: ScheduleProps) {
   if (loading) {
     return (
-      <div data-slot="schedule-skeleton" className={cn(scheduleVariants(), className)} {...props}>
+      <div
+        data-slot="schedule-skeleton"
+        className={cn(scheduleVariants(), className)}
+        {...props}
+      >
         <Skeleton className="h-48 w-full" />
       </div>
     )
   }
 
   return (
-    <Card data-slot="schedule" className={cn(scheduleVariants(), className)} {...props}>
-      <div className="grid gap-2" style={{ gridTemplateColumns: `60px repeat(${days.length}, 1fr)` }}>
+    <Card
+      data-slot="schedule"
+      className={cn(scheduleVariants(), className)}
+      {...props}
+    >
+      <div
+        className="grid gap-2"
+        style={{ gridTemplateColumns: `60px repeat(${days.length}, 1fr)` }}
+      >
         <span />
         {days.map((d) => (
-          <span key={d} className="text-center text-xs font-medium text-muted-foreground">
+          <span
+            key={d}
+            className="text-center text-xs font-medium text-muted-foreground"
+          >
             {d}
           </span>
         ))}
         {slots.map((row, ri) => (
           <React.Fragment key={ri}>
-            <span className="py-2 text-xs text-muted-foreground tabular-nums">{row[0]?.time ?? ""}</span>
+            <span className="py-2 text-xs text-muted-foreground tabular-nums">
+              {row[0]?.time ?? ""}
+            </span>
             {days.map((_, ci) => {
               const slot = row[ci]
               return (
@@ -55,11 +79,17 @@ export function Schedule({ className, days = ["Seg", "Ter", "Qua", "Qui", "Sex"]
                   key={ci}
                   className={cn(
                     "h-10 rounded-md border p-1 text-xs",
-                    slot?.title ? "bg-primary/10 border-primary/20 text-foreground" : "bg-muted/30 border-transparent"
+                    slot?.title
+                      ? "border-primary/20 bg-primary/10 text-foreground"
+                      : "border-transparent bg-muted/30"
                   )}
                   style={{ backgroundColor: slot?.color }}
                 >
-                  {slot?.title && <span className="truncate text-xs font-medium">{slot.title}</span>}
+                  {slot?.title && (
+                    <span className="truncate text-xs font-medium">
+                      {slot.title}
+                    </span>
+                  )}
                 </div>
               )
             })}

@@ -7,9 +7,25 @@ import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { SendIcon } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
+import {
+  Empty,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+  EmptyDescription,
+} from "@/components/ui/empty"
+import {
+  MessageScrollerProvider,
+  MessageScroller,
+  MessageScrollerViewport,
+  MessageScrollerContent,
+  MessageScrollerItem,
+  MessageScrollerButton,
+} from "@/components/ui/message-scroller"
+import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
+import { Bubble, BubbleContent } from "@/components/ui/bubble"
+import { SendIcon, SparklesIcon } from "lucide-react"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -43,7 +59,7 @@ export function AiChat({
   ...props
 }: AiChatProps) {
   const [input, setInput] = React.useState("")
-  const t = UI_I18N[locale].searchBar
+  const t = UI_I18N[locale].aiChat
   const resolvedPlaceholder = placeholder ?? t.placeholder
 
   const handleSend = React.useCallback(() => {
@@ -55,39 +71,72 @@ export function AiChat({
 
   if (loading) {
     return (
-      <Card data-slot="ai-chat-skeleton" className={cn("p-4", className)} {...props}>
+      <Card
+        data-slot="ai-chat-skeleton"
+        className={cn("p-4", className)}
+        {...props}
+      >
         <Skeleton className="h-64 w-full" />
       </Card>
     )
   }
 
   return (
-    <Card data-slot="ai-chat" className={cn("flex min-h-80 h-[40vh] max-h-96 flex-col p-4", className)} {...props}>
-      <div
-        role="log"
-        aria-live="polite"
-        aria-relevant="additions"
-        aria-label={t.label}
-        className="flex flex-1 flex-col gap-3 overflow-y-auto"
-      >
-        {messages.map((m) => (
-          <div key={m.id} className={cn("flex gap-2", m.role === "user" ? "justify-end" : "justify-start")}>
-            {m.role === "assistant" && (
-              <Avatar className="size-6">
-                <AvatarFallback className="text-xs">AI</AvatarFallback>
-              </Avatar>
-            )}
-            <span
-              className={cn(
-                "max-w-[70%] rounded-2xl px-3 py-2 text-xs leading-relaxed break-words",
-                m.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
-              )}
+    <Card
+      data-slot="ai-chat"
+      className={cn("flex h-[40vh] max-h-96 min-h-80 flex-col p-4", className)}
+      {...props}
+    >
+      <MessageScrollerProvider>
+        <MessageScroller className="flex-1">
+          <MessageScrollerViewport>
+            <MessageScrollerContent
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions"
+              aria-label={t.label}
             >
-              {m.content}
-            </span>
-          </div>
-        ))}
-      </div>
+              {messages.length === 0 ? (
+                <Empty className="h-full border-none p-6">
+                  <EmptyHeader>
+                    <EmptyMedia variant="icon">
+                      <SparklesIcon aria-hidden="true" />
+                    </EmptyMedia>
+                    <EmptyTitle>{t.emptyTitle}</EmptyTitle>
+                    <EmptyDescription>{t.emptyDescription}</EmptyDescription>
+                  </EmptyHeader>
+                </Empty>
+              ) : (
+                messages.map((m, index) => (
+                  <MessageScrollerItem
+                    key={m.id}
+                    scrollAnchor={index === messages.length - 1}
+                  >
+                    <Message align={m.role === "user" ? "end" : "start"}>
+                      {m.role === "assistant" && (
+                        <MessageAvatar aria-label={t.assistantName}>
+                          <span className="text-xs font-medium text-muted-foreground">
+                            AI
+                          </span>
+                        </MessageAvatar>
+                      )}
+                      <MessageContent>
+                        <Bubble
+                          variant={m.role === "user" ? "default" : "muted"}
+                        >
+                          <BubbleContent>{m.content}</BubbleContent>
+                        </Bubble>
+                      </MessageContent>
+                    </Message>
+                  </MessageScrollerItem>
+                ))
+              )}
+            </MessageScrollerContent>
+          </MessageScrollerViewport>
+          <MessageScrollerButton direction="end" />
+        </MessageScroller>
+      </MessageScrollerProvider>
+
       <form
         className="mt-3 flex gap-2"
         onSubmit={(e) => {
@@ -112,7 +161,7 @@ export function AiChat({
         <Button
           type="submit"
           size="icon"
-          aria-label={t.label}
+          aria-label={t.send}
           disabled={!input.trim()}
           className="size-9 shrink-0 rounded-full"
         >

@@ -10,7 +10,7 @@ const stats = [
 ]
 
 const meta = {
-  title: "Layout/HeroStats",
+  title: "Blocks/HeroStats",
   component: HeroStats,
   parameters: {
     layout: "fullscreen",

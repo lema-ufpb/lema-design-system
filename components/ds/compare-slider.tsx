@@ -91,7 +91,7 @@ export function CompareSlider({
         aria-valuenow={value}
         aria-valuemin={0}
         aria-valuemax={100}
-        className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0 peer focus-visible:outline-none"
+        className="peer absolute inset-0 h-full w-full cursor-ew-resize opacity-0 focus-visible:outline-none"
       />
     </div>
   )

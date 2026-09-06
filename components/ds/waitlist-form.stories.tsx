@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { WaitlistForm } from "./waitlist-form"
 
 const meta = {
-  title: "Form/WaitlistForm",
+  title: "Blocks/WaitlistForm",
   component: WaitlistForm,
   tags: ["autodocs"],
   parameters: {

@@ -30,7 +30,7 @@ const WEEKLY_ORDERS = [310, 365, 340, 398, 381, 452, 521]
 const WEEKLY_BOUNCE = [42, 39, 41, 36, 38, 34, 32]
 
 const meta = {
-  title: "Data Display/CardStatsDashboard",
+  title: "Blocks/CardStatsDashboard",
   parameters: {
     layout: "fullscreen",
   },

@@ -24,14 +24,26 @@ export interface EventCalendarProps extends React.HTMLAttributes<HTMLDivElement>
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const eventCalendarVariants = cva("w-full rounded-2xl border bg-card p-4")
+export const eventCalendarVariants = cva(
+  "w-full rounded-2xl border bg-card p-4"
+)
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function EventCalendar({ className, events, month = new Date(), loading = false, ...props }: EventCalendarProps) {
+export function EventCalendar({
+  className,
+  events,
+  month = new Date(),
+  loading = false,
+  ...props
+}: EventCalendarProps) {
   if (loading) {
     return (
-      <div data-slot="event-calendar-skeleton" className={cn(eventCalendarVariants(), className)} {...props}>
+      <div
+        data-slot="event-calendar-skeleton"
+        className={cn(eventCalendarVariants(), className)}
+        {...props}
+      >
         <Skeleton className="h-64 w-full" />
       </div>
     )
@@ -43,14 +55,31 @@ export function EventCalendar({ className, events, month = new Date(), loading =
   const startDay = new Date(year, mon, 1).getDay()
 
   return (
-    <Card data-slot="event-calendar" className={cn(eventCalendarVariants(), className)} {...props}>
+    <Card
+      data-slot="event-calendar"
+      className={cn(eventCalendarVariants(), className)}
+      {...props}
+    >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-foreground">
-          {month.toLocaleDateString("pt-BR", { month: "long", year: "numeric" })}
+          {month.toLocaleDateString("pt-BR", {
+            month: "long",
+            year: "numeric",
+          })}
         </h3>
       </div>
-      <div role="grid" aria-label={month.toLocaleDateString("pt-BR", { month: "long", year: "numeric" })} className="flex flex-col gap-1">
-        <div role="row" className="grid grid-cols-7 gap-1 text-center text-xs text-muted-foreground">
+      <div
+        role="grid"
+        aria-label={month.toLocaleDateString("pt-BR", {
+          month: "long",
+          year: "numeric",
+        })}
+        className="flex flex-col gap-1"
+      >
+        <div
+          role="row"
+          className="grid grid-cols-7 gap-1 text-center text-xs text-muted-foreground"
+        >
           {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map((d) => (
             <span key={d} role="columnheader" className="py-1">
               {d}
@@ -59,7 +88,15 @@ export function EventCalendar({ className, events, month = new Date(), loading =
         </div>
         {(() => {
           const cells: React.ReactNode[] = []
-          for (let i = 0; i < startDay; i++) cells.push(<span key={`e-${i}`} role="gridcell" aria-hidden="true" className="h-10" />)
+          for (let i = 0; i < startDay; i++)
+            cells.push(
+              <span
+                key={`e-${i}`}
+                role="gridcell"
+                aria-hidden="true"
+                className="h-10"
+              />
+            )
           for (let i = 0; i < days; i++) {
             const day = i + 1
             const iso = `${year}-${String(mon + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`
@@ -84,14 +121,19 @@ export function EventCalendar({ className, events, month = new Date(), loading =
                 <span className="text-xs tabular-nums">{day}</span>
                 <div className="flex gap-0.5" aria-hidden="true">
                   {dayEvents.slice(0, 3).map((e) => (
-                    <span key={e.id} className="size-1 rounded-full bg-primary" style={{ backgroundColor: e.color }} />
+                    <span
+                      key={e.id}
+                      className="size-1 rounded-full bg-primary"
+                      style={{ backgroundColor: e.color }}
+                    />
                   ))}
                 </div>
               </button>
             )
           }
           const rows: React.ReactNode[][] = []
-          for (let i = 0; i < cells.length; i += 7) rows.push(cells.slice(i, i + 7))
+          for (let i = 0; i < cells.length; i += 7)
+            rows.push(cells.slice(i, i + 7))
           return rows.map((row, idx) => (
             <div key={idx} role="row" className="grid grid-cols-7 gap-1">
               {row}

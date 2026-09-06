@@ -14,43 +14,43 @@ Card `rounded-2xl border bg-card p-6 gap-6` com `FieldGroup` + `Input` + `Passwo
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/register.tsx` |
-| Tipo | `registry:ui` (name: `ds-register`) |
-| Categoria | Auth |
+| Campo      | Valor                                                  |
+| ---------- | ------------------------------------------------------ |
+| Arquivo    | `components/ds/register.tsx`                           |
+| Tipo       | `registry:ui` (name: `ds-register`)                    |
+| Categoria  | Auth                                                   |
 | Depende de | `Input`, `Button`, `Checkbox`, `Label`, `UI_I18N.auth` |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `onSubmit` | `(data:{name,email,password})=>void` | — |  |
-| `showSocial` | `boolean` | `true` | SocialAuthGroup |
-| `socials` | `SocialPlatform[]` | `["google","github"]` |  |
-| `locale` | `UILocale` | `"en-US"` | i18n |
-| `loading` | `boolean` | `false` | Skeleton |
+| Prop         | Tipo                                 | Padrão                | Descrição       |
+| ------------ | ------------------------------------ | --------------------- | --------------- |
+| `onSubmit`   | `(data:{name,email,password})=>void` | —                     |                 |
+| `showSocial` | `boolean`                            | `true`                | SocialAuthGroup |
+| `socials`    | `SocialPlatform[]`                   | `["google","github"]` |                 |
+| `locale`     | `UILocale`                           | `"en-US"`             | i18n            |
+| `loading`    | `boolean`                            | `false`               | Skeleton        |
 
 ---
 
 ## Tokens
 
-| Token | Slot |
-|---|---|
-| `bg-card border` | card `rounded-2xl` |
-| `text-foreground font-semibold text-lg` | title |
-| `text-muted-foreground text-sm` | description |
+| Token                                   | Slot               |
+| --------------------------------------- | ------------------ |
+| `bg-card border`                        | card `rounded-2xl` |
+| `text-foreground font-semibold text-lg` | title              |
+| `text-muted-foreground text-sm`         | description        |
 
 ---
 
 ## Comportamentos
 
-| Estado | Comportamento |
-|---|---|
+| Estado    | Comportamento          |
+| --------- | ---------------------- |
 | `loading` | `Skeleton h-10` inputs |
-| `terms` | `Checkbox required` |
+| `terms`   | `Checkbox required`    |
 
 ---
 

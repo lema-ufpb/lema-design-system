@@ -15,7 +15,7 @@ const logos = ["Acme", "Globex", "Initech", "Umbrella"].map((name) => (
 ))
 
 const meta = {
-  title: "Layout/HeroAnnouncement",
+  title: "Blocks/HeroAnnouncement",
   component: HeroAnnouncement,
   parameters: {
     layout: "fullscreen",

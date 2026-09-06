@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BlogAuthor } from "./blog-author"
 
 const meta = {
-  title: "Blog/BlogAuthor",
+  title: "Blocks/BlogAuthor",
   component: BlogAuthor,
   tags: ["autodocs"],
   argTypes: {
@@ -13,8 +13,18 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: { name: "Ana Silva", avatarUrl: "https://picsum.photos/100/100" } }
+export const Default: Story = {
+  args: { name: "Ana Silva", avatarUrl: "https://picsum.photos/100/100" },
+}
 
-export const WithRole: Story = { args: { name: "Carlos Mendes", avatarUrl: "https://picsum.photos/100/100", role: "Editor" } }
+export const WithRole: Story = {
+  args: {
+    name: "Carlos Mendes",
+    avatarUrl: "https://picsum.photos/100/100",
+    role: "Editor",
+  },
+}
 
-export const Loading: Story = { args: { name: "Name", loading: true, role: "Role" } }
+export const Loading: Story = {
+  args: { name: "Name", loading: true, role: "Role" },
+}

@@ -34,7 +34,7 @@ const sampleItems = [
 ]
 
 const meta: Meta<typeof CultureGallery> = {
-  title: "About/CultureGallery",
+  title: "Blocks/CultureGallery",
   component: CultureGallery,
   tags: ["autodocs"],
   parameters: {

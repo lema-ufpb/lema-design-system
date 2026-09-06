@@ -10,7 +10,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface IntegrationTileProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof integrationTileVariants> {
   name: string
   description?: string
@@ -30,9 +31,9 @@ export const integrationTileVariants = cva(
   {
     variants: {
       size: {
-        sm: "p-3 gap-2",
-        md: "p-4 gap-3",
-        lg: "p-5 gap-3",
+        sm: "gap-2 p-3",
+        md: "gap-3 p-4",
+        lg: "gap-3 p-5",
       },
       status: {
         connected: "",
@@ -76,9 +77,18 @@ export function IntegrationTile({
 }: IntegrationTileProps) {
   if (loading) {
     return (
-      <div data-slot="integration-tile-skeleton" className={cn(integrationTileVariants({ size, status }), className)} {...props}>
+      <div
+        data-slot="integration-tile-skeleton"
+        className={cn(integrationTileVariants({ size, status }), className)}
+        {...props}
+      >
         <div className="flex items-center gap-3">
-          <Skeleton className={cn("rounded-xl", size === "sm" ? "size-8" : size === "lg" ? "size-12" : "size-10")} />
+          <Skeleton
+            className={cn(
+              "rounded-xl",
+              size === "sm" ? "size-8" : size === "lg" ? "size-12" : "size-10"
+            )}
+          />
           <Skeleton className="h-3 w-20" />
         </div>
         <Skeleton className="h-3 w-full" />
@@ -87,33 +97,62 @@ export function IntegrationTile({
     )
   }
 
-  const statusLabel = status === "connected" ? UI_I18N[locale].integrations.connected : status === "coming" ? "Soon" : UI_I18N[locale].integrations.available
+  const statusLabel =
+    status === "connected"
+      ? UI_I18N[locale].integrations.connected
+      : status === "coming"
+        ? "Soon"
+        : UI_I18N[locale].integrations.available
 
   const content = (
     <>
       <div className="flex items-center gap-3">
-        <span className={cn(integrationTileIconVariants({ size }))} aria-hidden="true">
+        <span
+          className={cn(integrationTileIconVariants({ size }))}
+          aria-hidden="true"
+        >
           {icon ? (
             icon
           ) : iconSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={iconSrc} alt={iconAlt ?? name} loading="lazy" decoding="async" className="size-full object-cover" />
+            <img
+              src={iconSrc}
+              alt={iconAlt ?? name}
+              loading="lazy"
+              decoding="async"
+              className="size-full object-cover"
+            />
           ) : (
-            <span className="text-xs font-semibold">{name.slice(0, 2).toUpperCase()}</span>
+            <span className="text-xs font-semibold">
+              {name.slice(0, 2).toUpperCase()}
+            </span>
           )}
         </span>
         <span className="flex min-w-0 flex-1 flex-col">
-          <span className="truncate text-sm font-medium text-foreground">{name}</span>
+          <span className="truncate text-sm font-medium text-foreground">
+            {name}
+          </span>
           <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <span
-              className={cn("size-1.5 rounded-full", status === "connected" ? "bg-success" : status === "coming" ? "bg-warning" : "bg-muted-foreground/30")}
+              className={cn(
+                "size-1.5 rounded-full",
+                status === "connected"
+                  ? "bg-success"
+                  : status === "coming"
+                    ? "bg-warning"
+                    : "bg-muted-foreground/30"
+              )}
               aria-hidden="true"
             />
             <span className="truncate">{statusLabel}</span>
           </span>
         </span>
       </div>
-      {description && <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">{description}</p>}
+      {description && (
+        <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+      )}
     </>
   )
 
@@ -123,7 +162,11 @@ export function IntegrationTile({
         href={href}
         aria-label={name}
         data-slot="integration-tile"
-        className={cn(integrationTileVariants({ size, status }), "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none", className)}
+        className={cn(
+          integrationTileVariants({ size, status }),
+          "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+          className
+        )}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {content}
@@ -132,7 +175,11 @@ export function IntegrationTile({
   }
 
   return (
-    <div data-slot="integration-tile" className={cn(integrationTileVariants({ size, status }), className)} {...props}>
+    <div
+      data-slot="integration-tile"
+      className={cn(integrationTileVariants({ size, status }), className)}
+      {...props}
+    >
       {content}
     </div>
   )

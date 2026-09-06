@@ -30,7 +30,7 @@ const sampleColumns: FooterGroupData[] = [
 ]
 
 const meta: Meta<typeof FooterBrandBackdrop> = {
-  title: "Layout/FooterBrandBackdrop",
+  title: "Blocks/FooterBrandBackdrop",
   component: FooterBrandBackdrop,
   tags: ["autodocs"],
   args: {

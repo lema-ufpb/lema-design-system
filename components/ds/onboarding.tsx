@@ -25,10 +25,22 @@ export interface OnboardingProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Onboarding({ className, steps, current = 0, onNext, onSkip, loading = false, ...props }: OnboardingProps) {
+export function Onboarding({
+  className,
+  steps,
+  current = 0,
+  onNext,
+  onSkip,
+  loading = false,
+  ...props
+}: OnboardingProps) {
   if (loading) {
     return (
-      <Card data-slot="onboarding-skeleton" className={cn("p-6", className)} {...props}>
+      <Card
+        data-slot="onboarding-skeleton"
+        className={cn("p-6", className)}
+        {...props}
+      >
         <Skeleton className="h-32 w-full" />
       </Card>
     )
@@ -44,10 +56,21 @@ export function Onboarding({ className, steps, current = 0, onNext, onSkip, load
         <span className="text-xs text-muted-foreground tabular-nums">
           Step {current + 1} of {steps.length}
         </span>
-        <h3 className="text-base font-semibold text-foreground">{step?.title}</h3>
-        {step?.description && <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>}
+        <h3 className="text-base font-semibold text-foreground">
+          {step?.title}
+        </h3>
+        {step?.description && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {step.description}
+          </p>
+        )}
         <div className="flex gap-2 pt-2">
-          <Button variant="ghost" size="sm" onClick={onSkip} className="rounded-full">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onSkip}
+            className="rounded-full"
+          >
             Skip
           </Button>
           <Button size="sm" onClick={onNext} className="ml-auto rounded-full">

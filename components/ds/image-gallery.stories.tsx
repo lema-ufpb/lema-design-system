@@ -24,7 +24,7 @@ const items: ImageGalleryItem[] = photoIds.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Data Display/ImageGallery",
+  title: "Blocks/ImageGallery",
   component: ImageGallery,
   parameters: {
     layout: "padded",

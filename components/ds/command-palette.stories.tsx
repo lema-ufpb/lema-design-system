@@ -55,7 +55,7 @@ const sampleGroups: CommandPaletteGroup[] = [
 ]
 
 const meta = {
-  title: "Navigation/CommandPalette",
+  title: "Blocks/CommandPalette",
   component: CommandPalette,
   parameters: {
     layout: "centered",

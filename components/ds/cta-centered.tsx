@@ -13,7 +13,10 @@ export type CtaCenteredProps = Omit<CtaProps, "align">
 
 export function CtaCentered({ className, ...props }: CtaCenteredProps) {
   return (
-    <div data-slot="cta-centered" className={cn("mx-auto max-w-3xl", className)}>
+    <div
+      data-slot="cta-centered"
+      className={cn("mx-auto max-w-3xl", className)}
+    >
       <Cta align="center" {...props} />
     </div>
   )

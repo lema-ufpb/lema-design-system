@@ -15,7 +15,7 @@ const items = photoIds.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Layout/GallerySplit",
+  title: "Blocks/GallerySplit",
   component: GallerySplit,
   parameters: {
     layout: "fullscreen",

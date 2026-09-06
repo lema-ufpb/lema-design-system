@@ -5,7 +5,11 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ChevronRightIcon, CheckIcon } from "lucide-react"
@@ -19,7 +23,8 @@ export interface CascaderOption {
 }
 
 export interface CascaderProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cascaderVariants> {
   options: CascaderOption[]
   value?: string[]
@@ -75,7 +80,10 @@ export function Cascader({
     return <Skeleton className={cn(dims.trigger, "rounded-xl", className)} />
   }
 
-  const findPath = (opts: CascaderOption[], target: string[]): CascaderOption[] => {
+  const findPath = (
+    opts: CascaderOption[],
+    target: string[]
+  ): CascaderOption[] => {
     const res: CascaderOption[] = []
     let cur = opts
     for (const v of target) {
@@ -98,16 +106,23 @@ export function Cascader({
     }
   }
 
-  const display = findPath(options, path).map((o) => o.label).join(" / ") || placeholder
+  const display =
+    findPath(options, path)
+      .map((o) => o.label)
+      .join(" / ") || placeholder
 
   const renderLevel = (opts: CascaderOption[], level: number) => (
     <div
       key={level}
       role="group"
       aria-label={`Level ${level + 1}`}
-      className="min-w-32 sm:min-w-40 border-r p-1 last:border-0"
+      className="min-w-32 border-r p-1 last:border-0 sm:min-w-40"
     >
-      <div role="listbox" aria-orientation="vertical" className="flex flex-col gap-0.5">
+      <div
+        role="listbox"
+        aria-orientation="vertical"
+        className="flex flex-col gap-0.5"
+      >
         {opts.map((opt) => {
           const active = path[level] === opt.value
           const hasChildren = !!opt.children?.length
@@ -124,7 +139,8 @@ export function Cascader({
                   handleSelect(level, opt)
                 }
                 if (e.key === "Escape") setOpen(false)
-                if (e.key === "ArrowRight" && hasChildren) handleSelect(level, opt)
+                if (e.key === "ArrowRight" && hasChildren)
+                  handleSelect(level, opt)
               }}
               className={cn(
                 "flex h-8 w-full items-center justify-between gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
@@ -133,8 +149,15 @@ export function Cascader({
             >
               <span className="truncate">{opt.label}</span>
               <span className="flex items-center gap-1">
-                {active && !opt.children && <CheckIcon className="size-3.5" aria-hidden="true" />}
-                {opt.children && <ChevronRightIcon className="size-3.5 text-muted-foreground" aria-hidden="true" />}
+                {active && !opt.children && (
+                  <CheckIcon className="size-3.5" aria-hidden="true" />
+                )}
+                {opt.children && (
+                  <ChevronRightIcon
+                    className="size-3.5 text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                )}
               </span>
             </button>
           )
@@ -153,7 +176,11 @@ export function Cascader({
   }
 
   return (
-    <div data-slot="cascader" className={cn(cascaderVariants({ size }), className)} {...props}>
+    <div
+      data-slot="cascader"
+      className={cn(cascaderVariants({ size }), className)}
+      {...props}
+    >
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -165,7 +192,10 @@ export function Cascader({
             className="min-w-48 justify-between rounded-xl"
           >
             <span className="truncate">{display}</span>
-            <ChevronRightIcon className="size-4 rotate-90 text-muted-foreground" aria-hidden="true" />
+            <ChevronRightIcon
+              className="size-4 rotate-90 text-muted-foreground"
+              aria-hidden="true"
+            />
           </Button>
         </PopoverTrigger>
         <PopoverContent

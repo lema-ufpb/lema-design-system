@@ -24,7 +24,7 @@ const team = [
 ]
 
 const meta = {
-  title: "Layout/ContactSplit",
+  title: "Blocks/ContactSplit",
   component: ContactSplit,
   parameters: {
     layout: "fullscreen",

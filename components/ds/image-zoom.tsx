@@ -14,20 +14,32 @@ export interface ImageZoomProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function ImageZoom({ className, src, alt = "Zoom image", zoom = 2, ...props }: ImageZoomProps) {
+export function ImageZoom({
+  className,
+  src,
+  alt = "Zoom image",
+  zoom = 2,
+  ...props
+}: ImageZoomProps) {
   const [pos, setPos] = React.useState({ x: 50, y: 50 })
   const [hover, setHover] = React.useState(false)
 
   const handleMove = (e: React.MouseEvent) => {
     const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect()
-    setPos({ x: ((e.clientX - rect.left) / rect.width) * 100, y: ((e.clientY - rect.top) / rect.height) * 100 })
+    setPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    })
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
     const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect()
     const t = e.touches[0]
     if (!t) return
-    setPos({ x: ((t.clientX - rect.left) / rect.width) * 100, y: ((t.clientY - rect.top) / rect.height) * 100 })
+    setPos({
+      x: ((t.clientX - rect.left) / rect.width) * 100,
+      y: ((t.clientY - rect.top) / rect.height) * 100,
+    })
   }
 
   return (
@@ -41,14 +53,23 @@ export function ImageZoom({ className, src, alt = "Zoom image", zoom = 2, ...pro
       onTouchMove={handleTouchMove}
       onTouchStart={() => setHover(true)}
       onTouchEnd={() => setHover(false)}
-      className={cn("relative h-48 sm:h-64 w-full overflow-hidden rounded-2xl border bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none", className)}
+      className={cn(
+        "relative h-48 w-full overflow-hidden rounded-2xl border bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:h-64",
+        className
+      )}
       onMouseMove={handleMove}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       {...props}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} loading="lazy" decoding="async" className="h-64 w-full object-cover" />
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className="h-64 w-full object-cover"
+      />
       {hover && (
         <div
           className="pointer-events-none absolute inset-0"

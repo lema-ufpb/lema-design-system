@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FooterWordmark } from "./footer-wordmark"
 
 const meta: Meta<typeof FooterWordmark> = {
-  title: "Data Display/FooterWordmark",
+  title: "Blocks/FooterWordmark",
   component: FooterWordmark,
   tags: ["autodocs"],
   args: {

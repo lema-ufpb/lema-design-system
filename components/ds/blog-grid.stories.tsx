@@ -13,7 +13,7 @@ const posts = Array.from({ length: 6 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blog/BlogGrid",
+  title: "Blocks/BlogGrid",
   component: BlogGrid,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
@@ -22,9 +22,17 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: { posts, categories: ["Design", "Engineering", "Product"] } }
+export const Default: Story = {
+  args: { posts, categories: ["Design", "Engineering", "Product"] },
+}
 
-export const Filtered: Story = { args: { posts: posts.filter((p) => p.category === "Design"), categories: ["Design", "Engineering"], activeCategory: "Design" } }
+export const Filtered: Story = {
+  args: {
+    posts: posts.filter((p) => p.category === "Design"),
+    categories: ["Design", "Engineering"],
+    activeCategory: "Design",
+  },
+}
 
 export const Empty: Story = { args: { posts: [], categories: ["Design"] } }
 

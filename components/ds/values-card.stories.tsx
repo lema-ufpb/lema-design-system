@@ -4,7 +4,7 @@ import { Shield, Sparkles, Heart, Lightbulb } from "lucide-react"
 import { ValuesCard } from "./values-card"
 
 const meta: Meta<typeof ValuesCard> = {
-  title: "About/ValuesCard",
+  title: "Blocks/ValuesCard",
   component: ValuesCard,
   tags: ["autodocs"],
   parameters: {

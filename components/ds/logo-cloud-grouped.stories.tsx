@@ -36,7 +36,7 @@ const items = [
 ]
 
 const meta = {
-  title: "Layout/LogoCloudGrouped",
+  title: "Blocks/LogoCloudGrouped",
   component: LogoCloudGrouped,
   parameters: {
     layout: "padded",

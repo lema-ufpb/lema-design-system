@@ -15,24 +15,24 @@ Seção de contato split — formulário de um lado, slot flexível do outro —
 
 ## Localização
 
-| Campo      | Valor                                                    |
-| ---------- | --------------------------------------------------------------- |
-| Arquivo    | `components/ds/contact-split.tsx`                                |
-| Tipo       | `registry:block` (name: `ds-contact-split`)                     |
-| Categoria  | `Layout`                                                         |
-| Depende de | `ds-hero-section`, `ds-contact-form`, `badge`                   |
+| Campo      | Valor                                         |
+| ---------- | --------------------------------------------- |
+| Arquivo    | `components/ds/contact-split.tsx`             |
+| Tipo       | `registry:block` (name: `ds-contact-split`)   |
+| Categoria  | `Layout`                                      |
+| Depende de | `ds-hero-section`, `ds-contact-form`, `badge` |
 
 ---
 
 ## API — Props
 
-| Prop          | Tipo                 | Obrigatória | Descrição                              |
-| -------------- | ---------------------- | ----------- | -------------------------------------------- |
-| `kicker`      | `string`               |             | Badge acima do título                         |
-| `title`       | `React.ReactNode`      | ✓           | Título (renderizado como `h2`)                |
-| `description` | `string`               |             | Parágrafo de apoio                            |
-| `formProps`   | `ContactFormProps`     |             | Props repassadas ao `ContactForm`             |
-| `aside`       | `React.ReactNode`      | ✓           | Conteúdo ao lado do formulário                |
+| Prop          | Tipo               | Obrigatória | Descrição                         |
+| ------------- | ------------------ | ----------- | --------------------------------- |
+| `kicker`      | `string`           |             | Badge acima do título             |
+| `title`       | `React.ReactNode`  | ✓           | Título (renderizado como `h2`)    |
+| `description` | `string`           |             | Parágrafo de apoio                |
+| `formProps`   | `ContactFormProps` |             | Props repassadas ao `ContactForm` |
+| `aside`       | `React.ReactNode`  | ✓           | Conteúdo ao lado do formulário    |
 
 ---
 

@@ -11,5 +11,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { tabs: [{ label: "npm", code: "npx shadcn@latest add button" }, { label: "pnpm", code: "pnpm dlx shadcn@latest add button" }] },
+  args: {
+    tabs: [
+      { label: "npm", code: "npx shadcn@latest add button" },
+      { label: "pnpm", code: "pnpm dlx shadcn@latest add button" },
+    ],
+  },
 }

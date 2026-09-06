@@ -25,24 +25,55 @@ export const billingVariants = cva("w-full rounded-2xl border bg-card p-6")
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Billing({ className, plan, price, nextBilling, status = "active", loading = false, ...props }: BillingProps) {
+export function Billing({
+  className,
+  plan,
+  price,
+  nextBilling,
+  status = "active",
+  loading = false,
+  ...props
+}: BillingProps) {
   if (loading) {
     return (
-      <div data-slot="billing-skeleton" className={cn(billingVariants(), className)} {...props}>
+      <div
+        data-slot="billing-skeleton"
+        className={cn(billingVariants(), className)}
+        {...props}
+      >
         <Skeleton className="h-20 w-full" />
       </div>
     )
   }
 
   return (
-    <Card data-slot="billing" className={cn(billingVariants(), className)} {...props}>
+    <Card
+      data-slot="billing"
+      className={cn(billingVariants(), className)}
+      {...props}
+    >
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-1">
           <span className="text-sm font-semibold text-foreground">{plan}</span>
-          <span className="text-2xl font-bold tabular-nums text-foreground">{price}</span>
-          {nextBilling && <span className="text-xs text-muted-foreground">Next billing {nextBilling}</span>}
+          <span className="text-2xl font-bold text-foreground tabular-nums">
+            {price}
+          </span>
+          {nextBilling && (
+            <span className="text-xs text-muted-foreground">
+              Next billing {nextBilling}
+            </span>
+          )}
         </div>
-        <Badge variant={status === "active" ? "default" : status === "past_due" ? "destructive" : "secondary"} className="rounded-full capitalize">
+        <Badge
+          variant={
+            status === "active"
+              ? "default"
+              : status === "past_due"
+                ? "destructive"
+                : "secondary"
+          }
+          className="rounded-full capitalize"
+        >
           {status}
         </Badge>
       </div>

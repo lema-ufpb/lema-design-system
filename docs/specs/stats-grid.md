@@ -12,22 +12,22 @@ Grade `grid md:2 lg:4 gap-4` de `Stats`.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/stats-grid.tsx` |
-| Tipo | `registry:block` (name: `ds-stats-grid`) |
-| Categoria | Stats |
-| Depende de | `Stats` |
+| Campo      | Valor                                    |
+| ---------- | ---------------------------------------- |
+| Arquivo    | `components/ds/stats-grid.tsx`           |
+| Tipo       | `registry:block` (name: `ds-stats-grid`) |
+| Categoria  | Stats                                    |
+| Depende de | `Stats`                                  |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `items` | `Stat[]` | ✓ |  |
-| `columns` | `2 \| 3 \| 4` | `4` |  |
-| `locale` | `UILocale` | `"en-US"` |  |
+| Prop      | Tipo          | Padrão    | Descrição |
+| --------- | ------------- | --------- | --------- |
+| `items`   | `Stat[]`      | ✓         |           |
+| `columns` | `2 \| 3 \| 4` | `4`       |           |
+| `locale`  | `UILocale`    | `"en-US"` |           |
 
 ---
 

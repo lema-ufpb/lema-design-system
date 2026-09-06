@@ -27,7 +27,8 @@ export const browserMockupVariants = cva(
         minimal: "border-border/50 bg-background/90 text-foreground shadow-sm",
         glass:
           "border-border/40 bg-background/60 text-foreground shadow-xl backdrop-blur-md",
-        terminal: "border-border/80 bg-card text-card-foreground shadow-2xl dark:bg-zinc-950 dark:text-zinc-100",
+        terminal:
+          "border-border/80 bg-card text-card-foreground shadow-2xl dark:bg-zinc-950 dark:text-zinc-100",
       },
     },
     defaultVariants: {

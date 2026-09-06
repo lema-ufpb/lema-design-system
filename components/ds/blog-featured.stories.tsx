@@ -13,12 +13,26 @@ const featured = {
   featured: true,
 }
 const side = [
-  { title: "Side 1: Tokens in Tailwind v4", excerpt: "CSS variables done right.", imageSrc: "https://picsum.photos/seed/a/600/400", href: "#", publishedAt: "2026-03-10", readingTime: 4 },
-  { title: "Side 2: CVA patterns", excerpt: "Composable variants.", imageSrc: "https://picsum.photos/seed/b/600/400", href: "#", publishedAt: "2026-03-09", readingTime: 3 },
+  {
+    title: "Side 1: Tokens in Tailwind v4",
+    excerpt: "CSS variables done right.",
+    imageSrc: "https://picsum.photos/seed/a/600/400",
+    href: "#",
+    publishedAt: "2026-03-10",
+    readingTime: 4,
+  },
+  {
+    title: "Side 2: CVA patterns",
+    excerpt: "Composable variants.",
+    imageSrc: "https://picsum.photos/seed/b/600/400",
+    href: "#",
+    publishedAt: "2026-03-09",
+    readingTime: 3,
+  },
 ]
 
 const meta = {
-  title: "Blog/BlogFeatured",
+  title: "Blocks/BlogFeatured",
   component: BlogFeatured,
   tags: ["autodocs"],
   parameters: { layout: "padded" },

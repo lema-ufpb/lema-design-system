@@ -12,23 +12,23 @@ Grade `md:2 lg:3 xl:4 gap-6`.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/team-grid.tsx` |
-| Tipo | `registry:block` (name: `ds-team-grid`) |
-| Categoria | Team |
-| Depende de | `TeamCard` |
+| Campo      | Valor                                   |
+| ---------- | --------------------------------------- |
+| Arquivo    | `components/ds/team-grid.tsx`           |
+| Tipo       | `registry:block` (name: `ds-team-grid`) |
+| Categoria  | Team                                    |
+| Depende de | `TeamCard`                              |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `members` | `TeamMember[]` | ✓ |  |
-| `title` | `string` | i18n |  |
-| `columns` | `3 \| 4` | `3` |  |
-| `locale` | `UILocale` | `"en-US"` |  |
+| Prop      | Tipo           | Padrão    | Descrição |
+| --------- | -------------- | --------- | --------- |
+| `members` | `TeamMember[]` | ✓         |           |
+| `title`   | `string`       | i18n      |           |
+| `columns` | `3 \| 4`       | `3`       |           |
+| `locale`  | `UILocale`     | `"en-US"` |           |
 
 ---
 

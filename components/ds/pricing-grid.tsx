@@ -10,7 +10,10 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
-export interface PricingPlan extends Omit<PricingCardProps, "price" | "originalPrice"> {
+export interface PricingPlan extends Omit<
+  PricingCardProps,
+  "price" | "originalPrice"
+> {
   monthlyPrice: number
   yearlyPrice?: number
   originalMonthlyPrice?: number
@@ -54,16 +57,39 @@ export function PricingGrid({
   const t = UI_I18N[locale].pricing
 
   return (
-    <div data-slot="pricing-grid" className={cn("flex flex-col gap-8", className)} {...props}>
+    <div
+      data-slot="pricing-grid"
+      className={cn("flex flex-col gap-8", className)}
+      {...props}
+    >
       <div className="flex flex-col items-center gap-4 text-center">
-        <h2 className="text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl">{title ?? t.title}</h2>
-        {description && <p className="max-w-prose text-sm leading-relaxed text-muted-foreground text-pretty md:text-base">{description ?? t.description}</p>}
-        <ToggleGroup type="single" value={resolvedBilling} onValueChange={handleBilling} variant="outline" size="sm" className="rounded-full border p-1">
-          <ToggleGroupItem value="monthly" className="rounded-full px-4 text-xs">
+        <h2 className="text-2xl font-bold tracking-tight text-balance text-foreground md:text-3xl">
+          {title ?? t.title}
+        </h2>
+        {description && (
+          <p className="max-w-prose text-sm leading-relaxed text-pretty text-muted-foreground md:text-base">
+            {description ?? t.description}
+          </p>
+        )}
+        <ToggleGroup
+          type="single"
+          value={resolvedBilling}
+          onValueChange={handleBilling}
+          variant="outline"
+          size="sm"
+          className="rounded-full border p-1"
+        >
+          <ToggleGroupItem
+            value="monthly"
+            className="rounded-full px-4 text-xs"
+          >
             {t.monthly}
           </ToggleGroupItem>
           <ToggleGroupItem value="yearly" className="rounded-full px-4 text-xs">
-            {t.yearly} <span className="ml-1 rounded-full bg-success px-1.5 py-0.5 text-xs text-success-foreground">{t.save} 20%</span>
+            {t.yearly}{" "}
+            <span className="ml-1 rounded-full bg-success px-1.5 py-0.5 text-xs text-success-foreground">
+              {t.save} 20%
+            </span>
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
@@ -77,9 +103,13 @@ export function PricingGrid({
       ) : (
         <div className="grid gap-6 md:grid-cols-3">
           {plans.map((plan) => {
-            const price = resolvedBilling === "yearly" && plan.yearlyPrice !== undefined ? plan.yearlyPrice : plan.monthlyPrice
+            const price =
+              resolvedBilling === "yearly" && plan.yearlyPrice !== undefined
+                ? plan.yearlyPrice
+                : plan.monthlyPrice
             const originalPrice =
-              resolvedBilling === "yearly" && plan.originalYearlyPrice !== undefined
+              resolvedBilling === "yearly" &&
+              plan.originalYearlyPrice !== undefined
                 ? plan.originalYearlyPrice
                 : plan.originalMonthlyPrice
             return (

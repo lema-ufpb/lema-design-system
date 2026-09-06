@@ -10,7 +10,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface BlogAuthorProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof blogAuthorVariants> {
   name: string
   avatarUrl?: string
@@ -55,8 +56,14 @@ export function BlogAuthor({
 }: BlogAuthorProps) {
   if (loading) {
     return (
-      <div data-slot="blog-author-skeleton" className={cn(blogAuthorVariants({ size }), className)} {...props}>
-        <Skeleton className={cn("rounded-full", size === "sm" ? "size-6" : "size-8")} />
+      <div
+        data-slot="blog-author-skeleton"
+        className={cn(blogAuthorVariants({ size }), className)}
+        {...props}
+      >
+        <Skeleton
+          className={cn("rounded-full", size === "sm" ? "size-6" : "size-8")}
+        />
         <div className="flex flex-col gap-1">
           <Skeleton className="h-3 w-20" />
           {role && <Skeleton className="h-2.5 w-16" />}
@@ -79,8 +86,12 @@ export function BlogAuthor({
         <AvatarFallback className="text-xs">{initials}</AvatarFallback>
       </Avatar>
       <span className="flex min-w-0 flex-col">
-        <span className="truncate text-xs font-medium text-foreground">{name}</span>
-        {role && <span className="truncate text-xs text-muted-foreground">{role}</span>}
+        <span className="truncate text-xs font-medium text-foreground">
+          {name}
+        </span>
+        {role && (
+          <span className="truncate text-xs text-muted-foreground">{role}</span>
+        )}
       </span>
     </>
   )
@@ -90,7 +101,11 @@ export function BlogAuthor({
       <a
         href={href}
         data-slot="blog-author"
-        className={cn(blogAuthorVariants({ size }), "rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none", className)}
+        className={cn(
+          blogAuthorVariants({ size }),
+          "rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+          className
+        )}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {content}
@@ -99,7 +114,11 @@ export function BlogAuthor({
   }
 
   return (
-    <div data-slot="blog-author" className={cn(blogAuthorVariants({ size }), className)} {...props}>
+    <div
+      data-slot="blog-author"
+      className={cn(blogAuthorVariants({ size }), className)}
+      {...props}
+    >
       {content}
     </div>
   )

@@ -3,7 +3,7 @@ import { FooterBottomBar } from "./footer-bottom-bar"
 import { SystemStatusBadge } from "./system-status-badge"
 
 const meta: Meta<typeof FooterBottomBar> = {
-  title: "Layout/FooterBottomBar",
+  title: "Blocks/FooterBottomBar",
   component: FooterBottomBar,
   tags: ["autodocs"],
   args: {

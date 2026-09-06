@@ -10,7 +10,7 @@ const nav = [
 ]
 
 const meta = {
-  title: "Navigation/HeaderWithTopbar",
+  title: "Blocks/HeaderWithTopbar",
   component: HeaderWithTopbar,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },

@@ -4,7 +4,7 @@ import { LoginForm } from "./login-form"
 import { SignUpForm } from "./signup-form"
 
 const meta = {
-  title: "Layout/AuthSplitScreen",
+  title: "Blocks/AuthSplitScreen",
   component: AuthSplitScreen,
   tags: ["autodocs"],
   parameters: {

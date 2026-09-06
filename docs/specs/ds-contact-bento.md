@@ -15,21 +15,21 @@ Grid bento com o formulário de contato como tile principal e tiles satélite (l
 
 ## Localização
 
-| Campo      | Valor                                              |
-| ---------- | ---------------------------------------------------------- |
-| Arquivo    | `components/ds/contact-bento.tsx`                           |
-| Tipo       | `registry:block` (name: `ds-contact-bento`)                |
-| Categoria  | `Layout`                                                    |
-| Depende de | `ds-bento-grid`, `ds-contact-form`                          |
+| Campo      | Valor                                       |
+| ---------- | ------------------------------------------- |
+| Arquivo    | `components/ds/contact-bento.tsx`           |
+| Tipo       | `registry:block` (name: `ds-contact-bento`) |
+| Categoria  | `Layout`                                    |
+| Depende de | `ds-bento-grid`, `ds-contact-form`          |
 
 ---
 
 ## API — Props
 
-| Prop        | Tipo                | Descrição                                                |
-| ------------ | --------------------- | ------------------------------------------------------------ |
-| `formProps` | `ContactFormProps`   | Props repassadas ao `ContactForm`                             |
-| `children`  | `React.ReactNode`    | `BentoGridItem`s adicionais (localização, estatísticas, etc.) |
+| Prop        | Tipo               | Descrição                                                     |
+| ----------- | ------------------ | ------------------------------------------------------------- |
+| `formProps` | `ContactFormProps` | Props repassadas ao `ContactForm`                             |
+| `children`  | `React.ReactNode`  | `BentoGridItem`s adicionais (localização, estatísticas, etc.) |
 
 ---
 

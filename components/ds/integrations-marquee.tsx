@@ -15,15 +15,30 @@ export interface IntegrationsMarqueeProps extends React.HTMLAttributes<HTMLDivEl
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function IntegrationsMarquee({ className, rows, speed = "normal", pauseOnHover = true, ...props }: IntegrationsMarqueeProps) {
+export function IntegrationsMarquee({
+  className,
+  rows,
+  speed = "normal",
+  pauseOnHover = true,
+  ...props
+}: IntegrationsMarqueeProps) {
   const duration = speed === "slow" ? "30s" : speed === "fast" ? "10s" : "20s"
 
   return (
-    <div data-slot="integrations-marquee" className={cn("flex flex-col gap-4 overflow-hidden", className)} {...props}>
+    <div
+      data-slot="integrations-marquee"
+      className={cn("flex flex-col gap-4 overflow-hidden", className)}
+      {...props}
+    >
       {rows.map((row, rowIdx) => (
         <div
           key={rowIdx}
-          className={cn("flex w-max items-center gap-4", "animate-[marquee-x_var(--duration)_linear_infinite]", pauseOnHover && "hover:[animation-play-state:paused]", rowIdx % 2 === 1 && "[animation-direction:reverse]")}
+          className={cn(
+            "flex w-max items-center gap-4",
+            "animate-[marquee-x_var(--duration)_linear_infinite]",
+            pauseOnHover && "hover:[animation-play-state:paused]",
+            rowIdx % 2 === 1 && "[animation-direction:reverse]"
+          )}
           style={{ "--duration": duration } as React.CSSProperties}
         >
           {[...row, ...row].map((tile, idx) => (

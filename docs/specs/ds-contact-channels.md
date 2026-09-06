@@ -15,20 +15,20 @@ Linha de cartões de canal de contato (e-mail, telefone, chat), remontando o blo
 
 ## Localização
 
-| Campo      | Valor                                             |
-| ---------- | ------------------------------------------------------ |
-| Arquivo    | `components/ds/contact-channels.tsx`                    |
-| Tipo       | `registry:block` (name: `ds-contact-channels`)         |
-| Categoria  | `Layout`                                                |
-| Depende de | `ds-card-icon`                                          |
+| Campo      | Valor                                          |
+| ---------- | ---------------------------------------------- |
+| Arquivo    | `components/ds/contact-channels.tsx`           |
+| Tipo       | `registry:block` (name: `ds-contact-channels`) |
+| Categoria  | `Layout`                                       |
+| Depende de | `ds-card-icon`                                 |
 
 ---
 
 ## API — Props
 
-| Prop       | Tipo               | Obrigatória | Descrição                    |
-| ----------- | -------------------- | ----------- | -------------------------------- |
-| `channels` | `ContactChannel[]`  | ✓           | Canais (`icon,title,description,href,actionLabel,tone`) |
+| Prop       | Tipo               | Obrigatória | Descrição                                               |
+| ---------- | ------------------ | ----------- | ------------------------------------------------------- |
+| `channels` | `ContactChannel[]` | ✓           | Canais (`icon,title,description,href,actionLabel,tone`) |
 
 ---
 

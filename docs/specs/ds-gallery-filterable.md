@@ -15,32 +15,32 @@ Galeria de imagens com filtro de categorias acima, remontando o bloco "Filterabl
 
 ## Localização
 
-| Campo      | Valor                                                  |
-| ---------- | -------------------------------------------------------------- |
-| Arquivo    | `components/ds/gallery-filterable.tsx`                          |
-| Tipo       | `registry:block` (name: `ds-gallery-filterable`)               |
-| Categoria  | `Layout`                                                        |
-| Depende de | `ds-image-gallery`, `ds-pill-group`                             |
+| Campo      | Valor                                            |
+| ---------- | ------------------------------------------------ |
+| Arquivo    | `components/ds/gallery-filterable.tsx`           |
+| Tipo       | `registry:block` (name: `ds-gallery-filterable`) |
+| Categoria  | `Layout`                                         |
+| Depende de | `ds-image-gallery`, `ds-pill-group`              |
 
 ---
 
 ## API — Props
 
-| Prop         | Tipo                          | Padrão  | Obrigatória | Descrição                            |
-| ------------- | ------------------------------- | ------- | ----------- | ------------------------------------------ |
-| `categories` | `{ value, label }[]`            | —       | ✓           | Categorias do filtro                        |
-| `items`      | `GalleryFilterableItem[]`       | —       | ✓           | Itens da galeria + `category`               |
-| `allLabel`   | `string`                        | `"All"` |             | Rótulo do chip "Todos"                      |
-| `layout`/`columns`/`aspect` | — | —       |             | Repassados ao `ImageGallery`                |
+| Prop                        | Tipo                      | Padrão  | Obrigatória | Descrição                     |
+| --------------------------- | ------------------------- | ------- | ----------- | ----------------------------- |
+| `categories`                | `{ value, label }[]`      | —       | ✓           | Categorias do filtro          |
+| `items`                     | `GalleryFilterableItem[]` | —       | ✓           | Itens da galeria + `category` |
+| `allLabel`                  | `string`                  | `"All"` |             | Rótulo do chip "Todos"        |
+| `layout`/`columns`/`aspect` | —                         | —       |             | Repassados ao `ImageGallery`  |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado                | Comportamento esperado                          |
-| ------------------------ | ------------------------------------------------------ |
-| Chip "Todos" selecionado | Mostra todos os itens (padrão)                          |
-| Chip de categoria        | Filtra `items` por `category === valor selecionado`     |
+| Estado                   | Comportamento esperado                              |
+| ------------------------ | --------------------------------------------------- |
+| Chip "Todos" selecionado | Mostra todos os itens (padrão)                      |
+| Chip de categoria        | Filtra `items` por `category === valor selecionado` |
 
 ---
 

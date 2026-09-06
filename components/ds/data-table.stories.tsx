@@ -26,7 +26,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 
 const meta = {
-  title: "Data Display/DataTable",
+  title: "Blocks/DataTable",
   component: DataTable,
   tags: ["autodocs"],
   parameters: {

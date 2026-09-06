@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { VideoDialog } from "./video-dialog"
 
 const meta = {
-  title: "Media/VideoDialog",
+  title: "Blocks/VideoDialog",
   component: VideoDialog,
   tags: ["autodocs"],
   parameters: {

@@ -15,20 +15,20 @@ Logo do cliente pareado com um depoimento curto em grid de cartões, remontando 
 
 ## Localização
 
-| Campo      | Valor                                              |
-| ---------- | -------------------------------------------------------- |
-| Arquivo    | `components/ds/logo-cloud-quotes.tsx`                      |
-| Tipo       | `registry:block` (name: `ds-logo-cloud-quotes`)           |
-| Categoria  | `Layout`                                                   |
-| Depende de | `ds-pull-quote`                                            |
+| Campo      | Valor                                           |
+| ---------- | ----------------------------------------------- |
+| Arquivo    | `components/ds/logo-cloud-quotes.tsx`           |
+| Tipo       | `registry:block` (name: `ds-logo-cloud-quotes`) |
+| Categoria  | `Layout`                                        |
+| Depende de | `ds-pull-quote`                                 |
 
 ---
 
 ## API — Props
 
-| Prop     | Tipo                    | Obrigatória | Descrição                                                |
-| --------- | ------------------------- | ----------- | -------------------------------------------------------------- |
-| `items`  | `LogoCloudQuoteItem[]`    | ✓           | `{ logo, quote, name, role?, avatarFallback? }`                 |
+| Prop    | Tipo                   | Obrigatória | Descrição                                       |
+| ------- | ---------------------- | ----------- | ----------------------------------------------- |
+| `items` | `LogoCloudQuoteItem[]` | ✓           | `{ logo, quote, name, role?, avatarFallback? }` |
 
 ---
 

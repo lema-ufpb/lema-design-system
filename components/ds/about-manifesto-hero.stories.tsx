@@ -3,7 +3,7 @@ import { expect, within } from "storybook/test"
 import { AboutManifestoHero } from "./about-manifesto-hero"
 
 const meta: Meta<typeof AboutManifestoHero> = {
-  title: "About/AboutManifestoHero",
+  title: "Blocks/AboutManifestoHero",
   component: AboutManifestoHero,
   tags: ["autodocs"],
   parameters: {

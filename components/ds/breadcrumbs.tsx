@@ -54,7 +54,9 @@ export function Breadcrumbs({
             <span
               role="button"
               tabIndex={0}
-              aria-label={typeof item.label === "string" ? item.label : undefined}
+              aria-label={
+                typeof item.label === "string" ? item.label : undefined
+              }
               onClick={item.onClick}
               className="cursor-pointer transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               onKeyDown={(e) => {

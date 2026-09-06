@@ -17,7 +17,7 @@ import { Marquee } from "./marquee"
 import { Button } from "@/components/ui/button"
 
 const meta = {
-  title: "Layout/HeroSection",
+  title: "Blocks/HeroSection",
   component: HeroSection,
   tags: ["autodocs"],
   parameters: {

@@ -15,25 +15,25 @@ Seção split — texto de um lado, colagem de imagens do outro — remontando o
 
 ## Localização
 
-| Campo      | Valor                                        |
-| ---------- | -------------------------------------------------- |
-| Arquivo    | `components/ds/gallery-split.tsx`                    |
-| Tipo       | `registry:block` (name: `ds-gallery-split`)         |
-| Categoria  | `Layout`                                             |
-| Depende de | `ds-hero-section`, `ds-image-gallery`, `badge`       |
+| Campo      | Valor                                          |
+| ---------- | ---------------------------------------------- |
+| Arquivo    | `components/ds/gallery-split.tsx`              |
+| Tipo       | `registry:block` (name: `ds-gallery-split`)    |
+| Categoria  | `Layout`                                       |
+| Depende de | `ds-hero-section`, `ds-image-gallery`, `badge` |
 
 ---
 
 ## API — Props
 
-| Prop          | Tipo                 | Obrigatória | Descrição                        |
-| -------------- | ---------------------- | ----------- | -------------------------------------- |
-| `kicker`      | `string`               |             | Badge acima do título                   |
-| `title`       | `React.ReactNode`      | ✓           | Título (renderizado como `h2`)          |
-| `description` | `string`               |             | Parágrafo de apoio                      |
-| `actions`     | `React.ReactNode`       |             | Botões                                   |
-| `items`       | `ImageGalleryItem[]`    | ✓           | Itens da colagem (via `ImageGallery`)    |
-| `columns`     | `2 \| 3 \| 4`           | `2`         | Colunas da colagem                       |
+| Prop          | Tipo                 | Obrigatória | Descrição                             |
+| ------------- | -------------------- | ----------- | ------------------------------------- |
+| `kicker`      | `string`             |             | Badge acima do título                 |
+| `title`       | `React.ReactNode`    | ✓           | Título (renderizado como `h2`)        |
+| `description` | `string`             |             | Parágrafo de apoio                    |
+| `actions`     | `React.ReactNode`    |             | Botões                                |
+| `items`       | `ImageGalleryItem[]` | ✓           | Itens da colagem (via `ImageGallery`) |
+| `columns`     | `2 \| 3 \| 4`        | `2`         | Colunas da colagem                    |
 
 ---
 
