@@ -25,7 +25,14 @@ export interface WizardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Wizard({ className, steps, currentId, onStepChange, loading = false, ...props }: WizardProps) {
+export function Wizard({
+  className,
+  steps,
+  currentId,
+  onStepChange,
+  loading = false,
+  ...props
+}: WizardProps) {
   const [current, setCurrent] = React.useState(currentId ?? steps[0]?.id)
   const resolved = currentId ?? current
 
@@ -39,7 +46,11 @@ export function Wizard({ className, steps, currentId, onStepChange, loading = fa
 
   if (loading) {
     return (
-      <Card data-slot="wizard-skeleton" className={cn("p-6", className)} {...props}>
+      <Card
+        data-slot="wizard-skeleton"
+        className={cn("p-6", className)}
+        {...props}
+      >
         <Skeleton className="h-40 w-full" />
       </Card>
     )
@@ -58,7 +69,9 @@ export function Wizard({ className, steps, currentId, onStepChange, loading = fa
               onClick={() => handleChange(s.id)}
               className={cn(
                 "h-7 rounded-full px-3 text-xs font-medium",
-                s.id === resolved ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                s.id === resolved
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
               )}
               aria-current={s.id === resolved ? "step" : undefined}
             >
@@ -68,10 +81,21 @@ export function Wizard({ className, steps, currentId, onStepChange, loading = fa
         </div>
         <div className="rounded-xl border bg-muted/20 p-4">{step?.content}</div>
         <div className="flex justify-between gap-2">
-          <Button variant="ghost" size="sm" disabled={idx === 0} onClick={() => handleChange(steps[idx - 1]?.id)} className="rounded-full">
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled={idx === 0}
+            onClick={() => handleChange(steps[idx - 1]?.id)}
+            className="rounded-full"
+          >
             Back
           </Button>
-          <Button size="sm" disabled={idx === steps.length - 1} onClick={() => handleChange(steps[idx + 1]?.id)} className="rounded-full">
+          <Button
+            size="sm"
+            disabled={idx === steps.length - 1}
+            onClick={() => handleChange(steps[idx + 1]?.id)}
+            className="rounded-full"
+          >
             Next
           </Button>
         </div>

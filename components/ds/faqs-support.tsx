@@ -29,14 +29,23 @@ export function FaqsSupport({
   const t = UI_I18N[locale].faqs
 
   return (
-    <div data-slot="faqs-support" className={cn("grid gap-6 lg:grid-cols-3", className)}>
+    <div
+      data-slot="faqs-support"
+      className={cn("grid gap-6 lg:grid-cols-3", className)}
+    >
       <div className="lg:col-span-2">
         <Faqs locale={locale} {...faqsProps} />
       </div>
       <Card className="h-fit rounded-2xl p-6">
         <CardContent className="flex flex-col gap-3 p-0">
-          <h3 className="text-base font-semibold text-foreground">{supportTitle ?? t.stillHaveQuestions}</h3>
-          {supportDescription && <p className="text-sm leading-relaxed text-muted-foreground">{supportDescription}</p>}
+          <h3 className="text-base font-semibold text-foreground">
+            {supportTitle ?? t.stillHaveQuestions}
+          </h3>
+          {supportDescription && (
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {supportDescription}
+            </p>
+          )}
           {supportAction &&
             (supportAction.href ? (
               <Button asChild className="mt-2 w-fit rounded-full">
@@ -45,7 +54,10 @@ export function FaqsSupport({
                 </a>
               </Button>
             ) : (
-              <Button className="mt-2 w-fit rounded-full" onClick={supportAction.onClick}>
+              <Button
+                className="mt-2 w-fit rounded-full"
+                onClick={supportAction.onClick}
+              >
                 {supportAction.label}
               </Button>
             ))}

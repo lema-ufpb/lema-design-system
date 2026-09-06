@@ -2,9 +2,24 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Ticker } from "./ticker"
 
 const items = [
-  { symbol: "AAPL", price: "$182.52", change: "+1.2%", direction: "up" as const },
-  { symbol: "TSLA", price: "$248.50", change: "-0.8%", direction: "down" as const },
-  { symbol: "BTC", price: "$67,000", change: "+3.4%", direction: "up" as const },
+  {
+    symbol: "AAPL",
+    price: "$182.52",
+    change: "+1.2%",
+    direction: "up" as const,
+  },
+  {
+    symbol: "TSLA",
+    price: "$248.50",
+    change: "-0.8%",
+    direction: "down" as const,
+  },
+  {
+    symbol: "BTC",
+    price: "$67,000",
+    change: "+3.4%",
+    direction: "up" as const,
+  },
 ]
 
 const meta = {

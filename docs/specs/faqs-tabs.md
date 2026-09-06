@@ -12,20 +12,20 @@ Faqs com `Tabs` categorias.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/faqs-tabs.tsx` |
-| Tipo | `registry:block` (name: `ds-faqs-tabs`) |
-| Categoria | FAQ |
-| Depende de | `Faqs`, `Tabs` |
+| Campo      | Valor                                   |
+| ---------- | --------------------------------------- |
+| Arquivo    | `components/ds/faqs-tabs.tsx`           |
+| Tipo       | `registry:block` (name: `ds-faqs-tabs`) |
+| Categoria  | FAQ                                     |
+| Depende de | `Faqs`, `Tabs`                          |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `groups` | `{id,label,items}[]` | ✓ | Abas |
+| Prop     | Tipo                 | Padrão | Descrição |
+| -------- | -------------------- | ------ | --------- |
+| `groups` | `{id,label,items}[]` | ✓      | Abas      |
 
 Herda `Faqs` sem `items`.
 

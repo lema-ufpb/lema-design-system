@@ -34,7 +34,7 @@ const stats = [
 ]
 
 const meta = {
-  title: "Layout/BentoFeatures",
+  title: "Blocks/BentoFeatures",
   component: BentoFeatures,
   parameters: {
     layout: "padded",

@@ -17,7 +17,16 @@ export interface ComparisonProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Comparison({ className, before, after, beforeLabel = "Before", afterLabel = "After", altBefore = "Before", altAfter = "After", ...props }: ComparisonProps) {
+export function Comparison({
+  className,
+  before,
+  after,
+  beforeLabel = "Before",
+  afterLabel = "After",
+  altBefore = "Before",
+  altAfter = "After",
+  ...props
+}: ComparisonProps) {
   const [pos, setPos] = React.useState(50)
   const dragging = React.useRef(false)
 
@@ -31,7 +40,10 @@ export function Comparison({ className, before, after, beforeLabel = "Before", a
   return (
     <div
       data-slot="comparison"
-      className={cn("relative h-64 w-full select-none overflow-hidden rounded-2xl border bg-card", className)}
+      className={cn(
+        "relative h-64 w-full overflow-hidden rounded-2xl border bg-card select-none",
+        className
+      )}
       onPointerMove={handleMove}
       onPointerUp={() => (dragging.current = false)}
       onPointerDown={(e) => {
@@ -41,17 +53,41 @@ export function Comparison({ className, before, after, beforeLabel = "Before", a
       {...props}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={after} alt={altAfter} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
-      <div className="absolute left-2 top-2 rounded-full bg-background/80 px-2 py-1 text-xs font-medium backdrop-blur">{afterLabel}</div>
-
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={before} alt={altBefore} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" style={{ width: `${100 / (pos / 100)}%` }} />
-        <div className="absolute left-2 top-2 rounded-full bg-background/80 px-2 py-1 text-xs font-medium backdrop-blur">{beforeLabel}</div>
+      <img
+        src={after}
+        alt={altAfter}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 size-full object-cover"
+      />
+      <div className="absolute top-2 left-2 rounded-full bg-background/80 px-2 py-1 text-xs font-medium backdrop-blur">
+        {afterLabel}
       </div>
 
-      <div className="absolute inset-y-0 w-0.5 bg-card shadow-[0_0_0_1px_rgba(0,0,0,0.2)]" style={{ left: `${pos}%` }} aria-hidden="true">
-        <div className="absolute left-1/2 top-1/2 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-card shadow-md" />
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{ width: `${pos}%` }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={before}
+          alt={altBefore}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 size-full object-cover"
+          style={{ width: `${100 / (pos / 100)}%` }}
+        />
+        <div className="absolute top-2 left-2 rounded-full bg-background/80 px-2 py-1 text-xs font-medium backdrop-blur">
+          {beforeLabel}
+        </div>
+      </div>
+
+      <div
+        className="absolute inset-y-0 w-0.5 bg-card shadow-[0_0_0_1px_rgba(0,0,0,0.2)]"
+        style={{ left: `${pos}%` }}
+        aria-hidden="true"
+      >
+        <div className="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-card shadow-md" />
       </div>
       <input
         type="range"

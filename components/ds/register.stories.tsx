@@ -2,10 +2,15 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Register } from "./register"
 
 const meta = {
-  title: "Auth/Register",
+  title: "Blocks/Register",
   component: Register,
   tags: ["autodocs"],
-  argTypes: { locale: { control: "inline-radio", options: ["en-US", "pt-BR", "es-ES", "fr-FR"] } },
+  argTypes: {
+    locale: {
+      control: "inline-radio",
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
+    },
+  },
 } satisfies Meta<typeof Register>
 
 export default meta

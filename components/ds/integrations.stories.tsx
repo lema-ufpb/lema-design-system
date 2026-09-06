@@ -6,11 +6,12 @@ const tiles = Array.from({ length: 6 }).map((_, i) => ({
   name: `App ${i + 1}`,
   description: "Description for integration tile.",
   icon: <BoxIcon />,
-  status: (i % 3 === 0 ? "connected" : "available") as "connected" | "available",
+  status: (i % 3 === 0 ? "connected" : "available") as
+    "connected" | "available",
 }))
 
 const meta = {
-  title: "Integrations/Integrations",
+  title: "Blocks/Integrations",
   component: Integrations,
   tags: ["autodocs"],
 } satisfies Meta<typeof Integrations>
@@ -20,7 +21,9 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = { args: { integrations: tiles } }
 
-export const Searchable: Story = { args: { integrations: tiles, searchable: true } }
+export const Searchable: Story = {
+  args: { integrations: tiles, searchable: true },
+}
 
 export const Loading: Story = { args: { integrations: tiles, loading: true } }
 

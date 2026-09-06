@@ -12,9 +12,16 @@ export type RegisterSimpleProps = RegisterProps & { badge?: string }
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function RegisterSimple({ className, badge, ...props }: RegisterSimpleProps) {
+export function RegisterSimple({
+  className,
+  badge,
+  ...props
+}: RegisterSimpleProps) {
   return (
-    <div data-slot="register-simple" className={cn("mx-auto flex w-full max-w-md flex-col gap-4", className)}>
+    <div
+      data-slot="register-simple"
+      className={cn("mx-auto flex w-full max-w-md flex-col gap-4", className)}
+    >
       {badge && (
         <Badge variant="outline" className="mx-auto rounded-full">
           {badge}

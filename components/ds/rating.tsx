@@ -61,7 +61,7 @@ export const ratingVariants = cva("inline-flex items-center", {
 })
 
 export const starVariants = cva(
-  "shrink-0 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none p-1 -m-1",
+  "-m-1 shrink-0 p-1 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
   {
     variants: {
       size: {
@@ -70,7 +70,7 @@ export const starVariants = cva(
         lg: "size-6",
       },
       interactive: {
-        true: "cursor-pointer min-h-6 min-w-6",
+        true: "min-h-6 min-w-6 cursor-pointer",
         false: "",
       },
     },

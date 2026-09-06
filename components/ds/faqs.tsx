@@ -13,7 +13,8 @@ import { Accordion, type AccordionItem } from "./accordion"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface FaqsProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof faqsVariants> {
   title?: string
   description?: string
@@ -90,15 +91,25 @@ export function Faqs({
   const resolvedDesc = description ?? t.description
 
   return (
-    <div data-slot="faqs" className={cn(faqsVariants({ size }), className)} {...props}>
+    <div
+      data-slot="faqs"
+      className={cn(faqsVariants({ size }), className)}
+      {...props}
+    >
       <div className="flex flex-col gap-2">
-        <h2 className={cn(faqsTitleVariants({ size }), "text-foreground")}>{resolvedTitle}</h2>
-        {resolvedDesc && <p className="max-w-prose text-sm leading-relaxed text-muted-foreground text-pretty">{resolvedDesc}</p>}
+        <h2 className={cn(faqsTitleVariants({ size }), "text-foreground")}>
+          {resolvedTitle}
+        </h2>
+        {resolvedDesc && (
+          <p className="max-w-prose text-sm leading-relaxed text-pretty text-muted-foreground">
+            {resolvedDesc}
+          </p>
+        )}
       </div>
 
       {searchable && (
         <div className="relative max-w-md">
-          <SearchIcon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <SearchIcon className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder={t.searchPlaceholder}
             value={search}
@@ -109,7 +120,13 @@ export function Faqs({
       )}
 
       {loading ? (
-        <Accordion items={items.slice(0, 3)} loading loadingCount={3} size={size} iconVariant={iconVariant} />
+        <Accordion
+          items={items.slice(0, 3)}
+          loading
+          loadingCount={3}
+          size={size}
+          iconVariant={iconVariant}
+        />
       ) : filtered.length === 0 ? (
         <Empty className="py-8">
           <EmptyTitle>{t.noResults}</EmptyTitle>

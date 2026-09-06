@@ -8,7 +8,7 @@ const steps = [
 ]
 
 const meta = {
-  title: "Marketing/HowItWorksTimeline",
+  title: "Blocks/HowItWorksTimeline",
   component: HowItWorksTimeline,
   tags: ["autodocs"],
 } satisfies Meta<typeof HowItWorksTimeline>
@@ -18,4 +18,9 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = { args: { steps } }
 
-export const WithIcons: Story = { args: { steps: steps.map((s, i) => ({ ...s, icon: <span>{i + 1}</span> })), variant: "icon" } }
+export const WithIcons: Story = {
+  args: {
+    steps: steps.map((s, i) => ({ ...s, icon: <span>{i + 1}</span> })),
+    variant: "icon",
+  },
+}

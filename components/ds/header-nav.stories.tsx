@@ -27,7 +27,7 @@ const baseItems = [
 ]
 
 const meta = {
-  title: "Navigation/HeaderNav",
+  title: "Blocks/HeaderNav",
   component: HeaderNav,
   tags: ["autodocs"],
   argTypes: {

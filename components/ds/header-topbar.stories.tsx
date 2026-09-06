@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeaderTopbar } from "./header-topbar"
 
 const meta = {
-  title: "Navigation/HeaderTopbar",
+  title: "Blocks/HeaderTopbar",
   component: HeaderTopbar,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },

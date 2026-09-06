@@ -28,10 +28,20 @@ export const settingsVariants = cva("w-full rounded-2xl border bg-card p-4")
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Settings({ className, tabs, defaultTab, loading = false, ...props }: SettingsProps) {
+export function Settings({
+  className,
+  tabs,
+  defaultTab,
+  loading = false,
+  ...props
+}: SettingsProps) {
   if (loading) {
     return (
-      <div data-slot="settings-skeleton" className={cn(settingsVariants(), className)} {...props}>
+      <div
+        data-slot="settings-skeleton"
+        className={cn(settingsVariants(), className)}
+        {...props}
+      >
         <Skeleton className="h-8 w-40" />
         <Skeleton className="h-32 w-full" />
       </div>
@@ -39,7 +49,11 @@ export function Settings({ className, tabs, defaultTab, loading = false, ...prop
   }
 
   return (
-    <Card data-slot="settings" className={cn(settingsVariants(), className)} {...props}>
+    <Card
+      data-slot="settings"
+      className={cn(settingsVariants(), className)}
+      {...props}
+    >
       <Tabs defaultValue={defaultTab ?? tabs[0]?.id}>
         <TabsList>
           {tabs.map((t) => (

@@ -28,13 +28,26 @@ export function Deck({ className, cards, ...props }: DeckProps) {
   }
 
   return (
-    <div data-slot="deck" className={cn("relative h-64 w-full overflow-hidden rounded-2xl", className)} {...props} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp}>
+    <div
+      data-slot="deck"
+      className={cn(
+        "relative h-64 w-full overflow-hidden rounded-2xl",
+        className
+      )}
+      {...props}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+    >
       {cards.map((card, i) => (
         <div
           key={i}
           className={cn(
             "absolute inset-0 rounded-2xl border bg-card p-6 shadow-md transition-all duration-300",
-            i === index ? "translate-x-0 opacity-100" : i < index ? "-translate-x-full opacity-0" : "translate-x-full opacity-0"
+            i === index
+              ? "translate-x-0 opacity-100"
+              : i < index
+                ? "-translate-x-full opacity-0"
+                : "translate-x-full opacity-0"
           )}
           aria-hidden={i !== index}
         >
@@ -47,7 +60,10 @@ export function Deck({ className, cards, ...props }: DeckProps) {
             key={i}
             aria-label={`Go to card ${i + 1}`}
             onClick={() => setIndex(i)}
-            className={cn("size-1.5 rounded-full transition-colors", i === index ? "bg-primary" : "bg-muted-foreground/30")}
+            className={cn(
+              "size-1.5 rounded-full transition-colors",
+              i === index ? "bg-primary" : "bg-muted-foreground/30"
+            )}
           />
         ))}
       </div>

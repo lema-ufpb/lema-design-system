@@ -25,10 +25,19 @@ export interface UsersTableProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function UsersTable({ className, users, loading = false, ...props }: UsersTableProps) {
+export function UsersTable({
+  className,
+  users,
+  loading = false,
+  ...props
+}: UsersTableProps) {
   if (loading) {
     return (
-      <Card data-slot="users-table-skeleton" className={cn("p-4", className)} {...props}>
+      <Card
+        data-slot="users-table-skeleton"
+        className={cn("p-4", className)}
+        {...props}
+      >
         <div className="flex flex-col gap-3">
           {Array.from({ length: 3 }).map((_, i) => (
             <Skeleton key={i} className="h-12 w-full" />
@@ -39,25 +48,45 @@ export function UsersTable({ className, users, loading = false, ...props }: User
   }
 
   return (
-    <Card data-slot="users-table" className={cn("overflow-hidden p-0", className)} {...props}>
+    <Card
+      data-slot="users-table"
+      className={cn("overflow-hidden p-0", className)}
+      {...props}
+    >
       <div className="flex flex-col">
         {users.map((u) => (
-          <div key={u.email} className="flex items-center gap-3 border-b p-3 last:border-0">
+          <div
+            key={u.email}
+            className="flex items-center gap-3 border-b p-3 last:border-0"
+          >
             <Avatar className="size-8">
               <AvatarImage src={u.avatarUrl ?? ""} alt={u.name} />
-              <AvatarFallback className="text-xs tabular-nums">{u.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+              <AvatarFallback className="text-xs tabular-nums">
+                {u.name.slice(0, 2).toUpperCase()}
+              </AvatarFallback>
             </Avatar>
             <div className="flex min-w-0 flex-1 flex-col">
-              <span className="truncate text-sm font-medium text-foreground">{u.name}</span>
-              <span className="truncate text-xs text-muted-foreground">{u.email}</span>
+              <span className="truncate text-sm font-medium text-foreground">
+                {u.name}
+              </span>
+              <span className="truncate text-xs text-muted-foreground">
+                {u.email}
+              </span>
             </div>
-            <Badge variant="outline" className="rounded-full text-xs tabular-nums">
+            <Badge
+              variant="outline"
+              className="rounded-full text-xs tabular-nums"
+            >
               {u.role}
             </Badge>
             <span
               className={cn(
                 "size-2 rounded-full",
-                u.status === "active" ? "bg-success" : u.status === "invited" ? "bg-warning" : "bg-muted-foreground/30"
+                u.status === "active"
+                  ? "bg-success"
+                  : u.status === "invited"
+                    ? "bg-warning"
+                    : "bg-muted-foreground/30"
               )}
             />
           </div>

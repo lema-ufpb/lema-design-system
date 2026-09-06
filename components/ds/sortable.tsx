@@ -14,7 +14,8 @@ export interface SortableItem {
 }
 
 export interface SortableProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof sortableVariants> {
   items: SortableItem[]
   onReorder?: (items: SortableItem[]) => void
@@ -22,19 +23,28 @@ export interface SortableProps
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const sortableVariants = cva("flex flex-col gap-2 rounded-2xl border bg-card p-3", {
-  variants: {
-    size: {
-      sm: "gap-1.5",
-      md: "gap-2",
+export const sortableVariants = cva(
+  "flex flex-col gap-2 rounded-2xl border bg-card p-3",
+  {
+    variants: {
+      size: {
+        sm: "gap-1.5",
+        md: "gap-2",
+      },
     },
-  },
-  defaultVariants: { size: "md" },
-})
+    defaultVariants: { size: "md" },
+  }
+)
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function Sortable({ className, items, onReorder, size = "md", ...props }: SortableProps) {
+export function Sortable({
+  className,
+  items,
+  onReorder,
+  size = "md",
+  ...props
+}: SortableProps) {
   const [list, setList] = React.useState(items)
 
   // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -49,7 +59,11 @@ export function Sortable({ className, items, onReorder, size = "md", ...props }:
   }
 
   return (
-    <div data-slot="sortable" className={cn(sortableVariants({ size }), className)} {...props}>
+    <div
+      data-slot="sortable"
+      className={cn(sortableVariants({ size }), className)}
+      {...props}
+    >
       {list.map((it, idx) => (
         <div
           key={it.id}
@@ -62,7 +76,10 @@ export function Sortable({ className, items, onReorder, size = "md", ...props }:
             move(from, idx)
           }}
         >
-          <GripVerticalIcon className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+          <GripVerticalIcon
+            className="size-4 shrink-0 text-muted-foreground"
+            aria-hidden="true"
+          />
           <span className="flex-1 truncate text-sm">{it.content}</span>
           <div className="flex gap-1">
             <button

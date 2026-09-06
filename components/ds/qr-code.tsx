@@ -13,7 +13,12 @@ export interface QrCodeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function QrCode({ className, value, size = 128, ...props }: QrCodeProps) {
+export function QrCode({
+  className,
+  value,
+  size = 128,
+  ...props
+}: QrCodeProps) {
   // Simple placeholder QR using canvas pattern (no external dep)
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
 
@@ -26,7 +31,8 @@ export function QrCode({ className, value, size = 128, ...props }: QrCodeProps) 
     ctx.fillStyle = "black"
     // Simple deterministic pattern from value hash
     let hash = 0
-    for (let i = 0; i < value.length; i++) hash = (hash * 31 + value.charCodeAt(i)) % 1000
+    for (let i = 0; i < value.length; i++)
+      hash = (hash * 31 + value.charCodeAt(i)) % 1000
     const cell = size / 21
     for (let y = 0; y < 21; y++) {
       for (let x = 0; x < 21; x++) {
@@ -37,8 +43,18 @@ export function QrCode({ className, value, size = 128, ...props }: QrCodeProps) 
   }, [value, size])
 
   return (
-    <div data-slot="qr-code" className={cn("rounded-2xl border bg-white dark:bg-white p-3", className)} {...props}>
-      <canvas ref={canvasRef} width={size} height={size} className="size-full" aria-label={`QR for ${value}`} />
+    <div
+      data-slot="qr-code"
+      className={cn("rounded-2xl border bg-white p-3 dark:bg-white", className)}
+      {...props}
+    >
+      <canvas
+        ref={canvasRef}
+        width={size}
+        height={size}
+        className="size-full"
+        aria-label={`QR for ${value}`}
+      />
     </div>
   )
 }

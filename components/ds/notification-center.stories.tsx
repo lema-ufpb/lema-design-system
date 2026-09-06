@@ -6,7 +6,7 @@ import {
 import { fn } from "storybook/test"
 
 const meta = {
-  title: "Feedback/NotificationCenter",
+  title: "Blocks/NotificationCenter",
   component: NotificationCenter,
   parameters: {
     layout: "centered",

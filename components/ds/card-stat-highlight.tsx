@@ -85,7 +85,7 @@ export const cardStatHighlightVariants = cva(
         primary: "bg-primary text-primary-foreground",
         emerald: "bg-success text-success-foreground",
         amber: "bg-warning text-warning-foreground",
-        rose: "bg-destructive text-destructive-foreground",
+        rose: "text-destructive-foreground bg-destructive",
         violet: "bg-highlight-violet text-highlight-violet-foreground",
         sky: "bg-highlight-sky text-highlight-sky-foreground",
         white: "bg-highlight-white text-highlight-white-foreground",

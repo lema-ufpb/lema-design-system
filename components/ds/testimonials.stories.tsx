@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Testimonials } from "./testimonials"
 
-const items = Array.from({ length: 3 }).map((_, i) => ({ quote: `Quote ${i + 1}: Amazing design system!`, author: { name: `User ${i + 1}`, role: "CEO" }, rating: 5 }))
+const items = Array.from({ length: 3 }).map((_, i) => ({
+  quote: `Quote ${i + 1}: Amazing design system!`,
+  author: { name: `User ${i + 1}`, role: "CEO" },
+  rating: 5,
+}))
 
 const meta = {
-  title: "Testimonials/Testimonials",
+  title: "Blocks/Testimonials",
   component: Testimonials,
   tags: ["autodocs"],
 } satisfies Meta<typeof Testimonials>

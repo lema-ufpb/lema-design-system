@@ -14,7 +14,7 @@ const items = thumbnails.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Layout/GalleryVideo",
+  title: "Blocks/GalleryVideo",
   component: GalleryVideo,
   parameters: {
     layout: "padded",

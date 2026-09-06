@@ -12,21 +12,21 @@ Matriz `S/P/T` com `Check/X` e `━`.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/pricing-comparison.tsx` |
-| Tipo | `registry:block` (name: `ds-pricing-comparison`) |
-| Categoria | Pricing |
-| Depende de | `Table`, `UI_I18N` |
+| Campo      | Valor                                            |
+| ---------- | ------------------------------------------------ |
+| Arquivo    | `components/ds/pricing-comparison.tsx`           |
+| Tipo       | `registry:block` (name: `ds-pricing-comparison`) |
+| Categoria  | Pricing                                          |
+| Depende de | `Table`, `UI_I18N`                               |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `plans` | `{name, price}[]` | ✓ | Cabeçalho |
-| `features` | `{category, items:{label, values: boolean[]}}[]` | ✓ | Linhas |
+| Prop       | Tipo                                             | Padrão | Descrição |
+| ---------- | ------------------------------------------------ | ------ | --------- |
+| `plans`    | `{name, price}[]`                                | ✓      | Cabeçalho |
+| `features` | `{category, items:{label, values: boolean[]}}[]` | ✓      | Linhas    |
 
 ---
 

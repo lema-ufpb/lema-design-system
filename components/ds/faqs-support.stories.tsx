@@ -8,7 +8,7 @@ const items = [
 ]
 
 const meta = {
-  title: "Marketing/FaqsSupport",
+  title: "Blocks/FaqsSupport",
   component: FaqsSupport,
   tags: ["autodocs"],
 } satisfies Meta<typeof FaqsSupport>
@@ -16,6 +16,13 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: { items, supportTitle: "Still have questions?", supportDescription: "Our team is here to help.", supportAction: { label: "Contact us", href: "#" } } }
+export const Default: Story = {
+  args: {
+    items,
+    supportTitle: "Still have questions?",
+    supportDescription: "Our team is here to help.",
+    supportAction: { label: "Contact us", href: "#" },
+  },
+}
 
 export const WithoutSupport: Story = { args: { items } }

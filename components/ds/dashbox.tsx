@@ -281,7 +281,7 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
           tabIndex={maximized ? -1 : undefined}
           className={cn(
             dashboxVariants({ size }),
-            maximized && "fixed! inset-0 z-50 rounded-none overflow-auto",
+            maximized && "fixed! inset-0 z-50 overflow-auto rounded-none",
             className
           )}
           {...props}

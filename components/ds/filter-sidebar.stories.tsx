@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FilterSidebar } from "./filter-sidebar"
 
 const meta = {
-  title: "ReUI/FilterSidebar",
+  title: "Blocks/FilterSidebar",
   component: FilterSidebar,
   tags: ["autodocs"],
 } satisfies Meta<typeof FilterSidebar>

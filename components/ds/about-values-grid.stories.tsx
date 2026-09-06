@@ -50,7 +50,7 @@ const sampleValues = [
 ]
 
 const meta: Meta<typeof AboutValuesGrid> = {
-  title: "About/AboutValuesGrid",
+  title: "Blocks/AboutValuesGrid",
   component: AboutValuesGrid,
   tags: ["autodocs"],
   parameters: {

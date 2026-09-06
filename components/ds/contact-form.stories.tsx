@@ -9,7 +9,7 @@ const topics = [
 ]
 
 const meta = {
-  title: "Form/ContactForm",
+  title: "Blocks/ContactForm",
   component: ContactForm,
   parameters: {
     layout: "centered",

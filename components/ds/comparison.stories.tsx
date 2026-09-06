@@ -10,4 +10,9 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: { before: "https://picsum.photos/600/400?1", after: "https://picsum.photos/600/400?2" } }
+export const Default: Story = {
+  args: {
+    before: "https://picsum.photos/600/400?1",
+    after: "https://picsum.photos/600/400?2",
+  },
+}

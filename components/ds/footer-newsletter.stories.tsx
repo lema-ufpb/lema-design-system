@@ -3,7 +3,7 @@ import { fn } from "storybook/test"
 import { FooterNewsletter } from "./footer-newsletter"
 
 const meta: Meta<typeof FooterNewsletter> = {
-  title: "Form/FooterNewsletter",
+  title: "Blocks/FooterNewsletter",
   component: FooterNewsletter,
   tags: ["autodocs"],
   args: {

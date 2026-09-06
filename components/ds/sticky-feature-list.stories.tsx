@@ -59,7 +59,7 @@ function FeatureMedia({
 }
 
 const meta = {
-  title: "Layout/StickyFeatureList",
+  title: "Blocks/StickyFeatureList",
   component: StickyFeatureList,
   parameters: {
     layout: "padded",

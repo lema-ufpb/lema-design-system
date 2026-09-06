@@ -23,8 +23,8 @@ export interface MilestoneStepperProps
 export const milestoneStepperVariants = cva("relative w-full transition-all", {
   variants: {
     orientation: {
-      vertical: "flex flex-col gap-8",
-      horizontal: "grid grid-cols-1 gap-6 md:grid-cols-4",
+      vertical: "",
+      horizontal: "",
     },
   },
   defaultVariants: {
@@ -52,7 +52,7 @@ export function MilestoneStepper({
           {/* Linha conectora contínua vertical */}
           <div
             aria-hidden="true"
-            className="absolute top-2 bottom-2 left-3 w-px -translate-x-1/2 bg-border md:left-4"
+            className="absolute top-2 bottom-2 left-0 w-px -translate-x-1/2 bg-border"
           />
 
           {milestones.map((item, index) => (

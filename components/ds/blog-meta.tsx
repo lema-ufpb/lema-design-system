@@ -11,7 +11,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface BlogMetaProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof blogMetaVariants> {
   publishedAt?: string | Date
   readingTime?: number
@@ -22,15 +23,18 @@ export interface BlogMetaProps
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const blogMetaVariants = cva("flex flex-wrap items-center gap-2 text-xs text-muted-foreground", {
-  variants: {
-    size: {
-      sm: "text-xs",
-      md: "text-xs",
+export const blogMetaVariants = cva(
+  "flex flex-wrap items-center gap-2 text-xs text-muted-foreground",
+  {
+    variants: {
+      size: {
+        sm: "text-xs",
+        md: "text-xs",
+      },
     },
-  },
-  defaultVariants: { size: "md" },
-})
+    defaultVariants: { size: "md" },
+  }
+)
 
 // ── Component ──────────────────────────────────────────────────────────────
 
@@ -46,7 +50,11 @@ export function BlogMeta({
 }: BlogMetaProps) {
   if (loading) {
     return (
-      <div data-slot="blog-meta-skeleton" className={cn(blogMetaVariants({ size }), className)} {...props}>
+      <div
+        data-slot="blog-meta-skeleton"
+        className={cn(blogMetaVariants({ size }), className)}
+        {...props}
+      >
         <Skeleton className="h-3 w-20" />
         <Skeleton className="h-3 w-12" />
         <Skeleton className="h-5 w-16 rounded-full" />
@@ -55,15 +63,26 @@ export function BlogMeta({
   }
 
   const formattedDate = publishedAt
-    ? new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" }).format(
+    ? new Intl.DateTimeFormat(locale, {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      }).format(
         typeof publishedAt === "string" ? new Date(publishedAt) : publishedAt
       )
     : null
 
   return (
-    <div data-slot="blog-meta" className={cn(blogMetaVariants({ size }), className)} {...props}>
+    <div
+      data-slot="blog-meta"
+      className={cn(blogMetaVariants({ size }), className)}
+      {...props}
+    >
       {category && (
-        <Badge variant="outline" className="h-5 rounded-full px-2 text-xs font-medium">
+        <Badge
+          variant="outline"
+          className="h-5 rounded-full px-2 text-xs font-medium"
+        >
           {category}
         </Badge>
       )}

@@ -92,7 +92,14 @@ export const GuidedTour = React.forwardRef<HTMLDivElement, GuidedTourProps>(
           <span className="sr-only" aria-live="polite">
             {`Step ${currentStep + 1} of ${steps.length}`}
           </span>
-          <div className="flex gap-1" role="progressbar" aria-valuenow={currentStep + 1} aria-valuemin={1} aria-valuemax={steps.length} aria-label={step.title}>
+          <div
+            className="flex gap-1"
+            role="progressbar"
+            aria-valuenow={currentStep + 1}
+            aria-valuemin={1}
+            aria-valuemax={steps.length}
+            aria-label={step.title}
+          >
             {steps.map((s, index) => (
               <span
                 key={s.id}

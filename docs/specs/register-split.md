@@ -12,21 +12,21 @@
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/register-split.tsx` |
-| Tipo | `registry:block` (name: `ds-register-split`) |
-| Categoria | Register |
-| Depende de | `Register`, `BackgroundGlow`, `Avatar` |
+| Campo      | Valor                                        |
+| ---------- | -------------------------------------------- |
+| Arquivo    | `components/ds/register-split.tsx`           |
+| Tipo       | `registry:block` (name: `ds-register-split`) |
+| Categoria  | Register                                     |
+| Depende de | `Register`, `BackgroundGlow`, `Avatar`       |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `imageSrc` | `string` | — | Cover esq. |
-| `testimonial` | `{quote, author, role, avatarUrl}` | — | Card testemunho |
+| Prop          | Tipo                               | Padrão | Descrição       |
+| ------------- | ---------------------------------- | ------ | --------------- |
+| `imageSrc`    | `string`                           | —      | Cover esq.      |
+| `testimonial` | `{quote, author, role, avatarUrl}` | —      | Card testemunho |
 
 Herda `Register`.
 

@@ -113,10 +113,12 @@ export function Lightbox({
 
         <div className="flex items-center justify-between gap-3 px-3 pb-2">
           {image.caption && (
-            <p className="truncate text-sm text-background/80 dark:text-white/80">{image.caption}</p>
+            <p className="truncate text-sm text-background/80 dark:text-white/80">
+              {image.caption}
+            </p>
           )}
           {images.length > 1 && (
-            <span className="ml-auto shrink-0 text-xs text-background/60 dark:text-white/60 tabular-nums">
+            <span className="ml-auto shrink-0 text-xs text-background/60 tabular-nums dark:text-white/60">
               {index + 1} {t.of} {images.length}
             </span>
           )}

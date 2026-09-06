@@ -12,23 +12,23 @@ Listagem `md:2 lg:3 gap-6`.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/testimonials.tsx` |
-| Tipo | `registry:block` (name: `ds-testimonials`) |
-| Categoria | Testimonials |
-| Depende de | `TestimonialCard` |
+| Campo      | Valor                                      |
+| ---------- | ------------------------------------------ |
+| Arquivo    | `components/ds/testimonials.tsx`           |
+| Tipo       | `registry:block` (name: `ds-testimonials`) |
+| Categoria  | Testimonials                               |
+| Depende de | `TestimonialCard`                          |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `items` | `Testimonial[]` | ✓ |  |
-| `title` | `string` | i18n |  |
-| `columns` | `2 \| 3` | `3` |  |
-| `locale` | `UILocale` | `"en-US"` |  |
+| Prop      | Tipo            | Padrão    | Descrição |
+| --------- | --------------- | --------- | --------- |
+| `items`   | `Testimonial[]` | ✓         |           |
+| `title`   | `string`        | i18n      |           |
+| `columns` | `2 \| 3`        | `3`       |           |
+| `locale`  | `UILocale`      | `"en-US"` |           |
 
 ---
 

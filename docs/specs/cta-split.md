@@ -12,22 +12,22 @@ CTA com mídia lateral `grid md:2 gap-8` imagem `rounded-2xl object-cover h-64 m
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/cta-split.tsx` |
-| Tipo | `registry:block` (name: `ds-cta-split`) |
-| Categoria | CTA |
-| Depende de | `Cta` |
+| Campo      | Valor                                   |
+| ---------- | --------------------------------------- |
+| Arquivo    | `components/ds/cta-split.tsx`           |
+| Tipo       | `registry:block` (name: `ds-cta-split`) |
+| Categoria  | CTA                                     |
+| Depende de | `Cta`                                   |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `imageSrc` | `string` | — | Cover |
-| `imageAlt` | `string` | `title` | Alt |
-| `reverse` | `boolean` | `false` | Inverte colunas |
+| Prop       | Tipo      | Padrão  | Descrição       |
+| ---------- | --------- | ------- | --------------- |
+| `imageSrc` | `string`  | —       | Cover           |
+| `imageAlt` | `string`  | `title` | Alt             |
+| `reverse`  | `boolean` | `false` | Inverte colunas |
 
 Herda demais de `Cta` com `align left`.
 

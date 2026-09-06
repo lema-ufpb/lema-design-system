@@ -69,7 +69,11 @@ export function CommandPalette({
 
     const down = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement
-      if (target instanceof HTMLElement && /input|textarea|select/i.test(target.tagName)) return
+      if (
+        target instanceof HTMLElement &&
+        /input|textarea|select/i.test(target.tagName)
+      )
+        return
       // Check if it's meta/ctrl + shortcut key
       if (
         e.key.toLowerCase() === shortcut.toLowerCase() &&

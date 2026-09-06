@@ -3,7 +3,7 @@ import { fn } from "storybook/test"
 import { LoginForm } from "./login-form"
 
 const meta = {
-  title: "Form/LoginForm",
+  title: "Blocks/LoginForm",
   component: LoginForm,
   tags: ["autodocs"],
   parameters: {

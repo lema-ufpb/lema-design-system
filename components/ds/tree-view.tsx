@@ -164,7 +164,12 @@ export function TreeView({
   className,
 }: TreeViewProps) {
   return (
-    <div data-slot="tree-view" role="tree" aria-label="Tree view" className={cn("flex flex-col gap-1", className)}>
+    <div
+      data-slot="tree-view"
+      role="tree"
+      aria-label="Tree view"
+      className={cn("flex flex-col gap-1", className)}
+    >
       <div role="group" className="flex flex-col gap-1">
         {data.map((item) => (
           <TreeItem

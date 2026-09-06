@@ -12,22 +12,22 @@ Layout `grid lg:2` faq + `Card` help.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/faqs-support.tsx` |
-| Tipo | `registry:block` (name: `ds-faqs-support`) |
-| Categoria | FAQ |
-| Depende de | `Faqs`, `Card`, `Button` |
+| Campo      | Valor                                      |
+| ---------- | ------------------------------------------ |
+| Arquivo    | `components/ds/faqs-support.tsx`           |
+| Tipo       | `registry:block` (name: `ds-faqs-support`) |
+| Categoria  | FAQ                                        |
+| Depende de | `Faqs`, `Card`, `Button`                   |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `supportTitle` | `string` | `stillHaveQuestions` |  |
-| `supportDescription` | `string` | — |  |
-| `supportAction` | `{label, href, onClick}` | — | CTA |
+| Prop                 | Tipo                     | Padrão               | Descrição |
+| -------------------- | ------------------------ | -------------------- | --------- |
+| `supportTitle`       | `string`                 | `stillHaveQuestions` |           |
+| `supportDescription` | `string`                 | —                    |           |
+| `supportAction`      | `{label, href, onClick}` | —                    | CTA       |
 
 Herda `Faqs`.
 

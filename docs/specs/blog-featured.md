@@ -12,30 +12,30 @@ Destaque editorial.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/blog-featured.tsx` |
-| Tipo | `registry:block` (name: `ds-blog-featured`) |
-| Categoria | Blog |
-| Depende de | `BlogCard` large + `BlogCard` compact |
+| Campo      | Valor                                       |
+| ---------- | ------------------------------------------- |
+| Arquivo    | `components/ds/blog-featured.tsx`           |
+| Tipo       | `registry:block` (name: `ds-blog-featured`) |
+| Categoria  | Blog                                        |
+| Depende de | `BlogCard` large + `BlogCard` compact       |
 
 ---
 
 ## API — Props
 
-| Prop | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `featured` | `BlogPost` | ✓ | Hero `lg` |
-| `posts` | `BlogPost[]` (2) | — | Laterais |
-| `locale` | `UILocale` | `"en-US"` |  |
-| `loading` | `boolean` | `false` |  |
+| Prop       | Tipo             | Padrão    | Descrição |
+| ---------- | ---------------- | --------- | --------- |
+| `featured` | `BlogPost`       | ✓         | Hero `lg` |
+| `posts`    | `BlogPost[]` (2) | —         | Laterais  |
+| `locale`   | `UILocale`       | `"en-US"` |           |
+| `loading`  | `boolean`        | `false`   |           |
 
 ---
 
 ## Comportamentos
 
-| Estado | Comportamento |
-|---|---|
+| Estado | Comportamento                                                       |
+| ------ | ------------------------------------------------------------------- |
 | Layout | `grid lg:grid-cols-3 gap-6` featured `col-span-2` image `h-[360px]` |
 
 ---

@@ -15,19 +15,19 @@ Grid de vídeos com overlay de play que abrem em diálogo ao clicar, remontando 
 
 ## Localização
 
-| Campo      | Valor                                        |
-| ---------- | -------------------------------------------------- |
-| Arquivo    | `components/ds/gallery-video.tsx`                    |
-| Tipo       | `registry:block` (name: `ds-gallery-video`)         |
-| Categoria  | `Layout`                                             |
-| Depende de | `ds-video-dialog`                                    |
+| Campo      | Valor                                       |
+| ---------- | ------------------------------------------- |
+| Arquivo    | `components/ds/gallery-video.tsx`           |
+| Tipo       | `registry:block` (name: `ds-gallery-video`) |
+| Categoria  | `Layout`                                    |
+| Depende de | `ds-video-dialog`                           |
 
 ---
 
 ## API — Props
 
-| Prop      | Tipo                | Padrão | Descrição                                    |
-| ---------- | --------------------- | ------ | -------------------------------------------------- |
+| Prop      | Tipo                 | Padrão | Descrição                                           |
+| --------- | -------------------- | ------ | --------------------------------------------------- |
 | `items`   | `GalleryVideoItem[]` | —      | `{ videoSrc, thumbnailSrc, thumbnailAlt?, title? }` |
 | `columns` | `2 \| 3 \| 4`        | `3`    | Colunas do grid                                     |
 | `locale`  | `UILocale`           | —      | Repassado a cada `VideoDialog`                      |

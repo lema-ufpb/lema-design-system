@@ -16,7 +16,7 @@ const team = [
 ]
 
 const meta = {
-  title: "Layout/AboutSection",
+  title: "Blocks/AboutSection",
   component: AboutSection,
   parameters: {
     layout: "fullscreen",

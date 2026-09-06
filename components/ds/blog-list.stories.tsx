@@ -13,7 +13,7 @@ const posts = Array.from({ length: 3 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blog/BlogList",
+  title: "Blocks/BlogList",
   component: BlogList,
   tags: ["autodocs"],
 } satisfies Meta<typeof BlogList>

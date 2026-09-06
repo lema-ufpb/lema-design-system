@@ -17,7 +17,7 @@ const items = [
 ]
 
 const meta = {
-  title: "Navigation/HeaderMobileDrawer",
+  title: "Blocks/HeaderMobileDrawer",
   component: HeaderMobileDrawer,
   tags: ["autodocs"],
   argTypes: {

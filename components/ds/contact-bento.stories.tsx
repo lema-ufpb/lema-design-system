@@ -4,7 +4,7 @@ import { ContactBento } from "./contact-bento"
 import { OfficeLocationItem, OfficeLocations } from "./office-locations"
 
 const meta = {
-  title: "Layout/ContactBento",
+  title: "Blocks/ContactBento",
   component: ContactBento,
   parameters: {
     layout: "padded",

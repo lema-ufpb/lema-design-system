@@ -11,7 +11,8 @@ import { Input } from "@/components/ui/input"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface NumberFieldProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">,
+  extends
+    Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">,
     VariantProps<typeof numberFieldVariants> {
   value?: number
   defaultValue?: number
@@ -23,19 +24,32 @@ export interface NumberFieldProps
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const numberFieldVariants = cva("flex items-center gap-1 rounded-xl border bg-card p-1", {
-  variants: {
-    size: {
-      sm: "h-8",
-      md: "h-9",
+export const numberFieldVariants = cva(
+  "flex items-center gap-1 rounded-xl border bg-card p-1",
+  {
+    variants: {
+      size: {
+        sm: "h-8",
+        md: "h-9",
+      },
     },
-  },
-  defaultVariants: { size: "md" },
-})
+    defaultVariants: { size: "md" },
+  }
+)
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function NumberField({ className, value: controlled, defaultValue = 0, min, max, step = 1, onChange, size = "md", ...props }: NumberFieldProps) {
+export function NumberField({
+  className,
+  value: controlled,
+  defaultValue = 0,
+  min,
+  max,
+  step = 1,
+  onChange,
+  size = "md",
+  ...props
+}: NumberFieldProps) {
   const [internal, setInternal] = React.useState(defaultValue)
   const isControlled = controlled !== undefined
   const value = isControlled ? controlled : internal
@@ -47,7 +61,11 @@ export function NumberField({ className, value: controlled, defaultValue = 0, mi
   }
 
   return (
-    <div data-slot="number-field" className={cn(numberFieldVariants({ size }), className)} {...props}>
+    <div
+      data-slot="number-field"
+      className={cn(numberFieldVariants({ size }), className)}
+      {...props}
+    >
       <Button
         type="button"
         variant="ghost"

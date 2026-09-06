@@ -22,7 +22,7 @@ const actions = [
 ]
 
 const meta = {
-  title: "Navigation/HeaderSimple",
+  title: "Blocks/HeaderSimple",
   component: HeaderSimple,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },

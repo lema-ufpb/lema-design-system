@@ -102,7 +102,11 @@ export const ColorPicker = React.forwardRef<HTMLInputElement, ColorPickerProps>(
               onChange={handleColorChange}
               disabled={disabled}
               className="absolute -inset-2 size-12 cursor-pointer border-0 p-0"
-              aria-label={locale ? UI_I18N[locale].input?.clear ?? "Select color" : "Select color"}
+              aria-label={
+                locale
+                  ? (UI_I18N[locale].input?.clear ?? "Select color")
+                  : "Select color"
+              }
             />
           </div>
         </div>

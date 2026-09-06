@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BentoShowcase } from "./bento-showcase"
 
 const meta = {
-  title: "Layout/BentoShowcase",
+  title: "Blocks/BentoShowcase",
   component: BentoShowcase,
   parameters: {
     layout: "padded",

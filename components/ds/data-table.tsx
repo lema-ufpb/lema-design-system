@@ -1121,7 +1121,7 @@ export function DataTable<TData extends RowData>({
               onVoiceStart={onVoiceStart}
               onVoiceEnd={onVoiceEnd}
               onVoiceError={onVoiceError}
-              className="min-w-36 mt-2 mr-2 w-full sm:w-72 max-w-full"
+              className="mt-2 mr-2 w-full max-w-full min-w-36 sm:w-72"
             />
           )}
         </div>

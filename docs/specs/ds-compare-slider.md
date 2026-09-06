@@ -15,43 +15,43 @@ Slider de comparação antes/depois via `clip-path` (nenhuma imagem é esticada 
 
 ## Localização
 
-| Campo      | Valor                                        |
-| ---------- | ------------------------------------------------- |
-| Arquivo    | `components/ds/compare-slider.tsx`                  |
-| Tipo       | `registry:ui` (name: `ds-compare-slider`)          |
-| Categoria  | `Data Display`                                      |
-| Depende de | `lucide-react`                                      |
+| Campo      | Valor                                     |
+| ---------- | ----------------------------------------- |
+| Arquivo    | `components/ds/compare-slider.tsx`        |
+| Tipo       | `registry:ui` (name: `ds-compare-slider`) |
+| Categoria  | `Data Display`                            |
+| Depende de | `lucide-react`                            |
 
 ---
 
 ## API — Props
 
-| Prop           | Tipo      | Padrão | Descrição                              |
-| --------------- | ----------- | ------ | ------------------------------------------- |
-| `beforeSrc`    | `string`   | —      | Imagem "antes"                              |
-| `beforeAlt`    | `string`   | —      | Alt da imagem "antes"                       |
-| `afterSrc`     | `string`   | —      | Imagem "depois"                             |
-| `afterAlt`     | `string`   | —      | Alt da imagem "depois"                      |
-| `defaultValue` | `number`   | `50`   | Posição inicial do controle (0–100)         |
-| `label`        | `string`   | —      | `aria-label` do controle deslizante         |
+| Prop           | Tipo     | Padrão | Descrição                           |
+| -------------- | -------- | ------ | ----------------------------------- |
+| `beforeSrc`    | `string` | —      | Imagem "antes"                      |
+| `beforeAlt`    | `string` | —      | Alt da imagem "antes"               |
+| `afterSrc`     | `string` | —      | Imagem "depois"                     |
+| `afterAlt`     | `string` | —      | Alt da imagem "depois"              |
+| `defaultValue` | `number` | `50`   | Posição inicial do controle (0–100) |
+| `label`        | `string` | —      | `aria-label` do controle deslizante |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado                | Comportamento esperado                                                 |
-| ------------------------ | ---------------------------------------------------------------------------- |
-| Arraste do controle      | `clip-path: inset(0 {100-value}% 0 0)` na imagem "antes" — sem distorção     |
-| Teclado (setas)          | Navegação nativa do `<input type="range">`                                    |
+| Estado              | Comportamento esperado                                                   |
+| ------------------- | ------------------------------------------------------------------------ |
+| Arraste do controle | `clip-path: inset(0 {100-value}% 0 0)` na imagem "antes" — sem distorção |
+| Teclado (setas)     | Navegação nativa do `<input type="range">`                               |
 
 ---
 
 ## Acessibilidade
 
-| Requisito     | Implementação                                                    |
-| --------------- | ---------------------------------------------------------------------- |
-| Controle         | `<input type="range">` nativo sobreposto — foco, teclado e leitor de tela de graça |
-| `aria-label`     | Via prop `label`                                                        |
+| Requisito    | Implementação                                                                      |
+| ------------ | ---------------------------------------------------------------------------------- |
+| Controle     | `<input type="range">` nativo sobreposto — foco, teclado e leitor de tela de graça |
+| `aria-label` | Via prop `label`                                                                   |
 
 ---
 

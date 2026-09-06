@@ -15,7 +15,21 @@ export interface CtaSplitProps extends Omit<CtaProps, "align"> {
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function CtaSplit({ className, imageSrc, imageAlt, reverse = false, title, description, badge, primaryAction, secondaryAction, tone = "default", size = "md", loading = false, ...props }: CtaSplitProps) {
+export function CtaSplit({
+  className,
+  imageSrc,
+  imageAlt,
+  reverse = false,
+  title,
+  description,
+  badge,
+  primaryAction,
+  secondaryAction,
+  tone = "default",
+  size = "md",
+  loading = false,
+  ...props
+}: CtaSplitProps) {
   return (
     <div
       data-slot="cta-split"
@@ -30,7 +44,13 @@ export function CtaSplit({ className, imageSrc, imageAlt, reverse = false, title
     >
       {imageSrc && !reverse && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={imageSrc} alt={imageAlt ?? title} loading="lazy" decoding="async" className="hidden h-full w-full object-cover md:block" />
+        <img
+          src={imageSrc}
+          alt={imageAlt ?? title}
+          loading="lazy"
+          decoding="async"
+          className="hidden h-full w-full object-cover md:block"
+        />
       )}
 
       <div className="flex flex-col justify-center p-8 md:p-12">
@@ -50,7 +70,13 @@ export function CtaSplit({ className, imageSrc, imageAlt, reverse = false, title
 
       {imageSrc && reverse && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={imageSrc} alt={imageAlt ?? title} loading="lazy" decoding="async" className="hidden h-full w-full object-cover md:block" />
+        <img
+          src={imageSrc}
+          alt={imageAlt ?? title}
+          loading="lazy"
+          decoding="async"
+          className="hidden h-full w-full object-cover md:block"
+        />
       )}
     </div>
   )

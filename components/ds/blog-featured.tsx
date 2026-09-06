@@ -18,10 +18,21 @@ export interface BlogFeaturedProps extends React.HTMLAttributes<HTMLDivElement> 
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function BlogFeatured({ className, featured, posts = [], locale = "en-US", loading = false, ...props }: BlogFeaturedProps) {
+export function BlogFeatured({
+  className,
+  featured,
+  posts = [],
+  locale = "en-US",
+  loading = false,
+  ...props
+}: BlogFeaturedProps) {
   if (loading) {
     return (
-      <div data-slot="blog-featured-skeleton" className={cn("grid gap-6 lg:grid-cols-3", className)} {...props}>
+      <div
+        data-slot="blog-featured-skeleton"
+        className={cn("grid gap-6 lg:grid-cols-3", className)}
+        {...props}
+      >
         <div className="lg:col-span-2">
           <Skeleton className="h-[360px] w-full rounded-2xl" />
         </div>
@@ -34,7 +45,11 @@ export function BlogFeatured({ className, featured, posts = [], locale = "en-US"
   }
 
   return (
-    <div data-slot="blog-featured" className={cn("grid gap-6 lg:grid-cols-3", className)} {...props}>
+    <div
+      data-slot="blog-featured"
+      className={cn("grid gap-6 lg:grid-cols-3", className)}
+      {...props}
+    >
       <div className="lg:col-span-2">
         <BlogCard post={featured} locale={locale} size="lg" featured />
       </div>

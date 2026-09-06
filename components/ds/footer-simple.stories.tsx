@@ -13,7 +13,7 @@ const sampleBrand = (
 )
 
 const meta: Meta<typeof FooterSimple> = {
-  title: "Layout/FooterSimple",
+  title: "Blocks/FooterSimple",
   component: FooterSimple,
   tags: ["autodocs"],
   args: {

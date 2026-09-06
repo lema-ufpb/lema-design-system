@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeaderAnnouncement } from "./header-announcement"
 
 const meta = {
-  title: "Navigation/HeaderAnnouncement",
+  title: "Blocks/HeaderAnnouncement",
   component: HeaderAnnouncement,
   tags: ["autodocs"],
   argTypes: {

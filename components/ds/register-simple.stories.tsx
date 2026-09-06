@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { RegisterSimple } from "./register-simple"
 
 const meta = {
-  title: "Auth/RegisterSimple",
+  title: "Blocks/RegisterSimple",
   component: RegisterSimple,
   tags: ["autodocs"],
 } satisfies Meta<typeof RegisterSimple>

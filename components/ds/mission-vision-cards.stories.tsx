@@ -3,7 +3,7 @@ import { expect, within } from "storybook/test"
 import { MissionVisionCards } from "./mission-vision-cards"
 
 const meta: Meta<typeof MissionVisionCards> = {
-  title: "About/MissionVisionCards",
+  title: "Blocks/MissionVisionCards",
   component: MissionVisionCards,
   tags: ["autodocs"],
   parameters: {

@@ -99,7 +99,10 @@ export function BannerCookie({
         <span id={titleId} className="text-sm font-semibold text-foreground">
           {resolvedTitle}
         </span>
-        <span id={descId} className="text-sm leading-relaxed text-muted-foreground">
+        <span
+          id={descId}
+          className="text-sm leading-relaxed text-muted-foreground"
+        >
           {resolvedDesc}{" "}
           {learnMoreHref && (
             <a

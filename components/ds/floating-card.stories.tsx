@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FloatingCard } from "./floating-card"
 
 const meta = {
-  title: "Layout/FloatingCard",
+  title: "Blocks/FloatingCard",
   component: FloatingCard,
   parameters: {
     layout: "centered",

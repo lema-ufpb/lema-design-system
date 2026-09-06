@@ -3,7 +3,7 @@ import { fn } from "storybook/test"
 import { MagicLinkForm } from "./magic-link-form"
 
 const meta = {
-  title: "Form/MagicLinkForm",
+  title: "Blocks/MagicLinkForm",
   component: MagicLinkForm,
   tags: ["autodocs"],
   parameters: {

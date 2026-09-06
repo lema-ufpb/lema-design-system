@@ -9,7 +9,7 @@ const user = {
 }
 
 const meta = {
-  title: "Navigation/HeaderUserMenu",
+  title: "Blocks/HeaderUserMenu",
   component: HeaderUserMenu,
   tags: ["autodocs"],
   argTypes: {

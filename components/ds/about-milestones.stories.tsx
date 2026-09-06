@@ -32,7 +32,7 @@ const sampleMilestones = [
 ]
 
 const meta: Meta<typeof AboutMilestones> = {
-  title: "About/AboutMilestones",
+  title: "Blocks/AboutMilestones",
   component: AboutMilestones,
   tags: ["autodocs"],
   parameters: {

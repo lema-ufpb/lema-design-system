@@ -3,7 +3,7 @@ import { ArrowRightIcon, MailIcon } from "lucide-react"
 import { HeaderActions } from "./header-actions"
 
 const meta = {
-  title: "Navigation/HeaderActions",
+  title: "Blocks/HeaderActions",
   component: HeaderActions,
   tags: ["autodocs"],
   argTypes: {

@@ -11,10 +11,19 @@ export type HowItWorksTimelineProps = Omit<HowItWorksProps, "orientation">
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function HowItWorksTimeline({ className, ...props }: HowItWorksTimelineProps) {
+export function HowItWorksTimeline({
+  className,
+  ...props
+}: HowItWorksTimelineProps) {
   return (
-    <div data-slot="how-it-works-timeline" className={cn("relative", className)}>
-      <div className="absolute left-5 top-6 bottom-6 hidden w-px bg-border md:block" aria-hidden="true" />
+    <div
+      data-slot="how-it-works-timeline"
+      className={cn("relative", className)}
+    >
+      <div
+        className="absolute top-6 bottom-6 left-5 hidden w-px bg-border md:block"
+        aria-hidden="true"
+      />
       <HowItWorks orientation="vertical" {...props} />
     </div>
   )

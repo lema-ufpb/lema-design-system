@@ -36,7 +36,11 @@ export function BlogGrid({
   ...props
 }: BlogGridProps) {
   return (
-    <div data-slot="blog-grid" className={cn("flex flex-col gap-6", className)} {...props}>
+    <div
+      data-slot="blog-grid"
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       {(categories.length > 0 || onSearchChange) && (
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           {categories.length > 0 && (
@@ -44,7 +48,7 @@ export function BlogGrid({
               <button
                 onClick={() => onCategoryChange?.(null)}
                 data-active={!activeCategory || undefined}
-                className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium transition-colors hover:bg-muted data-[active]:bg-primary data-[active]:text-primary-foreground data-[active]:border-primary"
+                className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium transition-colors hover:bg-muted data-[active]:border-primary data-[active]:bg-primary data-[active]:text-primary-foreground"
               >
                 {UI_I18N[locale].blog.allCategories}
               </button>
@@ -53,7 +57,7 @@ export function BlogGrid({
                   key={cat}
                   onClick={() => onCategoryChange?.(cat)}
                   data-active={activeCategory === cat || undefined}
-                  className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium transition-colors hover:bg-muted data-[active]:bg-primary data-[active]:text-primary-foreground data-[active]:border-primary"
+                  className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium transition-colors hover:bg-muted data-[active]:border-primary data-[active]:bg-primary data-[active]:text-primary-foreground"
                 >
                   {cat}
                 </button>
@@ -80,7 +84,9 @@ export function BlogGrid({
       ) : posts.length === 0 ? (
         <Empty className="py-12">
           <EmptyTitle>{UI_I18N[locale].blog.noPosts}</EmptyTitle>
-          <EmptyDescription>{UI_I18N[locale].blog.noPostsDescription}</EmptyDescription>
+          <EmptyDescription>
+            {UI_I18N[locale].blog.noPostsDescription}
+          </EmptyDescription>
         </Empty>
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

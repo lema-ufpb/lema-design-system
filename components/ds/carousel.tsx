@@ -267,7 +267,7 @@ function CarouselDots({
           aria-label={`${i18n.carousel.goToSlide} ${index + 1}`}
           onClick={() => api?.scrollTo(index)}
           className={cn(
-            "relative flex size-2.5 items-center justify-center rounded-full p-3 -m-3 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none sm:p-2 sm:-m-2",
+            "relative -m-3 flex size-2.5 items-center justify-center rounded-full p-3 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none sm:-m-2 sm:p-2",
             dotVariant === "filled" &&
               (index === selectedIndex
                 ? "bg-primary"
@@ -278,7 +278,13 @@ function CarouselDots({
                 : "border-2 border-muted-foreground/30 bg-transparent hover:border-muted-foreground/50")
           )}
         >
-          <span className={cn("size-2.5 rounded-full", index === selectedIndex ? "bg-primary" : "bg-transparent")} aria-hidden="true" />
+          <span
+            className={cn(
+              "size-2.5 rounded-full",
+              index === selectedIndex ? "bg-primary" : "bg-transparent"
+            )}
+            aria-hidden="true"
+          />
         </button>
       ))}
     </div>
@@ -312,7 +318,11 @@ export function Carousel({
 }: CarouselProps) {
   const plugins = React.useMemo(() => {
     if (!autoplayInterval || autoplayInterval <= 0) return undefined
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return undefined
     return [
       Autoplay({
         delay: autoplayInterval,

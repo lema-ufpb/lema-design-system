@@ -10,7 +10,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface ContributionGraphProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof contributionGraphVariants> {
   data?: number[][] // 7 x weeks
   locale?: UILocale
@@ -19,15 +20,18 @@ export interface ContributionGraphProps
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const contributionGraphVariants = cva("flex flex-col gap-2 rounded-2xl border bg-card p-4", {
-  variants: {
-    size: {
-      sm: "[&>div>div]:size-2.5",
-      md: "[&>div>div]:size-3",
+export const contributionGraphVariants = cva(
+  "flex flex-col gap-2 rounded-2xl border bg-card p-4",
+  {
+    variants: {
+      size: {
+        sm: "[&>div>div]:size-2.5",
+        md: "[&>div>div]:size-3",
+      },
     },
-  },
-  defaultVariants: { size: "md" },
-})
+    defaultVariants: { size: "md" },
+  }
+)
 
 const levelClasses = [
   "bg-muted",
@@ -48,21 +52,35 @@ export function ContributionGraph({
   ...props
 }: ContributionGraphProps) {
   const weeks = React.useMemo(
-    () => data ?? Array.from({ length: 20 }).map(() => Array.from({ length: 7 }).map(() => Math.floor(Math.random() * 5))),
+    () =>
+      data ??
+      Array.from({ length: 20 }).map(() =>
+        Array.from({ length: 7 }).map(() => Math.floor(Math.random() * 5))
+      ),
     [data]
   )
   const t = UI_I18N[locale].contributionGraph
 
   if (loading) {
     return (
-      <div data-slot="contribution-graph-skeleton" className={cn(contributionGraphVariants({ size }), className)} {...props}>
+      <div
+        data-slot="contribution-graph-skeleton"
+        className={cn(contributionGraphVariants({ size }), className)}
+        {...props}
+      >
         <Skeleton className="h-24 w-full" />
       </div>
     )
   }
 
   return (
-    <div data-slot="contribution-graph" role="img" aria-label={`Contribution graph: ${t.less} to ${t.more}`} className={cn(contributionGraphVariants({ size }), className)} {...props}>
+    <div
+      data-slot="contribution-graph"
+      role="img"
+      aria-label={`Contribution graph: ${t.less} to ${t.more}`}
+      className={cn(contributionGraphVariants({ size }), className)}
+      {...props}
+    >
       <div className="flex gap-1 overflow-x-auto" aria-hidden="true">
         {weeks.map((week, wi) => (
           <div key={wi} className="flex flex-col gap-1">
@@ -70,8 +88,13 @@ export function ContributionGraph({
               <div
                 key={di}
                 aria-hidden="true"
-                title={level === 0 ? t.noContributions : `${level} contributions`}
-                className={cn("size-3 rounded-sm", levelClasses[Math.min(level, 4)])}
+                title={
+                  level === 0 ? t.noContributions : `${level} contributions`
+                }
+                className={cn(
+                  "size-3 rounded-sm",
+                  levelClasses[Math.min(level, 4)]
+                )}
               />
             ))}
           </div>

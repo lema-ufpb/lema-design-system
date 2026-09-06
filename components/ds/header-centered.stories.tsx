@@ -17,7 +17,7 @@ const nav = [
 ]
 
 const meta = {
-  title: "Navigation/HeaderCentered",
+  title: "Blocks/HeaderCentered",
   component: HeaderCentered,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },

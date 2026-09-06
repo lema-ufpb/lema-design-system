@@ -13,7 +13,7 @@ function Wordmark({ children }: { children: string }) {
 const logos = ["Forbes", "TechCrunch", "Wired", "The Verge"]
 
 const meta = {
-  title: "Layout/LogoCloudStats",
+  title: "Blocks/LogoCloudStats",
   component: LogoCloudStats,
   parameters: {
     layout: "padded",
@@ -36,7 +36,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { headline: "Trusted by 500+ companies", description: "From startups to Fortune 500 enterprises.", kicker: "As seen in", children: [] as never },
+  args: {
+    headline: "Trusted by 500+ companies",
+    description: "From startups to Fortune 500 enterprises.",
+    kicker: "As seen in",
+    children: [] as never,
+  },
   render: (args) => (
     <LogoCloudStats {...args}>
       {logos.map((name) => (

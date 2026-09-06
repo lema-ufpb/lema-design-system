@@ -13,7 +13,7 @@ function Wordmark({ children }: { children: string }) {
 const logos = ["Forbes", "TechCrunch", "Wired", "The Verge"]
 
 const meta = {
-  title: "Layout/LogoCloudGlow",
+  title: "Blocks/LogoCloudGlow",
   component: LogoCloudGlow,
   parameters: {
     layout: "padded",

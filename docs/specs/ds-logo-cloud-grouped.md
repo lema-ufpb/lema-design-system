@@ -15,33 +15,33 @@ Mural de logos com filtro de indústria/categoria acima, remontando o bloco "Ind
 
 ## Localização
 
-| Campo      | Valor                                                |
-| ---------- | ------------------------------------------------------------ |
-| Arquivo    | `components/ds/logo-cloud-grouped.tsx`                         |
-| Tipo       | `registry:block` (name: `ds-logo-cloud-grouped`)              |
-| Categoria  | `Layout`                                                       |
-| Depende de | `ds-press-wall`, `ds-pill-group`                               |
+| Campo      | Valor                                            |
+| ---------- | ------------------------------------------------ |
+| Arquivo    | `components/ds/logo-cloud-grouped.tsx`           |
+| Tipo       | `registry:block` (name: `ds-logo-cloud-grouped`) |
+| Categoria  | `Layout`                                         |
+| Depende de | `ds-press-wall`, `ds-pill-group`                 |
 
 ---
 
 ## API — Props
 
-| Prop        | Tipo                       | Padrão  | Obrigatória | Descrição                            |
-| ------------ | ---------------------------- | ------- | ----------- | ------------------------------------------ |
-| `groups`    | `{ value, label }[]`         | —       | ✓           | Categorias do filtro                        |
-| `items`     | `LogoCloudGroupedItem[]`     | —       | ✓           | `{ label, group, content, href? }`          |
-| `allLabel`  | `string`                     | `"All"` |             | Rótulo do chip "Todos"                      |
-| `kicker`    | `string`                     | —       |             | Repassado ao `PressWall`                    |
-| `locale`    | `UILocale`                   | —       |             | Repassado ao `PillGroup`                     |
+| Prop       | Tipo                     | Padrão  | Obrigatória | Descrição                          |
+| ---------- | ------------------------ | ------- | ----------- | ---------------------------------- |
+| `groups`   | `{ value, label }[]`     | —       | ✓           | Categorias do filtro               |
+| `items`    | `LogoCloudGroupedItem[]` | —       | ✓           | `{ label, group, content, href? }` |
+| `allLabel` | `string`                 | `"All"` |             | Rótulo do chip "Todos"             |
+| `kicker`   | `string`                 | —       |             | Repassado ao `PressWall`           |
+| `locale`   | `UILocale`               | —       |             | Repassado ao `PillGroup`           |
 
 ---
 
 ## Comportamentos e estados
 
-| Estado                | Comportamento esperado                          |
-| ------------------------ | ------------------------------------------------------ |
-| Chip "Todos" selecionado | Mostra todos os itens (padrão)                          |
-| Chip de categoria        | Filtra `items` por `group === valor selecionado`        |
+| Estado                   | Comportamento esperado                           |
+| ------------------------ | ------------------------------------------------ |
+| Chip "Todos" selecionado | Mostra todos os itens (padrão)                   |
+| Chip de categoria        | Filtra `items` por `group === valor selecionado` |
 
 ---
 

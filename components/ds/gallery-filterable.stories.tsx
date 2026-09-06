@@ -23,7 +23,7 @@ const items = photoIds.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Layout/GalleryFilterable",
+  title: "Blocks/GalleryFilterable",
   component: GalleryFilterable,
   parameters: {
     layout: "padded",

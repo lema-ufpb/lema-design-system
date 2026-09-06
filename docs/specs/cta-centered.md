@@ -12,12 +12,12 @@ Wrapper de `Cta` `align center` com `max-w-2xl`.
 
 ## Localização
 
-| Campo | Valor |
-|---|---|
-| Arquivo | `components/ds/cta-centered.tsx` |
-| Tipo | `registry:block` (name: `ds-cta-centered`) |
-| Categoria | CTA |
-| Depende de | `Cta` |
+| Campo      | Valor                                      |
+| ---------- | ------------------------------------------ |
+| Arquivo    | `components/ds/cta-centered.tsx`           |
+| Tipo       | `registry:block` (name: `ds-cta-centered`) |
+| Categoria  | CTA                                        |
+| Depende de | `Cta`                                      |
 
 ---
 

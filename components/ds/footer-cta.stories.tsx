@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FooterCta } from "./footer-cta"
 
 const meta: Meta<typeof FooterCta> = {
-  title: "Layout/FooterCta",
+  title: "Blocks/FooterCta",
   component: FooterCta,
   tags: ["autodocs"],
   args: {

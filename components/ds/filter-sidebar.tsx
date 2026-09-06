@@ -19,22 +19,39 @@ export interface FilterSidebarProps extends React.HTMLAttributes<HTMLDivElement>
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export function FilterSidebar({ className, categories = ["Shoes", "Clothing", "Accessories"], priceRange = [0, 500], loading = false, ...props }: FilterSidebarProps) {
+export function FilterSidebar({
+  className,
+  categories = ["Shoes", "Clothing", "Accessories"],
+  priceRange = [0, 500],
+  loading = false,
+  ...props
+}: FilterSidebarProps) {
   if (loading) {
     return (
-      <Card data-slot="filter-sidebar-skeleton" className={cn("p-4", className)} {...props}>
+      <Card
+        data-slot="filter-sidebar-skeleton"
+        className={cn("p-4", className)}
+        {...props}
+      >
         <Skeleton className="h-48 w-full" />
       </Card>
     )
   }
 
   return (
-    <Card data-slot="filter-sidebar" className={cn("p-4", className)} {...props}>
+    <Card
+      data-slot="filter-sidebar"
+      className={cn("p-4", className)}
+      {...props}
+    >
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <h4 className="text-xs font-semibold text-foreground">Category</h4>
           {categories.map((c) => (
-            <Label key={c} className="flex items-center gap-2 text-xs font-normal">
+            <Label
+              key={c}
+              className="flex items-center gap-2 text-xs font-normal"
+            >
               <Checkbox />
               {c}
             </Label>

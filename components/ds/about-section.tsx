@@ -32,10 +32,10 @@ export interface AboutSectionTeamMember {
   social?: TeamRosterSocialLink[]
 }
 
-export interface AboutSectionProps extends Omit<
-  React.HTMLAttributes<HTMLElement>,
-  "title"
->, VariantProps<typeof aboutSectionVariants> {
+export interface AboutSectionProps
+  extends
+    Omit<React.HTMLAttributes<HTMLElement>, "title">,
+    VariantProps<typeof aboutSectionVariants> {
   kicker?: string
   title: React.ReactNode
   description?: string
