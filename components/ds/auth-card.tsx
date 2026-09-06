@@ -141,7 +141,7 @@ export function AuthCard({
                         <img
                           src={imageSrc ?? "/placeholder.svg"}
                           alt={imageAlt}
-                          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+                          className="absolute inset-0 h-full w-full object-cover"
                         />
                       </div>
                     </>
@@ -168,7 +168,7 @@ export function AuthCard({
             <img
               src={imageSrc ?? "/placeholder.svg"}
               alt={imageAlt}
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
         )}
