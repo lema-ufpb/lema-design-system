@@ -4,6 +4,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -17,11 +18,15 @@ export interface BillingProps extends React.HTMLAttributes<HTMLDivElement> {
   nextBilling?: string
   status?: "active" | "past_due" | "canceled"
   loading?: boolean
+  locale?: UILocale
 }
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const billingVariants = cva("w-full rounded-2xl border bg-card p-6")
+export const billingVariants = cva("w-full rounded-2xl border bg-card p-6", {
+  variants: {},
+  defaultVariants: {},
+})
 
 // ── Component ──────────────────────────────────────────────────────────────
 
@@ -32,8 +37,10 @@ export function Billing({
   nextBilling,
   status = "active",
   loading = false,
+  locale = "en-US",
   ...props
 }: BillingProps) {
+  const t = UI_I18N[locale].billing ?? UI_I18N["en-US"].billing
   if (loading) {
     return (
       <div
@@ -60,7 +67,7 @@ export function Billing({
           </span>
           {nextBilling && (
             <span className="text-xs text-muted-foreground">
-              Next billing {nextBilling}
+              {t.nextBilling} {nextBilling}
             </span>
           )}
         </div>
@@ -78,11 +85,11 @@ export function Billing({
         </Badge>
       </div>
       <div className="mt-4 flex gap-2">
-        <Button size="sm" className="rounded-full">
-          Manage
+        <Button size="sm" type="button" className="rounded-full">
+          {t.manage}
         </Button>
-        <Button size="sm" variant="outline" className="rounded-full">
-          Invoices
+        <Button size="sm" type="button" variant="outline" className="rounded-full">
+          {t.invoices}
         </Button>
       </div>
     </Card>
