@@ -27,7 +27,9 @@ function ComboboxTrigger({
   return (
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
-      aria-label={props["aria-label"] as string | undefined ?? "Toggle combobox"}
+      aria-label={
+        (props["aria-label"] as string | undefined) ?? "Toggle combobox"
+      }
       className={cn("[&_svg:not([class*='size-'])]:size-4", className)}
       {...props}
     >

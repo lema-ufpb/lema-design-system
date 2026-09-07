@@ -66,6 +66,20 @@ node scripts/validate-registry.mjs     # valida path/registro (não valida name/
 
 Cada componente em `components/ui/` e `components/ds/` **DEVE** ter seu arquivo de stories correspondente (`.stories.tsx` co-localizado no mesmo diretório). A falta de stories quebra a documentação do Storybook e o `make lint`.
 
+### Checklist obrigatório ao criar/atualizar componente em components/ds/
+
+Sempre que um componente em `components/ds/` for **criado ou atualizado**, a mesma alteração **DEVE** sincronizar todos os artefatos abaixo — nenhum é opcional, e "atualizado" inclui mudança de props, variantes, comportamento ou categoria/`title` no Storybook:
+
+1. **Spec** — criar ou atualizar `docs/specs/ds-<nome>.md` (template em `docs/templates/component-spec.md`). Componente novo sem spec, ou spec que não reflete as props/variantes atuais, é considerado incompleto.
+2. **`registry.json`** — adicionar ou atualizar a entrada do componente, seguindo a convenção de prefixo `ds-` descrita acima. Depois de editar, rodar:
+   ```bash
+   make registry
+   node scripts/validate-registry.mjs
+   ```
+3. **`app/Introduction.mdx`** — atualizar as contagens afetadas (total do registry, `ds-*`, specs) e a grade "Explore por categoria": ajustar a contagem de itens da categoria existente, ou adicionar um novo card se o componente abrir uma categoria (`title` no meta do `.stories.tsx`) que ainda não existe ali. Todo link de card usa o formato `/?path=/docs/<categoria-slug>-<componente-slug>--docs` — verificar contra o `index.json` real do Storybook antes de commitar, nunca adivinhar o slug.
+
+Isso é além do `.stories.tsx` já exigido pela regra "Stories obrigatórios" acima.
+
 ### Tipografia (scale para sm/md/lg)
 
 ```
@@ -153,7 +167,7 @@ Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real.
 - Testes de interação via `play` function com `@storybook/test`
 - Cada componente .tsx tem seu .stories.tsx co-localizado no mesmo diretório
 - MDX de introdução em `app/Introduction.mdx` com `import { VERSION } from "../lib/version"`
-- Links nas docs seguem `/docs/<kind-slug>--docs` (ex: `/docs/form-counter--docs`)
+- ID de doc de cada história é `<kind-slug>-<component-slug>--docs` (ex: `form-counter--docs`) — mas um link **markdown** (`[Texto](/docs/form-counter--docs)`) é a forma segura de referenciar, pois o MDX reescreve automaticamente para o roteamento real do Storybook; um `<a href="/docs/...">` escrito como JSX cru **não** passa por essa reescrita e quebra — use `/?path=/docs/<id>` nesse caso, e sempre confira o `id` contra o `index.json` real do Storybook em vez de adivinhar
 
 ## Workflow spec-first para novos componentes
 
@@ -163,6 +177,7 @@ Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real.
 4. `make lint` deve continuar passando inclusive sem warnings
 5. `make test` deve continuar passando
 6. Checar stories no Storybook antes de considerar concluído
+7. Seguir o "Checklist obrigatório ao criar/atualizar componente em components/ds/" acima (`registry.json` + `app/Introduction.mdx`) antes de considerar a tarefa concluída
 
 ## Templates
 
