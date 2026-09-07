@@ -1982,6 +1982,7 @@
         "input",
         "badge",
         "skeleton",
+        "ds-empty",
         "ui-i18n"
       ],
       "files": [
@@ -2158,7 +2159,8 @@
       "registryDependencies": [
         "button",
         "skeleton",
-        "pagination",
+        "ds-pagination",
+        "ds-search-bar",
         "ui-i18n",
         "format-utils"
       ],
