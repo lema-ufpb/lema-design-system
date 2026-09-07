@@ -5,6 +5,34 @@ const meta = {
   title: "Navigation/BannerPromo",
   component: BannerPromo,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BannerPromo component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `React.ReactNode` | — | - |",
+          "| `imageSrc` | `string` | — | - |",
+          "| `imageAlt` | `string` | — | - |",
+          '| `intent` | `"default" \| "promo" \| "info" \| "success" \| "warning"` | `"promo"` | - |',
+          "| `primaryAction` | `{ label: string` | — | - |",
+          "| `secondaryAction` | `{ label: string` | — | - |",
+          "| `dismissible` | `boolean` | — | - |",
+          "| `onDismiss` | `() => void` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     intent: {
       control: "select",

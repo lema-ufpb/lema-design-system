@@ -17,9 +17,35 @@ const items = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderMobileDrawer",
+  title: "Header/HeaderMobileDrawer",
   component: HeaderMobileDrawer,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderMobileDrawer component for the LEMA Design System.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `HeaderNavItem[]` | — | - |",
+          "| `actions` | `HeaderActionItem[]` | — | - |",
+          "| `brand` | `React.ReactNode` | — | - |",
+          "| `open` | `boolean` | — | - |",
+          "| `onOpenChange` | `(open: boolean) => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `side` | `"left" \| "right"` | — | - |',
+          "| `className` | `string` | — | - |",
+          "| `onNavigate` | `(item: HeaderNavItem) => void` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     side: { control: "inline-radio", options: ["left", "right"] },
     locale: {

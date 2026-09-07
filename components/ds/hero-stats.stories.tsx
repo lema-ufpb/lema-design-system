@@ -10,14 +10,29 @@ const stats = [
 ]
 
 const meta = {
-  title: "Blocks/HeroStats",
+  title: "Hero/HeroStats",
   component: HeroStats,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Centered hero followed by a stats strip — composed from HeroSection and CardStat.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `stats` | `HeroStatsItem[]` | — | - |",
+        ].join("\n"),
       },
     },
   },

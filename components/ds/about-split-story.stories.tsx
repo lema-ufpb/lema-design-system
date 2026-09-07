@@ -3,10 +3,36 @@ import { expect, within } from "storybook/test"
 import { AboutSplitStory } from "./about-split-story"
 
 const meta: Meta<typeof AboutSplitStory> = {
-  title: "Blocks/AboutSplitStory",
+  title: "About/AboutSplitStory",
   component: AboutSplitStory,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AboutSplitStory component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `badge` | `string` | — | - |",
+          "| `imageSrc` | `string` | — | - |",
+          "| `imageAlt` | `string` | — | - |",
+          "| `floatingBadgeText` | `string` | — | - |",
+          "| `primaryAction` | `AboutSplitStoryAction` | — | - |",
+          "| `secondaryAction` | `AboutSplitStoryAction` | — | - |",
+          "| `reverse` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "muted"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   args: {

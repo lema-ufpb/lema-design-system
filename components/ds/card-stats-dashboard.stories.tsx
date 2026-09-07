@@ -30,7 +30,7 @@ const WEEKLY_ORDERS = [310, 365, 340, 398, 381, 452, 521]
 const WEEKLY_BOUNCE = [42, 39, 41, 36, 38, 34, 32]
 
 const meta = {
-  title: "Blocks/CardStatsDashboard",
+  title: "Data Display/CardStatsDashboard",
   parameters: {
     layout: "fullscreen",
   },
@@ -43,6 +43,18 @@ export const Dashboard: Story = {
   parameters: {
     docs: {
       description: {
+        component: [
+          "A CardStatsDashboard component for the LEMA Design System.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `className` | `string` | — | Additional CSS classes |",
+          "| `children` | `ReactNode` | — | Content |",
+        ].join("\n"),
         story:
           "Full dashboard layout combining all CardStat variants — compact counters, sparklines, comparison, progress, gauge, heatbar, and list components in a realistic grid.",
       },

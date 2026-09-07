@@ -22,8 +22,7 @@ export const mockupVariants = cva("relative overflow-hidden bg-card", {
     frame: {
       small: "rounded-xl border shadow-md",
       large: "rounded-2xl border shadow-xl",
-      mobile:
-        "mx-auto max-w-80 rounded-4xl border-4 border-border shadow-2xl",
+      mobile: "mx-auto max-w-80 rounded-4xl border-4 border-border shadow-2xl",
     },
     inset: {
       true: "bg-muted/40 p-1",

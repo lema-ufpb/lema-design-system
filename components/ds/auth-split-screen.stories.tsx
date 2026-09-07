@@ -4,10 +4,32 @@ import { LoginForm } from "./login-form"
 import { SignUpForm } from "./signup-form"
 
 const meta = {
-  title: "Blocks/AuthSplitScreen",
+  title: "Auth/AuthSplitScreen",
   component: AuthSplitScreen,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AuthSplitScreen component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `logo` | `React.ReactNode` | — | - |",
+          "| `appName` | `string` | — | - |",
+          "| `testimonial` | `AuthTestimonial` | — | - |",
+          "| `stats` | `AuthStat[]` | — | - |",
+          "| `brandHeadline` | `string` | — | - |",
+          "| `brandDescription` | `string` | — | - |",
+          '| `reverse` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   argTypes: {

@@ -2,9 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeaderAnnouncement } from "./header-announcement"
 
 const meta = {
-  title: "Blocks/HeaderAnnouncement",
+  title: "Header/HeaderAnnouncement",
   component: HeaderAnnouncement,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderAnnouncement component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `href` | `string` | — | - |",
+          "| `tag` | `string` | — | - |",
+          "| `dismissible` | `boolean` | — | - |",
+          "| `onDismiss` | `() => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "outline" \| "glow"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     variant: { control: "select", options: ["default", "outline", "glow"] },
     dismissible: { control: "boolean" },

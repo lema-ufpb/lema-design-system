@@ -59,14 +59,30 @@ function FeatureMedia({
 }
 
 const meta = {
-  title: "Blocks/StickyFeatureList",
+  title: "Layout/StickyFeatureList",
   component: StickyFeatureList,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "An interactive feature narrative: a vertical list of items on one side selects the media shown in a sticky panel on the other, following the WAI-ARIA vertical tabs pattern (roving tabindex, Arrow Up/Down navigation).",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `string` | — | - |",
+          "| `defaultValue` | `string` | — | - |",
+          "| `onValueChange` | `(value: string) => void` | — | - |",
+          "| `label` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

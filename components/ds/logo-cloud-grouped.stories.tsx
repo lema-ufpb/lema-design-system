@@ -36,14 +36,29 @@ const items = [
 ]
 
 const meta = {
-  title: "Blocks/LogoCloudGrouped",
+  title: "LogoCloud/LogoCloudGrouped",
   component: LogoCloudGrouped,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A logo wall with an industry/category filter above it — composed from PressWall and PillGroup.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `groups` | `LogoCloudGroup[]` | — | - |",
+          "| `items` | `LogoCloudGroupedItem[]` | — | - |",
+          "| `allLabel` | `string` | — | - |",
+          "| `kicker` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

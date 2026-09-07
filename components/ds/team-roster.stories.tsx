@@ -37,12 +37,24 @@ const social = [
 const meta = {
   title: "Data Display/TeamRoster",
   component: TeamRosterCard,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A grid of team member cards with avatar, role, availability status, and social links revealed on hover/focus.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `columns` | `"2" \| "3" \| "4"` | — | - |',
+          '| `size` | `"sm" \| "md" \| "lg"` | — | Variant |',
+        ].join("\n"),
       },
     },
   },

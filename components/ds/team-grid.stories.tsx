@@ -9,9 +9,32 @@ const members = Array.from({ length: 6 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blocks/TeamGrid",
+  title: "Team/TeamGrid",
   component: TeamGrid,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TeamGrid component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `members` | `TeamMember[]` | — | - |",
+          "| `columns` | `3 \| 4` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof TeamGrid>
 
 export default meta

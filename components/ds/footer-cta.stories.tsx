@@ -2,9 +2,37 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FooterCta } from "./footer-cta"
 
 const meta: Meta<typeof FooterCta> = {
-  title: "Blocks/FooterCta",
+  title: "Footer/FooterCta",
   component: FooterCta,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterCta component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `ctaTitle` | `string` | — | - |",
+          "| `ctaDescription` | `string` | — | - |",
+          "| `primaryAction` | `FooterCtaAction` | — | - |",
+          "| `secondaryAction` | `FooterCtaAction` | — | - |",
+          "| `columns` | `FooterGroupData[]` | — | - |",
+          "| `brand` | `React.ReactNode` | — | - |",
+          "| `socialLinks` | `SocialLinkItem[]` | — | - |",
+          "| `brandName` | `string` | — | - |",
+          "| `legalLinks` | `LegalLinkItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `ctaTone` | `"card" \| "primary" \| "glow"` | `"glow"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     ctaTitle: "Pronto para transformar sua experiência digital?",
     ctaDescription:

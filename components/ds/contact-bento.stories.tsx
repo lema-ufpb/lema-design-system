@@ -4,14 +4,26 @@ import { ContactBento } from "./contact-bento"
 import { OfficeLocationItem, OfficeLocations } from "./office-locations"
 
 const meta = {
-  title: "Blocks/ContactBento",
+  title: "Contact/ContactBento",
   component: ContactBento,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A bento grid with a contact form as its hero tile, plus satellite tiles — composed from BentoGrid and ContactForm.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `formProps` | `ContactFormProps` | — | - |",
+          "| `children` | `React.ReactNode` | — | /** Additional `BentoGridItem` tiles rendered beside the form (office locations, stats...). */ |",
+        ].join("\n"),
       },
     },
   },

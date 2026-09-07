@@ -32,10 +32,27 @@ const sampleMilestones = [
 ]
 
 const meta: Meta<typeof MilestoneStepper> = {
-  title: "Blocks/MilestoneStepper",
+  title: "Onboarding/MilestoneStepper",
   component: MilestoneStepper,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A MilestoneStepper component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `milestones` | `MilestoneItem[]` | — | - |",
+          '| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "padded",
   },
   args: {

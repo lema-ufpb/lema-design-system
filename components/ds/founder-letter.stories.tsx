@@ -3,10 +3,33 @@ import { expect, within } from "storybook/test"
 import { FounderLetter } from "./founder-letter"
 
 const meta: Meta<typeof FounderLetter> = {
-  title: "Blocks/FounderLetter",
+  title: "About/FounderLetter",
   component: FounderLetter,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FounderLetter component for the LEMA Design System.",
+          "Supports loading state, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `paragraphs` | `string[]` | — | - |",
+          "| `authorName` | `string` | — | - |",
+          "| `authorRole` | `string` | — | - |",
+          "| `authorAvatar` | `string` | — | - |",
+          "| `authorSignature` | `string` | — | - |",
+          "| `withDropCap` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "elevated" \| "muted"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

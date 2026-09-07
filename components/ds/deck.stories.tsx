@@ -2,9 +2,27 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Deck } from "./deck"
 
 const meta = {
-  title: "Kibo/Deck",
+  title: "Navigation/Deck",
   component: Deck,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Deck component for the LEMA Design System.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `cards` | `React.ReactNode[]` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Deck>
 
 export default meta

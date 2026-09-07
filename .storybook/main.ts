@@ -16,6 +16,17 @@ const config: StorybookConfig = {
   ],
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public", { from: "../app/favicon.ico", to: "/favicon.ico" }],
+  // Points AI agents/crawlers at the machine-readable component catalog
+  // instead of the rendered HTML — see scripts/build-component-docs.mjs
+  // and llms.txt (https://llmstxt.org/).
+  managerHead: (head) => `
+    ${head}
+    <link rel="alternate" type="application/json" href="/docs/components.json" title="LEMA-DS Component Catalog" />
+  `,
+  previewHead: (head) => `
+    ${head}
+    <link rel="alternate" type="application/json" href="/docs/components.json" title="LEMA-DS Component Catalog" />
+  `,
   viteFinal: async (config) => {
     const version = (
       process.env.APP_VERSION ||

@@ -2,9 +2,35 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { CreditCard } from "./credit-card"
 
 const meta = {
-  title: "Kibo/CreditCard",
+  title: "Commerce/CreditCard",
   component: CreditCard,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A CreditCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `number` | `string` | — | - |",
+          "| `holder` | `string` | — | - |",
+          "| `expiry` | `string` | — | - |",
+          "| `cvc` | `string` | — | - |",
+          '| `brand` | `"visa" \| "mastercard" \| "amex"` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "dark" \| "light"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     variant: { control: "select", options: ["default", "dark", "light"] },
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },

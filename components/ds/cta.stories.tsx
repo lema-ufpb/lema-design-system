@@ -2,9 +2,35 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Cta } from "./cta"
 
 const meta = {
-  title: "Blocks/Cta",
+  title: "CTA/Cta",
   component: Cta,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Cta component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `badge` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `primaryAction` | `CtaAction` | — | - |",
+          "| `secondaryAction` | `CtaAction` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `tone` | `"default" \| "primary" \| "muted" \| "glow"` | `"default"` | Variant |',
+          '| `align` | `"left" \| "center"` | `"center"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     tone: {
       control: "select",

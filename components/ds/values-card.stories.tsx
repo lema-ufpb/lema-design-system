@@ -4,10 +4,30 @@ import { Shield, Sparkles, Heart, Lightbulb } from "lucide-react"
 import { ValuesCard } from "./values-card"
 
 const meta: Meta<typeof ValuesCard> = {
-  title: "Blocks/ValuesCard",
+  title: "About/ValuesCard",
   component: ValuesCard,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A ValuesCard component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `icon` | `React.ComponentType<{ className?: string }>` | — | - |",
+          "| `index` | `string \| number` | — | - |",
+          '| `variant` | `"default" \| "outline" \| "accent" \| "muted"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

@@ -2,9 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BlogMeta } from "./blog-meta"
 
 const meta = {
-  title: "Blocks/BlogMeta",
+  title: "Blog/BlogMeta",
   component: BlogMeta,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BlogMeta component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `publishedAt` | `string \| Date` | — | - |",
+          "| `readingTime` | `number` | — | - |",
+          "| `category` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md"] },
     locale: {

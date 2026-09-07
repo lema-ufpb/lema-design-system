@@ -22,6 +22,28 @@ const meta: Meta<typeof TeamSwitcher> = {
     ),
   ],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TeamSwitcher component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `teams` | `TeamSwitcherTeam[]` | — | - |",
+          "| `defaultTeam` | `string` | — | - |",
+          "| `onTeamChange` | `(team: TeamSwitcherTeam) => void` | — | - |",
+          "| `onAddTeam` | `() => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
 }

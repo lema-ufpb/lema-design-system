@@ -32,12 +32,30 @@ const offices = [
 const meta = {
   title: "Data Display/OfficeLocations",
   component: OfficeLocations,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A list of office locations with a live local clock per timezone and an open/closed dot computed from business hours.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `city` | `string` | — | - |",
+          "| `country` | `string` | — | - |",
+          "| `address` | `string` | — | - |",
+          '| `timeZone` | `string` | — | /** IANA time zone, e.g. "America/Sao_Paulo". */ |',
+          "| `businessHours` | `BusinessHours` | — | /** Local business hours used to compute the open/closed dot. */ |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

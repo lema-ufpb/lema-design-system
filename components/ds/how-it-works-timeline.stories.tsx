@@ -8,9 +8,28 @@ const steps = [
 ]
 
 const meta = {
-  title: "Blocks/HowItWorksTimeline",
+  title: "Marketing/HowItWorksTimeline",
   component: HowItWorksTimeline,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HowItWorksTimeline component for the LEMA Design System.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `className` | `string` | — | Additional CSS classes |",
+          "| `children` | `ReactNode` | — | Content |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof HowItWorksTimeline>
 
 export default meta

@@ -9,12 +9,24 @@ const links = [
 const meta = {
   title: "Actions/AppStoreBadges",
   component: AppStoreBadges,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "Download badges for the App Store and Google Play. Icons and copy are overridable per-link for brand-compliant assets.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `links` | `AppStoreBadgeLink[]` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

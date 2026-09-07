@@ -4,12 +4,31 @@ import { PullQuote } from "./pull-quote"
 const meta = {
   title: "Data Display/PullQuote",
   component: PullQuote,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A large, editorial-style quote for founder letters and testimonials, with an optional cited author.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `quote` | `React.ReactNode` | — | /** Quote body — accepts rich text (e.g. <strong> for emphasis). */ |",
+          "| `name` | `string` | — | - |",
+          "| `role` | `string` | — | - |",
+          "| `avatarSrc` | `string` | — | - |",
+          "| `avatarFallback` | `string` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | — | - |',
+          "| `loading` | `boolean` | — | - |",
+          '| `align` | `"start" \| "center"` | `"start"` | Variant |',
+          '| `tone` | `"plain" \| "violet" \| "sky"` | `"plain"` | Variant |',
+        ].join("\n"),
       },
     },
   },

@@ -6,7 +6,27 @@ const meta: Meta<typeof Mockup> = {
   title: "Media/Mockup",
   component: Mockup,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Mockup component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `loading` | `boolean` | — | - |",
+          '| `frame` | `"small" \| "large" \| "mobile"` | `"large"` | Variant |',
+          '| `inset` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
   argTypes: {
     frame: { control: "inline-radio", options: ["small", "large", "mobile"] },
     inset: { control: "boolean" },

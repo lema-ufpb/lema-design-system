@@ -10,29 +10,44 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "Seletor de data combinando um botão e um calendário (Popover).",
+        component: [
+          "Date picker combining a trigger button and a calendar popover.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `date` | `Date` | — | The currently selected date. |",
+          "| `onSelect` | `(date?: Date) => void` | — | Callback when a date is selected. |",
+          "| `placeholder` | `string` | — | Placeholder text when no date is selected. |",
+          "| `disabled` | `boolean` | — | Disables the date picker. |",
+          "| `locale` | `UILocale` | — | Locale for date formatting and the calendar component. |",
+          '| `size` | `"sm" \| "md" \| "lg"` | — | Component size, applied to the trigger button. |',
+        ].join("\n"),
       },
     },
   },
   argTypes: {
     date: {
       control: "date",
-      description: "Data selecionada.",
+      description: "Selected date.",
     },
     disabled: {
       control: "boolean",
-      description: "Desabilita o seletor.",
+      description: "Disables the picker.",
     },
     locale: {
       control: "radio",
       options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
-      description: "Idioma de formatação da data.",
+      description: "Locale for date formatting.",
     },
     size: {
       control: "radio",
       options: ["sm", "md", "lg"],
-      description: "Tamanho do botão disparador.",
+      description: "Trigger button size.",
     },
   },
 } satisfies Meta<typeof DatePicker>
@@ -78,7 +93,7 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "O componente suporta 3 tamanhos: sm, md e lg.",
+        story: "The component supports 3 sizes: sm, md and lg.",
       },
     },
   },

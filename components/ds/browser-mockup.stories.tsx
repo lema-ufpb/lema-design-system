@@ -6,6 +6,26 @@ const meta = {
   component: BrowserMockup,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BrowserMockup component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `url` | `string` | — | - |",
+          '| `controls` | `"mac" \| "windows" \| "none"` | — | - |',
+          "| `showAddressBar` | `boolean` | — | - |",
+          "| `glow` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "minimal" \| "glass" \| "terminal"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "padded",
   },
   argTypes: {

@@ -5,6 +5,30 @@ const meta = {
   title: "Form/NumberField",
   component: NumberField,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A NumberField component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `number` | — | - |",
+          "| `defaultValue` | `number` | — | - |",
+          "| `min` | `number` | — | - |",
+          "| `max` | `number` | — | - |",
+          "| `step` | `number` | — | - |",
+          "| `onChange` | `(value: number) => void` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof NumberField>
 
 export default meta

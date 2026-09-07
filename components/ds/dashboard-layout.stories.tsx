@@ -17,9 +17,29 @@ import { Home, Settings, Users, BarChart3, LayoutDashboard } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 
 const meta = {
-  title: "Blocks/DashboardLayout",
+  title: "Layout/DashboardLayout",
   component: DashboardLayout,
+  tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A DashboardLayout component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `sidebar` | `React.ReactNode` | — | /** The sidebar component to render */ |",
+          "| `header` | `React.ReactNode` | — | /** The global header/topbar */ |",
+          "| `children` | `React.ReactNode` | — | /** The main content */ |",
+          "| `defaultOpen` | `boolean` | — | /** Default state of the sidebar */ |",
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
 } satisfies Meta<typeof DashboardLayout>

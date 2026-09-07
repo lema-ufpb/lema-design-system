@@ -88,7 +88,12 @@ export function Billing({
         <Button size="sm" type="button" className="rounded-full">
           {t.manage}
         </Button>
-        <Button size="sm" type="button" variant="outline" className="rounded-full">
+        <Button
+          size="sm"
+          type="button"
+          variant="outline"
+          className="rounded-full"
+        >
           {t.invoices}
         </Button>
       </div>

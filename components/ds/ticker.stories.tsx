@@ -23,9 +23,29 @@ const items = [
 ]
 
 const meta = {
-  title: "Kibo/Ticker",
+  title: "Data Display/Ticker",
   component: Ticker,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Ticker component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `TickerItem[]` | — | - |",
+          '| `speed` | `"slow" \| "normal" \| "fast"` | — | - |',
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Ticker>
 
 export default meta

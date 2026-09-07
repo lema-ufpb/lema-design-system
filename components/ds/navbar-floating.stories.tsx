@@ -6,7 +6,30 @@ const meta: Meta<typeof NavbarFloating> = {
   title: "Navigation/NavbarFloating",
   component: NavbarFloating,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A NavbarFloating component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `React.ReactNode` | — | - |",
+          "| `links` | `NavbarFloatingLink[]` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "muted"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

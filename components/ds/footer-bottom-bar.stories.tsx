@@ -3,9 +3,31 @@ import { FooterBottomBar } from "./footer-bottom-bar"
 import { SystemStatusBadge } from "./system-status-badge"
 
 const meta: Meta<typeof FooterBottomBar> = {
-  title: "Blocks/FooterBottomBar",
+  title: "Footer/FooterBottomBar",
   component: FooterBottomBar,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterBottomBar component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brandName` | `string` | — | - |",
+          "| `year` | `number \| string` | — | - |",
+          "| `legalLinks` | `LegalLinkItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `spacing` | `"compact" \| "normal" \| "relaxed"` | `"normal"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     brandName: "LEMA - UFPB",
     year: 2026,

@@ -3,10 +3,35 @@ import { fn } from "storybook/test"
 import { SignUpForm } from "./signup-form"
 
 const meta = {
-  title: "Blocks/SignUpForm",
+  title: "Auth/SignUpForm",
   component: SignUpForm,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SignupForm component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onSubmit` | `(data: SignUpFormData) => Promise<boolean \| void> \| void` | — | - |",
+          "| `onSocialSignUp` | `(provider: SocialProvider) => Promise<void> \| void` | — | - |",
+          "| `onLogin` | `() => void` | — | - |",
+          "| `socialProviders` | `SocialProvider[]` | — | - |",
+          "| `termsUrl` | `string` | — | - |",
+          "| `privacyUrl` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `errorMessage` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "flat"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

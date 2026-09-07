@@ -14,14 +14,27 @@ const items = thumbnails.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Blocks/GalleryVideo",
+  title: "Gallery/GalleryVideo",
   component: GalleryVideo,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A grid of video tiles, each opening its clip in a dialog on click — composed from VideoDialog.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `GalleryVideoItem[]` | — | - |",
+          "| `columns` | `2 \| 3 \| 4` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

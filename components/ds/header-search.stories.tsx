@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeaderSearch } from "@/components/ds/header-search"
 
 const meta = {
-  title: "Blocks/HeaderSearch",
+  title: "Header/HeaderSearch",
   component: HeaderSearch,
   tags: ["autodocs"],
   parameters: {
