@@ -28,8 +28,17 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      - name: "🛡️ Validar versão proposta antes do auto-merge"
-        id: guard
+      # O auto-merge foi removido (ver PR que introduziu este comentário):
+      # o release-please vem falhando em localizar a última release via
+      # GraphQL ("Expected 1 releases, only found 0") mesmo com o
+      # CICD_TOKEN tendo escopo `repo` completo, e por isso recalcula a
+      # versão a partir de todo o histórico de commits, propondo um
+      # downgrade (ex.: 1.7.1 quando main já está em 1.10.1). Mergear
+      # essa PR automaticamente corrompeu `main` mais de uma vez. Até a
+      # causa raiz ser encontrada, a PR de release fica aberta para
+      # revisão humana — este step só sinaliza (sem falhar o job) quando
+      # a versão proposta parece um downgrade.
+      - name: "🛡️ Sinalizar versão proposta suspeita"
         if: steps.release.outputs.pr
         env:
           GH_TOKEN: ${{ secrets.CICD_TOKEN }}
@@ -53,27 +62,14 @@ jobs:
           echo "PR #$PR_NUMBER propõe versão '$NEW_VERSION'; manifest atual em main é '$CURRENT_VERSION'."
 
           if [ -z "$NEW_VERSION" ] || [ -z "$CURRENT_VERSION" ]; then
-            echo "::error::Não foi possível determinar as versões para comparação (nova='$NEW_VERSION' atual='$CURRENT_VERSION'). Abortando auto-merge por segurança — revise a PR #$PR_NUMBER manualmente."
-            exit 1
+            echo "::warning::Não foi possível determinar as versões para comparação (nova='$NEW_VERSION' atual='$CURRENT_VERSION') na PR #$PR_NUMBER. Revise manualmente antes de mergear."
+            exit 0
           fi
 
           HIGHEST=$(printf '%s\n%s\n' "$NEW_VERSION" "$CURRENT_VERSION" | sort -V | tail -n1)
           if [ "$HIGHEST" != "$NEW_VERSION" ] || [ "$NEW_VERSION" = "$CURRENT_VERSION" ]; then
-            echo "::error::PR #$PR_NUMBER propõe versão '$NEW_VERSION', que não é maior que a versão atual do manifest ('$CURRENT_VERSION'). Isso normalmente indica que o release-please não conseguiu localizar a última release (ver CICD_TOKEN) e recalculou a versão a partir do histórico completo. Abortando auto-merge — feche/investigue a PR #$PR_NUMBER manualmente antes de mergear."
-            exit 1
+            echo "::warning::PR #$PR_NUMBER propõe versão '$NEW_VERSION', que não é maior que a versão atual do manifest ('$CURRENT_VERSION'). NÃO mergear sem investigar — provável falha do release-please em localizar a última release."
           fi
-
-      - name: "🤖 Auto-merge release PR"
-        if: steps.release.outputs.pr
-        env:
-          GH_TOKEN: ${{ secrets.CICD_TOKEN }}
-        run: |
-          curl -X PUT \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ fromJSON(steps.release.outputs.pr).number }}/merge" \
-            -d '{"merge_method":"merge"}'
 
       - name: "🧹 Limpar workspace do job (_work)"
         if: always()
