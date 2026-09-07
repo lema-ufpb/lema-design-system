@@ -14,6 +14,29 @@ const meta: Meta<typeof SocialLinks> = {
   title: "Actions/SocialLinks",
   component: SocialLinks,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SocialLinks component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `links` | `SocialLinkItem[]` | — | - |",
+          '| `shape` | `"circle" \| "rounded" \| "square"` | — | - |',
+          '| `gap` | `"sm" \| "md" \| "lg"` | — | - |',
+          "| `navLabel` | `string` | — | - |",
+          '| `variant` | `"ghost" \| "outline" \| "muted"` | `"ghost"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     links: sampleLinks,
     variant: "ghost",

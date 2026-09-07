@@ -4,12 +4,25 @@ import { TimePicker } from "./time-picker"
 const meta = {
   title: "Form/TimePicker",
   component: TimePicker,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A native time picker input component that provides a consistent layout with the design system.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `loading` | `boolean` | — | - |",
+          "| `invalid` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

@@ -6,7 +6,28 @@ const meta: Meta<typeof SectionCards> = {
   title: "Data Display/SectionCards",
   component: SectionCards,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SectionCards component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `SectionCardItem[]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `columns` | `"2" \| "4"` | — | Variant |',
+          '| `variant` | `"default" \| "gradient"` | `"gradient"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

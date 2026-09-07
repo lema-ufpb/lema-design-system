@@ -27,9 +27,31 @@ const baseItems = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderNav",
+  title: "Header/HeaderNav",
   component: HeaderNav,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderNav component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `HeaderNavItem[]` | — | - |",
+          "| `onNavigate` | `(item: HeaderNavItem) => void` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `ariaLabel` | `string` | — | /** Accessible label for nav */ |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     loading: { control: "boolean" },

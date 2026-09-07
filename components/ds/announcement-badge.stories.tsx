@@ -7,6 +7,27 @@ const meta = {
   component: AnnouncementBadge,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AnnouncementBadge component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `ping` | `boolean` | — | - |",
+          "| `showArrow` | `boolean` | — | - |",
+          "| `icon` | `React.ReactNode` | — | - |",
+          "| `tag` | `string` | — | - |",
+          '| `variant` | `"default" \| "outline" \| "glow" \| "gradient"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   argTypes: {

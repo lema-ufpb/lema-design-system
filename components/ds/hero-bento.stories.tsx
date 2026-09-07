@@ -5,14 +5,29 @@ import { BentoGrid, BentoGridItem } from "./bento-grid"
 import { HeroBento } from "./hero-bento"
 
 const meta = {
-  title: "Blocks/HeroBento",
+  title: "Hero/HeroBento",
   component: HeroBento,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Centered hero followed by a bento grid — composed from HeroSection and BentoGrid.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `children` | `React.ReactNode` | — | /** A `BentoGrid` (with its `BentoGridItem`s) rendered below the copy. */ |",
+        ].join("\n"),
       },
     },
   },

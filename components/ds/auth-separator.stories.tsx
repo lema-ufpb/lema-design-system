@@ -6,6 +6,22 @@ const meta = {
   component: AuthSeparator,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AuthSeparator component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `variant` | `"default" \| "badge" \| "gradient"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   argTypes: {

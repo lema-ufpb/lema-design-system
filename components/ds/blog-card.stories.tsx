@@ -19,9 +19,31 @@ const post = {
 }
 
 const meta = {
-  title: "Blocks/BlogCard",
+  title: "Blog/BlogCard",
   component: BlogCard,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BlogCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `post` | `BlogPost` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+          '| `featured` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     locale: {

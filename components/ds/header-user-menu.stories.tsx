@@ -9,9 +9,31 @@ const user = {
 }
 
 const meta = {
-  title: "Blocks/HeaderUserMenu",
+  title: "Header/HeaderUserMenu",
   component: HeaderUserMenu,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderUserMenu component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `user` | `HeaderUserData \| null` | — | - |",
+          "| `groups` | `HeaderUserMenuItem[][]` | — | - |",
+          "| `notifications` | `number` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     loading: { control: "boolean" },

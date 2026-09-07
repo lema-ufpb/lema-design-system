@@ -2,10 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { WaitlistForm } from "./waitlist-form"
 
 const meta = {
-  title: "Blocks/WaitlistForm",
+  title: "Auth/WaitlistForm",
   component: WaitlistForm,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A WaitlistForm component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onSubmit` | `(email: string) => Promise<boolean \| void> \| void` | — | - |",
+          "| `socialProof` | `React.ReactNode` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `disabled` | `boolean` | — | - |",
+          "| `autoFocus` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "pill" \| "floating" \| "minimal"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   argTypes: {

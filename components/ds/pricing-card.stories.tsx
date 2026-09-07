@@ -2,9 +2,39 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { PricingCard } from "./pricing-card"
 
 const meta = {
-  title: "Blocks/PricingCard",
+  title: "Pricing/PricingCard",
   component: PricingCard,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A PricingCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `name` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `price` | `number` | — | - |",
+          "| `originalPrice` | `number` | — | - |",
+          '| `period` | `"month" \| "year" \| "lifetime"` | — | - |',
+          "| `currency` | `string` | — | - |",
+          "| `badge` | `string` | — | - |",
+          "| `features` | `PricingFeature[]` | — | - |",
+          "| `action` | `{ label: string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `featured` | `"true" \| "false"` | — | Variant |',
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md"] },
     locale: {

@@ -2,9 +2,29 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { CtaSplit } from "./cta-split"
 
 const meta = {
-  title: "Blocks/CtaSplit",
+  title: "CTA/CtaSplit",
   component: CtaSplit,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A CtaSplit component for the LEMA Design System.",
+          "Supports loading state.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `imageSrc` | `string` | — | - |",
+          "| `imageAlt` | `string` | — | - |",
+          "| `reverse` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof CtaSplit>
 
 export default meta

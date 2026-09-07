@@ -6,7 +6,27 @@ const meta: Meta<typeof AuroraBackground> = {
   title: "Effects/AuroraBackground",
   component: AuroraBackground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AuroraBackground component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `showRadial` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "muted" \| "dark"` | `"default"` | Variant |',
+          '| `intensity` | `"subtle" \| "medium" \| "strong"` | `"medium"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   argTypes: {
     variant: { control: "inline-radio", options: ["default", "muted", "dark"] },
     intensity: {

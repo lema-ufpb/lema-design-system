@@ -11,8 +11,25 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
-          "Área de upload de arquivos com suporte a arrastar e soltar (drag and drop) e barra de progresso.",
+        component: [
+          "File upload area with drag-and-drop support and a progress indicator.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onUpload` | `(file: File) => void` | — | - |",
+          "| `accept` | `string` | — | - |",
+          "| `maxSizeMB` | `number` | — | - |",
+          "| `progress` | `number` | — | - |",
+          '| `disabled` | `"true" \| "false"` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          '| `isDragActive` | `"true" \| "false"` | — | Variant |',
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },
@@ -61,7 +78,7 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "O componente suporta 2 tamanhos: sm e md.",
+        story: "The component supports 2 sizes: sm and md.",
       },
     },
   },

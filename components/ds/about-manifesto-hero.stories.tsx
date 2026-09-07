@@ -3,10 +3,33 @@ import { expect, within } from "storybook/test"
 import { AboutManifestoHero } from "./about-manifesto-hero"
 
 const meta: Meta<typeof AboutManifestoHero> = {
-  title: "Blocks/AboutManifestoHero",
+  title: "About/AboutManifestoHero",
   component: AboutManifestoHero,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AboutManifestoHero component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `statement` | `React.ReactNode` | — | - |",
+          "| `eyebrow` | `string` | — | - |",
+          "| `author` | `string` | — | - |",
+          "| `stats` | `AboutManifestoHeroStat[]` | — | - |",
+          "| `primaryAction` | `AboutManifestoHeroAction` | — | - |",
+          "| `secondaryAction` | `AboutManifestoHeroAction` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "subtle"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   args: {

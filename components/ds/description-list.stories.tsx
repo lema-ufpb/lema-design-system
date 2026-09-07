@@ -10,11 +10,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 const meta = {
   title: "Data Display/DescriptionList",
   component: DescriptionList,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component: "A data display component for key-value pairs.",
+        component: [
+          "A data display component for key-value pairs.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `layout` | `"vertical" \| "horizontal" \| "grid"` | `"vertical"` | Variant |',
+        ].join("\n"),
       },
     },
   },

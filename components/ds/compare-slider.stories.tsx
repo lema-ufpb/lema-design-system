@@ -4,12 +4,28 @@ import { CompareSlider } from "./compare-slider"
 const meta = {
   title: "Data Display/CompareSlider",
   component: CompareSlider,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A before/after image comparison slider — drag the handle (or use arrow keys on the native range input) to reveal more of either image.",
+          "Supports loading state.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `beforeSrc` | `string` | — | - |",
+          "| `beforeAlt` | `string` | — | - |",
+          "| `afterSrc` | `string` | — | - |",
+          "| `afterAlt` | `string` | — | - |",
+          "| `defaultValue` | `number` | — | /** Initial handle position, 0-100. */ |",
+          "| `label` | `string` | — | /** Accessible label for the drag handle. */ |",
+        ].join("\n"),
       },
     },
   },

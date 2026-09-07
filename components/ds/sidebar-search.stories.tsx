@@ -16,7 +16,31 @@ const meta: Meta<typeof SidebarSearch> = {
       </SidebarProvider>
     ),
   ],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SidebarSearch component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `placeholder` | `string` | — | - |",
+          "| `defaultValue` | `string` | — | - |",
+          "| `onSearch` | `(value: string) => void` | — | - |",
+          "| `onSubmit` | `(e: React.FormEvent<HTMLFormElement>) => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
 }
 
 export default meta

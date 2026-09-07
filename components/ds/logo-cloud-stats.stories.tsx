@@ -13,14 +13,28 @@ function Wordmark({ children }: { children: string }) {
 const logos = ["Forbes", "TechCrunch", "Wired", "The Verge"]
 
 const meta = {
-  title: "Blocks/LogoCloudStats",
+  title: "LogoCloud/LogoCloudStats",
   component: LogoCloudStats,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A big headline stat sitting above a logo wall — composed from PressWall.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `headline` | `React.ReactNode` | — | /** Big headline, e.g. "Trusted by 500+ companies". */ |',
+          "| `description` | `string` | — | - |",
+          "| `kicker` | `string` | — | - |",
+          "| `children` | `React.ReactNode` | — | /** `PressWallLogo` items rendered below. */ |",
+        ].join("\n"),
       },
     },
   },

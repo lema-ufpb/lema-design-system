@@ -30,9 +30,40 @@ const sampleColumns: FooterGroupData[] = [
 ]
 
 const meta: Meta<typeof FooterBrandBackdrop> = {
-  title: "Blocks/FooterBrandBackdrop",
+  title: "Footer/FooterBrandBackdrop",
   component: FooterBrandBackdrop,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterBrandBackdrop component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `wordmarkText` | `string` | — | - |",
+          '| `wordmarkVariant` | `"outline" \| "muted" \| "gradient"` | — | - |',
+          "| `brand` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `columns` | `FooterGroupData[]` | — | - |",
+          "| `socialLinks` | `SocialLinkItem[]` | — | - |",
+          "| `showStatusBadge` | `boolean` | — | - |",
+          "| `status` | `SystemHealthStatus` | — | - |",
+          "| `statusUptime` | `string` | — | - |",
+          "| `statusHref` | `string` | — | - |",
+          "| `brandName` | `string` | — | - |",
+          "| `legalLinks` | `LegalLinkItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `spacing` | `"normal" \| "relaxed"` | `"normal"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     wordmarkText: "LEMA",
     wordmarkVariant: "outline",

@@ -7,6 +7,23 @@ const meta = {
   component: BackgroundGlow,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BackgroundGlow component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `variant` | `"aurora" \| "spotlight" \| "beam"` | `"aurora"` | Variant |',
+          '| `tone` | `"primary" \| "violet" \| "sky" \| "neutral"` | `"primary"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   argTypes: {

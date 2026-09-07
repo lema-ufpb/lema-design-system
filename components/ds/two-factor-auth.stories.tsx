@@ -7,6 +7,32 @@ const meta = {
   component: TwoFactorAuth,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TwoFactorAuth component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onVerify` | `(` | — | - |",
+          "| `code` | `string,` | — | - |",
+          "| `trustDevice` | `boolean` | — | - |",
+          "| `onResend` | `() => Promise<void> \| void` | — | - |",
+          "| `resendCooldown` | `number` | — | - |",
+          "| `destination` | `string` | — | - |",
+          '| `method` | `"authenticator" \| "email" \| "sms"` | — | - |',
+          "| `allowAlternative` | `boolean` | — | - |",
+          "| `onAlternativeMethod` | `() => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "clean"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

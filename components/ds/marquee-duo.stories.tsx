@@ -2,10 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { MarqueeDuo } from "./marquee-duo"
 
 const meta: Meta<typeof MarqueeDuo> = {
-  title: "Marketing/MarqueeDuo",
+  title: "Data Display/MarqueeDuo",
   component: MarqueeDuo,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A MarqueeDuo component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `MarqueeDuoItem[]` | — | - |",
+          "| `speed` | `number` | — | - |",
+          "| `pauseOnHover` | `boolean` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "muted"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

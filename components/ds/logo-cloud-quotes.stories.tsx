@@ -28,14 +28,25 @@ const items = [
 ]
 
 const meta = {
-  title: "Blocks/LogoCloudQuotes",
+  title: "LogoCloud/LogoCloudQuotes",
   component: LogoCloudQuotes,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "Customer logo paired with a short testimonial, in a card grid — composed from PullQuote.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `LogoCloudQuoteItem[]` | — | - |",
+        ].join("\n"),
       },
     },
   },

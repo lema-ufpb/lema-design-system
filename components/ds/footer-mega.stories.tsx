@@ -47,9 +47,45 @@ const sampleBrand = (
 )
 
 const meta: Meta<typeof FooterMega> = {
-  title: "Blocks/FooterMega",
+  title: "Footer/FooterMega",
   component: FooterMega,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterMega component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `columns` | `FooterGroupData[]` | — | - |",
+          "| `socialLinks` | `SocialLinkItem[]` | — | - |",
+          "| `showNewsletter` | `boolean` | — | - |",
+          "| `newsletterTitle` | `string` | — | - |",
+          "| `newsletterDescription` | `string` | — | - |",
+          "| `onSubscribe` | `(email: string) => Promise<boolean \| void> \| void` | — | - |",
+          "| `showAppBadges` | `boolean` | — | - |",
+          "| `appStoreUrl` | `string` | — | - |",
+          "| `googlePlayUrl` | `string` | — | - |",
+          "| `showStatusBadge` | `boolean` | — | - |",
+          "| `status` | `SystemHealthStatus` | — | - |",
+          "| `statusUptime` | `string` | — | - |",
+          "| `statusHref` | `string` | — | - |",
+          "| `brandName` | `string` | — | - |",
+          "| `legalLinks` | `LegalLinkItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `tone` | `"plain" \| "card"` | `"plain"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     brand: sampleBrand,
     columns: sampleColumns,

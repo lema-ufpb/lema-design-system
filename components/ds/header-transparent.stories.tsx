@@ -10,10 +10,35 @@ const nav = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderTransparent",
+  title: "Header/HeaderTransparent",
   component: HeaderTransparent,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderTransparent component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `HeaderBrandProps` | — | - |",
+          "| `navItems` | `HeaderNavItem[]` | — | - |",
+          "| `actions` | `HeaderActionItem[]` | — | - |",
+          "| `threshold` | `number` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | — | - |',
+          "| `sticky` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 } satisfies Meta<typeof HeaderTransparent>
 
 export default meta

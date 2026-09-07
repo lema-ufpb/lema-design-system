@@ -8,6 +8,26 @@ const meta = {
   component: Marquee,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Marquee component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `pauseOnHover` | `boolean` | — | - |",
+          "| `fadeEdges` | `boolean` | — | - |",
+          "| `repeat` | `number` | — | - |",
+          '| `direction` | `"left" \| "right" \| "up" \| "down"` | `"left"` | Variant |',
+          '| `speed` | `"slow" \| "normal" \| "fast"` | `"normal"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "padded",
   },
   argTypes: {

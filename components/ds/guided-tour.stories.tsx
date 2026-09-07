@@ -6,12 +6,29 @@ import { fn } from "storybook/test"
 const meta = {
   title: "Feedback/GuidedTour",
   component: GuidedTour,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A presentation component for a guided tour or onboarding card.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `steps` | `TourStep[]` | — | - |",
+          "| `currentStep` | `number` | — | - |",
+          "| `onNext` | `() => void` | — | - |",
+          "| `onPrev` | `() => void` | — | - |",
+          "| `onSkip` | `() => void` | — | - |",
+          "| `onFinish` | `() => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

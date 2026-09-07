@@ -24,14 +24,31 @@ const items: ImageGalleryItem[] = photoIds.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Blocks/ImageGallery",
+  title: "Gallery/ImageGallery",
   component: ImageGallery,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A flexible image gallery — grid, masonry (CSS columns) or a horizontal scroll-snap row — with an optional bottom-scrim caption/overlay per item.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `ImageGalleryItem[]` | — | - |",
+          '| `aspect` | `"square" \| "video" \| "portrait" \| "auto"` | — | - |',
+          "| `loading` | `boolean` | — | - |",
+          "| `skeletonCount` | `number` | — | /** Number of skeleton tiles shown while loading. */ |",
+          '| `layout` | `"grid" \| "masonry" \| "row"` | `"grid"` | Variant |',
+          '| `columns` | `"2" \| "3" \| "4"` | — | Variant |',
+          '| `interactive` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
       },
     },
   },

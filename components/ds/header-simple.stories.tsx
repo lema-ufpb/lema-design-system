@@ -22,10 +22,37 @@ const actions = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderSimple",
+  title: "Header/HeaderSimple",
   component: HeaderSimple,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderSimple component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `HeaderBrandProps` | — | - |",
+          "| `navItems` | `HeaderNavItem[]` | — | - |",
+          "| `actions` | `HeaderActionItem[]` | — | - |",
+          "| `showSearch` | `boolean` | — | - |",
+          "| `onSearch` | `(value: string) => void` | — | - |",
+          "| `searchPlaceholder` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `sticky` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     variant: {

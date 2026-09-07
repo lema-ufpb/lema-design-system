@@ -66,12 +66,28 @@ const sampleData: TreeDataItem[] = [
 const meta = {
   title: "Data Display/TreeView",
   component: TreeView,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A tree view component for displaying hierarchical data like file systems.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `data` | `TreeDataItem[]` | — | - |",
+          "| `onSelect` | `(item: TreeDataItem) => void` | — | - |",
+          "| `selectedId` | `string` | — | - |",
+          "| `defaultExpandedIds` | `string[]` | — | - |",
+          "| `expandAll` | `boolean` | — | - |",
+          "| `className` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

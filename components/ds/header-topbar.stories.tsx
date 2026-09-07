@@ -2,10 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeaderTopbar } from "./header-topbar"
 
 const meta = {
-  title: "Blocks/HeaderTopbar",
+  title: "Header/HeaderTopbar",
   component: HeaderTopbar,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderTopbar component for the LEMA Design System.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `email` | `string` | — | - |",
+          "| `phone` | `string` | — | - |",
+          "| `announcement` | `React.ReactNode` | — | - |",
+          "| `socials` | `SocialLinkItem[]` | — | - |",
+          "| `localeSelector` | `React.ReactNode` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 } satisfies Meta<typeof HeaderTopbar>
 
 export default meta

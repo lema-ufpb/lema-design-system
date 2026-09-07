@@ -4,12 +4,24 @@ import { CursorSpotlight } from "./cursor-spotlight"
 const meta = {
   title: "Data Display/CursorSpotlight",
   component: CursorSpotlight,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A radial glow that follows the pointer — the interactive counterpart to BackgroundGlow's static spotlight/beam variants. Move your cursor over the box.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `size` | `number` | — | /** Diameter of the glow, in pixels. */ |",
+          '| `tone` | `"primary" \| "violet" \| "sky"` | `"primary"` | Variant |',
+        ].join("\n"),
       },
     },
   },

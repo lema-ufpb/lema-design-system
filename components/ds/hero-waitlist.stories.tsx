@@ -2,14 +2,30 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { HeroWaitlist } from "./hero-waitlist"
 
 const meta = {
-  title: "Blocks/HeroWaitlist",
+  title: "Hero/HeroWaitlist",
   component: HeroWaitlist,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Centered hero with an email capture form — composed from HeroSection and WaitlistForm.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `socialProof` | `React.ReactNode` | — | - |",
+          '| `onSubmit` | `WaitlistFormProps["onSubmit"]` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

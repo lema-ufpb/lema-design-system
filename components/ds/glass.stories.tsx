@@ -5,7 +5,26 @@ const meta: Meta<typeof Glass> = {
   title: "Utilities/Glass",
   component: Glass,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Glass component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `className` | `string` | — | Additional CSS classes |",
+          "| `children` | `ReactNode` | — | Content |",
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
   argTypes: {
     variant: { control: "inline-radio", options: ["1", "2", "3", "4", "5"] },
   },

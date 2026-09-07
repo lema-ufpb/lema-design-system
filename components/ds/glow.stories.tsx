@@ -5,7 +5,28 @@ const meta: Meta<typeof Glow> = {
   title: "Utilities/Glow",
   component: Glow,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Glow component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `color` | `string` | — | - |",
+          "| `size` | `number` | — | - |",
+          '| `position` | `"top" \| "above" \| "center" \| "below"` | `"top"` | Variant |',
+          '| `intensity` | `"subtle" \| "medium" \| "strong"` | `"medium"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   argTypes: {
     position: {
       control: "inline-radio",

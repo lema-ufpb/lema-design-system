@@ -15,14 +15,30 @@ const items = photoIds.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Blocks/GallerySplit",
+  title: "Gallery/GallerySplit",
   component: GallerySplit,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Split section — copy on one side, an image collage on the other — composed from HeroSection and ImageGallery.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `items` | `ImageGalleryItem[]` | — | - |",
+          "| `columns` | `ImageGalleryColumns` | — | - |",
+        ].join("\n"),
       },
     },
   },

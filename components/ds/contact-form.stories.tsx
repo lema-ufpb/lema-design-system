@@ -9,14 +9,30 @@ const topics = [
 ]
 
 const meta = {
-  title: "Blocks/ContactForm",
+  title: "Contact/ContactForm",
   component: ContactForm,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A name/email/message contact form built with FieldGroup + Field, with idle/submitting/success/error states matching WaitlistForm's pattern.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `topics` | `ContactFormTopic[]` | — | /** Optional topic/department chips rendered above the message field. */ |",
+          "| `showSubject` | `boolean` | — | /** Shows the subject field. Defaults to true when `topics` is omitted. */ |",
+          "| `onSubmit` | `(values: ContactFormValues) => Promise<boolean \| void> \| void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `disabled` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

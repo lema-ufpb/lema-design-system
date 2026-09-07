@@ -2,9 +2,29 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { ImageZoom } from "./image-zoom"
 
 const meta = {
-  title: "Kibo/ImageZoom",
+  title: "Media/ImageZoom",
   component: ImageZoom,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A ImageZoom component for the LEMA Design System.",
+          "Supports loading state.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `src` | `string` | — | - |",
+          "| `alt` | `string` | — | - |",
+          "| `zoom` | `number` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof ImageZoom>
 
 export default meta

@@ -11,9 +11,35 @@ const tiles = Array.from({ length: 6 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blocks/Integrations",
+  title: "Integrations/Integrations",
   component: Integrations,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Integrations component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `integrations` | `Integration[]` | — | - |",
+          "| `searchable` | `boolean` | — | - |",
+          "| `search` | `string` | — | - |",
+          "| `onSearchChange` | `(value: string) => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `columns` | `3 \| 4` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Integrations>
 
 export default meta

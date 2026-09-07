@@ -22,7 +22,29 @@ const meta: Meta<typeof FloatingDock> = {
   title: "Navigation/FloatingDock",
   component: FloatingDock,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FloatingDock component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `FloatingDockItem[]` | — | - |",
+          "| `desktopClassName` | `string` | — | - |",
+          "| `mobileClassName` | `string` | — | - |",
+          '| `variant` | `"default" \| "muted"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
 }
 
 export default meta

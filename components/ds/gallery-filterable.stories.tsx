@@ -23,14 +23,31 @@ const items = photoIds.map((id, index) => ({
 }))
 
 const meta = {
-  title: "Blocks/GalleryFilterable",
+  title: "Gallery/GalleryFilterable",
   component: GalleryFilterable,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "An image gallery with a category filter row above it — composed from ImageGallery and PillGroup.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `categories` | `GalleryFilterCategory[]` | — | - |",
+          "| `items` | `GalleryFilterableItem[]` | — | - |",
+          "| `allLabel` | `string` | — | - |",
+          "| `layout` | `ImageGalleryLayout` | — | - |",
+          "| `columns` | `ImageGalleryColumns` | — | - |",
+          "| `aspect` | `ImageGalleryAspect` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

@@ -39,10 +39,34 @@ const plans = [
 ]
 
 const meta = {
-  title: "Blocks/PricingGrid",
+  title: "Pricing/PricingGrid",
   component: PricingGrid,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A PricingGrid component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `plans` | `PricingPlan[]` | — | - |",
+          '| `billing` | `"monthly" \| "yearly"` | — | - |',
+          '| `onBillingChange` | `(billing: "monthly" \| "yearly") => void` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "padded",
+  },
 } satisfies Meta<typeof PricingGrid>
 
 export default meta

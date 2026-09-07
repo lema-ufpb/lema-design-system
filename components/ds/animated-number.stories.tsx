@@ -10,8 +10,24 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "Counts up to a numeric value on mount. Renders the animated digits as decorative and exposes the final value once via a sr-only span. Jumps to the final value under prefers-reduced-motion.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `number` | — | - |",
+          "| `duration` | `number` | — | /** Animation duration in ms. */ |",
+          "| `decimals` | `number` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `prefix` | `string` | — | - |",
+          "| `suffix` | `string` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

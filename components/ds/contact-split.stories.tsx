@@ -24,14 +24,29 @@ const team = [
 ]
 
 const meta = {
-  title: "Blocks/ContactSplit",
+  title: "Contact/ContactSplit",
   component: ContactSplit,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Split contact section — form on one side, a flexible aside slot on the other — composed from HeroSection and ContactForm.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `formProps` | `ContactFormProps` | — | - |",
+          "| `aside` | `React.ReactNode` | — | Content shown beside the form — plug in `OfficeLocations`, `TeamRoster`, a `CardIcon` list, or plain copy, depending ... |",
+        ].join("\n"),
       },
     },
   },

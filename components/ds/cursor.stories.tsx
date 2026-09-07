@@ -2,9 +2,31 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Cursor } from "./cursor"
 
 const meta = {
-  title: "Kibo/Cursor",
+  title: "Effects/Cursor",
   component: Cursor,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Cursor component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `name` | `string` | — | - |",
+          "| `color` | `string` | — | - |",
+          "| `x` | `number` | — | - |",
+          "| `y` | `number` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Cursor>
 
 export default meta

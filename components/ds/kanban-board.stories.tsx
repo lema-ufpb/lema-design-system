@@ -89,14 +89,25 @@ const sampleColumns: KanbanColumnData[] = [
 ]
 
 const meta = {
-  title: "Blocks/KanbanBoard",
+  title: "Dashboard/KanbanBoard",
   component: KanbanBoard,
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A drag-and-drop Kanban board (@dnd-kit) — reorder cards within a column or move them across columns by pointer or keyboard.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `columns` | `KanbanColumnData[]` | — | - |",
+          "| `onColumnsChange` | `(columns: KanbanColumnData[]) => void` | — | - |",
+        ].join("\n"),
       },
     },
   },

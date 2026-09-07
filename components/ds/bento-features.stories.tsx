@@ -34,14 +34,26 @@ const stats = [
 ]
 
 const meta = {
-  title: "Blocks/BentoFeatures",
+  title: "Bento/BentoFeatures",
   component: BentoFeatures,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A bento grid mixing icon-led feature tiles with stat tiles — composed from BentoGrid and CardStat.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `features` | `BentoFeaturesItem[]` | — | - |",
+          "| `stats` | `BentoFeaturesStat[]` | — | - |",
+        ].join("\n"),
       },
     },
   },
