@@ -3,14 +3,31 @@ import { Button } from "@/components/ui/button"
 import { HeroCycling } from "./hero-cycling"
 
 const meta = {
-  title: "Blocks/HeroCycling",
+  title: "Hero/HeroCycling",
   component: HeroCycling,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Centered hero whose title cycles through a list of words — composed from HeroSection and TextRotator.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `titlePrefix` | `React.ReactNode` | — | - |",
+          "| `titleSuffix` | `React.ReactNode` | — | - |",
+          "| `words` | `string[]` | — | - |",
+          "| `rotatorInterval` | `number` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+        ].join("\n"),
       },
     },
   },

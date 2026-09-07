@@ -32,10 +32,32 @@ const sampleMilestones = [
 ]
 
 const meta: Meta<typeof AboutMilestones> = {
-  title: "Blocks/AboutMilestones",
+  title: "About/AboutMilestones",
   component: AboutMilestones,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AboutMilestones component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `badge` | `string` | — | - |",
+          "| `milestones` | `MilestoneItem[]` | — | - |",
+          '| `orientation` | `"vertical" \| "horizontal"` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "muted"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   args: {

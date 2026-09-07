@@ -17,9 +17,36 @@ const items = [
 ]
 
 const meta = {
-  title: "Blocks/Faqs",
+  title: "FAQ/Faqs",
   component: Faqs,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Faqs component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `items` | `AccordionItem[]` | — | - |",
+          "| `searchable` | `boolean` | — | - |",
+          "| `search` | `string` | — | - |",
+          "| `onSearchChange` | `(value: string) => void` | — | - |",
+          '| `iconVariant` | `"chevron" \| "plus" \| "arrow" \| "sign"` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     iconVariant: {

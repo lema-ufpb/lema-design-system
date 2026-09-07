@@ -50,10 +50,32 @@ const sampleValues = [
 ]
 
 const meta: Meta<typeof AboutValuesGrid> = {
-  title: "Blocks/AboutValuesGrid",
+  title: "About/AboutValuesGrid",
   component: AboutValuesGrid,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AboutValuesGrid component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `badge` | `string` | — | - |",
+          "| `values` | `ValuesCardProps[]` | — | - |",
+          "| `columns` | `2 \| 3 \| 4` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "muted"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   args: {

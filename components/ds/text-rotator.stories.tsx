@@ -6,6 +6,25 @@ const meta = {
   component: TextRotator,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TextRotator component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `words` | `string[]` | — | - |",
+          "| `interval` | `number` | — | - |",
+          "| `pauseOnHover` | `boolean` | — | - |",
+          '| `transition` | `"slide" \| "fade"` | `"slide"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   argTypes: {

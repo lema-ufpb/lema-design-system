@@ -13,9 +13,29 @@ const posts = Array.from({ length: 3 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blocks/BlogList",
+  title: "Blog/BlogList",
   component: BlogList,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BlogList component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `posts` | `BlogPost[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof BlogList>
 
 export default meta

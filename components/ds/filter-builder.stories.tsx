@@ -11,11 +11,27 @@ import { Card, CardContent } from "@/components/ui/card"
 const meta = {
   title: "Form/FilterBuilder",
   component: FilterBuilder,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component: "A complex component for building advanced query filters.",
+        component: [
+          "A complex component for building advanced query filters.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `fields` | `FilterField[]` | — | - |",
+          "| `rules` | `FilterRule[]` | — | - |",
+          "| `onChange` | `(rules: FilterRule[]) => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `className` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

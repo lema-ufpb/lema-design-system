@@ -27,14 +27,25 @@ const channels = [
 ]
 
 const meta = {
-  title: "Blocks/ContactChannels",
+  title: "Contact/ContactChannels",
   component: ContactChannels,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A row of contact-channel cards (email, phone, chat) — composed from CardIcon.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `channels` | `ContactChannel[]` | — | - |",
+        ].join("\n"),
       },
     },
   },

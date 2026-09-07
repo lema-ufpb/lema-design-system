@@ -12,10 +12,33 @@ const nav = [
 ]
 
 const meta = {
-  title: "Blocks/Header",
+  title: "Header/Header",
   component: Header,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Header component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `sticky` | `boolean` | — | /** Makes header stick to top */ |",
+          "| `bordered` | `boolean` | — | /** Show border bottom */ |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `skipLinkTarget` | `string` | — | /** Skip link target id */ |",
+          '| `variant` | `"default" \| "blurred" \| "transparent" \| "solid"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   argTypes: {
     variant: {
       control: "select",

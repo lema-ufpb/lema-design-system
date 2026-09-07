@@ -132,6 +132,197 @@ function extractArgTypes(metaContent) {
   return argTypes
 }
 
+function findComponentName(content) {
+  let m = content.match(/export function (\w+)/)
+  if (m) return m[1]
+  m = content.match(/export const (\w+)\s*=\s*React\.forwardRef/)
+  if (m) return m[1]
+  m = content.match(/^function (\w+)\(/m)
+  if (m) return m[1]
+  return null
+}
+
+function findInterfaceBody(content, interfaceName) {
+  const re = new RegExp(`export interface ${interfaceName}\\b`)
+  const m = re.exec(content)
+  if (!m) return null
+  const braceIdx = content.indexOf("{", m.index)
+  if (braceIdx === -1) return null
+  const end = matchBracket(content, braceIdx + 1, "{", "}")
+  if (end === -1) return null
+  return content.slice(braceIdx + 1, end - 1)
+}
+
+function parseInterfaceMembers(body) {
+  const members = []
+  let i = 0
+  let pendingComment = ""
+
+  while (i < body.length) {
+    while (i < body.length && /\s/.test(body[i])) i++
+    if (i >= body.length) break
+
+    if (body.startsWith("/**", i)) {
+      const end = body.indexOf("*/", i)
+      if (end === -1) break
+      pendingComment = body
+        .slice(i + 3, end)
+        .replace(/^[ \t]*\*[ \t]?/gm, "")
+        .trim()
+      i = end + 2
+      continue
+    }
+    if (body.startsWith("//", i)) {
+      const end = body.indexOf("\n", i)
+      pendingComment = body.slice(i + 2, end === -1 ? body.length : end).trim()
+      i = end === -1 ? body.length : end
+      continue
+    }
+
+    const nameMatch = /^([A-Za-z_$][\w$]*)(\??):\s*/.exec(body.slice(i))
+    if (!nameMatch) {
+      const nl = body.indexOf("\n", i)
+      i = nl === -1 ? body.length : nl + 1
+      pendingComment = ""
+      continue
+    }
+
+    const name = nameMatch[1]
+    const optional = nameMatch[2] === "?"
+    const typeStart = i + nameMatch[0].length
+    let depth = 0
+    let j = typeStart
+    while (j < body.length) {
+      const ch = body[j]
+      if (ch === "=" && body[j + 1] === ">") {
+        // arrow function type (`=>`) — the `>` is not a generic close
+        j += 2
+        continue
+      }
+      if ("<{[(".includes(ch)) depth++
+      else if (">}])".includes(ch)) depth--
+      else if (ch === ";" && depth === 0) break
+      else if (ch === "\n" && depth === 0) {
+        let k = j + 1
+        while (k < body.length && (body[k] === " " || body[k] === "\t")) k++
+        if (!(body[k] === "|" || body[k] === "&")) break
+      }
+      j++
+    }
+
+    const type = body
+      .slice(typeStart, j)
+      .trim()
+      .replace(/,$/, "")
+      .replace(/\s+/g, " ")
+
+    if (type) {
+      members.push({
+        name,
+        required: !optional,
+        type,
+        ...(pendingComment ? { description: pendingComment } : {}),
+      })
+    }
+    pendingComment = ""
+    i = j + 1
+  }
+
+  return members
+}
+
+function extractCvaVariants(content, variantsConstName) {
+  const declRe = new RegExp(`\\b${variantsConstName}\\s*=\\s*cva\\(`)
+  const m = declRe.exec(content)
+  if (!m) return []
+
+  const callParenIdx = m.index + m[0].length - 1
+  const callEnd = matchBracket(content, callParenIdx + 1, "(", ")")
+  if (callEnd === -1) return []
+  const callBody = content.slice(callParenIdx + 1, callEnd - 1)
+
+  const variantsIdx = callBody.indexOf("variants:")
+  if (variantsIdx === -1) return []
+  const vBraceStart = callBody.indexOf("{", variantsIdx)
+  if (vBraceStart === -1) return []
+  const vBraceEnd = matchBracket(callBody, vBraceStart + 1, "{", "}")
+  if (vBraceEnd === -1) return []
+  const variantsBlock = callBody.slice(vBraceStart + 1, vBraceEnd - 1)
+
+  const defaults = {}
+  const defIdx = callBody.indexOf("defaultVariants:")
+  if (defIdx !== -1) {
+    const dBraceStart = callBody.indexOf("{", defIdx)
+    if (dBraceStart !== -1) {
+      const dBraceEnd = matchBracket(callBody, dBraceStart + 1, "{", "}")
+      if (dBraceEnd !== -1) {
+        const defBlock = callBody.slice(dBraceStart + 1, dBraceEnd - 1)
+        const defRe = /(\w+):\s*"([^"]*)"/g
+        let dm
+        while ((dm = defRe.exec(defBlock)) !== null) defaults[dm[1]] = dm[2]
+      }
+    }
+  }
+
+  const variants = []
+  const keyRe = /(\w+):\s*\{/g
+  let km
+  while ((km = keyRe.exec(variantsBlock)) !== null) {
+    const braceStart = km.index + km[0].length - 1
+    const braceEnd = matchBracket(variantsBlock, braceStart + 1, "{", "}")
+    if (braceEnd === -1) continue
+    const optionsBlock = variantsBlock.slice(braceStart + 1, braceEnd - 1)
+    const optKeyRe = /(?:^|\s)(["']?)([\w-]+)\1:\s*"/g
+    const options = []
+    let om
+    while ((om = optKeyRe.exec(optionsBlock)) !== null) options.push(om[2])
+    if (options.length > 0) {
+      variants.push({
+        name: km[1],
+        required: false,
+        type: options.map((o) => `"${o}"`).join(" | "),
+        options,
+        ...(defaults[km[1]] ? { default: defaults[km[1]] } : {}),
+      })
+    }
+    keyRe.lastIndex = braceEnd
+  }
+
+  return variants
+}
+
+function extractComponentProps(content) {
+  const componentName = findComponentName(content)
+  const props = []
+  const seen = new Set()
+
+  if (componentName) {
+    const body = findInterfaceBody(content, `${componentName}Props`)
+    if (body !== null) {
+      for (const member of parseInterfaceMembers(body)) {
+        props.push(member)
+        seen.add(member.name)
+      }
+    }
+  }
+
+  const variantsConstNames = new Set()
+  const vpRe = /VariantProps<typeof (\w+)>/g
+  let vm
+  while ((vm = vpRe.exec(content)) !== null) variantsConstNames.add(vm[1])
+
+  for (const constName of variantsConstNames) {
+    for (const variant of extractCvaVariants(content, constName)) {
+      if (!seen.has(variant.name)) {
+        props.push(variant)
+        seen.add(variant.name)
+      }
+    }
+  }
+
+  return props
+}
+
 function extractRenderCode(storyBlock) {
   const renderIdx = storyBlock.indexOf("render:")
   if (renderIdx === -1) return ""
@@ -271,6 +462,10 @@ for (const item of registry.items) {
   }
 
   if (category !== "lib") {
+    const componentSource = readFileSync(filePath, "utf-8")
+    const tsProps = extractComponentProps(componentSource)
+    if (tsProps.length > 0) entry.props = tsProps
+
     const storiesFile = findStoriesFile(item)
     if (storiesFile) {
       const content = readFileSync(storiesFile, "utf-8")
@@ -283,7 +478,9 @@ for (const item of registry.items) {
         const titleMatch = metaContent.match(/title:\s*"([^"]+)"/)
         if (titleMatch) entry.storyTitle = titleMatch[1]
 
-        entry.props = extractArgTypes(metaContent)
+        if (!entry.props || entry.props.length === 0) {
+          entry.props = extractArgTypes(metaContent)
+        }
       }
 
       entry.stories = extractStories(content)
@@ -313,3 +510,31 @@ console.log(
 console.log(
   `   ${result.components.filter((c) => c.category === "lib").length} libraries`
 )
+
+// ── llms.txt (https://llmstxt.org/) — points AI agents at the machine-readable catalog ──
+
+const dsCount = result.components.filter((c) => c.category === "ds").length
+const uiCount = result.components.filter((c) => c.category === "ui").length
+const libCount = result.components.filter((c) => c.category === "lib").length
+
+const llmsTxt = `# LEMA-DS
+
+> Design system oficial do LEMA (Laboratório de Economia e Modelagem Aplicada), Universidade Federal da Paraíba — biblioteca de componentes React construída sobre shadcn/ui e Radix UI. ${result.totalComponents} itens no registry: ${dsCount} componentes \`ds-*\`, ${uiCount} primitivos shadcn, ${libCount} bibliotecas compartilhadas.
+
+Este site também expõe seu catálogo em formato estruturado e legível por máquina. Prefira os endpoints abaixo a extrair conteúdo das páginas HTML renderizadas.
+
+## Catálogo de componentes
+
+- [Component catalog](/docs/components.json): catálogo completo de todos os ${result.totalComponents} componentes — descrição, props, dependências, arquivos e código de exemplo de cada story.
+- [Registry manifest](/registry.json): manifesto shadcn (nome, tipo, dependências, arquivos-alvo) de cada item instalável.
+- [Story index](/index.json): índice bruto do Storybook (id, título, tipo) de todas as stories e páginas de documentação.
+
+## Instalação
+
+- ds-sync (\`npm install -D @lema-ufpb/ds-sync\`): \`npx ds add <nome>\` instala qualquer item do catálogo acima, incluindo primitivos shadcn.
+- shadcn CLI: \`npx shadcn@latest add ds-<nome>\` lendo diretamente de \`/r/{name}.json\` neste domínio.
+`
+
+writeFileSync(join(ROOT, "storybook-static", "llms.txt"), llmsTxt, "utf-8")
+
+console.log("✅ Generated storybook-static/llms.txt")

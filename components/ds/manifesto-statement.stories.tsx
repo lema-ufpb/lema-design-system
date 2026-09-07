@@ -3,10 +3,30 @@ import { expect, within } from "storybook/test"
 import { ManifestoStatement } from "./manifesto-statement"
 
 const meta: Meta<typeof ManifestoStatement> = {
-  title: "Blocks/ManifestoStatement",
+  title: "About/ManifestoStatement",
   component: ManifestoStatement,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A ManifestoStatement component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `statement` | `React.ReactNode` | — | - |",
+          "| `eyebrow` | `string` | — | - |",
+          "| `author` | `string` | — | - |",
+          '| `size` | `"default" \| "lg" \| "xl"` | `"default"` | Variant |',
+          '| `align` | `"left" \| "center"` | `"left"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

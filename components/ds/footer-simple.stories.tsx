@@ -13,9 +13,37 @@ const sampleBrand = (
 )
 
 const meta: Meta<typeof FooterSimple> = {
-  title: "Blocks/FooterSimple",
+  title: "Footer/FooterSimple",
   component: FooterSimple,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterSimple component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `React.ReactNode` | — | - |",
+          "| `links` | `FooterSimpleNavLink[]` | — | - |",
+          "| `socialLinks` | `SocialLinkItem[]` | — | - |",
+          "| `showStatusBadge` | `boolean` | — | - |",
+          "| `status` | `SystemHealthStatus` | — | - |",
+          "| `statusUptime` | `string` | — | - |",
+          "| `statusHref` | `string` | — | - |",
+          "| `brandName` | `string` | — | - |",
+          "| `legalLinks` | `LegalLinkItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `align` | `"center" \| "start"` | `"center"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     brand: sampleBrand,
     showStatusBadge: false,

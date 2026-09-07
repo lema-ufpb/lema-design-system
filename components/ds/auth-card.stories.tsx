@@ -34,7 +34,35 @@ const meta: Meta<typeof AuthCard> = {
   title: "Layout/AuthCard",
   component: AuthCard,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AuthCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `mode` | `"login" \| "signup"` | — | - |',
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `imageSrc` | `string` | — | - |",
+          "| `imageAlt` | `string` | — | - |",
+          "| `logo` | `React.ReactNode` | — | - |",
+          "| `appName` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "muted" \| "centered"` | `"default"` | Variant |',
+          '| `layout` | `"default" \| "split" \| "cover"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

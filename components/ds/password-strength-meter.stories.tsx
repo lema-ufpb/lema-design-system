@@ -6,6 +6,26 @@ const meta = {
   component: PasswordStrengthMeter,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A PasswordStrengthMeter component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `password` | `string` | — | - |",
+          "| `showChecklist` | `boolean` | — | - |",
+          "| `minLength` | `number` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   argTypes: {

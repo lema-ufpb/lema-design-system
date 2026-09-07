@@ -7,7 +7,30 @@ const meta: Meta<typeof TiltCard> = {
   title: "Effects/TiltCard",
   component: TiltCard,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TiltCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `glare` | `boolean` | — | - |",
+          "| `intensity` | `number` | — | - |",
+          "| `scaleOnHover` | `boolean` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "muted" \| "ghost"` | `"default"` | Variant |',
+          '| `radius` | `"sm" \| "md" \| "lg" \| "xl"` | `"xl"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
   argTypes: {
     variant: {
       control: "inline-radio",

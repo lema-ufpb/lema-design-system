@@ -3,9 +3,34 @@ import { BoxIcon } from "lucide-react"
 import { HeaderBrand } from "./header-brand"
 
 const meta = {
-  title: "Blocks/HeaderBrand",
+  title: "Header/HeaderBrand",
   component: HeaderBrand,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderBrand component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `href` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `subtitle` | `string` | — | - |",
+          "| `logo` | `React.ReactNode` | — | - |",
+          "| `logoSrc` | `string` | — | - |",
+          "| `logoAlt` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     loading: { control: "boolean" },

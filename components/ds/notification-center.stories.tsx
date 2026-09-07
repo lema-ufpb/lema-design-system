@@ -6,14 +6,30 @@ import {
 import { fn } from "storybook/test"
 
 const meta = {
-  title: "Blocks/NotificationCenter",
+  title: "Dashboard/NotificationCenter",
   component: NotificationCenter,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A popover-based notification center for displaying alerts and messages.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `notifications` | `NotificationItem[]` | — | - |",
+          "| `onMarkAllAsRead` | `() => void` | — | - |",
+          "| `emptyText` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `className` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

@@ -7,6 +7,26 @@ const meta = {
   component: PasskeyPrompt,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A PasskeyPrompt component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onAuthenticate` | `() => Promise<boolean \| void> \| void` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `supported` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"card" \| "button"` | `"card"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

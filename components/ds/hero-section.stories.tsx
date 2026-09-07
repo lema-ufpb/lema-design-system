@@ -17,10 +17,30 @@ import { Marquee } from "./marquee"
 import { Button } from "@/components/ui/button"
 
 const meta = {
-  title: "Blocks/HeroSection",
+  title: "Hero/HeroSection",
   component: HeroSection,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeroSection component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `align` | `"center" \| "left" \| "split"` | `"center"` | Variant |',
+          '| `spacing` | `"compact" \| "default" \| "spacious"` | `"default"` | Variant |',
+          '| `container` | `"default" \| "narrow" \| "wide" \| "full"` | `"default"` | Variant |',
+          '| `size` | `"default" \| "large" \| "display"` | — | Variant |',
+          '| `gradient` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "fullscreen",
   },
   argTypes: {

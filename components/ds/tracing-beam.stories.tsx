@@ -5,7 +5,26 @@ const meta: Meta<typeof TracingBeam> = {
   title: "Effects/TracingBeam",
   component: TracingBeam,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TracingBeam component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `beamColor` | `string` | — | - |",
+          '| `inset` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

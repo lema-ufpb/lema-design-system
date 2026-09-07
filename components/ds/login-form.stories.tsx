@@ -3,10 +3,36 @@ import { fn } from "storybook/test"
 import { LoginForm } from "./login-form"
 
 const meta = {
-  title: "Blocks/LoginForm",
+  title: "Auth/LoginForm",
   component: LoginForm,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A LoginForm component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onSubmit` | `(data: LoginFormData) => Promise<boolean \| void> \| void` | — | - |",
+          "| `onSocialLogin` | `(provider: SocialProvider) => Promise<void> \| void` | — | - |",
+          "| `onForgotPassword` | `() => void` | — | - |",
+          "| `onSignUp` | `() => void` | — | - |",
+          "| `onPasskeyLogin` | `() => Promise<boolean \| void> \| void` | — | - |",
+          "| `socialProviders` | `SocialProvider[]` | — | - |",
+          "| `showPasskey` | `boolean` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `errorMessage` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "flat"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

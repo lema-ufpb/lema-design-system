@@ -19,8 +19,19 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
-          "Exibe uma lista de eventos conectados por uma linha vertical.",
+        component: [
+          "Displays a list of events connected by a vertical timeline.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `status` | `"default" \| "primary" \| "success" \| "warning" \| "destructive"` | `"default"` | Variant |',
+          '| `solid` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
       },
     },
   },

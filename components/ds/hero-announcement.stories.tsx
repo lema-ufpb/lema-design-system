@@ -15,14 +15,30 @@ const logos = ["Acme", "Globex", "Initech", "Umbrella"].map((name) => (
 ))
 
 const meta = {
-  title: "Blocks/HeroAnnouncement",
+  title: "Hero/HeroAnnouncement",
   component: HeroAnnouncement,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Centered hero with an announcement badge and a scrolling logo cloud — composed from HeroSection, AnnouncementBadge and Marquee.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `announcement` | `HeroAnnouncementItem` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `logos` | `React.ReactNode[]` | — | /** Logos rendered inside a Marquee below the actions. */ |",
+          "| `logosLabel` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

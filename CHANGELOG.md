@@ -1,42 +1,49 @@
 # Changelog
 
-## [1.10.0](https://github.com/lema-ufpb/design-system/compare/v1.9.4...v1.10.0) (2026-09-06)
-
-
-### ✨ Features
-
-* **blocks:** add launch-ui-inspired marketing blocks ([519f4dd](https://github.com/lema-ufpb/design-system/commit/519f4dd5fe1f10f349bacfe18b1087a258bbd329))
-* **effects:** add aceternity-inspired motion primitives ([9db763e](https://github.com/lema-ufpb/design-system/commit/9db763ea96eea337adf62e13cc63df40ef9f7665))
-* **i18n:** add locale support to billing component ([295918f](https://github.com/lema-ufpb/design-system/commit/295918f4f732685bf9d3a28370c490358dfe95ad))
-* **primitives:** add launch-ui-inspired utilities and layouts ([cdfb052](https://github.com/lema-ufpb/design-system/commit/cdfb052adc0330c4b1422dd99036eba8c0dac2af))
-* **sidebar:** add shadcn-inspired dashboard shell blocks ([cb122ce](https://github.com/lema-ufpb/design-system/commit/cb122cefb67e5adffcc134e569a6df6d2bae91a3))
-
-
-### 🐛 Bug Fixes
-
-* **a11y:** resolve axe violations for keyboard and ARIA ([4d78c53](https://github.com/lema-ufpb/design-system/commit/4d78c53c9a92be8ff97ae06f05f75f81e280f5af))
-* **ds:** comprehensive audit — a11y, theming, responsive and performance (11→18/20) ([63ebdba](https://github.com/lema-ufpb/design-system/commit/63ebdba78dd09688f95c949c2c89f93fd7c1fad0))
-* **responsive:** align arbitrary values to design tokens ([6c095a2](https://github.com/lema-ufpb/design-system/commit/6c095a23fd274b74811c5667d21b5443f1af938a))
-* **theming:** remove hardcoded colors and manual dark: overrides ([e5f722c](https://github.com/lema-ufpb/design-system/commit/e5f722c54c04ff80d90f85c5ac63329f5ceec291))
-
-
-### ⚡ Performance
-
-* **ds:** optimize image loading and correct pt-BR locale ([2241a12](https://github.com/lema-ufpb/design-system/commit/2241a120834039533edfa939a3e68d3b6e745df5))
-
+## [1.10.1](https://github.com/lema-ufpb/design-system/compare/v1.10.0...v1.10.1) (2026-09-07)
 
 ### 📚 Documentation
 
-* **specs:** add spec-driven docs for 56 missing components ([014a814](https://github.com/lema-ufpb/design-system/commit/014a814c1b26c4e8e9437299ea16b937c2623a25))
-* sync introduction, agents, readme and specs index for 326 registry items ([a9af1d7](https://github.com/lema-ufpb/design-system/commit/a9af1d7f3a74f08464745ebfb183a53580aab667))
-
-## [1.9.4](https://github.com/lema-ufpb/design-system/compare/v1.9.3...v1.9.4) (2026-09-04)
-
+- **specs:** add missing ds specs for animated-number, border-beam, form-builder and scroll-reveal — 100% coverage for 261 ds components ([78824e9](https://github.com/lema-ufpb/design-system/commit/78824e9))
+- **stories:** standardize Storybook docs to en-US Data API pattern (261 ds stories, accordion-style `component: [...].join("\n")` + Props table) ([e738ea0](https://github.com/lema-ufpb/design-system/commit/e738ea0))
+- **docs:** refresh Introduction for 326 registry items (261 ds-* + 61 primitives + 4 libs) ([526402d](https://github.com/lema-ufpb/design-system/commit/526402d))
 
 ### 🐛 Bug Fixes
 
-* **nginx:** remover exigência de token para baixar registro de componentes ([61746eb](https://github.com/lema-ufpb/design-system/commit/61746eb65a79ff131b9c7e7c80ecd75442d3711f))
-* **nginx:** remover exigência de token para baixar registro de componentes ([a6ecac2](https://github.com/lema-ufpb/design-system/commit/a6ecac2b3e4775157e42a5b227fdc586ca8a396c))
+- **i18n:** translate pt-BR story docs to en-US (copy-block, date-picker, file-upload, multi-select, rating, timeline)
+
+## [1.10.0](https://github.com/lema-ufpb/design-system/compare/v1.9.4...v1.10.0) (2026-09-06)
+
+### ✨ Features
+
+- **blocks:** add launch-ui-inspired marketing blocks ([519f4dd](https://github.com/lema-ufpb/design-system/commit/519f4dd5fe1f10f349bacfe18b1087a258bbd329))
+- **effects:** add aceternity-inspired motion primitives ([9db763e](https://github.com/lema-ufpb/design-system/commit/9db763ea96eea337adf62e13cc63df40ef9f7665))
+- **i18n:** add locale support to billing component ([295918f](https://github.com/lema-ufpb/design-system/commit/295918f4f732685bf9d3a28370c490358dfe95ad))
+- **primitives:** add launch-ui-inspired utilities and layouts ([cdfb052](https://github.com/lema-ufpb/design-system/commit/cdfb052adc0330c4b1422dd99036eba8c0dac2af))
+- **sidebar:** add shadcn-inspired dashboard shell blocks ([cb122ce](https://github.com/lema-ufpb/design-system/commit/cb122cefb67e5adffcc134e569a6df6d2bae91a3))
+
+### 🐛 Bug Fixes
+
+- **a11y:** resolve axe violations for keyboard and ARIA ([4d78c53](https://github.com/lema-ufpb/design-system/commit/4d78c53c9a92be8ff97ae06f05f75f81e280f5af))
+- **ds:** comprehensive audit — a11y, theming, responsive and performance (11→18/20) ([63ebdba](https://github.com/lema-ufpb/design-system/commit/63ebdba78dd09688f95c949c2c89f93fd7c1fad0))
+- **responsive:** align arbitrary values to design tokens ([6c095a2](https://github.com/lema-ufpb/design-system/commit/6c095a23fd274b74811c5667d21b5443f1af938a))
+- **theming:** remove hardcoded colors and manual dark: overrides ([e5f722c](https://github.com/lema-ufpb/design-system/commit/e5f722c54c04ff80d90f85c5ac63329f5ceec291))
+
+### ⚡ Performance
+
+- **ds:** optimize image loading and correct pt-BR locale ([2241a12](https://github.com/lema-ufpb/design-system/commit/2241a120834039533edfa939a3e68d3b6e745df5))
+
+### 📚 Documentation
+
+- **specs:** add spec-driven docs for 56 missing components ([014a814](https://github.com/lema-ufpb/design-system/commit/014a814c1b26c4e8e9437299ea16b937c2623a25))
+- sync introduction, agents, readme and specs index for 326 registry items ([a9af1d7](https://github.com/lema-ufpb/design-system/commit/a9af1d7f3a74f08464745ebfb183a53580aab667))
+
+## [1.9.4](https://github.com/lema-ufpb/design-system/compare/v1.9.3...v1.9.4) (2026-09-04)
+
+### 🐛 Bug Fixes
+
+- **nginx:** remover exigência de token para baixar registro de componentes ([61746eb](https://github.com/lema-ufpb/design-system/commit/61746eb65a79ff131b9c7e7c80ecd75442d3711f))
+- **nginx:** remover exigência de token para baixar registro de componentes ([a6ecac2](https://github.com/lema-ufpb/design-system/commit/a6ecac2b3e4775157e42a5b227fdc586ca8a396c))
 
 ## [1.9.3](https://github.com/lema-ufpb/design-system/compare/v1.9.2...v1.9.3) (2026-09-04)
 

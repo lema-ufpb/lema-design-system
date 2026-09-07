@@ -17,10 +17,35 @@ const nav = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderCentered",
+  title: "Header/HeaderCentered",
   component: HeaderCentered,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderCentered component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `HeaderBrandProps` | — | - |",
+          "| `navItems` | `HeaderNavItem[]` | — | - |",
+          "| `leftActions` | `HeaderActionItem[]` | — | - |",
+          "| `rightActions` | `HeaderActionItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `sticky` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 } satisfies Meta<typeof HeaderCentered>
 
 export default meta

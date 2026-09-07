@@ -21,9 +21,34 @@ const steps = [
 ]
 
 const meta = {
-  title: "Blocks/HowItWorks",
+  title: "Marketing/HowItWorks",
   component: HowItWorks,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HowItWorks component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `steps` | `HowItWorksStep[]` | — | - |",
+          '| `variant` | `"number" \| "icon" \| "card"` | — | - |',
+          '| `orientation` | `"horizontal" \| "vertical"` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     variant: { control: "select", options: ["number", "icon", "card"] },
     orientation: {

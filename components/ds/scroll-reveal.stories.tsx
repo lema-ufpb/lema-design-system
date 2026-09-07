@@ -9,8 +9,20 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "Fades/slides children in the first time they enter the viewport via IntersectionObserver. Renders fully visible up front under prefers-reduced-motion. Scroll the canvas to see the effect trigger.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `delay` | `number` | — | /** Delay before the transition starts, in ms. */ |",
+          "| `once` | `boolean` | — | /** Re-trigger every time the element re-enters the viewport. */ |",
+          '| `direction` | `"up" \| "down" \| "left" \| "right" \| "none"` | `"up"` | Variant |',
+        ].join("\n"),
       },
     },
   },

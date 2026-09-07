@@ -31,6 +31,7 @@ export interface SocialLinksProps
     VariantProps<typeof socialLinksVariants> {
   links: SocialLinkItem[]
   shape?: "circle" | "rounded" | "square"
+  gap?: "sm" | "md" | "lg"
   navLabel?: string
 }
 
@@ -50,16 +51,10 @@ export const socialLinksVariants = cva("flex items-center", {
       md: "size-8 [&_svg]:size-4",
       lg: "size-9 [&_svg]:size-4.5",
     },
-    gap: {
-      sm: "gap-1",
-      md: "gap-1.5",
-      lg: "gap-2",
-    },
   },
   defaultVariants: {
     variant: "ghost",
     size: "md",
-    gap: "md",
   },
 })
 
@@ -151,6 +146,12 @@ const SHAPE_CLASSES = {
   square: "rounded-none",
 }
 
+const GAP_CLASSES = {
+  sm: "gap-1",
+  md: "gap-1.5",
+  lg: "gap-2",
+}
+
 // ── Component ──
 
 export const SocialLinks = React.forwardRef<HTMLElement, SocialLinksProps>(
@@ -174,12 +175,7 @@ export const SocialLinks = React.forwardRef<HTMLElement, SocialLinksProps>(
         className={cn("flex items-center", className)}
         {...props}
       >
-        <ul
-          className={cn(
-            "flex flex-wrap items-center",
-            socialLinksVariants({ gap })
-          )}
-        >
+        <ul className={cn("flex flex-wrap items-center", GAP_CLASSES[gap])}>
           {links.map((item, index) => {
             const config = PLATFORM_CONFIG[item.platform]
             const Icon = config?.icon || Globe

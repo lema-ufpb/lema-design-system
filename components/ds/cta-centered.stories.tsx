@@ -2,9 +2,28 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { CtaCentered } from "./cta-centered"
 
 const meta = {
-  title: "Blocks/CtaCentered",
+  title: "CTA/CtaCentered",
   component: CtaCentered,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A CtaCentered component for the LEMA Design System.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `className` | `string` | — | Additional CSS classes |",
+          "| `children` | `ReactNode` | — | Content |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof CtaCentered>
 
 export default meta

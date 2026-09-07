@@ -5,6 +5,36 @@ const meta = {
   title: "Navigation/Banner",
   component: Banner,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Banner component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `dismissible` | `boolean` | — | - |",
+          "| `onDismiss` | `() => void` | — | - |",
+          "| `icon` | `React.ReactNode` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `React.ReactNode` | — | - |",
+          "| `action` | `BannerAction` | — | - |",
+          "| `secondaryAction` | `BannerAction` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `intent` | `"default" \| "info" \| "success" \| "warning" \| "destructive" \| "promo"` | `"default"` | Variant |',
+          '| `variant` | `"default" \| "outline" \| "ghost" \| "filled"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+          '| `position` | `"inline" \| "top" \| "bottom" \| "floating"` | `"inline"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     intent: {
       control: "select",

@@ -6,7 +6,31 @@ const meta: Meta<typeof HeroGlow> = {
   title: "Hero/HeroGlow",
   component: HeroGlow,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeroGlow component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `badge` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `glowColor` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `glow` | `"top" \| "center" \| "none"` | `"top"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   argTypes: {
     glow: { control: "inline-radio", options: ["top", "center", "none"] },
   },

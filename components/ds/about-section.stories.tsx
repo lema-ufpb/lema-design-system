@@ -16,14 +16,35 @@ const team = [
 ]
 
 const meta = {
-  title: "Blocks/AboutSection",
+  title: "About/AboutSection",
   component: AboutSection,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "A composed 'About' page block — story + founder quote + stats strip + team grid — built from existing ds/ atoms (HeroSection, PullQuote, CardStat, TeamRoster). A reference for composing full page sections from the atomized catalog.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `quote` | `string` | — | - |",
+          "| `quoteName` | `string` | — | - |",
+          "| `quoteRole` | `string` | — | - |",
+          "| `quoteAvatarSrc` | `string` | — | - |",
+          "| `quoteAvatarFallback` | `string` | — | - |",
+          "| `stats` | `AboutSectionStat[]` | — | - |",
+          "| `team` | `AboutSectionTeamMember[]` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

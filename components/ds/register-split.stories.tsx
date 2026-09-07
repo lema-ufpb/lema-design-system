@@ -2,9 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { RegisterSplit } from "./register-split"
 
 const meta = {
-  title: "Blocks/RegisterSplit",
+  title: "Auth/RegisterSplit",
   component: RegisterSplit,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A RegisterSplit component for the LEMA Design System.",
+          "Supports loading state.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `imageSrc` | `string` | — | - |",
+          "| `testimonial` | `{` | — | - |",
+          "| `quote` | `string` | — | - |",
+          "| `author` | `string` | — | - |",
+          "| `role` | `string` | — | - |",
+          "| `avatarUrl` | `string` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof RegisterSplit>
 
 export default meta

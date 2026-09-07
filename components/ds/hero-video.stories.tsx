@@ -3,14 +3,32 @@ import { Button } from "@/components/ui/button"
 import { HeroVideo } from "./hero-video"
 
 const meta = {
-  title: "Blocks/HeroVideo",
+  title: "Hero/HeroVideo",
   component: HeroVideo,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Centered hero with a video thumbnail that opens in a dialog — composed from HeroSection and VideoDialog.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `videoSrc` | `string` | — | - |",
+          "| `thumbnailSrc` | `string` | — | - |",
+          "| `videoTitle` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

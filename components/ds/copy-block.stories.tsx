@@ -10,30 +10,43 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
-          "Exibe um trecho de texto ou código com um botão acoplado para cópia rápida.",
+        component: [
+          "Displays a text or code snippet with an attached button for quick copying.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `string` | — | The text to display and copy. |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Defines the size of the block. |',
+          '| `truncate` | `"true" \| "false"` | — | Whether the text should truncate if it exceeds the container width. If false, it will wrap to the next line. |',
+          "| `locale` | `UILocale` | — | Localization for the tooltip texts. |",
+        ].join("\n"),
       },
     },
   },
   argTypes: {
     value: {
       control: "text",
-      description: "O texto a ser exibido e copiado.",
+      description: "The text to display and copy.",
     },
     size: {
       control: "radio",
       options: ["sm", "md", "lg"],
-      description: "Tamanho do bloco.",
+      description: "Block size.",
     },
     truncate: {
       control: "boolean",
       description:
-        "Se o texto deve ser truncado (com reticências) quando exceder a largura.",
+        "Whether the text should truncate with ellipsis when it overflows.",
     },
     locale: {
       control: "radio",
       options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
-      description: "Idioma para as tooltips e aria-labels.",
+      description: "Locale for tooltips and aria-labels.",
     },
   },
 } satisfies Meta<typeof CopyBlock>
@@ -62,7 +75,7 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "O componente suporta 3 tamanhos: sm, md e lg.",
+        story: "The component supports 3 sizes: sm, md and lg.",
       },
     },
   },
@@ -97,7 +110,7 @@ export const Truncated: Story = {
     docs: {
       description: {
         story:
-          "Use `truncate={true}` se o bloco puder estar em um container menor que o conteúdo e você quiser forçar apenas 1 linha. Se for `false`, o texto quebrará em várias linhas.",
+          "Use `truncate={true}` when the block may be in a container smaller than the content and you want to force a single line. When `false`, the text wraps to multiple lines.",
       },
     },
   },

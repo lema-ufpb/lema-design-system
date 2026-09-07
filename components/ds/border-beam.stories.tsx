@@ -9,8 +9,20 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A small glow that travels around the border of its parent via offset-path — correct at any aspect ratio, pure CSS, hidden under prefers-reduced-motion. Place inside a `relative isolate` rounded container, alongside (not wrapping) the real content.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `size` | `number` | — | /** Diameter of the beam's glow, in pixels. */ |",
+          '| `tone` | `"primary" \| "violet" \| "sky"` | `"primary"` | Variant |',
+          '| `speed` | `"slow" \| "normal" \| "fast"` | `"normal"` | Variant |',
+        ].join("\n"),
       },
     },
   },

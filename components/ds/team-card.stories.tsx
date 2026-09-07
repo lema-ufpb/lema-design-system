@@ -2,9 +2,33 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { TeamCard } from "./team-card"
 
 const meta = {
-  title: "Blocks/TeamCard",
+  title: "Team/TeamCard",
   component: TeamCard,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A TeamCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `name` | `string` | — | - |",
+          "| `role` | `string` | — | - |",
+          "| `bio` | `string` | — | - |",
+          "| `avatarUrl` | `string` | — | - |",
+          "| `socials` | `SocialLinkItem[]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: { size: { control: "inline-radio", options: ["sm", "md"] } },
 } satisfies Meta<typeof TeamCard>
 

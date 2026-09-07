@@ -2,9 +2,31 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Checkout } from "./checkout"
 
 const meta = {
-  title: "Blocks/Checkout",
+  title: "Commerce/Checkout",
   component: Checkout,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Checkout component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `CheckoutItem[]` | — | - |",
+          "| `total` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Checkout>
 
 export default meta

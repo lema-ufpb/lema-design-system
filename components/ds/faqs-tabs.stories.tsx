@@ -24,9 +24,28 @@ const groups = [
 ]
 
 const meta = {
-  title: "Blocks/FaqsTabs",
+  title: "FAQ/FaqsTabs",
   component: FaqsTabs,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FaqsTabs component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `groups` | `FaqsTabsGroup[]` | — | - |",
+          "| `defaultGroup` | `string` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof FaqsTabs>
 
 export default meta

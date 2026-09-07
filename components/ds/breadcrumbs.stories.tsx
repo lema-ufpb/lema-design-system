@@ -4,11 +4,27 @@ import { Breadcrumbs, type BreadcrumbItemData } from "./breadcrumbs"
 const meta = {
   title: "Navigation/Breadcrumbs",
   component: Breadcrumbs,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component: "A data-driven breadcrumb component.",
+        component: [
+          "A data-driven breadcrumb component.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `BreadcrumbItemData[]` | — | - |",
+          "| `separator` | `React.ReactNode` | — | - |",
+          "| `itemsBeforeEllipsis` | `number` | — | - |",
+          "| `itemsAfterEllipsis` | `number` | — | - |",
+          "| `className` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

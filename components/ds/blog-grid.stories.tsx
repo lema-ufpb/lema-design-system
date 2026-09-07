@@ -13,10 +13,35 @@ const posts = Array.from({ length: 6 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blocks/BlogGrid",
+  title: "Blog/BlogGrid",
   component: BlogGrid,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BlogGrid component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `posts` | `BlogPost[]` | — | - |",
+          "| `categories` | `string[]` | — | - |",
+          "| `activeCategory` | `string` | — | - |",
+          "| `onCategoryChange` | `(category: string \| null) => void` | — | - |",
+          "| `search` | `string` | — | - |",
+          "| `onSearchChange` | `(value: string) => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "padded",
+  },
 } satisfies Meta<typeof BlogGrid>
 
 export default meta

@@ -17,12 +17,23 @@ import {
 const meta = {
   title: "Form/RichTextEditor",
   component: RichTextEditor,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A presentation component that provides the structure for a rich text editor.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `invalid` | `boolean` | — | - |",
+        ].join("\n"),
       },
     },
   },

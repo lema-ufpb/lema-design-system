@@ -6,7 +6,31 @@ const meta: Meta<typeof HeroLayers> = {
   title: "Hero/HeroLayers",
   component: HeroLayers,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeroLayers component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `badge` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `layers` | `HeroLayersItem[]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `inset` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

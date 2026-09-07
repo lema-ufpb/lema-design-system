@@ -5,7 +5,28 @@ const meta = {
   title: "Navigation/BannerTop",
   component: BannerTop,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BannerTop component for the LEMA Design System.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `badge` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `React.ReactNode` | — | - |",
+          '| `position` | `"inline" \| "top"` | — | - |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   argTypes: {
     intent: {
       control: "select",

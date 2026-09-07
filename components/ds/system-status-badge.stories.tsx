@@ -5,6 +5,29 @@ const meta: Meta<typeof SystemStatusBadge> = {
   title: "Feedback/SystemStatusBadge",
   component: SystemStatusBadge,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SystemStatusBadge component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `status` | `SystemHealthStatus` | — | - |",
+          "| `label` | `string` | — | - |",
+          "| `uptime` | `string` | — | - |",
+          "| `href` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     status: "operational",
     size: "md",

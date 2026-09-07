@@ -82,7 +82,37 @@ const meta: Meta<typeof AppSidebar> = {
   title: "Navigation/AppSidebar",
   component: AppSidebar,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A AppSidebar component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `teams` | `TeamSwitcherTeam[]` | — | - |",
+          "| `navMain` | `AppSidebarNavItem[]` | — | - |",
+          "| `projects` | `AppSidebarProject[]` | — | - |",
+          "| `user` | `UserMenuData \| null` | — | - |",
+          "| `showSearch` | `boolean` | — | - |",
+          "| `searchPlaceholder` | `string` | — | - |",
+          '| `collapsible` | `"offcanvas" \| "icon" \| "none"` | — | - |',
+          '| `sidebarVariant` | `"sidebar" \| "floating" \| "inset"` | `"sidebar"` | - |',
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `onNavItemClick` | `(item: AppSidebarNavItem) => void` | — | - |",
+          "| `onProjectClick` | `(project: AppSidebarProject) => void` | — | - |",
+          "| `onTeamChange` | `(team: TeamSwitcherTeam) => void` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
   decorators: [
     (Story) => (
       <TooltipProvider>

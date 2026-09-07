@@ -5,7 +5,33 @@ const meta: Meta<typeof Typewriter> = {
   title: "Effects/Typewriter",
   component: Typewriter,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Typewriter component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `words` | `string[]` | — | - |",
+          "| `speed` | `number` | — | - |",
+          "| `deleteSpeed` | `number` | — | - |",
+          "| `delayBetween` | `number` | — | - |",
+          "| `loop` | `boolean` | — | - |",
+          "| `cursor` | `boolean` | — | - |",
+          "| `cursorChar` | `string` | — | - |",
+          '| `variant` | `"typewriter" \| "flip" \| "generate"` | `"typewriter"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg" \| "xl" \| "display"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
   argTypes: {
     variant: {
       control: "inline-radio",

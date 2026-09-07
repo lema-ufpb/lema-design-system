@@ -10,10 +10,40 @@ const nav = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderCommand",
+  title: "Header/HeaderCommand",
   component: HeaderCommand,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderCommand component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `HeaderBrandProps` | — | - |",
+          "| `navItems` | `HeaderNavItem[]` | — | - |",
+          "| `commandGroups` | `HeaderCommandGroup[]` | — | - |",
+          "| `searchPlaceholder` | `string` | — | - |",
+          "| `onSearch` | `(value: string) => void` | — | - |",
+          "| `user` | `HeaderUserData \| null` | — | - |",
+          "| `userGroups` | `HeaderUserMenuItem[][]` | — | - |",
+          "| `notifications` | `number` | — | - |",
+          "| `actions` | `HeaderActionItem[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `sticky` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 } satisfies Meta<typeof HeaderCommand>
 
 export default meta

@@ -5,7 +5,25 @@ const meta: Meta<typeof Fade> = {
   title: "Utilities/Fade",
   component: Fade,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Fade component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `variant` | `"x" \| "y" \| "top" \| "bottom" \| "left" \| "right"` | `"x"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
   argTypes: {
     variant: {
       control: "inline-radio",
