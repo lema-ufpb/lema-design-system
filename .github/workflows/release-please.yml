@@ -28,6 +28,30 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
+      - name: "🛡️ Validar versão proposta antes do auto-merge"
+        id: guard
+        if: steps.release.outputs.pr
+        env:
+          GH_TOKEN: ${{ secrets.CICD_TOKEN }}
+        run: |
+          PR_NUMBER="${{ fromJSON(steps.release.outputs.pr).number }}"
+          PR_TITLE=$(gh pr view "$PR_NUMBER" --repo "${{ github.repository }}" --json title -q .title)
+          NEW_VERSION=$(echo "$PR_TITLE" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -n1)
+          CURRENT_VERSION=$(gh api "repos/${{ github.repository }}/contents/.release-please-manifest.json?ref=main" --jq '.content' | base64 -d | jq -r '.["."]')
+
+          echo "PR #$PR_NUMBER propõe versão '$NEW_VERSION'; manifest atual em main é '$CURRENT_VERSION'."
+
+          if [ -z "$NEW_VERSION" ] || [ -z "$CURRENT_VERSION" ]; then
+            echo "::error::Não foi possível determinar as versões para comparação (nova='$NEW_VERSION' atual='$CURRENT_VERSION'). Abortando auto-merge por segurança — revise a PR #$PR_NUMBER manualmente."
+            exit 1
+          fi
+
+          HIGHEST=$(printf '%s\n%s\n' "$NEW_VERSION" "$CURRENT_VERSION" | sort -V | tail -n1)
+          if [ "$HIGHEST" != "$NEW_VERSION" ] || [ "$NEW_VERSION" = "$CURRENT_VERSION" ]; then
+            echo "::error::PR #$PR_NUMBER propõe versão '$NEW_VERSION', que não é maior que a versão atual do manifest ('$CURRENT_VERSION'). Isso normalmente indica que o release-please não conseguiu localizar a última release (ver CICD_TOKEN) e recalculou a versão a partir do histórico completo. Abortando auto-merge — feche/investigue a PR #$PR_NUMBER manualmente antes de mergear."
+            exit 1
+          fi
+
       - name: "🤖 Auto-merge release PR"
         if: steps.release.outputs.pr
         env:
