@@ -55,14 +55,31 @@ const sampleGroups: CommandPaletteGroup[] = [
 ]
 
 const meta = {
-  title: "Blocks/CommandPalette",
+  title: "Navigation/CommandPalette",
   component: CommandPalette,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A high-level command palette component triggered by `Cmd/Ctrl + K` or a custom shortcut.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `groups` | `CommandPaletteGroup[]` | — | - |",
+          "| `open` | `boolean` | — | - |",
+          "| `onOpenChange` | `(open: boolean) => void` | — | - |",
+          "| `placeholder` | `string` | — | - |",
+          "| `shortcut` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `className` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

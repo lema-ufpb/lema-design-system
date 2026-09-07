@@ -2,9 +2,30 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { CtaNewsletter } from "./cta-newsletter"
 
 const meta = {
-  title: "Blocks/CtaNewsletter",
+  title: "CTA/CtaNewsletter",
   component: CtaNewsletter,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A CtaNewsletter component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onSubscribe` | `(email: string) => Promise<boolean \| void> \| void` | — | - |",
+          "| `placeholder` | `string` | — | - |",
+          "| `disclaimer` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     locale: {
       control: "inline-radio",

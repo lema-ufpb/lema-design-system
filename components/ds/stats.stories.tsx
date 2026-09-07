@@ -6,6 +6,31 @@ const meta = {
   title: "Stats/Stats",
   component: Stats,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Stats component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `label` | `string` | — | - |",
+          "| `value` | `string \| number` | — | - |",
+          "| `trend` | `{ value: string` | — | - |",
+          "| `period` | `string` | — | - |",
+          "| `icon` | `React.ReactNode` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: { size: { control: "inline-radio", options: ["sm", "md"] } },
 } satisfies Meta<typeof Stats>
 

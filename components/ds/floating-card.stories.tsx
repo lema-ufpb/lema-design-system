@@ -2,14 +2,25 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FloatingCard } from "./floating-card"
 
 const meta = {
-  title: "Blocks/FloatingCard",
+  title: "Effects/FloatingCard",
   component: FloatingCard,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A card that tilts subtly in 3D toward the pointer — for showcasing a product screenshot in a hero. Move your cursor over the card.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `intensity` | `number` | — | /** Maximum tilt rotation in degrees. */ |",
+        ].join("\n"),
       },
     },
   },

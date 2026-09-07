@@ -3,10 +3,30 @@ import { fn } from "storybook/test"
 import { MagicLinkForm } from "./magic-link-form"
 
 const meta = {
-  title: "Blocks/MagicLinkForm",
+  title: "Auth/MagicLinkForm",
   component: MagicLinkForm,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A MagicLinkForm component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onSendLink` | `(email: string) => Promise<boolean \| void> \| void` | — | - |",
+          "| `onBack` | `() => void` | — | - |",
+          "| `resendCooldown` | `number` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "clean"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

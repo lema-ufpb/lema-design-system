@@ -94,7 +94,38 @@ const meta: Meta<typeof Dashboard> = {
       </TooltipProvider>
     ),
   ],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Dashboard component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `sidebar` | `{` | — | - |",
+          "| `teams` | `TeamSwitcherTeam[]` | — | - |",
+          "| `navMain` | `AppSidebarNavItem[]` | — | - |",
+          "| `projects` | `AppSidebarProject[]` | — | - |",
+          "| `user` | `UserMenuData \| null` | — | - |",
+          "| `header` | `{` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `stats` | `SectionCardItem[]` | — | - |",
+          "| `chart` | `React.ReactNode` | — | - |",
+          "| `table` | `React.ReactNode` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `variant` | `"default" \| "inset"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 }
 
 export default meta

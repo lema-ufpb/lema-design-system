@@ -7,6 +7,33 @@ const meta: Meta<typeof PhoneInput> = {
   title: "Form/PhoneInput",
   component: PhoneInput,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A PhoneInput component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `string` | — | - |",
+          "| `onChange` | `(value: string) => void` | — | - |",
+          "| `country` | `string` | — | - |",
+          "| `onCountryChange` | `(country: string) => void` | — | - |",
+          "| `countries` | `CountryData[]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `invalid` | `"true"` | — | - |',
+          '| `disabled` | `"true"` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     size: "md",
     disabled: false,

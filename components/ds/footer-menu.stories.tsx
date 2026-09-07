@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FooterMenu } from "@/components/ds/footer-menu"
 
 const meta = {
-  title: "Blocks/FooterMenu",
+  title: "Footer/FooterMenu",
   component: FooterMenu,
   tags: ["autodocs"],
   parameters: {

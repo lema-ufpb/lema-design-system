@@ -9,9 +9,29 @@ const row = Array.from({ length: 6 }).map((_, i) => ({
 }))
 
 const meta = {
-  title: "Blocks/IntegrationsMarquee",
+  title: "Integrations/IntegrationsMarquee",
   component: IntegrationsMarquee,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A IntegrationsMarquee component for the LEMA Design System.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `rows` | `IntegrationTileProps[][]` | — | - |",
+          '| `speed` | `"slow" \| "normal" \| "fast"` | — | - |',
+          "| `pauseOnHover` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof IntegrationsMarquee>
 
 export default meta

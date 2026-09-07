@@ -3,9 +3,29 @@ import { ArrowRightIcon, MailIcon } from "lucide-react"
 import { HeaderActions } from "./header-actions"
 
 const meta = {
-  title: "Blocks/HeaderActions",
+  title: "Header/HeaderActions",
   component: HeaderActions,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderActions component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `actions` | `HeaderActionItem[]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `gap` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     gap: { control: "inline-radio", options: ["sm", "md", "lg"] },
     loading: { control: "boolean" },

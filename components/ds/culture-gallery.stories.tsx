@@ -34,10 +34,27 @@ const sampleItems = [
 ]
 
 const meta: Meta<typeof CultureGallery> = {
-  title: "Blocks/CultureGallery",
+  title: "Gallery/CultureGallery",
   component: CultureGallery,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A CultureGallery component for the LEMA Design System.",
+          "Supports loading state, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `CultureGalleryItem[]` | — | - |",
+          '| `layout` | `"mosaic" \| "grid"` | `"mosaic"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "padded",
   },
   args: {

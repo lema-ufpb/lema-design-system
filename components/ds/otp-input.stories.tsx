@@ -4,12 +4,25 @@ import { DsOtpInput } from "./otp-input"
 const meta = {
   title: "Form/OtpInput",
   component: DsOtpInput,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "An OTP input component for verification codes, built on top of the shadcn `input-otp` primitive.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `loading` | `boolean` | — | - |",
+          "| `invalid` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

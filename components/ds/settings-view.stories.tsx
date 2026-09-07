@@ -7,9 +7,29 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 
 const meta = {
-  title: "Blocks/SettingsView",
+  title: "Dashboard/SettingsView",
   component: SettingsView,
+  tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SettingsView component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `sections` | `SettingsSection[]` | — | - |",
+          "| `defaultSection` | `string` | — | - |",
+        ].join("\n"),
+      },
+    },
     layout: "padded",
   },
 } satisfies Meta<typeof SettingsView>

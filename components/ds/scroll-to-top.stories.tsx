@@ -120,7 +120,7 @@ const meta = {
           "| `loading` | `boolean` | `false` | Skeleton loading state |",
           '| `variant` | `"outline" \\| "fill"` | `"outline"` | Visual style |',
           '| `position` | `"bottom-right" \\| "bottom-left" \\| "top-right" \\| "top-left"` | `"bottom-right"` | Corner placement |',
-        ],
+        ].join("\n"),
       },
     },
   },

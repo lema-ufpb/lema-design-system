@@ -18,6 +18,7 @@ const images: LightboxImage[] = photoIds.map((id, index) => ({
 const meta = {
   title: "Data Display/Lightbox",
   component: Lightbox,
+  tags: ["autodocs"],
   args: {
     images,
     index: 0,
@@ -29,8 +30,24 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A fullscreen image viewer with prev/next navigation, keyboard arrows, and an optional thumbnail strip.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `images` | `LightboxImage[]` | — | - |",
+          "| `index` | `number` | — | /** Currently shown image index (controlled). */ |",
+          "| `open` | `boolean` | — | - |",
+          "| `onOpenChange` | `(open: boolean) => void` | — | - |",
+          "| `onIndexChange` | `(index: number) => void` | — | - |",
+          "| `showThumbnails` | `boolean` | — | /** Shows a strip of clickable thumbnails below the main image. */ |",
+          "| `locale` | `UILocale` | — | - |",
+        ].join("\n"),
       },
     },
   },

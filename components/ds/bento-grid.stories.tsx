@@ -3,14 +3,32 @@ import { BarChart3, ShieldCheck, Sparkles, Zap } from "lucide-react"
 import { BentoGrid, BentoGridItem } from "./bento-grid"
 
 const meta = {
-  title: "Blocks/BentoGrid",
+  title: "Bento/BentoGrid",
   component: BentoGrid,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "An asymmetric grid layout for feature or media tiles, with configurable column/row spans per item.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `React.ReactNode` | — | - |",
+          "| `icon` | `React.ElementType` | — | - |",
+          "| `media` | `React.ReactNode` | — | /** Background layer rendered behind the content (image, gradient, chart). */ |",
+          '| `titleAs` | `"h2" \| "h3" \| "h4"` | — | /** Heading level for `title` — adjust to keep document heading order valid when the grid sits right below an `h1`/`h... |',
+          "| `loading` | `boolean` | — | - |",
+          '| `colSpan` | `"1" \| "2" \| "3" \| "4"` | — | Variant |',
+          '| `rowSpan` | `"1" \| "2" \| "3" \| "4"` | — | Variant |',
+        ].join("\n"),
       },
     },
   },

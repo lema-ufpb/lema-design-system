@@ -3,9 +3,36 @@ import { BoxIcon } from "lucide-react"
 import { IntegrationTile } from "./integration-tile"
 
 const meta = {
-  title: "Blocks/IntegrationTile",
+  title: "Integrations/IntegrationTile",
   component: IntegrationTile,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A IntegrationTile component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `name` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `icon` | `React.ReactNode` | — | - |",
+          "| `iconSrc` | `string` | — | - |",
+          "| `iconAlt` | `string` | — | - |",
+          '| `status` | `"connected" \| "available" \| "coming"` | `"available"` | - |',
+          "| `href` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
     status: {

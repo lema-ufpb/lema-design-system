@@ -2,10 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { VideoDialog } from "./video-dialog"
 
 const meta = {
-  title: "Blocks/VideoDialog",
+  title: "Media/VideoDialog",
   component: VideoDialog,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A VideoDialog component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `videoSrc` | `string` | — | - |",
+          "| `thumbnailSrc` | `string` | — | - |",
+          "| `thumbnailAlt` | `string` | — | - |",
+          "| `title` | `string` | — | - |",
+          '| `aspectRatio` | `"16` | — | - |',
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "minimal" \| "glow"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "padded",
   },
   argTypes: {

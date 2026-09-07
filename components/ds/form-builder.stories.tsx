@@ -52,8 +52,24 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "Generates a validated form from a zod schema (validation) plus a fields list (rendering meta). Built on react-hook-form + the project's Field/FieldGroup primitives.",
+          "Supports loading state.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `schema` | `z.ZodType<FieldValues, FieldValues>` | — | /** Validation only — field rendering comes from `fields`, not schema introspection. */ |",
+          "| `fields` | `FormFieldConfig[]` | — | - |",
+          "| `defaultValues` | `FieldValues` | — | - |",
+          "| `onSubmit` | `(values: FieldValues) => void \| Promise<void>` | — | - |",
+          "| `submitLabel` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `className` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

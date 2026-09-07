@@ -2,9 +2,30 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { FooterWordmark } from "./footer-wordmark"
 
 const meta: Meta<typeof FooterWordmark> = {
-  title: "Blocks/FooterWordmark",
+  title: "Footer/FooterWordmark",
   component: FooterWordmark,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterWordmark component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `text` | `string` | — | - |",
+          "| `decorative` | `boolean` | — | - |",
+          '| `align` | `"center" \| "left"` | `"center"` | Variant |',
+          '| `variant` | `"outline" \| "muted" \| "gradient"` | `"outline"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     text: "LEMA",
     variant: "outline",

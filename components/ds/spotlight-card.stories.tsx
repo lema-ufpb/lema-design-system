@@ -6,7 +6,31 @@ const meta: Meta<typeof SpotlightCard> = {
   title: "Effects/SpotlightCard",
   component: SpotlightCard,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SpotlightCard component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `spotlightColor` | `string` | — | - |",
+          "| `spotlightRadius` | `number` | — | - |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `radius` | `"sm" \| "md" \| "lg" \| "xl"` | `"xl"` | Variant |',
+          '| `variant` | `"default" \| "muted" \| "outline"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
 }
 
 export default meta

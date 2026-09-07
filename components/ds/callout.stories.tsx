@@ -5,11 +5,25 @@ import { RocketIcon } from "lucide-react"
 const meta = {
   title: "Data Display/Callout",
   component: Callout,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component: "An alert component with semantic variants for callouts.",
+        component: [
+          "An alert component with semantic variants for callouts.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `icon` | `React.ReactNode` | — | - |",
+          '| `variant` | `"default" \| "info" \| "success" \| "warning" \| "destructive"` | `"default"` | Variant |',
+        ].join("\n"),
       },
     },
   },

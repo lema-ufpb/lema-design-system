@@ -7,6 +7,28 @@ const meta = {
   component: SocialAuthGroup,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A SocialAuthGroup component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `providers` | `SocialProvider[]` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | — | - |',
+          "| `loadingProvider` | `SocialProvider \| null` | — | - |",
+          "| `disabled` | `boolean` | — | - |",
+          "| `onSelect` | `(provider: SocialProvider) => void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `layout` | `"stacked" \| "inline" \| "grid"` | `"stacked"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

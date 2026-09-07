@@ -3,9 +3,32 @@ import { fn } from "storybook/test"
 import { FooterNewsletter } from "./footer-newsletter"
 
 const meta: Meta<typeof FooterNewsletter> = {
-  title: "Blocks/FooterNewsletter",
+  title: "Footer/FooterNewsletter",
   component: FooterNewsletter,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FooterNewsletter component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `title` | `string` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `onSubscribe` | `(email: string) => Promise<boolean \| void> \| void` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `showPrivacyNotice` | `boolean` | — | - |",
+          '| `layout` | `"inline" \| "stacked"` | `"inline"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   args: {
     layout: "inline",
     onSubscribe: fn(),

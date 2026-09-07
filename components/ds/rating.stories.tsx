@@ -10,32 +10,49 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "Componente interativo para avaliação baseada em ícones (estrelas).",
+        component: [
+          "Interactive rating component using icon-based (star) evaluation.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `number` | — | The current rating value. |",
+          "| `max` | `number` | — | The maximum rating value. Defaults to 5. |",
+          "| `readonly` | `boolean` | — | Disables interaction and hover states. |",
+          '| `disabled` | `"true" \| "false"` | — | Disables the component entirely (opacity). |',
+          "| `onChange` | `(value: number) => void` | — | Callback when a star is clicked. |",
+          "| `icon` | `React.ElementType` | — | Custom icon component to render. Defaults to StarIcon. |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+          '| `interactive` | `"true" \| "false"` | — | Variant |',
+        ].join("\n"),
       },
     },
   },
   argTypes: {
     value: {
       control: "number",
-      description: "Valor atual da avaliação.",
+      description: "Current rating value.",
     },
     max: {
       control: "number",
-      description: "Valor máximo da escala (quantidade de estrelas).",
+      description: "Maximum scale value (number of stars).",
     },
     size: {
       control: "radio",
       options: ["sm", "md", "lg"],
-      description: "Tamanho das estrelas.",
+      description: "Star size.",
     },
     readonly: {
       control: "boolean",
-      description: "Desabilita a interação com o componente.",
+      description: "Disables interaction with the component.",
     },
     disabled: {
       control: "boolean",
-      description: "Desabilita visualmente o componente.",
+      description: "Visually disables the component.",
     },
   },
 } satisfies Meta<typeof Rating>
@@ -82,7 +99,7 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "O componente suporta 3 tamanhos: sm, md e lg.",
+        story: "The component supports 3 sizes: sm, md and lg.",
       },
     },
   },

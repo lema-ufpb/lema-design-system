@@ -32,10 +32,31 @@ const side = [
 ]
 
 const meta = {
-  title: "Blocks/BlogFeatured",
+  title: "Blog/BlogFeatured",
   component: BlogFeatured,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BlogFeatured component for the LEMA Design System.",
+          "Supports loading state, skeleton, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `featured` | `BlogPost` | — | - |",
+          "| `posts` | `BlogPost[]` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "padded",
+  },
 } satisfies Meta<typeof BlogFeatured>
 
 export default meta

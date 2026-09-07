@@ -5,12 +5,27 @@ import { ColorPicker } from "./color-picker"
 const meta = {
   title: "Form/ColorPicker",
   component: ColorPicker,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
+        component: [
           "A color picker input combining a native color selector and text input.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `value` | `string` | — | - |",
+          "| `onChange` | `(value: string) => void` | — | - |",
+          "| `invalid` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

@@ -5,6 +5,26 @@ const meta = {
   title: "Data Display/Sortable",
   component: Sortable,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Sortable component for the LEMA Design System.",
+          "Supports CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `SortableItem[]` | — | - |",
+          "| `onReorder` | `(items: SortableItem[]) => void` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Sortable>
 
 export default meta

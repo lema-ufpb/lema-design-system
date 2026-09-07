@@ -2,9 +2,29 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Schedule } from "./schedule"
 
 const meta = {
-  title: "Blocks/Schedule",
+  title: "Dashboard/Schedule",
   component: Schedule,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Schedule component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `days` | `string[]` | — | - |",
+          "| `slots` | `ScheduleSlot[][]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Schedule>
 
 export default meta

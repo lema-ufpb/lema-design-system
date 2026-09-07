@@ -8,9 +8,29 @@ const items = [
 ]
 
 const meta = {
-  title: "Blocks/FaqsSupport",
+  title: "FAQ/FaqsSupport",
   component: FaqsSupport,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A FaqsSupport component for the LEMA Design System.",
+          "Supports i18n.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `supportTitle` | `string` | — | - |",
+          "| `supportDescription` | `string` | — | - |",
+          "| `supportAction` | `{ label: string` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof FaqsSupport>
 
 export default meta

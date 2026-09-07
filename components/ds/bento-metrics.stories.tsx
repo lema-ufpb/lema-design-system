@@ -14,14 +14,29 @@ const stats = [
 ]
 
 const meta = {
-  title: "Blocks/BentoMetrics",
+  title: "Bento/BentoMetrics",
   component: BentoMetrics,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A bento grid pairing a bar chart tile with a strip of stat tiles — composed from BentoGrid, BarChart and CardStat.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `stats` | `BentoMetricsStat[]` | — | - |",
+          "| `chartTitle` | `string` | — | - |",
+          "| `chartData` | `Record<string, string \| number>[]` | — | - |",
+          "| `chartDataKeys` | `BarChartKey[] \| string[]` | — | - |",
+          "| `chartCategoryKey` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

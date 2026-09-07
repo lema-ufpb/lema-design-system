@@ -5,7 +5,34 @@ const meta: Meta<typeof Screenshot> = {
   title: "Media/Screenshot",
   component: Screenshot,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Screenshot component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `src` | `string` | — | - |",
+          "| `srcDark` | `string` | — | - |",
+          "| `alt` | `string` | — | - |",
+          "| `width` | `number` | — | - |",
+          "| `height` | `number` | — | - |",
+          "| `loadingState` | `boolean` | — | - |",
+          "| `priority` | `boolean` | — | - |",
+          '| `rounded` | `"none" \| "sm" \| "md" \| "lg" \| "xl"` | `"xl"` | Variant |',
+          '| `shadow` | `"none" \| "sm" \| "md" \| "lg" \| "xl"` | `"lg"` | Variant |',
+          '| `aspect` | `"auto" \| "video" \| "square"` | `"auto"` | Variant |',
+        ].join("\n"),
+      },
+    },
+    layout: "centered",
+  },
   argTypes: {
     rounded: {
       control: "inline-radio",

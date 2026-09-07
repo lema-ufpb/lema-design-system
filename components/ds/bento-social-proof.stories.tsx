@@ -31,14 +31,27 @@ const logos = ["Forbes", "TechCrunch", "Wired", "The Verge"].map((name) => ({
 }))
 
 const meta = {
-  title: "Blocks/BentoSocialProof",
+  title: "Bento/BentoSocialProof",
   component: BentoSocialProof,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A bento grid mixing testimonial tiles with a press/logo wall tile — composed from BentoGrid, PullQuote and PressWall.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `quotes` | `BentoSocialProofQuote[]` | — | - |",
+          "| `logos` | `BentoSocialProofLogo[]` | — | - |",
+          "| `logosLabel` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

@@ -8,9 +8,30 @@ const tasks = [
 ]
 
 const meta = {
-  title: "Kibo/Gantt",
+  title: "Data Display/Gantt",
   component: Gantt,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Gantt component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `tasks` | `GanttTask[]` | — | - |",
+          "| `range` | `[number, number]` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          '| `size` | `"sm" \| "md"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Gantt>
 
 export default meta

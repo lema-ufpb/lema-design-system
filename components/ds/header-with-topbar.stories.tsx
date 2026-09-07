@@ -10,10 +10,50 @@ const nav = [
 ]
 
 const meta = {
-  title: "Blocks/HeaderWithTopbar",
+  title: "Header/HeaderWithTopbar",
   component: HeaderWithTopbar,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A HeaderWithTopbar component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `brand` | `HeaderBrandProps` | — | - |",
+          "| `navItems` | `HeaderNavItem[]` | — | - |",
+          "| `actions` | `HeaderActionItem[]` | — | - |",
+          "| `email` | `string` | — | - |",
+          "| `phone` | `string` | — | - |",
+          "| `socials` | `SocialLinkItem[]` | — | - |",
+          "| `localeSelector` | `React.ReactNode` | — | - |",
+          "| `topbarAnnouncement` | `React.ReactNode` | — | - |",
+          "| `announcement` | `{` | — | - |",
+          "| `children` | `React.ReactNode` | — | - |",
+          "| `href` | `string` | — | - |",
+          "| `tag` | `string` | — | - |",
+          "| `dismissible` | `boolean` | — | - |",
+          "| `onDismiss` | `() => void` | — | - |",
+          '| `variant` | `"default" \| "outline" \| "glow"` | — | - |',
+          "| `showSearch` | `boolean` | — | - |",
+          "| `onSearch` | `(value: string) => void` | — | - |",
+          "| `searchPlaceholder` | `string` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | — | - |',
+          '| `variant` | `"default" \| "blurred" \| "transparent" \| "solid"` | — | - |',
+          "| `sticky` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+    layout: "fullscreen",
+  },
 } satisfies Meta<typeof HeaderWithTopbar>
 
 export default meta

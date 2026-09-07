@@ -17,8 +17,24 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "Combobox que permite selecionar múltiplos itens de uma lista.",
+        component: [
+          "Combobox that allows selecting multiple items from a list.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `options` | `Option[]` | — | - |",
+          "| `value` | `string[]` | — | - |",
+          "| `onChange` | `(value: string[]) => void` | — | - |",
+          "| `placeholder` | `string` | — | - |",
+          "| `maxCount` | `number` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },
@@ -29,7 +45,7 @@ const meta = {
     maxCount: {
       control: "number",
       description:
-        "Número máximo de badges exibidos antes de agrupar (+X selecionados).",
+        "Maximum number of badges displayed before collapsing (+X selected).",
     },
     size: {
       control: "radio",
@@ -85,7 +101,7 @@ export const MaxCount: Story = {
     docs: {
       description: {
         story:
-          "Com `maxCount=2`, ao selecionar 3 itens, ele mostrará os 2 primeiros e '+1 selecionados'.",
+          "With `maxCount=2`, selecting 3 items shows the first 2 and '+1 selected'.",
       },
     },
   },
@@ -117,7 +133,7 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "O componente suporta 3 tamanhos de badge: sm, md e lg.",
+        story: "The component supports 3 badge sizes: sm, md and lg.",
       },
     },
   },

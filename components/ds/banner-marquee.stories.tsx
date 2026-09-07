@@ -5,6 +5,31 @@ const meta = {
   title: "Navigation/BannerMarquee",
   component: BannerMarquee,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A BannerMarquee component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `string[]` | — | - |",
+          "| `separator` | `React.ReactNode` | — | - |",
+          '| `speed` | `"slow" \| "normal" \| "fast"` | — | - |',
+          '| `direction` | `"left" \| "right"` | — | - |',
+          "| `pauseOnHover` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `intent` | `"default" \| "promo" \| "contrast"` | `"default"` | Variant |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
+      },
+    },
+  },
   argTypes: {
     intent: { control: "select", options: ["default", "promo", "contrast"] },
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },

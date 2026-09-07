@@ -3,10 +3,31 @@ import { expect, within } from "storybook/test"
 import { MissionVisionCards } from "./mission-vision-cards"
 
 const meta: Meta<typeof MissionVisionCards> = {
-  title: "Blocks/MissionVisionCards",
+  title: "About/MissionVisionCards",
   component: MissionVisionCards,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A MissionVisionCards component for the LEMA Design System.",
+          "Supports i18n and CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `missionTitle` | `string` | — | - |",
+          "| `missionText` | `string` | — | - |",
+          "| `visionTitle` | `string` | — | - |",
+          "| `visionText` | `string` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "elevated"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

@@ -3,10 +3,31 @@ import { fn } from "storybook/test"
 import { ForgotPasswordForm } from "./forgot-password-form"
 
 const meta = {
-  title: "Blocks/ForgotPasswordForm",
+  title: "Auth/ForgotPasswordForm",
   component: ForgotPasswordForm,
   tags: ["autodocs"],
   parameters: {
+    docs: {
+      description: {
+        component: [
+          "A ForgotPasswordForm component for the LEMA Design System.",
+          "Supports loading state, i18n support, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `onSubmit` | `(email: string) => Promise<boolean \| void> \| void` | — | - |",
+          "| `onBackToLogin` | `() => void` | — | - |",
+          "| `resendCooldown` | `number` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          '| `variant` | `"default" \| "flat"` | `"default"` | Variant |',
+        ].join("\n"),
+      },
+    },
     layout: "centered",
   },
   args: {

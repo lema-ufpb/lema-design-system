@@ -27,12 +27,24 @@ function Wordmark({ children }: { children: string }) {
 const meta = {
   title: "Data Display/PressWall",
   component: PressWall,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A static grid of press mentions or award logos, the non-scrolling counterpart to Marquee. Logos grow to color on hover/focus.",
+          "Supports skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          '| `kicker` | `string` | — | /** Small uppercase label above the logo grid, e.g. "As seen in". */ |',
+          '| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Variant |',
+        ].join("\n"),
       },
     },
   },

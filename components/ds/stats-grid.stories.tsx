@@ -29,6 +29,27 @@ const meta = {
   title: "Stats/StatsGrid",
   component: StatsGrid,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A StatsGrid component for the LEMA Design System.",
+          "Supports loading state, i18n support.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `items` | `StatsProps[]` | — | - |",
+          "| `columns` | `2 \| 3 \| 4` | — | - |",
+          "| `locale` | `UILocale` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof StatsGrid>
 
 export default meta

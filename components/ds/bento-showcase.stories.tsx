@@ -2,14 +2,29 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { BentoShowcase } from "./bento-showcase"
 
 const meta = {
-  title: "Blocks/BentoShowcase",
+  title: "Bento/BentoShowcase",
   component: BentoShowcase,
+  tags: ["autodocs"],
   parameters: {
     layout: "padded",
     docs: {
       description: {
-        component:
+        component: [
           "A bento grid showcasing a product screenshot, a terminal preview and an install snippet — composed from BentoGrid, FloatingCard, BrowserMockup and CopyBlock.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `screenshot` | `React.ReactNode` | — | /** Rendered inside the large FloatingCard tile (e.g. an <img>). */ |",
+          "| `browserUrl` | `string` | — | - |",
+          '| `browserVariant` | `BrowserMockupProps["variant"]` | — | - |',
+          "| `browserContent` | `React.ReactNode` | — | /** Rendered inside the terminal/browser tile. */ |",
+          "| `codeSnippet` | `string` | — | - |",
+        ].join("\n"),
       },
     },
   },

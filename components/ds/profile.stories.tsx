@@ -2,9 +2,32 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Profile } from "./profile"
 
 const meta = {
-  title: "Blocks/Profile",
+  title: "Dashboard/Profile",
   component: Profile,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Profile component for the LEMA Design System.",
+          "Supports loading state, skeleton.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `name` | `string` | — | - |",
+          "| `role` | `string` | — | - |",
+          "| `bio` | `string` | — | - |",
+          "| `avatarUrl` | `string` | — | - |",
+          "| `stats` | `{ label: string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Profile>
 
 export default meta

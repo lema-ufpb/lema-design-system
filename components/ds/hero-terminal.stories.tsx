@@ -3,14 +3,31 @@ import { Button } from "@/components/ui/button"
 import { HeroTerminal } from "./hero-terminal"
 
 const meta = {
-  title: "Blocks/HeroTerminal",
+  title: "Hero/HeroTerminal",
   component: HeroTerminal,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {
       description: {
-        component:
+        component: [
           "Split hero with a terminal/browser preview — composed from HeroSection, BackgroundGlow and BrowserMockup.",
+          "Composable and theme-aware via semantic tokens.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `kicker` | `string` | — | - |",
+          "| `title` | `React.ReactNode` | — | - |",
+          "| `description` | `string` | — | - |",
+          "| `actions` | `React.ReactNode` | — | - |",
+          "| `browserUrl` | `string` | — | - |",
+          '| `browserVariant` | `BrowserMockupProps["variant"]` | — | - |',
+          '| `glowTone` | `BackgroundGlowProps["tone"]` | — | - |',
+        ].join("\n"),
       },
     },
   },

@@ -2,9 +2,29 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Settings } from "./settings"
 
 const meta = {
-  title: "Blocks/Settings",
+  title: "Dashboard/Settings",
   component: Settings,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          "A Settings component for the LEMA Design System.",
+          "Supports loading state, skeleton, CVA variants.",
+          "",
+          "---",
+          "",
+          "## Props",
+          "",
+          "| Prop | Type | Default | Description |",
+          "| --- | --- | --- | --- |",
+          "| `tabs` | `SettingsTab[]` | — | - |",
+          "| `defaultTab` | `string` | — | - |",
+          "| `loading` | `boolean` | — | - |",
+        ].join("\n"),
+      },
+    },
+  },
 } satisfies Meta<typeof Settings>
 
 export default meta
