@@ -83,7 +83,10 @@ export function Screenshot({
         aria-live="polite"
         aria-busy="true"
         aria-label="Carregando captura de tela"
-        className={cn(screenshotVariants({ rounded, shadow, aspect }), className)}
+        className={cn(
+          screenshotVariants({ rounded, shadow, aspect }),
+          className
+        )}
         style={{ width: "100%", aspectRatio: `${width}/${height}` }}
       />
     )
