@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.10.1](https://github.com/lema-ufpb/design-system/compare/v1.10.0...v1.10.1) (2026-09-07)
+
+### 📚 Documentation
+
+- **specs:** add missing ds specs for animated-number, border-beam, form-builder and scroll-reveal — 100% coverage for 261 ds components ([78824e9](https://github.com/lema-ufpb/design-system/commit/78824e9))
+- **stories:** standardize Storybook docs to en-US Data API pattern (261 ds stories, accordion-style `component: [...].join("\n")` + Props table) ([e738ea0](https://github.com/lema-ufpb/design-system/commit/e738ea0))
+- **docs:** refresh Introduction for 326 registry items (261 ds-* + 61 primitives + 4 libs) ([526402d](https://github.com/lema-ufpb/design-system/commit/526402d))
+
+### 🐛 Bug Fixes
+
+- **i18n:** translate pt-BR story docs to en-US (copy-block, date-picker, file-upload, multi-select, rating, timeline)
+
 ## [1.10.0](https://github.com/lema-ufpb/design-system/compare/v1.9.4...v1.10.0) (2026-09-06)
 
 ### ✨ Features
