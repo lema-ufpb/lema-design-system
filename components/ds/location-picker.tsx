@@ -65,9 +65,8 @@ export const locationPickerTriggerVariants = cva(
   [
     "flex h-9 w-full items-center gap-2 rounded-lg border border-input bg-background px-3 py-2",
     "text-sm text-foreground ring-offset-background",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+    "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    "cursor-pointer",
   ].join(" "),
   {
     variants: {},
@@ -145,54 +144,58 @@ export function LocationPicker({
       {...props}
     >
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <div
-            className={cn(
-              locationPickerTriggerVariants(),
-              disabled && "pointer-events-none"
-            )}
-            role="button"
-            aria-expanded={open}
-            aria-haspopup="dialog"
-            aria-label={placeholder}
-            tabIndex={disabled ? -1 : 0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault()
-                if (!disabled) setOpen(true)
-              }
-            }}
-          >
-            <MapPin className="size-4 shrink-0 text-muted-foreground" />
-            {value ? (
-              <div className="flex flex-1 items-center gap-2 overflow-hidden">
-                <span className="flex-1 truncate text-foreground">
-                  {value.label}
-                </span>
-                {value.description && (
-                  <span className="shrink-0 truncate text-xs text-muted-foreground">
-                    {value.description}
+        <div
+          className={cn(
+            locationPickerTriggerVariants(),
+            disabled && "pointer-events-none"
+          )}
+        >
+          <PopoverTrigger asChild>
+            <div
+              className="flex min-w-0 flex-1 cursor-pointer items-center gap-2 outline-none"
+              role="button"
+              aria-expanded={open}
+              aria-haspopup="dialog"
+              aria-label={placeholder}
+              tabIndex={disabled ? -1 : 0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  if (!disabled) setOpen(true)
+                }
+              }}
+            >
+              <MapPin className="size-4 shrink-0 text-muted-foreground" />
+              {value ? (
+                <div className="flex flex-1 items-center gap-2 overflow-hidden">
+                  <span className="flex-1 truncate text-foreground">
+                    {value.label}
                   </span>
-                )}
-              </div>
-            ) : (
-              <span className="flex-1 text-muted-foreground">
-                {placeholder}
-              </span>
-            )}
-            {clearable && value && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="size-5 shrink-0"
-                onClick={handleClear}
-                aria-label="Clear location"
-              >
-                <X className="size-3" />
-              </Button>
-            )}
-          </div>
-        </PopoverTrigger>
+                  {value.description && (
+                    <span className="shrink-0 truncate text-xs text-muted-foreground">
+                      {value.description}
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <span className="flex-1 text-muted-foreground">
+                  {placeholder}
+                </span>
+              )}
+            </div>
+          </PopoverTrigger>
+          {clearable && value && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-5 shrink-0"
+              onClick={handleClear}
+              aria-label="Clear location"
+            >
+              <X className="size-3" />
+            </Button>
+          )}
+        </div>
         <PopoverContent
           className="w-full min-w-72 p-0"
           align="start"

@@ -119,6 +119,17 @@ function renderMarkdown(md: string): string {
     '<li class="ml-4 list-decimal text-sm">$1</li>'
   )
 
+  // Wrap consecutive list items in <ul>/<ol> (list items must be contained
+  // in a list element for the outline to be valid and accessible)
+  html = html.replace(
+    /(?:^<li class="ml-4 list-disc text-sm">.*<\/li>\n?)+/gm,
+    (match) => `<ul class="my-2">${match.trim()}</ul>`
+  )
+  html = html.replace(
+    /(?:^<li class="ml-4 list-decimal text-sm">.*<\/li>\n?)+/gm,
+    (match) => `<ol class="my-2">${match.trim()}</ol>`
+  )
+
   // Bold
   html = html.replace(
     /\*\*(.+?)\*\*/g,
@@ -150,7 +161,8 @@ function renderMarkdown(md: string): string {
         block.startsWith("<pre") ||
         block.startsWith("<blockquote") ||
         block.startsWith("<hr") ||
-        block.startsWith("<li")
+        block.startsWith("<ul") ||
+        block.startsWith("<ol")
       ) {
         return block
       }
