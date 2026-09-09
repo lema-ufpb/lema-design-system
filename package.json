@@ -9,7 +9,7 @@
     "lint": "eslint && tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md,mdx}\"",
-    "registry:build": "shadcn build",
+    "registry:build": "shadcn build && node scripts/fix-registry-relative-imports.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run",
