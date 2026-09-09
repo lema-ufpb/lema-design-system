@@ -43,6 +43,7 @@ import {
   Users,
   Quote,
   Wrench,
+  BarChart2,
 } from "lucide-react"
 
 export const DOCS_FONT =
@@ -59,10 +60,10 @@ _Design system oficial do LEMA/UFPB — acessível, temático e pronto para prod
 <Unstyled>
   <div className="flex flex-wrap gap-2" style={{ fontFamily: DOCS_FONT }}>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      326 itens no registry
+      340 itens no registry
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      261 componentes ds-*
+      275 componentes ds-*
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
       61 primitivos shadcn
@@ -94,7 +95,7 @@ A primeira camada é a **fundação**: o "DNA" do design system. São os tokens 
 
 A segunda camada são os **primitivos shadcn/ui**: 61 componentes atômicos e acessíveis vivendo em `components/ui/`, a base literal de tudo o que vem depois. Eles nunca são editados manualmente — qualquer ajuste ali se perde na próxima atualização — então toda mudança passa pelo CLI oficial, `npx shadcn@latest add <componente> --yes`. É onde moram os alicerces de formulário ([Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Field](/docs/shadcn-ui-field--docs)…), as sobreposições ([Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Sheet](/docs/shadcn-ui-sheet--docs)…), a exibição de dados ([Card](/docs/shadcn-ui-card--docs), [Table](/docs/shadcn-ui-table--docs), [Avatar](/docs/shadcn-ui-avatar--docs)…) e até uma família inteira de chat ([Bubble](/docs/shadcn-ui-bubble--docs), [Message](/docs/shadcn-ui-message--docs), [MessageScroller](/docs/shadcn-ui-messagescroller--docs)).
 
-A terceira camada é onde o design system ganha personalidade: os **componentes LEMA-DS**. São 261 composições em `components/ds/`, mais quatro bibliotecas compartilhadas (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/chart-axis-width.ts`, `lib/card-stats-shared.tsx`). Cada uma entra no `registry.json` com o prefixo `ds-` e é instalável com `npx shadcn@latest add ds-<nome>` — o arquivo cai direto em `components/ui/ds-<nome>.tsx`, sem colidir com o primitivo que estende. Como este é um design system spec-first, cada componente também carrega sua spec em `docs/specs/ds-<nome>.md` e sua história (`.stories.tsx`) lado a lado no código.
+A terceira camada é onde o design system ganha personalidade: os **componentes LEMA-DS**. São 275 composições em `components/ds/`, mais quatro bibliotecas compartilhadas (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/chart-axis-width.ts`, `lib/card-stats-shared.tsx`). Cada uma entra no `registry.json` com o prefixo `ds-` e é instalável com `npx shadcn@latest add ds-<nome>` — o arquivo cai direto em `components/ui/ds-<nome>.tsx`, sem colidir com o primitivo que estende. Como este é um design system spec-first, cada componente também carrega sua spec em `docs/specs/ds-<nome>.md` e sua história (`.stories.tsx`) lado a lado no código.
 
 ### Explore por categoria
 
@@ -284,10 +285,10 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         </span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Tabelas, gráficos, cards de estatística e mais.
+        Tabelas, gráficos, cards de estatística, listas virtualizadas e mais.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        57 itens
+        63 itens
       </span>
     </a>
     <a
@@ -332,10 +333,10 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Feedback</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Loaders, progresso, avisos e estados de erro.
+        Loaders, progresso, avisos, confetti e empty states ilustrados.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        10 itens
+        12 itens
       </span>
     </a>
     <a
@@ -368,10 +369,29 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Forms</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        De inputs simples a upload de arquivo e seleção múltipla.
+        De inputs simples a upload de arquivo e seleção múltipla — incluindo
+        cron builder, editor Markdown, assinatura e localização.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        27 itens
+        31 itens
+      </span>
+    </a>
+    <a
+      href="/?path=/docs/charts-funnelchart--docs"
+      className="group flex flex-col gap-1.5 rounded-xl border border-border bg-card p-4 no-underline transition-colors hover:border-foreground/20 hover:bg-accent"
+    >
+      <div className="flex items-center gap-2">
+        <BarChart2
+          className="size-5 text-muted-foreground"
+          aria-hidden="true"
+        />
+        <span className="text-sm font-semibold text-foreground">Charts</span>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Funnel, Waterfall, Sankey e Bullet — visualizações de negócio avançadas.
+      </div>
+      <span className="text-xs font-medium text-muted-foreground tabular-nums">
+        4 itens
       </span>
     </a>
     <a
@@ -502,10 +522,10 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Media</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Screenshot, mockup e visualização de imagem/vídeo.
+        Screenshot, mockup, audio player, file preview e visualização de mídia.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        6 itens
+        8 itens
       </span>
     </a>
     <a

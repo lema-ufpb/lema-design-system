@@ -6799,6 +6799,262 @@
           "target": "components/ui/ds-fade.tsx"
         }
       ]
+    },
+    {
+      "name": "ds-funnel-chart",
+      "type": "registry:ui",
+      "description": "Funnel chart for visualizing conversion rates between sequential stages.",
+      "files": [
+        {
+          "path": "components/ds/funnel-chart.tsx",
+          "target": "components/ui/ds-funnel-chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "chart",
+        "skeleton",
+        "card",
+        "ui-i18n",
+        "format-utils"
+      ]
+    },
+    {
+      "name": "ds-waterfall-chart",
+      "type": "registry:ui",
+      "description": "Waterfall chart for cumulative positive/negative value bridges.",
+      "files": [
+        {
+          "path": "components/ds/waterfall-chart.tsx",
+          "target": "components/ui/ds-waterfall-chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "chart",
+        "skeleton",
+        "card",
+        "ui-i18n",
+        "format-utils"
+      ]
+    },
+    {
+      "name": "ds-sankey-chart",
+      "type": "registry:ui",
+      "description": "Sankey diagram using pure SVG — no external dependencies.",
+      "files": [
+        {
+          "path": "components/ds/sankey-chart.tsx",
+          "target": "components/ui/ds-sankey-chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "card",
+        "ui-i18n",
+        "format-utils"
+      ]
+    },
+    {
+      "name": "ds-bullet-chart",
+      "type": "registry:ui",
+      "description": "Compact bullet chart with qualitative range bands, value bar, and target marker.",
+      "files": [
+        {
+          "path": "components/ds/bullet-chart.tsx",
+          "target": "components/ui/ds-bullet-chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "tooltip",
+        "ui-i18n",
+        "format-utils"
+      ]
+    },
+    {
+      "name": "ds-virtual-list",
+      "type": "registry:ui",
+      "description": "Virtualized list for rendering large datasets without performance degradation.",
+      "files": [
+        {
+          "path": "components/ds/virtual-list.tsx",
+          "target": "components/ui/ds-virtual-list.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "scroll-area"
+      ],
+      "dependencies": [
+        "@tanstack/react-virtual"
+      ]
+    },
+    {
+      "name": "ds-diff-viewer",
+      "type": "registry:ui",
+      "description": "Line-level diff viewer with unified and split modes. No external dependencies.",
+      "files": [
+        {
+          "path": "components/ds/diff-viewer.tsx",
+          "target": "components/ui/ds-diff-viewer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "badge",
+        "card",
+        "toggle-group"
+      ]
+    },
+    {
+      "name": "ds-cron-builder",
+      "type": "registry:ui",
+      "description": "Visual cron expression builder with simple and advanced modes.",
+      "files": [
+        {
+          "path": "components/ds/cron-builder.tsx",
+          "target": "components/ui/ds-cron-builder.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "button",
+        "label",
+        "input",
+        "badge",
+        "select",
+        "toggle-group",
+        "tabs",
+        "ui-i18n"
+      ]
+    },
+    {
+      "name": "ds-markdown-editor",
+      "type": "registry:ui",
+      "description": "Markdown editor with edit/preview/split modes, toolbar, and fullscreen.",
+      "files": [
+        {
+          "path": "components/ds/markdown-editor.tsx",
+          "target": "components/ui/ds-markdown-editor.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "button",
+        "separator",
+        "toggle-group"
+      ]
+    },
+    {
+      "name": "ds-signature-pad",
+      "type": "registry:ui",
+      "description": "Signature input using HTML Canvas with mouse/touch support and Base64 PNG export.",
+      "files": [
+        {
+          "path": "components/ds/signature-pad.tsx",
+          "target": "components/ui/ds-signature-pad.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "button",
+        "label"
+      ]
+    },
+    {
+      "name": "ds-location-picker",
+      "type": "registry:ui",
+      "description": "Address autocomplete picker with async search callback — decoupled from any geocoding API.",
+      "files": [
+        {
+          "path": "components/ds/location-picker.tsx",
+          "target": "components/ui/ds-location-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "popover",
+        "command",
+        "badge",
+        "button",
+        "ui-i18n"
+      ]
+    },
+    {
+      "name": "ds-audio-player",
+      "type": "registry:ui",
+      "description": "Full-featured audio player using native HTML5 Audio API.",
+      "files": [
+        {
+          "path": "components/ds/audio-player.tsx",
+          "target": "components/ui/ds-audio-player.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "button",
+        "slider",
+        "avatar",
+        "card"
+      ]
+    },
+    {
+      "name": "ds-file-preview",
+      "type": "registry:ui",
+      "description": "File preview card with auto-detected type icons, size formatting and hover actions.",
+      "files": [
+        {
+          "path": "components/ds/file-preview.tsx",
+          "target": "components/ui/ds-file-preview.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "button",
+        "badge"
+      ]
+    },
+    {
+      "name": "ds-confetti",
+      "type": "registry:ui",
+      "description": "Confetti animation with 4 presets. Also exports useConfetti hook.",
+      "files": [
+        {
+          "path": "components/ds/confetti.tsx",
+          "target": "components/ui/ds-confetti.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "canvas-confetti"
+      ]
+    },
+    {
+      "name": "ds-empty-state-illustration",
+      "type": "registry:ui",
+      "description": "Empty state with 8 animated SVG illustrations for common UI contexts.",
+      "files": [
+        {
+          "path": "components/ds/empty-state-illustration.tsx",
+          "target": "components/ui/ds-empty-state-illustration.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "skeleton",
+        "button"
+      ]
     }
   ]
 }
