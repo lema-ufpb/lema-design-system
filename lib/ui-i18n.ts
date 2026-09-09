@@ -538,6 +538,109 @@ export const UI_I18N: Record<
       documents: string
       searchPlaceholder: string
     }
+    pageHeader: {
+      back: string
+      actions: string
+    }
+    dateRangePicker: {
+      selectRange: string
+      today: string
+      yesterday: string
+      last7Days: string
+      last30Days: string
+      thisMonth: string
+      lastMonth: string
+      customRange: string
+      clear: string
+    }
+    inlineEdit: {
+      clickToEdit: string
+      save: string
+      cancel: string
+      saving: string
+      placeholder: string
+    }
+    confirmDialog: {
+      confirm: string
+      cancel: string
+      typeToConfirm: string
+      confirmWord: string
+    }
+    activityFeed: {
+      empty: string
+      loading: string
+      viewMore: string
+      justNow: string
+    }
+    sparkline: {
+      currentValue: string
+    }
+    transferList: {
+      available: string
+      selected: string
+      searchPlaceholder: string
+      moveRight: string
+      moveLeft: string
+      moveAllRight: string
+      moveAllLeft: string
+      noItems: string
+    }
+    metricComparison: {
+      current: string
+      previous: string
+      increase: string
+      decrease: string
+      noChange: string
+    }
+    statusPage: {
+      allOperational: string
+      degradedPerformance: string
+      partialOutage: string
+      majorOutage: string
+      uptime90Days: string
+      today: string
+      daysAgo90: string
+      operational: string
+      degraded: string
+      outage: string
+    }
+    avatarPresence: {
+      online: string
+      offline: string
+      busy: string
+      away: string
+    }
+    skeletonLayout: {
+      loading: string
+    }
+    shortcutSheet: {
+      title: string
+      description: string
+      searchPlaceholder: string
+      noShortcuts: string
+      press: string
+    }
+    changelog: {
+      latest: string
+      viewDetails: string
+      features: string
+      fixes: string
+      improvements: string
+      breaking: string
+    }
+    featureSpotlight: {
+      next: string
+      previous: string
+      gotIt: string
+      dismiss: string
+      step: string
+      of: string
+    }
+    emptyAction: {
+      primaryAction: string
+      secondaryAction: string
+      recommended: string
+    }
   }
 > = {
   "en-US": {
@@ -1109,6 +1212,109 @@ export const UI_I18N: Record<
     dashboard: {
       documents: "Documents",
       searchPlaceholder: "Search...",
+    },
+    pageHeader: {
+      back: "Back",
+      actions: "Actions",
+    },
+    dateRangePicker: {
+      selectRange: "Select a date range",
+      today: "Today",
+      yesterday: "Yesterday",
+      last7Days: "Last 7 days",
+      last30Days: "Last 30 days",
+      thisMonth: "This month",
+      lastMonth: "Last month",
+      customRange: "Custom range",
+      clear: "Clear",
+    },
+    inlineEdit: {
+      clickToEdit: "Click to edit",
+      save: "Save",
+      cancel: "Cancel",
+      saving: "Saving...",
+      placeholder: "Click to add text...",
+    },
+    confirmDialog: {
+      confirm: "Confirm",
+      cancel: "Cancel",
+      typeToConfirm: "Type {word} to confirm:",
+      confirmWord: "DELETE",
+    },
+    activityFeed: {
+      empty: "No recent activity",
+      loading: "Loading activity...",
+      viewMore: "View more activity",
+      justNow: "Just now",
+    },
+    sparkline: {
+      currentValue: "Current value",
+    },
+    transferList: {
+      available: "Available items",
+      selected: "Selected items",
+      searchPlaceholder: "Search items...",
+      moveRight: "Move selected right",
+      moveLeft: "Move selected left",
+      moveAllRight: "Move all right",
+      moveAllLeft: "Move all left",
+      noItems: "No items found",
+    },
+    metricComparison: {
+      current: "Current",
+      previous: "Previous",
+      increase: "increase",
+      decrease: "decrease",
+      noChange: "no change",
+    },
+    statusPage: {
+      allOperational: "All Systems Operational",
+      degradedPerformance: "Degraded Performance",
+      partialOutage: "Partial System Outage",
+      majorOutage: "Major System Outage",
+      uptime90Days: "90 days ago",
+      today: "Today",
+      daysAgo90: "90 days ago",
+      operational: "Operational",
+      degraded: "Degraded",
+      outage: "Outage",
+    },
+    avatarPresence: {
+      online: "Online",
+      offline: "Offline",
+      busy: "Busy",
+      away: "Away",
+    },
+    skeletonLayout: {
+      loading: "Loading content...",
+    },
+    shortcutSheet: {
+      title: "Keyboard Shortcuts",
+      description: "Available keyboard shortcuts to speed up your workflow",
+      searchPlaceholder: "Search shortcuts...",
+      noShortcuts: "No shortcuts found",
+      press: "Press",
+    },
+    changelog: {
+      latest: "Latest release",
+      viewDetails: "View details",
+      features: "New Features",
+      fixes: "Bug Fixes",
+      improvements: "Improvements",
+      breaking: "Breaking Changes",
+    },
+    featureSpotlight: {
+      next: "Next",
+      previous: "Previous",
+      gotIt: "Got it",
+      dismiss: "Dismiss",
+      step: "Step",
+      of: "of",
+    },
+    emptyAction: {
+      primaryAction: "Get started",
+      secondaryAction: "Learn more",
+      recommended: "Recommended steps",
     },
   },
   "pt-BR": {
@@ -1690,6 +1896,110 @@ export const UI_I18N: Record<
       documents: "Documentos",
       searchPlaceholder: "Buscar...",
     },
+    pageHeader: {
+      back: "Voltar",
+      actions: "Ações",
+    },
+    dateRangePicker: {
+      selectRange: "Selecione um período",
+      today: "Hoje",
+      yesterday: "Ontem",
+      last7Days: "Últimos 7 dias",
+      last30Days: "Últimos 30 dias",
+      thisMonth: "Este mês",
+      lastMonth: "Mês passado",
+      customRange: "Período personalizado",
+      clear: "Limpar",
+    },
+    inlineEdit: {
+      clickToEdit: "Clique para editar",
+      save: "Salvar",
+      cancel: "Cancelar",
+      saving: "Salvando...",
+      placeholder: "Clique para adicionar texto...",
+    },
+    confirmDialog: {
+      confirm: "Confirmar",
+      cancel: "Cancelar",
+      typeToConfirm: "Digite {word} para confirmar:",
+      confirmWord: "EXCLUIR",
+    },
+    activityFeed: {
+      empty: "Nenhuma atividade recente",
+      loading: "Carregando atividades...",
+      viewMore: "Ver mais atividades",
+      justNow: "Agora mesmo",
+    },
+    sparkline: {
+      currentValue: "Valor atual",
+    },
+    transferList: {
+      available: "Itens disponíveis",
+      selected: "Itens selecionados",
+      searchPlaceholder: "Buscar itens...",
+      moveRight: "Mover selecionados para a direita",
+      moveLeft: "Mover selecionados para a esquerda",
+      moveAllRight: "Mover todos para a direita",
+      moveAllLeft: "Mover todos para a esquerda",
+      noItems: "Nenhum item encontrado",
+    },
+    metricComparison: {
+      current: "Atual",
+      previous: "Anterior",
+      increase: "aumento",
+      decrease: "redução",
+      noChange: "sem alteração",
+    },
+    statusPage: {
+      allOperational: "Todos os sistemas operacionais",
+      degradedPerformance: "Desempenho degradado",
+      partialOutage: "Interrupção parcial do sistema",
+      majorOutage: "Interrupção crítica do sistema",
+      uptime90Days: "90 dias atrás",
+      today: "Hoje",
+      daysAgo90: "90 dias atrás",
+      operational: "Operacional",
+      degraded: "Degradado",
+      outage: "Interrupção",
+    },
+    avatarPresence: {
+      online: "Online",
+      offline: "Offline",
+      busy: "Ocupado",
+      away: "Ausente",
+    },
+    skeletonLayout: {
+      loading: "Carregando conteúdo...",
+    },
+    shortcutSheet: {
+      title: "Atalhos de Teclado",
+      description:
+        "Atalhos de teclado disponíveis para agilizar seu fluxo de trabalho",
+      searchPlaceholder: "Buscar atalhos...",
+      noShortcuts: "Nenhum atalho encontrado",
+      press: "Pressione",
+    },
+    changelog: {
+      latest: "Última versão",
+      viewDetails: "Ver detalhes",
+      features: "Novas Funcionalidades",
+      fixes: "Correções",
+      improvements: "Melhorias",
+      breaking: "Mudanças Críticas",
+    },
+    featureSpotlight: {
+      next: "Próximo",
+      previous: "Anterior",
+      gotIt: "Entendi",
+      dismiss: "Dispensar",
+      step: "Passo",
+      of: "de",
+    },
+    emptyAction: {
+      primaryAction: "Começar",
+      secondaryAction: "Saiba mais",
+      recommended: "Passos recomendados",
+    },
   },
   "es-ES": {
     dialog: { close: "Cerrar", title: "Diálogo" },
@@ -2264,6 +2574,110 @@ export const UI_I18N: Record<
     dashboard: {
       documents: "Documentos",
       searchPlaceholder: "Buscar...",
+    },
+    pageHeader: {
+      back: "Volver",
+      actions: "Acciones",
+    },
+    dateRangePicker: {
+      selectRange: "Seleccione un rango de fechas",
+      today: "Hoy",
+      yesterday: "Ayer",
+      last7Days: "Últimos 7 días",
+      last30Days: "Últimos 30 días",
+      thisMonth: "Este mes",
+      lastMonth: "Mes pasado",
+      customRange: "Rango personalizado",
+      clear: "Limpiar",
+    },
+    inlineEdit: {
+      clickToEdit: "Haga clic para editar",
+      save: "Guardar",
+      cancel: "Cancelar",
+      saving: "Guardando...",
+      placeholder: "Haga clic para agregar texto...",
+    },
+    confirmDialog: {
+      confirm: "Confirmar",
+      cancel: "Cancelar",
+      typeToConfirm: "Escriba {word} para confirmar:",
+      confirmWord: "ELIMINAR",
+    },
+    activityFeed: {
+      empty: "Sin actividad reciente",
+      loading: "Cargando actividad...",
+      viewMore: "Ver más actividad",
+      justNow: "Ahora mismo",
+    },
+    sparkline: {
+      currentValue: "Valor actual",
+    },
+    transferList: {
+      available: "Elementos disponibles",
+      selected: "Elementos seleccionados",
+      searchPlaceholder: "Buscar elementos...",
+      moveRight: "Mover seleccionados a la derecha",
+      moveLeft: "Mover seleccionados a la izquierda",
+      moveAllRight: "Mover todos a la derecha",
+      moveAllLeft: "Mover todos a la izquierda",
+      noItems: "No se encontraron elementos",
+    },
+    metricComparison: {
+      current: "Actual",
+      previous: "Anterior",
+      increase: "incremento",
+      decrease: "disminución",
+      noChange: "sin cambios",
+    },
+    statusPage: {
+      allOperational: "Todos los sistemas operacionales",
+      degradedPerformance: "Rendimiento degradado",
+      partialOutage: "Interrupción parcial del sistema",
+      majorOutage: "Interrupción grave del sistema",
+      uptime90Days: "Hace 90 días",
+      today: "Hoy",
+      daysAgo90: "Hace 90 días",
+      operational: "Operacional",
+      degraded: "Degradado",
+      outage: "Interrupción",
+    },
+    avatarPresence: {
+      online: "En línea",
+      offline: "Desconectado",
+      busy: "Ocupado",
+      away: "Ausente",
+    },
+    skeletonLayout: {
+      loading: "Cargando contenido...",
+    },
+    shortcutSheet: {
+      title: "Atajos de Teclado",
+      description:
+        "Atajos de teclado disponibles para acelerar su flujo de trabajo",
+      searchPlaceholder: "Buscar atajos...",
+      noShortcuts: "No se encontraron atajos",
+      press: "Presione",
+    },
+    changelog: {
+      latest: "Última versión",
+      viewDetails: "Ver detalles",
+      features: "Nuevas Funciones",
+      fixes: "Correcciones de Errores",
+      improvements: "Mejoras",
+      breaking: "Cambios Críticos",
+    },
+    featureSpotlight: {
+      next: "Siguiente",
+      previous: "Anterior",
+      gotIt: "Entendido",
+      dismiss: "Descartar",
+      step: "Paso",
+      of: "de",
+    },
+    emptyAction: {
+      primaryAction: "Comenzar",
+      secondaryAction: "Más información",
+      recommended: "Pasos recomendados",
     },
   },
   "fr-FR": {
@@ -2851,6 +3265,110 @@ export const UI_I18N: Record<
     dashboard: {
       documents: "Documents",
       searchPlaceholder: "Rechercher...",
+    },
+    pageHeader: {
+      back: "Retour",
+      actions: "Actions",
+    },
+    dateRangePicker: {
+      selectRange: "Sélectionnez une période",
+      today: "Aujourd'hui",
+      yesterday: "Hier",
+      last7Days: "7 derniers jours",
+      last30Days: "30 derniers jours",
+      thisMonth: "Ce mois-ci",
+      lastMonth: "Mois dernier",
+      customRange: "Période personnalisée",
+      clear: "Effacer",
+    },
+    inlineEdit: {
+      clickToEdit: "Cliquer pour modifier",
+      save: "Enregistrer",
+      cancel: "Annuler",
+      saving: "Enregistrement...",
+      placeholder: "Cliquer pour ajouter du texte...",
+    },
+    confirmDialog: {
+      confirm: "Confirmer",
+      cancel: "Annuler",
+      typeToConfirm: "Tapez {word} pour confirmer :",
+      confirmWord: "SUPPRIMER",
+    },
+    activityFeed: {
+      empty: "Aucune activité récente",
+      loading: "Chargement de l'activité...",
+      viewMore: "Voir plus d'activités",
+      justNow: "À l'instant",
+    },
+    sparkline: {
+      currentValue: "Valeur actuelle",
+    },
+    transferList: {
+      available: "Éléments disponibles",
+      selected: "Éléments sélectionnés",
+      searchPlaceholder: "Rechercher des éléments...",
+      moveRight: "Déplacer la sélection à droite",
+      moveLeft: "Déplacer la sélection à gauche",
+      moveAllRight: "Tout déplacer à droite",
+      moveAllLeft: "Tout déplacer à gauche",
+      noItems: "Aucun élément trouvé",
+    },
+    metricComparison: {
+      current: "Actuel",
+      previous: "Précédent",
+      increase: "augmentation",
+      decrease: "diminution",
+      noChange: "aucun changement",
+    },
+    statusPage: {
+      allOperational: "Tous les systèmes sont opérationnels",
+      degradedPerformance: "Performances dégradées",
+      partialOutage: "Panne partielle du système",
+      majorOutage: "Panne majeure du système",
+      uptime90Days: "Il y a 90 jours",
+      today: "Aujourd'hui",
+      daysAgo90: "Il y a 90 jours",
+      operational: "Opérationnel",
+      degraded: "Dégradé",
+      outage: "Panne",
+    },
+    avatarPresence: {
+      online: "En ligne",
+      offline: "Hors ligne",
+      busy: "Occupé",
+      away: "Absent",
+    },
+    skeletonLayout: {
+      loading: "Chargement du contenu...",
+    },
+    shortcutSheet: {
+      title: "Raccourcis Clavier",
+      description:
+        "Raccourcis clavier disponibles pour accélérer votre travail",
+      searchPlaceholder: "Rechercher des raccourcis...",
+      noShortcuts: "Aucun raccourci trouvé",
+      press: "Appuyez sur",
+    },
+    changelog: {
+      latest: "Dernière version",
+      viewDetails: "Voir les détails",
+      features: "Nouvelles Fonctionnalités",
+      fixes: "Corrections de bugs",
+      improvements: "Améliorations",
+      breaking: "Changements majeurs",
+    },
+    featureSpotlight: {
+      next: "Suivant",
+      previous: "Précédent",
+      gotIt: "Compris",
+      dismiss: "Ignorer",
+      step: "Étape",
+      of: "sur",
+    },
+    emptyAction: {
+      primaryAction: "Commencer",
+      secondaryAction: "En savoir plus",
+      recommended: "Étapes recommandées",
     },
   },
 }

@@ -60,10 +60,10 @@ _Design system oficial do LEMA/UFPB — acessível, temático e pronto para prod
 <Unstyled>
   <div className="flex flex-wrap gap-2" style={{ fontFamily: DOCS_FONT }}>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      340 itens no registry
+      363 itens no registry
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      275 componentes ds-*
+      298 componentes ds-*
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
       61 primitivos shadcn
@@ -95,7 +95,7 @@ A primeira camada é a **fundação**: o "DNA" do design system. São os tokens 
 
 A segunda camada são os **primitivos shadcn/ui**: 61 componentes atômicos e acessíveis vivendo em `components/ui/`, a base literal de tudo o que vem depois. Eles nunca são editados manualmente — qualquer ajuste ali se perde na próxima atualização — então toda mudança passa pelo CLI oficial, `npx shadcn@latest add <componente> --yes`. É onde moram os alicerces de formulário ([Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Field](/docs/shadcn-ui-field--docs)…), as sobreposições ([Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Sheet](/docs/shadcn-ui-sheet--docs)…), a exibição de dados ([Card](/docs/shadcn-ui-card--docs), [Table](/docs/shadcn-ui-table--docs), [Avatar](/docs/shadcn-ui-avatar--docs)…) e até uma família inteira de chat ([Bubble](/docs/shadcn-ui-bubble--docs), [Message](/docs/shadcn-ui-message--docs), [MessageScroller](/docs/shadcn-ui-messagescroller--docs)).
 
-A terceira camada é onde o design system ganha personalidade: os **componentes LEMA-DS**. São 275 composições em `components/ds/`, mais quatro bibliotecas compartilhadas (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/chart-axis-width.ts`, `lib/card-stats-shared.tsx`). Cada uma entra no `registry.json` com o prefixo `ds-` e é instalável com `npx shadcn@latest add ds-<nome>` — o arquivo cai direto em `components/ui/ds-<nome>.tsx`, sem colidir com o primitivo que estende. Como este é um design system spec-first, cada componente também carrega sua spec em `docs/specs/ds-<nome>.md` e sua história (`.stories.tsx`) lado a lado no código.
+A terceira camada é onde o design system ganha personalidade: os **componentes LEMA-DS**. São 293 composições em `components/ds/`, mais quatro bibliotecas compartilhadas (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/chart-axis-width.ts`, `lib/card-stats-shared.tsx`). Cada uma entra no `registry.json` com o prefixo `ds-` e é instalável com `npx shadcn@latest add ds-<nome>` — o arquivo cai direto em `components/ui/ds-<nome>.tsx`, sem colidir com o primitivo que estende. Como este é um design system spec-first, cada componente também carrega sua spec em `docs/specs/ds-<nome>.md` e sua história (`.stories.tsx`) lado a lado no código.
 
 ### Explore por categoria
 
@@ -136,7 +136,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Botões e ações de interface, do simples ao icônico.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        8 itens
+        11 itens
       </span>
     </a>
     <a
@@ -288,7 +288,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Tabelas, gráficos, cards de estatística, listas virtualizadas e mais.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        63 itens
+        69 itens
       </span>
     </a>
     <a
@@ -336,7 +336,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Loaders, progresso, avisos, confetti e empty states ilustrados.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        12 itens
+        20 itens
       </span>
     </a>
     <a
@@ -373,7 +373,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         cron builder, editor Markdown, assinatura e localização.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        31 itens
+        34 itens
       </span>
     </a>
     <a
@@ -471,7 +471,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Containers, drawers, modais e o esqueleto do dashboard.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        8 itens
+        10 itens
       </span>
     </a>
     <a
@@ -545,7 +545,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Abas, paginação, breadcrumbs e navegação de sidebar.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        22 itens
+        23 itens
       </span>
     </a>
     <a
@@ -743,7 +743,7 @@ import { Dashbox } from "@/components/ds/dashbox"
   <h2>Recursos que fazem diferença</h2>
 </div>
 
-Acessibilidade não é opcional aqui: cada componente segue as diretrizes WAI-ARIA, responde à navegação por teclado, respeita `prefers-reduced-motion` e passa por checagens `axe` diretamente no Vitest, seguindo WCAG 2.1 AA. Os temas claro, escuro e "sistema" funcionam inteiramente por tokens semânticos (`bg-primary`, `text-muted-foreground`, `bg-success`, `bg-risk-1`…`4`, `bg-muted`) — nenhuma sobrescrita manual de `dark:` em lugar nenhum do código. O layout é mobile-first, com `@container` queries e um `SidebarProvider` que se adapta à tela. A tipagem é 100% TypeScript, com `VariantProps` cobrindo cada variante do CVA. E como o design system é spec-first, os 320 arquivos de spec em `docs/specs/` acompanham lado a lado os componentes de `components/ds/`, cada um com sua própria história de Storybook.
+Acessibilidade não é opcional aqui: cada componente segue as diretrizes WAI-ARIA, responde à navegação por teclado, respeita `prefers-reduced-motion` e passa por checagens `axe` diretamente no Vitest, seguindo WCAG 2.1 AA. Os temas claro, escuro e "sistema" funcionam inteiramente por tokens semânticos (`bg-primary`, `text-muted-foreground`, `bg-success`, `bg-risk-1`…`4`, `bg-muted`) — nenhuma sobrescrita manual de `dark:` em lugar nenhum do código. O layout é mobile-first, com `@container` queries e um `SidebarProvider` que se adapta à tela. A tipagem é 100% TypeScript, com `VariantProps` cobrindo cada variante do CVA. E como o design system é spec-first, os 323 arquivos de spec em `docs/specs/` acompanham lado a lado os componentes de `components/ds/`, cada um com sua própria história de Storybook.
 
 <Unstyled>
   <div className="flex flex-wrap gap-2" style={{ fontFamily: DOCS_FONT }}>
