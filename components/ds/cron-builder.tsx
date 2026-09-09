@@ -246,7 +246,7 @@ export function CronBuilder({
               onValueChange={(v) => v && update(v)}
               disabled={disabled}
             >
-              <SelectTrigger className="h-9 text-sm">
+              <SelectTrigger className="h-9 text-sm" aria-label="Quick presets">
                 <SelectValue placeholder="Choose a preset…" />
               </SelectTrigger>
               <SelectContent>
@@ -311,7 +311,7 @@ export function CronBuilder({
                 }
                 disabled={disabled}
               >
-                <SelectTrigger className="h-9 text-sm">
+                <SelectTrigger className="h-9 text-sm" aria-label="Hour">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -341,7 +341,7 @@ export function CronBuilder({
                 }
                 disabled={disabled}
               >
-                <SelectTrigger className="h-9 text-sm">
+                <SelectTrigger className="h-9 text-sm" aria-label="Minute">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
