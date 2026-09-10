@@ -71,7 +71,7 @@ export const pullQuoteTextVariants = cva(
 
 export const pullQuoteCiteNameVariants = cva("font-medium text-foreground", {
   variants: {
-    size: { sm: "text-sm", md: "text-base", lg: "text-lg" },
+    size: { sm: "text-xs", md: "text-sm", lg: "text-base" },
   },
   defaultVariants: { size: "md" },
 })

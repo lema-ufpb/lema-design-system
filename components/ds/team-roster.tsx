@@ -83,7 +83,7 @@ export const teamRosterAvatarVariants = cva("", {
 
 export const teamRosterNameVariants = cva("font-semibold text-foreground", {
   variants: {
-    size: { sm: "text-sm", md: "text-base", lg: "text-base" },
+    size: { sm: "text-xs", md: "text-sm", lg: "text-base" },
   },
   defaultVariants: { size: "md" },
 })

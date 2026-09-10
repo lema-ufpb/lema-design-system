@@ -128,18 +128,22 @@ function getFileConfig(fileName: string, fileType?: string): FileTypeConfig {
   ) {
     return {
       Icon: FileImage,
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
+      color: "text-highlight-sky",
+      bgColor: "bg-highlight-sky/10",
     }
   }
   if (ext === "pdf" || mime.includes("pdf")) {
-    return { Icon: FileText, color: "text-red-500", bgColor: "bg-red-500/10" }
+    return {
+      Icon: FileText,
+      color: "text-destructive",
+      bgColor: "bg-destructive/10",
+    }
   }
   if (["xls", "xlsx", "csv"].includes(ext) || mime.includes("spreadsheet")) {
     return {
       Icon: FileSpreadsheet,
-      color: "text-green-600",
-      bgColor: "bg-green-600/10",
+      color: "text-success",
+      bgColor: "bg-success/10",
     }
   }
   if (
@@ -148,8 +152,8 @@ function getFileConfig(fileName: string, fileType?: string): FileTypeConfig {
   ) {
     return {
       Icon: FileVideo,
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10",
+      color: "text-highlight-violet",
+      bgColor: "bg-highlight-violet/10",
     }
   }
   if (
@@ -169,8 +173,8 @@ function getFileConfig(fileName: string, fileType?: string): FileTypeConfig {
   ) {
     return {
       Icon: FileCode,
-      color: "text-yellow-500",
-      bgColor: "bg-yellow-500/10",
+      color: "text-warning",
+      bgColor: "bg-warning/10",
     }
   }
   if (["doc", "docx", "txt", "md", "rtf"].includes(ext)) {
@@ -179,8 +183,8 @@ function getFileConfig(fileName: string, fileType?: string): FileTypeConfig {
   if (["zip", "tar", "gz", "rar", "7z"].includes(ext)) {
     return {
       Icon: FileArchive,
-      color: "text-orange-500",
-      bgColor: "bg-orange-500/10",
+      color: "text-warning",
+      bgColor: "bg-warning/10",
     }
   }
   return { Icon: File, color: "text-muted-foreground", bgColor: "bg-muted" }

@@ -735,7 +735,8 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
                     data-slot="search-combo-voice"
                     className={cn(
                       searchComboActionButtonVariants({ border }),
-                      isListening && "animate-pulse text-destructive"
+                      isListening &&
+                        "text-destructive motion-safe:animate-pulse"
                     )}
                   >
                     <Mic className="size-4" />
