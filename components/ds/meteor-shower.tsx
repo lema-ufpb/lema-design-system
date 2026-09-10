@@ -32,8 +32,8 @@ export const meteorShowerVariants = cva(
   }
 )
 
-const DENSITY_COUNT = { sm: 8, md: 14, lg: 20 } as const
-const MAX_METEORS = 20
+const DENSITY_COUNT = { sm: 8, md: 14, lg: 24 } as const
+const MAX_METEORS = 24
 
 // mulberry32 — gerador pseudo-aleatório determinístico, garante que o
 // markup do servidor e do cliente sejam idênticos sem precisar de
@@ -49,11 +49,13 @@ function mulberry32(seed: number) {
 }
 
 const rand = mulberry32(42)
-const METEORS = Array.from({ length: MAX_METEORS }, () => ({
+const METEORS = Array.from({ length: MAX_METEORS }, (_, i) => ({
   left: `${Math.round(rand() * 100)}%`,
-  top: `${Math.round(rand() * -50 - 5)}%`,
-  delay: `${(rand() * 6).toFixed(2)}s`,
-  duration: `${(2.5 + rand() * 2.5).toFixed(2)}s`,
+  top: `${Math.round(rand() * -55 - 2)}%`,
+  // Primeiros 4 meteoros sem delay para efeito imediato ao abrir a story
+  delay:
+    i < 4 ? `${(rand() * 0.8).toFixed(2)}s` : `${(rand() * 3.5).toFixed(2)}s`,
+  duration: `${(1.8 + rand() * 1.8).toFixed(2)}s`,
 }))
 
 // ── Component ──
@@ -82,23 +84,35 @@ export function MeteorShower({
       {METEORS.slice(0, count).map((meteor, index) => (
         <span
           key={index}
-          className="absolute top-0 left-0 size-1 rotate-[215deg] rounded-full bg-[var(--meteor-color)] before:absolute before:top-1/2 before:left-0 before:h-px before:w-12 before:-translate-y-1/2 before:bg-gradient-to-r before:from-[var(--meteor-color)] before:to-transparent before:content-[''] motion-reduce:hidden"
+          className="absolute top-0 left-0 motion-reduce:hidden"
           style={{
             left: meteor.left,
             top: meteor.top,
-            animationName: "meteor-fall",
-            animationTimingFunction: "linear",
-            animationIterationCount: "infinite",
-            animationDelay: meteor.delay,
-            animationDuration: meteor.duration,
+            animation: `meteor-fall ${meteor.duration} linear ${meteor.delay} infinite`,
+            willChange: "transform, opacity",
           }}
-        />
+        >
+          {/* Cabeça do meteoro + cauda via elementos reais (não pseudo) para garantir geração Tailwind */}
+          <span
+            className="absolute top-1/2 left-0 block size-[3px] -translate-y-1/2 rotate-[215deg] rounded-full"
+            style={{ backgroundColor: "var(--meteor-color)" }}
+          />
+          <span
+            className="absolute top-1/2 left-0 block h-px w-[72px] origin-right -translate-y-1/2 rotate-[215deg] opacity-90"
+            style={{
+              background: `linear-gradient(to left, var(--meteor-color), transparent)`,
+            }}
+          />
+        </span>
       ))}
       <style>{`
         @keyframes meteor-fall {
-          0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+          0% { transform: translate3d(0, 0, 0); opacity: 1; }
           70% { opacity: 1; }
-          100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+          100% { transform: translate3d(-650px, 650px, 0); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [data-slot="meteor-shower"] { display: none; }
         }
       `}</style>
     </div>
