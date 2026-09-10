@@ -158,7 +158,7 @@ export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
                   className={cn(
                     "size-2.5 rounded-full",
                     rel.isLatest
-                      ? "animate-pulse bg-primary"
+                      ? "bg-primary motion-safe:animate-pulse"
                       : "bg-muted-foreground/50"
                   )}
                 />

@@ -62,28 +62,26 @@ const DEFAULT_REACTIONS: ReactionType[] = [
     label: "Love",
     icon: <HeartIcon className="fill-current" />,
     colorClass:
-      "text-rose-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50",
+      "text-destructive hover:text-destructive hover:bg-destructive/10",
   },
   {
     id: "thumbs-up",
     label: "Like",
     icon: <ThumbsUpIcon className="fill-current" />,
     colorClass:
-      "text-blue-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/50",
+      "text-highlight-sky hover:text-highlight-sky hover:bg-highlight-sky/10",
   },
   {
     id: "laugh",
     label: "Haha",
     icon: <LaughIcon />,
-    colorClass:
-      "text-amber-500 hover:text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950/50",
+    colorClass: "text-warning hover:text-warning hover:bg-warning/10",
   },
   {
     id: "flame",
     label: "Fire",
     icon: <FlameIcon className="fill-current" />,
-    colorClass:
-      "text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950/50",
+    colorClass: "text-warning hover:text-warning hover:bg-warning/10",
   },
 ]
 

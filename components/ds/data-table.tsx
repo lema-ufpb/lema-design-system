@@ -1320,7 +1320,7 @@ export function DataTable<TData extends RowData>({
                         <TableCell
                           key={cell.id}
                           className={cn(
-                            "flex items-center overflow-hidden text-ellipsis whitespace-nowrap",
+                            "flex items-center truncate",
                             pad,
                             font,
                             isSelect && "w-12 shrink-0 justify-center px-0",
