@@ -26,7 +26,9 @@ export interface BentoGridItemProps
 
 // ── Variants ──
 
-export const bentoGridVariants = cva("grid auto-rows-[minmax(12rem,auto)] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4")
+export const bentoGridVariants = cva(
+  "grid auto-rows-[minmax(12rem,auto)] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4"
+)
 
 export const bentoGridItemVariants = cva(
   "group relative flex flex-col justify-end overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg",
@@ -49,11 +51,15 @@ export const bentoGridItemVariants = cva(
   }
 )
 
-export const bentoGridItemIconVariants = cva("mb-3 flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary")
+export const bentoGridItemIconVariants = cva(
+  "mb-3 flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"
+)
 
 export const bentoGridItemTitleVariants = cva("font-semibold text-foreground")
 
-export const bentoGridItemDescriptionVariants = cva("text-sm leading-relaxed text-muted-foreground")
+export const bentoGridItemDescriptionVariants = cva(
+  "text-sm leading-relaxed text-muted-foreground"
+)
 
 // ── BentoGrid ──
 

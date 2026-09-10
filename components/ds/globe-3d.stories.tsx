@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: () => (
-    <div className="flex h-[400px] max-w-[400px] w-full items-center justify-center">
+    <div className="flex h-[400px] w-full max-w-[400px] items-center justify-center">
       <Globe3D />
     </div>
   ),
@@ -24,7 +24,7 @@ export const Default: Story = {
 
 export const WithMarkers: Story = {
   render: () => (
-    <div className="flex h-[400px] max-w-[400px] w-full items-center justify-center">
+    <div className="flex h-[400px] w-full max-w-[400px] items-center justify-center">
       <Globe3D
         markers={[
           { location: [37.7595, -122.4367], size: 0.05 },

@@ -36,7 +36,9 @@ export interface PressWallAwardProps {
 
 // ── Variants ──
 
-export const pressWallGridVariants = cva("grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-3 md:grid-cols-4")
+export const pressWallGridVariants = cva(
+  "grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-3 md:grid-cols-4"
+)
 
 export const pressWallLogoVariants = cva(
   "flex w-full items-center justify-center opacity-60 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0 [&_img]:h-full [&_img]:w-auto [&_img]:object-contain [&_svg]:h-full [&_svg]:w-auto",

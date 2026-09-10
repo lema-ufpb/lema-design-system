@@ -5030,6 +5030,23 @@
       ]
     },
     {
+      "name": "ds-star-shower",
+      "type": "registry:ui",
+      "title": "Star Shower",
+      "description": "Céu estrelado vivo em canvas 2D: estrelas pulsantes com cintilação, 18% em cruz com halo e estrelas cadentes com cauda degradê. Pausa fora da viewport e frame estático sob prefers-reduced-motion.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ds/star-shower.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-star-shower.tsx"
+        }
+      ]
+    },
+    {
       "name": "ds-passkey-prompt",
       "type": "registry:ui",
       "title": "PasskeyPrompt",

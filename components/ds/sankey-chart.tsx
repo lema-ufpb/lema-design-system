@@ -52,9 +52,8 @@ export interface SankeyChartProps extends React.HTMLAttributes<HTMLDivElement> {
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const sankeyChartContainerVariants = cva("w-full overflow-visible", {
-  variants: {}
-  }
-)
+  variants: {},
+})
 
 // ── Constants ──────────────────────────────────────────────────────────────
 
@@ -174,9 +173,8 @@ function layoutSankey(
         width: nodeWidth,
         height: nodeH,
         column: col,
-        colorIndex: colorIdx % 5
-  }
-)
+        colorIndex: colorIdx % 5,
+      })
       yOffset += nodeH + nodePadding
       colorIdx++
     })
@@ -280,9 +278,8 @@ export function SankeyChart({
         decimals,
         locale,
         currency,
-        abbreviate
-  }
-)
+        abbreviate,
+      })
     },
     [valueFormatter, format, decimals, locale, currency, abbreviate]
   )

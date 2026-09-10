@@ -33,9 +33,8 @@ export interface AudioPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const audioPlayerContainerVariants = cva("w-full", {
-  variants: {}
-  }
-)
+  variants: {},
+})
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 

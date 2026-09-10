@@ -202,11 +202,15 @@ const chartWrapperVariants = cva("flex w-full flex-col")
 
 const chartHeaderVariants = cva("flex flex-col px-1 pb-4")
 
-const chartTitleVariants = cva("text-sm leading-tight font-semibold text-foreground")
+const chartTitleVariants = cva(
+  "text-sm leading-tight font-semibold text-foreground"
+)
 
 const chartSubtitleVariants = cva("mt-0.5 text-xs text-muted-foreground")
 
-const chartFooterVariants = cva("mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground")
+const chartFooterVariants = cva(
+  "mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground"
+)
 
 // ── Active Shape ───────────────────────────────────────────────────────────
 
