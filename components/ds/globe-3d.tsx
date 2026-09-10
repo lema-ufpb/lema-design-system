@@ -1,8 +1,11 @@
 "use client"
 
 import * as React from "react"
-import createGlobe from "cobe"
+import dynamic from "next/dynamic"
 import { cn } from "@/lib/utils"
+
+// cobe is dynamically imported inside the effect to avoid bundling ~45kB in the initial chunk
+// The component itself is also safe to load with ssr: false via next/dynamic in consumer apps
 
 export interface Globe3DProps extends React.HTMLAttributes<HTMLDivElement> {
   markers?: Array<{ location: [number, number]; size: number }>
@@ -31,6 +34,10 @@ export const Globe3D = React.forwardRef<HTMLDivElement, Globe3DProps>(
     React.useEffect(() => {
       let phi = 0
       let width = 0
+      let animationFrame: number
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let globeInstance: any = null
+      let cancelled = false
 
       const onResize = () => {
         if (canvasRef.current) {
@@ -43,35 +50,44 @@ export const Globe3D = React.forwardRef<HTMLDivElement, Globe3DProps>(
 
       if (!canvasRef.current) return
 
-      const globe = createGlobe(canvasRef.current, {
-        devicePixelRatio: 2,
-        width: width * 2,
-        height: width * 2,
-        phi: 0,
-        theta: 0.3,
-        dark: 1,
-        diffuse: 1.2,
-        mapSamples: 16000,
-        mapBrightness: 6,
-        baseColor,
-        markerColor,
-        glowColor,
-        markers,
-      })
+      void (async () => {
+        const { default: createGlobe } = await import("cobe")
+        if (cancelled || !canvasRef.current) return
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        globeInstance = createGlobe(canvasRef.current as any, {
+          devicePixelRatio: 2,
+          width: width * 2,
+          height: width * 2,
+          phi: 0,
+          theta: 0.3,
+          dark: 1,
+          diffuse: 1.2,
+          mapSamples: 16000,
+          mapBrightness: 6,
+          baseColor,
+          markerColor,
+          glowColor,
+          markers,
+        })
 
-      let animationFrame: number
-      const animate = () => {
-        if (!pointerInteracting.current) {
-          phi += 0.005
+        const animate = () => {
+          if (!pointerInteracting.current) {
+            phi += 0.005
+          }
+          globeInstance?.update({
+            phi: phi + r,
+            width: width * 2,
+            height: width * 2,
+          })
+          animationFrame = requestAnimationFrame(animate)
         }
-        globe.update({ phi: phi + r, width: width * 2, height: width * 2 })
-        animationFrame = requestAnimationFrame(animate)
-      }
-      animate()
+        animate()
+      })()
 
       return () => {
+        cancelled = true
         cancelAnimationFrame(animationFrame)
-        globe.destroy()
+        globeInstance?.destroy()
         window.removeEventListener("resize", onResize)
       }
     }, [markers, baseColor, glowColor, markerColor, r])
@@ -128,3 +144,10 @@ export const Globe3D = React.forwardRef<HTMLDivElement, Globe3DProps>(
   }
 )
 Globe3D.displayName = "Globe3D"
+
+// Lazy-loaded wrapper for code-splitting — prefer this export in Next.js pages
+// to keep cobe out of the initial bundle (ssr: false avoids canvas SSR mismatch)
+export const DynamicGlobe3D = dynamic(
+  () => Promise.resolve({ default: Globe3D }),
+  { ssr: false, loading: () => null }
+)

@@ -21,24 +21,21 @@ export interface DashboardLayoutProps extends React.HTMLAttributes<HTMLDivElemen
 export const dashboardLayoutVariants = cva(
   "flex min-h-screen w-full flex-col bg-background",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
 export const dashboardHeaderVariants = cva(
   "sticky top-0 z-30 flex h-14 shrink-0 items-center gap-4 border-b border-border bg-background px-4 md:px-6",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
 export const dashboardMainVariants = cva(
   "flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 

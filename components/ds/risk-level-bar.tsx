@@ -35,9 +35,7 @@ export type RiskLevelLabelVariants = VariantProps<typeof riskLevelLabelVariants>
 
 export const riskLevelContainerVariants = cva("flex w-full flex-col")
 
-export const riskLevelWrapperVariants = cva(
-  "flex w-full flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between md:gap-0"
-)
+export const riskLevelWrapperVariants = cva("flex w-full flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between md:gap-0")
 
 export const riskLevelLabelVariants = cva(
   "flex h-full items-center font-medium text-foreground transition-colors",
@@ -99,12 +97,10 @@ export const riskLevelBarContainerVariants = cva(
   }
 )
 
-export const riskLevelSegmentVariants = cva(
-  "absolute top-0 h-full transition-all duration-300 ease-in-out"
-)
+export const riskLevelSegmentVariants = cva("absolute top-0 h-full transition-all duration-300 ease-in-out")
 
 export const riskLevelMarkerVariants = cva([
-  "absolute -top-2.5 h-0 w-0 border-l-8 border-l-transparent",
+  "absolute -top-2.5 h-0 w-0 border-l-8 border-l-transparent", // risk scale marker triangle — intentional
   "border-t-[12px] border-r-8 border-t-foreground border-r-transparent",
   "group z-[3] -translate-x-1/2 cursor-pointer transition-[left] duration-300 ease-in-out",
 ])
@@ -158,8 +154,16 @@ const skeletonDims: Record<
 // ── RiskLevelBar ───────────────────────────────────────────────────────────
 
 const DEFAULT_SEGMENTS: RiskSegment[] = [
-  { color: "var(--color-risk-1)", range: [0, 0.25], textClass: "text-white" },
-  { color: "var(--color-risk-2)", range: [0.25, 0.5], textClass: "text-white" },
+  {
+    color: "var(--color-risk-1)",
+    range: [0, 0.25],
+    textClass: "text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]", // intentional: white on saturated risk color
+  },
+  {
+    color: "var(--color-risk-2)",
+    range: [0.25, 0.5],
+    textClass: "text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]", // intentional: white on saturated risk color
+  },
   {
     color: "var(--color-risk-3)",
     range: [0.5, 0.75],

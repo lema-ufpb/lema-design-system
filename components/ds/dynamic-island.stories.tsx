@@ -42,7 +42,7 @@ export const Interactive: Story = {
     )
 
     return (
-      <div className="flex w-[400px] flex-col items-center gap-12">
+      <div className="flex max-w-[400px] w-full flex-col items-center gap-12">
         <div className="flex h-[200px] w-full items-start justify-center rounded-2xl border bg-muted/30 pt-8">
           <DynamicIsland
             state={state}
@@ -184,7 +184,7 @@ export const MusicPlayer: Story = {
     const [isPlaying, setIsPlaying] = React.useState(true)
 
     return (
-      <div className="flex h-[300px] w-[400px] items-start justify-center pt-8">
+      <div className="flex h-[300px] max-w-[400px] w-full items-start justify-center pt-8">
         <DynamicIsland
           state={state}
           title="Lo-fi Beats"
@@ -219,6 +219,8 @@ export const MusicPlayer: Story = {
               src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&h=150&fit=crop"
               className="size-full rounded-sm object-cover"
               alt="Album art"
+              loading="lazy"
+              decoding="async"
             />
           }
           onClick={() =>
@@ -231,6 +233,8 @@ export const MusicPlayer: Story = {
                 src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop"
                 className="size-16 rounded-lg object-cover shadow-sm"
                 alt="Album art"
+                loading="lazy"
+                decoding="async"
               />
               <div className="flex flex-1 flex-col">
                 <span className="text-base font-semibold">

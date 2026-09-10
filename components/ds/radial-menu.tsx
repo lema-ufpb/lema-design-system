@@ -120,7 +120,7 @@ export const RadialMenuTrigger = React.forwardRef<
     >
       <div
         className={cn(
-          "flex h-full w-full items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
+          "flex h-full w-full items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
           isOpen && "rotate-45"
         )}
       >
@@ -154,7 +154,7 @@ export function RadialMenuContent({ children }: { children: React.ReactNode }) {
           <div
             key={index}
             className={cn(
-              "pointer-events-auto absolute top-1/2 left-1/2 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
+              "pointer-events-auto absolute top-1/2 left-1/2 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
               !isOpen && "invisible"
             )}
             style={{

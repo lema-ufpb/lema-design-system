@@ -3,13 +3,16 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface ImageZoomProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string
-  alt?: string
+  /** Accessible description — required; falls back to UI_I18N[locale].imageZoom.alt when empty */
+  alt: string
   zoom?: number
+  locale?: UILocale
 }
 
 // ── Component ──────────────────────────────────────────────────────────────
@@ -17,10 +20,12 @@ export interface ImageZoomProps extends React.HTMLAttributes<HTMLDivElement> {
 export function ImageZoom({
   className,
   src,
-  alt = "Zoom image",
+  alt,
+  locale = "en-US",
   zoom = 2,
   ...props
 }: ImageZoomProps) {
+  const resolvedAlt = alt || UI_I18N[locale].imageZoom.alt
   const [pos, setPos] = React.useState({ x: 50, y: 50 })
   const [hover, setHover] = React.useState(false)
 
@@ -46,7 +51,7 @@ export function ImageZoom({
     <div
       data-slot="image-zoom"
       role="img"
-      aria-label={alt}
+      aria-label={resolvedAlt}
       tabIndex={0}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
@@ -65,7 +70,7 @@ export function ImageZoom({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
-        alt={alt}
+        alt={resolvedAlt}
         loading="lazy"
         decoding="async"
         className="h-64 w-full object-cover"

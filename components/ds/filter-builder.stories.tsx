@@ -81,7 +81,7 @@ export const Default: Story = {
     ])
 
     return (
-      <Card className="w-[800px]">
+      <Card className="max-w-[800px] w-full">
         <CardContent className="p-6">
           <FilterBuilder
             fields={sampleFields}
@@ -99,7 +99,7 @@ export const Empty: Story = {
     const [rules, setRules] = useState<FilterRule[]>([])
 
     return (
-      <Card className="w-[800px]">
+      <Card className="max-w-[800px] w-full">
         <CardContent className="p-6">
           <FilterBuilder
             fields={sampleFields}

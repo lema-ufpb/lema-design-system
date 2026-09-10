@@ -49,9 +49,9 @@ export interface ConfettiProps extends React.HTMLAttributes<HTMLDivElement> {
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const confettiContainerVariants = cva("relative inline-flex", {
-  variants: {},
-  defaultVariants: {},
-})
+  variants: {}
+  }
+)
 
 // ── Default colors (LEMA chart token equivalents) ─────────────────────────
 
@@ -65,12 +65,49 @@ const DEFAULT_COLORS = [
   "#06b6d4", // extra cyan
 ]
 
+// ── Prefers-reduced-motion helper ────────────────────────────────────────
+
+export function prefersReducedMotion(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
+}
+
+/**
+ * Static non-animated celebration for `prefers-reduced-motion` users.
+ * Announces via an `aria-live` region and can be overridden by consumers
+ * that wish to render a purely decorative static alternative.
+ */
+export function showConfettiStaticFallback(): void {
+  if (typeof document === "undefined") return
+  const announcement = document.createElement("div")
+  announcement.setAttribute("role", "status")
+  announcement.setAttribute("aria-live", "polite")
+  announcement.className = "sr-only"
+  announcement.textContent = "Celebration"
+  document.body.appendChild(announcement)
+  window.setTimeout(() => announcement.remove(), 1500)
+}
+
+// Re-export under alternative name for backwards-compat with specs that
+// reference `fireConfettiStatic`.
+export const fireConfettiStatic = showConfettiStaticFallback
+
 // ── Confetti firing logic ─────────────────────────────────────────────────
 
 async function fireConfetti(
   variant: ConfettiVariant,
   options: ConfettiOptions
 ) {
+  if (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    showConfettiStaticFallback()
+    return
+  }
+
   const confetti = (await import("canvas-confetti")).default
 
   const base: Parameters<typeof confetti>[0] = {
@@ -102,8 +139,9 @@ async function fireConfetti(
         confetti({
           ...base,
           particleCount: 6,
-          origin: { x: Math.random(), y: Math.random() * 0.5 },
-        })
+          origin: { x: Math.random(), y: Math.random() * 0.5 }
+  }
+)
         if (Date.now() < end) requestAnimationFrame(frame)
       }
       frame()
@@ -117,8 +155,9 @@ async function fireConfetti(
         spread: 160,
         startVelocity: 25,
         gravity: 0.4,
-        origin: { x: 0.5, y: -0.1 },
-      })
+        origin: { x: 0.5, y: -0.1 }
+  }
+)
       break
 
     case "sides":

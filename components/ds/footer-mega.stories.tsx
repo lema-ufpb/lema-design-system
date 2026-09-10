@@ -39,7 +39,7 @@ const sampleBrand = (
     </div>
     <div className="flex flex-col text-left leading-none">
       <span className="text-sm font-bold tracking-tight">LEMA</span>
-      <span className="text-[10px] text-muted-foreground">
+      <span className="text-xs text-muted-foreground">
         UFPB Design System
       </span>
     </div>

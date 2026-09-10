@@ -128,7 +128,7 @@ export const TestimonialCards: Story = {
                   <p className="text-xs leading-none font-medium">
                     {item.name}
                   </p>
-                  <p className="text-[10px] text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {item.role}
                   </p>
                 </div>

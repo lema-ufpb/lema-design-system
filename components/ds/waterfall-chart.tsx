@@ -59,9 +59,9 @@ export interface WaterfallChartProps extends React.HTMLAttributes<HTMLDivElement
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const waterfallChartContainerVariants = cva("w-full", {
-  variants: {},
-  defaultVariants: {},
-})
+  variants: {}
+  }
+)
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -140,8 +140,9 @@ export function WaterfallChart({
         decimals,
         locale,
         currency,
-        abbreviate,
-      })
+        abbreviate
+  }
+)
     },
     [valueFormatter, format, decimals, locale, currency, abbreviate]
   )
@@ -203,8 +204,9 @@ export function WaterfallChart({
     base: d.base,
     value: d.value,
     type: d.type,
-    displayValue: d.displayValue,
-  }))
+    displayValue: d.displayValue
+  }
+))
 
   const getBarColor = (type: WaterfallEntryType) => {
     if (type === "start" || type === "end") return "var(--muted-foreground)"

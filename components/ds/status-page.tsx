@@ -218,7 +218,7 @@ export const StatusPage = React.forwardRef<HTMLDivElement, StatusPageProps>(
                         />
                       ))}
                     </div>
-                    <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
                       <span>{t.daysAgo90}</span>
                       {srv.uptimePercentage !== undefined && (
                         <span className="font-semibold text-foreground tabular-nums">

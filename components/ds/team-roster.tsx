@@ -83,7 +83,7 @@ export const teamRosterAvatarVariants = cva("", {
 
 export const teamRosterNameVariants = cva("font-semibold text-foreground", {
   variants: {
-    size: { sm: "text-sm", md: "text-base", lg: "text-lg" },
+    size: { sm: "text-sm", md: "text-base", lg: "text-base" },
   },
   defaultVariants: { size: "md" },
 })
@@ -180,7 +180,7 @@ export const TeamRosterCard = React.forwardRef<
         <CardContent className={cn(teamRosterCardContentVariants({ size }))}>
           <div className="relative">
             <Avatar className={cn(teamRosterAvatarVariants({ size }))}>
-              {avatarSrc && <AvatarImage src={avatarSrc} alt="" />}
+              {avatarSrc && <AvatarImage src={avatarSrc} alt={name} />}
               <AvatarFallback>
                 {avatarFallback ?? name.slice(0, 2)}
               </AvatarFallback>

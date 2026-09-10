@@ -162,7 +162,7 @@ export function FeatureSpotlight({
 
         <div className="flex items-center justify-between border-t border-border/50 pt-1">
           {step && totalSteps ? (
-            <span className="text-[11px] font-medium text-muted-foreground tabular-nums">
+            <span className="text-xs font-medium text-muted-foreground tabular-nums">
               {t.step} {step} {t.of} {totalSteps}
             </span>
           ) : (

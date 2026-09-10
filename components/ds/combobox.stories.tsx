@@ -407,7 +407,7 @@ export const CustomRenderOption: RenderStory = {
                 className={`size-2 shrink-0 rounded-full ${COLORS[opt.value] ?? "bg-muted"}`}
               />
               <span className="truncate">{opt.label}</span>
-              <Badge variant="outline" className="ml-auto text-[10px]">
+              <Badge variant="outline" className="ml-auto text-xs">
                 {opt.group}
               </Badge>
             </span>

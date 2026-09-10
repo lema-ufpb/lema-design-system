@@ -180,7 +180,7 @@ export const PullQuote = React.forwardRef<HTMLElement, PullQuoteProps>(
           >
             {(avatarSrc || avatarFallback) && (
               <Avatar size={AVATAR_SIZE[size ?? "md"]}>
-                {avatarSrc && <AvatarImage src={avatarSrc} alt="" />}
+                {avatarSrc && <AvatarImage src={avatarSrc} alt={name} />}
                 {avatarFallback && (
                   <AvatarFallback>{avatarFallback}</AvatarFallback>
                 )}

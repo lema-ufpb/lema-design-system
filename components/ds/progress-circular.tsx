@@ -45,9 +45,7 @@ export interface ProgressCircularProps
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const progressCircularContainerVariants = cva(
-  "flex flex-col items-center justify-center"
-)
+export const progressCircularContainerVariants = cva("flex flex-col items-center justify-center")
 
 export const progressCircularWrapperVariants = cva(
   "relative flex items-center justify-center",
@@ -66,9 +64,7 @@ export const progressCircularWrapperVariants = cva(
 
 export const progressCircularSvgVariants = cva("-rotate-90")
 
-export const progressCircularIndicatorVariants = cva(
-  "transition-[stroke-dashoffset] duration-500 ease-out"
-)
+export const progressCircularIndicatorVariants = cva("transition-[stroke-dashoffset] duration-500 ease-out")
 
 export const progressCircularCenterTextVariants = cva(
   "absolute flex flex-col items-center justify-center rounded-full",

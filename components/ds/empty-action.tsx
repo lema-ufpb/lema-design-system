@@ -115,21 +115,21 @@ export const EmptyAction = React.forwardRef<HTMLDivElement, EmptyActionProps>(
           )}
         </div>
 
-        {/* Text content */}
-        <div className="flex max-w-md flex-col items-center gap-1.5">
+        {/* Text content — max-w-prose (65ch) ensures 200% zoom reflow without overflow */}
+        <div className="flex max-w-prose flex-col items-center gap-1.5">
           <h3
             className={cn(
               "font-semibold tracking-tight text-foreground",
               size === "sm" && "text-sm",
               size === "md" && "text-base",
-              size === "lg" && "text-lg"
+              size === "lg" && "text-base"
             )}
           >
             {title}
           </h3>
           <p
             className={cn(
-              "leading-relaxed text-muted-foreground",
+              "max-w-prose leading-relaxed text-muted-foreground",
               size === "sm" ? "text-xs" : "text-sm"
             )}
           >
@@ -168,7 +168,7 @@ export const EmptyAction = React.forwardRef<HTMLDivElement, EmptyActionProps>(
         {/* Suggestions / Checklist */}
         {suggestions && suggestions.length > 0 && (
           <div className="flex w-full max-w-xs flex-col items-start gap-1.5 border-t border-border pt-3 text-left">
-            <span className="pb-1 text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+            <span className="pb-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
               {t.recommended}:
             </span>
             {suggestions.map((sug, i) => (
