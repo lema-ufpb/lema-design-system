@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-inline-edit",
-  "description": "Click-to-edit inline text component with keyboard controls, validation, and async save state.",
+  "title": "Inline Edit",
+  "description": "Edição in-place com click-to-edit, estados de salvamento e validação inline.",
   "dependencies": [
     "class-variance-authority",
     "lucide-react"

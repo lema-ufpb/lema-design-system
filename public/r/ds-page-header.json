@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-page-header",
-  "description": "Standardized page-level header with breadcrumbs, title, description, badge, actions, and back navigation.",
+  "title": "Page Header",
+  "description": "Cabeçalho de página padronizado com breadcrumbs, título, tags, ações e navegação de retorno.",
   "dependencies": [
     "class-variance-authority",
     "lucide-react"

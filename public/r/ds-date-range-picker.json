@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-date-range-picker",
-  "description": "Dual-date range picker with calendar popover, quick presets, and full i18n support.",
+  "title": "Date Range Picker",
+  "description": "Seleção intuitiva de intervalos de datas com presets e suporte aos 4 locales.",
   "dependencies": [
     "date-fns",
     "react-day-picker",

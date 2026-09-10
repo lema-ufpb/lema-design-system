@@ -1,14 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-confirm-dialog",
-  "description": "High-stakes confirmation dialog requiring typed confirmation before unlocking destructive actions.",
+  "title": "Confirm Dialog",
+  "description": "Diálogo de confirmação com typed confirmation para ações irreversíveis de alto risco.",
   "dependencies": [
     "lucide-react"
   ],
   "registryDependencies": [
     "dialog",
-    "input",
     "button",
+    "input",
     "spinner",
     "ui-i18n"
   ],
