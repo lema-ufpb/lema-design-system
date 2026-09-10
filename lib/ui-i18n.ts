@@ -641,6 +641,7 @@ export const UI_I18N: Record<
       secondaryAction: string
       recommended: string
     }
+    imageZoom: { alt: string }
   }
 > = {
   "en-US": {
@@ -1316,6 +1317,7 @@ export const UI_I18N: Record<
       secondaryAction: "Learn more",
       recommended: "Recommended steps",
     },
+    imageZoom: { alt: "Zoom image" },
   },
   "pt-BR": {
     dialog: { close: "Fechar", title: "Diálogo" },
@@ -2000,6 +2002,7 @@ export const UI_I18N: Record<
       secondaryAction: "Saiba mais",
       recommended: "Passos recomendados",
     },
+    imageZoom: { alt: "Imagem ampliada" },
   },
   "es-ES": {
     dialog: { close: "Cerrar", title: "Diálogo" },
@@ -2679,6 +2682,7 @@ export const UI_I18N: Record<
       secondaryAction: "Más información",
       recommended: "Pasos recomendados",
     },
+    imageZoom: { alt: "Imagen ampliada" },
   },
   "fr-FR": {
     dialog: { close: "Fermer", title: "Dialogue" },
@@ -3370,6 +3374,7 @@ export const UI_I18N: Record<
       secondaryAction: "En savoir plus",
       recommended: "Étapes recommandées",
     },
+    imageZoom: { alt: "Image agrandie" },
   },
 }
 

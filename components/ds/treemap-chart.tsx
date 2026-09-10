@@ -150,15 +150,11 @@ const chartWrapperVariants = cva("flex w-full flex-col")
 
 const chartHeaderVariants = cva("flex flex-col px-1 pb-4")
 
-const chartTitleVariants = cva(
-  "text-sm leading-tight font-semibold text-foreground"
-)
+const chartTitleVariants = cva("text-sm leading-tight font-semibold text-foreground")
 
 const chartSubtitleVariants = cva("mt-0.5 text-xs text-muted-foreground")
 
-const chartFooterVariants = cva(
-  "mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground"
-)
+const chartFooterVariants = cva("mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground")
 
 // ── Custom Tooltip ─────────────────────────────────────────────────────────
 
@@ -320,7 +316,7 @@ function CustomizedContent(props: CellDataProps & CellBehaviorProps) {
             )}
             {_hasChildren && height > 60 && (
               <span
-                className="mt-1 rounded-full bg-white/20 px-1.5 py-0.5 text-white/80 text-shadow-none"
+                className="mt-1 rounded-full bg-white/20 px-1.5 py-0.5 text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
                 style={{ fontSize: "8px", lineHeight: "1.2" }}
               >
                 {UI_I18N[locale as UILocale]?.treemap?.explore ??

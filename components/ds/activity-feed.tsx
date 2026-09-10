@@ -186,7 +186,7 @@ export const ActivityFeed = React.forwardRef<HTMLDivElement, ActivityFeedProps>(
                         alt={item.actor.name}
                       />
                     )}
-                    <AvatarFallback className="bg-muted text-[10px] font-medium text-muted-foreground">
+                    <AvatarFallback className="bg-muted text-xs font-medium text-muted-foreground">
                       {getInitials(item.actor.name, item.actor.initials)}
                     </AvatarFallback>
                   </Avatar>
@@ -223,7 +223,7 @@ export const ActivityFeed = React.forwardRef<HTMLDivElement, ActivityFeedProps>(
                                 : "outline"
                         }
                         className={cn(
-                          "h-4 px-1.5 py-0 text-[10px] font-normal",
+                          "h-4 px-1.5 py-0 text-xs font-normal",
                           item.status === "success" &&
                             "border-success/20 bg-success/15 text-success",
                           item.status === "warning" &&
@@ -235,7 +235,7 @@ export const ActivityFeed = React.forwardRef<HTMLDivElement, ActivityFeedProps>(
                     )}
                   </div>
 
-                  <time className="text-[11px] text-muted-foreground">
+                  <time className="text-xs text-muted-foreground">
                     {formatTimestamp(item.timestamp)}
                   </time>
 

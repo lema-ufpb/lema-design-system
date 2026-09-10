@@ -39,8 +39,7 @@ export interface DiffViewerProps extends React.HTMLAttributes<HTMLDivElement> {
 export const diffViewerContainerVariants = cva(
   "w-full overflow-hidden rounded-lg border border-border font-mono text-xs",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
@@ -52,8 +51,9 @@ export const diffLineVariants = cva("flex gap-2 px-3 py-0.5 leading-5", {
       unchanged: "text-foreground",
     },
   },
-  defaultVariants: { type: "unchanged" },
-})
+  defaultVariants: { type: "unchanged" }
+  }
+)
 
 // ── Diff algorithm (LCS-based) ────────────────────────────────────────────
 
@@ -90,8 +90,9 @@ function computeDiff(oldText: string, newText: string): DiffLine[] {
         type: "unchanged",
         content: oldLines[i - 1]!,
         oldLineNo: oldNo--,
-        newLineNo: newNo--,
-      })
+        newLineNo: newNo--
+  }
+)
       i--
       j--
     } else if (j > 0 && (i === 0 || dp[i]![j - 1]! >= dp[i - 1]![j]!)) {
@@ -99,16 +100,18 @@ function computeDiff(oldText: string, newText: string): DiffLine[] {
         type: "added",
         content: newLines[j - 1]!,
         oldLineNo: null,
-        newLineNo: newNo--,
-      })
+        newLineNo: newNo--
+  }
+)
       j--
     } else {
       result.push({
         type: "removed",
         content: oldLines[i - 1]!,
         oldLineNo: oldNo--,
-        newLineNo: null,
-      })
+        newLineNo: null
+  }
+)
       i--
     }
   }

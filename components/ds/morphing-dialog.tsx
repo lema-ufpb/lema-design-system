@@ -94,7 +94,7 @@ export const MorphingDialogContainer = React.forwardRef<
   return (
     <>
       <div
-        className="fixed inset-0 z-50 animate-in bg-black/40 backdrop-blur-sm duration-200 fade-in-0"
+        className="fixed inset-0 z-50 animate-in bg-foreground/40 backdrop-blur-sm duration-200 fade-in-0"
         onClick={() => setIsOpen(false)}
       />
       <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
@@ -168,6 +168,8 @@ export const MorphingDialogImage = React.forwardRef<
     <img
       ref={ref}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className={cn("object-cover", className)}
       {...props}
     />

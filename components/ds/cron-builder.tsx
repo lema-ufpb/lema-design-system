@@ -41,8 +41,7 @@ export interface CronBuilderProps extends Omit<
 export const cronBuilderContainerVariants = cva(
   "w-full rounded-xl border border-border bg-card p-4",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
@@ -448,8 +447,9 @@ export function CronBuilder({
                   month: "short",
                   day: "numeric",
                   hour: "2-digit",
-                  minute: "2-digit",
-                })}
+                  minute: "2-digit"
+  }
+)}
               </span>
             ))}
           </div>

@@ -109,6 +109,7 @@ export function Screenshot({
           width={width}
           height={height}
           loading={priority ? "eager" : "lazy"}
+          decoding="async"
           onLoad={() => setLoaded(true)}
           className={cn(
             screenshotVariants({ rounded, shadow, aspect }),
@@ -125,6 +126,7 @@ export function Screenshot({
           width={width}
           height={height}
           loading={priority ? "eager" : "lazy"}
+          decoding="async"
           onLoad={() => setLoaded(true)}
           className={cn(
             screenshotVariants({ rounded, shadow, aspect }),
@@ -146,6 +148,7 @@ export function Screenshot({
       width={width}
       height={height}
       loading={priority ? "eager" : "lazy"}
+      decoding="async"
       onLoad={() => setLoaded(true)}
       data-slot="screenshot"
       className={cn(

@@ -160,7 +160,7 @@ export function ShortcutSheet({
             <div className="flex flex-col gap-5">
               {filteredGroups.map((group) => (
                 <div key={group.name} className="flex flex-col gap-2">
-                  <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+                  <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                     {group.name}
                   </span>
                   <div className="divide-y divide-border overflow-hidden rounded-lg border border-border bg-card">
@@ -174,14 +174,14 @@ export function ShortcutSheet({
                             {shortcut.label}
                           </span>
                           {shortcut.description && (
-                            <span className="text-[11px] text-muted-foreground">
+                            <span className="text-xs text-muted-foreground">
                               {shortcut.description}
                             </span>
                           )}
                         </div>
                         <div className="flex shrink-0 items-center gap-1">
                           {shortcut.keys.map((key, i) => (
-                            <Kbd key={i} className="font-mono text-[10px]">
+                            <Kbd key={i} className="font-mono text-xs">
                               {key}
                             </Kbd>
                           ))}

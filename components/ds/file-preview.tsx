@@ -258,6 +258,8 @@ export function FilePreview({
           <img
             src={previewUrl}
             alt={fileName}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
           />
         </div>

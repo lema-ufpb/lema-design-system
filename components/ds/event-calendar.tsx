@@ -24,9 +24,7 @@ export interface EventCalendarProps extends React.HTMLAttributes<HTMLDivElement>
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const eventCalendarVariants = cva(
-  "w-full rounded-2xl border bg-card p-4"
-)
+export const eventCalendarVariants = cva("w-full rounded-2xl border bg-card p-4")
 
 // ── Component ──────────────────────────────────────────────────────────────
 

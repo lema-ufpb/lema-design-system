@@ -141,6 +141,8 @@ export function AuthCard({
                         <img
                           src={imageSrc ?? "/placeholder.svg"}
                           alt={imageAlt}
+                          loading="lazy"
+                          decoding="async"
                           className="absolute inset-0 h-full w-full object-cover"
                         />
                       </div>
@@ -168,6 +170,8 @@ export function AuthCard({
             <img
               src={imageSrc ?? "/placeholder.svg"}
               alt={imageAlt}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>

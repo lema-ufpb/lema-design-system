@@ -23,9 +23,7 @@ export interface ScheduleProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const scheduleVariants = cva(
-  "w-full overflow-x-auto rounded-2xl border bg-card p-4"
-)
+export const scheduleVariants = cva("w-full overflow-x-auto rounded-2xl border bg-card p-4")
 
 // ── Component ──────────────────────────────────────────────────────────────
 

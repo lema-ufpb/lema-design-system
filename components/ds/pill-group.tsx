@@ -74,9 +74,9 @@ export const pillGroupItemVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-8 px-2.5 text-xs [&_svg]:size-3",
-        md: "h-8 px-3 text-sm [&_svg]:size-3.5",
-        lg: "h-9 px-4 text-base [&_svg]:size-4",
+        sm: "h-8 min-h-[44px] px-2.5 text-xs [&_svg]:size-3",
+        md: "h-8 min-h-[44px] px-3 text-sm [&_svg]:size-3.5",
+        lg: "h-9 min-h-[44px] px-4 text-base [&_svg]:size-4",
       },
       active: {
         true: "",
@@ -234,7 +234,12 @@ export const PillGroup = React.forwardRef<HTMLDivElement, PillGroupProps>(
     const shouldShowCount = showCount ?? hasAnyCount
 
     const trackPadding = size === "sm" ? "p-0.5" : "p-1"
-    const pillHeight = size === "sm" ? "h-8" : size === "lg" ? "h-9" : "h-8"
+    const pillHeight =
+      size === "sm"
+        ? "h-8 min-h-[44px]"
+        : size === "lg"
+          ? "h-9 min-h-[44px]"
+          : "h-8 min-h-[44px]"
     const skeletonWidths = ["w-12", "w-24", "w-20", "w-16", "w-28", "w-14"]
 
     if (loading) {

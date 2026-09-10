@@ -1,13 +1,7 @@
 "use client"
 
 import * as React from "react"
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  ZoomableGroup,
-} from "react-simple-maps"
+import dynamic from "next/dynamic"
 import type { FeatureCollection } from "geojson"
 import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
@@ -20,6 +14,58 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+
+// react-simple-maps is heavy (~30kB) — load via next/dynamic with ssr:false
+// to keep it out of the initial bundle and avoid SSR window mismatch
+const ComposableMap = dynamic(
+  () =>
+    import("react-simple-maps").then((m) => ({
+      default: m.ComposableMap as unknown as React.ComponentType<
+        React.ComponentProps<typeof m.ComposableMap>
+      >,
+    })),
+  { ssr: false }
+) as unknown as typeof import("react-simple-maps").ComposableMap
+
+const Geographies = dynamic(
+  () =>
+    import("react-simple-maps").then((m) => ({
+      default: m.Geographies as unknown as React.ComponentType<
+        React.ComponentProps<typeof m.Geographies>
+      >,
+    })),
+  { ssr: false }
+) as unknown as typeof import("react-simple-maps").Geographies
+
+const Geography = dynamic(
+  () =>
+    import("react-simple-maps").then((m) => ({
+      default: m.Geography as unknown as React.ComponentType<
+        React.ComponentProps<typeof m.Geography>
+      >,
+    })),
+  { ssr: false }
+) as unknown as typeof import("react-simple-maps").Geography
+
+const Marker = dynamic(
+  () =>
+    import("react-simple-maps").then((m) => ({
+      default: m.Marker as unknown as React.ComponentType<
+        React.ComponentProps<typeof m.Marker>
+      >,
+    })),
+  { ssr: false }
+) as unknown as typeof import("react-simple-maps").Marker
+
+const ZoomableGroup = dynamic(
+  () =>
+    import("react-simple-maps").then((m) => ({
+      default: m.ZoomableGroup as unknown as React.ComponentType<
+        React.ComponentProps<typeof m.ZoomableGroup>
+      >,
+    })),
+  { ssr: false }
+) as unknown as typeof import("react-simple-maps").ZoomableGroup
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -249,15 +295,11 @@ const chartWrapperVariants = cva("flex w-full flex-col")
 
 const chartHeaderVariants = cva("flex flex-col px-1 pb-4")
 
-const chartTitleVariants = cva(
-  "text-sm leading-tight font-semibold text-foreground"
-)
+const chartTitleVariants = cva("text-sm leading-tight font-semibold text-foreground")
 
 const chartSubtitleVariants = cva("mt-0.5 text-xs text-muted-foreground")
 
-const chartFooterVariants = cva(
-  "mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground"
-)
+const chartFooterVariants = cva("mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground")
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -781,3 +823,11 @@ export function GeoMapChart({
     </div>
   )
 }
+
+// Code-split wrapper — keeps react-simple-maps out of the initial bundle
+// Consumer usage: const GeoMapChart = dynamic(() => import("@/components/ds/geomap-chart").then(m => m.GeoMapChart), { ssr:false })
+// Also exported here as convenience (self-resolving, ssr:false)
+export const DynamicGeoMapChart = dynamic(
+  () => Promise.resolve({ default: GeoMapChart }),
+  { ssr: false, loading: () => null }
+)

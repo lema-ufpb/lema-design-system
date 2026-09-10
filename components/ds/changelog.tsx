@@ -91,7 +91,7 @@ export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
           return (
             <Badge
               variant="outline"
-              className="h-4 shrink-0 gap-1 border-primary/25 bg-primary/10 px-1.5 py-0 text-[10px] font-semibold text-primary uppercase"
+              className="h-4 shrink-0 gap-1 border-primary/25 bg-primary/10 px-1.5 py-0 text-xs font-semibold text-primary uppercase"
             >
               <Sparkles className="size-2.5" />
               {t.features}
@@ -101,7 +101,7 @@ export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
           return (
             <Badge
               variant="outline"
-              className="h-4 shrink-0 gap-1 border-warning/30 bg-warning/10 px-1.5 py-0 text-[10px] font-semibold text-warning uppercase"
+              className="h-4 shrink-0 gap-1 border-warning/30 bg-warning/10 px-1.5 py-0 text-xs font-semibold text-warning uppercase"
             >
               <Bug className="size-2.5" />
               {t.fixes}
@@ -111,7 +111,7 @@ export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
           return (
             <Badge
               variant="outline"
-              className="h-4 shrink-0 gap-1 border-success/30 bg-success/10 px-1.5 py-0 text-[10px] font-semibold text-success uppercase"
+              className="h-4 shrink-0 gap-1 border-success/30 bg-success/10 px-1.5 py-0 text-xs font-semibold text-success uppercase"
             >
               <Zap className="size-2.5" />
               {t.improvements}
@@ -121,7 +121,7 @@ export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
           return (
             <Badge
               variant="destructive"
-              className="h-4 shrink-0 gap-1 px-1.5 py-0 text-[10px] font-semibold uppercase"
+              className="h-4 shrink-0 gap-1 px-1.5 py-0 text-xs font-semibold uppercase"
             >
               <AlertOctagon className="size-2.5" />
               {t.breaking}

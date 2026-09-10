@@ -40,7 +40,7 @@ export const PostFooter: Story = {
     const [reaction, setReaction] = React.useState<string | null>("heart")
 
     return (
-      <div className="w-[400px] rounded-2xl border bg-card p-4 shadow-sm">
+      <div className="max-w-[400px] w-full rounded-2xl border bg-card p-4 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
           <div className="size-10 rounded-full bg-muted" />
           <div className="flex flex-col">

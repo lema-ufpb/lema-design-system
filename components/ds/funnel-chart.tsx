@@ -50,8 +50,7 @@ export interface FunnelChartProps extends React.HTMLAttributes<HTMLDivElement> {
 export const funnelChartContainerVariants = cva(
   "relative w-full overflow-hidden",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
@@ -96,8 +95,9 @@ export function FunnelChart({
         decimals,
         locale,
         currency,
-        abbreviate,
-      })
+        abbreviate
+  }
+)
     },
     [valueFormatter, format, decimals, locale, currency, abbreviate]
   )
@@ -205,8 +205,9 @@ export function FunnelChart({
                       {new Intl.NumberFormat(locale, {
                         style: "percent",
                         minimumFractionDigits: 1,
-                        maximumFractionDigits: 1,
-                      }).format(conversionRate / 100)}
+                        maximumFractionDigits: 1
+  }
+).format(conversionRate / 100)}
                     </div>
                   )}
                   {/* Stage bar */}
@@ -226,7 +227,7 @@ export function FunnelChart({
                       }}
                     >
                       {showLabels && (
-                        <span className="truncate px-2 text-xs font-semibold text-white tabular-nums drop-shadow-sm">
+                        <span className="truncate px-2 text-xs font-semibold text-white tabular-nums [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
                           {stage.name}: {formatValue(stage.value)}
                         </span>
                       )}

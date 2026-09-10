@@ -66,7 +66,7 @@ const SampleData = () => (
 
 export const Vertical: Story = {
   render: () => (
-    <Card className="w-[400px]">
+    <Card className="max-w-[400px] w-full">
       <CardHeader>
         <CardTitle>Applicant Information</CardTitle>
       </CardHeader>
@@ -110,7 +110,7 @@ export const Horizontal: Story = {
 
 export const Grid: Story = {
   render: () => (
-    <Card className="w-[800px]">
+    <Card className="max-w-[800px] w-full">
       <CardHeader>
         <CardTitle>Applicant Information</CardTitle>
       </CardHeader>

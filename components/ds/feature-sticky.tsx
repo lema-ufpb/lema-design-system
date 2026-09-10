@@ -135,6 +135,7 @@ export function FeatureSticky({
             height={700}
             className="h-auto w-full object-cover"
             loading="lazy"
+            decoding="async"
           />
         </div>
       )}

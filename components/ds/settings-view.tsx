@@ -21,48 +21,45 @@ export interface SettingsViewProps extends React.HTMLAttributes<HTMLDivElement> 
 // ── Variants ──
 
 export const settingsContainerVariants = cva("flex flex-col gap-6 md:gap-8", {
-  variants: {},
-  defaultVariants: {},
-})
+  variants: {}
+  }
+)
 
 export const settingsHeaderVariants = cva(
   "flex flex-col gap-1 border-b border-border pb-6",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
 export const settingsTitleVariants = cva(
   "text-2xl font-semibold tracking-tight text-foreground",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
 export const settingsDescVariants = cva("text-sm text-muted-foreground", {
-  variants: {},
-  defaultVariants: {},
-})
+  variants: {}
+  }
+)
 
 export const settingsLayoutVariants = cva(
   "flex flex-col gap-8 md:flex-row md:items-start",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
 export const settingsSidebarVariants = cva("w-full shrink-0 md:w-64", {
-  variants: {},
-  defaultVariants: {},
-})
+  variants: {}
+  }
+)
 
 export const settingsContentVariants = cva("max-w-4xl flex-1", {
-  variants: {},
-  defaultVariants: {},
-})
+  variants: {}
+  }
+)
 
 // ── Component ──
 

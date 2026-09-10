@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Design System budget: backdrop-blur limited to 2 simultaneous layers (see DESIGN.md §5) — avoid stacking more than 2 blurred surfaces */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

@@ -42,9 +42,7 @@ export type FooterMenuVariants = VariantProps<typeof footerMenuVariants>
 
 // ── Variants ───────────────────────────────────────────────────────────────
 
-export const footerMenuVariants = cva(
-  "flex w-full flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12"
-)
+export const footerMenuVariants = cva("flex w-full flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12")
 
 export const footerGroupVariants = cva("flex w-full flex-col !border-b-0 py-0")
 
@@ -96,9 +94,7 @@ export const footerLinkVariants = cva(
   }
 )
 
-export const footerNavIconVariants = cva(
-  "size-4 text-footer-link transition-transform duration-200 lg:hidden"
-)
+export const footerNavIconVariants = cva("size-4 text-footer-link transition-transform duration-200 lg:hidden")
 
 // ── FooterMenu ─────────────────────────────────────────────────────────────
 

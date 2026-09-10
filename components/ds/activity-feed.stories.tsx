@@ -29,7 +29,7 @@ const sampleItems: ActivityFeedItem[] = [
     status: "default",
     statusLabel: "142 iterações",
     description: (
-      <span className="font-mono text-[11px] text-muted-foreground">
+      <span className="font-mono text-xs text-muted-foreground">
         Equilíbrio dinâmico atingido com resíduo &lt; 1e-6.
       </span>
     ),
@@ -115,7 +115,7 @@ export const WithDescriptionsAndDiffs: Story = {
         status: "warning",
         statusLabel: "Pendente de revisão",
         description: (
-          <div className="flex flex-col gap-1 font-mono text-[11px]">
+          <div className="flex flex-col gap-1 font-mono text-xs">
             <span className="text-destructive">- beta = 0.985</span>
             <span className="text-success">+ beta = 0.992</span>
           </div>

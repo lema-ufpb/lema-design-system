@@ -69,7 +69,7 @@ export function BlogGrid({
               placeholder={UI_I18N[locale].blog.searchPlaceholder}
               value={search ?? ""}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="sm:max-w-[260px]"
+              className="sm:max-w-64"
             />
           )}
         </div>

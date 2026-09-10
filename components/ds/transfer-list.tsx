@@ -242,7 +242,7 @@ export const TransferList = React.forwardRef<HTMLDivElement, TransferListProps>(
                         {item.label}
                       </span>
                       {item.description && (
-                        <span className="truncate text-[11px] text-muted-foreground">
+                        <span className="truncate text-xs text-muted-foreground">
                           {item.description}
                         </span>
                       )}

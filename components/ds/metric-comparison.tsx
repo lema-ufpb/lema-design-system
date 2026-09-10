@@ -184,7 +184,7 @@ export const MetricComparison = React.forwardRef<
               {formatVal(primaryMetric)}
             </span>
             {primaryMetric.subtext && (
-              <span className="truncate text-[11px] text-muted-foreground">
+              <span className="truncate text-xs text-muted-foreground">
                 {primaryMetric.subtext}
               </span>
             )}
@@ -239,7 +239,7 @@ export const MetricComparison = React.forwardRef<
               {formatVal(secondaryMetric)}
             </span>
             {secondaryMetric.subtext && (
-              <span className="truncate text-[11px] text-muted-foreground">
+              <span className="truncate text-xs text-muted-foreground">
                 {secondaryMetric.subtext}
               </span>
             )}
@@ -266,7 +266,7 @@ export const MetricComparison = React.forwardRef<
                 }}
               />
             </div>
-            <div className="flex justify-between text-[10px] text-muted-foreground">
+            <div className="flex justify-between text-xs text-muted-foreground">
               <span>
                 {primaryMetric.label}: {formatVal(primaryMetric)}
               </span>

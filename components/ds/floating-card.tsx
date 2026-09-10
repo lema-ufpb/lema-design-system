@@ -45,6 +45,7 @@ export const FloatingCard = React.forwardRef<HTMLDivElement, FloatingCardProps>(
         if (reducedMotionRef.current) return
         const node = innerRef.current
         if (!node) return
+        node.style.willChange = "transform"
         const rect = node.getBoundingClientRect()
         const px = (event.clientX - rect.left) / rect.width - 0.5
         const py = (event.clientY - rect.top) / rect.height - 0.5
@@ -54,7 +55,10 @@ export const FloatingCard = React.forwardRef<HTMLDivElement, FloatingCardProps>(
     )
 
     const handlePointerLeave = React.useCallback(() => {
-      if (innerRef.current) innerRef.current.style.transform = ""
+      if (innerRef.current) {
+        innerRef.current.style.willChange = "auto"
+        innerRef.current.style.transform = ""
+      }
     }, [])
 
     return (
@@ -63,7 +67,7 @@ export const FloatingCard = React.forwardRef<HTMLDivElement, FloatingCardProps>(
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
         className={cn(
-          "rounded-2xl border border-border bg-card shadow-2xl transition-transform duration-300 ease-out will-change-transform",
+          "rounded-2xl border border-border bg-card shadow-2xl transition-transform duration-300 ease-out hover:will-change-transform motion-reduce:transform-none motion-reduce:transition-none",
           className
         )}
         style={style}

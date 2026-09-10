@@ -394,7 +394,7 @@ function UploadIllustration({ size }: { size: number }) {
     >
       <style>
         {
-          "@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}"
+          "/* intentional delight: bounce for empty-state */ @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}"
         }
       </style>
       <rect

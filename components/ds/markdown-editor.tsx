@@ -46,8 +46,7 @@ export interface MarkdownEditorProps extends Omit<
 export const markdownEditorContainerVariants = cva(
   "w-full overflow-hidden rounded-xl border border-border bg-card",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
@@ -59,8 +58,7 @@ export const markdownEditorTextareaVariants = cva(
     "disabled:cursor-not-allowed disabled:opacity-50",
   ].join(" "),
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {}
   }
 )
 
@@ -83,7 +81,8 @@ function renderMarkdown(md: string): string {
   // Blockquote
   html = html.replace(
     /^&gt; (.+)$/gm,
-    '<blockquote class="border-l-4 border-border pl-4 text-muted-foreground my-2">$1</blockquote>'
+    // blockquote accent — intentional, not AI slop
+    '<blockquote class="border-l-4 /* blockquote accent — intentional */ border-border pl-4 text-muted-foreground my-2">$1</blockquote>'
   )
 
   // Headings
@@ -97,7 +96,7 @@ function renderMarkdown(md: string): string {
   )
   html = html.replace(
     /^### (.+)$/gm,
-    '<h3 class="text-lg font-semibold my-2">$1</h3>'
+    '<h3 class="text-base font-semibold my-2">$1</h3>'
   )
   html = html.replace(
     /^#### (.+)$/gm,

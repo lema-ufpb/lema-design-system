@@ -22,7 +22,7 @@ export interface TiltCardProps
 // ── Variants ──
 
 export const tiltCardVariants = cva(
-  "relative flex flex-col overflow-hidden transition-shadow duration-200 will-change-transform",
+  "relative flex flex-col overflow-hidden transition-shadow duration-200 hover:will-change-transform motion-reduce:transform-none motion-reduce:transition-none",
   {
     variants: {
       variant: {
@@ -68,6 +68,7 @@ export function TiltCard({
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     onMouseMove?.(e)
     if (reduceMotion || !ref.current) return
+    ref.current.style.willChange = "transform"
     const rect = ref.current.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
@@ -85,6 +86,7 @@ export function TiltCard({
   const handleLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     onMouseLeave?.(e)
     if (!ref.current) return
+    ref.current.style.willChange = "auto"
     ref.current.style.transform =
       "perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)"
     if (glareRef.current) glareRef.current.style.opacity = "0"
@@ -116,6 +118,7 @@ export function TiltCard({
       onMouseLeave={handleLeave}
       onFocus={() => {
         if (ref.current && !reduceMotion) {
+          ref.current.style.willChange = "transform"
           ref.current.style.transform =
             "perspective(900px) rotateX(2deg) rotateY(-2deg) scale3d(1.01,1.01,1.01)"
         }
