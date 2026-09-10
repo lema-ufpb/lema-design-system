@@ -49,9 +49,8 @@ export interface ConfettiProps extends React.HTMLAttributes<HTMLDivElement> {
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const confettiContainerVariants = cva("relative inline-flex", {
-  variants: {}
-  }
-)
+  variants: {},
+})
 
 // ── Default colors (LEMA chart token equivalents) ─────────────────────────
 
@@ -139,9 +138,8 @@ async function fireConfetti(
         confetti({
           ...base,
           particleCount: 6,
-          origin: { x: Math.random(), y: Math.random() * 0.5 }
-  }
-)
+          origin: { x: Math.random(), y: Math.random() * 0.5 },
+        })
         if (Date.now() < end) requestAnimationFrame(frame)
       }
       frame()
@@ -155,9 +153,8 @@ async function fireConfetti(
         spread: 160,
         startVelocity: 25,
         gravity: 0.4,
-        origin: { x: 0.5, y: -0.1 }
-  }
-)
+        origin: { x: 0.5, y: -0.1 },
+      })
       break
 
     case "sides":

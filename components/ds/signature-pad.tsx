@@ -31,9 +31,8 @@ export interface SignaturePadProps extends Omit<
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const signaturePadContainerVariants = cva("flex flex-col gap-2", {
-  variants: {}
-  }
-)
+  variants: {},
+})
 
 export const signaturePadCanvasVariants = cva(
   [
@@ -51,7 +50,7 @@ export const signaturePadCanvasVariants = cva(
         false: "",
       },
     },
-    defaultVariants: { disabled: false, isEmpty: true }
+    defaultVariants: { disabled: false, isEmpty: true },
   }
 )
 

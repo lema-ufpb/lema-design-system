@@ -110,7 +110,9 @@ export const dashboxDescriptionVariants = cva("text-muted-foreground", {
   defaultVariants: { size: "md" },
 })
 
-export const dashboxToolbarVariants = cva("ml-auto flex shrink-0 items-center gap-0.5")
+export const dashboxToolbarVariants = cva(
+  "ml-auto flex shrink-0 items-center gap-0.5"
+)
 
 export const dashboxToolbarButtonVariants = cva([
   "flex size-7 items-center justify-center rounded-md",

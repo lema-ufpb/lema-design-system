@@ -42,7 +42,7 @@ export const Interactive: Story = {
     )
 
     return (
-      <div className="flex max-w-[400px] w-full flex-col items-center gap-12">
+      <div className="flex w-full max-w-[400px] flex-col items-center gap-12">
         <div className="flex h-[200px] w-full items-start justify-center rounded-2xl border bg-muted/30 pt-8">
           <DynamicIsland
             state={state}
@@ -184,7 +184,7 @@ export const MusicPlayer: Story = {
     const [isPlaying, setIsPlaying] = React.useState(true)
 
     return (
-      <div className="flex h-[300px] max-w-[400px] w-full items-start justify-center pt-8">
+      <div className="flex h-[300px] w-full max-w-[400px] items-start justify-center pt-8">
         <DynamicIsland
           state={state}
           title="Lo-fi Beats"

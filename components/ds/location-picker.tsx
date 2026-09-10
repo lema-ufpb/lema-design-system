@@ -57,9 +57,8 @@ export interface LocationPickerProps extends Omit<
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const locationPickerContainerVariants = cva("relative w-full", {
-  variants: {}
-  }
-)
+  variants: {},
+})
 
 export const locationPickerTriggerVariants = cva(
   [
@@ -69,7 +68,7 @@ export const locationPickerTriggerVariants = cva(
     "disabled:cursor-not-allowed disabled:opacity-50",
   ].join(" "),
   {
-    variants: {}
+    variants: {},
   }
 )
 

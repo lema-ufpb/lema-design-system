@@ -107,26 +107,34 @@ export const ScratchToReveal = React.forwardRef<
       if (percentage > revealThreshold) {
         handleReveal()
       }
-    }, [isRevealed, revealThreshold, handleReveal, calculateScratchedPercentage])
+    }, [
+      isRevealed,
+      revealThreshold,
+      handleReveal,
+      calculateScratchedPercentage,
+    ])
 
-    const scratch = React.useCallback((e: MouseEvent | TouchEvent) => {
-      if (!isScratching || isRevealed) return
-      const canvas = canvasRef.current
-      if (!canvas) return
-      const ctx = canvas.getContext("2d")
-      if (!ctx) return
+    const scratch = React.useCallback(
+      (e: MouseEvent | TouchEvent) => {
+        if (!isScratching || isRevealed) return
+        const canvas = canvasRef.current
+        if (!canvas) return
+        const ctx = canvas.getContext("2d")
+        if (!ctx) return
 
-      const rect = canvas.getBoundingClientRect()
-      const clientX = "touches" in e ? e.touches[0].clientX : e.clientX
-      const clientY = "touches" in e ? e.touches[0].clientY : e.clientY
+        const rect = canvas.getBoundingClientRect()
+        const clientX = "touches" in e ? e.touches[0].clientX : e.clientX
+        const clientY = "touches" in e ? e.touches[0].clientY : e.clientY
 
-      const x = clientX - rect.left
-      const y = clientY - rect.top
+        const x = clientX - rect.left
+        const y = clientY - rect.top
 
-      ctx.beginPath()
-      ctx.arc(x, y, brushSize / 2, 0, 2 * Math.PI)
-      ctx.fill()
-    }, [isScratching, isRevealed, brushSize])
+        ctx.beginPath()
+        ctx.arc(x, y, brushSize / 2, 0, 2 * Math.PI)
+        ctx.fill()
+      },
+      [isScratching, isRevealed, brushSize]
+    )
 
     useEffect(() => {
       const canvas = canvasRef.current

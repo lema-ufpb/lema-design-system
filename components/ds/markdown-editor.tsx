@@ -46,7 +46,7 @@ export interface MarkdownEditorProps extends Omit<
 export const markdownEditorContainerVariants = cva(
   "w-full overflow-hidden rounded-xl border border-border bg-card",
   {
-    variants: {}
+    variants: {},
   }
 )
 
@@ -58,7 +58,7 @@ export const markdownEditorTextareaVariants = cva(
     "disabled:cursor-not-allowed disabled:opacity-50",
   ].join(" "),
   {
-    variants: {}
+    variants: {},
   }
 )
 

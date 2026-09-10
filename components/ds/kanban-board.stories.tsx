@@ -121,7 +121,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: (args) => (
-    <div className="h-[600px] max-w-[800px] w-full rounded-lg border bg-background p-4">
+    <div className="h-[600px] w-full max-w-[800px] rounded-lg border bg-background p-4">
       <KanbanBoard {...args} />
     </div>
   ),
