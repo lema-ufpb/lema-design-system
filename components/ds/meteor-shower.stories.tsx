@@ -41,24 +41,29 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: (args) => (
-    <div className="relative flex min-h-[420px] w-full flex-col items-center justify-center overflow-hidden bg-background p-8">
+    <div className="relative flex min-h-[420px] w-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-zinc-950 p-8 text-white">
       <MeteorShower {...args} />
       <div className="relative z-10 max-w-xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight">
+        <h2 className="text-3xl font-bold tracking-tight text-white">
           Lançamentos em queda livre
         </h2>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <p className="mt-3 text-sm text-white/70">
           Efeito puramente CSS, praticamente sem custo de CPU — ideal para
           heroes de tráfego alto.
         </p>
         <div className="mt-6 flex justify-center gap-3">
           <Button>Começar agora</Button>
-          <Button variant="outline">Ver documentação</Button>
+          <Button
+            variant="outline"
+            className="bg-white text-zinc-900 hover:bg-white/90"
+          >
+            Ver documentação
+          </Button>
         </div>
       </div>
     </div>
   ),
-  args: { tone: "primary", density: "md" },
+  args: { tone: "sky", density: "md" },
 }
 
 export const AllTones: Story = {
@@ -70,7 +75,7 @@ export const AllTones: Story = {
           className="relative flex h-48 items-center justify-center overflow-hidden rounded-2xl border border-border bg-background"
         >
           <MeteorShower tone={tone} />
-          <p className="relative z-10 text-xs font-medium text-muted-foreground">
+          <p className="relative z-10 rounded-full bg-foreground px-2.5 py-1 text-xs font-medium text-background">
             {tone}
           </p>
         </div>
@@ -88,7 +93,7 @@ export const AllDensities: Story = {
           className="relative flex h-48 items-center justify-center overflow-hidden rounded-2xl border border-border bg-background"
         >
           <MeteorShower density={density} />
-          <p className="relative z-10 text-xs font-medium text-muted-foreground">
+          <p className="relative z-10 rounded-full bg-foreground px-2.5 py-1 text-xs font-medium text-background">
             {density}
           </p>
         </div>
