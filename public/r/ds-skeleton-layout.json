@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-skeleton-layout",
-  "description": "Pre-composed full-screen and section skeleton layouts for dashboard, table, profile, form, and list.",
+  "title": "Skeleton Layout",
+  "description": "Esqueletos pré-compostos para dashboard, tabela, perfil, formulário e lista.",
   "dependencies": [
     "class-variance-authority"
   ],

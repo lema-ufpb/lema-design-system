@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-sparkline",
-  "description": "Lightweight standalone SVG sparkline micro-chart with line, area, and bar modes for tabular data.",
+  "title": "Sparkline",
+  "description": "Micro-gráfico SVG ultra-leve para tabelas e cards com modos line, area e bar.",
   "dependencies": [
     "class-variance-authority"
   ],

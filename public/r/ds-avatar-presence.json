@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-avatar-presence",
-  "description": "User avatar with live presence badge (online, away, busy, offline) and pulse animation.",
+  "title": "Avatar Presence",
+  "description": "Indicador de presença em tempo real para avatar com anel de isolamento temático e animação de pulso.",
   "dependencies": [
     "class-variance-authority"
   ],
