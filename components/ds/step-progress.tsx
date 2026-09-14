@@ -73,9 +73,9 @@ export const stepCircleVariants = cva(
         ],
       },
       size: {
-        sm: "h-7 w-7 text-xs",
-        md: "h-9 w-9 text-sm",
-        lg: "h-11 w-11 text-base",
+        sm: "h-7 min-h-[44px] w-7 min-w-[44px] text-xs",
+        md: "h-9 min-h-[44px] w-9 min-w-[44px] text-sm",
+        lg: "h-11 min-h-[44px] w-11 min-w-[44px] text-base",
       },
     },
     defaultVariants: { status: "upcoming", size: "md" },
@@ -236,7 +236,7 @@ const StepProgressItem = ({
           className={cn(
             "rounded-lg transition-all outline-none",
             isInteractive &&
-              "cursor-pointer hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+              "min-h-[44px] min-w-[44px] cursor-pointer hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             orientation === "vertical" && "w-full text-left"
           )}
           aria-current={status === "current" ? "step" : undefined}

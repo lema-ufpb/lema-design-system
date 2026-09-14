@@ -672,7 +672,7 @@ function PaginationBar({
               id="dt-page-size"
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
-              className="h-7 rounded-md border border-border bg-background px-2 text-xs text-foreground focus:ring-1 focus:ring-ring focus:outline-none"
+              className="h-8 min-h-[44px] rounded-md border border-border bg-background px-2 text-xs text-foreground focus:ring-1 focus:ring-ring focus:outline-none"
             >
               {pageSizeOptions.map((s) => (
                 <option key={s} value={s}>
@@ -697,7 +697,7 @@ function PaginationBar({
               }}
               aria-disabled={!canPrev}
               className={cn(
-                "hover:bg-primary/10",
+                "min-h-[44px] min-w-[44px] hover:bg-primary/10",
                 !canPrev && "pointer-events-none opacity-50"
               )}
             />
@@ -719,6 +719,7 @@ function PaginationBar({
                     onPageChange(p - 1)
                   }}
                   className={cn(
+                    "min-h-[44px] min-w-[44px]",
                     p === pageIndex + 1
                       ? "border-transparent bg-primary/15 text-primary hover:bg-primary/20"
                       : "hover:bg-primary/10"
@@ -741,7 +742,7 @@ function PaginationBar({
               }}
               aria-disabled={!canNext}
               className={cn(
-                "hover:bg-primary/10",
+                "min-h-[44px] min-w-[44px] hover:bg-primary/10",
                 !canNext && "pointer-events-none opacity-50"
               )}
             />
@@ -1186,7 +1187,7 @@ export function DataTable<TData extends RowData>({
                       <TableHead
                         key={header.id}
                         className={cn(
-                          "relative flex items-center gap-1.5 whitespace-nowrap select-none",
+                          "relative flex min-h-[44px] items-center gap-1.5 whitespace-nowrap select-none",
                           pad,
                           isSelect && "w-12 shrink-0 justify-center px-0",
                           meta?.align === "center" &&
@@ -1319,7 +1320,7 @@ export function DataTable<TData extends RowData>({
                         <TableCell
                           key={cell.id}
                           className={cn(
-                            "flex items-center overflow-hidden text-ellipsis whitespace-nowrap",
+                            "flex items-center truncate",
                             pad,
                             font,
                             isSelect && "w-12 shrink-0 justify-center px-0",

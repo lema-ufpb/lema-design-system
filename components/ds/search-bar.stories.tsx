@@ -317,7 +317,7 @@ export const WithTrailingSlot: Story = {
                   <SlidersHorizontalIcon className="size-3.5" />
                   Filters
                   {activeFilters > 0 && (
-                    <Badge variant="secondary" className="h-4 px-1 text-[10px]">
+                    <Badge variant="secondary" className="h-4 px-1 text-xs">
                       {activeFilters}
                     </Badge>
                   )}

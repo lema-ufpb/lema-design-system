@@ -70,7 +70,7 @@ export function CultureGallery({
               alt={item.alt}
               loading="lazy"
               decoding="async"
-              className="size-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
+              className="size-full object-cover transition-transform duration-500 group-hover:scale-105 hover:will-change-transform motion-reduce:transform-none motion-reduce:transition-none"
             />
 
             {item.caption && (

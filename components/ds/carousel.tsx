@@ -316,21 +316,70 @@ export function Carousel({
   className,
   children,
 }: CarouselProps) {
-  const plugins = React.useMemo(() => {
-    if (!autoplayInterval || autoplayInterval <= 0) return undefined
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const [internalApi, setInternalApi] = React.useState<CarouselApi | undefined>(
+    undefined
+  )
+
+  const handleSetApi = React.useCallback(
+    (api: CarouselApi) => {
+      setInternalApi(api)
+      setApi?.(api)
+    },
+    [setApi]
+  )
+
+  const autoplayPlugin = React.useMemo(() => {
+    if (!autoplayInterval || autoplayInterval <= 0) return null
     if (
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     )
-      return undefined
-    return [
-      Autoplay({
-        delay: autoplayInterval,
-        stopOnInteraction: true,
-        stopOnMouseEnter: pauseOnHover,
-      }),
-    ]
+      return null
+    return Autoplay({
+      delay: autoplayInterval,
+      stopOnInteraction: true,
+      stopOnMouseEnter: pauseOnHover,
+    })
   }, [autoplayInterval, pauseOnHover])
+
+  const plugins = React.useMemo(
+    () => (autoplayPlugin ? [autoplayPlugin] : undefined),
+    [autoplayPlugin]
+  )
+
+  // Pause autoplay when not in viewport — respects prefers-reduced-motion
+  // and avoids background work when carousel is off-screen.
+  React.useEffect(() => {
+    if (!internalApi || !autoplayPlugin || !containerRef.current) return
+    const node = containerRef.current
+    const autoplay = (
+      internalApi.plugins() as unknown as {
+        autoplay?: { play: () => void; stop: () => void }
+      }
+    )?.autoplay
+    if (!autoplay) return
+    if (typeof IntersectionObserver === "undefined") return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        if (!entry) return
+        if (entry.isIntersecting) {
+          if (
+            typeof window !== "undefined" &&
+            !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ) {
+            autoplay.play()
+          }
+        } else {
+          autoplay.stop()
+        }
+      },
+      { threshold: 0.2 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [internalApi, autoplayPlugin])
 
   const resolvedNavPosition: CarouselNavPosition =
     navPositionProp ??
@@ -382,67 +431,69 @@ export function Carousel({
   }
 
   return (
-    <CarouselRoot
-      data-slot="ds-carousel"
-      className={cn(
-        "group/carousel relative",
-        carouselVariants({ variant }),
-        className
-      )}
-      opts={{ loop, align, skipSnaps }}
-      plugins={plugins}
-      orientation={orientation}
-      setApi={setApi}
-    >
-      {showProgress && <CarouselProgress orientation={orientation} />}
+    <div ref={containerRef} data-slot="ds-carousel-viewport-sentinel">
+      <CarouselRoot
+        data-slot="ds-carousel"
+        className={cn(
+          "group/carousel relative",
+          carouselVariants({ variant }),
+          className
+        )}
+        opts={{ loop, align, skipSnaps }}
+        plugins={plugins}
+        orientation={orientation}
+        setApi={handleSetApi}
+      >
+        {showProgress && <CarouselProgress orientation={orientation} />}
 
-      <CarouselContent>
-        {React.Children.map(children, (child) => (
-          <CarouselItem
-            className={cn(spv, orientation === "vertical" && "basis-auto")}
-          >
-            {child}
-          </CarouselItem>
-        ))}
-      </CarouselContent>
+        <CarouselContent>
+          {React.Children.map(children, (child) => (
+            <CarouselItem
+              className={cn(spv, orientation === "vertical" && "basis-auto")}
+            >
+              {child}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
 
-      {resolvedNavPosition !== "none" && (
-        <>
-          <CarouselPrevious
-            data-slot="ds-carousel-prev"
-            variant={navWrap.variant}
-            size={navSize}
-            aria-label={i18n.carousel.previous}
-            disabled={!loop ? undefined : undefined}
-            className={cn(
-              navWrap.className,
-              navPositionClasses(resolvedNavPosition, orientation)
-            )}
-          >
-            <ChevronLeftIcon />
-          </CarouselPrevious>
-          <CarouselNext
-            data-slot="ds-carousel-next"
-            variant={navWrap.variant}
-            size={navSize}
-            aria-label={i18n.carousel.next}
-            className={cn(
-              navWrap.className,
-              navPositionNextClasses(resolvedNavPosition, orientation)
-            )}
-          >
-            <ChevronRightIcon />
-          </CarouselNext>
-        </>
-      )}
+        {resolvedNavPosition !== "none" && (
+          <>
+            <CarouselPrevious
+              data-slot="ds-carousel-prev"
+              variant={navWrap.variant}
+              size={navSize}
+              aria-label={i18n.carousel.previous}
+              disabled={!loop ? undefined : undefined}
+              className={cn(
+                navWrap.className,
+                navPositionClasses(resolvedNavPosition, orientation)
+              )}
+            >
+              <ChevronLeftIcon />
+            </CarouselPrevious>
+            <CarouselNext
+              data-slot="ds-carousel-next"
+              variant={navWrap.variant}
+              size={navSize}
+              aria-label={i18n.carousel.next}
+              className={cn(
+                navWrap.className,
+                navPositionNextClasses(resolvedNavPosition, orientation)
+              )}
+            >
+              <ChevronRightIcon />
+            </CarouselNext>
+          </>
+        )}
 
-      {showDots && (
-        <CarouselDots
-          dotVariant={dotVariant}
-          dotPosition={dotPosition}
-          locale={locale}
-        />
-      )}
-    </CarouselRoot>
+        {showDots && (
+          <CarouselDots
+            dotVariant={dotVariant}
+            dotPosition={dotPosition}
+            locale={locale}
+          />
+        )}
+      </CarouselRoot>
+    </div>
   )
 }

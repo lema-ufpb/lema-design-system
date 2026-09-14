@@ -25,7 +25,6 @@ export interface BillingProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const billingVariants = cva("w-full rounded-2xl border bg-card p-6", {
   variants: {},
-  defaultVariants: {},
 })
 
 // ── Component ──────────────────────────────────────────────────────────────

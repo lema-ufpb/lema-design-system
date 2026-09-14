@@ -77,6 +77,7 @@ function Slider({
   defaultValue,
   ...props
 }: SliderProps) {
+  const sliderId = React.useId()
   const resolvedValue = controlledValue ?? defaultValue ?? [min]
   const isRange = Array.isArray(resolvedValue) && resolvedValue.length > 1
 
@@ -121,6 +122,9 @@ function Slider({
     )
   }
 
+  // Accessible name for axe: connect visible label to slider via aria-labelledby, fallback to aria-label
+  const labelId = label ? `${sliderId}-label` : undefined
+
   const sliderElement = (
     <div
       className="flex flex-col gap-2"
@@ -128,7 +132,10 @@ function Slider({
       data-vaul-no-drag
     >
       {label && (
-        <span className="text-sm font-medium text-muted-foreground">
+        <span
+          id={labelId}
+          className="text-sm font-medium text-muted-foreground"
+        >
           {label}
         </span>
       )}
@@ -143,7 +150,14 @@ function Slider({
                   <SliderRoot
                     data-slot="ds-slider-root"
                     aria-label={
-                      label || (props["aria-label"] as string) || "Slider"
+                      labelId
+                        ? undefined
+                        : label || (props["aria-label"] as string) || "Slider"
+                    }
+                    aria-labelledby={
+                      labelId ||
+                      (props["aria-labelledby"] as string) ||
+                      undefined
                     }
                     min={min}
                     max={max}
@@ -172,7 +186,14 @@ function Slider({
         ) : (
           <SliderRoot
             data-slot="ds-slider-root"
-            aria-label={label || (props["aria-label"] as string) || "Slider"}
+            aria-label={
+              labelId
+                ? undefined
+                : label || (props["aria-label"] as string) || "Slider"
+            }
+            aria-labelledby={
+              labelId || (props["aria-labelledby"] as string) || undefined
+            }
             min={min}
             max={max}
             value={Array.isArray(value) ? value : [value]}

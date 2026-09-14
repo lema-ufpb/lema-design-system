@@ -117,7 +117,7 @@ export function BannerPromo({
         <h3
           className={cn(
             "truncate font-semibold text-foreground",
-            size === "sm" ? "text-base" : "text-lg"
+            size === "sm" ? "text-sm" : "text-base"
           )}
         >
           {title}

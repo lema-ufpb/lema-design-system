@@ -2,16 +2,15 @@
 
 ## [1.10.2](https://github.com/lema-ufpb/design-system/compare/v1.10.1...v1.10.2) (2026-09-07)
 
-
 ### 🐛 Bug Fixes
 
-* **ci:** guard release-please auto-merge against version downgrades ([0c5d4e7](https://github.com/lema-ufpb/design-system/commit/0c5d4e7bf50bcc39fa1b582d8003e0084f487f01))
-* **ci:** remove gh CLI dependency from release-please version guard ([3f46faf](https://github.com/lema-ufpb/design-system/commit/3f46faf067449104f861c327ae1cfdacd0bf3b93))
-* **ci:** remove gh CLI dependency from release-please version guard ([85971ac](https://github.com/lema-ufpb/design-system/commit/85971acc2ba7ddcaf4645f35677da8b396c949ff))
-* **ci:** remove release-please auto-merge, keep advisory version check ([f4d8885](https://github.com/lema-ufpb/design-system/commit/f4d88853453faaa5bcf94775df019c4448eab334))
-* **ci:** remove release-please auto-merge, keep advisory version check ([2a6198b](https://github.com/lema-ufpb/design-system/commit/2a6198b8ccba1891e1bfa199f903a584009107a0))
-* revert stale release PR [#122](https://github.com/lema-ufpb/design-system/issues/122) + guard auto-merge against downgrades ([df43382](https://github.com/lema-ufpb/design-system/commit/df43382056895bb3084fb5dd69769115aad31edb))
-* revert stale release-please PR [#120](https://github.com/lema-ufpb/design-system/issues/120) that regressed main to 1.7.1 ([fab0534](https://github.com/lema-ufpb/design-system/commit/fab0534f3f55043b961469914567da0c34a3073e))
+- **ci:** guard release-please auto-merge against version downgrades ([0c5d4e7](https://github.com/lema-ufpb/design-system/commit/0c5d4e7bf50bcc39fa1b582d8003e0084f487f01))
+- **ci:** remove gh CLI dependency from release-please version guard ([3f46faf](https://github.com/lema-ufpb/design-system/commit/3f46faf067449104f861c327ae1cfdacd0bf3b93))
+- **ci:** remove gh CLI dependency from release-please version guard ([85971ac](https://github.com/lema-ufpb/design-system/commit/85971acc2ba7ddcaf4645f35677da8b396c949ff))
+- **ci:** remove release-please auto-merge, keep advisory version check ([f4d8885](https://github.com/lema-ufpb/design-system/commit/f4d88853453faaa5bcf94775df019c4448eab334))
+- **ci:** remove release-please auto-merge, keep advisory version check ([2a6198b](https://github.com/lema-ufpb/design-system/commit/2a6198b8ccba1891e1bfa199f903a584009107a0))
+- revert stale release PR [#122](https://github.com/lema-ufpb/design-system/issues/122) + guard auto-merge against downgrades ([df43382](https://github.com/lema-ufpb/design-system/commit/df43382056895bb3084fb5dd69769115aad31edb))
+- revert stale release-please PR [#120](https://github.com/lema-ufpb/design-system/issues/120) that regressed main to 1.7.1 ([fab0534](https://github.com/lema-ufpb/design-system/commit/fab0534f3f55043b961469914567da0c34a3073e))
 
 ## [1.10.1](https://github.com/lema-ufpb/design-system/compare/v1.10.0...v1.10.1) (2026-09-07)
 

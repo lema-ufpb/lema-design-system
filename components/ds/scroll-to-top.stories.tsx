@@ -42,7 +42,7 @@ function TallContainer({ children }: { children: React.ReactNode }) {
           zIndex: 1,
         }}
       >
-        Scroll down ⬇ then scroll up to reveal
+        Scroll down past the threshold to reveal
       </div>
 
       {/* Centered marker halfway */}
@@ -95,7 +95,7 @@ const meta = {
         component: [
           "A floating button that reveals a **scroll‑progress ring** and lets the user jump back to the top of the page with one click.",
           "",
-          "Smart visibility — the button appears only when scrolling **up** past a configurable threshold and hides when scrolling down, reducing visual noise.",
+          "Appears once the page has scrolled past a configurable threshold, and stays visible regardless of scroll direction — the standard, predictable back‑to‑top pattern.",
           "",
           "Built on `Tooltip` (shadcn) for the hover label, an animated SVG ring for the progress indicator, and `requestAnimationFrame` throttling for smooth 60fps scroll tracking.",
           "",
@@ -164,7 +164,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Reveals when scrolling up past 400px. Shows the progress ring.",
+        story: "Reveals once scrolled past 400px. Shows the progress ring.",
       },
     },
   },

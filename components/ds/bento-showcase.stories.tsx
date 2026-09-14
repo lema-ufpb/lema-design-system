@@ -34,6 +34,8 @@ const meta = {
       <img
         src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80"
         alt="Product screenshot"
+        loading="lazy"
+        decoding="async"
         className="size-full object-cover"
       />
     ),
