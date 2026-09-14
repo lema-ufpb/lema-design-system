@@ -4,7 +4,7 @@
 
 ## Propósito
 
-Botão flutuante que revela um anel de progresso de rolagem e permite ao usuário voltar ao topo da página com um clique. A visibilidade é inteligente — aparece apenas ao rolar para **cima** após ultrapassar um limiar configurável e desaparece ao rolar para baixo.
+Botão flutuante que revela um anel de progresso de rolagem e permite ao usuário voltar ao topo da página com um clique. A visibilidade segue o padrão previsível: aparece assim que a página ultrapassa um limiar configurável (`threshold`) e permanece visível independentemente da direção da rolagem.
 
 **Usar quando:** Páginas longas onde o usuário precisa voltar ao topo rapidamente.
 **Não usar quando:** Páginas curtas (viewport única). Scroll horizontal.
@@ -65,16 +65,16 @@ Estende `Omit<HTMLAttributes<HTMLDivElement>, "children">` + `VariantProps<typeo
 
 ## Comportamentos e estados
 
-| Estado                               | Comportamento esperado                                                                 |
-| ------------------------------------ | -------------------------------------------------------------------------------------- |
-| **Scroll down (qualquer distância)** | Botão oculto (`opacity-0 pointer-events-none translate-y-3`)                           |
-| **Scroll up + pageY > threshold**    | Botão visível (`opacity-100 translate-y-0`) com transição de 400ms                     |
-| **Clique**                           | `window.scrollTo({ top: 0, behavior: "smooth" })`                                      |
-| **Hover**                            | `scale-110` + `shadow-xl` — micro-interação de elevação                                |
-| **Active (pressionado)**             | `scale-95` — resposta tátil                                                            |
-| **Progress ring**                    | SVG com `stroke-dasharray`/`stroke-dashoffset`, atualizado via `requestAnimationFrame` |
-| **loading={true}**                   | `<Skeleton className="size-11 rounded-full" />`                                        |
-| **Não montado (SSR)**                | `return null` — guard `useSyncExternalStore`                                           |
+| Estado                   | Comportamento esperado                                                                 |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| **pageY ≤ threshold**    | Botão oculto (`opacity-0 pointer-events-none translate-y-3`)                           |
+| **pageY > threshold**    | Botão visível (`opacity-100 translate-y-0`) com transição de 400ms, qualquer direção   |
+| **Clique**               | `window.scrollTo({ top: 0, behavior: "smooth" })`                                      |
+| **Hover**                | `scale-110` + `shadow-xl` — micro-interação de elevação                                |
+| **Active (pressionado)** | `scale-95` — resposta tátil                                                            |
+| **Progress ring**        | SVG com `stroke-dasharray`/`stroke-dashoffset`, atualizado via `requestAnimationFrame` |
+| **loading={true}**       | `<Skeleton className="size-11 rounded-full" />`                                        |
+| **Não montado (SSR)**    | `return null` — guard `useSyncExternalStore`                                           |
 
 ---
 

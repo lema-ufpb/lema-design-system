@@ -74,14 +74,10 @@ const buttonVariants = cva(
 // ── Helpers – scroll state hook ──
 
 function useScrollState(threshold: number) {
-  const [state, setState] = React.useState({
-    progress: 0,
-    direction: "up" as "up" | "down",
-  })
+  const [state, setState] = React.useState({ progress: 0, visible: false })
 
   React.useEffect(() => {
     let ticking = false
-    let lastY = globalThis.scrollY ?? 0
 
     const onScroll = () => {
       if (ticking) return
@@ -93,10 +89,7 @@ function useScrollState(threshold: number) {
           0
         )
         const progress = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0
-        const direction: "up" | "down" =
-          scrollY > lastY ? "down" : scrollY < lastY ? "up" : state.direction
-        lastY = scrollY
-        setState({ progress, direction })
+        setState({ progress, visible: scrollY > threshold })
         ticking = false
       })
       ticking = true
@@ -105,7 +98,6 @@ function useScrollState(threshold: number) {
     globalThis.addEventListener("scroll", onScroll, { passive: true })
     onScroll()
     return () => globalThis.removeEventListener("scroll", onScroll)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [threshold])
 
   return state
@@ -186,7 +178,7 @@ export const ScrollToTop = React.forwardRef<HTMLDivElement, ScrollToTopProps>(
     },
     ref
   ) => {
-    const { progress, direction } = useScrollState(threshold)
+    const { progress, visible } = useScrollState(threshold)
     const i18n = UI_I18N[locale].scrollToTop
 
     const mounted = React.useSyncExternalStore(
@@ -197,8 +189,6 @@ export const ScrollToTop = React.forwardRef<HTMLDivElement, ScrollToTopProps>(
       () => true,
       () => false
     )
-
-    const visible = progress > 0 && direction === "up"
 
     const handleClick = () => {
       globalThis.scrollTo({ top: 0, behavior: "smooth" })

@@ -20,15 +20,34 @@ export interface MilestoneStepperProps
 
 // ── Variants ──
 
+export const milestoneTitleVariants = cva("font-medium text-foreground", {
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "text-sm",
+      lg: "text-base",
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+})
+
 export const milestoneStepperVariants = cva("relative w-full transition-all", {
   variants: {
     orientation: {
       vertical: "",
       horizontal: "",
     },
+    size: {
+      sm: "",
+      md: "",
+      lg: "",
+    },
   },
   defaultVariants: {
     orientation: "vertical",
+    size: "md",
   },
 })
 
@@ -37,6 +56,7 @@ export const milestoneStepperVariants = cva("relative w-full transition-all", {
 export function MilestoneStepper({
   milestones,
   orientation,
+  size,
   className,
   ...props
 }: MilestoneStepperProps) {
@@ -44,7 +64,7 @@ export function MilestoneStepper({
 
   return (
     <div
-      className={cn(milestoneStepperVariants({ orientation }), className)}
+      className={cn(milestoneStepperVariants({ orientation, size }), className)}
       {...props}
     >
       {isVertical ? (
@@ -63,7 +83,7 @@ export function MilestoneStepper({
               {/* Marcador / Nó iluminado */}
               <div
                 aria-hidden="true"
-                className="absolute top-1 -left-8 flex size-6 -translate-x-1/2 items-center justify-center rounded-full border-2 border-background bg-primary shadow-xs ring-4 ring-primary/10 md:-left-10 md:size-8"
+                className="absolute top-1 -left-8 flex size-6 min-h-[44px] min-w-[44px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-background bg-primary shadow-xs ring-4 ring-primary/10 md:-left-10 md:size-8 md:min-h-[44px] md:min-w-[44px]"
               >
                 <div className="size-2 rounded-full bg-primary-foreground" />
               </div>
@@ -79,7 +99,7 @@ export function MilestoneStepper({
                 )}
               </div>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className={cn(milestoneTitleVariants({ size }))}>
                 {item.title}
               </h3>
 
@@ -107,7 +127,7 @@ export function MilestoneStepper({
                 )}
               </div>
 
-              <h3 className="text-sm font-semibold text-foreground">
+              <h3 className={cn(milestoneTitleVariants({ size }))}>
                 {item.title}
               </h3>
 

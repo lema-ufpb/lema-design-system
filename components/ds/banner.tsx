@@ -144,7 +144,7 @@ const skeletonDims = {
     icon: "size-3.5",
     title: "h-3 w-20",
     desc: "h-3 w-40",
-    cta: "h-7 w-20",
+    cta: "h-8 w-20",
   },
   md: { icon: "size-4", title: "h-4 w-24", desc: "h-4 w-48", cta: "h-8 w-24" },
   lg: { icon: "size-5", title: "h-4 w-28", desc: "h-4 w-56", cta: "h-9 w-28" },
@@ -332,7 +332,7 @@ export function Banner({
           size="icon"
           aria-label={UI_I18N[locale].banner.dismiss}
           onClick={handleDismiss}
-          className="size-7 shrink-0 rounded-full text-muted-foreground hover:text-foreground"
+          className="size-8 min-h-[44px] min-w-[44px] shrink-0 rounded-full text-muted-foreground hover:text-foreground"
         >
           <XIcon className="size-3.5" />
         </Button>

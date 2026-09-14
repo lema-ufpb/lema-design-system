@@ -123,6 +123,7 @@ export function HeroLayers({
               height={700}
               className="h-auto w-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
           {/* second layer — offset top right */}
@@ -136,6 +137,7 @@ export function HeroLayers({
                 height={600}
                 className="h-auto w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           )}
@@ -150,6 +152,7 @@ export function HeroLayers({
                 height={500}
                 className="h-auto w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           )}

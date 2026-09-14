@@ -44,6 +44,8 @@ export const Default: Story = {
           <img
             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800"
             alt="Paisagem"
+            loading="lazy"
+            decoding="async"
             className="rounded-lg"
           />
         </TracingBeamItem>

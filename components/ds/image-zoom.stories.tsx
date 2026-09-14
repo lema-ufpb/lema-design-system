@@ -30,4 +30,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: { src: "https://picsum.photos/600/400" } }
+export const Default: Story = {
+  args: { src: "https://picsum.photos/600/400", alt: "Demo zoom image" },
+}

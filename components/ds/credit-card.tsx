@@ -82,7 +82,11 @@ export function CreditCard({
         <span className="text-xs font-medium tracking-widest uppercase opacity-70">
           {brand}
         </span>
-        <span className="size-6 rounded-full bg-white/20" aria-hidden="true" />
+        <span
+          // decorative — semantic token approximating white translucent on primary
+          className="size-6 rounded-full bg-primary-foreground/20"
+          aria-hidden="true"
+        />
       </div>
       <div className="flex flex-col gap-3">
         <span

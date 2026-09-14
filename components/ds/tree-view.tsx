@@ -32,10 +32,7 @@ export interface TreeViewProps {
 // ── Variants ──
 
 const treeItemVariants = cva(
-  "flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground data-[selected=true]:bg-muted data-[selected=true]:text-foreground",
-  {
-    variants: {},
-  }
+  "flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground data-[selected=true]:bg-muted data-[selected=true]:text-foreground"
 )
 
 // ── Components ──

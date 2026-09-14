@@ -174,7 +174,7 @@ export function Typewriter({
       {cursor && (
         <span
           aria-hidden="true"
-          className="ml-0.5 inline-block animate-pulse font-normal text-primary"
+          className="ml-0.5 inline-block font-normal text-primary motion-safe:animate-pulse"
         >
           {cursorChar}
         </span>

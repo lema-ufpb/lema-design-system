@@ -222,6 +222,8 @@ O layout segue o modelo de grid flexível do Tailwind CSS v4, sem breakpoints fi
 
 **The Flat-By-Default Rule.** Toda superfície nasce sem sombra. Sombra só aparece como resposta a interação ou como stack context explícito (modal, dropdown, tooltip).
 
+**Backdrop-blur budget.** The system currently uses `backdrop-blur` in 21 places. To preserve GPU compositing budget, **no more than 2 `backdrop-blur` / `backdrop-filter: blur()` layers may be visible simultaneously** in any viewport (e.g., modal overlay + one blurred card). Additional blurs must be gated behind feature flags or replaced with solid `bg-card/90` fallbacks. Prefer `backdrop-blur-sm` (4px) over `-md/-lg` when stacking.
+
 ## 6. Shapes
 
 A linguagem de formas é definida por **arestas suaves e consistentes**, com raio base de 0.625rem (~10px) modulado por multiplicadores.

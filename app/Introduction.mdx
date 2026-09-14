@@ -43,6 +43,7 @@ import {
   Users,
   Quote,
   Wrench,
+  BarChart2,
 } from "lucide-react"
 
 export const DOCS_FONT =
@@ -59,13 +60,13 @@ _Design system oficial do LEMA/UFPB — acessível, temático e pronto para prod
 <Unstyled>
   <div className="flex flex-wrap gap-2" style={{ fontFamily: DOCS_FONT }}>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      326 itens no registry
+      374 itens no registry
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      261 componentes ds-*
+      309 componentes ds-*
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-      61 primitivos shadcn
+      62 primitivos shadcn
     </span>
     <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
       4 idiomas
@@ -76,7 +77,7 @@ _Design system oficial do LEMA/UFPB — acessível, temático e pronto para prod
   </div>
 </Unstyled>
 
-Sob o capô, o LEMA-DS é construído com [React 19](https://react.dev/) e [Next.js 16](https://nextjs.org/), com tipagem de ponta a ponta garantida pelo [TypeScript](https://www.typescriptlang.org/). A estilização é inteiramente [Tailwind CSS v4](https://tailwindcss.com/) — via `@theme inline`, sem `tailwind.config.js` — construída sobre as primitivas acessíveis do [Radix UI](https://www.radix-ui.com/) e a camada base do [shadcn/ui](https://ui.shadcn.com/) (`components/ui`, 61 primitivos, nunca editados manualmente). As variantes de cada componente são tipadas com [class-variance-authority](https://cva.style/), sempre com `defaultVariants` definidos. E tudo isso é documentado e testado aqui mesmo, neste [Storybook 10](https://storybook.js.org/), com [Vitest](https://vitest.dev/) rodando em modo browser via `make test`.
+Sob o capô, o LEMA-DS é construído com [React 19](https://react.dev/) e [Next.js 16](https://nextjs.org/), com tipagem de ponta a ponta garantida pelo [TypeScript](https://www.typescriptlang.org/). A estilização é inteiramente [Tailwind CSS v4](https://tailwindcss.com/) — via `@theme inline`, sem `tailwind.config.js` — construída sobre as primitivas acessíveis do [Radix UI](https://www.radix-ui.com/) e a camada base do [shadcn/ui](https://ui.shadcn.com/) (`components/ui`, 62 primitivos, nunca editados manualmente). As variantes de cada componente são tipadas com [class-variance-authority](https://cva.style/), sempre com `defaultVariants` definidos. E tudo isso é documentado e testado aqui mesmo, neste [Storybook 10](https://storybook.js.org/), com [Vitest](https://vitest.dev/) rodando em modo browser via `make test`.
 
 ---
 
@@ -92,9 +93,9 @@ A biblioteca é organizada em três camadas que se apoiam umas nas outras — da
 
 A primeira camada é a **fundação**: o "DNA" do design system. São os tokens semânticos de cor (`--background`, `--foreground`, `--primary`, `--muted`, `--border`, cada um com seu par para o modo escuro), a escala de risco (`--risk-1` a `--risk-4`) usada em visualização de dados, e os tokens de destaque e gráficos (`--highlight-violet/sky/white`, `--chart-1` a `--chart-5`) — sempre tokens, nunca hex cru. O suporte a temas claro, escuro e sistema vem do `ToggleTheme` com `next-themes`, e a internacionalização é centralizada em `lib/ui-i18n.ts`: quatro idiomas prontos de fábrica, e basta passar a prop `locale` para que a dependência `ui-i18n` seja instalada automaticamente.
 
-A segunda camada são os **primitivos shadcn/ui**: 61 componentes atômicos e acessíveis vivendo em `components/ui/`, a base literal de tudo o que vem depois. Eles nunca são editados manualmente — qualquer ajuste ali se perde na próxima atualização — então toda mudança passa pelo CLI oficial, `npx shadcn@latest add <componente> --yes`. É onde moram os alicerces de formulário ([Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Field](/docs/shadcn-ui-field--docs)…), as sobreposições ([Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Sheet](/docs/shadcn-ui-sheet--docs)…), a exibição de dados ([Card](/docs/shadcn-ui-card--docs), [Table](/docs/shadcn-ui-table--docs), [Avatar](/docs/shadcn-ui-avatar--docs)…) e até uma família inteira de chat ([Bubble](/docs/shadcn-ui-bubble--docs), [Message](/docs/shadcn-ui-message--docs), [MessageScroller](/docs/shadcn-ui-messagescroller--docs)).
+A segunda camada são os **primitivos shadcn/ui**: 62 componentes atômicos e acessíveis vivendo em `components/ui/`, a base literal de tudo o que vem depois. Eles nunca são editados manualmente — qualquer ajuste ali se perde na próxima atualização — então toda mudança passa pelo CLI oficial, `npx shadcn@latest add <componente> --yes`. É onde moram os alicerces de formulário ([Button](/docs/shadcn-ui-button--docs), [Input](/docs/shadcn-ui-input--docs), [Field](/docs/shadcn-ui-field--docs)…), as sobreposições ([Dialog](/docs/shadcn-ui-dialog--docs), [Drawer](/docs/shadcn-ui-drawer--docs), [Sheet](/docs/shadcn-ui-sheet--docs)…), a exibição de dados ([Card](/docs/shadcn-ui-card--docs), [Table](/docs/shadcn-ui-table--docs), [Avatar](/docs/shadcn-ui-avatar--docs)…) e até uma família inteira de chat ([Bubble](/docs/shadcn-ui-bubble--docs), [Message](/docs/shadcn-ui-message--docs), [MessageScroller](/docs/shadcn-ui-messagescroller--docs)).
 
-A terceira camada é onde o design system ganha personalidade: os **componentes LEMA-DS**. São 261 composições em `components/ds/`, mais quatro bibliotecas compartilhadas (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/chart-axis-width.ts`, `lib/card-stats-shared.tsx`). Cada uma entra no `registry.json` com o prefixo `ds-` e é instalável com `npx shadcn@latest add ds-<nome>` — o arquivo cai direto em `components/ui/ds-<nome>.tsx`, sem colidir com o primitivo que estende. Como este é um design system spec-first, cada componente também carrega sua spec em `docs/specs/ds-<nome>.md` e sua história (`.stories.tsx`) lado a lado no código.
+A terceira camada é onde o design system ganha personalidade: os **componentes LEMA-DS**. São 308 composições em `components/ds/`, mais quatro bibliotecas compartilhadas (`lib/ui-i18n.ts`, `lib/format-utils.ts`, `lib/chart-axis-width.ts`, `lib/card-stats-shared.tsx`). Cada uma entra no `registry.json` com o prefixo `ds-` e é instalável com `npx shadcn@latest add ds-<nome>` — o arquivo cai direto em `components/ui/ds-<nome>.tsx`, sem colidir com o primitivo que estende. Como este é um design system spec-first, cada componente também carrega sua spec em `docs/specs/ds-<nome>.md` e sua história (`.stories.tsx`) lado a lado no código.
 
 ### Explore por categoria
 
@@ -135,7 +136,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Botões e ações de interface, do simples ao icônico.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        8 itens
+        10 itens
       </span>
     </a>
     <a
@@ -284,10 +285,10 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         </span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Tabelas, gráficos, cards de estatística e mais.
+        Tabelas, gráficos, cards de estatística, listas virtualizadas e mais.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        57 itens
+        69 itens
       </span>
     </a>
     <a
@@ -299,10 +300,11 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Effects</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Tilt 3D, spotlight, tracing beam e outros efeitos visuais.
+        Tilt 3D, spotlight, tracing beam, partículas, meteoros e chuva de
+        estrelas.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        7 itens
+        11 itens
       </span>
     </a>
     <a
@@ -332,10 +334,10 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Feedback</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Loaders, progresso, avisos e estados de erro.
+        Loaders, progresso, avisos, confetti e empty states ilustrados.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        10 itens
+        18 itens
       </span>
     </a>
     <a
@@ -368,10 +370,29 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Forms</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        De inputs simples a upload de arquivo e seleção múltipla.
+        De inputs simples a upload de arquivo e seleção múltipla — incluindo
+        cron builder, editor Markdown, assinatura e localização.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        27 itens
+        34 itens
+      </span>
+    </a>
+    <a
+      href="/?path=/docs/charts-funnelchart--docs"
+      className="group flex flex-col gap-1.5 rounded-xl border border-border bg-card p-4 no-underline transition-colors hover:border-foreground/20 hover:bg-accent"
+    >
+      <div className="flex items-center gap-2">
+        <BarChart2
+          className="size-5 text-muted-foreground"
+          aria-hidden="true"
+        />
+        <span className="text-sm font-semibold text-foreground">Charts</span>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Funnel, Waterfall, Sankey e Bullet — visualizações de negócio avançadas.
+      </div>
+      <span className="text-xs font-medium text-muted-foreground tabular-nums">
+        4 itens
       </span>
     </a>
     <a
@@ -451,7 +472,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Containers, drawers, modais e o esqueleto do dashboard.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        8 itens
+        10 itens
       </span>
     </a>
     <a
@@ -502,10 +523,10 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         <span className="text-sm font-semibold text-foreground">Media</span>
       </div>
       <div className="text-xs text-muted-foreground">
-        Screenshot, mockup e visualização de imagem/vídeo.
+        Screenshot, mockup, audio player, file preview e visualização de mídia.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        6 itens
+        8 itens
       </span>
     </a>
     <a
@@ -525,7 +546,7 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
         Abas, paginação, breadcrumbs e navegação de sidebar.
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
-        22 itens
+        25 itens
       </span>
     </a>
     <a
@@ -623,6 +644,36 @@ Prefere navegar por assunto? Aqui vai um mapa rápido — a lista completa de ca
       </div>
       <span className="text-xs font-medium text-muted-foreground tabular-nums">
         3 itens
+      </span>
+    </a>
+    <a
+      href="/?path=/docs/delight-magneticelement--docs"
+      className="group flex flex-col gap-1.5 rounded-xl border border-border bg-card p-4 no-underline transition-colors hover:border-foreground/20 hover:bg-accent"
+    >
+      <div className="flex items-center gap-2">
+        <Sparkles className="size-5 text-muted-foreground" aria-hidden="true" />
+        <span className="text-sm font-semibold text-foreground">Delight</span>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Micro-interações lúdicas — magnético, scratch e scramble.
+      </div>
+      <span className="text-xs font-medium text-muted-foreground tabular-nums">
+        3 itens
+      </span>
+    </a>
+    <a
+      href="/?path=/docs/saas-pricingcalculator--docs"
+      className="group flex flex-col gap-1.5 rounded-xl border border-border bg-card p-4 no-underline transition-colors hover:border-foreground/20 hover:bg-accent"
+    >
+      <div className="flex items-center gap-2">
+        <Tag className="size-5 text-muted-foreground" aria-hidden="true" />
+        <span className="text-sm font-semibold text-foreground">SaaS</span>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Calculadora de preço interativa para planos SaaS.
+      </div>
+      <span className="text-xs font-medium text-muted-foreground tabular-nums">
+        1 item
       </span>
     </a>
   </div>
@@ -723,7 +774,7 @@ import { Dashbox } from "@/components/ds/dashbox"
   <h2>Recursos que fazem diferença</h2>
 </div>
 
-Acessibilidade não é opcional aqui: cada componente segue as diretrizes WAI-ARIA, responde à navegação por teclado, respeita `prefers-reduced-motion` e passa por checagens `axe` diretamente no Vitest, seguindo WCAG 2.1 AA. Os temas claro, escuro e "sistema" funcionam inteiramente por tokens semânticos (`bg-primary`, `text-muted-foreground`, `bg-success`, `bg-risk-1`…`4`, `bg-muted`) — nenhuma sobrescrita manual de `dark:` em lugar nenhum do código. O layout é mobile-first, com `@container` queries e um `SidebarProvider` que se adapta à tela. A tipagem é 100% TypeScript, com `VariantProps` cobrindo cada variante do CVA. E como o design system é spec-first, os 320 arquivos de spec em `docs/specs/` acompanham lado a lado os componentes de `components/ds/`, cada um com sua própria história de Storybook.
+Acessibilidade não é opcional aqui: cada componente segue as diretrizes WAI-ARIA, responde à navegação por teclado, respeita `prefers-reduced-motion` e passa por checagens `axe` diretamente no Vitest, seguindo WCAG 2.1 AA. Os temas claro, escuro e "sistema" funcionam inteiramente por tokens semânticos (`bg-primary`, `text-muted-foreground`, `bg-success`, `bg-risk-1`…`4`, `bg-muted`) — nenhuma sobrescrita manual de `dark:` em lugar nenhum do código. O layout é mobile-first, com `@container` queries e um `SidebarProvider` que se adapta à tela. A tipagem é 100% TypeScript, com `VariantProps` cobrindo cada variante do CVA. E como o design system é spec-first, os 368 arquivos de spec em `docs/specs/` acompanham lado a lado os componentes de `components/ds/`, cada um com sua própria história de Storybook.
 
 <Unstyled>
   <div className="flex flex-wrap gap-2" style={{ fontFamily: DOCS_FONT }}>

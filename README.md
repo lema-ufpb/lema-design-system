@@ -126,7 +126,7 @@ npx ds add ui-i18n
 design-system/
 ├── app/
 │   ├── globals.css         # Tokens CSS e temas (Tailwind v4 @theme inline)
-│   ├── Introduction.mdx    # Intro Storybook (v{VERSION}, 325 itens, 261 ds)
+│   ├── Introduction.mdx    # Intro Storybook (v{VERSION}, 374 itens, 309 ds)
 │   └── layout.tsx          # Layout raiz com ThemeProvider
 ├── components/
 │   ├── ui/                 # Primitivos shadcn — 62, nunca editar (npx shadcn add)
@@ -134,7 +134,7 @@ design-system/
 │   │   ├── card.tsx
 │   │   ├── input.tsx
 │   │   └── ... (62)
-│   └── ds/                 # Compostos — 261 (CVA single-file, i18n, Skeleton)
+│   └── ds/                 # Compostos — 309 (CVA single-file, i18n, Skeleton)
 │       ├── dashbox.tsx
 │       ├── bar-chart.tsx
 │       ├── data-table.tsx
@@ -150,9 +150,9 @@ design-system/
 │   └── version.ts                  # __APP_VERSION__
 ├── providers/theme.tsx     # ThemeProvider (next-themes)
 ├── .storybook/             # Storybook 10 + Vitest browser
-├── registry.json           # 325 itens (261 ds-* → components/ui/ds-*.tsx)
+├── registry.json           # 374 itens (309 ds-* → components/ui/ds-*.tsx)
 ├── public/r/               # shadcn build output
-├── docs/specs/             # 316 specs (spec-first)
+├── docs/specs/             # 368 specs (spec-first)
 ├── docs/templates/component-spec.md
 └── Makefile                # make dev/lint/test/registry
 ```
@@ -163,7 +163,7 @@ Novos componentes customizados seguem um fluxo **spec-first**, com templates e s
 
 ```
 docs/
-├── specs/               # Specs de todos os componentes (316 arquivos — 62 ui + 261 ds, 325 itens no registry)
+├── specs/               # Specs de todos os componentes (368 arquivos — 62 ui + 309 ds, 374 itens no registry)
 └── templates/
     └── component-spec.md # Template de spec para novos componentes
 ```
@@ -173,13 +173,13 @@ docs/
 1. **Preencher o template** `docs/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
 2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
 3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
-4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro — `325` itens) + `make test` (>1000 testes em 160+ arquivos)
+4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro — `374` itens) + `make test` (>1000 testes em 160+ arquivos)
 
 As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem seu propósito, API, variantes CVA, tokens e acessibilidade documentados.
 
 ### 📚 Specs existentes
 
-Todos os componentes (`62` ui primitives + `261` ds + `3` libs = `325` registry items) possuem spec documentada em `docs/specs/` (`316` specs). Cada spec detalha propósito, API, variantes CVA, tokens (`bg-success`, `bg-risk-1`…`4`, `--chart-1`…`5`), escala tipográfica `sm=text-xs/md=text-sm/lg=text-base`, estados (loading `Skeleton`/empty/disabled), acessibilidade (`aria-*`, `prefers-reduced-motion`) e stories obrigatórias — fonte de verdade spec-first.
+Todos os componentes (`62` ui primitives + `309` ds + `3` libs = `374` registry items) possuem spec documentada em `docs/specs/` (`368` specs). Cada spec detalha propósito, API, variantes CVA, tokens (`bg-success`, `bg-risk-1`…`4`, `--chart-1`…`5`), escala tipográfica `sm=text-xs/md=text-sm/lg=text-base`, estados (loading `Skeleton`/empty/disabled), acessibilidade (`aria-*`, `prefers-reduced-motion`) e stories obrigatórias — fonte de verdade spec-first.
 
 ### 📄 Spec template
 
@@ -598,7 +598,7 @@ make format           # Prettier
 make build-storybook  # Build Storybook estático
 make test             # Vitest (>1000 testes em 160+ arquivos)
 make coverage         # Coverage com Vitest
-make registry         # Rebuild do registry.json (shadcn build — 325 itens)
+make registry         # Rebuild do registry.json (shadcn build — 374 itens)
 make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
 make clean            # Limpar artefatos
 ```

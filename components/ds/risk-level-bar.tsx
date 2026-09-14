@@ -86,7 +86,7 @@ export const riskLevelSubtitleVariants = cva(
 )
 
 export const riskLevelBarContainerVariants = cva(
-  "relative mt-6 w-full min-w-[100px] overflow-hidden rounded-full bg-muted",
+  "relative isolate mt-6 w-full min-w-[100px] overflow-hidden rounded-full bg-muted",
   {
     variants: {
       size: {
@@ -104,9 +104,9 @@ export const riskLevelSegmentVariants = cva(
 )
 
 export const riskLevelMarkerVariants = cva([
-  "absolute -top-2.5 h-0 w-0 border-l-8 border-l-transparent",
+  "absolute -top-2.5 h-0 w-0 border-l-8 border-l-transparent", // risk scale marker triangle — intentional
   "border-t-[12px] border-r-8 border-t-foreground border-r-transparent",
-  "group z-[3] -translate-x-1/2 cursor-pointer transition-[left] duration-300 ease-in-out",
+  "group z-10 -translate-x-1/2 cursor-pointer transition-[left] duration-300 ease-in-out",
 ])
 
 export const riskLevelTooltipVariants = cva(
@@ -114,7 +114,7 @@ export const riskLevelTooltipVariants = cva(
     "absolute top-[-30px] left-1/2 text-xs",
     "-translate-x-1/2 -translate-y-[120%] scale-95",
     "rounded-md bg-foreground px-2 py-1.5 text-background shadow-lg",
-    "pointer-events-none z-[4] whitespace-nowrap opacity-0 transition-all duration-150",
+    "pointer-events-none z-20 whitespace-nowrap opacity-0 transition-all duration-150",
     "group-hover:scale-100 group-hover:opacity-100",
     "group-focus:scale-100 group-focus:opacity-100",
   ],
@@ -158,8 +158,16 @@ const skeletonDims: Record<
 // ── RiskLevelBar ───────────────────────────────────────────────────────────
 
 const DEFAULT_SEGMENTS: RiskSegment[] = [
-  { color: "var(--color-risk-1)", range: [0, 0.25], textClass: "text-white" },
-  { color: "var(--color-risk-2)", range: [0.25, 0.5], textClass: "text-white" },
+  {
+    color: "var(--color-risk-1)",
+    range: [0, 0.25],
+    textClass: "text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]", // intentional: white on saturated risk color
+  },
+  {
+    color: "var(--color-risk-2)",
+    range: [0.25, 0.5],
+    textClass: "text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]", // intentional: white on saturated risk color
+  },
   {
     color: "var(--color-risk-3)",
     range: [0.5, 0.75],

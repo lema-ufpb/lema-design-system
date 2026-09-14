@@ -23,7 +23,9 @@ export interface PressWallLogoProps
   href?: string
   /** Renders `label` as a visible caption below the mark. */
   showLabel?: boolean
-  /** Logo mark — an <img> or inline <svg>, sized by the component. */
+  /** Logo mark — an <img
+ loading="lazy"
+ decoding="async"> or inline <svg>, sized by the component. */
   children: React.ReactNode
 }
 
@@ -35,10 +37,7 @@ export interface PressWallAwardProps {
 // ── Variants ──
 
 export const pressWallGridVariants = cva(
-  "grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-3 md:grid-cols-4",
-  {
-    variants: {},
-  }
+  "grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-3 md:grid-cols-4"
 )
 
 export const pressWallLogoVariants = cva(

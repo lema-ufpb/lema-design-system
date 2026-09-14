@@ -71,7 +71,7 @@ export const pullQuoteTextVariants = cva(
 
 export const pullQuoteCiteNameVariants = cva("font-medium text-foreground", {
   variants: {
-    size: { sm: "text-sm", md: "text-base", lg: "text-lg" },
+    size: { sm: "text-xs", md: "text-sm", lg: "text-base" },
   },
   defaultVariants: { size: "md" },
 })
@@ -180,7 +180,7 @@ export const PullQuote = React.forwardRef<HTMLElement, PullQuoteProps>(
           >
             {(avatarSrc || avatarFallback) && (
               <Avatar size={AVATAR_SIZE[size ?? "md"]}>
-                {avatarSrc && <AvatarImage src={avatarSrc} alt="" />}
+                {avatarSrc && <AvatarImage src={avatarSrc} alt={name} />}
                 {avatarFallback && (
                   <AvatarFallback>{avatarFallback}</AvatarFallback>
                 )}
