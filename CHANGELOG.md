@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.11.0](https://github.com/lema-ufpb/design-system/compare/v1.10.2...v1.11.0) (2026-09-14)
+
+
+### ✨ Features
+
+* add 14 ds components across media, charts, feedback, form and data-display ([4cae399](https://github.com/lema-ufpb/design-system/commit/4cae399fceb09f386f71cc2326671266579cec2d))
+* **ds:** add 11 new interactive and motion components ([b4ba210](https://github.com/lema-ufpb/design-system/commit/b4ba210881b56a14596384e16c52b07f969e7dcb))
+* **ds:** add 22 new design system components ([ecd6e79](https://github.com/lema-ufpb/design-system/commit/ecd6e79a27e7322dc34babb22bdb04584fe17807))
+* **effects:** add star-shower pulsating star field ([e5fe13d](https://github.com/lema-ufpb/design-system/commit/e5fe13d40a438385cb3b1fb237d865702f63b59a))
+
+
+### 🐛 Bug Fixes
+
+* **a11y:** resolve axe violations for slider and combobox ([cc33abd](https://github.com/lema-ufpb/design-system/commit/cc33abd24dcca1c9953a82cda9cf64b54f4ad33c))
+* **a11y:** resolve make test failures in cron-builder, location-picker, markdown-editor ([6e06921](https://github.com/lema-ufpb/design-system/commit/6e0692182169c0ad73398be625d4d1c541f23228))
+* **ds:** replace raw Tailwind colors with semantic tokens ([1acba44](https://github.com/lema-ufpb/design-system/commit/1acba445ea038849256753d74eae3f4e6e37881b))
+* **effects:** make meteor-shower visible in stories ([fb88334](https://github.com/lema-ufpb/design-system/commit/fb8833402fef9a940d9ee82aa2a7dcc1cf5f0012))
+* **registry:** rewrite sibling relative imports to installed ds- basenames ([75fed54](https://github.com/lema-ufpb/design-system/commit/75fed54a9a212026bf83d94242564b0451b0384d))
+* **scripts:** extend registry import rewriting to handle alias imports ([3184262](https://github.com/lema-ufpb/design-system/commit/31842620653e5d9cef4ce845d87db4d2bebade2d))
+* **scroll-to-top:** show button by scroll threshold instead of direction ([4e03636](https://github.com/lema-ufpb/design-system/commit/4e03636b0a891c666333d35bd7651a77391d0a07))
+* **ui:** update shadcn primitives combobox and slider ([9554051](https://github.com/lema-ufpb/design-system/commit/9554051b5d97c174bc8c85dc5ad34c972ad2c848))
+
+
+### 📚 Documentation
+
+* **app:** update introduction counts and category grids ([373a846](https://github.com/lema-ufpb/design-system/commit/373a846b6fc12e660c9763e32f671c233a82e3a2))
+* **specs:** rename component specs to ds- prefix convention ([edbad9c](https://github.com/lema-ufpb/design-system/commit/edbad9c1eaf9c9057e873d5f5e1930c24cb85abb))
+* sync counts and specs for star-shower ([ff6b681](https://github.com/lema-ufpb/design-system/commit/ff6b68198a0e851506fbf235de8b533d432c8cf5))
+
+
+### ♻️ Refactor
+
+* **ds:** update existing ds components and design tokens ([a2a5278](https://github.com/lema-ufpb/design-system/commit/a2a52785d5e0b299bf7dfcb3bd3d88766d61f998))
+
 ## [1.10.2](https://github.com/lema-ufpb/design-system/compare/v1.10.1...v1.10.2) (2026-09-07)
 
 ### 🐛 Bug Fixes
