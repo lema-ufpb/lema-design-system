@@ -11,10 +11,16 @@
 // `ds-header-nav.tsx` — a broken `Cannot find module` in every project that
 // installs the component.
 //
-// This rewrites those relative imports in the *published* JSON only, to
-// match each dependency's real installed basename. Source files under
-// components/ds/ are untouched, so local dev/Storybook/tsc keep working
-// exactly as before.
+// The same problem occurs with alias imports: a source file under
+// components/ds/ may import a sibling via `@/components/ds/pagination`
+// (valid in this repo, where the file sits unprefixed under components/ds/),
+// but that sibling installs for consumers as `components/ui/ds-pagination.tsx`
+// — so the published import must become `@/components/ui/ds-pagination`.
+//
+// This rewrites both relative and `@/components/...` alias imports in the
+// *published* JSON only, to match each dependency's real installed basename
+// and directory. Source files under components/ds/ are untouched, so local
+// dev/Storybook/tsc keep working exactly as before.
 import { readFileSync, writeFileSync, readdirSync } from "fs"
 import { basename, extname } from "path"
 
@@ -33,7 +39,9 @@ for (const item of registry.items) {
   }
 }
 
-const importRe = /from\s+(['"])\.\/([a-zA-Z0-9_-]+)\1/g
+const relativeImportRe = /from\s+(['"])\.\/([a-zA-Z0-9_-]+)\1/g
+const aliasImportRe =
+  /from\s+(['"])@\/components\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9_-]+)\1/g
 
 let filesChanged = 0
 let importsRewritten = 0
@@ -46,11 +54,20 @@ for (const file of readdirSync("public/r")) {
 
   for (const f of json.files || []) {
     if (typeof f.content !== "string") continue
-    const newContent = f.content.replace(importRe, (match, quote, name) => {
+    let newContent = f.content.replace(
+      relativeImportRe,
+      (match, quote, name) => {
+        const renamed = renameMap.get(name)
+        if (!renamed || renamed === name) return match
+        importsRewritten++
+        return `from ${quote}./${renamed}${quote}`
+      }
+    )
+    newContent = newContent.replace(aliasImportRe, (match, quote, name) => {
       const renamed = renameMap.get(name)
       if (!renamed || renamed === name) return match
       importsRewritten++
-      return `from ${quote}./${renamed}${quote}`
+      return `from ${quote}@/components/ui/${renamed}${quote}`
     })
     if (newContent !== f.content) {
       f.content = newContent
