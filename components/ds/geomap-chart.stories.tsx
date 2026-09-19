@@ -207,6 +207,18 @@ const meta = {
       control: "boolean",
       table: { defaultValue: { summary: "false" } },
     },
+    showZoomControls: {
+      control: "boolean",
+      description:
+        "Zoom in / out / reset buttons on the right edge. Implies zoom and pan.",
+      table: { defaultValue: { summary: "false" } },
+    },
+    expandable: {
+      control: "boolean",
+      description:
+        "Expand button (top-right) that opens the map in a full-screen dialog.",
+      table: { defaultValue: { summary: "false" } },
+    },
     showTooltip: {
       control: "boolean",
       table: { defaultValue: { summary: "true" } },
@@ -302,6 +314,7 @@ const meta = {
     selectedFeatureIds: { table: { disable: true } },
     onFeatureClick: { table: { disable: true } },
     onMarkerClick: { table: { disable: true } },
+    onExpandedChange: { table: { disable: true } },
     valueFormatter: { table: { disable: true } },
   },
 } satisfies Meta<typeof GeoMapChart>
@@ -776,6 +789,71 @@ export const ZoomPan: Story = {
       { id: "GO", name: "Goias", value: 18600 },
     ],
     showTooltip: true,
+    valueFormatter: (v) => formatValue(v, "integer", { abbreviate: true }),
+  },
+}
+
+const BRAZIL_STATES_DATA = [
+  { id: "SP", name: "Sao Paulo", value: 98400 },
+  { id: "MG", name: "Minas Gerais", value: 64200 },
+  { id: "RJ", name: "Rio de Janeiro", value: 52100 },
+  { id: "BA", name: "Bahia", value: 38700 },
+  { id: "RS", name: "Rio Grande do Sul", value: 31500 },
+  { id: "PR", name: "Parana", value: 28900 },
+  { id: "SC", name: "Santa Catarina", value: 22300 },
+  { id: "GO", name: "Goias", value: 18600 },
+]
+
+/** Zoom in / zoom out / reset buttons on the right edge of the map */
+export const ZoomControls: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "`showZoomControls` adds + / − / reset buttons on the right edge and enables drag-to-pan. The buttons disable at the `zoomRange` limits. When a vertical legend sits on the right, the buttons move to the left edge.",
+      },
+    },
+  },
+  args: {
+    title: "Zoom controls",
+    subtitle: "Use the buttons on the right · drag to pan",
+    geoData: "/geojson/brazil-states.geojson",
+    projection: "geoMercator",
+    projectionConfig: { scale: 700, center: [-54, -15] },
+    height: 480,
+    featureIdProperty: "postal",
+    showZoomControls: true,
+    zoomRange: [1, 8],
+    colorRange: ["#dcfce7", "#16a34a"],
+    data: BRAZIL_STATES_DATA,
+    legendLabel: "Students",
+    valueFormatter: (v) => formatValue(v, "integer", { abbreviate: true }),
+  },
+}
+
+/** Expand button that opens the map in a full-screen dialog */
+export const Expandable: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "`expandable` adds an expand button in the top-right corner. It opens the same map (data, legend, tooltip, zoom controls) in a full-screen dialog; the button becomes *collapse*, and Esc also closes it. Combine with `showZoomControls` to zoom inside the dialog.",
+      },
+    },
+  },
+  args: {
+    title: "Expandable map",
+    subtitle: "Click the expand button in the top-right corner",
+    geoData: "/geojson/brazil-states.geojson",
+    projection: "geoMercator",
+    projectionConfig: { scale: 700, center: [-54, -15] },
+    height: 480,
+    featureIdProperty: "postal",
+    expandable: true,
+    showZoomControls: true,
+    colorRange: ["#dcfce7", "#16a34a"],
+    data: BRAZIL_STATES_DATA,
+    legendLabel: "Students",
     valueFormatter: (v) => formatValue(v, "integer", { abbreviate: true }),
   },
 }

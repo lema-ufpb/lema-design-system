@@ -50,6 +50,15 @@ export const UI_I18N: Record<
       min: string
     }
     scatterChart: { rangeStart: string; rangeEnd: string }
+    geomapChart: {
+      zoomIn: string
+      zoomOut: string
+      resetZoom: string
+      zoomControls: string
+      expand: string
+      collapse: string
+      expandedTitle: string
+    }
     candlestick: {
       open: string
       high: string
@@ -714,6 +723,15 @@ export const UI_I18N: Record<
       min: "Min",
     },
     scatterChart: { rangeStart: "Range start", rangeEnd: "Range end" },
+    geomapChart: {
+      zoomIn: "Zoom in",
+      zoomOut: "Zoom out",
+      resetZoom: "Reset zoom",
+      zoomControls: "Map zoom controls",
+      expand: "Expand map",
+      collapse: "Collapse map",
+      expandedTitle: "Expanded map",
+    },
     candlestick: {
       open: "Open",
       high: "High",
@@ -1394,6 +1412,15 @@ export const UI_I18N: Record<
     scatterChart: {
       rangeStart: "Início do intervalo",
       rangeEnd: "Fim do intervalo",
+    },
+    geomapChart: {
+      zoomIn: "Aumentar zoom",
+      zoomOut: "Diminuir zoom",
+      resetZoom: "Restaurar zoom",
+      zoomControls: "Controles de zoom do mapa",
+      expand: "Expandir mapa",
+      collapse: "Recolher mapa",
+      expandedTitle: "Mapa expandido",
     },
     candlestick: {
       open: "Abertura",
@@ -2077,6 +2104,15 @@ export const UI_I18N: Record<
       min: "Mín",
     },
     scatterChart: { rangeStart: "Inicio del rango", rangeEnd: "Fin del rango" },
+    geomapChart: {
+      zoomIn: "Acercar",
+      zoomOut: "Alejar",
+      resetZoom: "Restablecer zoom",
+      zoomControls: "Controles de zoom del mapa",
+      expand: "Expandir mapa",
+      collapse: "Contraer mapa",
+      expandedTitle: "Mapa expandido",
+    },
     candlestick: {
       open: "Apertura",
       high: "Máximo",
@@ -2762,6 +2798,15 @@ export const UI_I18N: Record<
     scatterChart: {
       rangeStart: "Début de la plage",
       rangeEnd: "Fin de la plage",
+    },
+    geomapChart: {
+      zoomIn: "Zoom avant",
+      zoomOut: "Zoom arrière",
+      resetZoom: "Réinitialiser le zoom",
+      zoomControls: "Commandes de zoom de la carte",
+      expand: "Agrandir la carte",
+      collapse: "Réduire la carte",
+      expandedTitle: "Carte agrandie",
     },
     candlestick: {
       open: "Ouverture",
