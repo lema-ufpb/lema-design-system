@@ -335,6 +335,12 @@ const ZOOM_STEP = 1.5
 /** Square icon button shared by the zoom controls and the expand action. */
 const mapControlButtonClass = "bg-card/90 backdrop-blur-sm"
 
+// Hover / keyboard-focus look of a feature. Classes (not inline style) so they
+// win over the stroke attributes set for the resting state.
+const geographyVariants = cva(
+  "outline-none hover:stroke-primary hover:[stroke-width:1] hover:opacity-85 focus-visible:stroke-primary focus-visible:[stroke-width:1.5]"
+)
+
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 function resolveFeatureId(
@@ -752,32 +758,20 @@ function GeoMapChartView({
               key={geo.rsmKey}
               geography={geo}
               fill={fill}
-              stroke="var(--background)"
-              strokeWidth={0.5}
+              stroke={
+                isSelected
+                  ? (selectedStroke ?? "var(--primary)")
+                  : "var(--background)"
+              }
+              strokeWidth={isSelected ? 1.5 : 0.5}
               // keeps the border width constant while zoomed in
               vectorEffect={showZoomControls ? "non-scaling-stroke" : undefined}
-              style={{
-                default: {
-                  fill,
-                  stroke: isSelected
-                    ? (selectedStroke ?? "var(--primary)")
-                    : "var(--background)",
-                  strokeWidth: isSelected ? 1.5 : 0.5,
-                  outline: "none",
-                },
-                hover: {
-                  fill: fill,
-                  stroke: "var(--primary)",
-                  strokeWidth: 1,
-                  outline: "none",
-                  opacity: 0.85,
-                  cursor: onFeatureClick ? "pointer" : "default",
-                },
-                pressed: {
-                  fill,
-                  outline: "none",
-                },
-              }}
+              // react-simple-maps v5 has no per-state `style`: the resting
+              // look is SVG attributes (above), hover/focus are classes
+              className={cn(
+                geographyVariants(),
+                onFeatureClick ? "cursor-pointer" : "cursor-default"
+              )}
               onMouseEnter={(e) => handleFeatureEnter(e, rawId)}
               onMouseLeave={handleFeatureLeave}
               onMouseMove={handleMouseMove}
