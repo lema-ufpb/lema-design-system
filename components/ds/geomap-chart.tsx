@@ -4,10 +4,18 @@ import * as React from "react"
 import dynamic from "next/dynamic"
 import type { FeatureCollection } from "geojson"
 import { cva } from "class-variance-authority"
+import { Maximize2, Minimize2, Minus, Plus, RotateCcw } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog"
 import { Skeleton } from "@/components/ui/skeleton"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
-import { type UILocale } from "@/lib/ui-i18n"
+import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
 import {
   Tooltip,
   TooltipContent,
@@ -122,8 +130,11 @@ export interface GeoMapChartProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   subtitle?: string
   footer?: React.ReactNode
-  /** Chart canvas height in px — width is always 100% */
-  height?: number
+  /**
+   * Chart canvas height — width is always 100%. A number is px; a string is
+   * any CSS length (e.g. `"calc(100dvh - 3rem)"`).
+   */
+  height?: number | string
   /** D3 projection name — defaults to "geoMercator" */
   projection?: GeoProjection
   projectionConfig?: {
@@ -133,8 +144,22 @@ export interface GeoMapChartProps extends React.HTMLAttributes<HTMLDivElement> {
   }
   /** Enable zoom and pan via scroll / drag */
   enableZoom?: boolean
-  /** Min/max zoom multiplier when enableZoom is true */
+  /** Min/max zoom multiplier when zoom is enabled */
   zoomRange?: [number, number]
+  /**
+   * Show zoom in / zoom out / reset buttons on the right edge of the map.
+   * Implies zoom and pan (drag), so `enableZoom` is not needed. Defaults to
+   * `false`.
+   */
+  showZoomControls?: boolean
+  /**
+   * Show an expand button in the top-right corner that opens the map in a
+   * full-screen dialog (with the same data, legend, tooltip and zoom controls).
+   * The button toggles to "collapse" inside the dialog. Defaults to `false`.
+   */
+  expandable?: boolean
+  /** Called when the full-screen dialog opens or closes (`expandable` only) */
+  onExpandedChange?: (expanded: boolean) => void
   /** Choropleth: interpolate fill between these two colors by value */
   colorRange?: [string, string]
   /** Default fill for features with no matching data entry */
@@ -178,7 +203,7 @@ export interface GeoMapChartProps extends React.HTMLAttributes<HTMLDivElement> {
 // ── Skeleton ───────────────────────────────────────────────────────────────
 
 interface GeoMapChartSkeletonProps {
-  height?: number
+  height?: number | string
   hasTitle?: boolean
   hasSubtitle?: boolean
   hasFooter?: boolean
@@ -220,7 +245,7 @@ function GeoMapChartSkeleton({
       >
         {/* Continent blob overlays */}
         <svg
-          viewBox={`0 0 800 ${height}`}
+          viewBox={`0 0 800 ${typeof height === "number" ? height : 400}`}
           width="100%"
           height="100%"
           className="absolute inset-0"
@@ -304,6 +329,11 @@ const chartSubtitleVariants = cva("mt-0.5 text-xs text-muted-foreground")
 const chartFooterVariants = cva(
   "mt-4 flex items-center gap-2 border-t border-border px-1 pt-3 text-xs text-muted-foreground"
 )
+
+const ZOOM_STEP = 1.5
+
+/** Square icon button shared by the zoom controls and the expand action. */
+const mapControlButtonClass = "bg-card/90 backdrop-blur-sm"
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -428,6 +458,7 @@ function ColorLegend({
   label,
   position = "bottom-right",
   orientation = "horizontal",
+  reserveTopRight = false,
 }: {
   colorRange: [string, string]
   valueRange: [number, number]
@@ -435,6 +466,8 @@ function ColorLegend({
   label?: string
   position?: LegendPosition
   orientation?: LegendOrientation
+  /** Keep the top-right corner free for the expand button */
+  reserveTopRight?: boolean
 }) {
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
   const [hoverValue, setHoverValue] = React.useState<number | null>(null)
@@ -518,8 +551,12 @@ function ColorLegend({
     return <div className="mt-3">{card}</div>
   }
 
-  const posClass =
-    orientation === "vertical"
+  const shiftForCorner = reserveTopRight && position === "top-right"
+  const posClass = shiftForCorner
+    ? orientation === "vertical"
+      ? "absolute top-12 right-2 bottom-2"
+      : "absolute top-2 right-12"
+    : orientation === "vertical"
       ? overlayPositionClassesVertical[position]
       : overlayPositionClasses[position]
 
@@ -528,7 +565,15 @@ function ColorLegend({
 
 // ── GeoMapChart ────────────────────────────────────────────────────────────
 
-export function GeoMapChart({
+interface GeoMapChartViewProps extends Omit<
+  GeoMapChartProps,
+  "expandable" | "onExpandedChange"
+> {
+  /** Corner button state — set by the `expandable` wrapper. */
+  expandAction?: { expanded: boolean; onToggle: () => void }
+}
+
+function GeoMapChartView({
   geoData,
   featureIdProperty,
   data = [],
@@ -541,6 +586,8 @@ export function GeoMapChart({
   projectionConfig,
   enableZoom = false,
   zoomRange = [1, 8],
+  showZoomControls = false,
+  expandAction,
   colorRange,
   defaultFill,
   selectedFeatureIds = [],
@@ -561,7 +608,9 @@ export function GeoMapChart({
   loading = false,
   className,
   ...props
-}: GeoMapChartProps) {
+}: GeoMapChartViewProps) {
+  const t = UI_I18N[locale]?.geomapChart ?? UI_I18N["en-US"].geomapChart
+
   // Hooks must be called unconditionally before any early returns
   const fmt = React.useCallback(
     (v: number) =>
@@ -593,6 +642,37 @@ export function GeoMapChart({
   })
 
   const containerRef = React.useRef<HTMLDivElement>(null)
+
+  // Controlled zoom: ZoomableGroup only moves programmatically when its
+  // `zoom` / `center` props change, so external buttons need this state.
+  // `center` must start at the projection center, otherwise the group would
+  // recenter the map on [0, 0] when it mounts.
+  const zoomEnabled = enableZoom || showZoomControls
+  const initialCenter: [number, number] = projectionConfig?.center ?? [0, 0]
+  const [initialLon, initialLat] = initialCenter
+  const [minZoom, maxZoom] = zoomRange
+  const framingKey = `${initialLon},${initialLat},${projectionConfig?.scale}`
+  const [viewState, setViewState] = React.useState<{
+    key: string
+    zoom: number
+    center: [number, number]
+  }>({ key: framingKey, zoom: 1, center: initialCenter })
+
+  // A new framing (another projection center / scale) restarts from the
+  // default view — derived here instead of reset in an effect.
+  const view =
+    viewState.key === framingKey
+      ? viewState
+      : { key: framingKey, zoom: 1, center: initialCenter }
+
+  const setView = (next: { zoom: number; center: [number, number] }) =>
+    setViewState({ key: framingKey, ...next })
+  const changeZoom = (factor: number) =>
+    setView({
+      center: view.center,
+      zoom: Math.min(maxZoom, Math.max(minZoom, view.zoom * factor)),
+    })
+  const resetZoom = () => setView({ zoom: 1, center: initialCenter })
 
   if (loading) {
     return (
@@ -674,6 +754,8 @@ export function GeoMapChart({
               fill={fill}
               stroke="var(--background)"
               strokeWidth={0.5}
+              // keeps the border width constant while zoomed in
+              vectorEffect={showZoomControls ? "non-scaling-stroke" : undefined}
               style={{
                 default: {
                   fill,
@@ -757,9 +839,13 @@ export function GeoMapChart({
   return (
     <div
       ref={containerRef}
-      className={cn(chartWrapperVariants(), "relative", className)}
+      className={cn(
+        chartWrapperVariants(),
+        "relative",
+        !expandAction?.expanded && className
+      )}
       data-slot="geomap-chart"
-      {...props}
+      {...(expandAction?.expanded ? {} : props)}
     >
       {(title || subtitle) && (
         <div className={chartHeaderVariants()} data-slot="geomap-chart-header">
@@ -776,11 +862,16 @@ export function GeoMapChart({
             projectionConfig={projectionConfig}
             style={{ width: "100%", height: "100%" }}
           >
-            {enableZoom ? (
+            {zoomEnabled ? (
               <ZoomableGroup
-                zoom={1}
-                minZoom={zoomRange[0]}
-                maxZoom={zoomRange[1]}
+                zoom={view.zoom}
+                center={view.center}
+                minZoom={minZoom}
+                maxZoom={maxZoom}
+                onMoveEnd={({ coordinates, zoom }) => {
+                  if (!coordinates || zoom === undefined) return
+                  setView({ zoom, center: coordinates })
+                }}
               >
                 {mapContent}
                 {markerElements}
@@ -794,6 +885,76 @@ export function GeoMapChart({
           </ComposableMap>
         </div>
 
+        {expandAction && (
+          <div className="absolute top-2 right-2 z-10">
+            <Button
+              type="button"
+              variant="outline"
+              size="icon-sm"
+              className={mapControlButtonClass}
+              aria-label={expandAction.expanded ? t.collapse : t.expand}
+              title={expandAction.expanded ? t.collapse : t.expand}
+              aria-haspopup={expandAction.expanded ? undefined : "dialog"}
+              aria-expanded={expandAction.expanded ? undefined : false}
+              onClick={expandAction.onToggle}
+            >
+              {expandAction.expanded ? <Minimize2 /> : <Maximize2 />}
+            </Button>
+          </div>
+        )}
+
+        {showZoomControls && (
+          <div
+            role="group"
+            aria-label={t.zoomControls}
+            className={cn(
+              "absolute top-1/2 z-10 flex -translate-y-1/2 flex-col gap-1",
+              // a vertical legend on the right owns that edge — move the buttons across
+              shouldShowLegend &&
+                legendOrientation === "vertical" &&
+                legendPosition.endsWith("right")
+                ? "left-2"
+                : "right-2"
+            )}
+          >
+            <Button
+              type="button"
+              variant="outline"
+              size="icon-sm"
+              className={mapControlButtonClass}
+              aria-label={t.zoomIn}
+              title={t.zoomIn}
+              disabled={view.zoom >= maxZoom}
+              onClick={() => changeZoom(ZOOM_STEP)}
+            >
+              <Plus />
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="icon-sm"
+              className={mapControlButtonClass}
+              aria-label={t.zoomOut}
+              title={t.zoomOut}
+              disabled={view.zoom <= minZoom}
+              onClick={() => changeZoom(1 / ZOOM_STEP)}
+            >
+              <Minus />
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="icon-sm"
+              className={mapControlButtonClass}
+              aria-label={t.resetZoom}
+              title={t.resetZoom}
+              onClick={resetZoom}
+            >
+              <RotateCcw />
+            </Button>
+          </div>
+        )}
+
         {shouldShowLegend && legendPosition !== "bottom" && (
           <ColorLegend
             colorRange={colorRange!}
@@ -802,6 +963,7 @@ export function GeoMapChart({
             label={legendLabel}
             position={legendPosition}
             orientation={legendOrientation}
+            reserveTopRight={!!expandAction}
           />
         )}
       </div>
@@ -825,6 +987,53 @@ export function GeoMapChart({
         </div>
       )}
     </div>
+  )
+}
+
+export function GeoMapChart({
+  expandable = false,
+  onExpandedChange,
+  ...viewProps
+}: GeoMapChartProps) {
+  const [expanded, setExpanded] = React.useState(false)
+  const locale = viewProps.locale ?? "en-US"
+  const t = UI_I18N[locale]?.geomapChart ?? UI_I18N["en-US"].geomapChart
+
+  if (!expandable) return <GeoMapChartView {...viewProps} />
+
+  const setOpen = (next: boolean) => {
+    setExpanded(next)
+    onExpandedChange?.(next)
+  }
+
+  return (
+    <>
+      <GeoMapChartView
+        {...viewProps}
+        expandAction={{ expanded: false, onToggle: () => setOpen(true) }}
+      />
+      <Dialog open={expanded} onOpenChange={setOpen}>
+        <DialogContent
+          showCloseButton={false}
+          className="top-0 left-0 h-dvh w-screen max-w-none translate-x-0 translate-y-0 gap-0 rounded-none p-4 sm:max-w-none"
+        >
+          <DialogTitle className="sr-only">
+            {viewProps.title ?? t.expandedTitle}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            {viewProps.subtitle ?? t.expandedTitle}
+          </DialogDescription>
+          <GeoMapChartView
+            {...viewProps}
+            title={undefined}
+            subtitle={undefined}
+            footer={undefined}
+            height="calc(100dvh - 2rem)"
+            expandAction={{ expanded: true, onToggle: () => setOpen(false) }}
+          />
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }
 
