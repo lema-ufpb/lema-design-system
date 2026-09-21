@@ -26,7 +26,7 @@
     "@hookform/resolvers": "^5.9.1",
     "@shadcn/react": "^0.3.1",
     "@tanstack/react-table": "^9.2.4",
-    "@tanstack/react-virtual": "^3.14.11",
+    "@tanstack/react-virtual": "^3.14.13",
     "@types/canvas-confetti": "^1.9.0",
     "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
