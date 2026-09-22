@@ -23,8 +23,8 @@ export const Default: Story = {
       <div className="flex h-full flex-col justify-end p-6">
         <p className="text-xl font-bold">Modern Architecture</p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Discover the incredible details of this new building in the city center
-          city.
+          Discover the incredible details of this new building in the city
+          center city.
         </p>
       </div>
     ),

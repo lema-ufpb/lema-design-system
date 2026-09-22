@@ -48,8 +48,8 @@ export const Default: Story = {
           Connect dots, build products
         </h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Particle network light enough to run behind any hero
-          without janking scroll.
+          Particle network light enough to run behind any hero without janking
+          scroll.
         </p>
         <div className="mt-6 flex justify-center gap-3">
           <Button>Get started now</Button>

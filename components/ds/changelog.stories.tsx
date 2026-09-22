@@ -17,18 +17,15 @@ const sampleReleases: ChangelogRelease[] = [
       },
       {
         type: "feature",
-        description:
-          "Standalone Sparkline component for high-density tables.",
+        description: "Standalone Sparkline component for high-density tables.",
       },
       {
         type: "improvement",
-        description:
-          "Render time optimization in the SVG and Recharts engine.",
+        description: "Render time optimization in the SVG and Recharts engine.",
       },
       {
         type: "fix",
-        description:
-          "Accessibility and keyboard focus fix in ConfirmDialog.",
+        description: "Accessibility and keyboard focus fix in ConfirmDialog.",
       },
     ],
   },

@@ -67,12 +67,10 @@ export const Spotlight: Story = {
     <div className="relative flex min-h-[400px] w-full flex-col items-center justify-center overflow-hidden bg-background p-8">
       <BackgroundGlow variant="spotlight" tone="violet" />
       <div className="relative z-10 max-w-xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight">
-          Spotlight Beam
-        </h2>
+        <h2 className="text-3xl font-bold tracking-tight">Spotlight Beam</h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Conical directional focus bringing a sense of depth and elegance
-          to the product.
+          Conical directional focus bringing a sense of depth and elegance to
+          the product.
         </p>
       </div>
     </div>
@@ -100,9 +98,7 @@ export const Beam: Story = {
     <div className="relative flex min-h-[400px] w-full flex-col items-center justify-center overflow-hidden bg-background p-8">
       <BackgroundGlow variant="beam" tone="sky" />
       <div className="relative z-10 max-w-xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight">
-          Linear Light Axis
-        </h2>
+        <h2 className="text-3xl font-bold tracking-tight">Linear Light Axis</h2>
         <p className="mt-3 text-sm text-muted-foreground">
           Ethereal central line to guide the eye through the visual flow.
         </p>

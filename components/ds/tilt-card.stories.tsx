@@ -55,8 +55,7 @@ export const Default: Story = {
         Gippity AI potencializa o universo
       </h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        With 100k active users, the most popular platform for
-        desenvolvedores.
+        With 100k active users, the most popular platform for desenvolvedores.
       </p>
       <Button size="sm" className="mt-4 w-fit">
         Explorar

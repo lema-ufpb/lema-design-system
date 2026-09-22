@@ -67,7 +67,9 @@ export const Default: Story = {
     await expect(
       canvas.getByText(/Applied research, statistical rigor/i)
     ).toBeInTheDocument()
-    await expect(canvas.getByText("+100 Projects Delivered")).toBeInTheDocument()
+    await expect(
+      canvas.getByText("+100 Projects Delivered")
+    ).toBeInTheDocument()
   },
 }
 

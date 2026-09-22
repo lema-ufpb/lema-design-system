@@ -81,9 +81,7 @@ export const Default: Story = {
     await expect(
       canvas.getByText("All systems operational")
     ).toBeInTheDocument()
-    await expect(
-      canvas.getByText("Econometric Models API")
-    ).toBeInTheDocument()
+    await expect(canvas.getByText("Econometric Models API")).toBeInTheDocument()
   },
 }
 

@@ -72,7 +72,8 @@ export const FloatingCard: Story = {
   args: {
     variant: "floating",
     size: "lg",
-    socialProof: "🔒 We guarantee your data will not be shared with third parties.",
+    socialProof:
+      "🔒 We guarantee your data will not be shared with third parties.",
   },
 }
 

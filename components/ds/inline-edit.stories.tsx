@@ -151,11 +151,7 @@ export const AllSizes: Story = {
         <span className="block pb-1 text-xs text-muted-foreground">
           Large (lg):
         </span>
-        <InlineEdit
-          size="lg"
-          value="LEMA Quarterly Report"
-          onSave={() => {}}
-        />
+        <InlineEdit size="lg" value="LEMA Quarterly Report" onSave={() => {}} />
       </div>
     </div>
   ),
