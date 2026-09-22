@@ -678,7 +678,7 @@ export const LocalePtBR: Story = {
 
 export const ColorTokens: Story = {
   name: "Color Tokens — accent",
-  args: { title: "Categoria", score: 72, total: 100 },
+  args: { title: "Category", score: 72, total: 100 },
   render: () => (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1">
@@ -687,16 +687,16 @@ export const ColorTokens: Story = {
         </p>
         <ScoreRowList>
           <ScoreRow
-            title="Vendas"
-            description="Ciclo 2025.1"
+            title="Sales"
+            description="Cycle 2025.1"
             icon={BarChart2Icon}
             score={85}
             total={100}
             accent="oklch(0.5 0.2 270)"
           />
           <ScoreRow
-            title="Infraestrutura"
-            description="Semestre acadêmico"
+            title="Infrastructure"
+            description="Academic semester"
             icon={ShieldCheckIcon}
             score={40}
             total={100}
@@ -710,8 +710,8 @@ export const ColorTokens: Story = {
         </p>
         <ScoreRowList>
           <ScoreRow
-            title="Produto"
-            description="Resultado trimestral"
+            title="Product"
+            description="Quarterly result"
             icon={ClipboardListIcon}
             score={91}
             total={100}
@@ -719,15 +719,15 @@ export const ColorTokens: Story = {
           />
           <ScoreRow
             title="Marketing"
-            description="Campanha atual"
+            description="Current campaign"
             icon={ActivityIcon}
             score={62}
             total={100}
             accent="var(--color-warning)"
           />
           <ScoreRow
-            title="Suporte"
-            description="Chamados abertos"
+            title="Support"
+            description="Open tickets"
             icon={UsersIcon}
             score={30}
             total={100}
@@ -741,8 +741,8 @@ export const ColorTokens: Story = {
         </p>
         <ScoreRowList>
           <ScoreRow
-            title="Categoria Customizada"
-            description="Token externo com fallback"
+            title="Custom Category"
+            description="External token with fallback"
             icon={FileTextIcon}
             score={74}
             total={100}

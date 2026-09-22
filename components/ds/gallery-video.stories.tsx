@@ -38,7 +38,7 @@ const meta = {
       },
     },
   },
-  args: { items, locale: "pt-BR" as const },
+  args: { items, locale: "en-US" as const },
 } satisfies Meta<typeof GalleryVideo>
 
 export default meta

@@ -45,7 +45,7 @@ export function CommandPalette({
   onOpenChange: setControlledOpen,
   placeholder,
   shortcut = "k",
-  locale = "pt-BR",
+  locale = "en-US",
   className,
 }: CommandPaletteProps) {
   const i18n = UI_I18N[locale]

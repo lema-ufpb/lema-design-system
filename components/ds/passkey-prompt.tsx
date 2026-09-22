@@ -47,13 +47,13 @@ export const PasskeyPrompt = React.forwardRef<
       loading: controlledLoading = false,
       supported = true,
       onAuthenticate,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
   ) => {
     const [internalLoading, setInternalLoading] = React.useState(false)
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
 
     const isLoading = controlledLoading || internalLoading
 
@@ -129,7 +129,7 @@ export const PasskeyPrompt = React.forwardRef<
               </span>
               <span className="py-0.2 inline-flex items-center gap-0.5 rounded-full bg-primary/15 px-1.5 text-xs font-semibold text-primary">
                 <SparklesIcon className="size-2.5" aria-hidden="true" />
-                Seguro
+                Secure
               </span>
             </div>
             <span className="line-clamp-1 text-xs text-muted-foreground">

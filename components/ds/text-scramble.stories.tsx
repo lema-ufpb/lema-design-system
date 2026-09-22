@@ -17,7 +17,7 @@ const meta = {
     },
     characters: {
       control: "text",
-      description: "Quais caracteres usar para a distorção",
+      description: "Which characters to use for scrambling",
     },
   },
 } satisfies Meta<typeof TextScramble>

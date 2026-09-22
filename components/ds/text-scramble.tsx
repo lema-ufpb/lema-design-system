@@ -13,7 +13,7 @@ export interface TextScrambleProps extends React.HTMLAttributes<HTMLSpanElement>
   characters?: string
   /** Velocidade (ms) entre os frames */
   speed?: number
-  /** Gatilho para (re)iniciar a animação. Dispara quando o valor muda. */
+  /** Trigger to (re)start the animation. Fires when the value changes. */
   trigger?: boolean
   /** Usar o elemento filho sem criar wrapper adicional */
   asChild?: boolean
@@ -75,7 +75,7 @@ export const TextScramble = React.forwardRef<
               if (index < iterationRef.current) {
                 return children[index]
               }
-              // Ignorar espaços
+              // Ignore spaces
               if (letter === " ") return " "
 
               const randomChar =
@@ -88,7 +88,7 @@ export const TextScramble = React.forwardRef<
             clearInterval(interval)
           }
 
-          iterationRef.current += 1 / 3 // Quão rápido ele avança a cada tick
+          iterationRef.current += 1 / 3 // How fast it advances each tick
           return newText
         })
       }

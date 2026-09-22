@@ -55,7 +55,7 @@ export const Default: Story = {
         Gippity AI potencializa o universo
       </h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        Com 100 mil usuários ativos, a plataforma mais popular para
+        With 100k active users, the most popular platform for
         desenvolvedores.
       </p>
       <Button size="sm" className="mt-4 w-fit">
@@ -69,9 +69,9 @@ export const Default: Story = {
 export const Muted: Story = {
   render: () => (
     <TiltCard variant="muted" className="w-80 p-6">
-      <h3 className="text-base font-semibold">Sem camisa, sem sapatos</h3>
+      <h3 className="text-base font-semibold">No shirt, no shoes</h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        Se alguém gritar “pare!”, a luta termina.
+        If someone shouts &quot;stop!&quot;, the fight ends.
       </p>
     </TiltCard>
   ),

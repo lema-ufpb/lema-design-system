@@ -53,7 +53,7 @@ export const Top: Story = {
   render: (args) => (
     <div className="relative h-64 overflow-hidden border bg-background">
       <Glow {...args} />
-      <p className="relative p-6 text-sm">Glow top — atrás do conteúdo</p>
+      <p className="relative p-6 text-sm">Glow top — behind content</p>
     </div>
   ),
   args: { position: "top" },

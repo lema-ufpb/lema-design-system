@@ -40,7 +40,7 @@ export function FilterBuilder({
   fields,
   rules,
   onChange,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
 }: FilterBuilderProps) {
   const i18n = UI_I18N[locale].filterBuilder

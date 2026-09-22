@@ -71,7 +71,7 @@ export const InlineEdit = React.forwardRef<HTMLDivElement, InlineEditProps>(
       validate,
       disabled = false,
       size = "md",
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

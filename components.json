@@ -22,5 +22,7 @@
   },
   "menuColor": "default",
   "menuAccent": "subtle",
-  "registries": {}
+  "registries": {
+    "@lema-ds": "https://ds.lema.ufpb.br/r/{name}.json"
+  }
 }

@@ -38,14 +38,14 @@ type Story = StoryObj<typeof SpotlightCard>
 
 export const Default: Story = {
   args: {
-    title: "Passos de autenticação",
-    description: "Siga os passos para proteger sua conta",
+    title: "Authentication steps",
+    description: "Follow the steps to protect your account",
     children: (
       <ol className="flex flex-col gap-2 text-sm">
-        <li>• Digite seu e-mail</li>
-        <li>• Crie uma senha forte</li>
-        <li>• Ative a verificação em duas etapas</li>
-        <li>• Verifique sua identidade</li>
+        <li>• Enter your email</li>
+        <li>• Create a strong password</li>
+        <li>• Enable two-factor authentication</li>
+        <li>• Verify your identity</li>
       </ol>
     ),
   },
@@ -54,13 +54,13 @@ export const Default: Story = {
 
 export const CustomColor: Story = {
   args: {
-    title: "Segurança em primeiro lugar",
-    description: "Seus dados protegidos com criptografia",
+    title: "Security first",
+    description: "Your data protected with encryption",
     spotlightColor: "hsl(var(--success) / 0.15)",
     children: (
       <div className="flex items-center gap-3 text-sm">
         <ShieldCheckIcon className="size-5 text-success" />
-        <span>Conta verificada com sucesso</span>
+        <span>Account verified successfully</span>
       </div>
     ),
   },
@@ -79,10 +79,10 @@ export const AllVariants: Story = {
           key={v}
           variant={v}
           title={v}
-          description="Hover para spotlight"
+          description="Hover for spotlight"
         >
           <p className="text-sm text-muted-foreground">
-            Mova o mouse sobre o card
+            Move the mouse over the card
           </p>
         </SpotlightCard>
       ))}

@@ -31,7 +31,7 @@ const meta: Meta<typeof MissionVisionCards> = {
     layout: "centered",
   },
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -41,19 +41,19 @@ type Story = StoryObj<typeof MissionVisionCards>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText("Nossa Missão")).toBeInTheDocument()
-    await expect(canvas.getByText("Nossa Visão")).toBeInTheDocument()
+    await expect(canvas.getByText("Our Mission")).toBeInTheDocument()
+    await expect(canvas.getByText("Our Vision")).toBeInTheDocument()
   },
 }
 
 export const CustomContent: Story = {
   args: {
-    missionTitle: "Nossa Missão",
+    missionTitle: "Our Mission",
     missionText:
-      "Desenvolver software público de alto impacto e promover a formação de recursos humanos qualificados.",
-    visionTitle: "Nossa Visão de Futuro",
+      "Develop high-impact public software and promote the training of qualified human resources.",
+    visionTitle: "Our Vision for the Future",
     visionText:
-      "Ser referência nacional em design systems e modelagem estatística aplicada até 2030.",
+      "To be a national reference in design systems and applied statistical modeling by 2030.",
   },
 }
 

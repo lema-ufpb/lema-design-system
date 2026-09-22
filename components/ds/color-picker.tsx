@@ -63,7 +63,7 @@ export const ColorPicker = React.forwardRef<HTMLInputElement, ColorPickerProps>(
       value = "#000000",
       onChange,
       disabled,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref

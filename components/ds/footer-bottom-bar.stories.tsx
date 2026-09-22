@@ -50,8 +50,8 @@ export const WithStatusAction: Story = {
 export const Locales: Story = {
   render: () => (
     <div className="flex w-full flex-col gap-6">
-      <FooterBottomBar locale="pt-BR" brandName="UFPB" />
       <FooterBottomBar locale="en-US" brandName="LEMA" />
+      <FooterBottomBar locale="pt-BR" brandName="UFPB" />
       <FooterBottomBar locale="es-ES" brandName="LEMA" />
       <FooterBottomBar locale="fr-FR" brandName="LEMA" />
     </div>

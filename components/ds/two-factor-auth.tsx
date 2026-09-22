@@ -73,7 +73,7 @@ export const TwoFactorAuth = React.forwardRef<
       method = "email",
       allowAlternative = true,
       onAlternativeMethod,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
@@ -84,7 +84,7 @@ export const TwoFactorAuth = React.forwardRef<
     const [loading, setLoading] = React.useState(false)
     const [resending, setResending] = React.useState(false)
 
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
 
     React.useEffect(() => {
       if (countdown <= 0) return
@@ -184,7 +184,7 @@ export const TwoFactorAuth = React.forwardRef<
               htmlFor="trust-device"
               className="cursor-pointer text-xs font-normal text-muted-foreground"
             >
-              {t.rememberMe} (30 dias)
+              {t.rememberMe} (30 days)
             </Label>
           </div>
 

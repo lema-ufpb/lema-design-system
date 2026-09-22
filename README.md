@@ -1,140 +1,200 @@
 # ✨ LEMA Design System
 
-Sistema de design oficial do [Laboratório de Economia e Modelagem Aplicada (LEMA)](https://lema.ufpb.br) da Universidade Federal da Paraíba (UFPB). Um sistema de componentes React moderno, acessível e themeável, construído sobre shadcn/ui e Radix UI Primitives.
+Official design system of the [Laboratory of Economics and Applied Modeling (LEMA)](https://lema.ufpb.br) at the Federal University of Paraíba (UFPB). A modern, accessible, and themeable React component library built on top of shadcn/ui and Radix UI Primitives.
 
-## 🎯 Visão Geral 🎯
+## 🎯 Overview 🎯
 
-Este design system fornece um conjunto de componentes React Typescript de alta qualidade, com suporte a:
+This design system provides a set of high-quality React TypeScript components with support for:
 
-- 🌙 Modo escuro/claro automático
-- ♿ Acessibilidade WCAG 2.1 AA (`docs/accessibility.md`)
-- 🎨 Customização via CSS variables (Tailwind CSS v4)
-- 📱 Design responsivo
-- 🔍 TypeScript total
+- 🌙 Automatic dark/light mode
+- ♿ WCAG 2.1 AA Accessibility (`docs/accessibility.md`)
+- 🎨 Customization via CSS variables (Tailwind CSS v4)
+- 📱 Responsive design
+- 🔍 Full TypeScript
 
-## 💻 Stack Tecnológica 🛠️
+## 💻 Tech Stack 🛠️
 
-| Tecnologia               | Propósito                    |
+| Technology               | Purpose                    |
 | ------------------------ | ---------------------------- |
 | React 19                 | UI Library                   |
 | Next.js 16               | Framework                    |
-| TypeScript               | Tipagem                      |
-| Tailwind CSS v4          | Estilização                  |
-| Radix UI                 | Primitives de acessibilidade |
-| shadcn/ui                | Componentes base             |
-| class-variance-authority | Variantes de componentes     |
-| Storybook                | Documentação de componentes  |
-| Vitest                   | Testes                       |
+| TypeScript               | Typing                      |
+| Tailwind CSS v4          | Styling                  |
+| Radix UI                 | Accessibility primitives |
+| shadcn/ui                | Base components             |
+| class-variance-authority | Component variants     |
+| Storybook                | Component documentation  |
+| Vitest                   | Testing                       |
 
-## 🚀 Instalação 🚀
+## 🚀 Installation 🚀
 
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/lema-ufpb/design-system.git
 cd design-system
 
-# Instale as dependências
+# Install dependencies
 npm install
 
-# Inicie o servidor de desenvolvimento
+# Start the development server
 make dev
 ```
 
-## 📦 Uso via CLI dedicada — `@lema-ufpb/ds-sync`
+## 📦 Usage via dedicated CLI — `@lema-ufpb/ds-sync`
 
-Para projetos institucionais da UFPB, disponibilizamos uma CLI dedicada no [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) que estende o shadcn CLI com autenticação, lockfile, drift detection e modo CI:
+For institutional UFPB projects, we provide a dedicated CLI on [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) that extends the shadcn CLI with authentication, lockfile, drift detection and CI mode:
 
 ```bash
 npm install -D @lema-ufpb/ds-sync
 ```
 
-Configure no `.env.local`:
+Configure in `.env.local`:
 
 ```env
 LEMA_DS_TOKEN=<seu-token>
 LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 ```
 
-> 🔑 O token é fornecido pelo NOC do LEMA. O registry padrão aponta para produção.
+> 🔑 The token is provided by LEMA NOC. The default registry points to production.
 
-### ⌨️ Comandos principais
+### ⌨️ Main commands
 
-| Comando                   | Descrição                      |
+| Command                   | Description                      |
 | :------------------------ | :----------------------------- |
-| `npx ds add dashbox`      | Instala componente(s)          |
-| `npx ds update dashbox`   | Atualiza componente(s)         |
-| `npx ds list`             | Lista componentes disponíveis  |
-| `npx ds verify`           | Verifica drift vs lockfile     |
-| `npx ds diff dashbox`     | Diff local vs remoto           |
-| `npx ds sync --all --yes` | Sincronização completa (CI)    |
-| `npx ds sync-tokens`      | Força refetch dos tokens CSS   |
-| `npx ds whoami`           | Valida o token de autenticação |
+| `npx ds add dashbox`      | Install component(s)          |
+| `npx ds update dashbox`   | Update component(s)         |
+| `npx ds list`             | List available components  |
+| `npx ds verify`           | Check drift vs lockfile     |
+| `npx ds diff dashbox`     | Local vs remote diff           |
+| `npx ds sync --all --yes` | Full sync (CI)    |
+| `npx ds sync-tokens`      | Force CSS tokens refetch   |
+| `npx ds whoami`           | Validate authentication token |
 
-O lockfile `ds.lock` é gerado automaticamente e **deve ser versionado** — é a fonte da verdade para reprodutibilidade e detecção de drift.
+The `ds.lock` lockfile is generated automatically and **should be versioned** — it is the source of truth for reproducibility and drift detection.
 
-## ⬇️ Uso via Registry (shadcn CLI)
+## ⬇️ Usage via Registry (shadcn CLI)
 
-Você pode instalar qualquer componente deste design system em seu próprio projeto usando o link do registro oficial:
+You can install any component from this design system in your own project via the official shadcn registry at `https://ds.lema.ufpb.br`.
+
+### 1. Add the LEMA-DS registry
+
+If your project was initialized with `npx shadcn@latest init`, register the LEMA-DS registry once:
 
 ```bash
-# Adicionar um componente específico
-npx ds add <component-name>
-
-# Exemplos:
-npx ds add dashbox
-npx ds add progress-bar
+npx shadcn@latest registry add @lema-ds https://ds.lema.ufpb.br/r/{name}.json
+# shorthand when running inside this repository (resolves registry.json locally):
+# npx shadcn@latest registry add @lema-ds .
 ```
 
-## 🌐 Internacionalização (i18n)
+This adds an entry to your `components.json`:
 
-Todos os componentes com texto visível suportam internacionalização via prop `locale`. O dicionário centralizado fica em `lib/ui-i18n.ts`.
+```json
+{
+  "registries": {
+    "@lema-ds": "https://ds.lema.ufpb.br/r/{name}.json"
+  }
+}
+```
 
-### 🌍 Locais suportados
+Verify:
 
-| Código | Idioma             |
+```bash
+npx shadcn@latest registry list
+# or
+cat components.json
+```
+
+> This is the **shadcn-native** way to add the registry. You do **not** need `@lema-ufpb/ds-sync` for it — both CLIs consume the same `registry.json` / `public/r/*.json` build output (`make registry`).
+
+### 2. Install components
+
+Once the registry is configured, install any `ds-*` component by its registry name:
+
+```bash
+# registry-qualified (recommended, unambiguous)
+npx shadcn@latest add @lema-ds/ds-button
+npx shadcn@latest add @lema-ds/ds-card-stat
+npx shadcn@latest add @lema-ds/ds-data-table
+
+# shorthand also works when the name is unique across registries
+npx shadcn@latest add ds-button
+npx shadcn@latest add ds-hero-layers
+```
+
+Install multiple at once:
+
+```bash
+npx shadcn@latest add @lema-ds/ds-card-stat @lema-ds/ds-bar-chart @lema-ds/ds-data-table
+```
+
+Without a local registry entry you can also install directly by URL:
+
+```bash
+npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-button.json
+npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-card-stat.json
+```
+
+Files land in the consumer project as `components/ui/ds-*.tsx` (prefix avoids collision with `components/ui/button.tsx` etc.), exactly as declared in `registry.json` (`name: "ds-*"`, `target: "components/ui/ds-*.tsx"`). Dependencies declared in the registry item (`lib/ui-i18n.ts`, `lib/format-utils.ts`, etc.) are installed automatically.
+
+If you prefer the UFPB wrapper, the same install works via `ds-sync`:
+
+```bash
+# equivalent via ds-sync
+npx ds add dashbox
+npx ds add progress-bar
+npx ds add ds-button
+```
+
+## 🌐 Internationalization (i18n)
+
+All components with visible text support internationalization via the `locale` prop. The centralized dictionary lives in `lib/ui-i18n.ts`.
+
+### 🌍 Supported locales
+
+| Code | Language             |
 | :----- | :----------------- |
 | en-US  | English (default)  |
-| pt-BR  | Português (Brasil) |
+| pt-BR  | Portuguese (Brazil) |
 | es-ES  | Español            |
 | fr-FR  | Français           |
 
-> O arquivo `lib/ui-i18n.ts` (dicionário i18n) é instalado automaticamente como dependência de registro para todos os componentes que suportam locale. Não é necessário instalá-lo manualmente.
+> The `lib/ui-i18n.ts` file (i18n dictionary) is automatically installed as a registry dependency for all locale-supporting components. No need to install it manually.
 
-### 💡 Uso
+### 💡 Usage
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
 
-;<Dashbox title="Status" locale="pt-BR" status="live" />
-// Badge mostra "Online", toolbar mostra "Atualizar", "Recolher" etc.
+;<Dashbox title="Status" locale="en-US" status="live" />
+// Badge shows "Online", toolbar shows "Refresh", "Collapse" etc.
 ```
 
-A prop `locale` é opcional (padrão `"en-US"`). Ao instalar um componente via shadcn CLI, o arquivo `lib/ui-i18n.ts` é instalado automaticamente como dependência.
+The `locale` prop is optional (default `"en-US"`). When installing a component via shadcn CLI, the `lib/ui-i18n.ts` file is installed automatically as a dependency.
 
 ### 🗃️ Registry
 
-O dicionário `ui-i18n` está publicado como `registry:lib` no registro oficial:
+The `ui-i18n` dictionary is published as `registry:lib` in the official registry:
 
 ```bash
-# Instalação manual (se necessário)
+# Manual installation (if needed)
 npx ds add ui-i18n
 ```
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 design-system/
 ├── app/
-│   ├── globals.css         # Tokens CSS e temas (Tailwind v4 @theme inline)
-│   ├── Introduction.mdx    # Intro Storybook (v{VERSION}, 374 itens, 309 ds)
-│   └── layout.tsx          # Layout raiz com ThemeProvider
+│   ├── globals.css         # CSS tokens and themes (Tailwind v4 @theme inline)
+│   ├── Introduction.mdx    # Storybook intro (v{VERSION}, 374 items, 309 ds)
+│   └── layout.tsx          # Root layout with ThemeProvider
 ├── components/
-│   ├── ui/                 # Primitivos shadcn — 62, nunca editar (npx shadcn add)
+│   ├── ui/                 # shadcn primitives — 62, never edit (npx shadcn add)
 │   │   ├── button.tsx
 │   │   ├── card.tsx
 │   │   ├── input.tsx
 │   │   └── ... (62)
-│   └── ds/                 # Compostos — 309 (CVA single-file, i18n, Skeleton)
+│   └── ds/                 # Composites — 309 (CVA single-file, i18n, Skeleton)
 │       ├── dashbox.tsx
 │       ├── bar-chart.tsx
 │       ├── data-table.tsx
@@ -144,99 +204,99 @@ design-system/
 │       └── ... (250+)
 ├── lib/
 │   ├── utils.ts                    # cn()
-│   ├── ui-i18n.ts                  # Dicionário 4 locales (300+ chaves)
+│   ├── ui-i18n.ts                  # Dictionary 4 locales (300+ keys)
 │   ├── format-utils.ts             # Intl.NumberFormat + abrev.
-│   ├── card-stats-shared.tsx       # CVA família CardStat (9 variantes)
+│   ├── card-stats-shared.tsx       # CardStat family CVA (9 variants)
 │   └── version.ts                  # __APP_VERSION__
 ├── providers/theme.tsx     # ThemeProvider (next-themes)
 ├── .storybook/             # Storybook 10 + Vitest browser
-├── registry.json           # 374 itens (309 ds-* → components/ui/ds-*.tsx)
+├── registry.json           # 374 items (309 ds-* → components/ui/ds-*.tsx)
 ├── public/r/               # shadcn build output
 ├── docs/specs/             # 368 specs (spec-first)
 ├── docs/templates/component-spec.md
 └── Makefile                # make dev/lint/test/registry
 ```
 
-## 📋 Desenvolvimento Orientado a Spec (Spec-Driven)
+## 📋 Spec-Driven Development
 
-Novos componentes customizados seguem um fluxo **spec-first**, com templates e specs em `docs/`:
+New custom components follow a **spec-first** flow, with templates and specs in `docs/`:
 
 ```
 docs/
-├── specs/               # Specs de todos os componentes (368 arquivos — 62 ui + 309 ds, 374 itens no registry)
+├── specs/               # Specs for all components (368 files — 62 ui + 309 ds, 374 items in registry)
 └── templates/
-    └── component-spec.md # Template de spec para novos componentes
+    └── component-spec.md # Spec template for new components
 ```
 
-### 🔄 Workflow spec-first
+### 🔄 Spec-first workflow
 
-1. **Preencher o template** `docs/templates/component-spec.md` — propósito, API, variantes CVA, tokens, acessibilidade, stories obrigatórias
-2. **Revisar a spec** contra as regras do design system (escala tipográfica, tokens semânticos, `gap-*`, `Skeleton`, `defaultVariants`)
-3. **Implementar** seguindo o padrão CVA single-file (types → variants → helpers → component)
-4. **Verificar** com `make lint` (0 erros) + `make registry` (rebuild do registro — `374` itens) + `make test` (>1000 testes em 160+ arquivos)
+1. **Fill the template** `docs/templates/component-spec.md` — purpose, API, CVA variants, tokens, accessibility, required stories
+2. **Review the spec** against design system rules (typographic scale, semantic tokens, `gap-*`, `Skeleton`, `defaultVariants`)
+3. **Implement** following the CVA single-file pattern (types → variants → helpers → component)
+4. **Verify** with `make lint` (0 errors) + `make registry` (registry rebuild — `374` items) + `make test` (>1000 tests in 160+ files)
 
-As specs em `docs/specs/` funcionam como fonte de verdade: cada componente tem seu propósito, API, variantes CVA, tokens e acessibilidade documentados.
+Specs in `docs/specs/` act as the source of truth: each component has its purpose, API, CVA variants, tokens and accessibility documented.
 
-### 📚 Specs existentes
+### 📚 Existing specs
 
-Todos os componentes (`62` ui primitives + `309` ds + `3` libs = `374` registry items) possuem spec documentada em `docs/specs/` (`368` specs). Cada spec detalha propósito, API, variantes CVA, tokens (`bg-success`, `bg-risk-1`…`4`, `--chart-1`…`5`), escala tipográfica `sm=text-xs/md=text-sm/lg=text-base`, estados (loading `Skeleton`/empty/disabled), acessibilidade (`aria-*`, `prefers-reduced-motion`) e stories obrigatórias — fonte de verdade spec-first.
+All components (`62` ui primitives + `309` ds + `3` libs = `374` registry items) have documented specs in `docs/specs/` (`368` specs). Each spec details purpose, API, CVA variants, tokens (`bg-success`, `bg-risk-1`…`4`, `--chart-1`…`5`), typographic scale `sm=text-xs/md=text-sm/lg=text-base`, states (loading `Skeleton`/empty/disabled), accessibility (`aria-*`, `prefers-reduced-motion`) and required stories — spec-first source of truth.
 
 ### 📄 Spec template
 
-O template cobre: propósito de uso, API completa com tipos, variantes CVA por slot, tokens de design, escala tipográfica sm/md/lg, comportamentos (loading, disabled, empty), acessibilidade (ARIA, teclado, i18n) e checklist de stories obrigatórias.
+The template covers: usage purpose, complete API with types, CVA variants per slot, design tokens, typographic scale sm/md/lg, behaviors (loading, disabled, empty), accessibility (ARIA, keyboard, i18n) and required stories checklist.
 
-## 🧩 Componentes
+## 🧩 Components
 
-### 🧱 Primitivos shadcn
+### 🧱 shadcn Primitives
 
-Componentes base instalados via shadcn CLI, sem modificações:
+Base components installed via shadcn CLI, without modifications:
 
-| Componente          | Descrição                                                                                          |
+| Component          | Description                                                                                          |
 | :------------------ | :------------------------------------------------------------------------------------------------- |
-| **Accordion**       | Conjunto de painéis empilhados e colapsáveis.                                                      |
-| **Attachment**      | Anexo de arquivo com preview de mídia, título, descrição, ações e overlay de trigger.              |
-| **Avatar**          | Elemento visual para representar usuários com fallback de iniciais.                                |
-| **Badge**           | Pequeno rótulo indicador de status ou categoria.                                                   |
-| **Bubble**          | Bolha de chat com variantes sent/received e suporte a tail.                                        |
-| **Button**          | Botão interativo com variantes (default, destructive, outline, etc).                               |
-| **Card**            | Container versátil com header, título, ação, descrição e footer.                                   |
-| **Combobox**        | Autocomplete com busca, navegação por teclado e suporte a grupos, construído sobre @base-ui/react. |
-| **Command**         | Menu de comandos rápido e acessível com busca integrada.                                           |
-| **Dialog**          | Modal sobreposto para interações críticas.                                                         |
-| **Dropdown Menu**   | Menu flutuante acionado por um botão.                                                              |
-| **Drawer**          | Painel deslizante com suporte a 4 direções e gestos de arrastar.                                   |
-| **Input**           | Campo de entrada de texto padrão.                                                                  |
-| **Input Group**     | Conjunto de inputs agrupados com ícones ou botões.                                                 |
-| **Marker**          | Indicador de status/pin para itens de chat e lista.                                                |
-| **Message**         | Mensagem de chat com slots de avatar, conteúdo, header e footer.                                   |
-| **MessageScroller** | Container com auto-scroll para listas de mensagens e botões de navegação.                          |
-| **Popover**         | Conteúdo flutuante ancorado a um elemento.                                                         |
-| **Progress**        | Barra de progresso linear simples.                                                                 |
-| **Questionnaire**   | Questionário multi-etapas com perguntas de escolha única, múltipla, texto livre e opção de pular.  |
-| **Scroll Area**     | Área de rolagem customizada e acessível.                                                           |
-| **Skeleton**        | Placeholder de carregamento para estados vazios.                                                   |
-| **Spinner**         | Indicador de carregamento animado.                                                                 |
-| **Table**           | Componente responsivo de tabela com suporte a rolagem horizontal.                                  |
-| **Textarea**        | Campo de entrada de texto multilinha.                                                              |
-| **Tooltip**         | Breve descrição exibida ao passar o mouse.                                                         |
+| **Accordion**       | Set of stacked and collapsible panels.                                                      |
+| **Attachment**      | File attachment with media preview, title, description, actions and trigger overlay.              |
+| **Avatar**          | Visual element to represent users with initials fallback.                                |
+| **Badge**           | Small label indicating status or category.                                                   |
+| **Bubble**          | Chat bubble with sent/received variants and tail support.                                        |
+| **Button**          | Interactive button with variants (default, destructive, outline, etc).                               |
+| **Card**            | Versatile container with header, title, action, description and footer.                                   |
+| **Combobox**        | Autocomplete with search, keyboard navigation and group support, built on @base-ui/react. |
+| **Command**         | Fast and accessible command menu with integrated search.                                           |
+| **Dialog**          | Overlay modal for critical interactions.                                                         |
+| **Dropdown Menu**   | Floating menu triggered by a button.                                                              |
+| **Drawer**          | Sliding panel with 4-direction support and drag gestures.                                   |
+| **Input**           | Standard text input field.                                                                  |
+| **Input Group**     | Grouped inputs with icons or buttons.                                                 |
+| **Marker**          | Status/pin indicator for chat and list items.                                                |
+| **Message**         | Chat message with avatar, content, header and footer slots.                                   |
+| **MessageScroller** | Container with auto-scroll for message lists and navigation buttons.                          |
+| **Popover**         | Floating content anchored to an element.                                                         |
+| **Progress**        | Simple linear progress bar.                                                                 |
+| **Questionnaire**   | Multi-step questionnaire with single choice, multiple choice, free text and skip option questions.  |
+| **Scroll Area**     | Custom and accessible scroll area.                                                           |
+| **Skeleton**        | Loading placeholder for empty states.                                                   |
+| **Spinner**         | Animated loading indicator.                                                                 |
+| **Table**           | Responsive table component with horizontal scroll support.                                  |
+| **Textarea**        | Multiline text input field.                                                              |
+| **Tooltip**         | Brief description shown on hover.                                                         |
 
-Para adicionar novos componentes shadcn ao projeto:
+To add new shadcn components to the project:
 
 ```bash
 npx ds add <componente>
 ```
 
-### ✨ Componentes customizados
+### ✨ Custom components
 
-Todos os componentes abaixo vivem em `components/ds/`.
+All components below live in `components/ds/`.
 
 #### ⚡ Actions
 
-| Componente      | Descrição                                                                                                                                                                                                           |
+| Component      | Description                                                                                                                                                                                                           |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Button**      | Feature-rich button wrapping shadcn `Button`. Adiciona loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step confirmation, e tooltip integrado. |
-| **IconButton**  | Botão só de ícone com tooltip opcional, estado de loading e variantes de tamanho e arredondamento.                                                                                                                  |
-| **ToggleTheme** | Botão dropdown para alternar entre temas claro, escuro e sistema. Re-exporta `ThemeProvider` e `useTheme` de `@/providers/theme` para configuração do app.                                                          |
+| **Button**      | Feature-rich button wrapping shadcn `Button`. Adds loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step confirmation, and integrated tooltip. |
+| **IconButton**  | Icon-only button with optional tooltip, loading state and size and rounding variants.                                                                                                                  |
+| **ToggleTheme** | Dropdown button to switch between light, dark and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app configuration.                                                          |
 
 ```tsx
 import { Button } from "@/components/ds/button"
@@ -245,20 +305,20 @@ import { ToggleTheme } from "@/components/ds/toggle-theme"
 
 <Button loading startIcon={<Download className="size-4" />}>Download</Button>
 <Button variant="destructive" confirm={{ text: "Tem certeza?" }}>Excluir</Button>
-<Button tooltip={{ text: "Enviar relatório", side: "top" }}>Enviar</Button>
+<Button tooltip={{ text: "Send report", side: "top" }}>Send</Button>
 
 <IconButton icon={Download} label="Download" tooltip="Baixar arquivo" />
-<ToggleTheme locale="pt-BR" />
+<ToggleTheme locale="en-US" />
 ```
 
 #### 📐 Layout
 
-| Componente  | Descrição                                                                                                                                                                   |
+| Component  | Description                                                                                                                                                                   |
 | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Dashbox** | Card de dashboard estruturado com collapse/expand, fullscreen, refresh, loading skeleton e status badge.                                                                    |
-| **Dashrow** | Container responsivo para múltiplos painéis com divisor arrastável e proporções ajustáveis.                                                                                 |
-| **Drawer**  | Drawer completo com header, body scrollável, footer, snap points, scale background, event handlers e botão de fechar adaptável à direção.                                   |
-| **Modal**   | Modal dialog flexível construído sobre Dialog com 6 tamanhos, 5 intenções de cor, defaultOpen, body scrollável, async confirm com loading, event handlers e suporte a i18n. |
+| **Dashbox** | Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton and status badge.                                                                    |
+| **Dashrow** | Responsive container for multiple panels with draggable divider and adjustable proportions.                                                                                 |
+| **Drawer**  | Full drawer with header, scrollable body, footer, snap points, scale background, event handlers and direction-adaptive close button.                                   |
+| **Modal**   | Flexible modal dialog built on Dialog with 6 sizes, 5 color intents, defaultOpen, scrollable body, async confirm with loading, event handlers and i18n support. |
 
 ```tsx
 import { Dashbox } from "@/components/ds/dashbox"
@@ -267,38 +327,38 @@ import { Drawer } from "@/components/ds/drawer"
 import { Modal } from "@/components/ds/modal"
 
 <Modal
-  title="Confirmar exclusão"
+  title="Confirm deletion"
   intent="destructive"
   confirmLabel="Excluir"
   onConfirm={handleDelete}
 >
-  Tem certeza que deseja excluir este item?
+  Are you sure you want to delete this item?
 </Modal>
 
 <Drawer direction="right" title="Detalhes" description="ID #1234" footer={actions}>
-  Conteúdo do drawer...
+  Drawer content...
 </Drawer>
 
 <Dashrow alignment="left" storageKey="dashboard-layout">
   <Dashbox title="Performance" status="live" onRefresh={() => fetchData()}>
-    Conteúdo do gráfico aqui...
+    Chart content here...
   </Dashbox>
   <Dashbox title="Metas">
-    Conteúdo lateral...
+    Side content...
   </Dashbox>
 </Dashrow>
 ```
 
 #### 💬 Feedback
 
-| Componente           | Descrição                                                                                                                                                                           |
+| Component           | Description                                                                                                                                                                           |
 | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Empty** (ds)       | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.               |
-| **PageLoader**       | Overlay de carregamento em tela cheia com barra superior animada (`bar`) ou spinner XL centralizado (`spinner`). Controlado por `loading` com fade in/out, cores semânticas e i18n. |
-| **Spinner**          | Indicador de carregamento animado com `aria-label` localizada via `locale` prop.                                                                                                    |
-| **ProgressBar**      | Indicador horizontal com preenchimento animado, intenções semânticas, posições de rótulo configuráveis, override de cores fill/track via CSS tokens e getValueLabel.                |
-| **ProgressCircular** | Indicador circular animado com valor percentual central.                                                                                                                            |
-| **RiskLevelBar**     | Barra segmentada para níveis de risco com marcador móvel e tokens `--risk-1` a `--risk-4`.                                                                                          |
+| **PageLoader**       | Full-screen loading overlay with animated top bar (`bar`) or centered XL spinner (`spinner`). Controlled by `loading` with fade in/out, semantic colors and i18n. |
+| **Spinner**          | Animated loading indicator with `aria-label` localized via `locale` prop.                                                                                                    |
+| **ProgressBar**      | Horizontal indicator with animated fill, semantic intents, configurable label positions, fill/track color override via CSS tokens and getValueLabel.                |
+| **ProgressCircular** | Animated circular indicator with centered percentage value.                                                                                                                            |
+| **RiskLevelBar**     | Segmented bar for risk levels with movable marker and `--risk-1` to `--risk-4` tokens.                                                                                          |
 
 ```tsx
 import { PageLoader } from "@/components/ds/page-loader"
@@ -308,33 +368,33 @@ import { ProgressCircular } from "@/components/ds/progress-circular"
 import { Empty } from "@/components/ds/empty"
 import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 
-<PageLoader loading={isLoading} locale="pt-BR" />
+<PageLoader loading={isLoading} locale="en-US" />
 <PageLoader loading={isLoading} variant="spinner" message="Salvando..." color="success" blur />
 
-<Spinner locale="pt-BR" />
+<Spinner locale="en-US" />
 <Spinner className="size-6 text-primary" />
 
-<ProgressBar value={0.75} name="Taxa de Aprovação" intent="success" />
-<ProgressCircular value={0.6} title="Frequência" size="lg" />
-<RiskLevelBar labelLeft="Nível de Risco" labelRight="Score" value={0.4} />
+<ProgressBar value={0.75} name="Approval Rate" intent="success" />
+<ProgressCircular value={0.6} title="Frequency" size="lg" />
+<RiskLevelBar labelLeft="Risk Level" labelRight="Score" value={0.4} />
 
-<Empty variant="no-data" locale="pt-BR" />
+<Empty variant="no-data" locale="en-US" />
 <Empty variant="search" title="Nenhum resultado encontrado" action={{ label: "Limpar filtros", onClick: clearFilters }} />
 ```
 
-#### 📊 Exibição de Dados
+#### 📊 Data Display
 
-| Componente      | Descrição                                                                                                                                                                                                                                                                                                             |
+| Component      | Description                                                                                                                                                                                                                                                                                                             |
 | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CardStats**   | Coleção de 9 cards de KPI: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Cada variante é instalável individualmente via `card-stat`, `card-stat-compact`, etc., ou todas de uma vez via o barrel `card-stats`. |
-| **MiniCard**    | Compact stat label+value unit para strips horizontais. Compõe com MiniCardGroup (pill/outlined/elevated/ghost) e MiniCardStrip (auto-dividers). Suporta ícones, sub-values, intent colors, delta indicators e formatação numérica. Size propaga via context.                                                          |
-| **DataTable**   | Tabela virtualizada de alta performance com toolbar, ordenação, busca, paginação, `locale` prop para resolução automática de labels i18n, colunas sticky, redimensionamento e seleção de linhas.                                                                                                                      |
-| **ScoreRow**    | Componente de linha de score com ícone configurável, score/total, barra de progresso com tooltip percentual localizada, status auto-derivado (success/warning/destructive), tamanhos sm/md/lg, suporte a ScoreRowList e loading skeleton.                                                                             |
+| **CardStats**   | Collection of 9 KPI cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Each variant is installable individually via `card-stat`, `card-stat-compact`, etc., or all at once via the barrel `card-stats`. |
+| **MiniCard**    | Compact stat label+value unit for horizontal strips. Composes with MiniCardGroup (pill/outlined/elevated/ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators and numeric formatting. Size propagates via context.                                                          |
+| **DataTable**   | High-performance virtualized table with toolbar, sorting, search, pagination, `locale` prop for automatic i18n label resolution, sticky columns, resizing and row selection.                                                                                                                      |
+| **ScoreRow**    | Score row component with configurable icon, score/total, progress bar with localized percent tooltip, auto-derived status (success/warning/destructive), sm/md/lg sizes, ScoreRowList support and loading skeleton.                                                                             |
 | **Avatar** (ds) | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.                                                                                               |
 | **Badge** (ds)  | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).                                                                                                                                                                       |
-| **CopyBlock**   | Trecho de texto/código com botão de cópia acoplado, tooltip de estado copiado, 3 tamanhos e labels i18n.                                                                                                                                                                                                              |
-| **Rating**      | Avaliação por estrelas interativa com navegação por teclado (padrão radiogroup), ícone customizável, estados readonly/disabled e 3 tamanhos.                                                                                                                                                                          |
-| **Timeline**    | Linha do tempo vertical de eventos com conectores, dots com cor de status (outline/solid) e slots de ícone customizados.                                                                                                                                                                                              |
+| **CopyBlock**   | Text/code snippet with attached copy button, copied state tooltip, 3 sizes and i18n labels.                                                                                                                                                                                                              |
+| **Rating**      | Interactive star rating with keyboard navigation (radiogroup pattern), customizable icon, readonly/disabled states and 3 sizes.                                                                                                                                                                          |
+| **Timeline**    | Vertical timeline of events with connectors, status-colored dots (outline/solid) and custom icon slots.                                                                                                                                                                                              |
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
@@ -358,30 +418,30 @@ import {
 } from "@/components/ds/timeline"
 
 <MiniCardGroup variant="outlined" size="md" divide accent="success">
-  <MiniCard label="Receita" value={124500} format="currency" locale="pt-BR" currency="BRL" delta="+26.8%" />
+  <MiniCard label="Receita" value={124500} format="currency" locale="en-US" currency="BRL" delta="+26.8%" />
   <MiniCard label="Selecionados" value={53} sub="/153" />
 </MiniCardGroup>
 <CardStatCompact label="Revenue" value={124500} format="currency" trend="up" trendValue="+26.8%" icon={DollarSignIcon} />
 <DataTable columns={columns} data={rows} searchable sortable paginated />
 
 <ScoreRowList>
-  <ScoreRow title="Acurácia" description="Modelo XGBoost" score={88} total={100} status="success" locale="pt-BR" />
-  <ScoreRow title="Precisão" description="Modelo Random Forest" score={45} total={100} status="warning" locale="pt-BR" />
+  <ScoreRow title="Accuracy" description="Modelo XGBoost" score={88} total={100} status="success" locale="en-US" />
+  <ScoreRow title="Precision" description="Modelo Random Forest" score={45} total={100} status="warning" locale="en-US" />
 </ScoreRowList>
 
-<Avatar src="/user.jpg" alt="João Silva" size="lg" />
+<Avatar src="/user.jpg" alt="John Doe" size="lg" />
 <Avatar initials="JS" />
 <AvatarGroup limit={3}>
   <Avatar initials="AL" tooltip="Ana Lima" />
   <Avatar initials="BC" tooltip="Bruno Costa" />
 </AvatarGroup>
 
-<Badge>Concluído</Badge>
+<Badge>Completed</Badge>
 <Badge variant="success" dot>Aprovado</Badge>
 <Badge variant="warning" removable onRemove={handleDismiss}>Pendente</Badge>
 
-<CopyBlock value="npm install @lema-ufpb/design-system" locale="pt-BR" />
-<Rating value={3} max={5} onChange={setRating} locale="pt-BR" />
+<CopyBlock value="npm install @lema-ufpb/design-system" locale="en-US" />
+<Rating value={3} max={5} onChange={setRating} locale="en-US" />
 <Timeline>
   <TimelineItem>
     <TimelineSeparator>
@@ -393,23 +453,23 @@ import {
 </Timeline>
 ```
 
-#### 📈 Gráficos
+#### 📈 Charts
 
-Componentes de visualização de dados construídos sobre Recharts e otimizados para o LEMA.
+Data visualization components built on Recharts and optimized for LEMA.
 
-| Componente           | Descrição                                                                                                |
+| Component           | Description                                                                                                |
 | :------------------- | :------------------------------------------------------------------------------------------------------- |
-| **BarChart**         | Gráfico de barras com tooltips, legendas, empilhamento, cantos arredondados e brush zoom.                |
-| **BoxplotChart**     | Gráfico estatístico boxplot com SVG custom, suporte a notch e plotting de outliers.                      |
-| **CandlestickChart** | Gráfico financeiro (candlestick) com volume, médias móveis, linhas de referência e brush.                |
-| **GeomapChart**      | Mapa geográfico interativo para renderizar GeoJSON/TopoJSON com tooltips, zoom, coropletas e marcadores. |
-| **HeatmapChart**     | Matriz de calor com CSS grid e color-mix para interpolação suave de cores.                               |
-| **LineChart**        | Gráfico de linhas com áreas gradientes, áreas empilhadas, linhas de referência e brush.                  |
-| **PieChart**         | Gráfico de pizza/donut com label central interativa, legendas e labels externas.                         |
-| **RadarChart**       | Gráfico de radar/teia para dados multivariados com grid poligonal ou circular.                           |
-| **RadialChart**      | Gráfico de barras radiais com anéis concêntricos e modo gauge semicircular.                              |
-| **ScatterChart**     | Gráfico de dispersão/bolha com linhas de tendência, multi-séries e brush.                                |
-| **TreemapChart**     | Gráfico treemap com drill-down hierárquico, breadcrumb e controle de aspect ratio.                       |
+| **BarChart**         | Bar chart with tooltips, legends, stacking, rounded corners and brush zoom.                |
+| **BoxplotChart**     | Statistical boxplot chart with custom SVG, notch support and outlier plotting.                      |
+| **CandlestickChart** | Financial (candlestick) chart with volume, moving averages, reference lines and brush.                |
+| **GeomapChart**      | Interactive geographic map to render GeoJSON/TopoJSON with tooltips, zoom, choropleths and markers. |
+| **HeatmapChart**     | Heat matrix with CSS grid and color-mix for smooth color interpolation.                               |
+| **LineChart**        | Line chart with gradient areas, stacked areas, reference lines and brush.                  |
+| **PieChart**         | Pie/donut chart with interactive central label, legends and external labels.                         |
+| **RadarChart**       | Radar/spider chart for multivariate data with polygonal or circular grid.                           |
+| **RadialChart**      | Radial bar chart with concentric rings and semicircular gauge mode.                              |
+| **ScatterChart**     | Scatter/bubble chart with trend lines, multi-series and brush.                                |
+| **TreemapChart**     | Treemap chart with hierarchical drill-down, breadcrumb and aspect ratio control.                       |
 
 ```tsx
 import { BarChart } from "@/components/ds/bar-chart"
@@ -421,25 +481,25 @@ import { BarChart } from "@/components/ds/bar-chart"
 />
 ```
 
-#### 📝 Formulários
+#### 📝 Forms
 
-| Componente               | Descrição                                                                                                                                                                                                                               |
+| Component               | Description                                                                                                                                                                                                                               |
 | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Counter**              | Input numérico com controles +/−, suporte a valor controlado/não-controlado e inputProps para atributos HTML nativos.                                                                                                                   |
+| **Counter**              | Numeric input with +/− controls, controlled/uncontrolled value support and inputProps for native HTML attributes.                                                                                                                   |
 | **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.                                                                                |
-| **InputEmail**           | Campo de e-mail com ícone integrado e variantes de tamanho e raio.                                                                                                                                                                      |
-| **InputPassword**        | Campo de senha com botão de visibilidade e variantes de tamanho e raio.                                                                                                                                                                 |
-| **SearchBar**            | Input de busca expansível para headers com ícone toggle, dica de atalho de teclado e placeholders i18n.                                                                                                                                 |
-| **SearchCombo**          | Campo de busca com dropdown de autocomplete virtualizado, highlight de texto (com acentuação insensitive), navegação por teclado, agrupamento de resultados e reconhecimento de voz opcional. Mantido em `components/ds/search-combo/`. |
-| **Combobox** (primitivo) | Autocomplete com busca textual, navegação por teclado, grupos e suporte a @base-ui/react.                                                                                                                                               |
-| **Combobox** (custom)    | Combobox completo com scroll virtual, seleção única/múltipla com chips, renderização customizada e posicionamento configurável.                                                                                                         |
+| **InputEmail**           | Email field with integrated icon and size and radius variants.                                                                                                                                                                      |
+| **InputPassword**        | Password field with visibility button and size and radius variants.                                                                                                                                                                 |
+| **SearchBar**            | Expandable search input for headers with toggle icon, keyboard shortcut hint and i18n placeholders.                                                                                                                                 |
+| **SearchCombo**          | Search field with virtualized autocomplete dropdown, text highlighting (accent-insensitive), keyboard navigation, result grouping and optional voice recognition. Kept in `components/ds/search-combo/`. |
+| **Combobox** (primitivo) | Autocomplete with textual search, keyboard navigation, groups and @base-ui/react support.                                                                                                                                               |
+| **Combobox** (custom)    | Full combobox with virtual scroll, single/multiple selection with chips, custom rendering and configurable positioning.                                                                                                         |
 | **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning, i18n placeholder/no-results, and skeleton loading.                                                   |
-| **SelectList**           | Lista pesquisável com estado de seleção, ícones e scroll virtual para grandes volumes.                                                                                                                                                  |
+| **SelectList**           | Searchable list with selection state, icons and virtual scroll for large datasets.                                                                                                                                                  |
 | **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.                                                                                            |
 | **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.                                                                                                       |
-| **DatePicker**           | Seletor de data combinando um botão trigger e um Calendar em Popover, com formatação via date-fns localizada em 4 idiomas e 3 tamanhos.                                                                                                 |
-| **FileUpload**           | Área de upload com drag-and-drop, validação de tamanho máximo, barra de progresso de envio e labels i18n.                                                                                                                               |
-| **MultiSelect**          | Combobox multi-valor com chips removíveis, overflow por `maxCount`, filtro de busca e labels i18n.                                                                                                                                      |
+| **DatePicker**           | Date picker combining a trigger button and a Calendar in Popover, with formatting via date-fns localized in 4 languages and 3 sizes.                                                                                                 |
+| **FileUpload**           | Upload area with drag-and-drop, max size validation, upload progress bar and i18n labels.                                                                                                                               |
+| **MultiSelect**          | Multi-value combobox with removable chips, overflow via `maxCount`, search filter and i18n labels.                                                                                                                                      |
 
 ```tsx
 import { Counter } from "@/components/ds/counter"
@@ -459,36 +519,36 @@ import { FileUpload } from "@/components/ds/file-upload"
 import { MultiSelect } from "@/components/ds/multi-select"
 
 <Counter defaultValue={1} min={0} max={100} onChange={setValue} />
-<Input placeholder="Digite seu nome" clearable maxLength={100} locale="pt-BR" />
+<Input placeholder="Digite seu nome" clearable maxLength={100} locale="en-US" />
 <Combobox options={items} value={selected} onChange={setSelected} />
 <ComboboxCustom options={items} value={values} onChange={setValues} multiple />
 <SelectList data={items} selectedId={id} onSelect={setItem} height={300} />
-<Select options={options} value={selected} onChange={setSelected} searchable locale="pt-BR" />
-<Slider defaultValue={[50]} max={100} step={1} showTooltip locale="pt-BR" />
-<Switch label="Notificações" />
+<Select options={options} value={selected} onChange={setSelected} searchable locale="en-US" />
+<Slider defaultValue={[50]} max={100} step={1} showTooltip locale="en-US" />
+<Switch label="Notifications" />
 <Switch label="Modo escuro" variant="success" />
 <InputEmail placeholder="email@example.com" />
 <InputPassword placeholder="Senha" />
 <SearchBar onSearch={(term) => router.push(`/search?q=${term}`)} />
 <SearchCombo value={query} onChange={setQuery} options={results} onSearch={fetchResults} voice />
 
-<DatePicker date={date} onSelect={setDate} locale="pt-BR" />
-<FileUpload maxSizeMB={10} onUpload={handleUpload} locale="pt-BR" />
-<MultiSelect options={options} value={selected} onChange={setSelected} maxCount={3} locale="pt-BR" />
+<DatePicker date={date} onSelect={setDate} locale="en-US" />
+<FileUpload maxSizeMB={10} onUpload={handleUpload} locale="en-US" />
+<MultiSelect options={options} value={selected} onChange={setSelected} maxCount={3} locale="en-US" />
 ```
 
-#### 🧭 Navegação
+#### 🧭 Navigation
 
-| Componente         | Descrição                                                                                                                                                                                                                                   |
+| Component         | Description                                                                                                                                                                                                                                   |
 | :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Accordion** (ds) | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support. |
-| **Tabs**           | Componente declarativo de abas com 4 variantes, 3 tamanhos, ícones, badges, activation mode (automatic/manual), loading skeletons e fallback responsivo para Accordion em mobile.                                                           |
-| **FooterMenu**     | Rodapé responsivo — colunas no desktop, accordion no mobile, suporte a uppercase.                                                                                                                                                           |
-| **ScrollToTop**    | Botão flutuante com anel de progresso de rolagem, visibilidade direcional (aparece ao scrollar para cima) e suporte a i18n.                                                                                                                 |
-| **NavDots**        | Navegação de seções por pontos com rastreamento automático de rolagem e tooltips.                                                                                                                                                           |
-| **NavUser**        | Menu de perfil de usuário para headers, construído sobre DropdownMenu e Avatar.                                                                                                                                                             |
-| **Pagination**     | Paginação semântica com `locale` prop para labels "Anterior"/"Próxima" em pt-BR e `rounded` variant (`full`/`light`/`none`).                                                                                                                |
-| **StepProgress**   | Guia visual para processos multi-etapa com círculo numerado, ícone opcional, conector animado e orientações horizontal/vertical.                                                                                                            |
+| **Tabs**           | Declarative tabs component with 4 variants, 3 sizes, icons, badges, activation mode (automatic/manual), loading skeletons and responsive fallback to Accordion on mobile.                                                           |
+| **FooterMenu**     | Responsive footer — columns on desktop, accordion on mobile, uppercase support.                                                                                                                                                           |
+| **ScrollToTop**    | Floating button with scroll progress ring, directional visibility (appears when scrolling up) and i18n support.                                                                                                                 |
+| **NavDots**        | Section navigation via dots with automatic scroll tracking and tooltips.                                                                                                                                                           |
+| **NavUser**        | User profile menu for headers, built on DropdownMenu and Avatar.                                                                                                                                                             |
+| **Pagination**     | Semantic pagination with `locale` prop for labels "Previous"/"Next" in pt-BR e `rounded` variant (`full`/`light`/`none`).                                                                                                                |
+| **StepProgress**   | Visual guide for multi-step processes with numbered circle, optional icon, animated connector and horizontal/vertical orientations.                                                                                                            |
 
 ```tsx
 import { Accordion } from "@/components/ds/accordion"
@@ -513,7 +573,7 @@ function App({ children }: { children: React.ReactNode }) {
 <Tabs
   items={[
     { value: "profile", label: "Perfil", icon: User, content: <ProfileForm /> },
-    { value: "security", label: "Segurança", icon: Lock, content: <SecurityForm /> },
+    { value: "security", label: "Security", icon: Lock, content: <SecurityForm /> },
   ]}
   variant="pill"
 />
@@ -523,17 +583,17 @@ function App({ children }: { children: React.ReactNode }) {
   type="single"
   collapsible
   items={[
-    { value: "config", trigger: "Configurações", children: <div>Conteúdo...</div> },
-    { value: "prefs", trigger: "Preferências", children: <div>Conteúdo...</div> },
+    { value: "config", trigger: "Settings", children: <div>Content...</div> },
+    { value: "prefs", trigger: "Preferences", children: <div>Content...</div> },
   ]}
   iconVariant="chevron"
-  locale="pt-BR"
+  locale="en-US"
 />
 ```
 
 ## 🎨 Theming
 
-### 🎭 Cores
+### 🎭 Colors
 
 O sistema usa CSS variables para theming:
 
@@ -557,30 +617,30 @@ O sistema usa CSS variables para theming:
 }
 ```
 
-### ⚠️ Tokens de risco
+### ⚠️ Risk tokens
 
 ```css
 :root {
-  --risk-1: oklch(0.62 0.19 28); /* Maior risco */
+  --risk-1: oklch(0.62 0.19 28); /* Highest risk */
   --risk-2: oklch(0.72 0.17 50);
   --risk-3: oklch(0.85 0.18 85);
-  --risk-4: oklch(0.92 0.15 105); /* Menor risco */
-  --success: oklch(0.72 0.16 155); /* Positivo */
-  --warning: oklch(0.78 0.14 75); /* Atenção */
+  --risk-4: oklch(0.92 0.15 105); /* Lowest risk */
+  --success: oklch(0.72 0.16 155); /* Positive */
+  --warning: oklch(0.78 0.14 75); /* Attention */
   --highlight-violet: oklch(0.68 0.18 295);
   --highlight-sky: oklch(0.72 0.12 225);
   --highlight-white: oklch(0.92 0.01 80);
 }
 ```
 
-### 🔤 Tipografia
+### 🔤 Typography
 
-- **Sans**: Inter (variável `--font-sans`)
-- **Mono**: Geist Mono (variável `--font-mono`)
+- **Sans**: Inter (variable `--font-sans`)
+- **Mono**: Geist Mono (variable `--font-mono`)
 
 ### 📏 Border Radius
 
-| Token         | Cálculo        |
+| Token         | Calculation        |
 | ------------- | -------------- |
 | `--radius-sm` | `radius * 0.6` |
 | `--radius-md` | `radius * 0.8` |
@@ -590,31 +650,31 @@ O sistema usa CSS variables para theming:
 ## 📜 Scripts
 
 ```bash
-make dev              # Inicia o servidor local do Storybook (porta 6006)
-make build            # Build produção
-make start            # Servidor produção
+make dev              # Start local Storybook server (port 6006)
+make build            # Production build
+make start            # Production server
 make lint             # ESLint + typecheck + Prettier check
 make format           # Prettier
-make build-storybook  # Build Storybook estático
+make build-storybook  # Static Storybook build
 make test             # Vitest (>1000 testes em 160+ arquivos)
-make coverage         # Coverage com Vitest
-make registry         # Rebuild do registry.json (shadcn build — 374 itens)
-make shadcn-update    # Atualiza todos os primitivos shadcn para última versão
-make clean            # Limpar artefatos
+make coverage         # Coverage with Vitest
+make registry         # Rebuild registry.json (shadcn build — 374 items)
+make shadcn-update    # Update all shadcn primitives to latest version
+make clean            # Clean artifacts
 ```
 
 ## 🚢 Release & Deploy
 
-O projeto usa um fluxo **GitFlow** com versionamento automático via [release-please](https://github.com/googleapis/release-please) e deploy contínuo para Kubernetes via ArgoCD.
+The project uses a **GitFlow** workflow with automated versioning via [release-please](https://github.com/googleapis/release-please) and continuous deploy to Kubernetes via ArgoCD.
 
 ### 🌿 Branches
 
-| Branch    | Propósito                                                           |
+| Branch    | Purpose                                                           |
 | :-------- | :------------------------------------------------------------------ |
-| `develop` | Branch de integração — todo PR de feature/fix entra aqui            |
-| `main`    | Branch de release — recebe merge de `develop` quando pronto p/ ship |
+| `develop` | Integration branch — every feature/fix PR goes here            |
+| `main`    | Release branch — receives merge from `develop` when ready to ship |
 
-### 🔄 Fluxo completo
+### 🔄 Full flow
 
 ```
 feature/* ──PR──▶ develop ──PR──▶ main ──┐
@@ -631,100 +691,100 @@ feature/* ──PR──▶ develop ──PR──▶ main ──┐
 
 ### 🔍 CI
 
-Dispara **apenas em PR contra `develop`** — única etapa do fluxo onde código novo é introduzido. PRs `develop → main` e PRs do release-please **não rodam CI** (são promoção e version bump, respectivamente — mesmo código já validado). Pipeline **sequencial** com fail-fast (3 jobs encadeados via `needs:`) no self-hosted runner:
+Triggers **only on PR against `develop`** — the only stage where new code is introduced. PRs `develop → main` and release-please PRs **do not run CI** (they are promotion and version bump, respectively — same already validated code). **Sequential** pipeline with fail-fast (3 jobs chained via `needs:`) on self-hosted runner:
 
 ```
 lint → test → build
 ```
 
-| Job | Nome       | Comando                                        |
+| Job | Nome       | Command                                        |
 | --- | ---------- | ---------------------------------------------- |
 | 1º  | `🕵️‍♂️ Lint`  | `npm run format:check` + `npm run lint`        |
 | 2º  | `🧪 Test`  | `npm run test` (vitest browser mode, Chromium) |
 | 3º  | `📦 Build` | `npm run build-storybook`                      |
 
-PRs do release-please são **explicitamente ignorados** no job `lint` via `if: ${{ !startsWith(github.head_ref, 'release-please--') }}`.
+PRs do release-please are **explicitly ignored** in the `lint` job via `if: ${{ !startsWith(github.head_ref, 'release-please--') }}`.
 
-Runs antigos no mesmo PR são cancelados automaticamente via `concurrency`. Instalação usa `npm ci --legacy-peer-deps` com cache (composite action em `.github/actions/setup-node-deps`).
+Older runs on the same PR are automatically canceled via `concurrency`. Installation uses `npm ci --legacy-peer-deps` with cache (composite action in `.github/actions/setup-node-deps`).
 
-**Por que CI roda apenas uma vez por ciclo de release:** o invariante é "se `develop` está verde, `main` está verde". Branch protection em `develop` exige PR antes de merge → todo código que entra em `develop` foi validado. `develop → main` é promoção sem código novo. release-please PR só altera `package.json`, `CHANGELOG.md` e `.release-please-manifest.json` — nenhum desses afeta build/lint/test. Resultado: 1 run de CI por mudança real, não 4.
+**Why CI runs only once per release cycle:** the invariant is "if `develop` is green, `main` is green". Branch protection on `develop` requires a PR before merge → all code entering `develop` has been validated. `develop → main` is promotion without new code. The release-please PR only changes `package.json`, `CHANGELOG.md` and `.release-please-manifest.json` — none of these affect build/lint/test. Result: 1 CI run per real change, not 4.
 
-> ⚠️ **Branch protection é obrigatório** em `develop` e `main`. Como o CI não dispara em `push`, push direto burla a validação. Configure em **Settings → Branches**: exigir PR + branch atualizada antes do merge. Atualmente **nenhuma branch exige status checks** (`contexts: []`) — considere adicionar `🕵️‍♂️ Lint`, `🧪 Test` e `📦 Build` como required checks em `develop`.
+> ⚠️ **Branch protection is required** em `develop` e `main`. As CI does not trigger on `push`, direct push bypasses validation. Configure in **Settings → Branches**: require PR + up-to-date branch before merge. Currently **no branch requires status checks** (`contexts: []`) — consider adding `🕵️‍♂️ Lint`, `🧪 Test` and `📦 Build` as required checks on `develop`.
 
 ### 🤖 AI Review
 
 Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Dependabot e do `github-actions[bot]`. O fluxo:
 
-1. Gera o diff do PR, histórico de commits e conteúdo dos arquivos `.ts`/`.tsx` modificados
+1. Generates the PR diff, commit history and contents of changed `.ts`/`.tsx` files
 2. Monta um prompt com as skills do design system (`.agents/skills/shadcn/SKILL.md` + `.agents/skills/design-system/SKILL.md`)
-3. Roda o review via `opencode` com modelos free em rodízio (fallback automático entre modelos)
-4. Posta o resultado como comentário no PR com seções: **Resumo**, **Problemas encontrados** e **Checklist da Skill**
+3. Runs the review via `opencode` with free models in rotation (automatic fallback between models)
+4. Posts the result as a PR comment with sections: **Summary**, **Issues found** and **Skill Checklist**
 
-PRs do release-please nunca disparam este workflow — eles vão contra `main`, não `develop`.
+release-please PRs never trigger this workflow — they target `main`, not `develop`.
 
 ### ⚙️ Release automatizada
 
 Dispara em **push para `main`**. O bot do release-please:
 
-1. Lê os commits desde a última tag e calcula a próxima versão (regras [Conventional Commits](https://www.conventionalcommits.org))
+1. Reads commits since the last tag and calculates the next version (rules [Conventional Commits](https://www.conventionalcommits.org))
 2. Abre/atualiza um PR `chore(release): vX.Y.Z` contendo:
    - Bump em `package.json`
-   - `CHANGELOG.md` gerado com seções por tipo (✨ Features, 🐛 Bug Fixes, etc.)
+   - `CHANGELOG.md` generated with sections by type (✨ Features, 🐛 Bug Fixes, etc.)
    - Bump em `.release-please-manifest.json`
-3. Quando o PR é mergeado → cria a tag `vX.Y.Z` + GitHub Release automaticamente
+3. When the PR is merged → creates the `vX.Y.Z` tag + GitHub Release automatically
 
-**Estado de versionamento** (não editar à mão):
+**Versioning state** (do not edit manually):
 
-- `.release-please-manifest.json` — versão atual rastreada pelo bot
+- `.release-please-manifest.json` — current version tracked by the bot
 - `package.json` `version` — sobrescrito pelo bot em cada release
-- `release-please-config.json` — configuração das seções do CHANGELOG
+- `release-please-config.json` — CHANGELOG sections configuration
 
 ### 🚀 CD
 
 Dispara em **`release: published`** (criada pelo release-please). O fluxo:
 
-1. **Build Docker** — imagem multi-stage com Nginx servindo o Storybook estático. Antes do `docker build`, o `jq` injeta a versão da tag em `public/r/registry.json` (manifesto consumido por projetos downstream via shadcn).
+1. **Build Docker** — multi-stage image with Nginx serving the static Storybook. Before `docker build`, `jq` injects the tag version into `public/r/registry.json` (manifest consumed by downstream projects via shadcn).
 2. **Push para GHCR** — duas tags: `:latest` e `:vX.Y.Z`.
 3. **Update argocd-apps** — atualiza a tag da imagem nos overlays `prod` e `dev` do repo [lema-ufpb/argocd-apps](https://github.com/lema-ufpb/argocd-apps):
-   - Cria o overlay + `kustomization.yml` do zero se não existir
-   - Se o image já existe no `images:`, usa `kustomize edit set image`
-   - Se o image **não** existe, adiciona via `awk` (primeira release)
-   - Se já está na tag correta, faz `git commit --allow-empty` para forçar reconciliação no ArgoCD
+   - Creates the overlay + `kustomization.yml` from scratch if it doesn't exist
+   - If the image already exists in `images:`, uses `kustomize edit set image`
+   - If the image **does not** exist, adds it via `awk` (first release)
+   - If it is already on the correct tag, does `git commit --allow-empty` to force reconciliation in ArgoCD
 4. ArgoCD sincroniza e aplica no cluster.
 
-> 🔒 **Garantia de qualidade**: a tag só nasce de um PR de release-please mergeado em `main`. Como o CI validou o código em `develop` e branch protection exige PR + branch atualizada, todo commit que vira tag já passou pelo pipeline. Não existe gate adicional no CD — a confiança vem do fluxo upstream.
+> 🔒 **Quality guarantee**: the tag only originates from a release-please PR merged into `main`. As CI validated the code on `develop` and branch protection requires PR + up-to-date branch, every commit that becomes a tag has already passed the pipeline. There is no additional gate in CD — trust comes from the upstream flow.
 
-### 🏷️ Mecânica de versão
+### 🏷️ Version mechanics
 
-A versão exibida na documentação Storybook é injetada em tempo de build via `git describe --tags --abbrev=0` em `.storybook/main.ts`. O fluxo é:
+The version shown in the Storybook documentation is injected at build time via `git describe --tags --abbrev=0` in `.storybook/main.ts`. The flow is:
 
 ```
 git tag vX.Y.Z  ──▶  __APP_VERSION__ (Vite define)  ──▶  lib/version.ts  ──▶  app/Introduction.mdx
 ```
 
-Para builds locais (sem tag), a versão exibida é `0.0.0`.
+For local builds (without tag), the displayed version is `0.0.0`.
 
 ### 🚑 Recovery
 
 Caminho default (90% dos casos): **roll-forward**.
 
-- **Abrir PR de fix em `develop`** → merge para `main`. O release-please atualiza o próximo PR de release automaticamente (ou abre um novo). Merge desse PR → nova tag patch (`vX.Y.Z+1`) criada limpa. **Zero `git tag -d`**.
+- **Open fix PR against `develop`** → merge into `main`. release-please automatically updates the next release PR (or opens a new one). Merging that PR → new patch tag (`vX.Y.Z+1`) cleanly created. **Zero `git tag -d` CMDS**.
 
-> 💡 O step de `update-argocd` é resiliente: cria overlays do zero, adiciona image se ausente, e usa `git commit --allow-empty` quando já está na tag correta. Mesmo se o CD falhar parcialmente, o fix é sempre roll-forward.
+> 💡 The `update-argocd` step is resilient: it creates overlays from scratch, adds the image if missing, and uses `git commit --allow-empty` when already on the correct tag. Even if CD partially fails, the fix is always roll-forward.
 
-Para cenários menos comuns (versão errada calculada, release por engano, rollback urgente em prod, manifest inconsistente, branch protection bloqueando), consulte **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — roteiro detalhado com comandos prontos para cada situação.
+For less common scenarios (wrong version calculated, accidental release, urgent rollback in prod, inconsistent manifest, branch protection blocking), see **[`.github/RELEASE_RUNBOOK.md`](.github/RELEASE_RUNBOOK.md)** — detailed runbook with ready-to-use commands for each situation.
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
 ### ⚙️ Setup
 
-1. Fork o repositório
-2. Clone e instale: `git clone ... && cd design-system && npm install --legacy-peer-deps`
-3. Crie uma branch a partir de `develop`: `git checkout develop && git checkout -b feature/minha-feature`
+1. Fork the repository
+2. Clone and install: `git clone ... && cd design-system && npm install --legacy-peer-deps`
+3. Create a branch from `develop`: `git checkout develop && git checkout -b feature/my-feature`
 
 ### 📝 Conventional Commits
 
-Para que o release-please calcule corretamente a próxima versão e gere o `CHANGELOG.md`, **todos os commits devem seguir o padrão [Conventional Commits](https://www.conventionalcommits.org)**:
+For release-please to correctly calculate the next version and generate `CHANGELOG.md`, **all commits must follow [Conventional Commits](https://www.conventionalcommits.org)**:
 
 | Prefixo                                  | Bump (pre-1.0)                  | Aparece no CHANGELOG |
 | :--------------------------------------- | :------------------------------ | :------------------- |
@@ -734,10 +794,10 @@ Para que o release-please calcule corretamente a próxima versão e gere o `CHAN
 | `refactor:`                              | patch                           | ♻️ Refactor          |
 | `docs:`                                  | patch                           | 📚 Documentation     |
 | `revert:`                                | patch                           | ⏪ Reverts           |
-| `feat!:` / `BREAKING CHANGE:`            | minor (pre-1.0 não pula p/ 1.0) | 💥 Breaking          |
-| `chore:` `style:` `test:` `build:` `ci:` | — (sem bump)                    | oculto               |
+| `feat!:` / `BREAKING CHANGE:`            | minor (pre-1.0 does not bump to 1.0) | 💥 Breaking          |
+| `chore:` `style:` `test:` `build:` `ci:` | — (no bump)                    | hidden               |
 
-**Exemplos:**
+**Examples:**
 
 ```bash
 git commit -m "feat(dashbox): add fullscreen toggle"
@@ -748,19 +808,19 @@ git commit -m "refactor(card-stats)!: rename CardStat to CardStatBase"  # breaki
 
 ### 🔀 Pull Request
 
-1. Push da sua branch: `git push origin feature/minha-feature`
-2. Abra PR contra `develop` — CI dispara automaticamente
-3. Após aprovação e merge em `develop`, eventualmente um PR `develop → main` agrega features prontas para release
-4. Merge em `main` → o bot do release-please abre `chore(release): vX.Y.Z` → revisar → merge → deploy automático
+1. Push your branch: `git push origin feature/my-feature`
+2. Open PR against `develop` — CI triggers automatically
+3. After approval and merge into `develop`, eventually a PR `develop → main` aggregates features ready for release
+4. Merge into `main` → the release-please bot opens `chore(release): vX.Y.Z` → review → merge → automatic deploy
 
-## 📄 Licença
+## 📄 License
 
 MIT License - © 2026 LEMA/UFPB
 
 See [LICENSE](./LICENSE) for details.
 
-## 📬 Contato
+## 📬 Contact
 
-Laboratório de Economia e Modelagem Aplicada da
-Universidade Federal da Paraíba
+Laboratory of Economics and Applied Modeling at the
+Federal University of Paraíba
 https://lema.ufpb.br

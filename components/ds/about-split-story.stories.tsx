@@ -36,24 +36,24 @@ const meta: Meta<typeof AboutSplitStory> = {
     layout: "fullscreen",
   },
   args: {
-    badge: "Nossa História",
-    title: "Pesquisa aplicada, rigor estatístico e design de impacto",
+    badge: "Our History",
+    title: "Applied research, statistical rigor and impactful design",
     description:
-      "Nascido na Universidade Federal da Paraíba, o LEMA une métodos de estatística avançada e engenharia de software para desenvolver soluções que aproximam a academia das necessidades reais da sociedade civil.",
+      "Born at the Federal University of Paraíba, LEMA combines advanced statistical methods and software engineering to develop solutions that bridge academia and the real needs of civil society.",
     imageSrc:
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&auto=format&fit=crop&q=80",
-    imageAlt: "Equipe trabalhando em conjunto no laboratório",
-    floatingBadgeText: "+100 Projetos Entregues",
+    imageAlt: "Team working together in the laboratory",
+    floatingBadgeText: "+100 Projects Delivered",
     primaryAction: {
-      label: "Conheça nossos projetos",
+      label: "Explore our projects",
       href: "#",
     },
     secondaryAction: {
-      label: "Ver publicações",
+      label: "View publications",
       href: "#",
     },
     reverse: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -63,13 +63,11 @@ type Story = StoryObj<typeof AboutSplitStory>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText("Nossa História")).toBeInTheDocument()
+    await expect(canvas.getByText("Our History")).toBeInTheDocument()
     await expect(
-      canvas.getByText(/Pesquisa aplicada, rigor estatístico/i)
+      canvas.getByText(/Applied research, statistical rigor/i)
     ).toBeInTheDocument()
-    await expect(
-      canvas.getByText("+100 Projetos Entregues")
-    ).toBeInTheDocument()
+    await expect(canvas.getByText("+100 Projects Delivered")).toBeInTheDocument()
   },
 }
 

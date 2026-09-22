@@ -90,8 +90,8 @@ export const Loading: Story = {
 
 export const LongTitle: Story = {
   args: {
-    title: "Laboratório de Engenharia e Mídias Avançadas da UFPB",
-    subtitle: "Universidade Federal da Paraíba",
+    title: "Advanced Engineering and Media Laboratory of UFPB",
+    subtitle: "Federal University of Paraíba",
     logo: <BoxIcon />,
   },
   render: (args) => (

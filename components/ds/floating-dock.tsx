@@ -69,7 +69,7 @@ export function FloatingDock({
       <div
         data-slot="floating-dock"
         role="navigation"
-        aria-label="Dock de navegação"
+        aria-label="Navigation dock"
         className={cn("flex flex-col items-center gap-4", className)}
         {...props}
       >

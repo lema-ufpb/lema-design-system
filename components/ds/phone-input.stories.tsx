@@ -39,7 +39,7 @@ const meta: Meta<typeof PhoneInput> = {
     disabled: false,
     invalid: false,
     loading: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
   argTypes: {
     size: {
@@ -56,7 +56,7 @@ const meta: Meta<typeof PhoneInput> = {
 export default meta
 type Story = StoryObj<typeof PhoneInput>
 
-// Wrapper para gerenciar o estado na story
+// Wrapper to manage state in the story
 const PhoneInputWithState = (args: React.ComponentProps<typeof PhoneInput>) => {
   const [value, setValue] = React.useState(args.value || "")
   const [country, setCountry] = React.useState(args.country || "BR")

@@ -28,9 +28,9 @@ export const Default: Story = {
     children: (
       <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center">
         <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
-          Seu Cupom
-        </p>
-        <p className="mt-1 text-3xl font-black text-primary">BEMVINDO20</p>
+           Your Coupon
+         </p>
+         <p className="mt-1 text-3xl font-black text-primary">WELCOME20</p>
       </div>
     ),
   },
@@ -48,8 +48,8 @@ export const RewardReveal: Story = {
       <div className="flex h-full w-full flex-col items-center justify-center bg-linear-to-br from-violet-500 to-fuchsia-500 p-4 text-center text-white">
         <div className="text-5xl">🎁</div>
         <p className="mt-4 text-xl leading-tight font-bold">
-          Você ganhou 1 Mês Grátis!
-        </p>
+           You won 1 Month Free!
+         </p>
       </div>
     ),
   },

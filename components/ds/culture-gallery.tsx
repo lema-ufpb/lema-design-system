@@ -48,7 +48,7 @@ export function CultureGallery({
       {...props}
     >
       {items.map((item, index) => {
-        // No layout mosaic, o primeiro ou itens específicos ganham destaque em 2 colunas se houver mais de 3 itens
+        // In mosaic layout, the first or specific items are featured across 2 columns if there are more than 3 items
         const isFeatured = layout === "mosaic" && (index === 0 || index === 3)
 
         return (

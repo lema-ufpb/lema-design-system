@@ -65,7 +65,7 @@ export const WaitlistForm = React.forwardRef<
       size = "md",
       onSubmit,
       socialProof,
-      locale = "pt-BR",
+      locale = "en-US",
       disabled = false,
       autoFocus = false,
       ...props
@@ -76,7 +76,7 @@ export const WaitlistForm = React.forwardRef<
     const [status, setStatus] = React.useState<WaitlistStatus>("idle")
     const [errorMessage, setErrorMessage] = React.useState("")
 
-    const t = UI_I18N[locale]?.waitlistForm ?? UI_I18N["pt-BR"].waitlistForm
+    const t = UI_I18N[locale]?.waitlistForm ?? UI_I18N["en-US"].waitlistForm
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()

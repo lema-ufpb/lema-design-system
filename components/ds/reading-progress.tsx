@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils"
 
 export interface ReadingProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Ref para o container que terá scroll monitorado.
-   * Se não fornecido, monitora o scroll da janela (window).
+   * Ref to the container whose scroll will be monitored.
+   * If not provided, monitors window scroll.
    */
   targetRef?: React.RefObject<HTMLElement | null>
-  /** Cor da barra, por padrão usa a cor primária */
+  /** Bar color, defaults to primary color */
   progressColor?: string
-  /** Altura da barra */
+  /** Bar height */
   height?: "sm" | "md" | "lg"
 }
 
@@ -66,14 +66,14 @@ export const ReadingProgress = React.forwardRef<
         }
       }
 
-      // Evita erro em SSR
+      // Avoid SSR error
       if (typeof window === "undefined") return
 
       const el = targetRef?.current || window
       el.addEventListener("scroll", updateScroll, { passive: true })
       window.addEventListener("resize", updateScroll, { passive: true })
 
-      // Chamada inicial
+      // Initial call
       updateScroll()
 
       return () => {
@@ -102,7 +102,7 @@ export const ReadingProgress = React.forwardRef<
           aria-valuenow={progress}
           aria-valuemin={0}
           aria-valuemax={100}
-          aria-label="Progresso de leitura"
+          aria-label="Reading progress"
           role="progressbar"
         />
       </div>

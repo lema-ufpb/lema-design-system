@@ -191,14 +191,14 @@ export function BannerPromo({
 
       {dismissible && (
         <button
-          aria-label={UI_I18N["pt-BR"].banner.dismiss}
+          aria-label={UI_I18N["en-US"].banner.dismiss}
           onClick={() => {
             setDismissed(true)
             onDismiss?.()
           }}
           className="absolute top-3 right-3 rounded-full p-1 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
-          <span className="sr-only">{UI_I18N["pt-BR"].banner.dismiss}</span>×
+          <span className="sr-only">{UI_I18N["en-US"].banner.dismiss}</span>×
         </button>
       )}
     </div>

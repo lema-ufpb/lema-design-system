@@ -57,11 +57,11 @@ export const FooterSimple = React.forwardRef<HTMLElement, FooterSimpleProps>(
     {
       brand,
       links = [
-        { label: "Sobre", href: "#" },
-        { label: "Serviços", href: "#" },
-        { label: "Projetos", href: "#" },
-        { label: "Documentação", href: "#" },
-        { label: "Contato", href: "#" },
+        { label: "About", href: "#" },
+        { label: "Services", href: "#" },
+        { label: "Projects", href: "#" },
+        { label: "Documentation", href: "#" },
+        { label: "Contact", href: "#" },
       ],
       socialLinks = [
         { platform: "github", href: "https://github.com" },
@@ -75,7 +75,7 @@ export const FooterSimple = React.forwardRef<HTMLElement, FooterSimpleProps>(
       brandName = "LEMA - UFPB",
       legalLinks,
       align = "center",
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },
@@ -103,7 +103,7 @@ export const FooterSimple = React.forwardRef<HTMLElement, FooterSimpleProps>(
 
           {links.length > 0 && (
             <nav
-              aria-label="Navegação do rodapé"
+              aria-label="Footer navigation"
               className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground"
             >
               {links.map((link, idx) => (

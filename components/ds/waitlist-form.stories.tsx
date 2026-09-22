@@ -44,7 +44,7 @@ const meta = {
     },
     locale: {
       control: "select",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
 } satisfies Meta<typeof WaitlistForm>
@@ -56,7 +56,7 @@ export const Default: Story = {
   args: {
     variant: "default",
     size: "md",
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -64,8 +64,7 @@ export const PillVariant: Story = {
   args: {
     variant: "pill",
     size: "md",
-    socialProof:
-      "🎉 Junte-se a mais de 1.200 desenvolvedores na lista de espera.",
+    socialProof: "🎉 Join over 1,200 developers on the waitlist.",
   },
 }
 
@@ -73,8 +72,7 @@ export const FloatingCard: Story = {
   args: {
     variant: "floating",
     size: "lg",
-    socialProof:
-      "🔒 Garantimos que seus dados não serão compartilhados com terceiros.",
+    socialProof: "🔒 We guarantee your data will not be shared with third parties.",
   },
 }
 
@@ -89,6 +87,6 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     variant: "pill",
-    socialProof: "Inscrições temporariamente encerradas para a turma atual.",
+    socialProof: "Enrollment temporarily closed for the current cohort.",
   },
 }

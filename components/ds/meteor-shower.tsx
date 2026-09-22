@@ -35,8 +35,8 @@ export const meteorShowerVariants = cva(
 const DENSITY_COUNT = { sm: 8, md: 14, lg: 24 } as const
 const MAX_METEORS = 24
 
-// mulberry32 — gerador pseudo-aleatório determinístico, garante que o
-// markup do servidor e do cliente sejam idênticos sem precisar de
+// mulberry32 — deterministic pseudo-random generator, ensures server
+// and client markup are identical without needing
 // "use client" nem de estado para posicionar os meteoros.
 function mulberry32(seed: number) {
   return () => {
@@ -52,7 +52,7 @@ const rand = mulberry32(42)
 const METEORS = Array.from({ length: MAX_METEORS }, (_, i) => ({
   left: `${Math.round(rand() * 100)}%`,
   top: `${Math.round(rand() * -55 - 2)}%`,
-  // Primeiros 4 meteoros sem delay para efeito imediato ao abrir a story
+  // First 4 meteors without delay for immediate effect when opening the story
   delay:
     i < 4 ? `${(rand() * 0.8).toFixed(2)}s` : `${(rand() * 3.5).toFixed(2)}s`,
   duration: `${(1.8 + rand() * 1.8).toFixed(2)}s`,
@@ -61,10 +61,10 @@ const METEORS = Array.from({ length: MAX_METEORS }, (_, i) => ({
 // ── Component ──
 
 /**
- * Chuva de meteoros 100% CSS para fundo de hero — sem canvas, sem RAF,
- * sem "use client". As posições são geradas de forma determinística para
- * evitar mismatch de hidratação. `motion-reduce:hidden` remove os
- * meteoros por completo sob `prefers-reduced-motion`.
+ * 100% CSS meteor shower for hero backgrounds — no canvas, no RAF,
+ * no "use client". Positions are generated deterministically to
+ * avoid hydration mismatch. `motion-reduce:hidden` removes the
+ * meteors entirely under `prefers-reduced-motion`.
  */
 export function MeteorShower({
   className,
@@ -92,7 +92,7 @@ export function MeteorShower({
             willChange: "transform, opacity",
           }}
         >
-          {/* Cabeça do meteoro + cauda via elementos reais (não pseudo) para garantir geração Tailwind */}
+          {/* Meteor head + tail via real elements (not pseudo) to ensure Tailwind generation */}
           <span
             className="absolute top-1/2 left-0 block size-[3px] -translate-y-1/2 rotate-[215deg] rounded-full"
             style={{ backgroundColor: "var(--meteor-color)" }}

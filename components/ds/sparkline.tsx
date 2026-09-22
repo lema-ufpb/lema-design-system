@@ -76,7 +76,7 @@ export const Sparkline = React.forwardRef<SVGSVGElement, SparklineProps>(
       height = 36,
       width = "100%",
       loading = false,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

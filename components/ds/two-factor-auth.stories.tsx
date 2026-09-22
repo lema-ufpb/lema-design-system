@@ -52,7 +52,7 @@ const meta = {
     resendCooldown: { control: "number" },
     locale: {
       control: "select",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
 } satisfies Meta<typeof TwoFactorAuth>

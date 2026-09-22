@@ -68,40 +68,40 @@ export const CompleteCenteredHero: Story = {
       <BackgroundGlow variant="aurora" tone="primary" />
 
       <HeroHeader>
-        <AnnouncementBadge tag="Novo" ping variant="glow">
-          LEMA Design System v2.0 disponível
+        <AnnouncementBadge tag="New" ping variant="glow">
+          LEMA Design System v2.0 available
         </AnnouncementBadge>
       </HeroHeader>
 
       <HeroTitle size="large" gradient>
-        Construa interfaces{" "}
+        Build{" "}
         <TextRotator
-          words={["elegantes", "acessíveis", "rápidas", "consistentes"]}
+          words={["elegant", "accessible", "fast", "consistent"]}
         />
         <br />
-        para produtos digitais acadêmicos
+        interfaces for academic digital products
       </HeroTitle>
 
       <HeroDescription size="large">
-        O ecossistema definitivo de componentes React 19, Tailwind CSS v4 e
-        shadcn/ui padronizado pela Universidade Federal da Paraíba.
+        The definitive ecosystem of React 19, Tailwind CSS v4 and
+        shadcn/ui components standardized by the Federal University of Paraíba.
       </HeroDescription>
 
       <HeroActions align="center">
         <WaitlistForm
           variant="pill"
           size="md"
-          socialProof="Mais de 50 componentes prontos para produção."
+          socialProof="Over 50 production-ready components."
         />
       </HeroActions>
 
       <HeroMedia>
         <BrowserMockup url="https://lema.ufpb.br/design-system" glow>
           <div className="flex h-72 flex-col items-center justify-center bg-card/60 p-8 text-center">
-            <p className="text-lg font-semibold">Preview da Aplicação</p>
+            <p className="text-lg font-semibold">Application Preview</p>
             <p className="mt-2 max-w-md text-xs text-muted-foreground">
-              Moldura de alta fidelidade para demonstrar telas de sistemas
-              administrativos, dashboards de pesquisa e portais institucionais.
+              High-fidelity frame to showcase admin system screens,
+              research dashboards and institutional portals.
             </p>
           </div>
         </BrowserMockup>
@@ -118,31 +118,31 @@ export const SplitHeroWithVideo: Story = {
       <div className="flex flex-col gap-6">
         <HeroHeader className="justify-start">
           <AnnouncementBadge tag="Demo" variant="outline">
-            Vídeo de demonstração interativa
+            Interactive demo video
           </AnnouncementBadge>
         </HeroHeader>
 
         <HeroTitle size="default">
-          Governança e design unificados para squads modernas
+          Unified governance and design for modern squads
         </HeroTitle>
 
         <HeroDescription>
-          Elimine retrabalho entre design e engenharia com especificações
-          spec-first, testes automatizados de acessibilidade e documentação
-          interativa no Storybook.
+          Eliminate rework between design and engineering with
+          spec-first specifications, automated accessibility tests and interactive
+          documentation in Storybook.
         </HeroDescription>
 
         <HeroActions align="left">
-          <Button size="lg">Começar Agora</Button>
+          <Button size="lg">Get Started Now</Button>
           <Button variant="outline" size="lg">
-            Ver Documentação
+            View Documentation
           </Button>
         </HeroActions>
       </div>
 
       <HeroMedia>
         <VideoDialog
-          title="Visão Geral do LEMA-DS"
+          title="LEMA-DS Overview"
           thumbnailSrc="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80"
           videoSrc="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
           variant="glow"
@@ -158,12 +158,12 @@ export const WithSocialProofMarquee: Story = {
       <BackgroundGlow variant="grid-dots" />
 
       <HeroTitle size="default" gradient>
-        A tecnologia que move a inovação na UFPB
+        Technology driving innovation at UFPB
       </HeroTitle>
 
       <HeroDescription>
-        Utilizado por mais de 20 laboratórios e projetos estratégicos de
-        tecnologia e pesquisa.
+        Used by more than 20 laboratories and strategic projects for
+        technology and research.
       </HeroDescription>
 
       <div className="w-full pt-8">

@@ -36,7 +36,7 @@ const meta = {
           "| `error` | `string` | — | Error message below the trigger |",
           "| `label` | `string` | — | Label above the trigger |",
           "| `async` | `boolean` | `false` | Loads options asynchronously via `loadOptions` |",
-          '| `locale` | `UILocale` | `"pt-BR"` | Locale for i18n strings |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for i18n strings |',
           "",
           "---",
         ].join("\n"),
@@ -75,7 +75,7 @@ const meta = {
     locale: {
       control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
-      table: { defaultValue: { summary: "pt-BR" } },
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof Select>
@@ -92,7 +92,7 @@ export const Default: Story = {
     creatable: false,
     size: "md",
     loading: false,
-    locale: "pt-BR",
+    locale: "en-US",
     disabled: false,
   },
 }

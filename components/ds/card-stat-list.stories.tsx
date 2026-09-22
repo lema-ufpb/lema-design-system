@@ -140,7 +140,7 @@ export const PercentLocale: Story = {
     return (
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <CardStatList
-          label="Visão Geral (pt-BR)"
+          label="Overview (pt-BR)"
           icon={BarChart2Icon}
           locale="pt-BR"
           items={items}

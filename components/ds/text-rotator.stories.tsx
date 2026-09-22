@@ -46,7 +46,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    words: ["inovadores", "acessíveis", "escaláveis", "consistentes"],
+    words: ["innovative", "accessible", "scalable", "consistent"],
     interval: 2500,
     transition: "slide",
   },
@@ -67,22 +67,22 @@ export const FadeTransition: Story = {
 
 export const InHeadline: Story = {
   args: {
-    words: ["mais rápidos", "acessíveis", "modernos", "robustos"],
+    words: ["faster", "accessible", "modern", "robust"],
   },
   render: () => (
     <div className="max-w-xl py-6 text-center">
       <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         Crie produtos digitais{" "}
         <TextRotator
-          words={["mais rápidos", "acessíveis", "modernos", "robustos"]}
+          words={["faster", "accessible", "modern", "robust"]}
           interval={2500}
         />
         <br />
         para toda a universidade.
       </h1>
       <p className="mt-4 text-sm text-muted-foreground">
-        Passe o mouse sobre a palavra em destaque para pausar a rotação
-        automática.
+        Hover over the highlighted word to pause the rotation
+        automatically.
       </p>
     </div>
   ),

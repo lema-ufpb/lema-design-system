@@ -48,10 +48,10 @@ export const WithActions: Story = {
     actions: (
       <>
         <Button variant="ghost" size="sm" className="rounded-full">
-          Entrar
+          Sign in
         </Button>
         <Button size="sm" className="rounded-full">
-          Começar
+          Get started
         </Button>
       </>
     ),

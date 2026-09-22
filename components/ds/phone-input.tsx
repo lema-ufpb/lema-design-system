@@ -31,18 +31,18 @@ export interface CountryData {
   flag: string
 }
 
-// Uma lista reduzida para o design system. Em um projeto real,
-// você poderia injetar essa lista ou usar uma biblioteca como libphonenumber-js.
+// A reduced list for the design system. In a real project,
+// you could inject this list or use a library like libphonenumber-js.
 const defaultCountries: CountryData[] = [
-  { iso: "BR", name: "Brasil", code: "+55", flag: "🇧🇷" },
-  { iso: "US", name: "Estados Unidos", code: "+1", flag: "🇺🇸" },
+  { iso: "BR", name: "Brazil", code: "+55", flag: "🇧🇷" },
+  { iso: "US", name: "United States", code: "+1", flag: "🇺🇸" },
   { iso: "PT", name: "Portugal", code: "+351", flag: "🇵🇹" },
-  { iso: "ES", name: "Espanha", code: "+34", flag: "🇪🇸" },
-  { iso: "FR", name: "França", code: "+33", flag: "🇫🇷" },
-  { iso: "UK", name: "Reino Unido", code: "+44", flag: "🇬🇧" },
+  { iso: "ES", name: "Spain", code: "+34", flag: "🇪🇸" },
+  { iso: "FR", name: "France", code: "+33", flag: "🇫🇷" },
+  { iso: "UK", name: "United Kingdom", code: "+44", flag: "🇬🇧" },
   { iso: "AR", name: "Argentina", code: "+54", flag: "🇦🇷" },
-  { iso: "CO", name: "Colômbia", code: "+57", flag: "🇨🇴" },
-  { iso: "MX", name: "México", code: "+52", flag: "🇲🇽" },
+  { iso: "CO", name: "Colombia", code: "+57", flag: "🇨🇴" },
+  { iso: "MX", name: "Mexico", code: "+52", flag: "🇲🇽" },
 ]
 
 // ── Variants ──
@@ -122,7 +122,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       disabled = false,
       invalid = false,
       loading = false,
-      locale = "pt-BR",
+      locale = "en-US",
       placeholder,
       className,
       ...props

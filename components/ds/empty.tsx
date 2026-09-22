@@ -36,9 +36,9 @@ export interface EmptyProps
     Omit<React.ComponentProps<"div">, "className">,
     VariantProps<typeof emptyVariants> {
   variant?: EmptyVariant
-  /** Sobrescreve o título i18n */
+  /** Overrides the i18n title */
   title?: string
-  /** Sobrescreve a descrição i18n */
+  /** Overrides the i18n description */
   description?: string
   action?: EmptyAction
   compact?: boolean
@@ -90,7 +90,7 @@ function Empty({
   action,
   compact = false,
   loading = false,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
   ...htmlProps
 }: EmptyProps) {

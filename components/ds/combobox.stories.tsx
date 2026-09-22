@@ -429,9 +429,9 @@ export const CustomRenderOption: RenderStory = {
 export const LocalePTBR: Story = {
   args: {
     options: FRAMEWORKS,
-    placeholder: "Selecione um framework…",
+    placeholder: "Select a framework…",
     maxWidth: "320px",
-    locale: "pt-BR",
+    locale: "en-US",
   },
   parameters: {
     docs: {

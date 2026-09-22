@@ -61,12 +61,12 @@ export function AboutSplitStory({
   primaryAction,
   secondaryAction,
   reverse = false,
-  locale = "pt-BR",
+  locale = "en-US",
   variant,
   className,
   ...props
 }: AboutSplitStoryProps) {
-  const t = UI_I18N[locale]?.about ?? UI_I18N["pt-BR"].about
+  const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   return (
     <section
@@ -80,7 +80,7 @@ export function AboutSplitStory({
             reverse && "lg:[&>*:first-child]:order-2"
           )}
         >
-          {/* Coluna de Narrativa */}
+          {/* Narrative Column */}
           <div className="flex flex-col items-start gap-6">
             {badge && (
               <Badge variant="outline" className="text-xs font-semibold">
@@ -137,7 +137,7 @@ export function AboutSplitStory({
             )}
           </div>
 
-          {/* Coluna de Mídia / Imagem */}
+          {/* Media / Image Column */}
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="relative overflow-hidden rounded-3xl border border-border bg-muted shadow-xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}

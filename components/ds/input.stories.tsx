@@ -29,7 +29,7 @@ const meta = {
           "| `label` | `string` | — | Label text above the input |",
           "| `maxLength` | `number` | — | Maximum character length |",
           "| `disabled` | `boolean` | `false` | Disables the input |",
-          '| `locale` | `UILocale` | `"pt-BR"` | Locale for i18n strings |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for i18n strings |',
           '| `placeholder` | `string` | `""` | Placeholder text |',
           "",
           "---",
@@ -88,7 +88,7 @@ const meta = {
     locale: {
       control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
-      table: { defaultValue: { summary: "pt-BR" } },
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof Input>

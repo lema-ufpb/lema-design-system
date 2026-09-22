@@ -8,28 +8,28 @@ import { Keyboard } from "lucide-react"
 
 const sampleGroups: ShortcutGroup[] = [
   {
-    name: "Geral",
+    name: "General",
     shortcuts: [
-      { id: "g1", label: "Abrir menu de comandos", keys: ["⌘", "K"] },
-      { id: "g2", label: "Ajuda e atalhos de teclado", keys: ["?"] },
-      { id: "g3", label: "Alternar modo claro / escuro", keys: ["⌘", "J"] },
-      { id: "g4", label: "Fechar diálogo ou janela", keys: ["Esc"] },
+      { id: "g1", label: "Open command menu", keys: ["⌘", "K"] },
+      { id: "g2", label: "Help and keyboard shortcuts", keys: ["?"] },
+      { id: "g3", label: "Toggle light / dark mode", keys: ["⌘", "J"] },
+      { id: "g4", label: "Close dialog or window", keys: ["Esc"] },
     ],
   },
   {
-    name: "Navegação",
+    name: "Navigation",
     shortcuts: [
-      { id: "n1", label: "Ir para Início / Dashboard", keys: ["G", "H"] },
-      { id: "n2", label: "Ir para Modelos Econométricos", keys: ["G", "M"] },
-      { id: "n3", label: "Ir para Conjuntos de Dados", keys: ["G", "D"] },
+      { id: "n1", label: "Go to Home / Dashboard", keys: ["G", "H"] },
+      { id: "n2", label: "Go to Econometric Models", keys: ["G", "M"] },
+      { id: "n3", label: "Go to Datasets", keys: ["G", "D"] },
     ],
   },
   {
-    name: "Execução & Edição",
+    name: "Execution & Editing",
     shortcuts: [
-      { id: "e1", label: "Executar simulação", keys: ["⌘", "Enter"] },
-      { id: "e2", label: "Salvar alterações", keys: ["⌘", "S"] },
-      { id: "e3", label: "Exportar dados para CSV", keys: ["⌘", "E"] },
+      { id: "e1", label: "Run simulation", keys: ["⌘", "Enter"] },
+      { id: "e2", label: "Save changes", keys: ["⌘", "S"] },
+      { id: "e3", label: "Export data to CSV", keys: ["⌘", "E"] },
     ],
   },
 ]
@@ -57,7 +57,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Language locale.",
     },
   },
@@ -73,7 +73,7 @@ export const Default: Story = {
       trigger={
         <Button variant="outline" size="sm">
           <Keyboard data-icon="inline-start" />
-          Atalhos de Teclado (?)
+          Keyboard Shortcuts (?)
         </Button>
       }
     />
@@ -83,7 +83,7 @@ export const Default: Story = {
     const trigger = canvas.getByRole("button")
     await expect(trigger).toBeInTheDocument()
     await userEvent.click(trigger)
-    const title = await within(document.body).findByText("Atalhos de Teclado")
+    const title = await within(document.body).findByText("Keyboard Shortcuts")
     await expect(title).toBeInTheDocument()
   },
 }
@@ -92,14 +92,14 @@ export const Locales: Story = {
   render: () => (
     <div className="flex flex-wrap gap-3">
       <ShortcutSheet
-        locale="pt-BR"
-        groups={sampleGroups}
-        trigger={<Button size="sm">pt-BR</Button>}
-      />
-      <ShortcutSheet
         locale="en-US"
         groups={sampleGroups}
         trigger={<Button size="sm">en-US</Button>}
+      />
+      <ShortcutSheet
+        locale="pt-BR"
+        groups={sampleGroups}
+        trigger={<Button size="sm">pt-BR</Button>}
       />
     </div>
   ),

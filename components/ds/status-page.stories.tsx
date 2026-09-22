@@ -6,29 +6,29 @@ import { StatusPage, type StatusService } from "./status-page"
 const sampleServices: StatusService[] = [
   {
     id: "s1",
-    name: "API de Modelos Econométricos",
-    description: "Endpoints REST para simulação e estimação bayesiana",
+    name: "Econometric Models API",
+    description: "REST endpoints for simulation and Bayesian estimation",
     status: "operational",
     uptimePercentage: 99.98,
   },
   {
     id: "s2",
-    name: "Cluster Spark & Processamento de Microdados",
-    description: "Workers de ETL da PNAD, Censo Escolar e RAIS",
+    name: "Spark Cluster & Microdata Processing",
+    description: "ETL workers for PNAD, School Census and RAIS",
     status: "operational",
     uptimePercentage: 99.95,
   },
   {
     id: "s3",
-    name: "Banco de Dados e Séries Temporais (S3 / RustFS)",
-    description: "Armazenamento diskless de parquet e índices de consulta",
+    name: "Database & Time Series (S3 / RustFS)",
+    description: "Diskless parquet storage and query indexes",
     status: "operational",
     uptimePercentage: 100,
   },
   {
     id: "s4",
-    name: "Portal Web e Documentação",
-    description: "Frontend do LEMA e Storybook público",
+    name: "Web Portal & Documentation",
+    description: "LEMA frontend and public Storybook",
     status: "operational",
     uptimePercentage: 99.99,
   },
@@ -63,7 +63,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Language locale.",
     },
   },
@@ -74,15 +74,15 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(
-      canvas.getByText("Todos os sistemas operacionais")
+      canvas.getByText("All systems operational")
     ).toBeInTheDocument()
     await expect(
-      canvas.getByText("API de Modelos Econométricos")
+      canvas.getByText("Econometric Models API")
     ).toBeInTheDocument()
   },
 }
@@ -118,11 +118,11 @@ export const MajorOutageWithIncidents: Story = {
     incidents: [
       {
         id: "inc-1",
-        title: "Interrupção na API de Modelos Econométricos",
-        date: "Hoje às 14:22",
+        title: "Outage in Econometric Models API",
+        date: "Today at 2:22 PM",
         status: "investigating",
         description:
-          "Identificamos latência elevada e timeouts em consultas de simulação de longo prazo. A equipe de engenharia está aplicando correção no cluster de workers.",
+          "We have identified high latency and timeouts in long-running simulation queries. The engineering team is applying a fix to the worker cluster.",
       },
     ],
   },

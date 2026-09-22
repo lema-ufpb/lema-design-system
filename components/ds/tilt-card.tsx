@@ -113,7 +113,7 @@ export function TiltCard({
       data-slot="tilt-card"
       tabIndex={0}
       role="group"
-      aria-label="Cartão com efeito 3D"
+      aria-label="Card with 3D effect"
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       onFocus={() => {

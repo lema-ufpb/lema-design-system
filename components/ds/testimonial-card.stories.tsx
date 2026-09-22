@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     quote: "LEMA DS accelerated our delivery by 3x.",
-    author: { name: "João Costa", role: "CTO" },
+    author: { name: "John Costa", role: "CTO" },
     rating: 5,
   },
 }

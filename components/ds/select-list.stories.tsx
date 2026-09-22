@@ -222,7 +222,7 @@ export const LocalePTBR: Story = {
     data: [
       {
         id: 1,
-        name: "João Silva",
+        name: "John Silva",
         group: "Engineering",
         value: "Senior",
         icon: <User className="size-4" />,
@@ -244,7 +244,7 @@ export const LocalePTBR: Story = {
     ],
     placeholder: "Search by name...",
     height: 350,
-    locale: "pt-BR",
+    locale: "en-US",
     onSelect: (item) => console.log("Selected:", item),
   },
   parameters: {
