@@ -52,10 +52,10 @@ interface Particle {
 // ── Component ──
 
 /**
- * Fundo de constelação (partículas conectadas por linhas) para hero
- * sections. Roda em canvas 2D com DPR limitado a 2x, pausa via
- * `IntersectionObserver` quando sai da viewport e via `visibilitychange`
- * quando a aba perde foco, e vira um frame estático (sem RAF) sob
+ * Constellation background (particles connected by lines) for hero
+ * sections. Runs on 2D canvas with DPR capped at 2x, pauses via
+ * `IntersectionObserver` when out of viewport and via `visibilitychange`
+ * when the tab loses focus, and becomes a static frame (no RAF) under
  * `prefers-reduced-motion`.
  */
 export const ParticleField = React.forwardRef<

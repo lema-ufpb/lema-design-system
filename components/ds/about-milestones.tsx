@@ -47,12 +47,12 @@ export function AboutMilestones({
   badge,
   milestones,
   orientation = "vertical",
-  locale = "pt-BR",
+  locale = "en-US",
   variant,
   className,
   ...props
 }: AboutMilestonesProps) {
-  const t = UI_I18N[locale]?.about ?? UI_I18N["pt-BR"].about
+  const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   return (
     <section
@@ -60,7 +60,7 @@ export function AboutMilestones({
       {...props}
     >
       <div className="container mx-auto max-w-4xl px-4 md:px-6">
-        {/* Cabeçalho da Seção */}
+        {/* Section Header */}
         <div className="mx-auto mb-12 flex flex-col items-center text-center md:mb-16">
           <Badge variant="outline" className="mb-4 text-xs font-semibold">
             {badge ?? t.milestones}
@@ -77,7 +77,7 @@ export function AboutMilestones({
           )}
         </div>
 
-        {/* Linha do Tempo / Stepper */}
+        {/* Timeline / Stepper */}
         <div className="pt-4">
           <MilestoneStepper milestones={milestones} orientation={orientation} />
         </div>

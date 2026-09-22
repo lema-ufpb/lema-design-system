@@ -82,7 +82,7 @@ export const TransferList = React.forwardRef<HTMLDivElement, TransferListProps>(
       titles,
       searchable = true,
       disabled = false,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

@@ -45,25 +45,25 @@ export const Default: Story = {
         <div className="space-y-3 font-mono text-sm">
           <ReceiptCardItem>
             <span>1x Radial Menu</span>
-            <span>R$ 29,90</span>
+            <span>$29.90</span>
           </ReceiptCardItem>
           <ReceiptCardItem>
             <span>2x Morphing Dialog</span>
-            <span>R$ 50,00</span>
+            <span>$50.00</span>
           </ReceiptCardItem>
           <ReceiptCardItem>
             <span>1x Dynamic Island</span>
-            <span>R$ 15,00</span>
+            <span>$15.00</span>
           </ReceiptCardItem>
           <ReceiptCardItem>
             <span>1x Feedback Widget</span>
-            <span>R$ 0,00</span>
+            <span>$0.00</span>
           </ReceiptCardItem>
         </div>
 
         <ReceiptCardTotal>
           <span>TOTAL</span>
-          <span>R$ 94,90</span>
+          <span>$94.90</span>
         </ReceiptCardTotal>
       </ReceiptCardContent>
 
@@ -74,8 +74,8 @@ export const Default: Story = {
           className="mb-4 h-12 w-full text-foreground/80"
           strokeWidth={1}
         />
-        <p>Obrigado por usar o LEMA-DS!</p>
-        <p>Volte sempre.</p>
+        <p>Thank you for using LEMA-DS!</p>
+        <p>Come again soon.</p>
       </ReceiptCardFooter>
     </ReceiptCard>
   ),
@@ -90,8 +90,8 @@ export const TopEdgeOnly: Story = {
       <ReceiptCardDivider />
       <ReceiptCardContent>
         <ReceiptCardItem>
-          <span>Entrada VIP</span>
-          <span>R$ 150,00</span>
+            <span>VIP Ticket</span>
+          <span>$150.00</span>
         </ReceiptCardItem>
       </ReceiptCardContent>
     </ReceiptCard>
@@ -103,7 +103,7 @@ export const BottomEdgeOnly: Story = {
     <ReceiptCard edges="bottom">
       <ReceiptCardContent>
         <div className="text-center font-mono">
-          <div className="text-4xl font-bold">SENHA</div>
+          <div className="text-4xl font-bold">TICKET</div>
           <div className="mt-4 text-6xl font-black text-primary">A042</div>
         </div>
       </ReceiptCardContent>

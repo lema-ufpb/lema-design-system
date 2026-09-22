@@ -85,7 +85,7 @@ export function NavbarFloating({
       {...props}
     >
       <nav
-        aria-label="Navegação principal"
+        aria-label="Main navigation"
         className={cn(navbarFloatingVariants({ variant, size }))}
       >
         <a
@@ -129,7 +129,7 @@ export function NavbarFloating({
             variant="ghost"
             size="icon-sm"
             className="md:hidden"
-            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="navbar-floating-mobile"
             onClick={() => setOpen((v) => !v)}

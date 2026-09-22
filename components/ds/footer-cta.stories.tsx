@@ -34,9 +34,9 @@ const meta: Meta<typeof FooterCta> = {
     },
   },
   args: {
-    ctaTitle: "Pronto para transformar sua experiência digital?",
+    ctaTitle: "Ready to transform your digital experience?",
     ctaDescription:
-      "Junte-se a pesquisadores e desenvolvedores construindo aplicações web modernas com o LEMA Design System.",
+      "Join researchers and developers building modern web applications with the LEMA Design System.",
     ctaTone: "glow",
   },
 }

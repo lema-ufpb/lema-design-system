@@ -33,30 +33,30 @@ const meta: Meta<typeof AboutManifestoHero> = {
     layout: "fullscreen",
   },
   args: {
-    eyebrow: "Manifesto Institucional",
+    eyebrow: "Institutional Manifesto",
     statement: (
       <>
-        Acreditamos no rigor científico como base da{" "}
-        <span className="text-primary">clareza digital</span> e no design
-        acessível como direito universal.
+        We believe in scientific rigor as the foundation of{" "}
+        <span className="text-primary">digital clarity</span> e no design
+        accessible design as a universal right.
       </>
     ),
     author: "LEMA — Universidade Federal da Paraíba",
     stats: [
-      { label: "Anos de Pesquisa", value: "7+" },
-      { label: "Artigos Publicados", value: "48" },
-      { label: "Dispositivos Atingidos", value: "100k" },
-      { label: "Componentes DS", value: "90+" },
+      { label: "Years of Research", value: "7+" },
+      { label: "Published Articles", value: "48" },
+      { label: "Devices Reached", value: "100k" },
+      { label: "DS Components", value: "90+" },
     ],
     primaryAction: {
-      label: "Ler Carta do Coordenador",
+      label: "Read Coordinator's Letter",
       href: "#",
     },
     secondaryAction: {
-      label: "Conhecer a Equipe",
+      label: "Meet the Team",
       href: "#",
     },
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -67,12 +67,12 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(
-      canvas.getByText("Manifesto Institucional")
+      canvas.getByText("Institutional Manifesto")
     ).toBeInTheDocument()
-    await expect(canvas.getByText("Anos de Pesquisa")).toBeInTheDocument()
+    await expect(canvas.getByText("Years of Research")).toBeInTheDocument()
     await expect(canvas.getByText("7+")).toBeInTheDocument()
     await expect(
-      canvas.getByText("Ler Carta do Coordenador")
+      canvas.getByText("Read Coordinator's Letter")
     ).toBeInTheDocument()
   },
 }

@@ -62,7 +62,7 @@ export const FooterMega = React.forwardRef<HTMLElement, FooterMegaProps>(
   (
     {
       brand,
-      description = "Laboratório de Engenharia e Mídias Avançadas da Universidade Federal da Paraíba. Desenvolvendo soluções digitais inovadoras com acessibilidade e precisão.",
+      description = "Advanced Engineering and Media Laboratory of the Federal University of Paraíba. Developing innovative digital solutions with accessibility and precision.",
       columns,
       socialLinks = [
         { platform: "github", href: "https://github.com" },
@@ -83,7 +83,7 @@ export const FooterMega = React.forwardRef<HTMLElement, FooterMegaProps>(
       statusHref = "https://status.ufpb.br",
       brandName = "LEMA - UFPB",
       legalLinks,
-      locale = "pt-BR",
+      locale = "en-US",
       tone = "plain",
       className,
       ...props
@@ -158,7 +158,7 @@ export const FooterMega = React.forwardRef<HTMLElement, FooterMegaProps>(
                 {showAppBadges && (
                   <div className="flex flex-col gap-2">
                     <span className="text-xs font-semibold text-foreground">
-                      Aplicativo Móvel
+                      Mobile App
                     </span>
                     <AppStoreBadges
                       links={[

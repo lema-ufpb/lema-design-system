@@ -181,12 +181,12 @@ export const SocialAuthGroup = React.forwardRef<
       loadingProvider = null,
       disabled = false,
       onSelect,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
   ) => {
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
 
     const isInline = layout === "inline"
     const iconSize =

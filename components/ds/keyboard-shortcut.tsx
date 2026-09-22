@@ -40,7 +40,7 @@ const iconMap: Record<string, string> = {
   shift: "⇧",
   option: "⌥",
   opt: "⌥",
-  alt: "⌥", // Geralmente no Mac alt é renderizado como option
+  alt: "⌥", // On Mac, alt is usually rendered as option
   ctrl: "⌃",
   control: "⌃",
   enter: "↵",
@@ -62,7 +62,7 @@ export const KeyboardShortcut = React.forwardRef<
 >(({ keys, size, className, ...props }, ref) => {
   const [isMac, setIsMac] = useState(true)
 
-  // Detectar SO no client-side para ajustar Alt/Ctrl vs Option/Command se necessário
+  // Detect OS on the client to adjust Alt/Ctrl vs Option/Command if needed
   useEffect(() => {
     const platform = navigator?.userAgent || navigator?.platform || "unknown"
     setIsMac(/Mac|iPod|iPhone|iPad/.test(platform))
@@ -77,7 +77,7 @@ export const KeyboardShortcut = React.forwardRef<
       {keys.map((keyStr, idx) => {
         const lowerKey = keyStr.toLowerCase()
 
-        // Se for Windows/Linux e for "command", trocamos por "ctrl" na exibição
+        // If Windows/Linux and it is "command", we swap to "ctrl" for display
         let resolvedKey = lowerKey
         if (!isMac) {
           if (lowerKey === "command" || lowerKey === "cmd") resolvedKey = "ctrl"

@@ -17,18 +17,18 @@ const meta = {
     },
   },
   args: {
-    title: "Volume de Exportações (US$ Milhões)",
+    title: "Export Volume (US$ Millions)",
     primaryMetric: {
       label: "Nov 2025",
       value: 28450,
       format: (val) => `$${val.toLocaleString()}`,
-      subtext: "Período Vigente",
+      subtext: "Current Period",
     },
     secondaryMetric: {
       label: "Nov 2024",
       value: 24200,
       format: (val) => `$${val.toLocaleString()}`,
-      subtext: "12m atrás (YoY)",
+      subtext: "12m ago (YoY)",
     },
   },
   argTypes: {
@@ -70,19 +70,19 @@ export const Default: Story = {
 
 export const DeficitReduction: Story = {
   args: {
-    title: "Déficit Nominal (% PIB)",
+    title: "Nominal Deficit (% GDP)",
     sentiment: "negativeIsGood",
     primaryMetric: {
       label: "2025",
       value: 6.2,
       format: (v) => `${v}%`,
-      subtext: "Meta Fiscal",
+      subtext: "Fiscal Target",
     },
     secondaryMetric: {
       label: "2024",
       value: 8.9,
       format: (v) => `${v}%`,
-      subtext: "Exercício Anterior",
+      subtext: "Previous Year",
     },
   },
 }
@@ -90,14 +90,14 @@ export const DeficitReduction: Story = {
 export const VerticalLayout: Story = {
   args: {
     layout: "vertical",
-    title: "Consumo Energético Mensal",
+    title: "Monthly Energy Consumption",
     primaryMetric: {
-      label: "Neste Mês",
+      label: "This Month",
       value: 1420,
       format: (v) => `${v} kWh`,
     },
     secondaryMetric: {
-      label: "Média Histórica",
+      label: "Historical Average",
       value: 1250,
       format: (v) => `${v} kWh`,
     },
@@ -109,21 +109,21 @@ export const AllSizes: Story = {
     <div className="flex w-96 flex-col gap-6">
       <MetricComparison
         size="sm"
-        title="Pequeno (sm)"
-        primaryMetric={{ label: "Atual", value: 120 }}
-        secondaryMetric={{ label: "Anterior", value: 100 }}
+        title="Small (sm)"
+        primaryMetric={{ label: "Current", value: 120 }}
+        secondaryMetric={{ label: "Previous", value: 100 }}
       />
       <MetricComparison
         size="md"
-        title="Médio (md)"
-        primaryMetric={{ label: "Atual", value: 120 }}
-        secondaryMetric={{ label: "Anterior", value: 100 }}
+        title="Medium (md)"
+        primaryMetric={{ label: "Current", value: 120 }}
+        secondaryMetric={{ label: "Previous", value: 100 }}
       />
       <MetricComparison
         size="lg"
-        title="Grande (lg)"
-        primaryMetric={{ label: "Atual", value: 120 }}
-        secondaryMetric={{ label: "Anterior", value: 100 }}
+        title="Large (lg)"
+        primaryMetric={{ label: "Current", value: 120 }}
+        secondaryMetric={{ label: "Previous", value: 100 }}
       />
     </div>
   ),

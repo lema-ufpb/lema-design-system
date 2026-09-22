@@ -16,15 +16,15 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     basePrice: 0,
-    unitLabel: "usuários",
+    unitLabel: "users",
     unitPrice: 45.5,
     minUnits: 1,
     maxUnits: 50,
     step: 1,
     discountPercent: 15,
-    title: "Plano Corporativo",
+    title: "Corporate Plan",
     description:
-      "Arraste o slider para simular o custo mensal para o seu time.",
+      "Drag the slider to simulate the monthly cost for your team.",
     className: "w-full max-w-4xl mx-auto",
   },
 }
@@ -32,21 +32,21 @@ export const Default: Story = {
 export const HighVolumeAPI: Story = {
   args: {
     basePrice: 99,
-    unitLabel: "milhões de requisições",
+    unitLabel: "million requests",
     unitPrice: 5,
     minUnits: 1,
     maxUnits: 100,
     step: 5,
     discountPercent: 25,
     currency: "$",
-    title: "Plataforma de APIs",
+    title: "API Platform",
     description:
-      "Escale suas aplicações sem preocupações. O plano base inclui 1 milhão de requisições.",
+      "Scale your applications worry-free. The base plan includes 1 million requests.",
     features: [
-      "Rate limits personalizados",
-      "SLA de 99.99%",
-      "IPs dedicados",
-      "Suporte via Slack",
+      "Custom rate limits",
+      "99.99% SLA",
+      "Dedicated IPs",
+      "Slack support",
     ],
     className: "w-full max-w-4xl mx-auto",
   },

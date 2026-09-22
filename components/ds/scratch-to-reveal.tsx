@@ -6,19 +6,19 @@ import { cn } from "@/lib/utils"
 // ── Types ──
 
 export interface ScratchToRevealProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Conteúdo escondido a ser revelado */
+  /** Hidden content to be revealed */
   children: React.ReactNode
-  /** Largura do container (px) */
+  /** Container width (px) */
   width?: number
-  /** Altura do container (px) */
+  /** Container height (px) */
   height?: number
-  /** Tamanho do pincel para raspar */
+  /** Brush size for scratching */
   brushSize?: number
-  /** Porcentagem raspada (0-100) para auto-revelar e disparar o callback */
+  /** Scratched percentage (0-100) to auto-reveal and trigger the callback */
   revealThreshold?: number
-  /** Função chamada quando o limite for alcançado */
+  /** Function called when the threshold is reached */
   onReveal?: () => void
-  /** Cor hexadecimal ou rgba que cobre o canvas */
+  /** Hex or rgba color covering the canvas */
   coverColor?: string
 }
 
@@ -35,7 +35,7 @@ export const ScratchToReveal = React.forwardRef<
       height = 150,
       brushSize = 30,
       revealThreshold = 50,
-      coverColor = "#94a3b8", // Cor de raspadinha padrão (slate-400)
+      coverColor = "#94a3b8", // Default scratch color (slate-400)
       onReveal,
       className,
       ...props
@@ -47,7 +47,7 @@ export const ScratchToReveal = React.forwardRef<
     const [isScratching, setIsScratching] = useState(false)
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
-    // Detectar prefers-reduced-motion
+    // Detect prefers-reduced-motion
     useEffect(() => {
       const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
       setPrefersReducedMotion(mediaQuery.matches)
@@ -57,7 +57,7 @@ export const ScratchToReveal = React.forwardRef<
       }
     }, [onReveal])
 
-    // Desenhar a camada inicial no canvas
+    // Draw the initial layer on the canvas
     useEffect(() => {
       if (prefersReducedMotion) return
       const canvas = canvasRef.current
@@ -71,11 +71,11 @@ export const ScratchToReveal = React.forwardRef<
       ctx.fillStyle = coverColor
       ctx.fillRect(0, 0, width, height)
 
-      // Define a operação para "apagar" o que for desenhado a partir de agora
+      // Set the operation to "erase" anything drawn from now on
       ctx.globalCompositeOperation = "destination-out"
     }, [width, height, coverColor, prefersReducedMotion])
 
-    // Função auxiliar para calcular qual % da imagem foi "apagada"
+    // Helper to calculate what % of the image has been "erased"
     const calculateScratchedPercentage = React.useCallback(() => {
       const canvas = canvasRef.current
       if (!canvas) return 0
@@ -86,7 +86,7 @@ export const ScratchToReveal = React.forwardRef<
       let transparentPixels = 0
       const totalPixels = width * height
 
-      // O array tem 4 valores (rgba) para cada pixel. Olhamos o alpha (index + 3)
+      // The array has 4 values (rgba) per pixel. We look at the alpha channel (index + 3)
       for (let i = 0; i < pixels.length; i += 4) {
         if (pixels[i + 3] === 0) {
           transparentPixels++
@@ -147,22 +147,22 @@ export const ScratchToReveal = React.forwardRef<
 
       const endScratch = () => {
         setIsScratching(false)
-        checkReveal() // Checa se já raspou o suficiente
+        checkReveal() // Check if enough has been scratched
       }
 
       const handleMove = (e: Event) => {
         if (isScratching) {
-          e.preventDefault() // Impede o scroll de página ao raspar no mobile
+          e.preventDefault() // Prevent page scroll while scratching on mobile
           scratch(e as MouseEvent | TouchEvent)
         }
       }
 
-      // Suporte para mouse
+      // Mouse support
       canvas.addEventListener("mousedown", startScratch)
       canvas.addEventListener("mousemove", handleMove, { passive: false })
       window.addEventListener("mouseup", endScratch)
 
-      // Suporte para touch
+      // Touch support
       canvas.addEventListener("touchstart", startScratch, { passive: false })
       canvas.addEventListener("touchmove", handleMove, { passive: false })
       window.addEventListener("touchend", endScratch)
@@ -184,12 +184,12 @@ export const ScratchToReveal = React.forwardRef<
         style={{ width, height }}
         {...props}
       >
-        {/* Camada do fundo (Secreta) */}
+        {/* Background layer (Secret) */}
         <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
           {children}
         </div>
 
-        {/* Camada Canvas (Raspadinha) */}
+        {/* Canvas layer (Scratch) */}
         {!prefersReducedMotion && (
           <canvas
             ref={canvasRef}
@@ -202,13 +202,13 @@ export const ScratchToReveal = React.forwardRef<
           />
         )}
 
-        {/* Botão de fallback para teclado e leitores de tela */}
+        {/* Fallback button for keyboard and screen readers */}
         {!isRevealed && (
           <button
             onClick={handleReveal}
             className="sr-only focus:not-sr-only focus:absolute focus:inset-0 focus:z-20 focus:flex focus:items-center focus:justify-center focus:bg-background/90 focus:text-sm focus:font-medium"
           >
-            Revelar conteúdo secreto
+            Reveal secret content
           </button>
         )}
       </div>

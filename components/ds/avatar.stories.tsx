@@ -58,7 +58,7 @@ export const Default: Story = {
     alt: "John Doe",
     size: "md",
     loading: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 

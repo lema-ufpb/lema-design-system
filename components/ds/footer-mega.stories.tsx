@@ -4,30 +4,30 @@ import type { FooterGroupData } from "./footer-menu"
 
 const sampleColumns: FooterGroupData[] = [
   {
-    title: "Plataforma",
+    title: "Platform",
     options: [
-      { name: "Componentes", url: "#" },
+      { name: "Components", url: "#" },
       { name: "Design Tokens", url: "#" },
       { name: "Storybook", url: "#" },
-      { name: "Acessibilidade", url: "#" },
+      { name: "Accessibility", url: "#" },
     ],
   },
   {
-    title: "Recursos",
+    title: "Resources",
     options: [
-      { name: "Documentação", url: "#" },
+      { name: "Documentation", url: "#" },
       { name: "Changelog", url: "#" },
-      { name: "Guia de Estilo", url: "#" },
-      { name: "Comunidade", url: "#" },
+      { name: "Style Guide", url: "#" },
+      { name: "Community", url: "#" },
     ],
   },
   {
-    title: "Institucional",
+    title: "Institutional",
     options: [
-      { name: "Sobre o LEMA", url: "#" },
-      { name: "Projetos de Pesquisa", url: "#" },
-      { name: "Portal UFPB", url: "#" },
-      { name: "Contato", url: "#" },
+      { name: "About LEMA", url: "#" },
+      { name: "Research Projects", url: "#" },
+      { name: "UFPB Portal", url: "#" },
+      { name: "Contact", url: "#" },
     ],
   },
 ]

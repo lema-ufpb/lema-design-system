@@ -45,11 +45,11 @@ interface Dot {
 // ── Component ──
 
 /**
- * Grid de pontos que pulsa de tamanho e opacidade perto do cursor. Fica
- * ocioso (sem RAF) enquanto o ponteiro não está sobre o container, então
- * o custo de CPU fora da interação é praticamente zero. Sob
- * `prefers-reduced-motion`, desenha apenas o grid estático e não escuta
- * eventos de ponteiro.
+ * Grid of dots that pulses in size and opacity near the cursor. Stays
+ * idle (no RAF) while the pointer is not over the container, so CPU
+ * cost outside interaction is practically zero. Under
+ * `prefers-reduced-motion`, it only draws the static grid and does not listen
+ * to pointer events.
  */
 export const GridPulse = React.forwardRef<HTMLDivElement, GridPulseProps>(
   ({ className, tone = "primary", radius = "md", ...props }, ref) => {

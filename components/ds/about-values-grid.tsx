@@ -44,12 +44,12 @@ export function AboutValuesGrid({
   badge,
   values,
   columns = 3,
-  locale = "pt-BR",
+  locale = "en-US",
   variant,
   className,
   ...props
 }: AboutValuesGridProps) {
-  const t = UI_I18N[locale]?.about ?? UI_I18N["pt-BR"].about
+  const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   const gridColsClass =
     columns === 2
@@ -64,7 +64,7 @@ export function AboutValuesGrid({
       {...props}
     >
       <div className="container mx-auto px-4 md:px-6">
-        {/* Cabeçalho da Seção */}
+        {/* Section Header */}
         <div className="mx-auto mb-12 flex max-w-2xl flex-col items-center text-center md:mb-16">
           <Badge variant="outline" className="mb-4 text-xs font-semibold">
             {badge ?? t.values}
@@ -81,7 +81,7 @@ export function AboutValuesGrid({
           )}
         </div>
 
-        {/* Grid de Cartões de Valor */}
+        {/* Value Cards Grid */}
         <div className={cn("grid gap-6", gridColsClass)}>
           {values.map((item, index) => (
             <ValuesCard

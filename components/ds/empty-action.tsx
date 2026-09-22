@@ -80,7 +80,7 @@ export const EmptyAction = React.forwardRef<HTMLDivElement, EmptyActionProps>(
       secondaryAction,
       suggestions,
       size = "md",
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

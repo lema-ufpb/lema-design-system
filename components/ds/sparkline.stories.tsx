@@ -124,7 +124,7 @@ export const InTableCell: Story = {
               Indicador
             </th>
             <th className="p-2.5 text-right font-medium text-muted-foreground">
-              Último
+              Last
             </th>
             <th className="p-2.5 text-center font-medium text-muted-foreground">
               Tendência (30d)

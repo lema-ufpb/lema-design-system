@@ -133,7 +133,7 @@ export const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
       size = "md",
       variant = "default",
       loading = false,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

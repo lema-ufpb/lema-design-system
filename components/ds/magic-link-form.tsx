@@ -54,7 +54,7 @@ export const MagicLinkForm = React.forwardRef<
       onSendLink,
       onBack,
       resendCooldown = 45,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
@@ -64,7 +64,7 @@ export const MagicLinkForm = React.forwardRef<
     const [loading, setLoading] = React.useState(false)
     const [countdown, setCountdown] = React.useState(resendCooldown)
 
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
 
     React.useEffect(() => {
       if (!sent || countdown <= 0) return

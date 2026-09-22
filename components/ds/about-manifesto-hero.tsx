@@ -60,12 +60,12 @@ export function AboutManifestoHero({
   stats = [],
   primaryAction,
   secondaryAction,
-  locale = "pt-BR",
+  locale = "en-US",
   variant,
   className,
   ...props
 }: AboutManifestoHeroProps) {
-  const t = UI_I18N[locale]?.about ?? UI_I18N["pt-BR"].about
+  const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   return (
     <section
@@ -73,7 +73,7 @@ export function AboutManifestoHero({
       {...props}
     >
       <div className="relative container mx-auto flex max-w-4xl flex-col items-center px-4 text-center md:px-6">
-        {/* Declaração de Manifesto */}
+        {/* Manifesto Statement */}
         <ManifestoStatement
           statement={statement}
           eyebrow={eyebrow ?? t.manifesto}
@@ -83,7 +83,7 @@ export function AboutManifestoHero({
           className="max-w-3xl"
         />
 
-        {/* Indicadores / Estatísticas */}
+        {/* Indicators / Statistics */}
         {stats.length > 0 && (
           <div className="mt-16 grid w-full grid-cols-2 gap-8 border-t border-border/60 pt-10 md:grid-cols-4">
             {stats.map((stat, index) => (
@@ -99,7 +99,7 @@ export function AboutManifestoHero({
           </div>
         )}
 
-        {/* Botões de Ação */}
+        {/* Action Buttons */}
         {(primaryAction || secondaryAction) && (
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             {primaryAction && (

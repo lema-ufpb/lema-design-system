@@ -30,10 +30,10 @@ const meta: Meta<typeof ManifestoStatement> = {
     layout: "centered",
   },
   args: {
-    eyebrow: "Nosso Manifesto",
+    eyebrow: "Our Manifesto",
     statement:
-      "Acreditamos que o design rigoroso e a ciência aberta são os maiores catalisadores de transformação humana.",
-    author: "Laboratório de Estatística e Modelagem Aplicada (LEMA)",
+      "We believe that rigorous design and open science are the greatest catalysts for human transformation.",
+    author: "Laboratory of Statistics and Applied Modeling (LEMA)",
     size: "default",
     align: "left",
   },
@@ -45,9 +45,9 @@ type Story = StoryObj<typeof ManifestoStatement>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText("Nosso Manifesto")).toBeInTheDocument()
+    await expect(canvas.getByText("Our Manifesto")).toBeInTheDocument()
     await expect(
-      canvas.getByText(/Acreditamos que o design rigoroso/i)
+      canvas.getByText(/We believe that rigorous design/i)
     ).toBeInTheDocument()
   },
 }
@@ -58,9 +58,9 @@ export const Centered: Story = {
     size: "lg",
     statement: (
       <>
-        A tecnologia deve servir à{" "}
-        <span className="text-primary">clareza cognitiva</span> e ao bem
-        público, sem ruídos desnecessários.
+        Technology should serve{" "}
+        <span className="text-primary">cognitive clarity</span> and the public
+        good, without unnecessary noise.
       </>
     ),
   },
@@ -70,7 +70,7 @@ export const Large: Story = {
   args: {
     align: "center",
     size: "xl",
-    statement: "Construindo o futuro com rigor acadêmico e impacto real.",
-    author: "Diretoria Colegiada",
+    statement: "Building the future with academic rigor and real impact.",
+    author: "Executive Board",
   },
 }

@@ -108,7 +108,7 @@ export const TagInput = React.forwardRef<HTMLDivElement, TagInputProps>(
       loading = false,
       disabled = false,
       invalid = false,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

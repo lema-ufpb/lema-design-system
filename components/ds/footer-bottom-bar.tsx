@@ -50,7 +50,7 @@ export const FooterBottomBar = React.forwardRef<
       brandName = "LEMA",
       year = new Date().getFullYear(),
       legalLinks,
-      locale = "pt-BR",
+      locale = "en-US",
       spacing = "normal",
       children,
       className,

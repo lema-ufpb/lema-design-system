@@ -36,7 +36,7 @@ export const GuidedTour = React.forwardRef<HTMLDivElement, GuidedTourProps>(
       onPrev,
       onSkip,
       onFinish,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref

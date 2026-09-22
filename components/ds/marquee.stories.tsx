@@ -100,17 +100,17 @@ export const TestimonialCards: Story = {
           {
             name: "Ana Silva",
             role: "Frontend Lead",
-            text: "O LEMA Design System acelerou nossa entrega em 4x.",
+            text: "LEMA Design System accelerated our delivery by 4x.",
           },
           {
             name: "Carlos Melo",
             role: "Tech Lead",
-            text: "Acessibilidade e tipografia de alto padrão prontas para uso.",
+            text: "High-standard accessibility and typography ready to use.",
           },
           {
             name: "Mariana Costa",
             role: "Product Manager",
-            text: "A consistência visual entre squads melhorou drasticamente.",
+            text: "Visual consistency across squads improved dramatically.",
           },
         ].map((item) => (
           <Card

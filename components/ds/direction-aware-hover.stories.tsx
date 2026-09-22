@@ -17,14 +17,14 @@ export const Default: Story = {
   args: {
     imageSrc:
       "https://images.unsplash.com/photo-1550537687-c91072c4792d?q=80&w=600&auto=format&fit=crop",
-    imageAlt: "Foto de exemplo",
+    imageAlt: "Example photo",
     className: "w-80 h-96",
     children: (
       <div className="flex h-full flex-col justify-end p-6">
-        <p className="text-xl font-bold">Arquitetura Moderna</p>
+        <p className="text-xl font-bold">Modern Architecture</p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Descubra os detalhes incríveis desta nova construção no centro da
-          cidade.
+          Discover the incredible details of this new building in the city center
+          city.
         </p>
       </div>
     ),
@@ -38,9 +38,9 @@ export const FocusWithin: Story = {
     className: "max-w-[400px] w-full h-[300px]",
     children: (
       <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
-        <h3 className="text-2xl font-bold">Imóveis Premium</h3>
+        <h3 className="text-2xl font-bold">Premium Properties</h3>
         <button className="rounded-md bg-primary px-4 py-2 text-primary-foreground focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none">
-          Focar Aqui (Tab)
+          Focus Here (Tab)
         </button>
       </div>
     ),
@@ -49,7 +49,7 @@ export const FocusWithin: Story = {
     docs: {
       description: {
         story:
-          "Simula o estado de foco. Use a tecla TAB para focar no botão interno e o overlay permanecerá visível devido ao `focus-within`.",
+          "Simulates focus state. Use the TAB key to focus the inner button and the overlay will remain visible due to `focus-within`.",
       },
     },
   },

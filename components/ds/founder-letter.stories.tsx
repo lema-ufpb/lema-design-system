@@ -33,14 +33,14 @@ const meta: Meta<typeof FounderLetter> = {
     layout: "centered",
   },
   args: {
-    title: "Uma carta à nossa comunidade acadêmica e técnica",
+    title: "A letter to our academic and technical community",
     paragraphs: [
-      "Quando fundamos o laboratório, tínhamos uma certeza primordial: a de que interfaces públicas e sistemas computacionais devem ser projetados com a mesma elegância matemática e precisão técnica dispensadas à pesquisa científica fundamental.",
-      "Hoje, nosso design system é a síntese viva desse propósito. Ele reflete dezenas de iterações, diálogos contínuos com pesquisadores, estudantes e a sociedade, estabelecendo um ecossistema digital inclusivo, acessível e esteticamente refinado.",
-      "Seguimos dedicados a expandir essas fronteiras com integridade e paixão contínua pela excelência.",
+      "When we founded the laboratory, we had a primordial certainty: that public interfaces and computational systems must be designed with the same mathematical elegance and technical precision devoted to fundamental scientific research.",
+      "Today, our design system is the living synthesis of that purpose. It reflects dozens of iterations, continuous dialogues with researchers, students, and society, establishing an inclusive, accessible, and aesthetically refined digital ecosystem.",
+      "We remain dedicated to expanding these frontiers with integrity and continuous passion for excellence.",
     ],
     authorName: "Prof. Dr. Hilton Filho",
-    authorRole: "Coordenador Geral e Pesquisador Chefe",
+    authorRole: "General Coordinator and Lead Researcher",
     authorAvatar:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80",
     authorSignature:
@@ -58,7 +58,7 @@ export const Default: Story = {
     const canvas = within(canvasElement)
     await expect(canvas.getByText("Prof. Dr. Hilton Filho")).toBeInTheDocument()
     await expect(
-      canvas.getByText(/Uma carta à nossa comunidade/i)
+      canvas.getByText(/A letter to our academic/i)
     ).toBeInTheDocument()
   },
 }

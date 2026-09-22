@@ -61,7 +61,7 @@ export const FooterBrandBackdrop = React.forwardRef<
       wordmarkText = "LEMA",
       wordmarkVariant = "outline",
       brand,
-      description = "Laboratório de Engenharia e Mídias Avançadas. Inovação aberta e design de precisão para a UFPB.",
+      description = "Advanced Engineering and Media Laboratory. Open innovation and precision design for UFPB.",
       columns,
       socialLinks = [
         { platform: "github", href: "https://github.com" },
@@ -74,7 +74,7 @@ export const FooterBrandBackdrop = React.forwardRef<
       statusHref = "https://status.ufpb.br",
       brandName = "LEMA - UFPB",
       legalLinks,
-      locale = "pt-BR",
+      locale = "en-US",
       spacing = "normal",
       className,
       ...props

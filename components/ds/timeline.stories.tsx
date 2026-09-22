@@ -57,9 +57,9 @@ export const Default: Story = {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-          <h4 className="font-medium">Pedido recebido</h4>
+          <h4 className="font-medium">Order received</h4>
           <p className="text-sm text-muted-foreground">
-            O pedido foi recebido no sistema.
+            The order was received in the system.
           </p>
           <span className="text-xs text-muted-foreground">10:00 AM</span>
         </TimelineContent>
@@ -70,9 +70,9 @@ export const Default: Story = {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-          <h4 className="font-medium">Em processamento</h4>
+          <h4 className="font-medium">Processing</h4>
           <p className="text-sm text-muted-foreground">
-            O pedido está sendo separado no estoque.
+            The order is being picked in the warehouse.
           </p>
           <span className="text-xs text-muted-foreground">11:30 AM</span>
         </TimelineContent>
@@ -82,9 +82,9 @@ export const Default: Story = {
           <TimelineDot />
         </TimelineSeparator>
         <TimelineContent>
-          <h4 className="font-medium">Enviado</h4>
+          <h4 className="font-medium">Shipped</h4>
           <p className="text-sm text-muted-foreground">
-            O pedido está a caminho.
+            The order is on its way.
           </p>
           <span className="text-xs text-muted-foreground">02:15 PM</span>
         </TimelineContent>
@@ -150,9 +150,9 @@ export const WithIcons: Story = {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-          <h4 className="mt-0.5 font-medium">Sucesso</h4>
+          <h4 className="mt-0.5 font-medium">Success</h4>
           <p className="text-sm text-muted-foreground">
-            Aprovado pelo sistema.
+            Approved by the system.
           </p>
         </TimelineContent>
       </TimelineItem>
@@ -167,9 +167,9 @@ export const WithIcons: Story = {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-          <h4 className="mt-0.5 font-medium">Aviso</h4>
+          <h4 className="mt-0.5 font-medium">Warning</h4>
           <p className="text-sm text-muted-foreground">
-            Requer atenção manual.
+            Requires manual attention.
           </p>
         </TimelineContent>
       </TimelineItem>
@@ -180,8 +180,8 @@ export const WithIcons: Story = {
           </TimelineDot>
         </TimelineSeparator>
         <TimelineContent>
-          <h4 className="mt-0.5 font-medium">Informação</h4>
-          <p className="text-sm text-muted-foreground">Apenas para registro.</p>
+          <h4 className="mt-0.5 font-medium">Information</h4>
+          <p className="text-sm text-muted-foreground">For record only.</p>
         </TimelineContent>
       </TimelineItem>
     </Timeline>

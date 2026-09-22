@@ -94,7 +94,7 @@ export function ConfirmDialog({
   confirmLabel,
   cancelLabel,
   trigger,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
 }: ConfirmDialogProps) {
   const [internalOpen, setInternalOpen] = React.useState(false)

@@ -49,14 +49,14 @@ export function SidebarSearch({
   placeholder,
   defaultValue = "",
   onSearch,
-  locale = "pt-BR",
+  locale = "en-US",
   loading = false,
   className,
   size = "md",
   onSubmit,
   ...props
 }: SidebarSearchProps) {
-  const t = UI_I18N[locale]?.sidebarSearch ?? UI_I18N["pt-BR"].sidebarSearch
+  const t = UI_I18N[locale]?.sidebarSearch ?? UI_I18N["en-US"].sidebarSearch
   const id = React.useId()
   const inputId = `sidebar-search-input-${id}`
   const [value, setValue] = React.useState(defaultValue)

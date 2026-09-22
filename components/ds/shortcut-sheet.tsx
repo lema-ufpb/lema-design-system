@@ -70,7 +70,7 @@ export function ShortcutSheet({
   groups,
   enableGlobalListener = true,
   trigger,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
 }: ShortcutSheetProps) {
   const [internalOpen, setInternalOpen] = React.useState(false)

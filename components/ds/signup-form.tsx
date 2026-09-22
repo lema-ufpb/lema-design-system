@@ -78,7 +78,7 @@ export const SignUpForm = React.forwardRef<HTMLDivElement, SignUpFormProps>(
       privacyUrl = "#",
       loading: controlledLoading = false,
       errorMessage,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
@@ -92,7 +92,7 @@ export const SignUpForm = React.forwardRef<HTMLDivElement, SignUpFormProps>(
     const [loadingProvider, setLoadingProvider] =
       React.useState<SocialProvider | null>(null)
 
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
     const isLoading = controlledLoading || internalLoading
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -131,9 +131,9 @@ export const SignUpForm = React.forwardRef<HTMLDivElement, SignUpFormProps>(
             {t.signUp}
           </h2>
           <p className="text-xs text-muted-foreground">
-            Crie sua conta para acessar todo o ecossistema e serviços
-            integrados.
-          </p>
+             Create your account to access the entire ecosystem and integrated
+             services.
+           </p>
         </div>
 
         {/* Error Alert */}
@@ -230,7 +230,7 @@ export const SignUpForm = React.forwardRef<HTMLDivElement, SignUpFormProps>(
               />
               <button
                 type="button"
-                aria-label={showPassword ? "Ocultar senha" : "Ver senha"}
+                aria-label={showPassword ? "Hide password" : "Show password"}
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground focus-visible:outline-none"
               >

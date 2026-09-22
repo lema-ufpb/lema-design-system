@@ -41,12 +41,12 @@ export function MissionVisionCards({
   missionText,
   visionTitle,
   visionText,
-  locale = "pt-BR",
+  locale = "en-US",
   variant,
   className,
   ...props
 }: MissionVisionCardsProps) {
-  const t = UI_I18N[locale]?.about ?? UI_I18N["pt-BR"].about
+  const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   const mTitle = missionTitle ?? t.mission
   const mText = missionText ?? t.missionDescription
@@ -58,7 +58,7 @@ export function MissionVisionCards({
       className={cn(missionVisionCardsVariants({ variant }), className)}
       {...props}
     >
-      {/* Card Missão */}
+      {/* Mission Card */}
       <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-xs transition-all duration-200 hover:border-primary/40">
         <div className="flex flex-col gap-4">
           <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -75,7 +75,7 @@ export function MissionVisionCards({
         </div>
       </div>
 
-      {/* Card Visão */}
+      {/* Vision Card */}
       <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-xs transition-all duration-200 hover:border-primary/40">
         <div className="flex flex-col gap-4">
           <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">

@@ -75,7 +75,7 @@ export const WithoutInset: Story = {
       <TracingBeamItem>
         <h3 className="text-sm font-semibold">Item 1</h3>
         <p className="text-sm text-muted-foreground">
-          Conteúdo com inset false — sem padding lateral.
+          Content with inset false — no lateral padding.
         </p>
       </TracingBeamItem>
       <TracingBeamItem>

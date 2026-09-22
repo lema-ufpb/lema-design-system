@@ -62,7 +62,7 @@ export function EventCalendar({
     >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-foreground">
-          {month.toLocaleDateString("pt-BR", {
+          {month.toLocaleDateString("en-US", {
             month: "long",
             year: "numeric",
           })}
@@ -70,7 +70,7 @@ export function EventCalendar({
       </div>
       <div
         role="grid"
-        aria-label={month.toLocaleDateString("pt-BR", {
+        aria-label={month.toLocaleDateString("en-US", {
           month: "long",
           year: "numeric",
         })}
@@ -80,7 +80,7 @@ export function EventCalendar({
           role="row"
           className="grid grid-cols-7 gap-1 text-center text-xs text-muted-foreground"
         >
-          {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map((d) => (
+          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
             <span key={d} role="columnheader" className="py-1">
               {d}
             </span>
@@ -108,7 +108,7 @@ export function EventCalendar({
                 type="button"
                 role="gridcell"
                 aria-selected={hasEvents}
-                aria-label={`${day} ${month.toLocaleDateString("pt-BR", { month: "short" })}${hasEvents ? `, ${dayEvents.length} eventos` : ""}`}
+                aria-label={`${day} ${month.toLocaleDateString("en-US", { month: "short" })}${hasEvents ? `, ${dayEvents.length} events` : ""}`}
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {

@@ -60,13 +60,13 @@ export const dashboardVariants = cva("flex w-full flex-1 flex-col", {
 function SiteHeader({
   title,
   actions,
-  locale = "pt-BR",
+  locale = "en-US",
 }: {
   title?: string
   actions?: React.ReactNode
   locale?: UILocale
 }) {
-  const t = UI_I18N[locale]?.dashboard ?? UI_I18N["pt-BR"].dashboard
+  const t = UI_I18N[locale]?.dashboard ?? UI_I18N["en-US"].dashboard
   return (
     <header className="flex h-12 shrink-0 items-center gap-2 border-b px-4 transition-[width,height] ease-linear">
       <div className="flex w-full items-center gap-2">
@@ -88,7 +88,7 @@ export function Dashboard({
   stats,
   chart,
   table,
-  locale = "pt-BR",
+  locale = "en-US",
   loading = false,
   variant = "default",
   className,
