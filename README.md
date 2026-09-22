@@ -14,17 +14,17 @@ This design system provides a set of high-quality React TypeScript components wi
 
 ## 💻 Tech Stack 🛠️
 
-| Technology               | Purpose                    |
-| ------------------------ | ---------------------------- |
-| React 19                 | UI Library                   |
-| Next.js 16               | Framework                    |
-| TypeScript               | Typing                      |
+| Technology               | Purpose                  |
+| ------------------------ | ------------------------ |
+| React 19                 | UI Library               |
+| Next.js 16               | Framework                |
+| TypeScript               | Typing                   |
 | Tailwind CSS v4          | Styling                  |
 | Radix UI                 | Accessibility primitives |
-| shadcn/ui                | Base components             |
-| class-variance-authority | Component variants     |
+| shadcn/ui                | Base components          |
+| class-variance-authority | Component variants       |
 | Storybook                | Component documentation  |
-| Vitest                   | Testing                       |
+| Vitest                   | Testing                  |
 
 ## 🚀 Installation 🚀
 
@@ -59,15 +59,15 @@ LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
 
 ### ⌨️ Main commands
 
-| Command                   | Description                      |
-| :------------------------ | :----------------------------- |
+| Command                   | Description                   |
+| :------------------------ | :---------------------------- |
 | `npx ds add dashbox`      | Install component(s)          |
-| `npx ds update dashbox`   | Update component(s)         |
-| `npx ds list`             | List available components  |
-| `npx ds verify`           | Check drift vs lockfile     |
-| `npx ds diff dashbox`     | Local vs remote diff           |
-| `npx ds sync --all --yes` | Full sync (CI)    |
-| `npx ds sync-tokens`      | Force CSS tokens refetch   |
+| `npx ds update dashbox`   | Update component(s)           |
+| `npx ds list`             | List available components     |
+| `npx ds verify`           | Check drift vs lockfile       |
+| `npx ds diff dashbox`     | Local vs remote diff          |
+| `npx ds sync --all --yes` | Full sync (CI)                |
+| `npx ds sync-tokens`      | Force CSS tokens refetch      |
 | `npx ds whoami`           | Validate authentication token |
 
 The `ds.lock` lockfile is generated automatically and **should be versioned** — it is the source of truth for reproducibility and drift detection.
@@ -151,12 +151,12 @@ All components with visible text support internationalization via the `locale` p
 
 ### 🌍 Supported locales
 
-| Code | Language             |
-| :----- | :----------------- |
-| en-US  | English (default)  |
-| pt-BR  | Portuguese (Brazil) |
-| es-ES  | Español            |
-| fr-FR  | Français           |
+| Code  | Language            |
+| :---- | :------------------ |
+| en-US | English (default)   |
+| pt-BR | Portuguese (Brazil) |
+| es-ES | Español             |
+| fr-FR | Français            |
 
 > The `lib/ui-i18n.ts` file (i18n dictionary) is automatically installed as a registry dependency for all locale-supporting components. No need to install it manually.
 
@@ -251,34 +251,34 @@ The template covers: usage purpose, complete API with types, CVA variants per sl
 
 Base components installed via shadcn CLI, without modifications:
 
-| Component          | Description                                                                                          |
+| Component           | Description                                                                                        |
 | :------------------ | :------------------------------------------------------------------------------------------------- |
-| **Accordion**       | Set of stacked and collapsible panels.                                                      |
-| **Attachment**      | File attachment with media preview, title, description, actions and trigger overlay.              |
-| **Avatar**          | Visual element to represent users with initials fallback.                                |
-| **Badge**           | Small label indicating status or category.                                                   |
-| **Bubble**          | Chat bubble with sent/received variants and tail support.                                        |
-| **Button**          | Interactive button with variants (default, destructive, outline, etc).                               |
-| **Card**            | Versatile container with header, title, action, description and footer.                                   |
-| **Combobox**        | Autocomplete with search, keyboard navigation and group support, built on @base-ui/react. |
+| **Accordion**       | Set of stacked and collapsible panels.                                                             |
+| **Attachment**      | File attachment with media preview, title, description, actions and trigger overlay.               |
+| **Avatar**          | Visual element to represent users with initials fallback.                                          |
+| **Badge**           | Small label indicating status or category.                                                         |
+| **Bubble**          | Chat bubble with sent/received variants and tail support.                                          |
+| **Button**          | Interactive button with variants (default, destructive, outline, etc).                             |
+| **Card**            | Versatile container with header, title, action, description and footer.                            |
+| **Combobox**        | Autocomplete with search, keyboard navigation and group support, built on @base-ui/react.          |
 | **Command**         | Fast and accessible command menu with integrated search.                                           |
-| **Dialog**          | Overlay modal for critical interactions.                                                         |
-| **Dropdown Menu**   | Floating menu triggered by a button.                                                              |
-| **Drawer**          | Sliding panel with 4-direction support and drag gestures.                                   |
-| **Input**           | Standard text input field.                                                                  |
-| **Input Group**     | Grouped inputs with icons or buttons.                                                 |
-| **Marker**          | Status/pin indicator for chat and list items.                                                |
-| **Message**         | Chat message with avatar, content, header and footer slots.                                   |
-| **MessageScroller** | Container with auto-scroll for message lists and navigation buttons.                          |
-| **Popover**         | Floating content anchored to an element.                                                         |
-| **Progress**        | Simple linear progress bar.                                                                 |
-| **Questionnaire**   | Multi-step questionnaire with single choice, multiple choice, free text and skip option questions.  |
-| **Scroll Area**     | Custom and accessible scroll area.                                                           |
-| **Skeleton**        | Loading placeholder for empty states.                                                   |
-| **Spinner**         | Animated loading indicator.                                                                 |
-| **Table**           | Responsive table component with horizontal scroll support.                                  |
-| **Textarea**        | Multiline text input field.                                                              |
-| **Tooltip**         | Brief description shown on hover.                                                         |
+| **Dialog**          | Overlay modal for critical interactions.                                                           |
+| **Dropdown Menu**   | Floating menu triggered by a button.                                                               |
+| **Drawer**          | Sliding panel with 4-direction support and drag gestures.                                          |
+| **Input**           | Standard text input field.                                                                         |
+| **Input Group**     | Grouped inputs with icons or buttons.                                                              |
+| **Marker**          | Status/pin indicator for chat and list items.                                                      |
+| **Message**         | Chat message with avatar, content, header and footer slots.                                        |
+| **MessageScroller** | Container with auto-scroll for message lists and navigation buttons.                               |
+| **Popover**         | Floating content anchored to an element.                                                           |
+| **Progress**        | Simple linear progress bar.                                                                        |
+| **Questionnaire**   | Multi-step questionnaire with single choice, multiple choice, free text and skip option questions. |
+| **Scroll Area**     | Custom and accessible scroll area.                                                                 |
+| **Skeleton**        | Loading placeholder for empty states.                                                              |
+| **Spinner**         | Animated loading indicator.                                                                        |
+| **Table**           | Responsive table component with horizontal scroll support.                                         |
+| **Textarea**        | Multiline text input field.                                                                        |
+| **Tooltip**         | Brief description shown on hover.                                                                  |
 
 To add new shadcn components to the project:
 
@@ -292,11 +292,11 @@ All components below live in `components/ds/`.
 
 #### ⚡ Actions
 
-| Component      | Description                                                                                                                                                                                                           |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Component       | Description                                                                                                                                                                                                        |
+| :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Button**      | Feature-rich button wrapping shadcn `Button`. Adds loading state, start/end icons, `rounded` variant (`full`/`lg`/`md`/`none`), `fullWidth`, double-click debounce, two-step confirmation, and integrated tooltip. |
-| **IconButton**  | Icon-only button with optional tooltip, loading state and size and rounding variants.                                                                                                                  |
-| **ToggleTheme** | Dropdown button to switch between light, dark and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app configuration.                                                          |
+| **IconButton**  | Icon-only button with optional tooltip, loading state and size and rounding variants.                                                                                                                              |
+| **ToggleTheme** | Dropdown button to switch between light, dark and system themes. Re-exports `ThemeProvider` and `useTheme` from `@/providers/theme` for app configuration.                                                         |
 
 ```tsx
 import { Button } from "@/components/ds/button"
@@ -313,11 +313,11 @@ import { ToggleTheme } from "@/components/ds/toggle-theme"
 
 #### 📐 Layout
 
-| Component  | Description                                                                                                                                                                   |
-| :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Dashbox** | Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton and status badge.                                                                    |
-| **Dashrow** | Responsive container for multiple panels with draggable divider and adjustable proportions.                                                                                 |
-| **Drawer**  | Full drawer with header, scrollable body, footer, snap points, scale background, event handlers and direction-adaptive close button.                                   |
+| Component   | Description                                                                                                                                                     |
+| :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dashbox** | Structured dashboard card with collapse/expand, fullscreen, refresh, loading skeleton and status badge.                                                         |
+| **Dashrow** | Responsive container for multiple panels with draggable divider and adjustable proportions.                                                                     |
+| **Drawer**  | Full drawer with header, scrollable body, footer, snap points, scale background, event handlers and direction-adaptive close button.                            |
 | **Modal**   | Flexible modal dialog built on Dialog with 6 sizes, 5 color intents, defaultOpen, scrollable body, async confirm with loading, event handlers and i18n support. |
 
 ```tsx
@@ -351,14 +351,14 @@ import { Modal } from "@/components/ds/modal"
 
 #### 💬 Feedback
 
-| Component           | Description                                                                                                                                                                           |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Empty** (ds)       | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading.               |
-| **PageLoader**       | Full-screen loading overlay with animated top bar (`bar`) or centered XL spinner (`spinner`). Controlled by `loading` with fade in/out, semantic colors and i18n. |
-| **Spinner**          | Animated loading indicator with `aria-label` localized via `locale` prop.                                                                                                    |
-| **ProgressBar**      | Horizontal indicator with animated fill, semantic intents, configurable label positions, fill/track color override via CSS tokens and getValueLabel.                |
-| **ProgressCircular** | Animated circular indicator with centered percentage value.                                                                                                                            |
-| **RiskLevelBar**     | Segmented bar for risk levels with movable marker and `--risk-1` to `--risk-4` tokens.                                                                                          |
+| Component            | Description                                                                                                                                                           |
+| :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Empty** (ds)       | Contextual empty states with built-in SVG icons for no-data, search, error, and no-results scenarios, i18n titles, action button, compact mode, and skeleton loading. |
+| **PageLoader**       | Full-screen loading overlay with animated top bar (`bar`) or centered XL spinner (`spinner`). Controlled by `loading` with fade in/out, semantic colors and i18n.     |
+| **Spinner**          | Animated loading indicator with `aria-label` localized via `locale` prop.                                                                                             |
+| **ProgressBar**      | Horizontal indicator with animated fill, semantic intents, configurable label positions, fill/track color override via CSS tokens and getValueLabel.                  |
+| **ProgressCircular** | Animated circular indicator with centered percentage value.                                                                                                           |
+| **RiskLevelBar**     | Segmented bar for risk levels with movable marker and `--risk-1` to `--risk-4` tokens.                                                                                |
 
 ```tsx
 import { PageLoader } from "@/components/ds/page-loader"
@@ -384,17 +384,17 @@ import { RiskLevelBar } from "@/components/ds/risk-level-bar"
 
 #### 📊 Data Display
 
-| Component      | Description                                                                                                                                                                                                                                                                                                             |
-| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Component       | Description                                                                                                                                                                                                                                                                                                      |
+| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **CardStats**   | Collection of 9 KPI cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, CardStatHeatbar. Each variant is installable individually via `card-stat`, `card-stat-compact`, etc., or all at once via the barrel `card-stats`. |
-| **MiniCard**    | Compact stat label+value unit for horizontal strips. Composes with MiniCardGroup (pill/outlined/elevated/ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators and numeric formatting. Size propagates via context.                                                          |
-| **DataTable**   | High-performance virtualized table with toolbar, sorting, search, pagination, `locale` prop for automatic i18n label resolution, sticky columns, resizing and row selection.                                                                                                                      |
-| **ScoreRow**    | Score row component with configurable icon, score/total, progress bar with localized percent tooltip, auto-derived status (success/warning/destructive), sm/md/lg sizes, ScoreRowList support and loading skeleton.                                                                             |
-| **Avatar** (ds) | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.                                                                                               |
-| **Badge** (ds)  | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).                                                                                                                                                                       |
-| **CopyBlock**   | Text/code snippet with attached copy button, copied state tooltip, 3 sizes and i18n labels.                                                                                                                                                                                                              |
-| **Rating**      | Interactive star rating with keyboard navigation (radiogroup pattern), customizable icon, readonly/disabled states and 3 sizes.                                                                                                                                                                          |
-| **Timeline**    | Vertical timeline of events with connectors, status-colored dots (outline/solid) and custom icon slots.                                                                                                                                                                                              |
+| **MiniCard**    | Compact stat label+value unit for horizontal strips. Composes with MiniCardGroup (pill/outlined/elevated/ghost) and MiniCardStrip (auto-dividers). Supports icons, sub-values, intent colors, delta indicators and numeric formatting. Size propagates via context.                                              |
+| **DataTable**   | High-performance virtualized table with toolbar, sorting, search, pagination, `locale` prop for automatic i18n label resolution, sticky columns, resizing and row selection.                                                                                                                                     |
+| **ScoreRow**    | Score row component with configurable icon, score/total, progress bar with localized percent tooltip, auto-derived status (success/warning/destructive), sm/md/lg sizes, ScoreRowList support and loading skeleton.                                                                                              |
+| **Avatar** (ds) | Extended avatar with 5 size variants (sm through 2xl), status indicator dots, initials color generator, image loading status callback, delay fallback, avatar group with overflow count, tooltip, and skeleton loading.                                                                                          |
+| **Badge** (ds)  | Extended badge with dot indicator, removable close icon, icon support, counter/overflow display, and semantic color variants (success/warning).                                                                                                                                                                  |
+| **CopyBlock**   | Text/code snippet with attached copy button, copied state tooltip, 3 sizes and i18n labels.                                                                                                                                                                                                                      |
+| **Rating**      | Interactive star rating with keyboard navigation (radiogroup pattern), customizable icon, readonly/disabled states and 3 sizes.                                                                                                                                                                                  |
+| **Timeline**    | Vertical timeline of events with connectors, status-colored dots (outline/solid) and custom icon slots.                                                                                                                                                                                                          |
 
 ```tsx
 import { MiniCard, MiniCardGroup, MiniCardStrip } from "@/components/ds/mini-card"
@@ -457,19 +457,19 @@ import {
 
 Data visualization components built on Recharts and optimized for LEMA.
 
-| Component           | Description                                                                                                |
-| :------------------- | :------------------------------------------------------------------------------------------------------- |
-| **BarChart**         | Bar chart with tooltips, legends, stacking, rounded corners and brush zoom.                |
+| Component            | Description                                                                                         |
+| :------------------- | :-------------------------------------------------------------------------------------------------- |
+| **BarChart**         | Bar chart with tooltips, legends, stacking, rounded corners and brush zoom.                         |
 | **BoxplotChart**     | Statistical boxplot chart with custom SVG, notch support and outlier plotting.                      |
-| **CandlestickChart** | Financial (candlestick) chart with volume, moving averages, reference lines and brush.                |
+| **CandlestickChart** | Financial (candlestick) chart with volume, moving averages, reference lines and brush.              |
 | **GeomapChart**      | Interactive geographic map to render GeoJSON/TopoJSON with tooltips, zoom, choropleths and markers. |
-| **HeatmapChart**     | Heat matrix with CSS grid and color-mix for smooth color interpolation.                               |
-| **LineChart**        | Line chart with gradient areas, stacked areas, reference lines and brush.                  |
-| **PieChart**         | Pie/donut chart with interactive central label, legends and external labels.                         |
+| **HeatmapChart**     | Heat matrix with CSS grid and color-mix for smooth color interpolation.                             |
+| **LineChart**        | Line chart with gradient areas, stacked areas, reference lines and brush.                           |
+| **PieChart**         | Pie/donut chart with interactive central label, legends and external labels.                        |
 | **RadarChart**       | Radar/spider chart for multivariate data with polygonal or circular grid.                           |
-| **RadialChart**      | Radial bar chart with concentric rings and semicircular gauge mode.                              |
-| **ScatterChart**     | Scatter/bubble chart with trend lines, multi-series and brush.                                |
-| **TreemapChart**     | Treemap chart with hierarchical drill-down, breadcrumb and aspect ratio control.                       |
+| **RadialChart**      | Radial bar chart with concentric rings and semicircular gauge mode.                                 |
+| **ScatterChart**     | Scatter/bubble chart with trend lines, multi-series and brush.                                      |
+| **TreemapChart**     | Treemap chart with hierarchical drill-down, breadcrumb and aspect ratio control.                    |
 
 ```tsx
 import { BarChart } from "@/components/ds/bar-chart"
@@ -483,23 +483,23 @@ import { BarChart } from "@/components/ds/bar-chart"
 
 #### 📝 Forms
 
-| Component               | Description                                                                                                                                                                                                                               |
-| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Counter**              | Numeric input with +/− controls, controlled/uncontrolled value support and inputProps for native HTML attributes.                                                                                                                   |
-| **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.                                                                                |
-| **InputEmail**           | Email field with integrated icon and size and radius variants.                                                                                                                                                                      |
-| **InputPassword**        | Password field with visibility button and size and radius variants.                                                                                                                                                                 |
-| **SearchBar**            | Expandable search input for headers with toggle icon, keyboard shortcut hint and i18n placeholders.                                                                                                                                 |
+| Component                | Description                                                                                                                                                                                              |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Counter**              | Numeric input with +/− controls, controlled/uncontrolled value support and inputProps for native HTML attributes.                                                                                        |
+| **Input** (ds)           | Extended input with icon prefix/suffix, clearable button, character counter with maxLength, loading spinner, rounded/bordered variants, and error state.                                                 |
+| **InputEmail**           | Email field with integrated icon and size and radius variants.                                                                                                                                           |
+| **InputPassword**        | Password field with visibility button and size and radius variants.                                                                                                                                      |
+| **SearchBar**            | Expandable search input for headers with toggle icon, keyboard shortcut hint and i18n placeholders.                                                                                                      |
 | **SearchCombo**          | Search field with virtualized autocomplete dropdown, text highlighting (accent-insensitive), keyboard navigation, result grouping and optional voice recognition. Kept in `components/ds/search-combo/`. |
-| **Combobox** (primitivo) | Autocomplete with textual search, keyboard navigation, groups and @base-ui/react support.                                                                                                                                               |
-| **Combobox** (custom)    | Full combobox with virtual scroll, single/multiple selection with chips, custom rendering and configurable positioning.                                                                                                         |
-| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning, i18n placeholder/no-results, and skeleton loading.                                                   |
-| **SelectList**           | Searchable list with selection state, icons and virtual scroll for large datasets.                                                                                                                                                  |
-| **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.                                                                                            |
-| **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.                                                                                                       |
-| **DatePicker**           | Date picker combining a trigger button and a Calendar in Popover, with formatting via date-fns localized in 4 languages and 3 sizes.                                                                                                 |
-| **FileUpload**           | Upload area with drag-and-drop, max size validation, upload progress bar and i18n labels.                                                                                                                               |
-| **MultiSelect**          | Multi-value combobox with removable chips, overflow via `maxCount`, search filter and i18n labels.                                                                                                                                      |
+| **Combobox** (primitivo) | Autocomplete with textual search, keyboard navigation, groups and @base-ui/react support.                                                                                                                |
+| **Combobox** (custom)    | Full combobox with virtual scroll, single/multiple selection with chips, custom rendering and configurable positioning.                                                                                  |
+| **Select** (ds)          | Extended select with search filter, async option loading, grouped options, creatable new option, configurable popover positioning, i18n placeholder/no-results, and skeleton loading.                    |
+| **SelectList**           | Searchable list with selection state, icons and virtual scroll for large datasets.                                                                                                                       |
+| **Slider** (ds)          | Extended slider with value tooltip on hover, step marks/labels, range (dual handle) support, format-utils integration, and skeleton loading.                                                             |
+| **Switch** (ds)          | Extended switch with label positioning, semantic color variants (success/destructive/warning), skeleton loading, and error state.                                                                        |
+| **DatePicker**           | Date picker combining a trigger button and a Calendar in Popover, with formatting via date-fns localized in 4 languages and 3 sizes.                                                                     |
+| **FileUpload**           | Upload area with drag-and-drop, max size validation, upload progress bar and i18n labels.                                                                                                                |
+| **MultiSelect**          | Multi-value combobox with removable chips, overflow via `maxCount`, search filter and i18n labels.                                                                                                       |
 
 ```tsx
 import { Counter } from "@/components/ds/counter"
@@ -539,16 +539,16 @@ import { MultiSelect } from "@/components/ds/multi-select"
 
 #### 🧭 Navigation
 
-| Component         | Description                                                                                                                                                                                                                                   |
+| Component          | Description                                                                                                                                                                                                                                 |
 | :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Accordion** (ds) | Extended accordion with icon style variants (chevron/plus/arrow/sign), size variants, rounded/bordered CVA, discriminated single/multiple types with collapsible control, i18n aria-labels, skeleton loading, and nested accordion support. |
-| **Tabs**           | Declarative tabs component with 4 variants, 3 sizes, icons, badges, activation mode (automatic/manual), loading skeletons and responsive fallback to Accordion on mobile.                                                           |
-| **FooterMenu**     | Responsive footer — columns on desktop, accordion on mobile, uppercase support.                                                                                                                                                           |
-| **ScrollToTop**    | Floating button with scroll progress ring, directional visibility (appears when scrolling up) and i18n support.                                                                                                                 |
-| **NavDots**        | Section navigation via dots with automatic scroll tracking and tooltips.                                                                                                                                                           |
-| **NavUser**        | User profile menu for headers, built on DropdownMenu and Avatar.                                                                                                                                                             |
-| **Pagination**     | Semantic pagination with `locale` prop for labels "Previous"/"Next" in pt-BR e `rounded` variant (`full`/`light`/`none`).                                                                                                                |
-| **StepProgress**   | Visual guide for multi-step processes with numbered circle, optional icon, animated connector and horizontal/vertical orientations.                                                                                                            |
+| **Tabs**           | Declarative tabs component with 4 variants, 3 sizes, icons, badges, activation mode (automatic/manual), loading skeletons and responsive fallback to Accordion on mobile.                                                                   |
+| **FooterMenu**     | Responsive footer — columns on desktop, accordion on mobile, uppercase support.                                                                                                                                                             |
+| **ScrollToTop**    | Floating button with scroll progress ring, directional visibility (appears when scrolling up) and i18n support.                                                                                                                             |
+| **NavDots**        | Section navigation via dots with automatic scroll tracking and tooltips.                                                                                                                                                                    |
+| **NavUser**        | User profile menu for headers, built on DropdownMenu and Avatar.                                                                                                                                                                            |
+| **Pagination**     | Semantic pagination with `locale` prop for labels "Previous"/"Next" in pt-BR e `rounded` variant (`full`/`light`/`none`).                                                                                                                   |
+| **StepProgress**   | Visual guide for multi-step processes with numbered circle, optional icon, animated connector and horizontal/vertical orientations.                                                                                                         |
 
 ```tsx
 import { Accordion } from "@/components/ds/accordion"
@@ -640,7 +640,7 @@ O sistema usa CSS variables para theming:
 
 ### 📏 Border Radius
 
-| Token         | Calculation        |
+| Token         | Calculation    |
 | ------------- | -------------- |
 | `--radius-sm` | `radius * 0.6` |
 | `--radius-md` | `radius * 0.8` |
@@ -670,8 +670,8 @@ The project uses a **GitFlow** workflow with automated versioning via [release-p
 ### 🌿 Branches
 
 | Branch    | Purpose                                                           |
-| :-------- | :------------------------------------------------------------------ |
-| `develop` | Integration branch — every feature/fix PR goes here            |
+| :-------- | :---------------------------------------------------------------- |
+| `develop` | Integration branch — every feature/fix PR goes here               |
 | `main`    | Release branch — receives merge from `develop` when ready to ship |
 
 ### 🔄 Full flow
@@ -786,16 +786,16 @@ For less common scenarios (wrong version calculated, accidental release, urgent 
 
 For release-please to correctly calculate the next version and generate `CHANGELOG.md`, **all commits must follow [Conventional Commits](https://www.conventionalcommits.org)**:
 
-| Prefixo                                  | Bump (pre-1.0)                  | Aparece no CHANGELOG |
-| :--------------------------------------- | :------------------------------ | :------------------- |
-| `feat:`                                  | minor (`0.X.0`)                 | ✨ Features          |
-| `fix:`                                   | patch (`0.0.X`)                 | 🐛 Bug Fixes         |
-| `perf:`                                  | patch                           | ⚡ Performance       |
-| `refactor:`                              | patch                           | ♻️ Refactor          |
-| `docs:`                                  | patch                           | 📚 Documentation     |
-| `revert:`                                | patch                           | ⏪ Reverts           |
+| Prefixo                                  | Bump (pre-1.0)                       | Aparece no CHANGELOG |
+| :--------------------------------------- | :----------------------------------- | :------------------- |
+| `feat:`                                  | minor (`0.X.0`)                      | ✨ Features          |
+| `fix:`                                   | patch (`0.0.X`)                      | 🐛 Bug Fixes         |
+| `perf:`                                  | patch                                | ⚡ Performance       |
+| `refactor:`                              | patch                                | ♻️ Refactor          |
+| `docs:`                                  | patch                                | 📚 Documentation     |
+| `revert:`                                | patch                                | ⏪ Reverts           |
 | `feat!:` / `BREAKING CHANGE:`            | minor (pre-1.0 does not bump to 1.0) | 💥 Breaking          |
-| `chore:` `style:` `test:` `build:` `ci:` | — (no bump)                    | hidden               |
+| `chore:` `style:` `test:` `build:` `ci:` | — (no bump)                          | hidden               |
 
 **Examples:**
 
