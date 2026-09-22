@@ -14,7 +14,7 @@ const meta = {
     strengthValue: {
       control: { type: "range", min: 5, max: 100, step: 1 },
       description:
-        "Força magnética de atração (quanto maior, mais ele acompanha o cursor)",
+        "Magnetic attraction strength (the higher, the more it follows the cursor)",
     },
     asChild: {
       control: "boolean",
@@ -46,9 +46,9 @@ export const Strong: Story = {
             ✨
           </div>
           <div className="space-y-1">
-            <h3 className="text-lg font-semibold">Efeito Magnético</h3>
+            <h3 className="text-lg font-semibold">Magnetic Effect</h3>
             <p className="text-sm text-muted-foreground">
-              Este card reage fortemente ao movimento do cursor.
+              This card reacts strongly to cursor movement.
             </p>
           </div>
         </CardContent>
@@ -63,7 +63,7 @@ export const AsChild: Story = {
     strengthValue: 40,
     children: (
       <Button variant="outline" size="lg">
-        Usando asChild
+        Using asChild
       </Button>
     ),
   },

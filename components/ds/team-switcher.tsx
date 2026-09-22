@@ -71,14 +71,14 @@ export function TeamSwitcher({
   defaultTeam,
   onTeamChange,
   onAddTeam,
-  locale = "pt-BR",
+  locale = "en-US",
   loading = false,
   className,
   size = "md",
   ...props
 }: TeamSwitcherProps) {
   const { isMobile } = useSidebar()
-  const t = UI_I18N[locale]?.teamSwitcher ?? UI_I18N["pt-BR"].teamSwitcher
+  const t = UI_I18N[locale]?.teamSwitcher ?? UI_I18N["en-US"].teamSwitcher
   const [activeTeam, setActiveTeam] = React.useState<TeamSwitcherTeam | null>(
     () => {
       if (defaultTeam)

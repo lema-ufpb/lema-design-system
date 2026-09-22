@@ -74,7 +74,7 @@ export const AvatarPresence = React.forwardRef<
       pulse = false,
       size = "md",
       position = "bottom-right",
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

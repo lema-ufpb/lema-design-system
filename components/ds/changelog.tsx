@@ -53,7 +53,7 @@ export interface ChangelogProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
   (
-    { releases, loading = false, locale = "pt-BR", className, ...props },
+    { releases, loading = false, locale = "en-US", className, ...props },
     ref
   ) => {
     const t = UI_I18N[locale].changelog

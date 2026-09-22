@@ -18,7 +18,7 @@ const meta = {
     },
   },
   args: {
-    value: "Modelo Econométrico v1",
+    value: "Econometric Model v1",
     onSave: () => {},
   },
   argTypes: {
@@ -33,7 +33,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Localization language.",
     },
   },
@@ -48,12 +48,12 @@ function InteractiveInlineEdit(
   }
 ) {
   const [val, setVal] = React.useState(
-    props.initialValue ?? "Modelo Econométrico v1"
+    props.initialValue ?? "Econometric Model v1"
   )
   return (
     <div className="w-80 rounded-lg border border-border bg-card p-4">
       <span className="block pb-1 text-xs text-muted-foreground">
-        Nome do Modelo:
+        Model Name:
       </span>
       <InlineEdit
         value={val}
@@ -70,8 +70,8 @@ function InteractiveInlineEdit(
 export const Default: Story = {
   render: (args) => <InteractiveInlineEdit {...args} />,
   args: {
-    value: "Modelo Econométrico v1",
-    locale: "pt-BR",
+    value: "Econometric Model v1",
+    locale: "en-US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -88,25 +88,25 @@ export const WithValidation: Story = {
     <InteractiveInlineEdit
       {...args}
       validate={(val) => {
-        if (!val.trim()) return "O título não pode ser vazio."
-        if (val.length < 5) return "Mínimo de 5 caracteres exigido."
+        if (!val.trim()) return "Title cannot be empty."
+        if (val.length < 5) return "Minimum 5 characters required."
         return undefined
       }}
     />
   ),
   args: {
-    value: "Modelo Válido",
-    locale: "pt-BR",
+    value: "Valid Model",
+    locale: "en-US",
   },
 }
 
 export const AsyncSave: Story = {
   render: (args) => {
-    const [val, setVal] = React.useState("Simulação Fiscal 2026")
+    const [val, setVal] = React.useState("Fiscal Simulation 2026")
     return (
       <div className="w-80 rounded-lg border border-border bg-card p-4">
         <span className="block pb-1 text-xs text-muted-foreground">
-          Salvando na API:
+          Saving to API:
         </span>
         <InlineEdit
           {...args}
@@ -120,7 +120,7 @@ export const AsyncSave: Story = {
     )
   },
   args: {
-    value: "Simulação Fiscal 2026",
+    value: "Fiscal Simulation 2026",
   },
 }
 
@@ -128,7 +128,7 @@ export const Disabled: Story = {
   render: (args) => <InteractiveInlineEdit {...args} disabled />,
   args: {
     disabled: true,
-    value: "Campo Bloqueado",
+    value: "Locked Field",
   },
 }
 
@@ -137,25 +137,21 @@ export const AllSizes: Story = {
     <div className="flex w-80 flex-col gap-6">
       <div>
         <span className="block pb-1 text-xs text-muted-foreground">
-          Pequeno (sm):
+          Small (sm):
         </span>
-        <InlineEdit size="sm" value="Parâmetro Alpha" onSave={() => {}} />
+        <InlineEdit size="sm" value="Alpha Parameter" onSave={() => {}} />
       </div>
       <div>
         <span className="block pb-1 text-xs text-muted-foreground">
-          Médio (md):
+          Medium (md):
         </span>
-        <InlineEdit size="md" value="Taxa de Inflação IPCA" onSave={() => {}} />
+        <InlineEdit size="md" value="IPCA Inflation Rate" onSave={() => {}} />
       </div>
       <div>
         <span className="block pb-1 text-xs text-muted-foreground">
-          Grande (lg):
+          Large (lg):
         </span>
-        <InlineEdit
-          size="lg"
-          value="Relatório Trimestral LEMA"
-          onSave={() => {}}
-        />
+        <InlineEdit size="lg" value="LEMA Quarterly Report" onSave={() => {}} />
       </div>
     </div>
   ),
@@ -164,8 +160,8 @@ export const AllSizes: Story = {
 export const Locales: Story = {
   render: () => (
     <div className="flex w-80 flex-col gap-4">
-      <InlineEdit locale="pt-BR" value="Português" onSave={() => {}} />
       <InlineEdit locale="en-US" value="English" onSave={() => {}} />
+      <InlineEdit locale="pt-BR" value="Português" onSave={() => {}} />
       <InlineEdit locale="es-ES" value="Español" onSave={() => {}} />
       <InlineEdit locale="fr-FR" value="Français" onSave={() => {}} />
     </div>

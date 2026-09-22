@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils"
 // ── Types ──
 
 export interface DirectionAwareHoverProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** URL da imagem de fundo */
+  /** Background image URL */
   imageSrc: string
-  /** Texto alternativo da imagem */
+  /** Alternative text for the image */
   imageAlt?: string
-  /** Classes extras para a imagem */
+  /** Extra classes for the image */
   imageClassName?: string
-  /** Conteúdo do overlay animado */
+  /** Animated overlay content */
   children: React.ReactNode
 }
 
@@ -41,16 +41,16 @@ export const DirectionAwareHover = React.forwardRef<
     >("")
     const [isHovered, setIsHovered] = useState(false)
 
-    // Calcula de qual lado o mouse entrou/saiu
+    // Calculates which side the mouse entered/exited
     const getDirection = (
       ev: React.MouseEvent<HTMLDivElement>,
       obj: HTMLElement
     ) => {
       const { width: w, height: h, left, top } = obj.getBoundingClientRect()
-      // Normaliza as coordenadas
+      // Normalizes the coordinates
       const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1)
       const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1)
-      // Calcula o ângulo
+      // Calculates the angle
       const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4
       return d
     }
@@ -79,12 +79,12 @@ export const DirectionAwareHover = React.forwardRef<
     const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
       if (!internalRef.current) return
       setIsHovered(false)
-      // Mantemos a direção para que a animação de saída ocorra no mesmo eixo,
-      // mas voltamos o overlay para fora.
+      // We keep the direction so the exit animation occurs on the same axis,
+      // but move the overlay back outside.
       onMouseLeave?.(e)
     }
 
-    // Define a classe inicial (fora do container) baseada na direção
+    // Defines the initial class (outside the container) based on direction
     const getInitialTranslate = () => {
       if (isHovered) return "translate-x-0 translate-y-0"
       switch (direction) {

@@ -74,7 +74,7 @@ function Input({
   loading = false,
   error,
   label,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
   id,
   maxLength,

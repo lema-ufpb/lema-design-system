@@ -69,7 +69,7 @@ export function MilestoneStepper({
     >
       {isVertical ? (
         <ol className="relative flex flex-col gap-8 pl-8 md:pl-10">
-          {/* Linha conectora contínua vertical */}
+          {/* Continuous vertical connector line */}
           <div
             aria-hidden="true"
             className="absolute top-2 bottom-2 left-0 w-px -translate-x-1/2 bg-border"
@@ -80,7 +80,7 @@ export function MilestoneStepper({
               key={index}
               className="relative flex flex-col items-start gap-1"
             >
-              {/* Marcador / Nó iluminado */}
+              {/* Marker / Illuminated node */}
               <div
                 aria-hidden="true"
                 className="absolute top-1 -left-8 flex size-6 min-h-[44px] min-w-[44px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-background bg-primary shadow-xs ring-4 ring-primary/10 md:-left-10 md:size-8 md:min-h-[44px] md:min-w-[44px]"

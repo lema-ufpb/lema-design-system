@@ -49,7 +49,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
 } satisfies Meta<typeof FileUpload>
@@ -87,8 +87,8 @@ export const AllSizes: Story = {
 export const Locales: Story = {
   render: (args) => (
     <div className="flex w-full max-w-md flex-col gap-6">
-      <FileUpload {...args} locale="pt-BR" />
       <FileUpload {...args} locale="en-US" />
+      <FileUpload {...args} locale="pt-BR" />
       <FileUpload {...args} locale="es-ES" />
       <FileUpload {...args} locale="fr-FR" />
     </div>

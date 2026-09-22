@@ -10,9 +10,9 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Grid de pontos que pulsa de tamanho e opacidade perto do cursor. Fica ocioso (sem RAF) enquanto o ponteiro não está sobre o container.",
-          "Sob `prefers-reduced-motion`, desenha apenas o grid estático e não escuta eventos de ponteiro.",
-          "Posicione com `absolute inset-0` atrás do conteúdo (`relative z-10`). Mova o cursor sobre a área para ver o efeito.",
+          "Grid of dots that pulses in size and opacity near the cursor. Stays idle (no RAF) while the pointer is not over the container.",
+          "Under `prefers-reduced-motion`, it only draws the static grid and does not listen to pointer events.",
+          "Position with `absolute inset-0` behind content (`relative z-10`). Move the cursor over the area to see the effect.",
           "",
           "---",
           "",
@@ -20,8 +20,8 @@ const meta = {
           "",
           "| Prop | Type | Default | Description |",
           "| --- | --- | --- | --- |",
-          '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "neutral"` | `"primary"` | Cor dos pontos |',
-          '| `radius` | `"sm" \\| "md" \\| "lg"` | `"md"` | Espaçamento do grid e raio de influência do cursor |',
+          '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "neutral"` | `"primary"` | Dot color |',
+          '| `radius` | `"sm" \\| "md" \\| "lg"` | `"md"` | Grid spacing and cursor influence radius |',
         ].join("\n"),
       },
     },
@@ -44,16 +44,14 @@ export const Default: Story = {
     <div className="relative flex min-h-[420px] w-full flex-col items-center justify-center overflow-hidden bg-background p-8">
       <GridPulse {...args} />
       <div className="relative z-10 max-w-xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight">
-          Passe o cursor por aqui
-        </h2>
+        <h2 className="text-3xl font-bold tracking-tight">Hover over here</h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Grid interativo que só consome CPU enquanto o ponteiro está sobre a
-          área — parado o resto do tempo.
+          Interactive grid that only consumes CPU while the pointer is over the
+          area — idle the rest of the time.
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Button>Começar agora</Button>
-          <Button variant="outline">Ver documentação</Button>
+          <Button>Get started now</Button>
+          <Button variant="outline">View documentation</Button>
         </div>
       </div>
     </div>

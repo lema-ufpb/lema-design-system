@@ -168,14 +168,14 @@ export const PercentLocale: Story = {
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       <CardStatSparkline
-        label="Taxa de Rejeição"
+        label="Bounce Rate"
         value={0.324}
         format="percent"
         decimals={1}
         locale="pt-BR"
         data={WEEKLY_BOUNCE}
         trend="down"
-        trendValue="−5,9% vs. semana anterior"
+        trendValue="−5.9% vs. previous week"
         icon={ActivityIcon}
       />
       <CardStatSparkline

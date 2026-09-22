@@ -23,7 +23,7 @@ const meta = {
           "| `disabled` | `boolean` | `false` | Disables the switch |",
           "| `error` | `string` | — | Error message below the switch |",
           "| `defaultChecked` | `boolean` | — | Initial checked state (uncontrolled) |",
-          '| `locale` | `UILocale` | `"pt-BR"` | Locale for i18n strings |',
+          '| `locale` | `UILocale` | `"en-US"` | Locale for i18n strings |',
           "",
           "---",
         ].join("\n"),
@@ -60,7 +60,7 @@ const meta = {
     locale: {
       control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
-      table: { defaultValue: { summary: "pt-BR" } },
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof Switch>
@@ -74,7 +74,7 @@ export const Default: Story = {
     size: "md",
     labelPosition: "right",
     loading: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 

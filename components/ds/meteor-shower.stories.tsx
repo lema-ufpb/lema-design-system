@@ -10,9 +10,9 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Chuva de meteoros 100% CSS para fundo de hero — sem canvas, sem RAF, sem `use client`. Posições geradas de forma determinística (sem mismatch de hidratação).",
-          "`motion-reduce:hidden` remove os meteoros sob `prefers-reduced-motion`.",
-          "Posicione com `absolute inset-0` atrás do conteúdo (`relative z-10`).",
+          "100% CSS meteor shower for hero backgrounds — no canvas, no RAF, no `use client`. Positions generated deterministically (no hydration mismatch).",
+          "`motion-reduce:hidden` removes meteors under `prefers-reduced-motion`.",
+          "Position with `absolute inset-0` behind content (`relative z-10`).",
           "",
           "---",
           "",
@@ -20,8 +20,8 @@ const meta = {
           "",
           "| Prop | Type | Default | Description |",
           "| --- | --- | --- | --- |",
-          '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "neutral"` | `"primary"` | Cor dos meteoros |',
-          '| `density` | `"sm" \\| "md" \\| "lg"` | `"md"` | Quantidade de meteoros simultâneos |',
+          '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "neutral"` | `"primary"` | Meteor color |',
+          '| `density` | `"sm" \\| "md" \\| "lg"` | `"md"` | Number of simultaneous meteors |',
         ].join("\n"),
       },
     },
@@ -45,19 +45,19 @@ export const Default: Story = {
       <MeteorShower {...args} />
       <div className="relative z-10 max-w-xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-white">
-          Lançamentos em queda livre
+          Launches in free fall
         </h2>
         <p className="mt-3 text-sm text-white/70">
-          Efeito puramente CSS, praticamente sem custo de CPU — ideal para
-          heroes de tráfego alto.
+          Pure CSS effect, virtually no CPU cost — ideal for high-traffic
+          heroes.
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Button>Começar agora</Button>
+          <Button>Get started now</Button>
           <Button
             variant="outline"
             className="bg-white text-zinc-900 hover:bg-white/90"
           >
-            Ver documentação
+            View documentation
           </Button>
         </div>
       </div>

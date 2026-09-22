@@ -88,7 +88,7 @@ function Select({
   loading = false,
   error,
   label,
-  locale = "pt-BR",
+  locale = "en-US",
   disabled = false,
   className,
   side,

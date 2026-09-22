@@ -90,7 +90,7 @@ export const MetricComparison = React.forwardRef<
       showBar = true,
       size = "md",
       loading = false,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

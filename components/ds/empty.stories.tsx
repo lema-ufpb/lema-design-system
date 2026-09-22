@@ -54,7 +54,7 @@ const meta = {
     locale: {
       control: "inline-radio",
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
-      table: { defaultValue: { summary: "pt-BR" } },
+      table: { defaultValue: { summary: "en-US" } },
     },
   },
 } satisfies Meta<typeof Empty>

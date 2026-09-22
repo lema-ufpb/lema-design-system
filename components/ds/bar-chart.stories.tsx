@@ -712,9 +712,9 @@ export const LocalePTBR: Story = {
         currency: "BRL",
         abbreviate: true,
         decimals: 0,
-        locale: "pt-BR",
+        locale: "en-US",
       }),
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 

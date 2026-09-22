@@ -59,14 +59,14 @@ export function AuthCard({
   appName = "Acme Inc.",
   variant = "default",
   layout = "default",
-  locale = "pt-BR",
+  locale = "en-US",
   loading = false,
   className,
   children,
   ...props
 }: AuthCardProps) {
-  const tAuth = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
-  const tCard = UI_I18N[locale]?.authCard ?? UI_I18N["pt-BR"].authCard
+  const tAuth = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
+  const tCard = UI_I18N[locale]?.authCard ?? UI_I18N["en-US"].authCard
   const isCover = layout === "cover" || layout === "split"
 
   const resolvedTitle =

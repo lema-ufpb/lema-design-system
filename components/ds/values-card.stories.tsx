@@ -31,9 +31,9 @@ const meta: Meta<typeof ValuesCard> = {
     layout: "centered",
   },
   args: {
-    title: "Excelência Científica",
+    title: "Scientific Excellence",
     description:
-      "Compromisso rigoroso com métodos científicos transparentes, replicabilidade e inovação de ponta.",
+      "Rigorous commitment to transparent scientific methods, replicability and cutting-edge innovation.",
     icon: Sparkles,
     index: "01",
     variant: "default",
@@ -46,7 +46,7 @@ type Story = StoryObj<typeof ValuesCard>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText("Excelência Científica")).toBeInTheDocument()
+    await expect(canvas.getByText("Scientific Excellence")).toBeInTheDocument()
     await expect(canvas.getByText("01")).toBeInTheDocument()
   },
 }
@@ -56,7 +56,7 @@ export const AllVariants: Story = {
     <div className="grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <ValuesCard
         title="Default"
-        description="Borda suave e cartão neutro elevado com hover sutil."
+        description="Soft border and elevated neutral card with subtle hover."
         icon={Sparkles}
         index="01"
         variant="default"
@@ -70,14 +70,14 @@ export const AllVariants: Story = {
       />
       <ValuesCard
         title="Accent"
-        description="Superfície sutilmente tingida pela cor primária do tema."
+        description="Surface subtly tinted by the theme primary color."
         icon={Heart}
         index="03"
         variant="accent"
       />
       <ValuesCard
         title="Muted"
-        description="Fundo atenuado para hierarquia secundária ou repouso visual."
+        description="Muted background for secondary hierarchy or visual rest."
         icon={Lightbulb}
         index="04"
         variant="muted"
@@ -88,9 +88,9 @@ export const AllVariants: Story = {
 
 export const WithIndex: Story = {
   args: {
-    title: "Inclusão e Acessibilidade",
+    title: "Inclusion and Accessibility",
     description:
-      "Projetamos interfaces e sistemas abertos e acessíveis para toda a sociedade.",
+      "We design open and accessible interfaces and systems for all of society.",
     icon: Heart,
     index: 5,
     variant: "accent",
@@ -101,7 +101,7 @@ export const WithoutIcon: Story = {
   args: {
     title: "Autonomia Acadêmica",
     description:
-      "Pesquisa livre e dedicada à geração de conhecimento transformador.",
+      "Free research dedicated to generating transformative knowledge.",
     icon: undefined,
     index: "03",
     variant: "default",

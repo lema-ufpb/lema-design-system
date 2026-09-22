@@ -85,7 +85,7 @@ export const CopyBlock = React.forwardRef<HTMLDivElement, CopyBlockProps>(
       value,
       size = "md",
       truncate = false,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

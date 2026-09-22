@@ -10,11 +10,11 @@ import {
 import { FloatingDock } from "./floating-dock"
 
 const items = [
-  { title: "Início", icon: <HomeIcon />, href: "#" },
-  { title: "Buscar", icon: <SearchIcon />, href: "#" },
-  { title: "Notificações", icon: <BellIcon />, href: "#" },
+  { title: "Home", icon: <HomeIcon />, href: "#" },
+  { title: "Search", icon: <SearchIcon />, href: "#" },
+  { title: "Notifications", icon: <BellIcon />, href: "#" },
   { title: "Perfil", icon: <UserIcon />, href: "#" },
-  { title: "Configurações", icon: <SettingsIcon />, href: "#" },
+  { title: "Settings", icon: <SettingsIcon />, href: "#" },
   { title: "Destaques", icon: <SparklesIcon />, href: "#" },
 ]
 

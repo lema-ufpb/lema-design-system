@@ -303,20 +303,20 @@ export const PercentLocale: Story = {
   render: () => (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       <CardStatHeatbar
-        label="Escore de Risco"
+        label="Risk Score"
         value={0.992}
         min={0}
         max={1}
         format="percent"
         decimals={1}
         locale="pt-BR"
-        description="Média do segmento: 59,7%"
+        description="Segment average: 59.7%"
         icon={ShieldCheckIcon}
         zones={[
-          { label: "Baixo", color: "#10b981", max: 25 },
-          { label: "Moderado", color: "#f59e0b", max: 50 },
-          { label: "Alto", color: "#f97316", max: 75 },
-          { label: "Crítico", color: "#ef4444", max: 100 },
+          { label: "Low", color: "#10b981", max: 25 },
+          { label: "Moderate", color: "#f59e0b", max: 50 },
+          { label: "High", color: "#f97316", max: 75 },
+          { label: "Critical", color: "#ef4444", max: 100 },
         ]}
       />
       <CardStatHeatbar

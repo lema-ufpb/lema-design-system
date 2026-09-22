@@ -55,7 +55,7 @@ export const Empty: Story = {
 
 export const WeakPassword: Story = {
   args: {
-    password: "senha",
+    password: "password",
   },
   render: (args) => (
     <div className="w-80">
@@ -66,7 +66,7 @@ export const WeakPassword: Story = {
 
 export const MediumPassword: Story = {
   args: {
-    password: "SenhaLonga",
+    password: "LongPassword",
   },
   render: (args) => (
     <div className="w-80">
@@ -77,7 +77,7 @@ export const MediumPassword: Story = {
 
 export const StrongPassword: Story = {
   args: {
-    password: "SenhaForte123",
+    password: "StrongPass123",
   },
   render: (args) => (
     <div className="w-80">
@@ -88,7 +88,7 @@ export const StrongPassword: Story = {
 
 export const ExcellentPassword: Story = {
   args: {
-    password: "SenhaExcepcional@2026",
+    password: "ExceptionalPass@2026",
   },
   render: (args) => (
     <div className="w-80">
@@ -99,7 +99,7 @@ export const ExcellentPassword: Story = {
 
 export const WithoutChecklist: Story = {
   args: {
-    password: "MinhaSenha@456",
+    password: "MyPassword@456",
     showChecklist: false,
   },
   render: (args) => (

@@ -26,9 +26,9 @@ const meta = {
         Exportar Parquet
       </Button>
     ),
-    title: "Novo Formato de Exportação",
+    title: "New Export Format",
     description:
-      "Agora você pode exportar séries completas em Apache Parquet para carregamento ultrarrápido em Python e R.",
+      "You can now export full series in Apache Parquet for ultra-fast loading in Python and R.",
   },
   argTypes: {
     side: {
@@ -42,7 +42,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Language locale.",
     },
   },
@@ -53,11 +53,11 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
   },
   play: async () => {
     const popoverHeading = await within(document.body).findByText(
-      "Novo Formato de Exportação"
+      "New Export Format"
     )
     await expect(popoverHeading).toBeInTheDocument()
   },
@@ -69,8 +69,8 @@ export const MultiStepTour: Story = {
     totalSteps: 4,
     title: "Ajuste de Hiperparâmetros",
     description:
-      "Configure a taxa de aprendizado e o número de épocas da estimação bayesiana antes de executar a simulação.",
-    onNext: () => alert("Próximo passo!"),
+      "Configure the learning rate and number of epochs for Bayesian estimation before running the simulation.",
+    onNext: () => alert("Next step!"),
     onPrevious: () => alert("Passo anterior!"),
   },
 }

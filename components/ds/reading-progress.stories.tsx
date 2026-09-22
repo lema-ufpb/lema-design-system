@@ -19,7 +19,7 @@ export const Default: Story = {
     return (
       <div className="p-8">
         <ReadingProgress />
-        <h1 className="mb-8 text-4xl font-bold">Faça scroll nesta página</h1>
+        <h1 className="mb-8 text-4xl font-bold">Scroll this page</h1>
         {Array.from({ length: 30 }).map((_, i) => (
           <p key={i} className="mb-6 text-muted-foreground">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -52,13 +52,13 @@ export const WithContainerTarget: Story = {
           />
           <div ref={containerRef} className="h-full w-full overflow-y-auto p-8">
             <h2 className="mb-6 text-2xl font-bold text-card-foreground">
-              Scrolla o Container Interno
+              Scroll the Inner Container
             </h2>
             {Array.from({ length: 15 }).map((_, i) => (
               <p key={i} className="mb-4 text-sm text-muted-foreground">
-                Este é um exemplo de ReadingProgress atrelado a um container
-                específico, em vez de toda a página. Observe que ele usa{" "}
-                <code>absolute</code> dentro do container ao invés de{" "}
+                This is an example of ReadingProgress attached to a specific
+                container instead of the whole page. Note that it uses{" "}
+                <code>absolute</code> inside the container instead of{" "}
                 <code>fixed</code>. Lorem ipsum, dolor sit amet consectetur
                 adipisicing elit. Nostrum magnam tempora ea sint eaque
                 inventore.

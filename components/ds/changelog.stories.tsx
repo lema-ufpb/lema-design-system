@@ -7,50 +7,47 @@ const sampleReleases: ChangelogRelease[] = [
   {
     version: "v1.11.0",
     date: new Date(2025, 10, 15),
-    title: "Expansão da Família de Componentes e Novos Gráficos",
+    title: "Component Family Expansion and New Charts",
     isLatest: true,
     changes: [
       {
         type: "feature",
         description:
-          "Adicionado suporte nativo ao novo DateRangePicker com atalhos inteligentes.",
+          "Added native support for the new DateRangePicker with smart shortcuts.",
       },
       {
         type: "feature",
-        description:
-          "Componente Sparkline independente para tabelas de alta densidade.",
+        description: "Standalone Sparkline component for high-density tables.",
       },
       {
         type: "improvement",
-        description:
-          "Otimização de tempo de renderização no motor de SVG e Recharts.",
+        description: "Render time optimization in the SVG and Recharts engine.",
       },
       {
         type: "fix",
-        description:
-          "Correção de acessibilidade e foco via teclado no ConfirmDialog.",
+        description: "Accessibility and keyboard focus fix in ConfirmDialog.",
       },
     ],
   },
   {
     version: "v1.10.0",
     date: new Date(2025, 9, 2),
-    title: "Migração para Tailwind CSS v4 e Shadcn Luma",
+    title: "Migration to Tailwind CSS v4 and Shadcn Luma",
     changes: [
       {
         type: "breaking",
         description:
-          "Variáveis CSS migradas de HSL para o padrão oklch do Tailwind v4.",
+          "CSS variables migrated from HSL to Tailwind v4 oklch standard.",
       },
       {
         type: "improvement",
         description:
-          "Suporte completo a 4 idiomas (pt-BR, en-US, es-ES, fr-FR) via ui-i18n.",
+          "Full support for 4 languages (pt-BR, en-US, es-ES, fr-FR) via ui-i18n.",
       },
       {
         type: "fix",
         description:
-          "Ajuste na escala tipográfica sm/md/lg em botões e badges de dados.",
+          "Adjustment to sm/md/lg typographic scale on buttons and data badges.",
       },
     ],
   },
@@ -90,7 +87,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

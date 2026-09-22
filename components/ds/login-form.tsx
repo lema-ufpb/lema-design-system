@@ -78,7 +78,7 @@ export const LoginForm = React.forwardRef<HTMLDivElement, LoginFormProps>(
       showPasskey = true,
       loading: controlledLoading = false,
       errorMessage,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
@@ -91,7 +91,7 @@ export const LoginForm = React.forwardRef<HTMLDivElement, LoginFormProps>(
     const [loadingProvider, setLoadingProvider] =
       React.useState<SocialProvider | null>(null)
 
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
     const isLoading = controlledLoading || internalLoading
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -217,7 +217,7 @@ export const LoginForm = React.forwardRef<HTMLDivElement, LoginFormProps>(
               />
               <button
                 type="button"
-                aria-label={showPassword ? "Ocultar senha" : "Ver senha"}
+                aria-label={showPassword ? "Hide password" : "Show password"}
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground focus-visible:outline-none"
               >

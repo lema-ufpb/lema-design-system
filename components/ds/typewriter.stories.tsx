@@ -60,7 +60,7 @@ export const TypewriterEffect: Story = {
 
 export const FlipWords: Story = {
   args: {
-    words: ["rápido", "moderno", "acessível", "lindo"],
+    words: ["fast", "modern", "accessible", "beautiful"],
     variant: "flip",
     size: "display",
     loop: true,

@@ -20,8 +20,8 @@ const meta = {
     },
   },
   args: {
-    title: "Excluir Dados",
-    description: "Esta ação é irreversível.",
+    title: "Delete Data",
+    description: "This action is irreversible.",
     onConfirm: () => {},
   },
   argTypes: {
@@ -52,20 +52,20 @@ export const Default: Story = {
       trigger={
         <Button variant="destructive" size="sm">
           <Trash2 data-icon="inline-start" />
-          Excluir Simulação
+          Delete Simulation
         </Button>
       }
-      title="Excluir Dados da Simulação"
-      description="Esta ação não pode ser desfeita. Todos os parâmetros e estimativas calculadas serão excluídos permanentemente."
+      title="Delete Simulation Data"
+      description="This action cannot be undone. All parameters and calculated estimates will be permanently deleted."
       onConfirm={async () => {
         await new Promise((resolve) => setTimeout(resolve, 800))
-        alert("Simulação excluída com sucesso!")
+        alert("Simulation deleted successfully!")
       }}
     />
   ),
   args: {
-    title: "Excluir Dados da Simulação",
-    description: "Esta ação não pode ser desfeita.",
+    title: "Delete Simulation Data",
+    description: "This action cannot be undone.",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -74,7 +74,7 @@ export const Default: Story = {
     await userEvent.click(trigger)
     // Dialog opens in document.body
     const dialogHeading = await within(document.body).findByText(
-      "Excluir Dados da Simulação"
+      "Delete Simulation Data"
     )
     await expect(dialogHeading).toBeInTheDocument()
   },
@@ -90,19 +90,19 @@ export const SpecificResourceName: Story = {
           size="sm"
           className="border-destructive/30 text-destructive hover:bg-destructive/10"
         >
-          Revogar Token de Acesso
+          Revoke Access Token
         </Button>
       }
-      title="Revogar Chave de API de Produção"
-      description="Todas as requisições ativas usando este token serão interrompidas imediatamente."
+      title="Revoke Production API Key"
+      description="All active requests using this token will be interrupted immediately."
       confirmWord="api_live_lema_prod"
-      onConfirm={() => alert("Token revogado!")}
+      onConfirm={() => alert("Token revoked!")}
     />
   ),
   args: {
-    title: "Revogar Chave de API de Produção",
+    title: "Revoke Production API Key",
     description:
-      "Todas as requisições ativas usando este token serão interrompidas imediatamente.",
+      "All active requests using this token will be interrupted immediately.",
     confirmWord: "api_live_lema_prod",
   },
 }
@@ -114,20 +114,19 @@ export const WarningIntent: Story = {
       intent="warning"
       trigger={
         <Button variant="outline" size="sm">
-          Desconectar Banco de Dados
+          Disconnect Database
         </Button>
       }
-      title="Interromper Conexão com o Cluster"
-      description="O cluster entrará em modo offline durante a janela de manutenção."
+      title="Interrupt Cluster Connection"
+      description="The cluster will go offline during the maintenance window."
       confirmWord="OFFLINE"
-      onConfirm={() => alert("Cluster desconectado!")}
+      onConfirm={() => alert("Cluster disconnected!")}
     />
   ),
   args: {
     intent: "warning",
-    title: "Interromper Conexão com o Cluster",
-    description:
-      "O cluster entrará em modo offline durante a janela de manutenção.",
+    title: "Interrupt Cluster Connection",
+    description: "The cluster will go offline during the maintenance window.",
     confirmWord: "OFFLINE",
   },
 }
@@ -139,19 +138,18 @@ export const WithoutTypingRequirement: Story = {
       requireTyping={false}
       trigger={
         <Button variant="outline" size="sm">
-          Limpar Filtros Rápidos
+          Clear Quick Filters
         </Button>
       }
-      title="Redefinir Configuração Padrão"
-      description="Deseja retornar as opções de visualização aos valores originais de fábrica?"
-      onConfirm={() => alert("Filtros resetados!")}
+      title="Reset to Default Configuration"
+      description="Do you want to return display options to factory defaults?"
+      onConfirm={() => alert("Filters reset!")}
     />
   ),
   args: {
     requireTyping: false,
-    title: "Redefinir Configuração Padrão",
-    description:
-      "Deseja retornar as opções de visualização aos valores originais de fábrica?",
+    title: "Reset to Default Configuration",
+    description: "Do you want to return display options to factory defaults?",
   },
 }
 
@@ -161,8 +159,8 @@ export const Locales: Story = {
       <ConfirmDialog
         locale="pt-BR"
         trigger={<Button size="sm">pt-BR</Button>}
-        title="Excluir"
-        description="Confirmação em Português"
+        title="Delete"
+        description="Confirmation in Portuguese"
         onConfirm={() => {}}
       />
       <ConfirmDialog

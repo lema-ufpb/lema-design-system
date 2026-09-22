@@ -47,7 +47,7 @@ const meta = {
     loading: { control: "boolean" },
     locale: {
       control: "select",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
 } satisfies Meta<typeof SignUpForm>
@@ -72,6 +72,6 @@ export const FlatVariant: Story = {
 export const WithError: Story = {
   args: {
     errorMessage:
-      "Este e-mail já está cadastrado no sistema. Tente fazer login ou recuperar sua senha.",
+      "This email is already registered. Try logging in or recovering your password.",
   },
 }

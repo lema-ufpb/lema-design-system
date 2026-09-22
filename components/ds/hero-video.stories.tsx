@@ -40,8 +40,8 @@ const meta = {
     thumbnailSrc:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80",
     videoSrc: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
-    videoTitle: "Apresentação do LEMA Design System",
-    locale: "pt-BR" as const,
+    videoTitle: "LEMA Design System Presentation",
+    locale: "en-US" as const,
   },
 } satisfies Meta<typeof HeroVideo>
 

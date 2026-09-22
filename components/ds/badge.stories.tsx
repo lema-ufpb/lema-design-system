@@ -83,7 +83,7 @@ export const Default: Story = {
     dot: false,
     removable: false,
     loading: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 

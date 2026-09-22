@@ -191,7 +191,7 @@ export const WithDelta: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-6">
-        <MiniCard label="Revenue" value="R$ 2.4M" delta="+18%" />
+        <MiniCard label="Revenue" value="$2.4M" delta="+18%" />
         <MiniCard label="Pending" value={47} delta="-12" />
         <MiniCard label="Audited" value={95} delta="neutral" />
         <MiniCard label="Selected" value={53} delta="up" />
@@ -213,42 +213,42 @@ export const FormatValues: Story = {
     <div className="flex flex-col gap-6">
       <div>
         <p className="mb-2 text-xs text-muted-foreground">
-          format: integer — pt-BR locale
+          format: integer — en-US locale
         </p>
         <div className="flex items-center gap-6">
           <MiniCard
             label="Contributors"
             value={1234567}
             format="integer"
-            locale="pt-BR"
+            locale="en-US"
           />
           <MiniCard
             label="Selected"
             value={53}
             format="integer"
-            locale="pt-BR"
+            locale="en-US"
           />
         </div>
       </div>
       <div>
         <p className="mb-2 text-xs text-muted-foreground">
-          format: currency — pt-BR / BRL
+          format: currency — en-US / USD
         </p>
         <div className="flex items-center gap-6">
           <MiniCard
             label="Total Potential"
             value={4200000}
             format="currency"
-            locale="pt-BR"
-            currency="BRL"
+            locale="en-US"
+            currency="USD"
             decimals={0}
           />
           <MiniCard
             label="Recovery"
             value={1823000}
             format="currency"
-            locale="pt-BR"
-            currency="BRL"
+            locale="en-US"
+            currency="USD"
             decimals={0}
             intent="success"
           />
@@ -261,13 +261,13 @@ export const FormatValues: Story = {
             label="Capacity Used"
             value={0.346}
             format="percent"
-            locale="pt-BR"
+            locale="en-US"
           />
           <MiniCard
             label="Coverage"
             value={0.784}
             format="percent"
-            locale="pt-BR"
+            locale="en-US"
             intent="warning"
           />
         </div>
@@ -295,12 +295,12 @@ export const FormatValues: Story = {
         <p className="mb-2 text-xs text-muted-foreground">
           Locale via MiniCardGroup — all children inherit
         </p>
-        <MiniCardGroup locale="pt-BR" divide>
+        <MiniCardGroup locale="en-US" divide>
           <MiniCard
             label="Total"
             value={4200000}
             format="currency"
-            currency="BRL"
+            currency="USD"
             decimals={0}
           />
           <MiniCard label="Selected" value={53} format="integer" />
@@ -613,13 +613,13 @@ export const FinancialStrip: Story = {
       <MiniCardGroup variant="elevated" size="md" divide accent="success">
         <MiniCard
           label="Total Potential"
-          value="R$ 4,2M"
+          value="$4.2M"
           icon={BanknoteIcon}
           iconIntent="success"
         />
         <MiniCard
           label="Expected Recovery"
-          value="R$ 1,8M"
+          value="$1.8M"
           intent="success"
           delta="+22%"
         />
@@ -778,7 +778,7 @@ export const ColorTokens: Story = {
           />
           <MiniCard
             label="Custom Amber"
-            value="R$ 4,2M"
+            value="$4.2M"
             icon={BanknoteIcon}
             accent="oklch(0.75 0.18 75)"
           />
@@ -837,7 +837,7 @@ export const ColorTokens: Story = {
           <MiniCardGroup variant="outlined" size="md" divide>
             <MiniCard
               label="Brand"
-              value="R$ 1,8M"
+              value="$1.8M"
               icon={BanknoteIcon}
               accent="var(--color-brand, oklch(0.4 0.2 240))"
             />

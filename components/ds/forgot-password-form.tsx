@@ -60,7 +60,7 @@ export const ForgotPasswordForm = React.forwardRef<
       onBackToLogin,
       resendCooldown = 60,
       loading: controlledLoading = false,
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
@@ -70,7 +70,7 @@ export const ForgotPasswordForm = React.forwardRef<
     const [internalLoading, setInternalLoading] = React.useState(false)
     const [countdown, setCountdown] = React.useState(resendCooldown)
 
-    const t = UI_I18N[locale]?.auth ?? UI_I18N["pt-BR"].auth
+    const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
     const isLoading = controlledLoading || internalLoading
 
     React.useEffect(() => {
@@ -130,7 +130,7 @@ export const ForgotPasswordForm = React.forwardRef<
               <p className="max-w-xs text-xs text-muted-foreground">
                 {t.magicLinkSent}{" "}
                 <span className="font-semibold text-foreground">{email}</span>.
-                Siga as instruções para criar uma nova senha.
+                Follow the instructions to create a new password.
               </p>
             </div>
 

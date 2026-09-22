@@ -70,17 +70,17 @@ export const VideoDialog = React.forwardRef<HTMLDivElement, VideoDialogProps>(
       className,
       videoSrc,
       thumbnailSrc,
-      thumbnailAlt = "Prévia do vídeo",
+      thumbnailAlt = "Video preview",
       title,
       aspectRatio = "16/9",
       variant = "default",
-      locale = "pt-BR",
+      locale = "en-US",
       ...props
     },
     ref
   ) => {
     const [open, setOpen] = React.useState(false)
-    const t = UI_I18N[locale]?.videoDialog ?? UI_I18N["pt-BR"].videoDialog
+    const t = UI_I18N[locale]?.videoDialog ?? UI_I18N["en-US"].videoDialog
     const label = title ? `${t.playVideo}: ${title}` : t.playVideo
 
     const aspectClasses = {

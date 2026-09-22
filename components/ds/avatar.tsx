@@ -139,7 +139,7 @@ function Avatar({
   status,
   tooltip,
   loading = false,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
   onLoadingStatusChange,
   delayMs,

@@ -52,7 +52,7 @@ export function Drawer({
   open,
   onOpenChange,
   className,
-  locale = "pt-BR",
+  locale = "en-US",
   shouldScaleBackground,
   snapPoints,
   activeSnapPoint,

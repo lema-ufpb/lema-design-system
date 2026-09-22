@@ -20,7 +20,7 @@ const meta = {
     },
   },
   args: {
-    title: "Projetos e Modelos",
+    title: "Projects and Models",
   },
   argTypes: {
     size: {
@@ -50,17 +50,17 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: "Projetos e Modelos",
-    description: "Gerencie modelos econômicos e conjuntos de dados do LEMA.",
+    title: "Projects and Models",
+    description: "Manage LEMA economic models and datasets.",
     actions: (
       <>
         <Button variant="outline" size="sm">
           <Download data-icon="inline-start" />
-          Exportar
+          Export
         </Button>
         <Button size="sm">
           <Plus data-icon="inline-start" />
-          Novo Projeto
+          New Project
         </Button>
       </>
     ),
@@ -68,7 +68,7 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Projetos e Modelos"
+      "Projects and Models"
     )
   },
 }
@@ -84,22 +84,24 @@ export const WithBreadcrumbsAndBadge: Story = {
         <span className="font-medium text-foreground">Modelos</span>
       </div>
     ),
-    title: "Modelo DSGE Brasil",
-    badge: <Badge variant="secondary">Produção v2.1</Badge>,
-    description: "Parâmetros calibrados para o Banco Central do Brasil.",
+    title: "DSGE Model Brazil",
+    badge: <Badge variant="secondary">Production v2.1</Badge>,
+    description: "Parameters calibrated for the Central Bank of Brazil.",
     metadata: (
       <>
         <span className="text-xs text-muted-foreground">
-          Criado em 12/03/2025
+          Created on 03/12/2025
         </span>
         <span className="text-xs text-muted-foreground">•</span>
-        <span className="text-xs text-muted-foreground">Autor: Prof. LEMA</span>
+        <span className="text-xs text-muted-foreground">
+          Author: Prof. LEMA
+        </span>
       </>
     ),
     actions: (
       <Button size="sm">
         <Plus data-icon="inline-start" />
-        Nova Simulação
+        New Simulation
       </Button>
     ),
   },
@@ -107,19 +109,19 @@ export const WithBreadcrumbsAndBadge: Story = {
 
 export const WithBackButton: Story = {
   args: {
-    title: "Detalhes da Simulação #481",
-    description: "Convergência de equilíbrio atingida em 142 iterações.",
-    onBack: () => alert("Voltar acionado!"),
+    title: "Simulation Details #481",
+    description: "Equilibrium convergence reached in 142 iterations.",
+    onBack: () => alert("Back triggered!"),
     actions: (
       <Button variant="outline" size="sm">
-        Baixar Relatório
+        Download Report
       </Button>
     ),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(
-      canvas.getByRole("button", { name: "Voltar" })
+      canvas.getByRole("button", { name: "Back" })
     ).toBeInTheDocument()
   },
 }
@@ -130,23 +132,23 @@ export const AllSizes: Story = {
       <PageHeader
         as="section"
         size="sm"
-        title="Tamanho Pequeno (sm)"
-        description="Ideal para subpáginas ou painéis compactos."
-        actions={<Button size="sm">Ação sm</Button>}
+        title="Small Size (sm)"
+        description="Ideal for subpages or compact panels."
+        actions={<Button size="sm">Action sm</Button>}
       />
       <PageHeader
         as="section"
         size="md"
-        title="Tamanho Médio (md)"
-        description="Padrão do design system para telas principais."
-        actions={<Button size="sm">Ação md</Button>}
+        title="Medium Size (md)"
+        description="Default design system size for main screens."
+        actions={<Button size="sm">Action md</Button>}
       />
       <PageHeader
         as="section"
         size="lg"
-        title="Tamanho Grande (lg)"
-        description="Destaque para páginas de entrada ou relatórios executivos."
-        actions={<Button>Ação lg</Button>}
+        title="Large Size (lg)"
+        description="Highlight for landing pages or executive reports."
+        actions={<Button>Action lg</Button>}
       />
     </div>
   ),
@@ -158,22 +160,22 @@ export const AllVariants: Story = {
       <PageHeader
         as="section"
         variant="default"
-        title="Variante Default"
-        description="Possui linha divisória inferior discreta."
+        title="Default Variant"
+        description="Has a subtle bottom divider line."
         actions={<Button size="sm">Default</Button>}
       />
       <PageHeader
         as="section"
         variant="compact"
-        title="Variante Compact"
-        description="Sem borda inferior para layouts fluidos."
+        title="Compact Variant"
+        description="No bottom border for fluid layouts."
         actions={<Button size="sm">Compact</Button>}
       />
       <PageHeader
         as="section"
         variant="banner"
-        title="Variante Banner"
-        description="Card estilizado com fundo destacado para áreas nobres."
+        title="Banner Variant"
+        description="Styled card with highlighted background for premium areas."
         actions={<Button size="sm">Banner</Button>}
       />
     </div>
@@ -183,9 +185,9 @@ export const AllVariants: Story = {
 export const Loading: Story = {
   args: {
     loading: true,
-    title: "Carregando...",
-    breadcrumbs: <span>Home / Modelos</span>,
-    actions: <Button size="sm">Carregando</Button>,
+    title: "Loading...",
+    breadcrumbs: <span>Home / Models</span>,
+    actions: <Button size="sm">Loading</Button>,
   },
 }
 
@@ -194,8 +196,8 @@ export const Locales: Story = {
     <div className="flex flex-col gap-6">
       <PageHeader
         as="section"
-        locale="pt-BR"
-        title="Português (pt-BR)"
+        locale="en-US"
+        title="English (en-US)"
         onBack={() => {}}
       />
       <PageHeader

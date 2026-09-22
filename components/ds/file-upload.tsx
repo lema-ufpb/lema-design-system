@@ -58,7 +58,7 @@ export const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
       maxSizeMB = 10,
       progress,
       disabled = false,
-      locale = "pt-BR",
+      locale = "en-US",
       size = "md",
       className,
       ...props

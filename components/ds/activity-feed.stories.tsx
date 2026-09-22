@@ -11,11 +11,11 @@ const sampleItems: ActivityFeedItem[] = [
       name: "Mariana Souza",
       initials: "MS",
     },
-    action: "publicou uma nova versão de",
+    action: "published a new version of",
     target: "Modelo DSGE Brasil v2.4",
     timestamp: subMinutes(new Date(), 15),
     status: "success",
-    statusLabel: "Concluído",
+    statusLabel: "Completed",
   },
   {
     id: "2",
@@ -23,14 +23,14 @@ const sampleItems: ActivityFeedItem[] = [
       name: "Carlos Eduardo",
       initials: "CE",
     },
-    action: "executou a simulação fiscal em",
-    target: "Cenário IPCA + 4.5%",
+    action: "ran the fiscal simulation on",
+    target: "Scenario IPCA + 4.5%",
     timestamp: subHours(new Date(), 2),
     status: "default",
-    statusLabel: "142 iterações",
+    statusLabel: "142 iterations",
     description: (
       <span className="font-mono text-xs text-muted-foreground">
-        Equilíbrio dinâmico atingido com resíduo &lt; 1e-6.
+        Dynamic equilibrium reached with residual &lt; 1e-6.
       </span>
     ),
   },
@@ -40,13 +40,13 @@ const sampleItems: ActivityFeedItem[] = [
       name: "Sistema LEMA",
       initials: "SL",
     },
-    action: "detectou inconsistência no upload de",
+    action: "detected inconsistency in upload of",
     target: "microdados_pnad_2025.csv",
     timestamp: subHours(new Date(), 5),
     status: "destructive",
-    statusLabel: "Falha na validação",
+    statusLabel: "Validation failed",
     description:
-      "Coluna 'renda_domiciliar_pc' contém 14 valores negativos inválidos.",
+      "Column 'renda_domiciliar_pc' contains 14 invalid negative values.",
   },
   {
     id: "4",
@@ -54,7 +54,7 @@ const sampleItems: ActivityFeedItem[] = [
       name: "Prof. Hilton",
       initials: "PH",
     },
-    action: "adicionou 3 novos pesquisadores à equipe",
+    action: "added 3 new researchers to the team",
     timestamp: subDays(new Date(), 1),
   },
 ]
@@ -94,7 +94,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     items: sampleItems,
-    locale: "pt-BR",
+    locale: "en-US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -109,11 +109,11 @@ export const WithDescriptionsAndDiffs: Story = {
       {
         id: "d1",
         actor: { name: "Mariana Souza", initials: "MS" },
-        action: "alterou o parâmetro beta em",
-        target: "Função de Utilidade CES",
+        action: "changed the beta parameter in",
+        target: "CES Utility Function",
         timestamp: subMinutes(new Date(), 42),
         status: "warning",
-        statusLabel: "Pendente de revisão",
+        statusLabel: "Pending review",
         description: (
           <div className="flex flex-col gap-1 font-mono text-xs">
             <span className="text-destructive">- beta = 0.985</span>
@@ -135,7 +135,7 @@ export const Loading: Story = {
 export const Empty: Story = {
   args: {
     items: [],
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
