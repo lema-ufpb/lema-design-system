@@ -81,8 +81,7 @@ export const InHeadline: Story = {
         para toda a universidade.
       </h1>
       <p className="mt-4 text-sm text-muted-foreground">
-        Hover over the highlighted word to pause the rotation
-        automatically.
+        Hover over the highlighted word to pause the rotation automatically.
       </p>
     </div>
   ),

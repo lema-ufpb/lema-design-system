@@ -48,8 +48,8 @@ export const Default: Story = {
           Launches in free fall
         </h2>
         <p className="mt-3 text-sm text-white/70">
-          Pure CSS effect, virtually no CPU cost — ideal for
-          high-traffic heroes.
+          Pure CSS effect, virtually no CPU cost — ideal for high-traffic
+          heroes.
         </p>
         <div className="mt-6 flex justify-center gap-3">
           <Button>Get started now</Button>

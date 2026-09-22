@@ -126,8 +126,7 @@ export const WarningIntent: Story = {
   args: {
     intent: "warning",
     title: "Interrupt Cluster Connection",
-    description:
-      "The cluster will go offline during the maintenance window.",
+    description: "The cluster will go offline during the maintenance window.",
     confirmWord: "OFFLINE",
   },
 }
@@ -150,8 +149,7 @@ export const WithoutTypingRequirement: Story = {
   args: {
     requireTyping: false,
     title: "Reset to Default Configuration",
-    description:
-      "Do you want to return display options to factory defaults?",
+    description: "Do you want to return display options to factory defaults?",
   },
 }
 

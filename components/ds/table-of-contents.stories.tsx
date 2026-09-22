@@ -48,9 +48,7 @@ export const Default: Story = {
 
           <section id="conclusao" className="space-y-4 pt-16">
             <h2 className="text-3xl font-bold">3. Conclusion</h2>
-            <div className="h-96 rounded-md bg-muted p-4">
-              Final content...
-            </div>
+            <div className="h-96 rounded-md bg-muted p-4">Final content...</div>
           </section>
         </div>
 

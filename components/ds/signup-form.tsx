@@ -131,9 +131,9 @@ export const SignUpForm = React.forwardRef<HTMLDivElement, SignUpFormProps>(
             {t.signUp}
           </h2>
           <p className="text-xs text-muted-foreground">
-             Create your account to access the entire ecosystem and integrated
-             services.
-           </p>
+            Create your account to access the entire ecosystem and integrated
+            services.
+          </p>
         </div>
 
         {/* Error Alert */}

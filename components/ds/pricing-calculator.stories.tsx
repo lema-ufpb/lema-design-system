@@ -23,8 +23,7 @@ export const Default: Story = {
     step: 1,
     discountPercent: 15,
     title: "Corporate Plan",
-    description:
-      "Drag the slider to simulate the monthly cost for your team.",
+    description: "Drag the slider to simulate the monthly cost for your team.",
     className: "w-full max-w-4xl mx-auto",
   },
 }

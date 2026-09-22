@@ -93,7 +93,9 @@ export const WithBreadcrumbsAndBadge: Story = {
           Created on 03/12/2025
         </span>
         <span className="text-xs text-muted-foreground">•</span>
-        <span className="text-xs text-muted-foreground">Author: Prof. LEMA</span>
+        <span className="text-xs text-muted-foreground">
+          Author: Prof. LEMA
+        </span>
       </>
     ),
     actions: (

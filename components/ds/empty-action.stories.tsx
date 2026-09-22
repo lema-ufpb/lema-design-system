@@ -55,9 +55,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(
-      canvas.getByText("No Simulation Found")
-    ).toBeInTheDocument()
+    await expect(canvas.getByText("No Simulation Found")).toBeInTheDocument()
     await expect(canvas.getByText("New Simulation")).toBeInTheDocument()
   },
 }
@@ -66,8 +64,7 @@ export const FilterZeroResults: Story = {
   args: {
     icon: <FilterX className="size-full" />,
     title: "No results for these filters",
-    description:
-      "Try adjusting the date range or removing some search terms.",
+    description: "Try adjusting the date range or removing some search terms.",
     secondaryAction: {
       label: "Clear Filters",
       onClick: () => alert("Filters cleared!"),

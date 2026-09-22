@@ -57,8 +57,8 @@ export const Default: Story = {
       <div className="flex h-64 flex-col items-center justify-center bg-muted/10 p-8 text-center">
         <h3 className="text-lg font-semibold">Example Dashboard</h3>
         <p className="mt-2 max-w-sm text-xs text-muted-foreground">
-          Insert your charts, screenshots or interactive components here
-          for product demonstration.
+          Insert your charts, screenshots or interactive components here for
+          product demonstration.
         </p>
       </div>
     ),
@@ -71,13 +71,13 @@ export const GlassVariant: Story = {
       <BrowserMockup variant="glass" url="https://design.lema.ufpb.br" glow>
         <div className="grid grid-cols-3 gap-4 p-6">
           <div className="flex h-28 flex-col justify-between rounded-lg border bg-card/80 p-3">
-            <span className="text-xs text-muted-foreground">
-              Active Users
-            </span>
+            <span className="text-xs text-muted-foreground">Active Users</span>
             <span className="text-2xl font-bold">14.820</span>
           </div>
           <div className="flex h-28 flex-col justify-between rounded-lg border bg-card/80 p-3">
-            <span className="text-xs text-muted-foreground">Average Uptime</span>
+            <span className="text-xs text-muted-foreground">
+              Average Uptime
+            </span>
             <span className="text-2xl font-bold text-success">99.98%</span>
           </div>
           <div className="flex h-28 flex-col justify-between rounded-lg border bg-card/80 p-3">
@@ -104,8 +104,7 @@ export const TerminalVariant: Story = {
         </p>
         <p className="text-zinc-400">✔ Resolving dependencies...</p>
         <p className="text-zinc-400">
-          ✔ Component added successfully at
-          components/ui/ds-hero-section.tsx
+          ✔ Component added successfully at components/ui/ds-hero-section.tsx
         </p>
         <p className="font-semibold text-emerald-400">
           Ready to create amazing interfaces! ✨

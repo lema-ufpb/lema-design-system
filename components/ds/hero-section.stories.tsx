@@ -75,16 +75,14 @@ export const CompleteCenteredHero: Story = {
 
       <HeroTitle size="large" gradient>
         Build{" "}
-        <TextRotator
-          words={["elegant", "accessible", "fast", "consistent"]}
-        />
+        <TextRotator words={["elegant", "accessible", "fast", "consistent"]} />
         <br />
         interfaces for academic digital products
       </HeroTitle>
 
       <HeroDescription size="large">
-        The definitive ecosystem of React 19, Tailwind CSS v4 and
-        shadcn/ui components standardized by the Federal University of Paraíba.
+        The definitive ecosystem of React 19, Tailwind CSS v4 and shadcn/ui
+        components standardized by the Federal University of Paraíba.
       </HeroDescription>
 
       <HeroActions align="center">
@@ -100,8 +98,8 @@ export const CompleteCenteredHero: Story = {
           <div className="flex h-72 flex-col items-center justify-center bg-card/60 p-8 text-center">
             <p className="text-lg font-semibold">Application Preview</p>
             <p className="mt-2 max-w-md text-xs text-muted-foreground">
-              High-fidelity frame to showcase admin system screens,
-              research dashboards and institutional portals.
+              High-fidelity frame to showcase admin system screens, research
+              dashboards and institutional portals.
             </p>
           </div>
         </BrowserMockup>
@@ -127,8 +125,8 @@ export const SplitHeroWithVideo: Story = {
         </HeroTitle>
 
         <HeroDescription>
-          Eliminate rework between design and engineering with
-          spec-first specifications, automated accessibility tests and interactive
+          Eliminate rework between design and engineering with spec-first
+          specifications, automated accessibility tests and interactive
           documentation in Storybook.
         </HeroDescription>
 
@@ -162,8 +160,8 @@ export const WithSocialProofMarquee: Story = {
       </HeroTitle>
 
       <HeroDescription>
-        Used by more than 20 laboratories and strategic projects for
-        technology and research.
+        Used by more than 20 laboratories and strategic projects for technology
+        and research.
       </HeroDescription>
 
       <div className="w-full pt-8">

@@ -238,8 +238,8 @@ export const StatusPage = React.forwardRef<HTMLDivElement, StatusPageProps>(
         {incidents && incidents.length > 0 && (
           <div className="flex flex-col gap-3 pt-2">
             <h2 className="text-sm font-semibold text-foreground">
-               Recent Incidents
-             </h2>
+              Recent Incidents
+            </h2>
             <div className="flex flex-col gap-3">
               {incidents.map((inc) => (
                 <div

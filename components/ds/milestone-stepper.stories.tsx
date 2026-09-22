@@ -67,9 +67,7 @@ type Story = StoryObj<typeof MilestoneStepper>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(
-      canvas.getByText("Laboratory Foundation")
-    ).toBeInTheDocument()
+    await expect(canvas.getByText("Laboratory Foundation")).toBeInTheDocument()
     await expect(canvas.getByText("2018")).toBeInTheDocument()
     await expect(canvas.getByText("2024")).toBeInTheDocument()
   },

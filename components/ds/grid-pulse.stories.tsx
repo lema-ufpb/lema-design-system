@@ -44,9 +44,7 @@ export const Default: Story = {
     <div className="relative flex min-h-[420px] w-full flex-col items-center justify-center overflow-hidden bg-background p-8">
       <GridPulse {...args} />
       <div className="relative z-10 max-w-xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight">
-          Hover over here
-        </h2>
+        <h2 className="text-3xl font-bold tracking-tight">Hover over here</h2>
         <p className="mt-3 text-sm text-muted-foreground">
           Interactive grid that only consumes CPU while the pointer is over the
           area — idle the rest of the time.

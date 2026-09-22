@@ -90,7 +90,7 @@ export const TopEdgeOnly: Story = {
       <ReceiptCardDivider />
       <ReceiptCardContent>
         <ReceiptCardItem>
-            <span>VIP Ticket</span>
+          <span>VIP Ticket</span>
           <span>$150.00</span>
         </ReceiptCardItem>
       </ReceiptCardContent>
