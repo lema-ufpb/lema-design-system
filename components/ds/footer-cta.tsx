@@ -58,39 +58,39 @@ export const footerCtaVariants = cva(
 export const FooterCta = React.forwardRef<HTMLElement, FooterCtaProps>(
   (
     {
-      ctaTitle = "Pronto para transformar sua experiência digital?",
-      ctaDescription = "Junte-se a pesquisadores, desenvolvedores e estudantes construindo aplicações web modernas com o LEMA Design System.",
+      ctaTitle = "Ready to transform your digital experience?",
+      ctaDescription = "Join researchers, developers, and students building modern web applications with the LEMA Design System.",
       primaryAction = {
-        label: "Começar agora",
+        label: "Get started now",
         href: "#",
       },
       secondaryAction = {
-        label: "Falar com a equipe",
+        label: "Talk to the team",
         href: "#",
       },
       columns = [
         {
-          title: "Produto",
+          title: "Product",
           options: [
-            { name: "Componentes", url: "#" },
+            { name: "Components", url: "#" },
             { name: "Tokens", url: "#" },
             { name: "Templates", url: "#" },
           ],
         },
         {
-          title: "Desenvolvedores",
+          title: "Developers",
           options: [
-            { name: "Documentação", url: "#" },
+            { name: "Documentation", url: "#" },
             { name: "GitHub", url: "#" },
             { name: "Registry", url: "#" },
           ],
         },
         {
-          title: "Institucional",
+          title: "Institutional",
           options: [
-            { name: "Sobre o LEMA", url: "#" },
+            { name: "About LEMA", url: "#" },
             { name: "UFPB", url: "#" },
-            { name: "Contato", url: "#" },
+            { name: "Contact", url: "#" },
           ],
         },
       ],
@@ -103,7 +103,7 @@ export const FooterCta = React.forwardRef<HTMLElement, FooterCtaProps>(
       brandName = "LEMA - UFPB",
       legalLinks,
       ctaTone = "glow",
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

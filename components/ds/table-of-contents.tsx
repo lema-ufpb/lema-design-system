@@ -9,7 +9,7 @@ export interface TocItem {
   id: string
   title: string
   /**
-   * O nível de indentação do item (geralmente corresponde à tag h1=1, h2=2, etc.)
+   * The indentation level of the item (usually corresponds to h1=1, h2=2, etc.)
    */
   level: number
 }
@@ -17,7 +17,7 @@ export interface TocItem {
 export interface TableOfContentsProps extends React.HTMLAttributes<HTMLElement> {
   items: TocItem[]
   /**
-   * Se providenciado, sobrescreve o rastreamento automático do scroll e controla o id ativo.
+   * If provided, overrides automatic scroll tracking and controls the active id.
    */
   activeId?: string
   /** Offset superior para acionar a troca do active element via scroll (em px) */
@@ -61,7 +61,7 @@ export const TableOfContents = React.forwardRef<
 
       const observer = new IntersectionObserver(
         (entries) => {
-          // Buscamos a última entry que está intersectando, priorizando a visibilidade do topo
+          // We look for the last intersecting entry, prioritizing top visibility
           const visibleEntries = entries.filter((e) => e.isIntersecting)
           if (visibleEntries.length > 0) {
             setInternalActiveId(visibleEntries[0].target.id)
@@ -85,7 +85,7 @@ export const TableOfContents = React.forwardRef<
       if (onItemClick) {
         onItemClick(id, e)
       } else {
-        // Comportamento padrão: scroll suave
+        // Default behavior: smooth scroll
         const el = document.getElementById(id)
         if (el) {
           e.preventDefault()
@@ -99,7 +99,7 @@ export const TableOfContents = React.forwardRef<
       }
     }
 
-    // Calcula o menor level para normalizar a indentação (se começar do h2, h2 será indent 0)
+    // Calculate the smallest level to normalize indentation (if starting from h2, h2 will be indent 0)
     const minLevel =
       items.length > 0 ? Math.min(...items.map((i) => i.level)) : 1
 

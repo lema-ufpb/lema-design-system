@@ -214,7 +214,7 @@ function formatValue(
           formatOptions?.minimumFractionDigits ??
           formatOptions?.maximumFractionDigits ??
           2,
-        locale: locale ?? "pt-BR",
+        locale: locale ?? "en-US",
       })
     case "number":
       return fmtValue(n, "float", {

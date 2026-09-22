@@ -49,8 +49,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: "Apresentando LEMA-DS v2.0",
-    tag: "Novo",
+    children: "Introducing LEMA-DS v2.0",
+    tag: "New",
     ping: true,
   },
 }
@@ -58,17 +58,17 @@ export const Default: Story = {
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col items-center gap-4">
-      <AnnouncementBadge variant="default" tag="Novo" ping>
-        Default: Atualizações do sistema liberadas
+      <AnnouncementBadge variant="default" tag="New" ping>
+        Default: System updates released
       </AnnouncementBadge>
       <AnnouncementBadge variant="outline" tag="Changelog">
-        Outline: Veja o que mudou na última versão
+        Outline: See what changed in the latest version
       </AnnouncementBadge>
-      <AnnouncementBadge variant="glow" tag="Destaque" ping>
-        Glow: Inteligência Artificial integrada
+      <AnnouncementBadge variant="glow" tag="Highlight" ping>
+        Glow: Integrated Artificial Intelligence
       </AnnouncementBadge>
       <AnnouncementBadge variant="gradient" tag="Beta">
-        Gradient: Experimente a nova experiência
+        Gradient: Try the new experience
       </AnnouncementBadge>
     </div>
   ),
@@ -78,13 +78,13 @@ export const AllSizes: Story = {
   render: () => (
     <div className="flex flex-col items-center gap-4">
       <AnnouncementBadge size="sm" tag="v2.1">
-        Tamanho Pequeno (sm)
+        Small Size (sm)
       </AnnouncementBadge>
       <AnnouncementBadge size="md" tag="v2.1" ping>
-        Tamanho Padrão (md)
+        Default Size (md)
       </AnnouncementBadge>
       <AnnouncementBadge size="lg" tag="v2.1" ping>
-        Tamanho Grande (lg)
+        Large Size (lg)
       </AnnouncementBadge>
     </div>
   ),
@@ -93,7 +93,7 @@ export const AllSizes: Story = {
 export const WithCustomIcon: Story = {
   args: {
     icon: <SparklesIcon className="size-3.5 text-primary" />,
-    children: "Turbine sua produtividade com automações",
+    children: "Boost your productivity with automations",
     variant: "glow",
   },
 }
@@ -103,7 +103,7 @@ export const AsLink: Story = {
     href: "https://github.com/lema-ufpb/design-system",
     target: "_blank",
     rel: "noopener noreferrer",
-    children: "Confira o repositório oficial no GitHub",
+    children: "Check out the official repository on GitHub",
     tag: "Open Source",
   },
 }

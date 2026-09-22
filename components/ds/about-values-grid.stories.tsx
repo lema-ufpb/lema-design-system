@@ -12,39 +12,39 @@ import { AboutValuesGrid } from "./about-values-grid"
 
 const sampleValues = [
   {
-    title: "Excelência Científica",
+    title: "Scientific Excellence",
     description:
-      "Rigor metodológico contínuo em todas as fases da investigação e do desenvolvimento.",
+      "Continuous methodological rigor at every stage of research and development.",
     icon: Sparkles,
   },
   {
-    title: "Transparência e Ética",
+    title: "Transparency and Ethics",
     description:
-      "Compromisso irrestrito com a reprodutibilidade dos dados e o código aberto.",
+      "Unwavering commitment to data reproducibility and open source.",
     icon: ShieldCheck,
   },
   {
-    title: "Impacto Social",
+    title: "Social Impact",
     description:
-      "Pesquisa que transcende os muros da universidade para resolver demandas reais da população.",
+      "Research that transcends university walls to solve real-world needs of the population.",
     icon: HeartHandshake,
   },
   {
-    title: "Inovação Acessível",
+    title: "Accessible Innovation",
     description:
-      "Design de interfaces intuitivas construídas sob os mais rigorosos critérios de acessibilidade.",
+      "Intuitive interface design built to the most rigorous accessibility standards.",
     icon: Lightbulb,
   },
   {
-    title: "Colaboração Multidisciplinar",
+    title: "Multidisciplinary Collaboration",
     description:
-      "Integração contínua entre estatísticos, desenvolvedores, designers e especialistas de domínio.",
+      "Continuous integration among statisticians, developers, designers and domain experts.",
     icon: Users,
   },
   {
-    title: "Formação de Futuro",
+    title: "Future Training",
     description:
-      "Dedicação à mentoria contínua de novos talentos e novos pesquisadores.",
+      "Dedication to continuous mentoring of new talents and researchers.",
     icon: Compass,
   },
 ]
@@ -79,13 +79,13 @@ const meta: Meta<typeof AboutValuesGrid> = {
     layout: "fullscreen",
   },
   args: {
-    badge: "Nossos Valores",
-    title: "Os pilares fundamentais que norteiam nossas pesquisas",
+    badge: "Our Values",
+    title: "The fundamental pillars guiding our research",
     description:
-      "Conheça os princípios inegociáveis que orientam cada linha de código e cada modelo matemático desenvolvido no LEMA.",
+      "Discover the non-negotiable principles guiding every line of code and every mathematical model developed at LEMA.",
     values: sampleValues,
     columns: 3,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -95,9 +95,9 @@ type Story = StoryObj<typeof AboutValuesGrid>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText("Nossos Valores")).toBeInTheDocument()
-    await expect(canvas.getByText("Excelência Científica")).toBeInTheDocument()
-    await expect(canvas.getByText("Formação de Futuro")).toBeInTheDocument()
+    await expect(canvas.getByText("Our Values")).toBeInTheDocument()
+    await expect(canvas.getByText("Scientific Excellence")).toBeInTheDocument()
+    await expect(canvas.getByText("Future Training")).toBeInTheDocument()
   },
 }
 

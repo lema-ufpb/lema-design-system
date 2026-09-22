@@ -60,7 +60,7 @@ export const SkeletonLayout = React.forwardRef<
       pattern = "dashboard",
       rows = 4,
       columns = 4,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

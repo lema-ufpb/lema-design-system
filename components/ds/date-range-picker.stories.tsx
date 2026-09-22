@@ -30,7 +30,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Language locale for calendar and labels.",
     },
     size: {
@@ -54,7 +54,7 @@ function InteractiveRangePicker(
 export const Default: Story = {
   render: (args) => <InteractiveRangePicker {...args} />,
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -65,7 +65,7 @@ export const Default: Story = {
 export const WithPreselectedRange: Story = {
   render: (args) => <InteractiveRangePicker {...args} />,
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
     date: {
       from: subDays(new Date(), 14),
       to: new Date(),
@@ -77,7 +77,7 @@ export const WithoutPresets: Story = {
   render: (args) => <InteractiveRangePicker {...args} />,
   args: {
     presets: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -104,8 +104,8 @@ export const AllSizes: Story = {
 export const Locales: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
-      <InteractiveRangePicker locale="pt-BR" />
       <InteractiveRangePicker locale="en-US" />
+      <InteractiveRangePicker locale="pt-BR" />
       <InteractiveRangePicker locale="es-ES" />
       <InteractiveRangePicker locale="fr-FR" />
     </div>

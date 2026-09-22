@@ -33,19 +33,19 @@ export const PricingCalculator = React.forwardRef<
   (
     {
       basePrice = 0,
-      unitLabel = "usuários",
+      unitLabel = "users",
       unitPrice = 15,
       minUnits = 1,
       maxUnits = 100,
       step = 1,
       discountPercent = 20,
-      currency = "R$",
-      title = "Calcule seu plano",
-      description = "Ajuste o volume necessário e veja seu preço final na hora.",
+      currency = "$",
+      title = "Calculate your plan",
+      description = "Adjust the required volume and see your final price instantly.",
       features = [
-        "Suporte prioritário 24/7",
-        "Analytics avançados",
-        "Integrações ilimitadas",
+        "24/7 priority support",
+        "Advanced analytics",
+        "Unlimited integrations",
         "SSO (Single Sign-On)",
       ],
       className,
@@ -75,7 +75,7 @@ export const PricingCalculator = React.forwardRef<
         )}
         {...props}
       >
-        {/* Esquerda: Controles */}
+        {/* Left: Controls */}
         <div className="flex flex-col justify-center p-8 sm:p-10">
           <h3 className="text-2xl font-bold tracking-tight text-card-foreground">
             {title}
@@ -85,7 +85,7 @@ export const PricingCalculator = React.forwardRef<
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
-                <Label className="text-base">Quantidade de {unitLabel}</Label>
+                <Label className="text-base">Quantity of {unitLabel}</Label>
                 <span className="font-mono text-xl font-bold text-foreground tabular-nums">
                   {units}
                 </span>
@@ -106,10 +106,10 @@ export const PricingCalculator = React.forwardRef<
                   htmlFor="billing-toggle"
                   className="cursor-pointer text-base"
                 >
-                  Faturamento Anual
+                  Annual Billing
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Economize até {discountPercent}%
+                  Save up to {discountPercent}%
                 </p>
               </div>
               <Switch
@@ -121,17 +121,17 @@ export const PricingCalculator = React.forwardRef<
           </div>
         </div>
 
-        {/* Direita: Resultado */}
+        {/* Right: Result */}
         <div className="flex flex-col justify-between bg-muted p-8 sm:p-10">
           <div>
             <div className="mb-2 flex items-center justify-between">
-              <h4 className="font-semibold text-foreground">Resumo do Plano</h4>
+              <h4 className="font-semibold text-foreground">Plan Summary</h4>
               {isYearly && (
                 <Badge
                   variant="default"
                   className="bg-success text-success-foreground hover:bg-success/80"
                 >
-                  Desconto Aplicado
+                  Discount Applied
                 </Badge>
               )}
             </div>
@@ -141,13 +141,13 @@ export const PricingCalculator = React.forwardRef<
                 {currency}
               </span>
               <span className="ml-1 text-6xl font-bold tracking-tight tabular-nums">
-                {price.toLocaleString("pt-BR", {
+                {price.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })}
               </span>
               <span className="ml-2 text-sm text-muted-foreground">
-                / {isYearly ? "mês (cobrado anualmente)" : "mês"}
+                / {isYearly ? "month (billed annually)" : "month"}
               </span>
             </div>
 
@@ -165,7 +165,7 @@ export const PricingCalculator = React.forwardRef<
           </div>
 
           <Button size="lg" className="mt-10 w-full font-semibold">
-            Assinar Agora
+            Subscribe Now
           </Button>
         </div>
       </div>

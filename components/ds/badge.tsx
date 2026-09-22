@@ -93,7 +93,7 @@ function Badge({
   count,
   onRemove,
   loading = false,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
   children,
   style,

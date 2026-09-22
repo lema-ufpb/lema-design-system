@@ -49,7 +49,7 @@ export const FooterNewsletter = React.forwardRef<
       title,
       description,
       onSubscribe,
-      locale = "pt-BR",
+      locale = "en-US",
       showPrivacyNotice = true,
       className,
       ...props

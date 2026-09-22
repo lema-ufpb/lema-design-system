@@ -82,7 +82,7 @@ export function Screenshot({
         role="status"
         aria-live="polite"
         aria-busy="true"
-        aria-label="Carregando captura de tela"
+        aria-label="Loading screenshot"
         className={cn(
           screenshotVariants({ rounded, shadow, aspect }),
           className

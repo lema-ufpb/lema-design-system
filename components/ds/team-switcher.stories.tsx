@@ -69,7 +69,7 @@ export const AllLocales: Story = {
   parameters: { a11y: { disable: true } },
   render: () => (
     <div className="flex flex-col gap-4">
-      {(["pt-BR", "en-US", "es-ES", "fr-FR"] as const).map((locale) => (
+      {(["en-US", "pt-BR", "es-ES", "fr-FR"] as const).map((locale) => (
         <SidebarProvider key={locale}>
           <div className="w-64 border bg-sidebar p-2">
             <TeamSwitcher teams={teams} locale={locale} />

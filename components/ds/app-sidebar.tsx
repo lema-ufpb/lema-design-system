@@ -241,7 +241,7 @@ export function AppSidebar({
   searchPlaceholder,
   collapsible = "offcanvas",
   sidebarVariant = "sidebar",
-  locale = "pt-BR",
+  locale = "en-US",
   loading = false,
   onNavItemClick,
   onProjectClick,
@@ -249,7 +249,7 @@ export function AppSidebar({
   className,
   ...props
 }: AppSidebarProps) {
-  const t = UI_I18N[locale]?.sidebar ?? UI_I18N["pt-BR"].sidebar
+  const t = UI_I18N[locale]?.sidebar ?? UI_I18N["en-US"].sidebar
 
   if (loading) {
     return (

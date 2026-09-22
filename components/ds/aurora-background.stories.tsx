@@ -49,10 +49,10 @@ export const Default: Story = {
         Build faster with Aceternity inspired
       </h2>
       <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-        Aurora boreal com gradientes animados, grid sutil e máscara radial —
-        100% tokens sem raw.
+        Boreal aurora with animated gradients, subtle grid and radial mask —
+        100% tokens, no raw values.
       </p>
-      <Button className="mt-6 rounded-full">Começar agora</Button>
+      <Button className="mt-6 rounded-full">Get started now</Button>
     </AuroraBackground>
   ),
   args: { variant: "default", intensity: "medium" },
@@ -67,7 +67,7 @@ export const Dark: Story = {
     >
       <h2 className="text-3xl font-bold">Dark aurora</h2>
       <p className="mt-2 text-sm text-white/70">
-        Para heroes escuros com contraste alto
+        For dark heroes with high contrast
       </p>
     </AuroraBackground>
   ),
@@ -81,7 +81,7 @@ export const Subtle: Story = {
       className="h-[320px] items-center justify-center"
     >
       <p className="text-sm text-muted-foreground">
-        Intensidade sutil para fundos de seção
+        Subtle intensity for section backgrounds
       </p>
     </AuroraBackground>
   ),

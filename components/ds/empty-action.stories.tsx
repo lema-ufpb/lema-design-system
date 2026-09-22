@@ -19,9 +19,9 @@ const meta = {
     },
   },
   args: {
-    title: "Nenhuma Simulação Encontrada",
+    title: "No Simulation Found",
     description:
-      "Crie sua primeira estimativa ou importe parâmetros de uma série histórica para começar.",
+      "Create your first estimate or import parameters from a historical series to get started.",
   },
   argTypes: {
     size: {
@@ -31,7 +31,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Language locale.",
     },
   },
@@ -44,33 +44,30 @@ export const Default: Story = {
   args: {
     icon: <Database className="size-full" />,
     primaryAction: {
-      label: "Nova Simulação",
+      label: "New Simulation",
       icon: <Plus className="size-4" />,
-      onClick: () => alert("Criando nova simulação!"),
+      onClick: () => alert("Creating new simulation!"),
     },
     secondaryAction: {
-      label: "Ver Documentação",
-      onClick: () => alert("Abrindo docs!"),
+      label: "View Documentation",
+      onClick: () => alert("Opening docs!"),
     },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(
-      canvas.getByText("Nenhuma Simulação Encontrada")
-    ).toBeInTheDocument()
-    await expect(canvas.getByText("Nova Simulação")).toBeInTheDocument()
+    await expect(canvas.getByText("No Simulation Found")).toBeInTheDocument()
+    await expect(canvas.getByText("New Simulation")).toBeInTheDocument()
   },
 }
 
 export const FilterZeroResults: Story = {
   args: {
     icon: <FilterX className="size-full" />,
-    title: "Nenhum resultado para estes filtros",
-    description:
-      "Tente ajustar o intervalo de datas ou remover alguns termos da busca.",
+    title: "No results for these filters",
+    description: "Try adjusting the date range or removing some search terms.",
     secondaryAction: {
-      label: "Limpar Filtros",
-      onClick: () => alert("Filtros limpos!"),
+      label: "Clear Filters",
+      onClick: () => alert("Filters cleared!"),
     },
   },
 }
@@ -78,12 +75,12 @@ export const FilterZeroResults: Story = {
 export const WithSuggestions: Story = {
   args: {
     primaryAction: {
-      label: "Conectar Base de Dados",
+      label: "Connect Database",
     },
     suggestions: [
-      "Configurar credenciais do S3 / RustFS",
-      "Definir dicionário de variáveis",
-      "Executar validação de esquema de colunas",
+      "Configure S3 / RustFS credentials",
+      "Define variable dictionary",
+      "Run column schema validation",
     ],
   },
 }
@@ -93,15 +90,15 @@ export const AllSizes: Story = {
     <div className="flex w-full max-w-xl flex-col gap-6">
       <EmptyAction
         size="sm"
-        title="Pequeno (sm)"
-        description="Adequado para uso interno em cartões ou widgets compactos."
-        primaryAction={{ label: "Adicionar" }}
+        title="Small (sm)"
+        description="Suitable for internal use in compact cards or widgets."
+        primaryAction={{ label: "Add" }}
       />
       <EmptyAction
         size="md"
-        title="Médio (md)"
-        description="Padrão do design system para seções de página inteira."
-        primaryAction={{ label: "Adicionar Item" }}
+        title="Medium (md)"
+        description="Design system default for full-page sections."
+        primaryAction={{ label: "Add Item" }}
       />
     </div>
   ),
@@ -111,15 +108,15 @@ export const Locales: Story = {
   render: () => (
     <div className="flex max-w-lg flex-col gap-6">
       <EmptyAction
-        locale="pt-BR"
-        title="Sem dados"
-        description="Nenhum registro localizado"
-        primaryAction={{ label: "Começar" }}
-      />
-      <EmptyAction
         locale="en-US"
         title="No data"
         description="No records found in this view"
+        primaryAction={{ label: "Get started" }}
+      />
+      <EmptyAction
+        locale="pt-BR"
+        title="No data"
+        description="No records found"
         primaryAction={{ label: "Get started" }}
       />
     </div>

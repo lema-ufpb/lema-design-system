@@ -144,7 +144,7 @@ export const LocalePTBR: Story = {
     min: 0,
     max: 10,
     step: 1,
-    locale: "pt-BR",
+    locale: "en-US",
   },
   parameters: {
     docs: {

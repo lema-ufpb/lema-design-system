@@ -90,7 +90,7 @@ export const SystemStatusBadge = React.forwardRef<
       uptime,
       href,
       size = "md",
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

@@ -89,7 +89,7 @@ export function FeatureSpotlight({
   side = "bottom",
   align = "start",
   showBeacon = true,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
 }: FeatureSpotlightProps) {
   const [internalOpen, setInternalOpen] = React.useState(true)

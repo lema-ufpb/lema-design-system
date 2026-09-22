@@ -162,7 +162,7 @@ export const Default: Story = {
     showProgress: false,
     loading: false,
     loadingSlideCount: 4,
-    locale: "pt-BR",
+    locale: "en-US",
     navVariant: "outline",
     navSize: "icon-sm",
     dotVariant: "filled",

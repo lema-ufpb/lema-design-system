@@ -63,7 +63,7 @@ export function PricingCard({
   price,
   originalPrice,
   period = "month",
-  currency = "R$",
+  currency = "$",
   badge,
   featured = false,
   features = [],

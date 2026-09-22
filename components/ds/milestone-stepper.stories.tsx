@@ -5,29 +5,29 @@ import { MilestoneStepper } from "./milestone-stepper"
 const sampleMilestones = [
   {
     year: "2018",
-    title: "Fundação do Laboratório",
+    title: "Laboratory Foundation",
     description:
-      "Início das atividades de pesquisa aplicada com foco em modelagem estatística e análise de dados.",
-    badge: "Marco Zero",
+      "Start of applied research activities focused on statistical modeling and data analysis.",
+    badge: "Milestone Zero",
   },
   {
     year: "2020",
-    title: "Primeira Publicação Internacional",
+    title: "First International Publication",
     description:
-      "Reconhecimento internacional com artigo de impacto sobre inferência bayesiana aplicada à saúde.",
+      "International recognition with an impactful article on Bayesian inference applied to health.",
   },
   {
     year: "2022",
-    title: "Expansão da Equipe e Parcerias",
+    title: "Team Expansion and Partnerships",
     description:
-      "Criação do programa de iniciação científica e cooperação técnica com instituições parceiras.",
+      "Creation of the scientific initiation program and technical cooperation with partner institutions.",
   },
   {
     year: "2024",
-    title: "Lançamento do LEMA-DS",
+    title: "LEMA-DS Launch",
     description:
-      "Publicação do Design System unificado e acessível para todos os ecossistemas de software do laboratório.",
-    badge: "Presente",
+      "Release of the unified, accessible Design System for all of the laboratory's software ecosystems.",
+    badge: "Present",
   },
 ]
 
@@ -67,9 +67,7 @@ type Story = StoryObj<typeof MilestoneStepper>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(
-      canvas.getByText("Fundação do Laboratório")
-    ).toBeInTheDocument()
+    await expect(canvas.getByText("Laboratory Foundation")).toBeInTheDocument()
     await expect(canvas.getByText("2018")).toBeInTheDocument()
     await expect(canvas.getByText("2024")).toBeInTheDocument()
   },

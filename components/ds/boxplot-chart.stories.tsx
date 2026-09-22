@@ -558,7 +558,7 @@ export const LocalePTBR: Story = {
     showMean: true,
     showOutliers: true,
     height: 320,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 

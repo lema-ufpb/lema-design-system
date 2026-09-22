@@ -73,11 +73,11 @@ interface ShootingStar {
 
 /**
  * Chuva de estrelas pulsantes — canvas 2D com estrelas que respiram,
- * cintilam e, ocasionalmente, riscam o céu como estrelas cadentes.
+ * twinkle and occasionally streak across the sky like shooting stars.
  * 100% decorativo (`aria-hidden`), pausa fora da viewport / aba inativa
- * e vira frame estático sob `prefers-reduced-motion`.
+ * and becomes a static frame under `prefers-reduced-motion`.
  *
- * Surpresa: 18% das estrelas são "cross" (4 pontas) com brilho, e o modo
+ * Surprise: 18% of stars are "cross" (4 points) with glow, and the mode
  * `interactive` aplica parallax sutil no mousemove com profundidade por raio.
  */
 export const StarShower = React.forwardRef<HTMLDivElement, StarShowerProps>(
@@ -127,7 +127,7 @@ export const StarShower = React.forwardRef<HTMLDivElement, StarShowerProps>(
         getComputedStyle(container).getPropertyValue("--star-color").trim() ||
         "currentColor"
 
-      // Se o fundo é escuro e a cor computada é muito escura (primary em light), clareia para branco
+      // If the background is dark and the computed color is too dark (primary in light), lighten to white
       const starColor = (() => {
         if (!isDarkBg) return rawColor
         // rawColor pode ser oklch(0.205 0 0) — escuro; troca para branco em hero dark

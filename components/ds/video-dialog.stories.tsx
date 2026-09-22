@@ -41,7 +41,7 @@ const meta = {
     },
     locale: {
       control: "select",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
 } satisfies Meta<typeof VideoDialog>
@@ -51,14 +51,14 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: "Apresentação do LEMA Design System",
+    title: "LEMA Design System Presentation",
     thumbnailSrc:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80",
-    thumbnailAlt: "Thumbnail com formas abstratas elegantes",
+    thumbnailAlt: "Thumbnail with elegant abstract shapes",
     videoSrc: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
     variant: "default",
     aspectRatio: "16/9",
-    locale: "pt-BR",
+    locale: "en-US",
   },
   render: (args) => (
     <div className="mx-auto max-w-2xl py-6">
@@ -69,7 +69,7 @@ export const Default: Story = {
 
 export const GlowVariant: Story = {
   args: {
-    title: "Visão Geral da Arquitetura de Componentes",
+    title: "Component Architecture Overview",
     thumbnailSrc:
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80",
     videoSrc: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
@@ -85,7 +85,7 @@ export const GlowVariant: Story = {
 
 export const MinimalVariant: Story = {
   args: {
-    title: "Demo rápida de 30 segundos",
+    title: "Quick 30-second demo",
     thumbnailSrc:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80",
     videoSrc: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",

@@ -79,7 +79,7 @@ export const DateRangePicker = React.forwardRef<
       presets = true,
       placeholder,
       disabled = false,
-      locale = "pt-BR",
+      locale = "en-US",
       size = "md",
       className,
       ...props

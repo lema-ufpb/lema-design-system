@@ -41,7 +41,7 @@ const meta = {
     },
     locale: {
       control: "radio",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
       description: "Locale for date formatting.",
     },
     size: {
@@ -65,7 +65,7 @@ function InteractiveDatePicker(props: React.ComponentProps<typeof DatePicker>) {
 export const Default: Story = {
   render: (args) => <InteractiveDatePicker {...args} />,
   args: {
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -102,8 +102,8 @@ export const AllSizes: Story = {
 export const Locales: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
-      <DatePicker locale="pt-BR" date={new Date(2025, 0, 1)} />
       <DatePicker locale="en-US" date={new Date(2025, 0, 1)} />
+      <DatePicker locale="pt-BR" date={new Date(2025, 0, 1)} />
       <DatePicker locale="es-ES" date={new Date(2025, 0, 1)} />
       <DatePicker locale="fr-FR" date={new Date(2025, 0, 1)} />
     </div>

@@ -10,9 +10,9 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Fundo de constelação (partículas conectadas por linhas) para hero sections, renderizado em canvas 2D.",
-          "Pausa via `IntersectionObserver` fora da viewport e via `visibilitychange` com a aba oculta; DPR limitado a 2x; vira frame estático sob `prefers-reduced-motion`.",
-          "Posicione com `absolute inset-0` atrás do conteúdo (`relative z-10`).",
+          "Constellation background (particles connected by lines) for hero sections, rendered on 2D canvas.",
+          "Pauses via `IntersectionObserver` out of viewport and via `visibilitychange` when tab is hidden; DPR capped at 2x; becomes static frame under `prefers-reduced-motion`.",
+          "Position with `absolute inset-0` behind content (`relative z-10`).",
           "",
           "---",
           "",
@@ -20,8 +20,8 @@ const meta = {
           "",
           "| Prop | Type | Default | Description |",
           "| --- | --- | --- | --- |",
-          '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "neutral"` | `"primary"` | Cor das partículas e linhas |',
-          '| `density` | `"sm" \\| "md" \\| "lg"` | `"md"` | Quantidade máxima de partículas e distância de conexão |',
+          '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "neutral"` | `"primary"` | Particle and line color |',
+          '| `density` | `"sm" \\| "md" \\| "lg"` | `"md"` | Max particles and connection distance |',
         ].join("\n"),
       },
     },
@@ -45,15 +45,15 @@ export const Default: Story = {
       <ParticleField {...args} />
       <div className="relative z-10 max-w-xl text-center">
         <h2 className="text-3xl font-bold tracking-tight">
-          Conecte pontos, construa produtos
+          Connect dots, build products
         </h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Rede de partículas leve o suficiente para rodar atrás de qualquer hero
-          sem travar a rolagem.
+          Particle network light enough to run behind any hero without janking
+          scroll.
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Button>Começar agora</Button>
-          <Button variant="outline">Ver documentação</Button>
+          <Button>Get started now</Button>
+          <Button variant="outline">View documentation</Button>
         </div>
       </div>
     </div>

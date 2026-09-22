@@ -40,7 +40,7 @@ export function NotificationCenter({
   onMarkAllAsRead,
   emptyText,
   title,
-  locale = "pt-BR",
+  locale = "en-US",
   className,
 }: NotificationCenterProps) {
   const i18n = UI_I18N[locale].notificationCenter

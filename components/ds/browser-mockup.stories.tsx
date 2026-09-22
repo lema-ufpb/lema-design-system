@@ -55,10 +55,10 @@ export const Default: Story = {
     glow: true,
     children: (
       <div className="flex h-64 flex-col items-center justify-center bg-muted/10 p-8 text-center">
-        <h3 className="text-lg font-semibold">Dashboard de Exemplo</h3>
+        <h3 className="text-lg font-semibold">Example Dashboard</h3>
         <p className="mt-2 max-w-sm text-xs text-muted-foreground">
-          Insira aqui seus gráficos, capturas de tela ou componentes interativos
-          para a demonstração do produto.
+          Insert your charts, screenshots or interactive components here for
+          product demonstration.
         </p>
       </div>
     ),
@@ -71,18 +71,18 @@ export const GlassVariant: Story = {
       <BrowserMockup variant="glass" url="https://design.lema.ufpb.br" glow>
         <div className="grid grid-cols-3 gap-4 p-6">
           <div className="flex h-28 flex-col justify-between rounded-lg border bg-card/80 p-3">
-            <span className="text-xs text-muted-foreground">
-              Usuários Ativos
-            </span>
+            <span className="text-xs text-muted-foreground">Active Users</span>
             <span className="text-2xl font-bold">14.820</span>
           </div>
           <div className="flex h-28 flex-col justify-between rounded-lg border bg-card/80 p-3">
-            <span className="text-xs text-muted-foreground">Uptime Médio</span>
+            <span className="text-xs text-muted-foreground">
+              Average Uptime
+            </span>
             <span className="text-2xl font-bold text-success">99.98%</span>
           </div>
           <div className="flex h-28 flex-col justify-between rounded-lg border bg-card/80 p-3">
             <span className="text-xs text-muted-foreground">
-              Requests / seg
+              Requests / sec
             </span>
             <span className="text-2xl font-bold">4.2k</span>
           </div>
@@ -96,19 +96,18 @@ export const TerminalVariant: Story = {
   render: () => (
     <BrowserMockup variant="terminal" url="zsh — lema-ds-cli">
       <div className="min-h-[160px] space-y-1.5 bg-zinc-950 p-4 font-mono text-xs text-zinc-300">
-        <p className="text-zinc-500"># Instalando o design system da UFPB...</p>
+        <p className="text-zinc-500"># Installing the UFPB design system...</p>
         <p>
           <span className="text-emerald-400">➜</span>{" "}
           <span className="text-cyan-400">~</span> npx shadcn@latest add
           https://design.lema.ufpb.br/r/ds-hero-section.json
         </p>
-        <p className="text-zinc-400">✔ Resolvendo dependências...</p>
+        <p className="text-zinc-400">✔ Resolving dependencies...</p>
         <p className="text-zinc-400">
-          ✔ Componente adicionado com sucesso em
-          components/ui/ds-hero-section.tsx
+          ✔ Component added successfully at components/ui/ds-hero-section.tsx
         </p>
         <p className="font-semibold text-emerald-400">
-          Pronto para criar interfaces incríveis! ✨
+          Ready to create amazing interfaces! ✨
         </p>
       </div>
     </BrowserMockup>
@@ -122,7 +121,7 @@ export const WindowsControls: Story = {
     url: "https://intranet.ufpb.br",
     children: (
       <div className="p-8 text-center text-xs text-muted-foreground">
-        Visual minimalista com controles clássicos de janela estilo Windows.
+        Minimalist look with classic Windows-style window controls.
       </div>
     ),
   },

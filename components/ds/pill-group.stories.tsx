@@ -474,23 +474,23 @@ export const Loading: Story = {
   },
 }
 
-export const LocalePTBR: Story = {
+export const LocaleENUS: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div>
         <p className="mb-2 text-xs text-muted-foreground">
-          Locale: pt-BR — contagens formatadas com separador brasileiro
+          Locale: en-US — counts formatted with US separator
         </p>
         <PillGroup
-          locale="pt-BR"
+          locale="en-US"
           items={[
-            { value: "todos", label: "Todos", count: 1234 },
-            { value: "normal", label: "Auditoria Normal", count: 456 },
-            { value: "malha", label: "Malha Fiscal", count: 389 },
-            { value: "permanente", label: "Acomp. Permanente", count: 389 },
+            { value: "all", label: "All", count: 1234 },
+            { value: "normal", label: "Normal Audit", count: 456 },
+            { value: "mesh", label: "Tax Mesh", count: 389 },
+            { value: "permanent", label: "Permanent Track", count: 389 },
           ]}
-          defaultValue="todos"
-          label="Filtrar por tipo de auditoria"
+          defaultValue="all"
+          label="Filter by audit type"
         />
       </div>
     </div>

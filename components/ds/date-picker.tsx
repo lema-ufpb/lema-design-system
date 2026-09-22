@@ -63,7 +63,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       onSelect,
       placeholder,
       disabled = false,
-      locale = "pt-BR",
+      locale = "en-US",
       size = "md",
       className,
       ...props

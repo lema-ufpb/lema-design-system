@@ -46,13 +46,13 @@ export const LoginSplitScreen: Story = {
       appName="LEMA ID"
       testimonial={{
         quote:
-          "O ecossistema unificado da UFPB reduziu a complexidade de acesso a laboratórios e pesquisas acadêmicas.",
+          "The unified UFPB ecosystem reduced the complexity of accessing laboratories and academic research.",
         author: "Dra. Beatriz Fernandes",
-        role: "Pesquisadora Principal · CCEN UFPB",
+        role: "Principal Researcher · CCEN UFPB",
       }}
       stats={[
-        { label: "Usuários Ativos", value: "32.000+" },
-        { label: "Sistemas Integrados", value: "48" },
+        { label: "Active Users", value: "32.000+" },
+        { label: "Integrated Systems", value: "48" },
       ]}
     >
       <LoginForm
@@ -68,11 +68,11 @@ export const SignUpSplitScreen: Story = {
   render: () => (
     <AuthSplitScreen
       appName="LEMA ID"
-      brandHeadline="Junte-se à maior comunidade de inovação acadêmica da Paraíba"
-      brandDescription="Acesso centralizado a laboratórios, bolsas de pesquisa, editais e ferramentas institucionais de alta produtividade."
+      brandHeadline="Join the largest academic innovation community in Paraíba"
+      brandDescription="Centralized access to laboratories, research grants, calls for proposals and high-productivity institutional tools."
       stats={[
-        { label: "Laboratórios Conectados", value: "24" },
-        { label: "Artigos e Patentes", value: "1.200+" },
+        { label: "Connected Laboratories", value: "24" },
+        { label: "Articles and Patents", value: "1.200+" },
       ]}
     >
       <SignUpForm variant="flat" socialProviders={["google", "govbr"]} />
@@ -87,9 +87,9 @@ export const ReversedTestimonialLeft: Story = {
       appName="LEMA Cloud"
       testimonial={{
         quote:
-          "A facilidade do login unificado acelerou em dias a integração dos novos bolsistas de iniciação científica.",
+          "The ease of unified login accelerated by days the onboarding of new scientific initiation scholarship holders.",
         author: "Prof. Marcos Andrade",
-        role: "Coordenador de TI · CI UFPB",
+        role: "IT Coordinator · CI UFPB",
       }}
     >
       <LoginForm variant="flat" socialProviders={["govbr", "google"]} />

@@ -5,29 +5,29 @@ import { AboutMilestones } from "./about-milestones"
 const sampleMilestones = [
   {
     year: "2018",
-    title: "Fundação do Laboratório",
+    title: "Laboratory Foundation",
     description:
-      "Criação do núcleo de pesquisa aplicada no Centro de Ciências Exatas e da Natureza da UFPB.",
-    badge: "Origem",
+      "Creation of the applied research center at the Center for Exact Sciences and Nature at UFPB.",
+    badge: "Origin",
   },
   {
     year: "2020",
-    title: "Primeira Cooperação Técnica",
+    title: "First Technical Cooperation",
     description:
-      "Formalização de convênio com órgãos governamentais para modelagem preditiva de indicadores públicos.",
+      "Formalization of agreements with government agencies for predictive modeling of public indicators.",
   },
   {
     year: "2022",
-    title: "Expansão para Engenharia e Design",
+    title: "Expansion into Engineering and Design",
     description:
-      "Integração da frente de design de interação e desenvolvimento de bibliotecas frontend acessíveis.",
+      "Integration of the interaction design front and development of accessible frontend libraries.",
   },
   {
     year: "2024",
-    title: "Lançamento do LEMA-DS",
+    title: "Launch of LEMA-DS",
     description:
-      "Disponibilização do ecossistema de componentes públicos para consumo via CLI e registry.",
-    badge: "Consolidação",
+      "Release of the public component ecosystem for consumption via CLI and registry.",
+    badge: "Consolidation",
   },
 ]
 
@@ -61,13 +61,13 @@ const meta: Meta<typeof AboutMilestones> = {
     layout: "fullscreen",
   },
   args: {
-    badge: "Nossa Trajetória",
-    title: "Uma jornada pautada na ciência e no impacto coletivo",
+    badge: "Our Journey",
+    title: "A journey guided by science and collective impact",
     description:
-      "Acompanhe a linha do tempo com os momentos mais marcantes da nossa história acadêmica e tecnológica.",
+      "Follow the timeline with the most remarkable moments of our academic and technological history.",
     milestones: sampleMilestones,
     orientation: "vertical",
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 
@@ -77,9 +77,9 @@ type Story = StoryObj<typeof AboutMilestones>
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText("Nossa Trajetória")).toBeInTheDocument()
+    await expect(canvas.getByText("Our Journey")).toBeInTheDocument()
     await expect(
-      canvas.getByText(/Uma jornada pautada na ciência/i)
+      canvas.getByText(/A journey guided by science/i)
     ).toBeInTheDocument()
     await expect(canvas.getByText("2018")).toBeInTheDocument()
   },

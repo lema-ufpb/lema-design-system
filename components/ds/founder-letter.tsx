@@ -55,7 +55,7 @@ export function FounderLetter({
       {...props}
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
-        {/* Coluna do Autor / Liderança */}
+        {/* Author / Leadership Column */}
         <div className="flex flex-col items-start gap-4 border-b border-border/50 pb-6 md:border-r md:border-b-0 md:pr-6 md:pb-0">
           {authorAvatar ? (
             /* eslint-disable-next-line @next/next/no-img-element */
@@ -84,7 +84,7 @@ export function FounderLetter({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={authorSignature}
-                alt={`Assinatura de ${authorName}`}
+                alt={`Signature of ${authorName}`}
                 loading="lazy"
                 decoding="async"
                 className="h-10 w-auto opacity-75"
@@ -93,7 +93,7 @@ export function FounderLetter({
           )}
         </div>
 
-        {/* Coluna do Conteúdo / Prosa */}
+        {/* Content / Prose Column */}
         <div className="flex flex-col gap-4 md:col-span-2">
           <h3 className="text-xl font-bold tracking-tight text-foreground md:text-2xl">
             {title}

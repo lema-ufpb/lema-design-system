@@ -12,7 +12,7 @@ export interface MagneticElementProps
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof magneticElementVariants> {
   asChild?: boolean
-  /** Força do efeito magnético. Valores maiores puxam mais. Padrão: 20 */
+  /** Magnetic effect strength. Higher values pull more. Default: 20 */
   strengthValue?: number
 }
 
@@ -82,7 +82,7 @@ export const MagneticElement = React.forwardRef<
       const centerX = left + width / 2
       const centerY = top + height / 2
 
-      // Distância do centro multiplicada pela força
+      // Distance from center multiplied by strength
       const x = ((clientX - centerX) / width) * strengthValue
       const y = ((clientY - centerY) / height) * strengthValue
 

@@ -62,8 +62,8 @@ export const AuthSplitScreen = React.forwardRef<
       appName = "LEMA-DS",
       testimonial,
       stats,
-      brandHeadline = "Transformando pesquisa e inovação em impacto real",
-      brandDescription = "O ecossistema oficial de sistemas e produtos digitais da Universidade Federal da Paraíba.",
+      brandHeadline = "Transforming research and innovation into real impact",
+      brandDescription = "The official ecosystem of digital systems and products of the Federal University of Paraíba.",
       children,
       ...props
     },
@@ -102,19 +102,19 @@ export const AuthSplitScreen = React.forwardRef<
                 href="#"
                 className="underline underline-offset-4 hover:text-foreground"
               >
-                Privacidade
+                Privacy
               </a>
               <a
                 href="#"
                 className="underline underline-offset-4 hover:text-foreground"
               >
-                Termos
+                Terms
               </a>
               <a
                 href="#"
                 className="underline underline-offset-4 hover:text-foreground"
               >
-                Ajuda
+                Help
               </a>
             </div>
           </div>

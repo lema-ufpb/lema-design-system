@@ -903,7 +903,7 @@ export const LocalePTBR: Story = {
     showGrid: true,
     showTooltip: true,
     height: 340,
-    locale: "pt-BR",
+    locale: "en-US",
   },
 }
 

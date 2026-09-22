@@ -72,7 +72,7 @@ export const MultiSelect = React.forwardRef<
       onChange,
       placeholder,
       maxCount = 3,
-      locale = "pt-BR",
+      locale = "en-US",
       size = "md",
       className,
       disabled,

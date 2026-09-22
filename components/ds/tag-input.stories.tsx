@@ -40,7 +40,7 @@ const meta: Meta<typeof TagInput> = {
     disabled: false,
     invalid: false,
     loading: false,
-    locale: "pt-BR",
+    locale: "en-US",
   },
   argTypes: {
     size: {
@@ -52,12 +52,12 @@ const meta: Meta<typeof TagInput> = {
       options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
-}
+} satisfies Meta<typeof TagInput>
 
 export default meta
 type Story = StoryObj<typeof TagInput>
 
-// Wrapper para gerenciar o estado na story
+// Wrapper to manage state in the story
 const TagInputWithState = (args: React.ComponentProps<typeof TagInput>) => {
   const [tags, setTags] = React.useState<string[]>(args.value || [])
 
@@ -72,7 +72,7 @@ export const Default: Story = {
   render: (args) => <TagInputWithState {...args} />,
   args: {
     value: [],
-    placeholder: "Digite tags e aperte Enter",
+    placeholder: "Type tags and press Enter",
   },
 }
 
@@ -94,7 +94,7 @@ export const MaxTags: Story = {
   args: {
     value: ["Design", "System"],
     maxTags: 3,
-    placeholder: "Máximo 3 tags",
+    placeholder: "Maximum 3 tags",
   },
 }
 
@@ -108,7 +108,7 @@ export const WithInitialValues: Story = {
 export const Disabled: Story = {
   render: (args) => <TagInputWithState {...args} />,
   args: {
-    value: ["Inativo", "Não clicável"],
+    value: ["Inactive", "Not clickable"],
     disabled: true,
   },
 }
@@ -116,7 +116,7 @@ export const Disabled: Story = {
 export const Invalid: Story = {
   render: (args) => <TagInputWithState {...args} />,
   args: {
-    value: ["Erro"],
+    value: ["Error"],
     invalid: true,
   },
 }

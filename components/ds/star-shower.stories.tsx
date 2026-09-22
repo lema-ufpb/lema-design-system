@@ -12,9 +12,9 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Céu estrelado vivo — estrelas que **pulsam**, **cintilam** e **riscam** o céu como cadentes. Canvas 2D com DPR 2x, pausa fora da viewport e frame estático sob `prefers-reduced-motion`.",
-          "Inspirado em `ParticleField` mas orgânico: 18% das estrelas são *cross* (4 pontas) com halo, parallax sutil no `interactive`, e cauda degradê nas cadentes.",
-          "Posicione com `absolute inset-0` atrás do conteúdo (`relative z-10`). Fundo recomendado: `bg-zinc-950` para heros noturnos ou `bg-background` para contraste claro.",
+          "Living starry sky — stars that **pulse**, **twinkle** and **streak** across the sky like shooting stars. 2D canvas with DPR 2x, pauses outside viewport and static frame under `prefers-reduced-motion`.",
+          "Inspired by `ParticleField` but organic: 18% of stars are *cross* (4 points) with halo, subtle parallax in `interactive`, and gradient tail on shooting stars.",
+          "Position with `absolute inset-0` behind content (`relative z-10`). Recommended background: `bg-zinc-950` for night heroes or `bg-background` for light contrast.",
           "",
           "---",
           "",
@@ -25,7 +25,7 @@ const meta = {
           '| `tone` | `"primary" \\| "violet" \\| "sky" \\| "warm" \\| "cool" \\| "neutral"` | `"primary"` | Matiz via `--star-color` |',
           '| `density` | `"sm" \\| "md" \\| "lg"` | `"md"` | 45 / 90 / 140 estrelas |',
           '| `speed` | `"slow" \\| "normal" \\| "fast"` | `"normal"` | 0.55x / 1x / 1.65x |',
-          "| `twinkle` | `boolean` | `true` | Cintilação aleatória |",
+          "| `twinkle` | `boolean` | `true` | Random twinkling |",
           "| `shootingStars` | `boolean` | `true` | Cadentes a cada 3-6s |",
           "| `interactive` | `boolean` | `false` | Parallax no mousemove |",
           "",
@@ -66,20 +66,20 @@ export const Default: Story = {
           Novo · Fundo vivo
         </Badge>
         <h2 className="text-3xl font-bold tracking-tight text-balance text-white sm:text-4xl">
-          Um céu que respira
+          A sky that breathes
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-pretty text-white/65">
-          Cada estrela tem fase, brilho e profundidade próprios. As *cross*
+          Each star has its own phase, brightness and depth. The *cross*
           cintilam mais forte. A cada poucos segundos, uma cadente risca — sem
           JS pesado, sem `use client` no consumidor.
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Button>Lançar agora</Button>
+          <Button>Launch now</Button>
           <Button
             variant="outline"
             className="bg-white text-zinc-900 hover:bg-white/90"
           >
-            Ver código
+            View code
           </Button>
         </div>
         <p className="mt-4 text-xs text-white/40">
@@ -161,13 +161,13 @@ export const WithoutTwinkle: Story = {
       <div className="relative flex h-64 flex-col items-center justify-center overflow-hidden rounded-2xl border border-border bg-zinc-950 p-4">
         <StarShower twinkle />
         <span className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur">
-          <Sparkles className="size-3" /> com cintilação
+          <Sparkles className="size-3" /> with twinkling
         </span>
       </div>
       <div className="relative flex h-64 flex-col items-center justify-center overflow-hidden rounded-2xl border border-border bg-zinc-950 p-4">
         <StarShower twinkle={false} />
         <span className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur">
-          <EyeOff className="size-3" /> só pulso
+          <EyeOff className="size-3" /> pulse only
         </span>
       </div>
     </div>
@@ -189,7 +189,7 @@ export const WithoutShooting: Story = {
           variant="secondary"
           className="relative z-10 bg-white/10 text-white backdrop-blur"
         >
-          só pulso
+          pulse only
         </Badge>
       </div>
     </div>
@@ -205,7 +205,7 @@ export const Interactive: Story = {
           Parallax por profundidade
         </h3>
         <p className="mt-1.5 text-sm leading-relaxed text-white/60">
-          Mova o cursor. Estrelas maiores (cross) deslocam até 6px; as menores,
+          Move the cursor. Larger stars (cross) shift up to 6px; smaller ones,
           quase nada. Profundidade = `0.4 + (raio/2.8)*0.6`.
         </p>
         <div className="mt-4 flex gap-2">
@@ -225,7 +225,7 @@ export const LightBackground: Story = {
       <StarShower tone="primary" density="md" />
       <div className="relative z-10 max-w-xl text-center">
         <h2 className="text-2xl font-bold tracking-tight text-foreground">
-          Também funciona no claro
+          Also works on light
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Em `bg-background`, o `tone=primary` usa `var(--primary)` escuro. As

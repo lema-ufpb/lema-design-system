@@ -54,7 +54,7 @@ function Switch({
   labelPosition = "right",
   loading = false,
   error,
-  locale = "pt-BR",
+  locale = "en-US",
   disabled,
   className,
   id,

@@ -34,7 +34,7 @@ const meta = {
     title: "Be first in line.",
     description: "Join the waitlist and get early access when we launch.",
     socialProof: "Join 2,400+ people already on the list.",
-    locale: "pt-BR" as const,
+    locale: "en-US" as const,
   },
 } satisfies Meta<typeof HeroWaitlist>
 

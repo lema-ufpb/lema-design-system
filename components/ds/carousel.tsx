@@ -304,7 +304,7 @@ export function Carousel({
   showProgress = false,
   loading = false,
   loadingSlideCount = 4,
-  locale = "pt-BR",
+  locale = "en-US",
   navVariant: navVariantProp = "outline",
   navSize = "icon-sm",
   navPosition: navPositionProp,

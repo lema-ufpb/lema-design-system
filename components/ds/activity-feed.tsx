@@ -99,7 +99,7 @@ export const ActivityFeed = React.forwardRef<HTMLDivElement, ActivityFeedProps>(
       loading = false,
       emptyMessage,
       onViewMore,
-      locale = "pt-BR",
+      locale = "en-US",
       className,
       ...props
     },

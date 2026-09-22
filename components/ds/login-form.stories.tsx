@@ -51,7 +51,7 @@ const meta = {
     loading: { control: "boolean" },
     locale: {
       control: "select",
-      options: ["pt-BR", "en-US", "es-ES", "fr-FR"],
+      options: ["en-US", "pt-BR", "es-ES", "fr-FR"],
     },
   },
 } satisfies Meta<typeof LoginForm>
@@ -76,7 +76,7 @@ export const FlatVariant: Story = {
 export const WithError: Story = {
   args: {
     errorMessage:
-      "Credenciais inválidas. Verifique seu e-mail e senha institucional.",
+      "Invalid credentials. Check your email and institutional password.",
   },
 }
 

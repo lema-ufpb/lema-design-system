@@ -6,23 +6,23 @@ const sampleColumns: FooterGroupData[] = [
   {
     title: "Ecossistema",
     options: [
-      { name: "Laboratórios", url: "#" },
-      { name: "Pesquisa & Extensão", url: "#" },
-      { name: "Publicações", url: "#" },
+      { name: "Laboratories", url: "#" },
+      { name: "Research & Outreach", url: "#" },
+      { name: "Publications", url: "#" },
     ],
   },
   {
     title: "Desenvolvimento",
     options: [
       { name: "Design System", url: "#" },
-      { name: "Repositórios Git", url: "#" },
+      { name: "Git Repositories", url: "#" },
       { name: "Padrões Web", url: "#" },
     ],
   },
   {
     title: "Universidade",
     options: [
-      { name: "Portal UFPB", url: "#" },
+      { name: "UFPB Portal", url: "#" },
       { name: "Reitoria", url: "#" },
       { name: "Transparência", url: "#" },
     ],
@@ -93,6 +93,6 @@ export const CustomInstitution: Story = {
   args: {
     wordmarkText: "UFPB",
     wordmarkVariant: "outline",
-    brandName: "Universidade Federal da Paraíba",
+    brandName: "Federal University of Paraíba",
   },
 }
