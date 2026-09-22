@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.12.0](https://github.com/lema-ufpb/lema-design-system/compare/v1.11.0...v1.12.0) (2026-09-22)
+
+
+### ✨ Features
+
+* **geomap-chart:** add optional zoom controls and full-screen expand ([65a00f7](https://github.com/lema-ufpb/lema-design-system/commit/65a00f739a57a55125eea2fe270ee00713faa217))
+
+
+### 🐛 Bug Fixes
+
+* **geomap-chart:** style features for react-simple-maps v5 states ([24f2b6f](https://github.com/lema-ufpb/lema-design-system/commit/24f2b6faa69262ae6d78f67089cd6ce1f755de34))
+* **i18n:** normalize statusPage labels to sentence case ([5cf5d04](https://github.com/lema-ufpb/lema-design-system/commit/5cf5d04307ddbda8e32b3338aad5a7c9846b032f))
+
+
+### 📚 Documentation
+
+* **i18n:** translate pt-BR to en-US and document [@lema-ds](https://github.com/lema-ds) registry ([09384b4](https://github.com/lema-ufpb/lema-design-system/commit/09384b4a08d6f7ca7860067d026eb012bb9dbc66))
+
 ## [1.11.0](https://github.com/lema-ufpb/design-system/compare/v1.10.2...v1.11.0) (2026-09-14)
 
 ### ✨ Features
