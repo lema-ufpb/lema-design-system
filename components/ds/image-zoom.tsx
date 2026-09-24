@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -21,10 +22,11 @@ export function ImageZoom({
   className,
   src,
   alt,
-  locale = "en-US",
+  locale: localeProp,
   zoom = 2,
   ...props
 }: ImageZoomProps) {
+  const locale = useUILocale(localeProp)
   const resolvedAlt = alt || UI_I18N[locale].imageZoom.alt
   const [pos, setPos] = React.useState({ x: 50, y: 50 })
   const [hover, setHover] = React.useState(false)

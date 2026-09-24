@@ -5,6 +5,7 @@ import { Eye, EyeOff } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -48,9 +49,10 @@ function PasswordInput({
   size = "default",
   radius = "pill",
   variant = "default",
-  locale = "en-US",
+  locale: localeProp,
   ...props
 }: PasswordInputProps) {
+  const locale = useUILocale(localeProp)
   const [showPassword, setShowPassword] = useState(false)
   const { inputClass, buttonSize } = sizeConfig[size]
 

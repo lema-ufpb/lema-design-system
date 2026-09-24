@@ -52,7 +52,7 @@ export const markdownEditorContainerVariants = cva(
 
 export const markdownEditorTextareaVariants = cva(
   [
-    "w-full resize-none bg-transparent p-4 font-mono text-sm leading-relaxed",
+    "w-full resize-none bg-transparent p-4 text-sm leading-relaxed",
     "text-foreground placeholder:text-muted-foreground",
     "focus:outline-none",
     "disabled:cursor-not-allowed disabled:opacity-50",
@@ -142,7 +142,7 @@ function renderMarkdown(md: string): string {
   // Inline code
   html = html.replace(
     /`([^`]+)`/g,
-    '<code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">$1</code>'
+    '<code class="rounded bg-muted px-1 py-0.5 text-xs">$1</code>'
   )
 
   // Links

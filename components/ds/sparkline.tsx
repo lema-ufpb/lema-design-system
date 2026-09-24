@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -76,12 +77,13 @@ export const Sparkline = React.forwardRef<SVGSVGElement, SparklineProps>(
       height = 36,
       width = "100%",
       loading = false,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].sparkline
     const gradientId = React.useId()
 

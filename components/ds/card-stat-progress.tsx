@@ -3,6 +3,7 @@ import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -55,9 +56,10 @@ export function CardStatProgress({
   className,
   loading,
   empty,
-  locale: pctLocale,
+  locale: pctLocaleProp,
   ...fmt
 }: CardStatProgressProps) {
+  const pctLocale = useOptionalUILocale(pctLocaleProp)
   if (loading) {
     return (
       <Card size="sm" className={className} data-slot="card-stat-progress">

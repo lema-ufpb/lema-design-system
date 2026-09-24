@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from "react"
+import { DSLink } from "@/components/ds/link-provider"
 import { cva, type VariantProps } from "class-variance-authority"
-import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -158,7 +158,7 @@ export const HeaderBrand = React.forwardRef<
     }
 
     return (
-      <Link
+      <DSLink
         ref={ref}
         href={href}
         data-slot="header-brand"
@@ -167,7 +167,7 @@ export const HeaderBrand = React.forwardRef<
         {...props}
       >
         {content}
-      </Link>
+      </DSLink>
     )
   }
 )

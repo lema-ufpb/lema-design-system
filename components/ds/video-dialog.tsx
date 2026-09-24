@@ -12,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -74,11 +75,12 @@ export const VideoDialog = React.forwardRef<HTMLDivElement, VideoDialogProps>(
       title,
       aspectRatio = "16/9",
       variant = "default",
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [open, setOpen] = React.useState(false)
     const t = UI_I18N[locale]?.videoDialog ?? UI_I18N["en-US"].videoDialog
     const label = title ? `${t.playVideo}: ${title}` : t.playVideo

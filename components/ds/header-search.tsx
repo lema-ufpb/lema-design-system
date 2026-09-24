@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -79,13 +80,14 @@ export const HeaderSearch = React.forwardRef<HTMLDivElement, HeaderSearchProps>(
       placeholder = "Search...",
       isExpanded: isExpandedProp,
       rounded = "full",
-      locale = "en-US",
+      locale: localeProp,
       className,
       autoFocus = true,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [isExpanded, setIsExpanded] = React.useState(isExpandedProp || false)
     const [searchValue, setSearchValue] = React.useState(value || "")
     const inputRef = React.useRef<HTMLInputElement>(null)

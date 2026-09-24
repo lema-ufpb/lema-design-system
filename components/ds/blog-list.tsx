@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
 import { BlogMeta } from "./blog-meta"
@@ -23,10 +24,11 @@ export interface BlogListProps extends React.HTMLAttributes<HTMLDivElement> {
 export function BlogList({
   className,
   posts,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: BlogListProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

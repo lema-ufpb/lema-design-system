@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -65,13 +66,14 @@ export const WaitlistForm = React.forwardRef<
       size = "md",
       onSubmit,
       socialProof,
-      locale = "en-US",
+      locale: localeProp,
       disabled = false,
       autoFocus = false,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [email, setEmail] = React.useState("")
     const [status, setStatus] = React.useState<WaitlistStatus>("idle")
     const [errorMessage, setErrorMessage] = React.useState("")

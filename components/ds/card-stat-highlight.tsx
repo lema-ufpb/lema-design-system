@@ -4,6 +4,7 @@ import { BarChart2Icon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -133,9 +134,10 @@ export function CardStatHighlight({
   empty,
   background,
   color,
-  locale,
+  locale: localeProp,
   ...fmt
 }: CardStatHighlightProps) {
+  const locale = useOptionalUILocale(localeProp)
   const isWhiteVariant = variant === "white" && !background
 
   const overlayBg = isWhiteVariant ? "bg-muted/10" : "bg-white/20"

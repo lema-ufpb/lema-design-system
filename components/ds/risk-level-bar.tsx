@@ -6,6 +6,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatValue } from "@/lib/format-utils"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -187,7 +188,7 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
       labelRight,
       value = 0,
       loading = false,
-      locale = "en-US",
+      locale: localeProp,
       segments = DEFAULT_SEGMENTS,
       size = "sm",
       className,
@@ -195,6 +196,7 @@ export const RiskLevelBar = React.forwardRef<HTMLDivElement, RiskLevelBarProps>(
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [isTooltipVisible, setIsTooltipVisible] = React.useState(false)
 
     if (loading) {

@@ -7,6 +7,7 @@ import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatValue } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -163,7 +164,7 @@ export const ProgressCircular = React.forwardRef<
       intent = "primary",
       size = "md",
       loading = false,
-      locale = "en-US",
+      locale: localeProp,
       precision = 0,
       fillColor,
       trackColor,
@@ -173,6 +174,7 @@ export const ProgressCircular = React.forwardRef<
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const tokenStyle = {
       ...(fillColor !== undefined && { "--progress-fill": fillColor }),
       ...(trackColor !== undefined && { "--progress-track": trackColor }),

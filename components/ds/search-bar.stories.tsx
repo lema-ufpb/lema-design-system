@@ -387,7 +387,7 @@ export const VoiceInput: Story = {
             onVoiceEnd={() => addEvent("Recording ended")}
             onVoiceError={(err) => addEvent(`Error: ${err}`)}
           />
-          <div className="rounded-lg border border-border bg-muted/40 p-3 font-mono text-xs">
+          <div className="rounded-lg border border-border bg-muted/40 p-3 text-xs">
             {events.length === 0 ? (
               <p className="text-muted-foreground italic">
                 Voice events will appear here…
@@ -574,7 +574,7 @@ export const WithDebounce: Story = {
           }}
           onSearch={setLastEnter}
         />
-        <div className="rounded-lg border border-border bg-muted/40 p-3 font-mono text-xs">
+        <div className="rounded-lg border border-border bg-muted/40 p-3 text-xs">
           <div className="flex flex-col gap-1 text-muted-foreground">
             <span>
               onChange fired:{" "}

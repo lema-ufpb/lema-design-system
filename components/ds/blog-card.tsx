@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import { BlogAuthor } from "./blog-author"
@@ -89,12 +90,13 @@ export const blogCardTitleVariants = cva(
 export function BlogCard({
   className,
   post,
-  locale = "en-US",
+  locale: localeProp,
   size = "md",
   featured = false,
   loading = false,
   ...props
 }: BlogCardProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

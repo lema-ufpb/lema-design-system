@@ -7,6 +7,7 @@ import { Loader2Icon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -121,7 +122,7 @@ function GovBrIcon({ className }: { className?: string }) {
         fill="#FFFFFF"
         fontSize="7"
         fontWeight="bold"
-        fontFamily="sans-serif"
+        fontFamily="inherit"
       >
         gov
       </text>
@@ -181,11 +182,12 @@ export const SocialAuthGroup = React.forwardRef<
       loadingProvider = null,
       disabled = false,
       onSelect,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
 
     const isInline = layout === "inline"

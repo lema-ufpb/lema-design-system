@@ -25,7 +25,7 @@ export interface TypewriterProps
 export const typewriterVariants = cva("inline-flex items-baseline", {
   variants: {
     variant: {
-      typewriter: "font-mono",
+      typewriter: "font-sans",
       flip: "font-semibold tracking-tight",
       generate: "font-medium",
     },

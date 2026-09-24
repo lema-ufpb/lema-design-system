@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -54,10 +55,11 @@ export function AiChat({
   messages = [],
   onSend,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   placeholder,
   ...props
 }: AiChatProps) {
+  const locale = useUILocale(localeProp)
   const [input, setInput] = React.useState("")
   const t = UI_I18N[locale].aiChat
   const resolvedPlaceholder = placeholder ?? t.placeholder

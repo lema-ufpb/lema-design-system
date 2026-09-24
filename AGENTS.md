@@ -29,7 +29,7 @@ docs/templates/      → templates spec-first para novos componentes
 - shadcn/ui (`radix` base, estilo `luma`, package manager: `npm`)
 - CVA (`class-variance-authority`) para variantes
 - Storybook 10 com Vitest browser mode (`make test` > 1000 testes em 160+ arquivos — 325 itens no registry, 250+ `components/ds`)
-- i18n: `UI_I18N[locale]` de `@/lib/ui-i18n` (4 locales, 300+ chaves)
+- i18n: `UI_I18N[locale]` de `@/lib/ui-i18n` (4 locales, 300+ chaves). O locale efetivo vem de `useUILocale(localeProp)` (`components/ds/locale-provider.tsx`): prop → `UILocaleProvider` → `"en-US"`. Em componentes client **não** declare `locale = "en-US"` na desestruturação; use `locale: localeProp` + `const locale = useUILocale(localeProp)` no topo. Se a ausência de `locale` tem significado próprio (formatação/textos fixos), use `useOptionalUILocale`. Componentes sem `"use client"` mantêm só a prop. Spec: `docs/specs/ds-locale-provider.md`
 
 ## Regras críticas — sempre aplicar
 
@@ -49,6 +49,7 @@ Todo item do `registry.json` cujo arquivo-fonte está em `components/ds/` **DEVE
 
 - ter `name` prefixado com `ds-` (ex: `ds-card-stat`, `ds-search-bar`, `ds-button`)
 - ter `files[].target` apontando para `components/ui/ds-<nome>.tsx` — assim, ao instalar via `npx shadcn@latest add`, o arquivo cai na pasta `ui/` do consumidor (a única que ele tem por padrão), prefixado para não colidir com o primitivo que porventura estende (ex: `ui/button.tsx` + `ui/ds-button.tsx`)
+- (no JSON **publicado** em `public/r/`, `scripts/fix-registry-relative-imports.mjs` remove o `target` e renomeia o arquivo para `ds-<nome>.tsx`: o CLI então usa `aliases.ui`/`aliases.lib` do consumidor, o que funciona em layouts sem `src/`, como o `app/` do React Router)
 - manter `files[].path` inalterado, apontando para o arquivo real neste repo (`components/ds/<nome>.tsx`) — só `name` e `target` mudam, nunca o path de origem
 
 Itens cujo arquivo-fonte está em `components/ui/` (primitivos shadcn) **NÃO** levam prefixo: `name` e `target` seguem `components/ui/<nome>.tsx`.
@@ -71,6 +72,17 @@ O CLI do shadcn só instala o que o item declara — um item que importa algo n�
 - **`Slot` vem de `radix-ui`** (`import { Slot } from "radix-ui"` e `Slot.Root`) — nunca de `@radix-ui/react-slot`, que não é dependência deste repo.
 - **Imports `@/components/ui/<x>` sempre apontam para o primitivo.** O `scripts/fix-registry-relative-imports.mjs` só renomeia imports de `components/ds/` (`@/components/ds/<x>` e `./irmão` dentro de arquivos `components/ds/`) para `ds-<x>` no JSON publicado.
 - Fluxo: editar o componente → `npm run registry:sync` (preenche o que falta em `registry.json`, nunca remove) → `make registry` → `npm run registry:check`. O check falha por dependência faltante, sem namespace, import sem item correspondente ou ciclo.
+
+### Framework-agnóstico (components/ds/ e lib/)
+
+Os itens são instalados em consumers **Next.js, Vite, React Router, TanStack Start e Astro (todos cobertos por `npm run test:consumers`)** (React 19 + Tailwind v4, `shadcn init --base radix`). Vue, Svelte e Angular não são suportados: os componentes são React.
+
+- **Nunca** importe `next` ou `next/*` (regra ESLint `no-restricted-imports`).
+- Links: use `DSLink` (`@/components/ds/link-provider`); o app injeta o `Link` do seu router com `DSLinkProvider`. Sem provider, renderiza `<a>`.
+- Sem SSR: `ClientOnly` (`@/lib/client-only`) no lugar de `next/dynamic` com `ssr:false`; code-splitting com `React.lazy` + `Suspense`.
+- Evite `window`/`document`/`localStorage` durante a renderização: só em efeitos, handlers ou atrás de `typeof window` / `useSyncExternalStore`.
+- Cores customizadas (`success`, `warning`, `risk-*`, `highlight-*`) vêm do item `@lema-ds/tokens`, declarado em `registryDependencies` de quem as usa.
+- Ao alterar itens de header/footer/mapa/globo ou a publicação do registry, rode `make registry && npm run test:consumers` (instala num app de cada framework, com typecheck e build; precisa de rede).
 
 ### Stories obrigatórios
 

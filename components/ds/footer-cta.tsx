@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { SocialLinks, type SocialLinkItem } from "./social-links"
 import { FooterBottomBar, type LegalLinkItem } from "./footer-bottom-bar"
@@ -103,12 +104,13 @@ export const FooterCta = React.forwardRef<HTMLElement, FooterCtaProps>(
       brandName = "LEMA - UFPB",
       legalLinks,
       ctaTone = "glow",
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     return (
       <footer
         ref={ref}

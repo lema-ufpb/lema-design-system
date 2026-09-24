@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { BarChart2 } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -302,7 +303,7 @@ function BoxTooltip({
   left,
   top,
   fmt,
-  locale = "en-US",
+  locale: localeProp,
 }: {
   item: BoxPlotItem
   left: number
@@ -310,6 +311,7 @@ function BoxTooltip({
   fmt: (v: number) => string
   locale?: UILocale
 }) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].boxplot
 
   return (
@@ -688,10 +690,11 @@ export function BoxPlotChart({
   currency,
   abbreviate,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: BoxPlotChartProps) {
+  const locale = useUILocale(localeProp)
   // Hooks must be called unconditionally before any early returns
   const containerRef = React.useRef<HTMLDivElement>(null)
   const [width, setWidth] = React.useState(480)

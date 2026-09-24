@@ -8,6 +8,7 @@ import type { VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Carousel as CarouselRoot,
   CarouselContent,
@@ -304,7 +305,7 @@ export function Carousel({
   showProgress = false,
   loading = false,
   loadingSlideCount = 4,
-  locale = "en-US",
+  locale: localeProp,
   navVariant: navVariantProp = "outline",
   navSize = "icon-sm",
   navPosition: navPositionProp,
@@ -316,6 +317,7 @@ export function Carousel({
   className,
   children,
 }: CarouselProps) {
+  const locale = useUILocale(localeProp)
   const containerRef = React.useRef<HTMLDivElement>(null)
   const [internalApi, setInternalApi] = React.useState<CarouselApi | undefined>(
     undefined

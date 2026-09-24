@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -43,11 +44,12 @@ export function BlogMeta({
   publishedAt,
   readingTime,
   category,
-  locale = "en-US",
+  locale: localeProp,
   size = "md",
   loading = false,
   ...props
 }: BlogMetaProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

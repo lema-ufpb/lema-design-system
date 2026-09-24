@@ -11,10 +11,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/bento-social-proof.tsx",
+      "path": "components/ds/ds-bento-social-proof.tsx",
       "content": "import * as React from \"react\"\n\nimport { BentoGrid, BentoGridItem } from \"./ds-bento-grid\"\nimport { PressWall, PressWallLogo } from \"./ds-press-wall\"\nimport { PullQuote } from \"./ds-pull-quote\"\n\n// ── Types ──\n\nexport interface BentoSocialProofQuote {\n  quote: string\n  name: string\n  role?: string\n  avatarFallback?: string\n}\n\nexport interface BentoSocialProofLogo {\n  label: string\n  content: React.ReactNode\n  href?: string\n}\n\nexport interface BentoSocialProofProps extends React.HTMLAttributes<HTMLDivElement> {\n  quotes: BentoSocialProofQuote[]\n  logos?: BentoSocialProofLogo[]\n  logosLabel?: string\n}\n\n// ── Component ──\n\n/**\n * A bento grid mixing testimonial tiles with a press/logo wall tile —\n * composed from `BentoGrid`, `PullQuote` and `PressWall`.\n */\nexport function BentoSocialProof({\n  quotes,\n  logos = [],\n  logosLabel,\n  className,\n  ...props\n}: BentoSocialProofProps) {\n  return (\n    <BentoGrid className={className} data-slot=\"bento-social-proof\" {...props}>\n      {quotes.map((item) => (\n        <BentoGridItem\n          key={item.name}\n          colSpan={2}\n          className=\"items-start justify-start text-left\"\n        >\n          <PullQuote\n            size=\"sm\"\n            quote={item.quote}\n            name={item.name}\n            role={item.role}\n            avatarFallback={item.avatarFallback}\n          />\n        </BentoGridItem>\n      ))}\n\n      {logos.length > 0 && (\n        <BentoGridItem\n          colSpan={4}\n          className=\"border-0 bg-transparent p-0 hover:translate-y-0 hover:shadow-none\"\n        >\n          <PressWall kicker={logosLabel} className=\"w-full\">\n            {logos.map(({ label, content, href }) => (\n              <PressWallLogo key={label} label={label} href={href}>\n                {content}\n              </PressWallLogo>\n            ))}\n          </PressWall>\n        </BentoGridItem>\n      )}\n    </BentoGrid>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-bento-social-proof.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

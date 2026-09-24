@@ -21,6 +21,7 @@ import { SocialAuthGroup, type SocialProvider } from "./social-auth-group"
 import { AuthSeparator } from "./auth-separator"
 import { PasswordStrengthMeter } from "./password-strength-meter"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -78,11 +79,12 @@ export const SignUpForm = React.forwardRef<HTMLDivElement, SignUpFormProps>(
       privacyUrl = "#",
       loading: controlledLoading = false,
       errorMessage,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [name, setName] = React.useState("")
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")

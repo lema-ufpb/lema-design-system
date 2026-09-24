@@ -7,6 +7,7 @@ import type { HTMLAttributes } from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatValue } from "@/lib/format-utils"
 import { Progress } from "@/components/ui/progress"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -298,7 +299,7 @@ export function ScoreRow({
   scoreDisplay = "fraction",
   showProgress = true,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   percentDecimals = 0,
   accent,
   tooltip,
@@ -306,6 +307,7 @@ export function ScoreRow({
   onClick,
   ...props
 }: ScoreRowProps) {
+  const locale = useUILocale(localeProp)
   const tokenStyle =
     accent !== undefined
       ? ({ "--score-accent": accent } as React.CSSProperties)

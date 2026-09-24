@@ -84,6 +84,8 @@ TREND_COLORS = {
 
 Badge com ícone de tendência + valor. Usa `cardStatBadgePaddingVariants` + `cardStatBadgeTextVariants` para dimensionamento.
 
+> **Base:** usa o primitivo `Badge` de `@/components/ui/badge` (não o `ds-badge`). Nos consumidores ele é instalado como `ui/badge.tsx`, que é uma dependência de registry (`@lema-ds/badge`) deste módulo.
+
 Cores:
 
 - `up`: `bg-success/10 text-success`

@@ -6,6 +6,7 @@ import { XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -108,12 +109,13 @@ export const TagInput = React.forwardRef<HTMLDivElement, TagInputProps>(
       loading = false,
       disabled = false,
       invalid = false,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const inputRef = React.useRef<HTMLInputElement>(null)
     const [inputValue, setInputValue] = React.useState("")
     const i18n = UI_I18N[locale].tagInput

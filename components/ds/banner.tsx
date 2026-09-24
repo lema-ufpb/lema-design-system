@@ -14,6 +14,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -182,11 +183,12 @@ export function Banner({
   description,
   action,
   secondaryAction,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   children,
   ...props
 }: BannerProps) {
+  const locale = useUILocale(localeProp)
   const [dismissed, setDismissed] = React.useState(false)
 
   const handleDismiss = () => {

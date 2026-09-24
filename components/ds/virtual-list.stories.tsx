@@ -67,7 +67,7 @@ export const Default: Story = {
       const item = rawItem as Item
       return (
         <div className="flex h-8 items-center gap-3 border-b border-border px-4 text-sm">
-          <span className="w-12 font-mono text-xs text-muted-foreground tabular-nums">
+          <span className="w-12 text-xs text-muted-foreground tabular-nums">
             #{item.id}
           </span>
           <span className="flex-1 truncate font-medium">{item.name}</span>

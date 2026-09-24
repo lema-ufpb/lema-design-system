@@ -7,6 +7,7 @@ import { FingerprintIcon, Loader2Icon, SparklesIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -47,11 +48,12 @@ export const PasskeyPrompt = React.forwardRef<
       loading: controlledLoading = false,
       supported = true,
       onAuthenticate,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [internalLoading, setInternalLoading] = React.useState(false)
     const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
 

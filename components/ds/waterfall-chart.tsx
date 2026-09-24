@@ -13,6 +13,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import {
   Card,
@@ -127,10 +128,11 @@ export function WaterfallChart({
   currency = "USD",
   abbreviate = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: WaterfallChartProps) {
+  const locale = useUILocale(localeProp)
   const formatValue = React.useCallback(
     (v: number) => {
       if (valueFormatter) return valueFormatter(v)

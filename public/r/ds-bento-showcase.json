@@ -12,10 +12,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/bento-showcase.tsx",
+      "path": "components/ds/ds-bento-showcase.tsx",
       "content": "import * as React from \"react\"\n\nimport { BentoGrid, BentoGridItem } from \"./ds-bento-grid\"\nimport { BrowserMockup, type BrowserMockupProps } from \"./ds-browser-mockup\"\nimport { CopyBlock } from \"./ds-copy-block\"\nimport { FloatingCard } from \"./ds-floating-card\"\n\n// ── Types ──\n\nexport interface BentoShowcaseProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Rendered inside the large FloatingCard tile (e.g. an <img>). */\n  screenshot: React.ReactNode\n  browserUrl?: string\n  browserVariant?: BrowserMockupProps[\"variant\"]\n  /** Rendered inside the terminal/browser tile. */\n  browserContent?: React.ReactNode\n  codeSnippet?: string\n}\n\n// ── Component ──\n\n/**\n * A bento grid showcasing a product screenshot, a terminal/browser preview\n * and an install snippet — composed from `BentoGrid`, `FloatingCard`,\n * `BrowserMockup` and `CopyBlock`.\n */\nexport function BentoShowcase({\n  screenshot,\n  browserUrl,\n  browserVariant = \"terminal\",\n  browserContent,\n  codeSnippet,\n  className,\n  ...props\n}: BentoShowcaseProps) {\n  return (\n    <BentoGrid className={className} data-slot=\"bento-showcase\" {...props}>\n      <BentoGridItem\n        colSpan={2}\n        rowSpan={2}\n        className=\"border-0 bg-transparent p-0 hover:translate-y-0 hover:shadow-none\"\n      >\n        <FloatingCard className=\"h-full w-full overflow-hidden\">\n          {screenshot}\n        </FloatingCard>\n      </BentoGridItem>\n\n      <BentoGridItem\n        colSpan={2}\n        className=\"border-0 bg-transparent p-0 hover:translate-y-0 hover:shadow-none\"\n      >\n        <BrowserMockup\n          url={browserUrl}\n          variant={browserVariant}\n          className=\"h-full\"\n        >\n          {browserContent}\n        </BrowserMockup>\n      </BentoGridItem>\n\n      {codeSnippet && (\n        <BentoGridItem colSpan={2}>\n          <CopyBlock value={codeSnippet} truncate className=\"w-full\" />\n        </BentoGridItem>\n      )}\n    </BentoGrid>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-bento-showcase.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

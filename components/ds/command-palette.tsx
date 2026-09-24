@@ -11,6 +11,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -45,9 +46,10 @@ export function CommandPalette({
   onOpenChange: setControlledOpen,
   placeholder,
   shortcut = "k",
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: CommandPaletteProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
   const [internalOpen, setInternalOpen] = React.useState(false)
 

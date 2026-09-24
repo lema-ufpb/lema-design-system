@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import type { UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -146,10 +147,11 @@ export function CronBuilder({
   mode: modeProp = "simple",
   disabled = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: CronBuilderProps) {
+  const locale = useUILocale(localeProp)
   const [mode, setMode] = React.useState<CronBuilderMode>(modeProp)
   const [cron, setCron] = React.useState(value)
   const [rawInput, setRawInput] = React.useState(value)
@@ -376,7 +378,7 @@ export function CronBuilder({
                   }
                 }}
                 className={cn(
-                  "h-9 font-mono text-sm",
+                  "h-9 text-sm",
                   rawError &&
                     "border-destructive focus-visible:ring-destructive"
                 )}
@@ -398,7 +400,7 @@ export function CronBuilder({
             </div>
             <p id="cron-format-hint" className="text-xs text-muted-foreground">
               Format:{" "}
-              <code className="font-mono">minute hour day month weekday</code>
+              <code className="font-sans">minute hour day month weekday</code>
             </p>
           </div>
 

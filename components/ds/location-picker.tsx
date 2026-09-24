@@ -21,6 +21,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -83,10 +84,11 @@ export function LocationPicker({
   disabled = false,
   loading = false,
   clearable = true,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: LocationPickerProps) {
+  const locale = useUILocale(localeProp)
   void locale
   const [open, setOpen] = React.useState(false)
   const [query, setQuery] = React.useState("")

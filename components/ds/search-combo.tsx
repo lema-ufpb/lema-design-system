@@ -9,6 +9,7 @@ import { useVirtualizer } from "@tanstack/react-virtual"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { Spinner } from "@/components/ds/spinner"
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition"
 
@@ -385,7 +386,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
       autoFocus = true,
       label,
       emptyMessage,
-      locale,
+      locale: localeProp,
       voice = false,
       onVoiceStart,
       onVoiceEnd,
@@ -395,6 +396,7 @@ export const SearchCombo = React.forwardRef<HTMLDivElement, SearchComboProps>(
     },
     ref
   ) => {
+    const locale = useOptionalUILocale(localeProp)
     const resolvedPlaceholder =
       placeholder ??
       (locale ? UI_I18N[locale].searchCombo.placeholder : "Search...")

@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -57,11 +58,12 @@ export function BannerCookie({
   onAcceptAll,
   onDecline,
   onManage,
-  locale = "en-US",
+  locale: localeProp,
   position = "floating",
   size = "md",
   ...props
 }: BannerCookieProps) {
+  const locale = useUILocale(localeProp)
   const [dismissed, setDismissed] = React.useState(false)
 
   const titleId = React.useId()

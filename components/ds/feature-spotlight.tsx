@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -89,9 +90,10 @@ export function FeatureSpotlight({
   side = "bottom",
   align = "start",
   showBeacon = true,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: FeatureSpotlightProps) {
+  const locale = useUILocale(localeProp)
   const [internalOpen, setInternalOpen] = React.useState(true)
   const isControlled = open !== undefined
   const isOpen = isControlled ? open : internalOpen

@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -116,7 +117,7 @@ export const StickyFeatureList = React.forwardRef<
       defaultValue,
       onValueChange,
       label,
-      locale = "en-US",
+      locale: localeProp,
       size = "md",
       className,
       children,
@@ -124,6 +125,7 @@ export const StickyFeatureList = React.forwardRef<
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [internalValue, setInternalValue] = React.useState(defaultValue)
     const isControlled = controlledValue !== undefined
     const activeValue = isControlled ? controlledValue : internalValue

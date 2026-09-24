@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Spinner as SpinnerRoot } from "@/components/ui/spinner"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -84,12 +85,13 @@ function Spinner({
   tone = "current",
   thickness = "regular",
   label,
-  locale = "en-US",
+  locale: localeProp,
   "aria-label": ariaLabel,
   className,
   strokeWidth,
   ...props
 }: SpinnerProps) {
+  const locale = useUILocale(localeProp)
   const iconClassName = cn(spinnerVariants({ size, tone }), className)
   const resolvedStroke = strokeWidth ?? SPINNER_THICKNESS[thickness]
 

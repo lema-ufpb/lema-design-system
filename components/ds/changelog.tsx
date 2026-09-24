@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 const dateFnsLocales: Record<UILocale, Locale> = {
   "pt-BR": ptBR,
@@ -53,9 +54,10 @@ export interface ChangelogProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
   (
-    { releases, loading = false, locale = "en-US", className, ...props },
+    { releases, loading = false, locale: localeProp, className, ...props },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].changelog
     const dfLocale = dateFnsLocales[locale]
 
@@ -167,7 +169,7 @@ export const Changelog = React.forwardRef<HTMLDivElement, ChangelogProps>(
               {/* Release Content */}
               <div className="flex min-w-0 flex-1 flex-col gap-2 pt-0.5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-base font-bold text-foreground">
+                  <span className="text-base font-bold text-foreground">
                     {rel.version}
                   </span>
                   {rel.isLatest && (

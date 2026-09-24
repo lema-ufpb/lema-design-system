@@ -21,29 +21,27 @@ env:
 jobs:
   build-and-push:
     name: "🐳 Build & Push Docker Image"
-    # ubuntu-latest (GitHub-hosted): o runner self-hosted está atrás de um
-    # firewall/proxy que retorna 403 "Request forbidden by administrative
-    # rules" ao autenticar no ghcr.io — ver run 33918878307.
+    # GitHub-hosted (efêmero): nenhum runner próprio em workflows de repo público.
     runs-on: ubuntu-latest
     environment: prod
     outputs:
       image_tag: ${{ steps.set-tag.outputs.image_tag }}
     steps:
       - name: "📥 Checkout repository (commit da tag)"
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
           ref: ${{ github.event.release.target_commitish }}
 
       - name: "🔑 Log in to GitHub Container Registry"
-        uses: docker/login-action@v4
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.CICD_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "🐳 Set up Docker Buildx"
-        uses: docker/setup-buildx-action@v4
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4
 
       - name: "🏷️ Set image tag"
         id: set-tag
@@ -55,14 +53,16 @@ jobs:
           echo "✨ Tag da imagem definida: $IMAGE_TAG"
 
       - name: "📝 Update public/r/registry.json version"
+        env:
+          IMAGE_TAG: ${{ steps.set-tag.outputs.image_tag }}
         run: |
-          jq --arg v "${{ steps.set-tag.outputs.image_tag }}" \
+          jq --arg v "$IMAGE_TAG" \
             '.version = $v' public/r/registry.json > public/r/registry.json.tmp && \
             mv public/r/registry.json.tmp public/r/registry.json
-          echo "✅ public/r/registry.json version updated to ${{ steps.set-tag.outputs.image_tag }}"
+          echo "✅ public/r/registry.json version updated to $IMAGE_TAG"
 
       - name: "🚀 Build and push Docker image"
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
         with:
           context: .
           push: true
@@ -87,22 +87,35 @@ jobs:
         run: find "${{ github.workspace }}" -mindepth 1 -delete
 
   update-argocd:
-    name: "🔄 Update argocd-apps manifest"
+    name: "🔄 Update lema-deploy manifest"
     needs: build-and-push
-    runs-on: self-hosted
+    # GitHub-hosted: o job só faz git/kustomize contra o GitHub; o ArgoCD
+    # busca o lema-deploy por pull, então nenhum runner interno é necessário.
+    runs-on: ubuntu-latest
     environment: prod
     steps:
-      - name: "📥 Checkout argocd-apps repository"
-        uses: actions/checkout@v7
+      - name: "🔐 Gerar token do GitHub App"
+        id: app-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
         with:
-          repository: lema-ufpb/argocd-apps
-          token: ${{ secrets.CICD_TOKEN }} # Assuming GHCR_PAT has access to the argocd-apps repo
+          app-id: ${{ vars.CICD_APP_ID }}
+          private-key: ${{ secrets.CICD_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: lema-deploy
+          permission-contents: write
+
+      - name: "📥 Checkout lema-deploy repository"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: lema-ufpb/lema-deploy
+          token: ${{ steps.app-token.outputs.token }}
           path: argocd-apps
 
       - name: "⚙️ Setup Kustomize"
         run: |
           curl -sLo /tmp/kustomize.tar.gz \
             "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.6.0/kustomize_v5.6.0_linux_amd64.tar.gz"
+          echo "54e4031ddc4e7fc59e408da29e7c646e8e57b8088c51b84b3df0864f47b5148f  /tmp/kustomize.tar.gz" | sha256sum -c -
           tar -xzf /tmp/kustomize.tar.gz -C /tmp
           mkdir -p "$HOME/.local/bin"
           mv /tmp/kustomize "$HOME/.local/bin/kustomize"
@@ -110,12 +123,13 @@ jobs:
           "$HOME/.local/bin/kustomize" version
 
       - name: "🔄 Update Kustomize image tag"
+        env:
+          IMAGE_TAG: ${{ needs.build-and-push.outputs.image_tag }}
+          IMAGE_NAME: ghcr.io/${{ github.repository }}
         run: |
-          IMAGE_TAG="${{ needs.build-and-push.outputs.image_tag }}"
-          IMAGE_NAME="ghcr.io/${{ github.repository }}"
           echo "🔄 Atualizando tag da imagem para ${IMAGE_NAME}:${IMAGE_TAG}..."
 
-          # O overlay "dev" foi removido do repo argocd-apps (colidia com os
+          # O overlay "dev" foi removido do repo lema-deploy (colidia com os
           # mesmos namespaces do "prod") — só "prod" existe hoje.
           for overlay in prod; do
             dir="argocd-apps/apps/design-system/overlays/${overlay}"
@@ -125,25 +139,20 @@ jobs:
           echo "✅ Kustomize atualizado com sucesso!"
 
       - name: "📤 Commit and push changes"
+        env:
+          IMAGE_TAG: ${{ needs.build-and-push.outputs.image_tag }}
         run: |
           cd argocd-apps
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add .
           if git diff --cached --quiet; then
-            echo "⚠️ Kustomization já está atualizado com a tag ${{ needs.build-and-push.outputs.image_tag }}."
+            echo "⚠️ Kustomization já está atualizado com a tag $IMAGE_TAG."
             echo "📤 Criando commit vazio para forçar reconciliação no ArgoCD..."
-            git commit --allow-empty -m "chore(design-system): reconcile image ${{ needs.build-and-push.outputs.image_tag }} [no-op]"
+            git commit --allow-empty -m "chore(design-system): reconcile image $IMAGE_TAG [no-op]"
           else
             echo "📤 Commitando alterações..."
-            git commit -m "chore(design-system): update image to ${{ needs.build-and-push.outputs.image_tag }}"
+            git commit -m "chore(design-system): update image to $IMAGE_TAG"
           fi
           git push origin main
           echo "🎉 Deploy configurado com sucesso!"
-
-      - name: "🧹 Limpar workspace do job (_work)"
-        if: always()
-        # NÃO remover o diretório github.workspace em si — o post-step do
-        # actions/checkout roda depois deste job e precisa que ele ainda
-        # exista (senão o runner falha ao iniciar o node com ENOENT).
-        run: find "${{ github.workspace }}" -mindepth 1 -delete

@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 const dateFnsLocales: Record<UILocale, Locale> = {
   "pt-BR": ptBR,
@@ -99,12 +100,13 @@ export const ActivityFeed = React.forwardRef<HTMLDivElement, ActivityFeedProps>(
       loading = false,
       emptyMessage,
       onViewMore,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].activityFeed
     const dfLocale = dateFnsLocales[locale]
 

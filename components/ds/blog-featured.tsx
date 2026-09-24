@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 import { BlogCard, type BlogPost } from "./blog-card"
 
@@ -22,10 +23,11 @@ export function BlogFeatured({
   className,
   featured,
   posts = [],
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: BlogFeaturedProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

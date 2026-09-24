@@ -6,6 +6,7 @@ import { SearchIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Label } from "@/components/ui/label"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
@@ -49,13 +50,14 @@ export function SidebarSearch({
   placeholder,
   defaultValue = "",
   onSearch,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   className,
   size = "md",
   onSubmit,
   ...props
 }: SidebarSearchProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.sidebarSearch ?? UI_I18N["en-US"].sidebarSearch
   const id = React.useId()
   const inputId = `sidebar-search-input-${id}`

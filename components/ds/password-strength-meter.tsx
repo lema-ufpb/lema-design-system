@@ -6,6 +6,7 @@ import { CheckIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -77,11 +78,12 @@ export const PasswordStrengthMeter = React.forwardRef<
       showChecklist = true,
       minLength = 8,
       size = "md",
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
     const { score, criteria } = evaluatePassword(password, minLength)
 

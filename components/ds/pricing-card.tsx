@@ -6,6 +6,7 @@ import { CheckIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -68,11 +69,12 @@ export function PricingCard({
   featured = false,
   features = [],
   action,
-  locale = "en-US",
+  locale: localeProp,
   size = "md",
   loading = false,
   ...props
 }: PricingCardProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

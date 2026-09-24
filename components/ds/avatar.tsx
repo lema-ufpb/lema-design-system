@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/tooltip"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -139,12 +140,13 @@ function Avatar({
   status,
   tooltip,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   onLoadingStatusChange,
   delayMs,
   ...htmlProps
 }: AvatarProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
   const initials = fallback ?? getInitials(alt)
   const initialsColor = getAvatarColor(alt)

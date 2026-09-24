@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { TeamCard, type TeamCardProps } from "./team-card"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -29,10 +30,11 @@ export function TeamGrid({
   description,
   members,
   columns = 3,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: TeamGridProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].team
 
   return (

@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -167,9 +168,10 @@ export function CardStatSparkline({
   className,
   loading,
   empty,
-  locale,
+  locale: localeProp,
   ...fmt
 }: CardStatSparklineProps) {
+  const locale = useOptionalUILocale(localeProp)
   const sparklineW = size === "sm" ? 90 : size === "lg" ? 150 : 120
   const sparklineH = size === "sm" ? 32 : size === "lg" ? 56 : 44
 
