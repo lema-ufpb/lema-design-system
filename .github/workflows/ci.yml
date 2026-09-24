@@ -61,8 +61,10 @@ jobs:
       - name: "🧰 Setup Node + Deps"
         uses: ./.github/actions/setup-node-deps
 
-      - name: "📦 Run Build (Storybook)"
+      # Mesmo alvo que o Dockerfile usa no CD (Storybook + docs de componentes),
+      # para que falhas do build de release apareçam já no PR.
+      - name: "📦 Run Build (Storybook + component docs)"
         run: |
           echo "🚀 Iniciando o processo de build..."
-          npm run build-storybook
+          make build-storybook
           echo "🎉 Build concluído sem erros!"
