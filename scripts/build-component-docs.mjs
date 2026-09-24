@@ -435,6 +435,9 @@ const result = {
 }
 
 for (const item of registry.items) {
+  // Itens sem arquivos (ex.: `tokens`, registry:theme só com cssVars) não têm componente a documentar.
+  if (!item.files?.length) continue
+
   const firstFile = item.files[0].path
   const filePath = join(ROOT, firstFile)
 
