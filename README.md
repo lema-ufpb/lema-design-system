@@ -681,17 +681,6 @@ Older runs on the same PR are automatically canceled via `concurrency`. Installa
 
 > ⚠️ **Branch protection is required** em `develop` e `main`. As CI does not trigger on `push`, direct push bypasses validation. Configure in **Settings → Branches**: require PR + up-to-date branch before merge. Currently **no branch requires status checks** (`contexts: []`) — consider adding `🕵️‍♂️ Lint`, `🧪 Test` and `📦 Build` as required checks on `develop`.
 
-### 🤖 AI Review
-
-Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Dependabot e do `github-actions[bot]`. O fluxo:
-
-1. Generates the PR diff, commit history and contents of changed `.ts`/`.tsx` files
-2. Monta um prompt com as skills do design system (`.agents/skills/shadcn/SKILL.md` + `.agents/skills/design-system/SKILL.md`)
-3. Runs the review via `opencode` with free models in rotation (automatic fallback between models)
-4. Posts the result as a PR comment with sections: **Summary**, **Issues found** and **Skill Checklist**
-
-release-please PRs never trigger this workflow — they target `main`, not `develop`.
-
 ### ⚙️ Release automatizada
 
 Dispara em **push para `main`**. O bot do release-please:
