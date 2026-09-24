@@ -8,7 +8,11 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    # Checa o autor do PR (não `github.actor`, que é quem disparou o evento e muda
+    # em pushes/rebases) e exige que a branch seja deste repositório, não de fork.
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Dependabot metadata
         id: metadata
