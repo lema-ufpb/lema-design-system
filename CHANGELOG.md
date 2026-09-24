@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/lema-ufpb/lema-design-system/compare/v1.13.0...v1.14.0) (2026-09-24)
+
+
+### ✨ Features
+
+* **design-system:** refresh introduction, update dependencies and sync registry ([d7400e2](https://github.com/lema-ufpb/lema-design-system/commit/d7400e2495366d994d5e886b874dd2d14a5dcaec))
+
 ## [1.13.0](https://github.com/lema-ufpb/lema-design-system/compare/v1.12.0...v1.13.0) (2026-09-24)
 
 
