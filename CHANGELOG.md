@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.14.2](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.1...v1.14.2) (2026-09-24)
+
+
+### 🐛 Bug Fixes
+
+* **docs:** ignorar itens do registry sem files no build de docs ([a6e46a3](https://github.com/lema-ufpb/lema-design-system/commit/a6e46a3aa4bac3a94a9f30a4a624a63b733882f5))
+* **docs:** skip registry items without files in component docs build ([8ff99b2](https://github.com/lema-ufpb/lema-design-system/commit/8ff99b21984281f62281d2af8c8d6131441d78cb))
+
 ## [1.14.1](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.0...v1.14.1) (2026-09-24)
 
 
