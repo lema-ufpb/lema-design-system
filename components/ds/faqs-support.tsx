@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Faqs, type FaqsProps } from "./faqs"
@@ -23,9 +24,10 @@ export function FaqsSupport({
   supportTitle,
   supportDescription,
   supportAction,
-  locale = "en-US",
+  locale: localeProp,
   ...faqsProps
 }: FaqsSupportProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].faqs
 
   return (

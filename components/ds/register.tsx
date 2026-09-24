@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -39,10 +40,11 @@ export function Register({
   onSubmit,
   showSocial = true,
   socials = ["google", "github"],
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: RegisterProps) {
+  const locale = useUILocale(localeProp)
   const [name, setName] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")

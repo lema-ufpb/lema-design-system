@@ -1,12 +1,13 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { DSLink } from "@/components/ds/link-provider"
 import { ChevronDown } from "lucide-react"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Accordion,
   AccordionItem,
@@ -104,9 +105,17 @@ export const footerNavIconVariants = cva(
 
 export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
   (
-    { data, upper = false, size = "md", locale = "en-US", className, ...props },
+    {
+      data,
+      upper = false,
+      size = "md",
+      locale: localeProp,
+      className,
+      ...props
+    },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     if (!data || data.length === 0) return null
 
     return (
@@ -160,14 +169,14 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
                 >
                   {group.options.map((option: FooterOptionData, j: number) => (
                     <li key={j}>
-                      <Link
+                      <DSLink
                         data-slot="footer-menu-link"
                         href={option.url}
                         target={option.target}
                         className={cn(footerLinkVariants({ size }))}
                       >
                         {option.name}
-                      </Link>
+                      </DSLink>
                     </li>
                   ))}
                 </ul>
@@ -198,14 +207,14 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
               >
                 {group.options.map((option: FooterOptionData, j: number) => (
                   <li key={j}>
-                    <Link
+                    <DSLink
                       data-slot="footer-menu-link"
                       href={option.url}
                       target={option.target}
                       className={cn(footerLinkVariants({ size }))}
                     >
                       {option.name}
-                    </Link>
+                    </DSLink>
                   </li>
                 ))}
               </ul>

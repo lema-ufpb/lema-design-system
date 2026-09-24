@@ -7,6 +7,7 @@ import type { HTMLAttributes } from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -181,12 +182,13 @@ export const SearchBar = React.forwardRef<HTMLDivElement, SearchBarProps>(
       onVoiceError,
       disabled = false,
       autoFocus = false,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const i18n = UI_I18N[locale].searchBar
     const isControlled = valueProp !== undefined
     const [internalValue, setInternalValue] = React.useState(defaultValue)

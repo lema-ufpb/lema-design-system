@@ -1,0 +1,4 @@
+# Mudanças em CI/CD, deploy e configuração do repo exigem revisão de um dono.
+/.github/     @hiltonmbr @alessiotony
+/Dockerfile   @hiltonmbr @alessiotony
+/k8s/         @hiltonmbr @alessiotony

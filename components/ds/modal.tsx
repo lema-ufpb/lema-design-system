@@ -27,6 +27,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Spinner } from "@/components/ui/spinner"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -215,9 +216,10 @@ export function Modal({
   showCloseButton = true,
   maximize = false,
   onMaximized,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: ModalProps) {
+  const locale = useUILocale(localeProp)
   const [internalLoading, setInternalLoading] = React.useState(false)
   const [maximized, setMaximized] = React.useState(false)
 

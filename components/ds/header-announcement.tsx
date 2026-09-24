@@ -6,6 +6,7 @@ import { ArrowRightIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -48,10 +49,11 @@ export function HeaderAnnouncement({
   tag,
   dismissible = true,
   onDismiss,
-  locale = "en-US",
+  locale: localeProp,
   children,
   ...props
 }: HeaderAnnouncementProps) {
+  const locale = useUILocale(localeProp)
   const [dismissed, setDismissed] = React.useState(false)
 
   const handleDismiss = () => {

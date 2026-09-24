@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-link-provider",
+  "title": "Link Provider",
+  "description": "Context provider that sets the link component (next/link, react-router Link, plain <a>) used by navigation ds-* components. Exports DSLinkProvider, DSLink and useDSLink. Framework-agnostic; defaults to <a>.",
+  "files": [
+    {
+      "path": "components/ds/ds-link-provider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\n// ── Types ──\n\n/** Props mínimas que todo componente de link do consumidor deve aceitar. */\nexport type DSLinkProps = Omit<React.ComponentPropsWithRef<\"a\">, \"href\"> & {\n  href: string\n}\n\n/** Componente de link do consumidor (`next/link`, `Link` do react-router, `a`…). */\nexport type DSLinkComponent = React.ComponentType<DSLinkProps>\n\nexport interface DSLinkProviderProps {\n  /** Componente de link usado por todos os `ds-*` da subárvore. */\n  link: DSLinkComponent\n  children: React.ReactNode\n}\n\n// ── Helpers ──\n\nconst DefaultLink: DSLinkComponent = (props) => <a {...props} />\n\nconst DSLinkContext = React.createContext<DSLinkComponent>(DefaultLink)\n\n// ── Component ──\n\n/**\n * Define o componente de link do app para os componentes `ds-*` de navegação\n * (header, footer). Sem provider, renderiza `<a>` — funciona em qualquer\n * framework; para navegação client-side passe o `Link` do seu router.\n */\nfunction DSLinkProvider({ link, children }: DSLinkProviderProps) {\n  return (\n    <DSLinkContext.Provider value={link}>{children}</DSLinkContext.Provider>\n  )\n}\n\n/** Componente de link efetivo: o do `DSLinkProvider` mais próximo, senão `<a>`. */\nfunction useDSLink(): DSLinkComponent {\n  return React.useContext(DSLinkContext)\n}\n\n/** Link usado internamente pelos `ds-*`; delega ao componente do provider. */\nfunction DSLink(props: DSLinkProps) {\n  return React.createElement(useDSLink(), props)\n}\n\nexport { DSLinkProvider, DSLink, useDSLink }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

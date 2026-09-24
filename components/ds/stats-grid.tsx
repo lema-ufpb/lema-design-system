@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Stats, type StatsProps } from "./stats"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -21,10 +22,11 @@ export function StatsGrid({
   className,
   items,
   columns = 4,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: StatsGridProps) {
+  const locale = useUILocale(localeProp)
   return (
     <div
       data-slot="stats-grid"

@@ -7,6 +7,7 @@ import { Inbox, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -80,12 +81,13 @@ export const EmptyAction = React.forwardRef<HTMLDivElement, EmptyActionProps>(
       secondaryAction,
       suggestions,
       size = "md",
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].emptyAction
 
     const iconWrapperSize =

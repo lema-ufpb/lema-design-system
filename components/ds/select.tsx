@@ -22,6 +22,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { Label } from "@/components/ui/label"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -88,7 +89,7 @@ function Select({
   loading = false,
   error,
   label,
-  locale = "en-US",
+  locale: localeProp,
   disabled = false,
   className,
   side,
@@ -96,6 +97,7 @@ function Select({
   sideOffset = 4,
   alignOffset,
 }: SelectProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
   const [open, setOpen] = React.useState(false)
   const [search, setSearch] = React.useState("")

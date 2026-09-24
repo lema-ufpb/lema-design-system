@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -71,12 +72,13 @@ export const InlineEdit = React.forwardRef<HTMLDivElement, InlineEditProps>(
       validate,
       disabled = false,
       size = "md",
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [isEditing, setIsEditing] = React.useState(false)
     const [currentValue, setCurrentValue] = React.useState(value)
     const [isSaving, setIsSaving] = React.useState(false)

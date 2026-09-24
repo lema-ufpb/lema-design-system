@@ -16,6 +16,7 @@ import { Kbd } from "@/components/ui/kbd"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -70,9 +71,10 @@ export function ShortcutSheet({
   groups,
   enableGlobalListener = true,
   trigger,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: ShortcutSheetProps) {
+  const locale = useUILocale(localeProp)
   const [internalOpen, setInternalOpen] = React.useState(false)
   const isControlled = open !== undefined
   const isOpen = isControlled ? open : internalOpen
@@ -181,7 +183,7 @@ export function ShortcutSheet({
                         </div>
                         <div className="flex shrink-0 items-center gap-1">
                           {shortcut.keys.map((key, i) => (
-                            <Kbd key={i} className="font-mono text-xs">
+                            <Kbd key={i} className="text-xs">
                               {key}
                             </Kbd>
                           ))}

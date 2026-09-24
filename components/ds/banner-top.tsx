@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Banner, type BannerProps } from "./banner"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -31,9 +32,10 @@ export function BannerTop({
   size = "md",
   position = "top",
   dismissible = true,
-  locale = "en-US",
+  locale: localeProp,
   ...props
 }: BannerTopProps) {
+  const locale = useUILocale(localeProp)
   return (
     <Banner
       intent={intent}

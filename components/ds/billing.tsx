@@ -5,6 +5,7 @@ import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -36,9 +37,10 @@ export function Billing({
   nextBilling,
   status = "active",
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   ...props
 }: BillingProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].billing ?? UI_I18N["en-US"].billing
   if (loading) {
     return (

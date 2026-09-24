@@ -9,10 +9,9 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/ds/fade.tsx",
+      "path": "components/ds/ds-fade.tsx",
       "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface FadeProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof fadeVariants> {}\n\n// ── Variants ──\n\nexport const fadeVariants = cva(\"relative\", {\n  variants: {\n    variant: {\n      x: \"[mask-image:linear-gradient(to_right,transparent_0%,black_25%,black_75%,transparent_100%)]\",\n      y: \"[mask-image:linear-gradient(to_top,transparent_0%,black_25%,black_75%,transparent_100%)]\",\n      top: \"[mask-image:linear-gradient(to_bottom,transparent_0%,black_35%)]\",\n      bottom: \"[mask-image:linear-gradient(to_top,transparent_0%,black_35%)]\",\n      left: \"[mask-image:linear-gradient(to_right,transparent_0%,black_35%)]\",\n      right: \"[mask-image:linear-gradient(to_left,transparent_0%,black_35%)]\",\n      \"top-lg\":\n        \"[mask-image:linear-gradient(to_bottom,transparent_15%,black_100%)]\",\n      \"bottom-lg\":\n        \"[mask-image:linear-gradient(to_top,transparent_15%,black_100%)]\",\n      \"left-lg\":\n        \"[mask-image:linear-gradient(to_right,transparent_15%,black_100%)]\",\n      \"right-lg\":\n        \"[mask-image:linear-gradient(to_left,transparent_15%,black_100%)]\",\n    },\n  },\n  defaultVariants: {\n    variant: \"x\",\n  },\n})\n\n// ── Component ──\n\nexport function Fade({ className, variant = \"x\", ...props }: FadeProps) {\n  return (\n    <div\n      data-slot=\"fade\"\n      data-variant={variant}\n      className={cn(fadeVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n",
-      "type": "registry:ui",
-      "target": "components/ui/ds-fade.tsx"
+      "type": "registry:ui"
     }
   ],
   "type": "registry:ui"

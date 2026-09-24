@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Header, HeaderContainer } from "./header"
 import { HeaderBrand, type HeaderBrandProps } from "./header-brand"
 import { HeaderNav, type HeaderNavItem } from "./header-nav"
@@ -49,7 +50,7 @@ export function HeaderCentered({
   navItems = [],
   leftActions = [],
   rightActions = [],
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   size = "md",
   variant = "default",
@@ -58,6 +59,7 @@ export function HeaderCentered({
 }: HeaderCenteredProps & {
   variant?: "default" | "blurred" | "transparent" | "solid"
 }) {
+  const locale = useUILocale(localeProp)
   return (
     <Header
       variant={variant}

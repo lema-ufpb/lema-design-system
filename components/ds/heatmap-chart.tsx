@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Grid3X3 } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -252,10 +253,11 @@ export function HeatmapChart({
   min: minProp,
   max: maxProp,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: HeatmapChartProps) {
+  const locale = useUILocale(localeProp)
   // Hooks must be called unconditionally before any early returns
   const [hovered, setHovered] = React.useState<{ x: string; y: string } | null>(
     null

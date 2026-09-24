@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { TestimonialCard, type TestimonialCardProps } from "./testimonial-card"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -25,10 +26,11 @@ export function Testimonials({
   description,
   items,
   columns = 3,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: TestimonialsProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].testimonials
 
   return (

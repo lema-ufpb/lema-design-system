@@ -5,6 +5,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Popover,
   PopoverContent,
@@ -61,11 +62,12 @@ export function Cascader({
   value = [],
   onValueChange,
   placeholder,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   size = "md",
   ...props
 }: CascaderProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].select
   const resolvedPlaceholder = placeholder ?? t.placeholder
   const triggerId = React.useId()

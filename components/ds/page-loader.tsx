@@ -5,6 +5,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Spinner } from "@/components/ui/spinner"
 import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -137,11 +138,12 @@ export function PageLoader({
   overlay = "soft",
   blur = false,
   message,
-  locale = "en-US",
+  locale: localeProp,
   className,
   "aria-label": ariaLabel,
   ...htmlProps
 }: PageLoaderProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].pageLoader
 
   return (

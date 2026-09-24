@@ -510,7 +510,8 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/ds-manifesto-statement",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -588,7 +589,9 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -660,7 +663,9 @@
         "@lema-ds/badge",
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -690,7 +695,8 @@
         "@lema-ds/message",
         "@lema-ds/message-scroller",
         "@lema-ds/bubble",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -709,7 +715,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -758,7 +765,8 @@
         "@lema-ds/ds-team-switcher",
         "@lema-ds/ds-sidebar-search",
         "@lema-ds/ui-i18n",
-        "@lema-ds/ds-nav-user"
+        "@lema-ds/ds-nav-user",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -842,7 +850,8 @@
       "registryDependencies": [
         "@lema-ds/card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -924,7 +933,9 @@
         "@lema-ds/avatar",
         "@lema-ds/skeleton",
         "@lema-ds/tooltip",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -944,7 +955,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/avatar",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -962,7 +975,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/background-glow.tsx",
@@ -983,7 +998,9 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1005,7 +1022,9 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1030,7 +1049,9 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1053,7 +1074,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1072,7 +1094,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1096,7 +1119,8 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1118,7 +1142,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ds-banner"
+        "@lema-ds/ds-banner",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1142,7 +1167,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/format-utils",
-        "@lema-ds/chart-axis-width"
+        "@lema-ds/chart-axis-width",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1275,7 +1301,8 @@
         "@lema-ds/badge",
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1320,7 +1347,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/ds-blog-author",
-        "@lema-ds/ds-blog-meta"
+        "@lema-ds/ds-blog-meta",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1342,7 +1370,8 @@
       "registryDependencies": [
         "@lema-ds/ds-blog-card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1365,7 +1394,8 @@
         "@lema-ds/ds-blog-card",
         "@lema-ds/input",
         "@lema-ds/empty",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1390,7 +1420,8 @@
         "@lema-ds/separator",
         "@lema-ds/skeleton",
         "@lema-ds/ds-blog-card",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1411,7 +1442,8 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1429,7 +1461,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/border-beam.tsx",
@@ -1450,7 +1484,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1485,7 +1520,9 @@
         "class-variance-authority",
         "lucide-react"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/browser-mockup.tsx",
@@ -1509,7 +1546,9 @@
         "@lema-ds/skeleton",
         "@lema-ds/tooltip",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "dependencies": [
         "class-variance-authority"
@@ -1547,7 +1586,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@lema-ds/alert"
+        "@lema-ds/alert",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1571,7 +1611,9 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/format-utils",
-        "@lema-ds/chart-axis-width"
+        "@lema-ds/chart-axis-width",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1593,7 +1635,8 @@
       "registryDependencies": [
         "@lema-ds/card",
         "@lema-ds/badge",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1615,7 +1658,8 @@
         "@lema-ds/card-stat-shared",
         "@lema-ds/card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1637,7 +1681,8 @@
       "registryDependencies": [
         "@lema-ds/card-stat-shared",
         "@lema-ds/card",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1659,7 +1704,8 @@
         "@lema-ds/card-stat-shared",
         "@lema-ds/card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1683,7 +1729,8 @@
         "@lema-ds/card",
         "@lema-ds/skeleton",
         "@lema-ds/badge",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1709,7 +1756,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/badge",
         "@lema-ds/tooltip",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1732,7 +1780,9 @@
         "@lema-ds/card-stat-shared",
         "@lema-ds/card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1755,7 +1805,9 @@
         "@lema-ds/card-stat-shared",
         "@lema-ds/card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1779,7 +1831,9 @@
         "@lema-ds/card",
         "@lema-ds/progress",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1801,7 +1855,8 @@
         "@lema-ds/card-stat-shared",
         "@lema-ds/card",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1850,7 +1905,8 @@
       "registryDependencies": [
         "@lema-ds/carousel",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1873,7 +1929,8 @@
         "@lema-ds/popover",
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1895,7 +1952,9 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -1921,7 +1980,8 @@
         "@lema-ds/button",
         "@lema-ds/separator",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1941,7 +2001,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/input",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1966,7 +2027,8 @@
         "@lema-ds/button",
         "@lema-ds/popover",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -1984,7 +2046,8 @@
       "registryDependencies": [
         "@lema-ds/command",
         "@lema-ds/dialog",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2055,7 +2118,9 @@
         "@lema-ds/button",
         "@lema-ds/input",
         "@lema-ds/spinner",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2122,7 +2187,9 @@
         "@lema-ds/textarea",
         "@lema-ds/button",
         "@lema-ds/ds-pill-group",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2164,7 +2231,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2186,7 +2255,9 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/tooltip",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2208,7 +2279,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/button"
+        "@lema-ds/button",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2228,7 +2300,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2258,7 +2331,8 @@
         "@lema-ds/select",
         "@lema-ds/toggle-group",
         "@lema-ds/tabs",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "dependencies": [
         "class-variance-authority",
@@ -2277,7 +2351,8 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/button",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2320,7 +2395,9 @@
         "@lema-ds/ds-cta",
         "@lema-ds/input",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2397,7 +2474,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/cursor-spotlight.tsx",
@@ -2427,7 +2506,8 @@
         "@lema-ds/ui-i18n",
         "@lema-ds/ds-nav-user",
         "@lema-ds/ds-team-switcher",
-        "@lema-ds/tooltip"
+        "@lema-ds/tooltip",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2470,7 +2550,9 @@
         "@lema-ds/tooltip",
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/separator"
+        "@lema-ds/separator",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -2489,7 +2571,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2515,7 +2598,8 @@
         "@lema-ds/ds-pagination",
         "@lema-ds/ds-search-bar",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2538,7 +2622,8 @@
         "@lema-ds/button",
         "@lema-ds/popover",
         "@lema-ds/calendar",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2562,7 +2647,8 @@
         "@lema-ds/button",
         "@lema-ds/calendar",
         "@lema-ds/popover",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2618,7 +2704,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/badge",
         "@lema-ds/card",
-        "@lema-ds/toggle-group"
+        "@lema-ds/toggle-group",
+        "@lema-ds/tokens"
       ],
       "dependencies": [
         "class-variance-authority"
@@ -2645,7 +2732,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/drawer",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2666,7 +2754,9 @@
           "type": "registry:ui"
         }
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "dependencies": [
         "class-variance-authority"
       ]
@@ -2684,7 +2774,8 @@
         "@lema-ds/empty",
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2705,7 +2796,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2728,7 +2820,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/button"
+        "@lema-ds/button",
+        "@lema-ds/tokens"
       ],
       "dependencies": [
         "class-variance-authority"
@@ -2787,7 +2880,8 @@
         "@lema-ds/ds-accordion",
         "@lema-ds/input",
         "@lema-ds/empty",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2810,7 +2904,8 @@
         "@lema-ds/ds-faqs",
         "@lema-ds/card",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2832,7 +2927,8 @@
       "registryDependencies": [
         "@lema-ds/ds-faqs",
         "@lema-ds/tabs",
-        "@lema-ds/ds-accordion"
+        "@lema-ds/ds-accordion",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2853,7 +2949,8 @@
       "registryDependencies": [
         "@lema-ds/popover",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2901,7 +2998,8 @@
         "@lema-ds/button",
         "@lema-ds/dialog",
         "@lema-ds/radio-group",
-        "@lema-ds/textarea"
+        "@lema-ds/textarea",
+        "@lema-ds/tokens"
       ],
       "dependencies": [
         "class-variance-authority",
@@ -2922,7 +3020,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/button",
-        "@lema-ds/badge"
+        "@lema-ds/badge",
+        "@lema-ds/tokens"
       ],
       "dependencies": [
         "class-variance-authority",
@@ -2941,7 +3040,8 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/progress",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -2963,7 +3063,8 @@
         "@lema-ds/button",
         "@lema-ds/input",
         "@lema-ds/select",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3095,7 +3196,9 @@
         "@lema-ds/ds-social-links",
         "@lema-ds/ds-footer-bottom-bar",
         "@lema-ds/ds-footer-menu",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -3144,7 +3247,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/accordion",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/ds-link-provider"
       ],
       "files": [
         {
@@ -3167,7 +3272,9 @@
         "@lema-ds/button",
         "@lema-ds/input",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -3231,7 +3338,8 @@
         "@lema-ds/input",
         "@lema-ds/button",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3306,7 +3414,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/card",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "dependencies": [
         "class-variance-authority"
@@ -3413,7 +3522,9 @@
         "@lema-ds/button",
         "@lema-ds/dialog",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/client-only"
       ],
       "files": [
         {
@@ -3457,7 +3568,9 @@
           "type": "registry:ui"
         }
       ],
-      "registryDependencies": []
+      "registryDependencies": [
+        "@lema-ds/client-only"
+      ]
     },
     {
       "name": "ds-glow",
@@ -3484,7 +3597,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/grid-pulse.tsx",
@@ -3503,7 +3618,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3522,7 +3638,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3563,7 +3680,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3582,7 +3700,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/ds-link-provider"
       ],
       "files": [
         {
@@ -3609,7 +3728,8 @@
         "@lema-ds/ds-header-nav",
         "@lema-ds/ds-header-actions",
         "@lema-ds/ds-header-mobile-drawer",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3641,7 +3761,8 @@
         "@lema-ds/command",
         "@lema-ds/kbd",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3670,7 +3791,9 @@
         "@lema-ds/ds-header-actions",
         "@lema-ds/ds-header-mobile-drawer",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/ds-link-provider"
       ],
       "files": [
         {
@@ -3696,7 +3819,9 @@
         "@lema-ds/separator",
         "@lema-ds/ui-i18n",
         "@lema-ds/ds-header-actions",
-        "@lema-ds/ds-header-nav"
+        "@lema-ds/ds-header-nav",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/ds-link-provider"
       ],
       "files": [
         {
@@ -3716,7 +3841,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/navigation-menu",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/ds-link-provider"
       ],
       "files": [
         {
@@ -3738,7 +3864,8 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/input",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3767,7 +3894,8 @@
         "@lema-ds/ds-header-actions",
         "@lema-ds/ds-header-mobile-drawer",
         "@lema-ds/ds-header-search",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3814,7 +3942,8 @@
         "@lema-ds/ds-header-nav",
         "@lema-ds/ds-header-actions",
         "@lema-ds/ds-header-mobile-drawer",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3866,7 +3995,8 @@
         "@lema-ds/ds-header-brand",
         "@lema-ds/ds-header-nav",
         "@lema-ds/ds-social-links",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -3888,7 +4018,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4130,7 +4261,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4227,7 +4359,8 @@
       "description": "Zoom hover lens — adaptado Kibo.",
       "dependencies": [],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4250,7 +4383,8 @@
         "@lema-ds/input",
         "@lema-ds/button",
         "@lema-ds/spinner",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4272,7 +4406,8 @@
       "registryDependencies": [
         "@lema-ds/input",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4312,7 +4447,8 @@
       "registryDependencies": [
         "@lema-ds/input",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4332,7 +4468,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -4355,7 +4493,8 @@
         "@lema-ds/ds-integration-tile",
         "@lema-ds/input",
         "@lema-ds/empty",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4433,7 +4572,8 @@
       "registryDependencies": [
         "@lema-ds/dialog",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4457,13 +4597,30 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/format-utils",
-        "@lema-ds/chart-axis-width"
+        "@lema-ds/chart-axis-width",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
           "path": "components/ds/line-chart.tsx",
           "type": "registry:ui",
           "target": "components/ui/ds-line-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ds-locale-provider",
+      "type": "registry:ui",
+      "title": "Locale Provider",
+      "description": "Context provider that sets the default locale for every ds-* component in the tree (prop > provider > en-US). Exports UILocaleProvider, useUILocale and useOptionalUILocale.",
+      "registryDependencies": [
+        "@lema-ds/ui-i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ds/locale-provider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-locale-provider.tsx"
         }
       ]
     },
@@ -4484,7 +4641,8 @@
         "@lema-ds/command",
         "@lema-ds/badge",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "dependencies": [
         "class-variance-authority",
@@ -4508,7 +4666,8 @@
         "@lema-ds/button",
         "@lema-ds/checkbox",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4613,7 +4772,9 @@
       "registryDependencies": [
         "@lema-ds/input",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -4727,7 +4888,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/meteor-shower.tsx",
@@ -4748,7 +4911,9 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -4791,7 +4956,9 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/card-stat-shared",
-        "@lema-ds/separator"
+        "@lema-ds/separator",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -4859,7 +5026,9 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/separator",
-        "@lema-ds/spinner"
+        "@lema-ds/spinner",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -4901,7 +5070,8 @@
         "@lema-ds/command",
         "@lema-ds/badge",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4921,7 +5091,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/tooltip",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -4989,7 +5160,8 @@
       "registryDependencies": [
         "@lema-ds/popover",
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5031,7 +5203,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5097,7 +5271,8 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5117,7 +5292,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/spinner",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5157,7 +5334,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/particle-field.tsx",
@@ -5174,7 +5353,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/star-shower.tsx",
@@ -5194,7 +5375,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5214,7 +5396,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5238,7 +5422,8 @@
         "@lema-ds/command",
         "@lema-ds/popover",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5261,7 +5446,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5283,7 +5469,9 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5322,7 +5510,8 @@
         "@lema-ds/switch",
         "@lema-ds/label",
         "@lema-ds/button",
-        "@lema-ds/badge"
+        "@lema-ds/badge",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5345,7 +5534,9 @@
         "@lema-ds/badge",
         "@lema-ds/button",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5367,7 +5558,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@lema-ds/table"
+        "@lema-ds/table",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5390,7 +5582,9 @@
         "@lema-ds/ds-pricing-card",
         "@lema-ds/toggle-group",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5456,7 +5650,9 @@
         "@lema-ds/skeleton",
         "@lema-ds/tooltip",
         "@lema-ds/progress",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5477,7 +5673,8 @@
       "registryDependencies": [
         "@lema-ds/ui-i18n",
         "@lema-ds/format-utils",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5498,7 +5695,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/avatar",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5536,7 +5734,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5559,7 +5758,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5602,6 +5802,9 @@
           "type": "registry:ui",
           "target": "components/ui/ds-rating.tsx"
         }
+      ],
+      "registryDependencies": [
+        "@lema-ds/tokens"
       ]
     },
     {
@@ -5616,7 +5819,8 @@
         }
       ],
       "registryDependencies": [
-        "@lema-ds/button"
+        "@lema-ds/button",
+        "@lema-ds/tokens"
       ],
       "dependencies": [
         "class-variance-authority",
@@ -5666,7 +5870,8 @@
         "@lema-ds/ds-auth-separator",
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/field"
+        "@lema-ds/field",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5745,7 +5950,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5770,7 +5976,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/card",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "dependencies": [
         "class-variance-authority"
@@ -5790,7 +5997,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/format-utils",
-        "@lema-ds/chart-axis-width"
+        "@lema-ds/chart-axis-width",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5837,7 +6045,9 @@
         "@lema-ds/skeleton",
         "@lema-ds/tooltip",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -5906,7 +6116,8 @@
       "registryDependencies": [
         "@lema-ds/tooltip",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5931,7 +6142,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
         "@lema-ds/button",
-        "@lema-ds/spinner"
+        "@lema-ds/spinner",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -5955,7 +6167,8 @@
       "registryDependencies": [
         "@lema-ds/popover",
         "@lema-ds/ds-spinner",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6002,7 +6215,8 @@
         "@lema-ds/button",
         "@lema-ds/skeleton",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6028,7 +6242,8 @@
         "@lema-ds/badge",
         "@lema-ds/skeleton",
         "@lema-ds/ds-empty",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6097,7 +6312,8 @@
         "@lema-ds/kbd",
         "@lema-ds/input",
         "@lema-ds/scroll-area",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6120,7 +6336,8 @@
         "@lema-ds/sidebar",
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/label"
+        "@lema-ds/label",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6168,7 +6385,8 @@
         "@lema-ds/button",
         "@lema-ds/checkbox",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6189,7 +6407,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/card",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6234,7 +6453,9 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/tabs",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6255,7 +6476,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/button",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6310,7 +6532,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6331,7 +6555,9 @@
       ],
       "registryDependencies": [
         "@lema-ds/spinner",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6373,7 +6599,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/badge",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6394,7 +6621,8 @@
       "dependencies": [],
       "registryDependencies": [
         "@lema-ds/ds-stats",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6415,7 +6643,9 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6435,7 +6665,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6473,7 +6704,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6496,7 +6728,9 @@
         "@lema-ds/switch",
         "@lema-ds/label",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6516,7 +6750,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6550,7 +6785,8 @@
       "registryDependencies": [
         "@lema-ds/tabs",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6572,7 +6808,8 @@
       "registryDependencies": [
         "@lema-ds/badge",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6614,7 +6851,8 @@
       "dependencies": [],
       "registryDependencies": [
         "@lema-ds/ds-team-card",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6635,7 +6873,8 @@
       "registryDependencies": [
         "@lema-ds/avatar",
         "@lema-ds/card",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6658,7 +6897,8 @@
         "@lema-ds/sidebar",
         "@lema-ds/dropdown-menu",
         "@lema-ds/skeleton",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6679,7 +6919,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/avatar",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -6700,7 +6941,8 @@
       "dependencies": [],
       "registryDependencies": [
         "@lema-ds/ds-testimonial-card",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6750,7 +6992,9 @@
         "class-variance-authority",
         "lucide-react"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/ticker.tsx",
@@ -6808,7 +7052,9 @@
       "dependencies": [
         "class-variance-authority"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "@lema-ds/tokens"
+      ],
       "files": [
         {
           "path": "components/ds/timeline.tsx",
@@ -6830,7 +7076,8 @@
         "@lema-ds/button",
         "@lema-ds/dropdown-menu",
         "@lema-ds/ui-i18n",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6870,7 +7117,8 @@
         "@lema-ds/button",
         "@lema-ds/input",
         "@lema-ds/scroll-area",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6913,7 +7161,8 @@
       "registryDependencies": [
         "@lema-ds/skeleton",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6937,7 +7186,8 @@
         "@lema-ds/button",
         "@lema-ds/checkbox",
         "@lema-ds/label",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -6977,7 +7227,8 @@
         "@lema-ds/card",
         "@lema-ds/avatar",
         "@lema-ds/badge",
-        "@lema-ds/skeleton"
+        "@lema-ds/skeleton",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -7020,7 +7271,8 @@
       ],
       "registryDependencies": [
         "@lema-ds/dialog",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider"
       ],
       "files": [
         {
@@ -7062,7 +7314,9 @@
       "registryDependencies": [
         "@lema-ds/button",
         "@lema-ds/input",
-        "@lema-ds/ui-i18n"
+        "@lema-ds/ui-i18n",
+        "@lema-ds/ds-locale-provider",
+        "@lema-ds/tokens"
       ],
       "files": [
         {
@@ -7088,7 +7342,8 @@
         "@lema-ds/skeleton",
         "@lema-ds/card",
         "@lema-ds/ui-i18n",
-        "@lema-ds/format-utils"
+        "@lema-ds/format-utils",
+        "@lema-ds/ds-locale-provider"
       ],
       "dependencies": [
         "class-variance-authority",
@@ -7831,6 +8086,88 @@
           "target": "lib/ui-i18n.ts"
         }
       ]
+    },
+    {
+      "name": "ds-link-provider",
+      "type": "registry:ui",
+      "title": "Link Provider",
+      "description": "Context provider that sets the link component (next/link, react-router Link, plain <a>) used by navigation ds-* components. Exports DSLinkProvider, DSLink and useDSLink. Framework-agnostic; defaults to <a>.",
+      "files": [
+        {
+          "path": "components/ds/link-provider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ds-link-provider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "client-only",
+      "type": "registry:lib",
+      "title": "Client Only",
+      "description": "Renders children only after hydration. Framework-agnostic replacement for next/dynamic with ssr:false.",
+      "files": [
+        {
+          "path": "lib/client-only.tsx",
+          "type": "registry:lib",
+          "target": "lib/client-only.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tokens",
+      "type": "registry:theme",
+      "title": "LEMA-DS Tokens",
+      "description": "Semantic color tokens used by ds-* components (success, warning, risk-1..4, highlight-*), light and dark. Install once per project.",
+      "cssVars": {
+        "theme": {
+          "color-risk-1": "var(--risk-1)",
+          "color-risk-2": "var(--risk-2)",
+          "color-risk-3": "var(--risk-3)",
+          "color-risk-4": "var(--risk-4)",
+          "color-success": "var(--success)",
+          "color-success-foreground": "var(--success-foreground)",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)",
+          "color-highlight-violet": "var(--highlight-violet)",
+          "color-highlight-violet-foreground": "var(--highlight-violet-foreground)",
+          "color-highlight-sky": "var(--highlight-sky)",
+          "color-highlight-sky-foreground": "var(--highlight-sky-foreground)",
+          "color-highlight-white": "var(--highlight-white)",
+          "color-highlight-white-foreground": "var(--highlight-white-foreground)"
+        },
+        "light": {
+          "risk-1": "oklch(0.62 0.19 28)",
+          "risk-2": "oklch(0.72 0.17 50)",
+          "risk-3": "oklch(0.85 0.18 85)",
+          "risk-4": "oklch(0.92 0.15 105)",
+          "success": "oklch(0.55 0.17 155)",
+          "success-foreground": "oklch(0.98 0 0)",
+          "warning": "oklch(0.75 0.18 75)",
+          "warning-foreground": "oklch(0.145 0 0)",
+          "highlight-violet": "oklch(0.55 0.22 290)",
+          "highlight-violet-foreground": "oklch(0.98 0 0)",
+          "highlight-sky": "oklch(0.58 0.18 240)",
+          "highlight-sky-foreground": "oklch(0.98 0 0)",
+          "highlight-white": "oklch(1 0 0)",
+          "highlight-white-foreground": "oklch(0.145 0 0)"
+        },
+        "dark": {
+          "risk-1": "oklch(0.55 0.15 28)",
+          "risk-2": "oklch(0.65 0.13 50)",
+          "risk-3": "oklch(0.75 0.14 85)",
+          "risk-4": "oklch(0.82 0.12 105)",
+          "success": "oklch(0.72 0.17 155)",
+          "success-foreground": "oklch(0.145 0 0)",
+          "warning": "oklch(0.80 0.18 75)",
+          "warning-foreground": "oklch(0.145 0 0)",
+          "highlight-violet": "oklch(0.48 0.20 290)",
+          "highlight-violet-foreground": "oklch(0.98 0 0)",
+          "highlight-sky": "oklch(0.52 0.16 240)",
+          "highlight-sky-foreground": "oklch(0.98 0 0)",
+          "highlight-white": "oklch(1 0 0)",
+          "highlight-white-foreground": "oklch(0.145 0 0)"
+        }
+      }
     }
   ]
 }

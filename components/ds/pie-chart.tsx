@@ -15,6 +15,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   formatChartValue,
   formatValue,
@@ -342,7 +343,7 @@ function ChartTooltip({
   payload,
   total,
   fmt,
-  locale = "en-US",
+  locale: localeProp,
 }: {
   active?: boolean
   payload?: TooltipPayloadEntry[]
@@ -350,6 +351,7 @@ function ChartTooltip({
   fmt: (v: number) => string
   locale?: UILocale
 }) {
+  const locale = useUILocale(localeProp)
   if (!active || !payload?.length) return null
   const entry = payload[0]
 
@@ -396,7 +398,7 @@ function ChartLegend({
   onToggle,
   fmt,
   position = "bottom",
-  locale = "en-US",
+  locale: localeProp,
 }: {
   items: NormalizedPieItem[]
   total: number
@@ -406,6 +408,7 @@ function ChartLegend({
   position?: LegendPosition
   locale?: UILocale
 }) {
+  const locale = useUILocale(localeProp)
   // Rendered through Recharts' <Legend> portal, whose container is itself a node
   // managed elsewhere in the same React tree. React's synthetic click dispatch does
   // not reliably resolve back to handlers on elements portaled this way, so toggling
@@ -517,10 +520,11 @@ export function PieChart({
   currency,
   abbreviate,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: PieChartProps) {
+  const locale = useUILocale(localeProp)
   const i18nInnerLabel =
     innerLabel ??
     UI_I18N[locale as UILocale]?.pieChart?.total ??

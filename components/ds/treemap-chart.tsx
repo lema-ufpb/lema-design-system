@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -351,10 +352,11 @@ export function TreeMapChart({
   currency,
   abbreviate,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: TreeMapChartProps) {
+  const locale = useUILocale(localeProp)
   // Hooks must be called unconditionally before any early returns
   const fmt = React.useCallback(
     (v: number) =>

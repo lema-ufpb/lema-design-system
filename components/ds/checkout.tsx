@@ -5,6 +5,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -48,10 +49,11 @@ export function Checkout({
   items,
   total,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   size = "md",
   ...props
 }: CheckoutProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <Card

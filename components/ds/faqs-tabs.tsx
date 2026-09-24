@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Faqs, type FaqsProps } from "./faqs"
 import { type AccordionItem } from "./accordion"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -33,10 +34,11 @@ export function FaqsTabs({
   onSearchChange,
   iconVariant,
   size = "md",
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: FaqsTabsProps) {
+  const locale = useUILocale(localeProp)
   const [active, setActive] = React.useState(defaultGroup ?? groups[0]?.id)
 
   return (

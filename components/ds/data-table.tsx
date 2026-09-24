@@ -33,6 +33,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { formatValue as fmtValue } from "@/lib/format-utils"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -804,12 +805,13 @@ export function DataTable<TData extends RowData>({
   onSelectedRowsChange,
   hasMore = false,
   onLoadMore,
-  locale,
+  locale: localeProp,
   labels,
   ariaLabel,
   className,
   ...props
 }: DataTableProps<TData>) {
+  const locale = useOptionalUILocale(localeProp)
   const textSize = _textSize ?? (size === "compact" ? "sm" : "md")
   const { pad, font, rowH } = SIZE_PRESETS[textSize]
   const actualRowHeight = rowHeight ?? rowH

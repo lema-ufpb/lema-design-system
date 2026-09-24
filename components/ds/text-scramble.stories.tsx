@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: "SISTEMA DESBLOQUEADO",
-    className: "text-4xl font-mono font-bold tracking-widest text-primary",
+    className: "text-4xl font-bold tracking-widest text-primary",
   },
 }
 
@@ -42,7 +42,7 @@ export const Trigger: Story = {
           <TextScramble
             {...args}
             trigger={trigger}
-            className="font-mono text-2xl text-muted-foreground"
+            className="text-2xl text-muted-foreground"
           >
             {args.children}
           </TextScramble>

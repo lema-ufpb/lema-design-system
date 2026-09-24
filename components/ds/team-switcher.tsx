@@ -6,6 +6,7 @@ import { ChevronsUpDownIcon, PlusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   DropdownMenu,
@@ -71,12 +72,13 @@ export function TeamSwitcher({
   defaultTeam,
   onTeamChange,
   onAddTeam,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   className,
   size = "md",
   ...props
 }: TeamSwitcherProps) {
+  const locale = useUILocale(localeProp)
   const { isMobile } = useSidebar()
   const t = UI_I18N[locale]?.teamSwitcher ?? UI_I18N["en-US"].teamSwitcher
   const [activeTeam, setActiveTeam] = React.useState<TeamSwitcherTeam | null>(

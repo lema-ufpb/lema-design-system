@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -70,11 +71,12 @@ export function IntegrationTile({
   iconAlt,
   status = "available",
   href,
-  locale = "en-US",
+  locale: localeProp,
   size = "md",
   loading = false,
   ...props
 }: IntegrationTileProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

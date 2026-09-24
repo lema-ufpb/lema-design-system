@@ -22,6 +22,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 const dateFnsLocales: Record<UILocale, Locale> = {
   "pt-BR": ptBR,
@@ -79,13 +80,14 @@ export const DateRangePicker = React.forwardRef<
       presets = true,
       placeholder,
       disabled = false,
-      locale = "en-US",
+      locale: localeProp,
       size = "md",
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [open, setOpen] = React.useState(false)
     const t = UI_I18N[locale].dateRangePicker
     const dfLocale = dateFnsLocales[locale]

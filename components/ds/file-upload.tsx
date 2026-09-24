@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -58,13 +59,14 @@ export const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
       maxSizeMB = 10,
       progress,
       disabled = false,
-      locale = "en-US",
+      locale: localeProp,
       size = "md",
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const inputRef = React.useRef<HTMLInputElement>(null)
     const [isDragActive, setIsDragActive] = React.useState(false)
     const [selectedFile, setSelectedFile] = React.useState<File | null>(null)

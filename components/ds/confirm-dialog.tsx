@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -94,9 +95,10 @@ export function ConfirmDialog({
   confirmLabel,
   cancelLabel,
   trigger,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: ConfirmDialogProps) {
+  const locale = useUILocale(localeProp)
   const [internalOpen, setInternalOpen] = React.useState(false)
   const isControlled = open !== undefined
   const isOpen = isControlled ? open : internalOpen
@@ -188,7 +190,7 @@ export function ConfirmDialog({
               disabled={isSubmitting}
               onChange={(e) => setTypedInput(e.target.value)}
               placeholder={targetWord}
-              className="h-9 font-mono text-sm"
+              className="h-9 text-sm"
               autoComplete="off"
             />
           </div>

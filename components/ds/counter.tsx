@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -106,7 +107,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
       variant = "default",
       loading = false,
       disabled = false,
-      locale = "en-US",
+      locale: localeProp,
       label,
       maxWidth,
       onChange,
@@ -119,6 +120,7 @@ export const Counter = React.forwardRef<HTMLInputElement, CounterProps>(
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const generatedId = React.useId()
     const inputId = props.id ?? generatedId
 

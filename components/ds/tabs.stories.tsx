@@ -583,9 +583,7 @@ export const Controlled: Story = {
         <Tabs items={noIconItems} value={tab} onValueChange={setTab} />
         <p className="text-xs text-muted-foreground">
           Active tab:{" "}
-          <code className="rounded bg-muted px-1.5 py-0.5 font-mono">
-            {tab}
-          </code>
+          <code className="rounded bg-muted px-1.5 py-0.5">{tab}</code>
         </p>
       </div>
     )

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
 import { type FormatPreset, applyFormat } from "@/lib/card-stats-shared"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -221,12 +222,13 @@ function interleave(
 
 // ── Context ──
 
-const MiniCardCtx = React.createContext<{ size: MiniCardSize; locale: string }>(
-  {
-    size: "md",
-    locale: "en-US",
-  }
-)
+const MiniCardCtx = React.createContext<{
+  size: MiniCardSize
+  locale: string | undefined
+}>({
+  size: "md",
+  locale: undefined,
+})
 
 // ── MiniCardSeparator ──
 
@@ -268,7 +270,7 @@ export function MiniCard({
 }: MiniCardProps) {
   const { size: ctxSize, locale: ctxLocale } = React.useContext(MiniCardCtx)
   const size = sizeProp ?? ctxSize
-  const locale = localeProp ?? ctxLocale
+  const locale = useOptionalUILocale(localeProp ?? ctxLocale)
 
   if (loading) {
     return (
@@ -358,12 +360,13 @@ export function MiniCardGroup({
   children,
   variant = "ghost",
   size = "md",
-  locale = "en-US",
+  locale: localeProp,
   divide = false,
   wrap = false,
   accent,
   className,
 }: MiniCardGroupProps) {
+  const locale = useOptionalUILocale(localeProp)
   const showDividers = divide && !wrap
   const content = showDividers
     ? interleave(children, (key) => (

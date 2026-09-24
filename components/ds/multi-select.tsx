@@ -22,6 +22,7 @@ import {
   CommandSeparator,
 } from "@/components/ui/command"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -72,7 +73,7 @@ export const MultiSelect = React.forwardRef<
       onChange,
       placeholder,
       maxCount = 3,
-      locale = "en-US",
+      locale: localeProp,
       size = "md",
       className,
       disabled,
@@ -80,6 +81,7 @@ export const MultiSelect = React.forwardRef<
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [open, setOpen] = React.useState(false)
 
     const t = UI_I18N[locale]

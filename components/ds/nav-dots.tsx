@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Tooltip,
   TooltipContent,
@@ -162,12 +163,13 @@ export const NavDots = React.forwardRef<HTMLDivElement, NavDotsProps>(
       onActiveChange,
       orientation,
       position,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [currentActive, setCurrentActive] = React.useState(active)
     const internalRef = React.useRef<HTMLDivElement>(null)
 

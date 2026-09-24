@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -49,13 +50,14 @@ export const FooterNewsletter = React.forwardRef<
       title,
       description,
       onSubscribe,
-      locale = "en-US",
+      locale: localeProp,
       showPrivacyNotice = true,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].footer
     const [email, setEmail] = React.useState("")
     const [loading, setLoading] = React.useState(false)

@@ -12,10 +12,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/dashboard-layout.tsx",
+      "path": "components/ds/ds-dashboard-layout.tsx",
       "content": "import * as React from \"react\"\nimport { cva } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\nimport { SidebarProvider, SidebarTrigger } from \"@/components/ui/sidebar\"\n\n// ── Types ──\n\nexport interface DashboardLayoutProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** The sidebar component to render */\n  sidebar: React.ReactNode\n  /** The global header/topbar */\n  header?: React.ReactNode\n  /** The main content */\n  children: React.ReactNode\n  /** Default state of the sidebar */\n  defaultOpen?: boolean\n}\n\n// ── Variants ──\n\nexport const dashboardLayoutVariants = cva(\n  \"flex min-h-screen w-full flex-col bg-background\",\n  {\n    variants: {},\n  }\n)\n\nexport const dashboardHeaderVariants = cva(\n  \"sticky top-0 z-30 flex h-14 shrink-0 items-center gap-4 border-b border-border bg-background px-4 md:px-6\",\n  {\n    variants: {},\n  }\n)\n\nexport const dashboardMainVariants = cva(\n  \"flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6\",\n  {\n    variants: {},\n  }\n)\n\n// ── Component ──\n\nexport const DashboardLayout = React.forwardRef<\n  HTMLDivElement,\n  DashboardLayoutProps\n>(\n  (\n    { className, sidebar, header, children, defaultOpen = true, ...props },\n    ref\n  ) => {\n    return (\n      <SidebarProvider defaultOpen={defaultOpen}>\n        {sidebar}\n        <div\n          ref={ref}\n          className={cn(dashboardLayoutVariants(), className)}\n          {...props}\n        >\n          <header className={dashboardHeaderVariants()}>\n            <SidebarTrigger />\n            {header && (\n              <div className=\"flex flex-1 items-center gap-4\">{header}</div>\n            )}\n          </header>\n          <main className={dashboardMainVariants()}>{children}</main>\n        </div>\n      </SidebarProvider>\n    )\n  }\n)\nDashboardLayout.displayName = \"DashboardLayout\"\n",
-      "type": "registry:ui",
-      "target": "components/ui/ds-dashboard-layout.tsx"
+      "type": "registry:ui"
     }
   ],
   "type": "registry:ui"
