@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -80,10 +81,11 @@ export function HowItWorks({
   variant = "number",
   orientation = "horizontal",
   size = "md",
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: HowItWorksProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].howItWorks
 
   if (loading) {

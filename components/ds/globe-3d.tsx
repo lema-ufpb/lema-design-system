@@ -1,11 +1,11 @@
 "use client"
 
 import * as React from "react"
-import dynamic from "next/dynamic"
 import { cn } from "@/lib/utils"
+import { ClientOnly } from "@/lib/client-only"
 
 // cobe is dynamically imported inside the effect to avoid bundling ~45kB in the initial chunk
-// The component itself is also safe to load with ssr: false via next/dynamic in consumer apps
+// Use DynamicGlobe3D to also skip server rendering (canvas) in any React framework
 
 export interface Globe3DProps extends React.HTMLAttributes<HTMLDivElement> {
   markers?: Array<{ location: [number, number]; size: number }>
@@ -145,9 +145,12 @@ export const Globe3D = React.forwardRef<HTMLDivElement, Globe3DProps>(
 )
 Globe3D.displayName = "Globe3D"
 
-// Lazy-loaded wrapper for code-splitting — prefer this export in Next.js pages
-// to keep cobe out of the initial bundle (ssr: false avoids canvas SSR mismatch)
-export const DynamicGlobe3D = dynamic(
-  () => Promise.resolve({ default: Globe3D }),
-  { ssr: false, loading: () => null }
-)
+// Client-only wrapper — skips server rendering (canvas SSR mismatch).
+// Framework-agnostic replacement for next/dynamic with ssr:false.
+export function DynamicGlobe3D(props: Globe3DProps) {
+  return (
+    <ClientOnly>
+      <Globe3D {...props} />
+    </ClientOnly>
+  )
+}

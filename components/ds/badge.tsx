@@ -7,6 +7,7 @@ import { XIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Badge as BadgeRoot } from "@/components/ui/badge"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──
@@ -93,7 +94,7 @@ function Badge({
   count,
   onRemove,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   children,
   style,
@@ -102,6 +103,7 @@ function Badge({
   borderColor,
   ...props
 }: BadgeProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
 
   if (loading) {

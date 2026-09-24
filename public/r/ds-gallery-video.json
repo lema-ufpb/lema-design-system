@@ -10,10 +10,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/gallery-video.tsx",
+      "path": "components/ds/ds-gallery-video.tsx",
       "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport type { UILocale } from \"@/lib/ui-i18n\"\nimport { VideoDialog } from \"./ds-video-dialog\"\n\n// ── Types ──\n\nexport interface GalleryVideoItem {\n  videoSrc: string\n  thumbnailSrc: string\n  thumbnailAlt?: string\n  title?: string\n}\n\nexport interface GalleryVideoProps extends React.HTMLAttributes<HTMLDivElement> {\n  items: GalleryVideoItem[]\n  columns?: 2 | 3 | 4\n  locale?: UILocale\n}\n\n// ── Component ──\n\n/**\n * A grid of video tiles, each opening its clip in a dialog on click —\n * composed from `VideoDialog`.\n */\nexport function GalleryVideo({\n  items,\n  columns = 3,\n  locale,\n  className,\n  ...props\n}: GalleryVideoProps) {\n  return (\n    <div\n      className={cn(\n        \"grid grid-cols-2 gap-4\",\n        columns === 3 && \"sm:grid-cols-3\",\n        columns === 4 && \"md:grid-cols-4\",\n        className\n      )}\n      data-slot=\"gallery-video\"\n      {...props}\n    >\n      {items.map((item) => (\n        <VideoDialog\n          key={item.videoSrc}\n          videoSrc={item.videoSrc}\n          thumbnailSrc={item.thumbnailSrc}\n          thumbnailAlt={item.thumbnailAlt}\n          title={item.title}\n          locale={locale}\n        />\n      ))}\n    </div>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-gallery-video.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

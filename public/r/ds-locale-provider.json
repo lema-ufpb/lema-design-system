@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ds-locale-provider",
+  "title": "Locale Provider",
+  "description": "Context provider that sets the default locale for every ds-* component in the tree (prop > provider > en-US). Exports UILocaleProvider, useUILocale and useOptionalUILocale.",
+  "registryDependencies": [
+    "@lema-ds/ui-i18n"
+  ],
+  "files": [
+    {
+      "path": "components/ds/ds-locale-provider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport type { UILocale } from \"@/lib/ui-i18n\"\n\n// ── Types ──\n\nexport interface UILocaleProviderProps {\n  /** Locale herdado por todos os componentes `ds-*` da subárvore. */\n  locale: UILocale\n  children: React.ReactNode\n}\n\n// ── Constants ──\n\n/** Locale usado quando não há provider nem prop `locale`. */\nexport const DEFAULT_UI_LOCALE: UILocale = \"en-US\"\n\nconst UILocaleContext = React.createContext<UILocale | undefined>(undefined)\n\n// ── Component ──\n\nfunction UILocaleProvider({ locale, children }: UILocaleProviderProps) {\n  return (\n    <UILocaleContext.Provider value={locale}>\n      {children}\n    </UILocaleContext.Provider>\n  )\n}\n\n/**\n * Resolve o locale efetivo de um componente:\n * prop `locale` > `UILocaleProvider` mais próximo > `DEFAULT_UI_LOCALE`.\n * Chamar no topo do componente, antes de qualquer `return` antecipado.\n */\nfunction useUILocale(override?: UILocale): UILocale {\n  const contextLocale = React.useContext(UILocaleContext)\n  return override ?? contextLocale ?? DEFAULT_UI_LOCALE\n}\n\n/**\n * Variante para componentes em que `locale` é opcional e a ausência dele tem\n * significado próprio (ex.: textos fixos em inglês / formatação `en-US`):\n * prop `locale` > `UILocaleProvider` mais próximo > `undefined`.\n * Sem provider e sem prop o resultado é `undefined`, como antes.\n */\nfunction useOptionalUILocale(override?: UILocale): UILocale | undefined\nfunction useOptionalUILocale(override?: string): string | undefined\nfunction useOptionalUILocale(override?: string): string | undefined {\n  const contextLocale = React.useContext(UILocaleContext)\n  return override ?? contextLocale\n}\n\nexport { UILocaleProvider, useUILocale, useOptionalUILocale }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -626,7 +626,7 @@ export const Controlled: Story = {
           </Button>
         </div>
         <p className="text-sm text-muted-foreground">
-          State: <span className="font-mono">{open ? "open" : "closed"}</span>
+          State: <span className="font-sans">{open ? "open" : "closed"}</span>
         </p>
         <Modal
           open={open}

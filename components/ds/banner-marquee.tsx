@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -55,9 +56,10 @@ export function BannerMarquee({
   pauseOnHover = true,
   intent = "default",
   size = "md",
-  locale = "en-US",
+  locale: localeProp,
   ...props
 }: BannerMarqueeProps) {
+  const locale = useUILocale(localeProp)
   const duration = speed === "slow" ? "30s" : speed === "fast" ? "10s" : "20s"
 
   // Duplicate items for seamless loop

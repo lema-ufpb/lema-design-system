@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { type SocialLinkItem } from "./social-links"
 import { HeaderTopbar } from "./header-topbar"
 import { HeaderAnnouncement } from "./header-announcement"
@@ -60,10 +61,11 @@ export function HeaderWithTopbar({
   size = "md",
   variant = "default",
   sticky = true,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: HeaderWithTopbarProps) {
+  const locale = useUILocale(localeProp)
   return (
     <div
       data-slot="header-with-topbar"

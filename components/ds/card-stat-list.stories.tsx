@@ -224,9 +224,7 @@ export const AllSizes: Story = {
     <div className="flex flex-col gap-8">
       {(["sm", "md", "lg"] as const).map((size) => (
         <div key={size} className="flex flex-col gap-2">
-          <p className="font-mono text-xs text-muted-foreground">
-            {`size="${size}"`}
-          </p>
+          <p className="text-xs text-muted-foreground">{`size="${size}"`}</p>
           <CardStatList
             label="Performance Overview"
             icon={BarChart2Icon}

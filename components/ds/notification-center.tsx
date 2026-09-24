@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils"
 
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -40,9 +41,10 @@ export function NotificationCenter({
   onMarkAllAsRead,
   emptyText,
   title,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: NotificationCenterProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale].notificationCenter
   const displayTitle = title ?? i18n.title
   const displayEmptyText = emptyText ?? i18n.empty

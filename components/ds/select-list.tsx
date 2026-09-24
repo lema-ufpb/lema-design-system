@@ -8,6 +8,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -114,11 +115,12 @@ export function SelectList({
   search: searchProp,
   disabled = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   emptyMessage = "No results found",
   className,
   ...props
 }: SelectListProps) {
+  const locale = useUILocale(localeProp)
   const [inputValue, setInputValue] = React.useState(searchProp || "")
   const debounceRef = React.useRef<NodeJS.Timeout>(null)
   const inputRef = React.useRef<HTMLInputElement>(null)

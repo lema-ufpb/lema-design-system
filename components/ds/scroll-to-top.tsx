@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Tooltip,
   TooltipContent,
@@ -169,7 +170,7 @@ export const ScrollToTop = React.forwardRef<HTMLDivElement, ScrollToTopProps>(
     {
       threshold = 400,
       showProgress = true,
-      locale = "en-US",
+      locale: localeProp,
       loading = false,
       variant = "outline",
       position = "bottom-right",
@@ -178,6 +179,7 @@ export const ScrollToTop = React.forwardRef<HTMLDivElement, ScrollToTopProps>(
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const { progress, visible } = useScrollState(threshold)
     const i18n = UI_I18N[locale].scrollToTop
 

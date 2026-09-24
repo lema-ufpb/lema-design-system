@@ -138,7 +138,7 @@ export const AllAlignments: Story = {
     <div className="flex w-full flex-col gap-6">
       {(["left", "right", "equal"] as const).map((align) => (
         <div key={align}>
-          <p className="mb-2 font-mono text-xs text-muted-foreground">
+          <p className="mb-2 text-xs text-muted-foreground">
             alignment=&quot;{align}&quot;
           </p>
           <Dashrow alignment={align}>
@@ -352,7 +352,7 @@ export const GapVariants: Story = {
     <div className="flex w-full flex-col gap-8">
       {(["none", "sm", "md", "lg"] as const).map((g) => (
         <div key={g}>
-          <p className="mb-2 font-mono text-xs text-muted-foreground">
+          <p className="mb-2 text-xs text-muted-foreground">
             gap=&quot;{g}&quot;
           </p>
           <Dashrow gap={g}>

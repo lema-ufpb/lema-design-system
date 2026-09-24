@@ -101,7 +101,7 @@ export const BrowserMockup = React.forwardRef<
 
             {/* Address bar / Terminal title */}
             {isTerminal ? (
-              <div className="flex flex-1 items-center justify-center gap-1.5 font-mono text-xs text-muted-foreground">
+              <div className="flex flex-1 items-center justify-center gap-1.5 text-xs text-muted-foreground">
                 <TerminalIcon className="size-3.5" aria-hidden="true" />
                 <span>{url || "bash — 80x24"}</span>
               </div>

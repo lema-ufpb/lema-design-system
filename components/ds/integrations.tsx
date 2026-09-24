@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Input } from "@/components/ui/input"
 import { Empty, EmptyTitle, EmptyDescription } from "@/components/ui/empty"
 import { IntegrationTile, type IntegrationTileProps } from "./integration-tile"
@@ -39,11 +40,12 @@ export function Integrations({
   searchable = false,
   search: controlledSearch,
   onSearchChange,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   columns = 3,
   ...props
 }: IntegrationsProps) {
+  const locale = useUILocale(localeProp)
   const [internalSearch, setInternalSearch] = React.useState("")
   const isControlled = controlledSearch !== undefined
   const search = isControlled ? controlledSearch : internalSearch

@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CheckIcon, CopyIcon } from "lucide-react"
@@ -26,9 +27,10 @@ export interface SnippetProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Snippet({
   className,
   tabs,
-  locale = "en-US",
+  locale: localeProp,
   ...props
 }: SnippetProps) {
+  const locale = useUILocale(localeProp)
   const [copied, setCopied] = React.useState<string | null>(null)
 
   const handleCopy = async (code: string, label: string) => {

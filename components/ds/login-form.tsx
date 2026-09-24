@@ -20,6 +20,7 @@ import { SocialAuthGroup, type SocialProvider } from "./social-auth-group"
 import { AuthSeparator } from "./auth-separator"
 import { PasskeyPrompt } from "./passkey-prompt"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -78,11 +79,12 @@ export const LoginForm = React.forwardRef<HTMLDivElement, LoginFormProps>(
       showPasskey = true,
       loading: controlledLoading = false,
       errorMessage,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
     const [showPassword, setShowPassword] = React.useState(false)

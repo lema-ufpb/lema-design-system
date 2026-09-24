@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -90,12 +91,13 @@ export const MetricComparison = React.forwardRef<
       showBar = true,
       size = "md",
       loading = false,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].metricComparison
 
     if (loading) {

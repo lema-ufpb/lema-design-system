@@ -266,7 +266,7 @@ export const Rounded: Story = {
               size="icon-lg"
             />
           </div>
-          <span className="font-mono text-xs text-muted-foreground">{r}</span>
+          <span className="text-xs text-muted-foreground">{r}</span>
         </div>
       ))}
     </div>

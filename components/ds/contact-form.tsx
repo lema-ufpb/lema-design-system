@@ -6,6 +6,7 @@ import { CheckCircle2Icon, Loader2Icon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import {
   Field,
@@ -69,7 +70,7 @@ export const ContactForm = React.forwardRef<HTMLFormElement, ContactFormProps>(
       topics = [],
       showSubject,
       onSubmit,
-      locale = "en-US",
+      locale: localeProp,
       size = "md",
       disabled = false,
       className,
@@ -77,6 +78,7 @@ export const ContactForm = React.forwardRef<HTMLFormElement, ContactFormProps>(
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [name, setName] = React.useState("")
     const [email, setEmail] = React.useState("")
     const [subject, setSubject] = React.useState("")

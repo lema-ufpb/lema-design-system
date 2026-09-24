@@ -5,6 +5,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Tooltip,
@@ -152,13 +153,14 @@ export function ProgressBar({
   max = 100,
   getValueLabel,
   tooltip,
-  locale = "en-US",
+  locale: localeProp,
   fillColor,
   trackColor,
   style,
   className,
   ...props
 }: ProgressBarProps) {
+  const locale = useUILocale(localeProp)
   const tokenStyle = {
     ...(fillColor !== undefined && { "--progress-fill": fillColor }),
     ...(trackColor !== undefined && { "--progress-track": trackColor }),

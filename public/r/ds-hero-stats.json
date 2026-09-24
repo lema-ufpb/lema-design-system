@@ -11,10 +11,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/hero-stats.tsx",
+      "path": "components/ds/ds-hero-stats.tsx",
       "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { CardStat } from \"./ds-card-stat\"\nimport {\n  HeroActions,\n  HeroDescription,\n  HeroHeader,\n  HeroSection,\n  HeroTitle,\n} from \"./ds-hero-section\"\n\n// ── Types ──\n\nexport interface HeroStatsItem {\n  label: string\n  value: string | number\n}\n\nexport interface HeroStatsProps extends Omit<\n  React.HTMLAttributes<HTMLElement>,\n  \"title\"\n> {\n  kicker?: string\n  title: React.ReactNode\n  description?: string\n  actions?: React.ReactNode\n  stats: HeroStatsItem[]\n}\n\n// ── Component ──\n\n/**\n * Centered hero followed by a stats strip — composed from `HeroSection` and\n * `CardStat`.\n */\nexport function HeroStats({\n  kicker,\n  title,\n  description,\n  actions,\n  stats,\n  className,\n  ...props\n}: HeroStatsProps) {\n  return (\n    <HeroSection\n      align=\"center\"\n      className={className}\n      data-slot=\"hero-stats\"\n      {...props}\n    >\n      {kicker && (\n        <HeroHeader>\n          <Badge variant=\"secondary\">{kicker}</Badge>\n        </HeroHeader>\n      )}\n\n      <HeroTitle>{title}</HeroTitle>\n      {description && <HeroDescription>{description}</HeroDescription>}\n      {actions && <HeroActions>{actions}</HeroActions>}\n\n      {stats.length > 0 && (\n        <div\n          className={cn(\n            \"mt-8 grid w-full grid-cols-2 gap-4\",\n            stats.length >= 4 ? \"sm:grid-cols-4\" : \"sm:grid-cols-3\"\n          )}\n        >\n          {stats.map((stat) => (\n            <CardStat\n              key={stat.label}\n              label={stat.label}\n              value={stat.value}\n              variant=\"flat\"\n            />\n          ))}\n        </div>\n      )}\n    </HeroSection>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-hero-stats.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

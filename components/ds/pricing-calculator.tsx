@@ -86,7 +86,7 @@ export const PricingCalculator = React.forwardRef<
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <Label className="text-base">Quantity of {unitLabel}</Label>
-                <span className="font-mono text-xl font-bold text-foreground tabular-nums">
+                <span className="text-xl font-bold text-foreground tabular-nums">
                   {units}
                 </span>
               </div>

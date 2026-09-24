@@ -17,10 +17,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/card-stats.tsx",
+      "path": "components/ds/ds-card-stats.tsx",
       "content": "export type {\n  FormatPreset,\n  CardStatTrend,\n  CardStatSize,\n} from \"@/lib/card-stats-shared\"\n\nexport type { CardStatProps } from \"./ds-card-stat\"\nexport { CardStat } from \"./ds-card-stat\"\n\nexport type { CardStatCompactProps } from \"./ds-card-stat-compact\"\nexport { CardStatCompact } from \"./ds-card-stat-compact\"\n\nexport type { CardStatProgressProps } from \"./ds-card-stat-progress\"\nexport { CardStatProgress } from \"./ds-card-stat-progress\"\n\nexport type { CardStatComparisonProps } from \"./ds-card-stat-comparison\"\nexport { CardStatComparison } from \"./ds-card-stat-comparison\"\n\nexport type { CardStatSparklineProps } from \"./ds-card-stat-sparkline\"\nexport { CardStatSparkline } from \"./ds-card-stat-sparkline\"\n\nexport type {\n  CardStatHighlightVariant,\n  CardStatHighlightProps,\n} from \"./ds-card-stat-highlight\"\nexport { CardStatHighlight } from \"./ds-card-stat-highlight\"\n\nexport type { CardStatListItem, CardStatListProps } from \"./ds-card-stat-list\"\nexport { CardStatList } from \"./ds-card-stat-list\"\n\nexport type { CardStatGaugeZone, CardStatGaugeProps } from \"./ds-card-stat-gauge\"\nexport { CardStatGauge } from \"./ds-card-stat-gauge\"\n\nexport type {\n  CardStatHeatbarZone,\n  CardStatHeatbarProps,\n} from \"./ds-card-stat-heatbar\"\nexport { CardStatHeatbar } from \"./ds-card-stat-heatbar\"\n",
-      "type": "registry:ui",
-      "target": "components/ui/ds-card-stats.tsx"
+      "type": "registry:ui"
     }
   ],
   "type": "registry:ui"

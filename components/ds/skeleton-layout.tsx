@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -60,12 +61,13 @@ export const SkeletonLayout = React.forwardRef<
       pattern = "dashboard",
       rows = 4,
       columns = 4,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].skeletonLayout
 
     const renderDashboard = () => (

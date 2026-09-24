@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -151,9 +152,10 @@ export function Dashrow({
   resizable = true,
   storageKey,
   children,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: DashrowProps) {
+  const locale = useUILocale(localeProp)
   const containerRef = useRef<HTMLDivElement>(null)
   const childRefs = useRef<(HTMLDivElement | null)[]>([])
   const isDraggingRef = useRef(false)

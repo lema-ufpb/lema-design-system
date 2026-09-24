@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 export interface FilterRule {
   id: string
@@ -40,9 +41,10 @@ export function FilterBuilder({
   fields,
   rules,
   onChange,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: FilterBuilderProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale].filterBuilder
 
   const handleAddRule = () => {

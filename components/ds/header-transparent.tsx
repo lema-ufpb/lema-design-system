@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Header, HeaderContainer } from "./header"
 import { HeaderBrand, type HeaderBrandProps } from "./header-brand"
 import { HeaderNav, type HeaderNavItem } from "./header-nav"
@@ -33,10 +34,11 @@ export function HeaderTransparent({
   threshold = 8,
   size = "md",
   sticky = true,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: HeaderTransparentProps) {
+  const locale = useUILocale(localeProp)
   const [scrolled, setScrolled] = React.useState(false)
 
   React.useEffect(() => {

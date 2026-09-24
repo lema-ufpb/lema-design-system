@@ -28,7 +28,7 @@
 // and directory. Source files under components/ds/ are untouched, so local
 // dev/Storybook/tsc keep working exactly as before.
 import { readFileSync, writeFileSync, readdirSync } from "fs"
-import { basename, extname } from "path"
+import { basename, dirname, extname } from "path"
 
 const registry = JSON.parse(readFileSync("registry.json", "utf-8"))
 
@@ -50,6 +50,18 @@ const aliasImportRe = /from\s+(['"])@\/components\/ds\/([a-zA-Z0-9_-]+)\1/g
 
 let filesChanged = 0
 let importsRewritten = 0
+let targetsResolved = 0
+
+// An explicit `target` is resolved by the shadcn CLI from the project root and
+// ignores the consumer's aliases, so in projects whose source lives outside
+// `src/` (React Router's `app/`, custom layouts) files land in the wrong
+// folder and `~/components/ui/...` imports break. In the *published* JSON we
+// drop the target and let the CLI place each file by type + alias
+// (`aliases.ui`, `aliases.lib`), keeping the ds- prefix through the file name.
+const ALIAS_TARGET_TYPES = [
+  ["components/ui/", "registry:ui"],
+  ["lib/", "registry:lib"],
+]
 
 for (const file of readdirSync("public/r")) {
   if (!file.endsWith(".json")) continue
@@ -81,6 +93,21 @@ for (const file of readdirSync("public/r")) {
     }
   }
 
+  for (const f of json.files || []) {
+    if (typeof f.target !== "string") continue
+    const match = ALIAS_TARGET_TYPES.find(([prefix]) =>
+      f.target.startsWith(prefix)
+    )
+    if (!match) continue
+    // Only flat targets: `components/ui/<file>` / `lib/<file>`.
+    if (dirname(f.target) !== match[0].slice(0, -1)) continue
+    f.type = match[1]
+    f.path = `${dirname(f.path)}/${basename(f.target)}`
+    delete f.target
+    targetsResolved++
+    changed = true
+  }
+
   if (changed) {
     writeFileSync(fullPath, JSON.stringify(json, null, 2) + "\n")
     filesChanged++
@@ -88,5 +115,5 @@ for (const file of readdirSync("public/r")) {
 }
 
 console.log(
-  `✔ Rewrote ${importsRewritten} relative import(s) across ${filesChanged} registry file(s).`
+  `✔ Resolved ${targetsResolved} target(s) to consumer aliases.\n✔ Rewrote ${importsRewritten} relative import(s) across ${filesChanged} registry file(s).`
 )

@@ -10,10 +10,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/logo-cloud-glow.tsx",
+      "path": "components/ds/ds-logo-cloud-glow.tsx",
       "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { CursorSpotlight, type CursorSpotlightTone } from \"./ds-cursor-spotlight\"\nimport { PressWall } from \"./ds-press-wall\"\n\n// ── Types ──\n\nexport interface LogoCloudGlowProps extends React.HTMLAttributes<HTMLDivElement> {\n  kicker?: string\n  tone?: CursorSpotlightTone\n  children: React.ReactNode\n}\n\n// ── Component ──\n\n/**\n * A centered logo wall inside a glowing card that reacts to the pointer —\n * composed from `PressWall` and `CursorSpotlight`.\n */\nexport function LogoCloudGlow({\n  kicker,\n  tone = \"primary\",\n  children,\n  className,\n  ...props\n}: LogoCloudGlowProps) {\n  return (\n    <CursorSpotlight\n      tone={tone}\n      className={cn(\n        \"rounded-3xl border border-border bg-card px-6 py-12\",\n        className\n      )}\n      data-slot=\"logo-cloud-glow\"\n      {...props}\n    >\n      <PressWall kicker={kicker}>{children}</PressWall>\n    </CursorSpotlight>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-logo-cloud-glow.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

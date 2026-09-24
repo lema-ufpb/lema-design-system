@@ -17,6 +17,7 @@ import { BarChart2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import { measureAxisWidth } from "@/lib/chart-axis-width"
 
@@ -486,12 +487,13 @@ export function BarChart({
   abbreviate,
   showBrush = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   xAxisLabel,
   yAxisLabel,
   className,
   ...props
 }: BarChartProps) {
+  const locale = useUILocale(localeProp)
   // Hooks must be called unconditionally before any early returns
   const fmt = React.useCallback(
     (v: number) =>

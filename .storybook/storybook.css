@@ -14,3 +14,16 @@ html.dark .sbdocs-preview .docs-story {
 html.dark {
   color-scheme: dark;
 }
+
+/* Sans-only typography: docs pages and inline code follow the design system font */
+.sbdocs,
+.sbdocs *,
+.sb-wrapper,
+.sb-wrapper *,
+.sb-errordisplay,
+.sb-errordisplay *,
+.sb-errordisplay code,
+#storybook-highlights-menu,
+#storybook-highlights-menu * {
+  font-family: var(--font-sans), "Inter", system-ui, sans-serif !important;
+}

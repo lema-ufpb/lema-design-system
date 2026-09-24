@@ -6,6 +6,7 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,7 +27,8 @@ interface ToggleThemeProps {
   loading?: boolean
 }
 
-export function ToggleTheme({ locale = "en-US", loading }: ToggleThemeProps) {
+export function ToggleTheme({ locale: localeProp, loading }: ToggleThemeProps) {
+  const locale = useUILocale(localeProp)
   const { resolvedTheme, setTheme } = useTheme()
   const mounted = useSyncExternalStore(
     () => () => {},

@@ -7,6 +7,7 @@ import { MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -140,7 +141,7 @@ export const OfficeLocationItem = React.forwardRef<
       address,
       timeZone,
       businessHours = { start: 9, end: 18 },
-      locale = "en-US",
+      locale: localeProp,
       size = "md",
       loading = false,
       className,
@@ -148,6 +149,7 @@ export const OfficeLocationItem = React.forwardRef<
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const now = useNow()
     const resolvedSize = size ?? "md"
 

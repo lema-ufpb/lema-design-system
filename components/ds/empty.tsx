@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -90,10 +91,11 @@ function Empty({
   action,
   compact = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...htmlProps
 }: EmptyProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
 
   const resolvedTitle =

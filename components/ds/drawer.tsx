@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/drawer"
 import { cn } from "@/lib/utils"
 import { type UILocale, UI_I18N } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 export type DrawerDirection = "bottom" | "left" | "right" | "top"
 
@@ -52,7 +53,7 @@ export function Drawer({
   open,
   onOpenChange,
   className,
-  locale = "en-US",
+  locale: localeProp,
   shouldScaleBackground,
   snapPoints,
   activeSnapPoint,
@@ -60,6 +61,7 @@ export function Drawer({
   onEscapeKeyDown,
   onPointerDownOutside,
 }: DrawerProps) {
+  const locale = useUILocale(localeProp)
   const isHorizontal = direction === "left" || direction === "right"
   const hasHeader = Boolean(title || description)
 

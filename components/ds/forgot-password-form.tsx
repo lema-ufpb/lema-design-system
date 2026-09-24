@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -60,11 +61,12 @@ export const ForgotPasswordForm = React.forwardRef<
       onBackToLogin,
       resendCooldown = 60,
       loading: controlledLoading = false,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [email, setEmail] = React.useState("")
     const [sent, setSent] = React.useState(false)
     const [internalLoading, setInternalLoading] = React.useState(false)

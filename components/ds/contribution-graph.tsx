@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -46,11 +47,12 @@ const levelClasses = [
 export function ContributionGraph({
   className,
   data,
-  locale = "en-US",
+  locale: localeProp,
   size = "md",
   loading = false,
   ...props
 }: ContributionGraphProps) {
+  const locale = useUILocale(localeProp)
   const weeks = React.useMemo(
     () =>
       data ??

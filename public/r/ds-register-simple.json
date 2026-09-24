@@ -10,10 +10,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/register-simple.tsx",
+      "path": "components/ds/ds-register-simple.tsx",
       "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Badge } from \"@/components/ui/badge\"\nimport { Register, type RegisterProps } from \"./ds-register\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport type RegisterSimpleProps = RegisterProps & { badge?: string }\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function RegisterSimple({\n  className,\n  badge,\n  ...props\n}: RegisterSimpleProps) {\n  return (\n    <div\n      data-slot=\"register-simple\"\n      className={cn(\"mx-auto flex w-full max-w-md flex-col gap-4\", className)}\n    >\n      {badge && (\n        <Badge variant=\"outline\" className=\"mx-auto rounded-full\">\n          {badge}\n        </Badge>\n      )}\n      <Register {...props} />\n    </div>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-register-simple.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

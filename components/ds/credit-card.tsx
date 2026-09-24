@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -56,10 +57,11 @@ export function CreditCard({
   brand = "visa",
   variant = "default",
   size = "md",
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: CreditCardProps) {
+  const locale = useUILocale(localeProp)
   void cvc
   if (loading) {
     return (
@@ -90,7 +92,7 @@ export function CreditCard({
       </div>
       <div className="flex flex-col gap-3">
         <span
-          className="font-mono text-lg tracking-widest tabular-nums"
+          className="text-lg tracking-widest tabular-nums"
           aria-label={t.cardNumber}
         >
           {number}

@@ -36,7 +36,7 @@ function TallContainer({ children }: { children: React.ReactNode }) {
           padding: "4px 12px",
           borderRadius: 999,
           fontSize: 12,
-          fontFamily: "monospace",
+          fontFamily: "inherit",
           background: "var(--color-muted)",
           color: "var(--color-muted-foreground)",
           zIndex: 1,

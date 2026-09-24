@@ -83,7 +83,7 @@ const UI_I18N: Record<UILocale, { ... }>
 - Estrutura tipada com `UILocale` e tipo completo do dicionário
 - Acesso via `UI_I18N[locale].<section>.<key>`
 - Sem dependências externas
-- Design para ser importado por componentes `custom/` que usam React Context para locale
+- O locale padrão dos componentes `ds-*` pode ser definido uma vez por aplicação com o `UILocaleProvider` (`ds-locale-provider`): prop `locale` > provider > `"en-US"`. Ver `docs/specs/ds-locale-provider.md`
 
 ---
 

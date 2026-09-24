@@ -37,7 +37,7 @@ export interface DiffViewerProps extends React.HTMLAttributes<HTMLDivElement> {
 // ── Variants ───────────────────────────────────────────────────────────────
 
 export const diffViewerContainerVariants = cva(
-  "w-full overflow-hidden rounded-lg border border-border font-mono text-xs",
+  "w-full overflow-hidden rounded-lg border border-border text-xs",
   {
     variants: {},
   }

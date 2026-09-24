@@ -7,6 +7,7 @@ import { CheckIcon, ChevronsUpDownIcon, SearchIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -428,7 +429,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
       maxWidth,
       style,
       className,
-      locale = "en-US",
+      locale: localeProp,
       renderOption,
       "aria-label": ariaLabel,
       "aria-labelledby": ariaLabelledBy,
@@ -438,6 +439,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
       alignOffset,
     } = props
 
+    const locale = useUILocale(localeProp)
     const i18n = UI_I18N[locale].combobox
 
     const placeholder = props.placeholder ?? i18n.placeholder

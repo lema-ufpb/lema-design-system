@@ -9,10 +9,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/integrations-marquee.tsx",
+      "path": "components/ds/ds-integrations-marquee.tsx",
       "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { IntegrationTile, type IntegrationTileProps } from \"./ds-integration-tile\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface IntegrationsMarqueeProps extends React.HTMLAttributes<HTMLDivElement> {\n  rows: IntegrationTileProps[][]\n  speed?: \"slow\" | \"normal\" | \"fast\"\n  pauseOnHover?: boolean\n}\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function IntegrationsMarquee({\n  className,\n  rows,\n  speed = \"normal\",\n  pauseOnHover = true,\n  ...props\n}: IntegrationsMarqueeProps) {\n  const duration = speed === \"slow\" ? \"30s\" : speed === \"fast\" ? \"10s\" : \"20s\"\n\n  return (\n    <div\n      data-slot=\"integrations-marquee\"\n      className={cn(\"flex flex-col gap-4 overflow-hidden\", className)}\n      {...props}\n    >\n      {rows.map((row, rowIdx) => (\n        <div\n          key={rowIdx}\n          className={cn(\n            \"flex w-max items-center gap-4\",\n            \"animate-[marquee-x_var(--duration)_linear_infinite]\",\n            pauseOnHover && \"hover:[animation-play-state:paused]\",\n            rowIdx % 2 === 1 && \"[animation-direction:reverse]\"\n          )}\n          style={{ \"--duration\": duration } as React.CSSProperties}\n        >\n          {[...row, ...row].map((tile, idx) => (\n            <div key={`${tile.name}-${idx}`} className=\"w-64 shrink-0\">\n              <IntegrationTile {...tile} size=\"sm\" />\n            </div>\n          ))}\n        </div>\n      ))}\n    </div>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-integrations-marquee.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

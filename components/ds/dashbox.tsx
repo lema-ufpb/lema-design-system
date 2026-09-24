@@ -7,6 +7,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Tooltip,
   TooltipContent,
@@ -167,7 +168,7 @@ const STATUS_DOT: Record<string, string> = {
 function DashboxStatusBadge({
   status,
   label,
-  locale = "en-US",
+  locale: localeProp,
   statusLabels,
 }: {
   status?: DashboxStatus
@@ -175,6 +176,7 @@ function DashboxStatusBadge({
   locale?: DashboxLocale
   statusLabels?: Partial<Record<string, string>>
 }) {
+  const locale = useUILocale(localeProp)
   if (!status || status === "idle") return null
   const labels = { ...UI_I18N[locale].dashbox.status, ...statusLabels }
   return (
@@ -232,7 +234,7 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
       bodyPadding = "md",
       loading = false,
       status,
-      locale = "en-US",
+      locale: localeProp,
       statusLabels,
       onRefresh,
       showToolbar = true,
@@ -244,6 +246,7 @@ export const Dashbox = React.forwardRef<HTMLDivElement, DashboxProps>(
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [minimized, setMinimized] = React.useState(false)
     const [maximized, setMaximized] = React.useState(false)
     const [refreshing, setRefreshing] = React.useState(false)

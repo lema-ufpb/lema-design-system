@@ -1,12 +1,12 @@
 "use client"
 
 import * as React from "react"
-import dynamic from "next/dynamic"
 import type { FeatureCollection } from "geojson"
 import { cva } from "class-variance-authority"
 import { Maximize2, Minimize2, Minus, Plus, RotateCcw } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ClientOnly } from "@/lib/client-only"
 import {
   Dialog,
   DialogContent,
@@ -16,6 +16,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import {
   Tooltip,
   TooltipContent,
@@ -23,56 +24,47 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-// react-simple-maps is heavy (~30kB) — load via next/dynamic with ssr:false
-// to keep it out of the initial bundle and avoid SSR window mismatch
-const ComposableMap = dynamic(
-  () =>
-    import("react-simple-maps").then((m) => ({
-      default: m.ComposableMap as unknown as React.ComponentType<
-        React.ComponentProps<typeof m.ComposableMap>
-      >,
-    })),
-  { ssr: false }
+// react-simple-maps is heavy (~30kB) — code-split with React.lazy and render
+// only on the client (ClientOnly + Suspense) to avoid SSR window mismatch.
+// Framework-agnostic: no next/dynamic.
+const ComposableMap = React.lazy(() =>
+  import("react-simple-maps").then((m) => ({
+    default: m.ComposableMap as unknown as React.ComponentType<
+      React.ComponentProps<typeof m.ComposableMap>
+    >,
+  }))
 ) as unknown as typeof import("react-simple-maps").ComposableMap
 
-const Geographies = dynamic(
-  () =>
-    import("react-simple-maps").then((m) => ({
-      default: m.Geographies as unknown as React.ComponentType<
-        React.ComponentProps<typeof m.Geographies>
-      >,
-    })),
-  { ssr: false }
+const Geographies = React.lazy(() =>
+  import("react-simple-maps").then((m) => ({
+    default: m.Geographies as unknown as React.ComponentType<
+      React.ComponentProps<typeof m.Geographies>
+    >,
+  }))
 ) as unknown as typeof import("react-simple-maps").Geographies
 
-const Geography = dynamic(
-  () =>
-    import("react-simple-maps").then((m) => ({
-      default: m.Geography as unknown as React.ComponentType<
-        React.ComponentProps<typeof m.Geography>
-      >,
-    })),
-  { ssr: false }
+const Geography = React.lazy(() =>
+  import("react-simple-maps").then((m) => ({
+    default: m.Geography as unknown as React.ComponentType<
+      React.ComponentProps<typeof m.Geography>
+    >,
+  }))
 ) as unknown as typeof import("react-simple-maps").Geography
 
-const Marker = dynamic(
-  () =>
-    import("react-simple-maps").then((m) => ({
-      default: m.Marker as unknown as React.ComponentType<
-        React.ComponentProps<typeof m.Marker>
-      >,
-    })),
-  { ssr: false }
+const Marker = React.lazy(() =>
+  import("react-simple-maps").then((m) => ({
+    default: m.Marker as unknown as React.ComponentType<
+      React.ComponentProps<typeof m.Marker>
+    >,
+  }))
 ) as unknown as typeof import("react-simple-maps").Marker
 
-const ZoomableGroup = dynamic(
-  () =>
-    import("react-simple-maps").then((m) => ({
-      default: m.ZoomableGroup as unknown as React.ComponentType<
-        React.ComponentProps<typeof m.ZoomableGroup>
-      >,
-    })),
-  { ssr: false }
+const ZoomableGroup = React.lazy(() =>
+  import("react-simple-maps").then((m) => ({
+    default: m.ZoomableGroup as unknown as React.ComponentType<
+      React.ComponentProps<typeof m.ZoomableGroup>
+    >,
+  }))
 ) as unknown as typeof import("react-simple-maps").ZoomableGroup
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -610,11 +602,12 @@ function GeoMapChartView({
   decimals,
   currency,
   abbreviate,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   className,
   ...props
 }: GeoMapChartViewProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.geomapChart ?? UI_I18N["en-US"].geomapChart
 
   // Hooks must be called unconditionally before any early returns
@@ -851,32 +844,36 @@ function GeoMapChartView({
       {/* map canvas + overlay legend */}
       <div className="relative" data-slot="geomap-chart-map">
         <div style={{ height }} className="w-full overflow-hidden rounded-md">
-          <ComposableMap
-            projection={projection}
-            projectionConfig={projectionConfig}
-            style={{ width: "100%", height: "100%" }}
-          >
-            {zoomEnabled ? (
-              <ZoomableGroup
-                zoom={view.zoom}
-                center={view.center}
-                minZoom={minZoom}
-                maxZoom={maxZoom}
-                onMoveEnd={({ coordinates, zoom }) => {
-                  if (!coordinates || zoom === undefined) return
-                  setView({ zoom, center: coordinates })
-                }}
+          <ClientOnly fallback={<Skeleton className="size-full" />}>
+            <React.Suspense fallback={<Skeleton className="size-full" />}>
+              <ComposableMap
+                projection={projection}
+                projectionConfig={projectionConfig}
+                style={{ width: "100%", height: "100%" }}
               >
-                {mapContent}
-                {markerElements}
-              </ZoomableGroup>
-            ) : (
-              <>
-                {mapContent}
-                {markerElements}
-              </>
-            )}
-          </ComposableMap>
+                {zoomEnabled ? (
+                  <ZoomableGroup
+                    zoom={view.zoom}
+                    center={view.center}
+                    minZoom={minZoom}
+                    maxZoom={maxZoom}
+                    onMoveEnd={({ coordinates, zoom }) => {
+                      if (!coordinates || zoom === undefined) return
+                      setView({ zoom, center: coordinates })
+                    }}
+                  >
+                    {mapContent}
+                    {markerElements}
+                  </ZoomableGroup>
+                ) : (
+                  <>
+                    {mapContent}
+                    {markerElements}
+                  </>
+                )}
+              </ComposableMap>
+            </React.Suspense>
+          </ClientOnly>
         </div>
 
         {expandAction && (
@@ -1031,10 +1028,12 @@ export function GeoMapChart({
   )
 }
 
-// Code-split wrapper — keeps react-simple-maps out of the initial bundle
-// Consumer usage: const GeoMapChart = dynamic(() => import("@/components/ds/geomap-chart").then(m => m.GeoMapChart), { ssr:false })
-// Also exported here as convenience (self-resolving, ssr:false)
-export const DynamicGeoMapChart = dynamic(
-  () => Promise.resolve({ default: GeoMapChart }),
-  { ssr: false, loading: () => null }
-)
+// Client-only wrapper — renders GeoMapChart after hydration (no SSR).
+// Framework-agnostic replacement for next/dynamic with ssr:false.
+export function DynamicGeoMapChart(props: GeoMapChartProps) {
+  return (
+    <ClientOnly>
+      <GeoMapChart {...props} />
+    </ClientOnly>
+  )
+}

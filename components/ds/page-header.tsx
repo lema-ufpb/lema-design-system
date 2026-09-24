@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Variants ──
 
@@ -133,12 +134,13 @@ export const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
       size = "md",
       variant = "default",
       loading = false,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].pageHeader
     const resolvedBackLabel = backLabel ?? t.back
 
