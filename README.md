@@ -40,38 +40,6 @@ npm install
 make dev
 ```
 
-## 📦 Usage via dedicated CLI — `@lema-ufpb/ds-sync`
-
-For institutional UFPB projects, we provide a dedicated CLI on [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) that extends the shadcn CLI with authentication, lockfile, drift detection and CI mode:
-
-```bash
-npm install -D @lema-ufpb/ds-sync
-```
-
-Configure in `.env.local`:
-
-```env
-LEMA_DS_TOKEN=<seu-token>
-LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
-```
-
-> 🔑 The token is provided by LEMA NOC. The default registry points to production.
-
-### ⌨️ Main commands
-
-| Command                   | Description                   |
-| :------------------------ | :---------------------------- |
-| `npx ds add dashbox`      | Install component(s)          |
-| `npx ds update dashbox`   | Update component(s)           |
-| `npx ds list`             | List available components     |
-| `npx ds verify`           | Check drift vs lockfile       |
-| `npx ds diff dashbox`     | Local vs remote diff          |
-| `npx ds sync --all --yes` | Full sync (CI)                |
-| `npx ds sync-tokens`      | Force CSS tokens refetch      |
-| `npx ds whoami`           | Validate authentication token |
-
-The `ds.lock` lockfile is generated automatically and **should be versioned** — it is the source of truth for reproducibility and drift detection.
-
 ## ⬇️ Usage via Registry (shadcn CLI)
 
 You can install any component from this design system in your own project via the official shadcn registry at `https://ds.lema.ufpb.br`.
@@ -183,7 +151,7 @@ npx shadcn@latest add @lema-ds/ui-i18n
 ## 📁 Project Structure
 
 ```
-design-system/
+lema-design-system/
 ├── app/
 │   ├── globals.css         # CSS tokens and themes (Tailwind v4 @theme inline)
 │   ├── Introduction.mdx    # Storybook intro (v{VERSION}, 374 items, 309 ds)
