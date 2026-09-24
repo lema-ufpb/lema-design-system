@@ -33,6 +33,10 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.release.target_commitish }}
 
+      # O GITHUB_TOKEN só consegue publicar se o pacote ghcr.io/lema-ufpb/lema-design-system
+      # der a este repositório papel Write em "Manage Actions access" (settings do pacote).
+      # Sem isso o push falha com `denied: permission_denied: read_package`.
+      # Tokens de GitHub App não autenticam no GHCR, por isso não usamos o app-token aqui.
       - name: "🔑 Log in to GitHub Container Registry"
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4
         with:
