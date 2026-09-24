@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.13.0](https://github.com/lema-ufpb/lema-design-system/compare/v1.12.0...v1.13.0) (2026-09-24)
+
+
+### ✨ Features
+
+* **registry:** add namespaced dependency sync and validation tooling ([9f2e655](https://github.com/lema-ufpb/lema-design-system/commit/9f2e655460304a0a83811063d4cb4960145d45fd))
+
+
+### 📚 Documentation
+
+* **readme:** remove ds-sync CLI section and update project structure ([1eddb56](https://github.com/lema-ufpb/lema-design-system/commit/1eddb562dfa4f6018409dc657838cea7db345fc8))
+
 ## [1.12.0](https://github.com/lema-ufpb/lema-design-system/compare/v1.11.0...v1.12.0) (2026-09-22)
 
 
