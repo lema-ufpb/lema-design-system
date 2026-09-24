@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.14.1](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.0...v1.14.1) (2026-09-24)
+
+
+### 🐛 Bug Fixes
+
+* **ci:** abrir PR em vez de push direto em develop no sync pós-release ([b19a722](https://github.com/lema-ufpb/lema-design-system/commit/b19a722a6db0630cd98dc20ddf5b6a7605b48a01))
+* **ci:** ignore release-please generated CHANGELOG.md in prettier ([18864a0](https://github.com/lema-ufpb/lema-design-system/commit/18864a0ab1d0d9a8329c0934a0462922e8e63a59))
+* **ci:** open PR instead of pushing to protected develop in post-release sync ([2f994e0](https://github.com/lema-ufpb/lema-design-system/commit/2f994e0f9231b1f567231649100011d9ab949852))
+
 ## [1.14.0](https://github.com/lema-ufpb/lema-design-system/compare/v1.13.0...v1.14.0) (2026-09-24)
 
 
