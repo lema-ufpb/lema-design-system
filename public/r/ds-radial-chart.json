@@ -9,9 +9,9 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "skeleton",
-    "ui-i18n",
-    "format-utils"
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils"
   ],
   "files": [
     {

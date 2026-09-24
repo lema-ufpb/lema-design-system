@@ -3,10 +3,12 @@
   "name": "ds-schedule",
   "title": "Schedule",
   "description": "Grade semanal com slots — ReUI Schedule 10.",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "card",
-    "skeleton"
+    "@lema-ds/card",
+    "@lema-ds/skeleton"
   ],
   "files": [
     {

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState, useRef } from "react"
-import { Slot } from "@radix-ui/react-slot"
+import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 // ── Types ──
@@ -40,7 +40,7 @@ export const TextScramble = React.forwardRef<
     },
     ref
   ) => {
-    const Component = asChild ? Slot : "span"
+    const Component = asChild ? Slot.Root : "span"
     const [displayText, setDisplayText] = useState<string>(children)
     const iterationRef = useRef(0)
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)

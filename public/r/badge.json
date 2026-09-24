@@ -5,8 +5,8 @@
   "description": "A small visual indicator for categorization, counts, or status labels.",
   "dependencies": [
     "class-variance-authority",
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

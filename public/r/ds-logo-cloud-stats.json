@@ -5,7 +5,7 @@
   "description": "Estatística em destaque acima de um mural de logos — composto de ds-press-wall.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-press-wall"
+    "@lema-ds/ds-press-wall"
   ],
   "files": [
     {

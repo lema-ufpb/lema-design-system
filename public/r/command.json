@@ -5,13 +5,13 @@
   "description": "A fast, searchable command palette and menu list interface driven by keyboard navigation.",
   "dependencies": [
     "cmdk",
-    "cn",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "registryDependencies": [
-    "dialog",
-    "input-group",
-    "ui-i18n"
+    "@lema-ds/dialog",
+    "@lema-ds/input-group",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

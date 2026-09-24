@@ -8,11 +8,11 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "progress",
-    "skeleton",
-    "tooltip",
-    "ui-i18n",
-    "format-utils"
+    "@lema-ds/progress",
+    "@lema-ds/skeleton",
+    "@lema-ds/tooltip",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils"
   ],
   "files": [
     {

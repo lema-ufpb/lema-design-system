@@ -5,9 +5,9 @@
   "description": "Grid bento combinando um gráfico de barras com uma tira de estatísticas — composto de ds-bento-grid, ds-bar-chart e ds-card-stat.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-bento-grid",
-    "ds-bar-chart",
-    "ds-card-stat"
+    "@lema-ds/ds-bento-grid",
+    "@lema-ds/ds-bar-chart",
+    "@lema-ds/ds-card-stat"
   ],
   "files": [
     {

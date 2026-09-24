@@ -4,8 +4,8 @@
   "title": "Radio Group",
   "description": "A set of radio buttons for single-selection from a list of options.",
   "dependencies": [
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "files": [
     {

@@ -8,10 +8,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "sidebar",
-    "dropdown-menu",
-    "skeleton",
-    "ui-i18n"
+    "@lema-ds/sidebar",
+    "@lema-ds/dropdown-menu",
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

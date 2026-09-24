@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useRef, useState, useEffect } from "react"
-import { Slot } from "@radix-ui/react-slot"
+import { Slot } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
@@ -54,7 +54,7 @@ export const MagneticElement = React.forwardRef<
     },
     ref
   ) => {
-    const Component = asChild ? Slot : "div"
+    const Component = asChild ? Slot.Root : "div"
     const internalRef = useRef<HTMLDivElement>(null)
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)

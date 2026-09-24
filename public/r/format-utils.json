@@ -4,7 +4,7 @@
   "title": "Format Utils",
   "description": "Shared formatting utilities including locale-aware number formatting via Intl.NumberFormat, value abbreviation (tri/bi/mi/mil, T/B/M/K), and format wrapper functions used by card-stats and chart components.",
   "registryDependencies": [
-    "ui-i18n"
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

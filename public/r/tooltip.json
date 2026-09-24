@@ -4,8 +4,8 @@
   "title": "Tooltip",
   "description": "A lightweight popup hint displaying auxiliary text descriptions when a cursor hovers over or focus lands on trigger targets.",
   "dependencies": [
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

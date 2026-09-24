@@ -4,9 +4,9 @@
   "title": "Input Otp",
   "description": "A one-time password input with individual slot groups and separators.",
   "dependencies": [
-    "cn",
     "input-otp",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

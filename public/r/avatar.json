@@ -4,8 +4,8 @@
   "title": "Avatar",
   "description": "An image element representing a user or entity, with a fallback display for when the image fails to load.",
   "dependencies": [
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

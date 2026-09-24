@@ -4,8 +4,8 @@
   "title": "Chart",
   "description": "A charting container with config-driven tooltips, legends, and CSS variable styling integration for Recharts.",
   "dependencies": [
-    "cn",
-    "recharts"
+    "recharts",
+    "cn"
   ],
   "files": [
     {

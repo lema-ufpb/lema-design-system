@@ -3,9 +3,11 @@
   "name": "ds-pricing-comparison",
   "title": "Pricing Comparison",
   "description": "Tabela comparativa feature × plano — blockus #06.",
-  "dependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
-    "table"
+    "@lema-ds/table"
   ],
   "files": [
     {

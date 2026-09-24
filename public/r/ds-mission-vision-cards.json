@@ -7,7 +7,9 @@
     "class-variance-authority",
     "lucide-react"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "@lema-ds/ui-i18n"
+  ],
   "files": [
     {
       "path": "components/ds/mission-vision-cards.tsx",

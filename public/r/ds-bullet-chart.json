@@ -2,11 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-bullet-chart",
   "description": "Compact bullet chart with qualitative range bands, value bar, and target marker.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "skeleton",
-    "tooltip",
-    "ui-i18n",
-    "format-utils"
+    "@lema-ds/skeleton",
+    "@lema-ds/tooltip",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils"
   ],
   "files": [
     {

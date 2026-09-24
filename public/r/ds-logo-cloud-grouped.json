@@ -5,8 +5,9 @@
   "description": "Mural de logos com filtro de indústria/categoria — composto de ds-press-wall e ds-pill-group.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-press-wall",
-    "ds-pill-group"
+    "@lema-ds/ds-press-wall",
+    "@lema-ds/ds-pill-group",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

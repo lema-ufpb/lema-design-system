@@ -40,38 +40,6 @@ npm install
 make dev
 ```
 
-## 📦 Usage via dedicated CLI — `@lema-ufpb/ds-sync`
-
-For institutional UFPB projects, we provide a dedicated CLI on [npm](https://www.npmjs.com/package/@lema-ufpb/ds-sync) that extends the shadcn CLI with authentication, lockfile, drift detection and CI mode:
-
-```bash
-npm install -D @lema-ufpb/ds-sync
-```
-
-Configure in `.env.local`:
-
-```env
-LEMA_DS_TOKEN=<seu-token>
-LEMA_DS_REGISTRY=https://ds.lema.ufpb.br
-```
-
-> 🔑 The token is provided by LEMA NOC. The default registry points to production.
-
-### ⌨️ Main commands
-
-| Command                   | Description                   |
-| :------------------------ | :---------------------------- |
-| `npx ds add dashbox`      | Install component(s)          |
-| `npx ds update dashbox`   | Update component(s)           |
-| `npx ds list`             | List available components     |
-| `npx ds verify`           | Check drift vs lockfile       |
-| `npx ds diff dashbox`     | Local vs remote diff          |
-| `npx ds sync --all --yes` | Full sync (CI)                |
-| `npx ds sync-tokens`      | Force CSS tokens refetch      |
-| `npx ds whoami`           | Validate authentication token |
-
-The `ds.lock` lockfile is generated automatically and **should be versioned** — it is the source of truth for reproducibility and drift detection.
-
 ## ⬇️ Usage via Registry (shadcn CLI)
 
 You can install any component from this design system in your own project via the official shadcn registry at `https://ds.lema.ufpb.br`.
@@ -134,9 +102,9 @@ npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-button.json
 npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-card-stat.json
 ```
 
-Files land in the consumer project as `components/ui/ds-*.tsx` (prefix avoids collision with `components/ui/button.tsx` etc.), exactly as declared in `registry.json` (`name: "ds-*"`, `target: "components/ui/ds-*.tsx"`). Dependencies declared in the registry item (`lib/ui-i18n.ts`, `lib/format-utils.ts`, etc.) are installed automatically.
+Files land in the consumer project as `components/ui/ds-*.tsx` (prefix avoids collision with `components/ui/button.tsx` etc.), exactly as declared in `registry.json` (`name: "ds-*"`, `target: "components/ui/ds-*.tsx"`). Dependencies declared in the registry item (`lib/ui-i18n.ts`, `lib/format-utils.ts`, shadcn primitives, sibling `ds-*` items, npm packages) are installed automatically. Every `registryDependencies` entry is namespaced (`@lema-ds/<name>`) so the CLI resolves it against this registry and never against `ui.shadcn.com`, and `npm run registry:check` guarantees each item declares everything its source imports — so installing a single item in a fresh project works.
 
-If you prefer the UFPB wrapper, the same install works via `ds-sync`:
+The legacy UFPB wrapper `ds-sync` is no longer needed (the shadcn CLI above is the supported path). If you still use it, the same install works:
 
 ```bash
 # equivalent via ds-sync
@@ -177,13 +145,13 @@ The `ui-i18n` dictionary is published as `registry:lib` in the official registry
 
 ```bash
 # Manual installation (if needed)
-npx ds add ui-i18n
+npx shadcn@latest add @lema-ds/ui-i18n
 ```
 
 ## 📁 Project Structure
 
 ```
-design-system/
+lema-design-system/
 ├── app/
 │   ├── globals.css         # CSS tokens and themes (Tailwind v4 @theme inline)
 │   ├── Introduction.mdx    # Storybook intro (v{VERSION}, 374 items, 309 ds)
@@ -658,7 +626,9 @@ make format           # Prettier
 make build-storybook  # Static Storybook build
 make test             # Vitest (>1000 testes em 160+ arquivos)
 make coverage         # Coverage with Vitest
-make registry         # Rebuild registry.json (shadcn build — 374 items)
+make registry         # Rebuild public/r/*.json (shadcn build — 374 items)
+npm run registry:sync   # Derive missing registryDependencies/dependencies from source imports (updates registry.json)
+npm run registry:check  # Validate registry.json vs. files on disk and vs. source imports (namespace, deps, cycles)
 make shadcn-update    # Update all shadcn primitives to latest version
 make clean            # Clean artifacts
 ```
@@ -710,17 +680,6 @@ Older runs on the same PR are automatically canceled via `concurrency`. Installa
 **Why CI runs only once per release cycle:** the invariant is "if `develop` is green, `main` is green". Branch protection on `develop` requires a PR before merge → all code entering `develop` has been validated. `develop → main` is promotion without new code. The release-please PR only changes `package.json`, `CHANGELOG.md` and `.release-please-manifest.json` — none of these affect build/lint/test. Result: 1 CI run per real change, not 4.
 
 > ⚠️ **Branch protection is required** em `develop` e `main`. As CI does not trigger on `push`, direct push bypasses validation. Configure in **Settings → Branches**: require PR + up-to-date branch before merge. Currently **no branch requires status checks** (`contexts: []`) — consider adding `🕵️‍♂️ Lint`, `🧪 Test` and `📦 Build` as required checks on `develop`.
-
-### 🤖 AI Review
-
-Dispara **apenas em PR contra `develop`** (mesmo escopo do CI). Pula PRs do Dependabot e do `github-actions[bot]`. O fluxo:
-
-1. Generates the PR diff, commit history and contents of changed `.ts`/`.tsx` files
-2. Monta um prompt com as skills do design system (`.agents/skills/shadcn/SKILL.md` + `.agents/skills/design-system/SKILL.md`)
-3. Runs the review via `opencode` with free models in rotation (automatic fallback between models)
-4. Posts the result as a PR comment with sections: **Summary**, **Issues found** and **Skill Checklist**
-
-release-please PRs never trigger this workflow — they target `main`, not `develop`.
 
 ### ⚙️ Release automatizada
 

@@ -5,8 +5,8 @@
   "description": "Grid de depoimentos 2-3 cols — blockus Testimonials.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-testimonial-card",
-    "ui-i18n"
+    "@lema-ds/ds-testimonial-card",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

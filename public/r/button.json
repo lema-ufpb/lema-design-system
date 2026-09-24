@@ -5,8 +5,8 @@
   "description": "An interactive button control used to trigger actions, submit forms, or navigate.",
   "dependencies": [
     "class-variance-authority",
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [
