@@ -4,8 +4,8 @@
   "title": "Hover Card",
   "description": "A popover card that appears when hovering over a trigger element.",
   "dependencies": [
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "files": [
     {

@@ -5,8 +5,8 @@
   "description": "Grid de equipe com heading — blockus Team.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-team-card",
-    "ui-i18n"
+    "@lema-ds/ds-team-card",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

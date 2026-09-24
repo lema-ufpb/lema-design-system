@@ -7,8 +7,8 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "tooltip",
-    "ui-i18n"
+    "@lema-ds/tooltip",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

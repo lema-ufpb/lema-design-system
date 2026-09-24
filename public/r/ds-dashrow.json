@@ -7,7 +7,7 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "ui-i18n"
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

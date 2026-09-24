@@ -5,7 +5,7 @@
   "description": "Timeline vertical com linha conectora — blockus #03 #10 #17.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-how-it-works"
+    "@lema-ds/ds-how-it-works"
   ],
   "files": [
     {

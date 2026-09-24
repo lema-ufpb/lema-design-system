@@ -4,7 +4,7 @@
   "title": "Rich Text Editor",
   "description": "A presentation component that provides the structure for a rich text editor.",
   "registryDependencies": [
-    "toggle"
+    "@lema-ds/toggle"
   ],
   "files": [
     {

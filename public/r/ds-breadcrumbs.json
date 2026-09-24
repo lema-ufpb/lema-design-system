@@ -4,7 +4,7 @@
   "title": "Breadcrumbs",
   "description": "A data-driven breadcrumbs component.",
   "registryDependencies": [
-    "breadcrumb"
+    "@lema-ds/breadcrumb"
   ],
   "files": [
     {

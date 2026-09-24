@@ -134,9 +134,9 @@ npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-button.json
 npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-card-stat.json
 ```
 
-Files land in the consumer project as `components/ui/ds-*.tsx` (prefix avoids collision with `components/ui/button.tsx` etc.), exactly as declared in `registry.json` (`name: "ds-*"`, `target: "components/ui/ds-*.tsx"`). Dependencies declared in the registry item (`lib/ui-i18n.ts`, `lib/format-utils.ts`, etc.) are installed automatically.
+Files land in the consumer project as `components/ui/ds-*.tsx` (prefix avoids collision with `components/ui/button.tsx` etc.), exactly as declared in `registry.json` (`name: "ds-*"`, `target: "components/ui/ds-*.tsx"`). Dependencies declared in the registry item (`lib/ui-i18n.ts`, `lib/format-utils.ts`, shadcn primitives, sibling `ds-*` items, npm packages) are installed automatically. Every `registryDependencies` entry is namespaced (`@lema-ds/<name>`) so the CLI resolves it against this registry and never against `ui.shadcn.com`, and `npm run registry:check` guarantees each item declares everything its source imports — so installing a single item in a fresh project works.
 
-If you prefer the UFPB wrapper, the same install works via `ds-sync`:
+The legacy UFPB wrapper `ds-sync` is no longer needed (the shadcn CLI above is the supported path). If you still use it, the same install works:
 
 ```bash
 # equivalent via ds-sync
@@ -177,7 +177,7 @@ The `ui-i18n` dictionary is published as `registry:lib` in the official registry
 
 ```bash
 # Manual installation (if needed)
-npx ds add ui-i18n
+npx shadcn@latest add @lema-ds/ui-i18n
 ```
 
 ## 📁 Project Structure
@@ -658,7 +658,9 @@ make format           # Prettier
 make build-storybook  # Static Storybook build
 make test             # Vitest (>1000 testes em 160+ arquivos)
 make coverage         # Coverage with Vitest
-make registry         # Rebuild registry.json (shadcn build — 374 items)
+make registry         # Rebuild public/r/*.json (shadcn build — 374 items)
+npm run registry:sync   # Derive missing registryDependencies/dependencies from source imports (updates registry.json)
+npm run registry:check  # Validate registry.json vs. files on disk and vs. source imports (namespace, deps, cycles)
 make shadcn-update    # Update all shadcn primitives to latest version
 make clean            # Clean artifacts
 ```

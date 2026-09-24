@@ -5,8 +5,8 @@
   "description": "Grid bento misturando tiles de feature com ícone e tiles de estatística — composto de ds-bento-grid e ds-card-stat.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-bento-grid",
-    "ds-card-stat"
+    "@lema-ds/ds-bento-grid",
+    "@lema-ds/ds-card-stat"
   ],
   "files": [
     {

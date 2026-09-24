@@ -4,15 +4,16 @@
   "title": "Card Stats (All)",
   "description": "A portfolio of all statistical display cards: CardStat, CardStatCompact, CardStatProgress, CardStatComparison, CardStatSparkline, CardStatHighlight, CardStatList, CardStatGauge, and CardStatHeatbar.",
   "registryDependencies": [
-    "ds-card-stat",
-    "ds-card-stat-compact",
-    "ds-card-stat-progress",
-    "ds-card-stat-comparison",
-    "ds-card-stat-sparkline",
-    "ds-card-stat-highlight",
-    "ds-card-stat-list",
-    "ds-card-stat-gauge",
-    "ds-card-stat-heatbar"
+    "@lema-ds/ds-card-stat",
+    "@lema-ds/ds-card-stat-compact",
+    "@lema-ds/ds-card-stat-progress",
+    "@lema-ds/ds-card-stat-comparison",
+    "@lema-ds/ds-card-stat-sparkline",
+    "@lema-ds/ds-card-stat-highlight",
+    "@lema-ds/ds-card-stat-list",
+    "@lema-ds/ds-card-stat-gauge",
+    "@lema-ds/ds-card-stat-heatbar",
+    "@lema-ds/card-stat-shared"
   ],
   "files": [
     {

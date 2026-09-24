@@ -7,8 +7,8 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "ds-social-links",
-    "separator"
+    "@lema-ds/ds-social-links",
+    "@lema-ds/separator"
   ],
   "files": [
     {

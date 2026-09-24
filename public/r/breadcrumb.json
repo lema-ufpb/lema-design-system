@@ -4,9 +4,9 @@
   "title": "Breadcrumb",
   "description": "A navigation aid showing the user's location in a hierarchical page structure with separators and ellipsis.",
   "dependencies": [
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

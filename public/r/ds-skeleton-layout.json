@@ -7,9 +7,9 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "skeleton",
-    "card",
-    "ui-i18n"
+    "@lema-ds/skeleton",
+    "@lema-ds/card",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

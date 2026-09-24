@@ -5,7 +5,7 @@
   "description": "Pares de logo do cliente + depoimento curto em grid de cartões — composto de ds-pull-quote.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-pull-quote"
+    "@lema-ds/ds-pull-quote"
   ],
   "files": [
     {

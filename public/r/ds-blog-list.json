@@ -5,10 +5,12 @@
   "description": "Lista horizontal imagem à esquerda — blockus #08-12.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-blog-meta",
-    "ds-blog-author",
-    "separator",
-    "skeleton"
+    "@lema-ds/ds-blog-meta",
+    "@lema-ds/ds-blog-author",
+    "@lema-ds/separator",
+    "@lema-ds/skeleton",
+    "@lema-ds/ds-blog-card",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

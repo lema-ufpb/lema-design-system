@@ -8,8 +8,8 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "dialog",
-    "ui-i18n"
+    "@lema-ds/dialog",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

@@ -1,6 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-keyboard-shortcut",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "files": [
     {
       "path": "components/ds/keyboard-shortcut.tsx",

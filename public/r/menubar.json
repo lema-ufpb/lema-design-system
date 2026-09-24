@@ -4,9 +4,9 @@
   "title": "Menubar",
   "description": "A horizontal menu bar with dropdown menus, checkboxes, radio items, and submenus.",
   "dependencies": [
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

@@ -5,8 +5,8 @@
   "description": "Grid bento com o formulário de contato como tile principal e tiles satélite — composto de ds-bento-grid e ds-contact-form.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-bento-grid",
-    "ds-contact-form"
+    "@lema-ds/ds-bento-grid",
+    "@lema-ds/ds-contact-form"
   ],
   "files": [
     {

@@ -7,12 +7,12 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "ds-footer-wordmark",
-    "ds-social-links",
-    "ds-system-status-badge",
-    "ds-footer-bottom-bar",
-    "ds-footer-menu",
-    "ui-i18n"
+    "@lema-ds/ds-footer-wordmark",
+    "@lema-ds/ds-social-links",
+    "@lema-ds/ds-system-status-badge",
+    "@lema-ds/ds-footer-bottom-bar",
+    "@lema-ds/ds-footer-menu",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

@@ -7,7 +7,7 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "ds-banner"
+    "@lema-ds/ds-banner"
   ],
   "files": [
     {

@@ -5,7 +5,7 @@
   "description": "Parede de logos em marquee infinita — blockus #13-24.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-integration-tile"
+    "@lema-ds/ds-integration-tile"
   ],
   "files": [
     {

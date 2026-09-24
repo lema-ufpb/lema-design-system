@@ -8,8 +8,8 @@
     "cn"
   ],
   "registryDependencies": [
-    "label",
-    "separator"
+    "@lema-ds/label",
+    "@lema-ds/separator"
   ],
   "files": [
     {

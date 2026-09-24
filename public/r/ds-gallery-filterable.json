@@ -5,8 +5,9 @@
   "description": "Galeria de imagens com filtro de categorias — composto de ds-image-gallery e ds-pill-group.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-image-gallery",
-    "ds-pill-group"
+    "@lema-ds/ds-image-gallery",
+    "@lema-ds/ds-pill-group",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {
