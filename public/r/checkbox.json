@@ -4,9 +4,9 @@
   "title": "Checkbox",
   "description": "A form control for selecting one or more options from a set.",
   "dependencies": [
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

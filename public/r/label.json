@@ -4,8 +4,8 @@
   "title": "Label",
   "description": "A form label element built on Radix UI Label primitive.",
   "dependencies": [
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "files": [
     {

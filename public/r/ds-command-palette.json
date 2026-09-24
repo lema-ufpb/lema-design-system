@@ -4,8 +4,9 @@
   "title": "Command Palette",
   "description": "A high-level command palette modal triggered by keyboard shortcuts.",
   "registryDependencies": [
-    "command",
-    "dialog"
+    "@lema-ds/command",
+    "@lema-ds/dialog",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

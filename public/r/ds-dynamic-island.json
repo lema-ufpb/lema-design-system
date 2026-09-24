@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-dynamic-island",
   "description": "Dynamic island notification component.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [],
   "files": [
     {

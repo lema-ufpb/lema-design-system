@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-receipt-card",
   "description": "Receipt Card component.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [],
   "files": [
     {

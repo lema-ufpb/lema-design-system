@@ -2,12 +2,15 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-funnel-chart",
   "description": "Funnel chart for visualizing conversion rates between sequential stages.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "chart",
-    "skeleton",
-    "card",
-    "ui-i18n",
-    "format-utils"
+    "@lema-ds/chart",
+    "@lema-ds/skeleton",
+    "@lema-ds/card",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils"
   ],
   "files": [
     {

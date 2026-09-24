@@ -57,10 +57,20 @@ Ao renomear ou criar um item `ds-*`, atualize também qualquer `registryDependen
 
 ```bash
 make registry                          # reconstrói public/r/*.json
-node scripts/validate-registry.mjs     # valida path/registro (não valida name/target)
+node scripts/validate-registry.mjs     # valida path/registro e dependências vs. imports (não valida name/target)
 ```
 
 `make registry` não remove `public/r/<nome-antigo>.json` órfãos ao renomear um item — apague-os manualmente.
+
+### Dependências dos itens do registry (obrigatório)
+
+O CLI do shadcn só instala o que o item declara — um item que importa algo não declarado quebra em projetos consumidores (`Cannot find module`) mesmo passando aqui.
+
+- **Todo `registryDependencies` é namespaced:** use `@lema-ds/<nome>` (ex.: `@lema-ds/button`, `@lema-ds/ui-i18n`). Nomes sem namespace são resolvidos pelo CLI contra `ui.shadcn.com` e falham para itens que só existem aqui (`ui-i18n`, `card-stat-shared`, `ds-*`…).
+- **Declare tudo que o código importa:** imports locais (`@/lib/*`, `@/components/ui|ds/*`, `./irmão`) viram `registryDependencies`; pacotes npm viram `dependencies` (tipos de pacotes como `geojson` → `devDependencies: ["@types/geojson"]`). `react`, `react-dom`, `next` e `@/lib/utils` são fornecidos pelo consumidor. `cn` é um pacote npm real (usado pelos primitivos) — não remover.
+- **`Slot` vem de `radix-ui`** (`import { Slot } from "radix-ui"` e `Slot.Root`) — nunca de `@radix-ui/react-slot`, que não é dependência deste repo.
+- **Imports `@/components/ui/<x>` sempre apontam para o primitivo.** O `scripts/fix-registry-relative-imports.mjs` só renomeia imports de `components/ds/` (`@/components/ds/<x>` e `./irmão` dentro de arquivos `components/ds/`) para `ds-<x>` no JSON publicado.
+- Fluxo: editar o componente → `npm run registry:sync` (preenche o que falta em `registry.json`, nunca remove) → `make registry` → `npm run registry:check`. O check falha por dependência faltante, sem namespace, import sem item correspondente ou ciclo.
 
 ### Stories obrigatórios
 
@@ -73,8 +83,9 @@ Sempre que um componente em `components/ds/` for **criado ou atualizado**, a mes
 1. **Spec** — criar ou atualizar `docs/specs/ds-<nome>.md` (template em `docs/templates/component-spec.md`). Componente novo sem spec, ou spec que não reflete as props/variantes atuais, é considerado incompleto.
 2. **`registry.json`** — adicionar ou atualizar a entrada do componente, seguindo a convenção de prefixo `ds-` descrita acima. Depois de editar, rodar:
    ```bash
+   npm run registry:sync                  # completa registryDependencies/dependencies a partir dos imports
    make registry
-   node scripts/validate-registry.mjs
+   npm run registry:check                 # = node scripts/validate-registry.mjs
    ```
 3. **`app/Introduction.mdx`** — atualizar as contagens afetadas (total do registry, `ds-*`, specs) e a grade "Explore por categoria": ajustar a contagem de itens da categoria existente, ou adicionar um novo card se o componente abrir uma categoria (`title` no meta do `.stories.tsx`) que ainda não existe ali. Todo link de card usa o formato `/?path=/docs/<categoria-slug>-<componente-slug>--docs` — verificar contra o `index.json` real do Storybook antes de commitar, nunca adivinhar o slug.
 

@@ -2,9 +2,12 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-empty-state-illustration",
   "description": "Empty state with 8 animated SVG illustrations for common UI contexts.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "skeleton",
-    "button"
+    "@lema-ds/skeleton",
+    "@lema-ds/button"
   ],
   "files": [
     {

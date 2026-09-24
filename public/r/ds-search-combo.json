@@ -10,8 +10,9 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "popover",
-    "ds-spinner"
+    "@lema-ds/popover",
+    "@lema-ds/ds-spinner",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

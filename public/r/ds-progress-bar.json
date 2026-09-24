@@ -7,8 +7,10 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "skeleton",
-    "tooltip"
+    "@lema-ds/skeleton",
+    "@lema-ds/tooltip",
+    "@lema-ds/progress",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

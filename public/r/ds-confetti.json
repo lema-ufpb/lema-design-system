@@ -3,7 +3,8 @@
   "name": "ds-confetti",
   "description": "Confetti animation with 4 presets. Also exports useConfetti hook.",
   "dependencies": [
-    "canvas-confetti"
+    "canvas-confetti",
+    "class-variance-authority"
   ],
   "files": [
     {

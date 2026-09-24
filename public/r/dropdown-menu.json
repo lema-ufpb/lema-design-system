@@ -4,9 +4,9 @@
   "title": "Dropdown Menu",
   "description": "A popover style menu listing choices or operations that is triggered by a button control.",
   "dependencies": [
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

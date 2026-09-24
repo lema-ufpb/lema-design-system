@@ -7,8 +7,8 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "navigation-menu",
-    "skeleton"
+    "@lema-ds/navigation-menu",
+    "@lema-ds/skeleton"
   ],
   "files": [
     {

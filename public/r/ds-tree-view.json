@@ -8,7 +8,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "collapsible"
+    "@lema-ds/collapsible"
   ],
   "files": [
     {

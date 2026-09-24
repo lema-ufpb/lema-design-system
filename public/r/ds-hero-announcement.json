@@ -5,9 +5,9 @@
   "description": "Hero centralizado com badge de anúncio e mural de logos em marquee — composto de ds-hero-section, ds-announcement-badge e ds-marquee.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-hero-section",
-    "ds-announcement-badge",
-    "ds-marquee"
+    "@lema-ds/ds-hero-section",
+    "@lema-ds/ds-announcement-badge",
+    "@lema-ds/ds-marquee"
   ],
   "files": [
     {

@@ -8,7 +8,9 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "skeleton"
+    "@lema-ds/skeleton",
+    "@lema-ds/card-stat-shared",
+    "@lema-ds/separator"
   ],
   "files": [
     {

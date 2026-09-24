@@ -2,12 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-waterfall-chart",
   "description": "Waterfall chart for cumulative positive/negative value bridges.",
+  "dependencies": [
+    "class-variance-authority",
+    "recharts"
+  ],
   "registryDependencies": [
-    "chart",
-    "skeleton",
-    "card",
-    "ui-i18n",
-    "format-utils"
+    "@lema-ds/chart",
+    "@lema-ds/skeleton",
+    "@lema-ds/card",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils"
   ],
   "files": [
     {

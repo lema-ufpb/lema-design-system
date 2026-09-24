@@ -5,9 +5,9 @@
   "description": "A responsive navigation menu with trigger, content, viewport, and indicator sub-components.",
   "dependencies": [
     "class-variance-authority",
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

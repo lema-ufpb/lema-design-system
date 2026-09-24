@@ -5,8 +5,8 @@
   "description": "A status and pin marker indicator for chat and list items with support for variant, pin, and side-by-side layout.",
   "dependencies": [
     "class-variance-authority",
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

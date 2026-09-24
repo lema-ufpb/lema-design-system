@@ -5,11 +5,11 @@
   "description": "A list item component with media, content, title, description, actions, and size variants.",
   "dependencies": [
     "class-variance-authority",
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "registryDependencies": [
-    "separator"
+    "@lema-ds/separator"
   ],
   "files": [
     {

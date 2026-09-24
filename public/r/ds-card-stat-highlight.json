@@ -8,9 +8,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "card-stat-shared",
-    "card",
-    "skeleton"
+    "@lema-ds/card-stat-shared",
+    "@lema-ds/card",
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

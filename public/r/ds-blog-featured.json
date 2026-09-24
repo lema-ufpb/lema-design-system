@@ -5,8 +5,9 @@
   "description": "Hero featured grande + 2 cards laterais — blockus #15-22.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-blog-card",
-    "skeleton"
+    "@lema-ds/ds-blog-card",
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

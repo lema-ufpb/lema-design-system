@@ -5,8 +5,8 @@
   "description": "A two-state button for on/off toggling with variants and sizes.",
   "dependencies": [
     "class-variance-authority",
-    "cn",
-    "radix-ui"
+    "radix-ui",
+    "cn"
   ],
   "files": [
     {

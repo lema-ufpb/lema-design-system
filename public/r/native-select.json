@@ -4,8 +4,8 @@
   "title": "Native Select",
   "description": "A styled native HTML select element with optgroup and option sub-components.",
   "dependencies": [
-    "cn",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

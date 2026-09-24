@@ -8,9 +8,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "sidebar",
-    "skeleton",
-    "ui-i18n"
+    "@lema-ds/sidebar",
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/label"
   ],
   "files": [
     {

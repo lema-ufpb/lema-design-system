@@ -5,7 +5,8 @@
   "description": "Grid de vídeos que abrem em diálogo ao clicar — composto de ds-video-dialog.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-video-dialog"
+    "@lema-ds/ds-video-dialog",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

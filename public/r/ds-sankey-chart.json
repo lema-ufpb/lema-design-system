@@ -2,11 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-sankey-chart",
   "description": "Sankey diagram using pure SVG — no external dependencies.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "skeleton",
-    "card",
-    "ui-i18n",
-    "format-utils"
+    "@lema-ds/skeleton",
+    "@lema-ds/card",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils"
   ],
   "files": [
     {

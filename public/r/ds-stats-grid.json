@@ -5,7 +5,8 @@
   "description": "Grid de métricas 2-4 cols — blockus stats.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-stats"
+    "@lema-ds/ds-stats",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

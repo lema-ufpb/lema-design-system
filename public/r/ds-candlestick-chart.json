@@ -9,10 +9,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "skeleton",
-    "ui-i18n",
-    "format-utils",
-    "chart-axis-width"
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/format-utils",
+    "@lema-ds/chart-axis-width"
   ],
   "files": [
     {
