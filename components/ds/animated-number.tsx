@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import type { UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -50,13 +51,14 @@ export function AnimatedNumber({
   value,
   duration = 800,
   decimals = 0,
-  locale = "en-US",
+  locale: localeProp,
   prefix = "",
   suffix = "",
   size = "md",
   className,
   ...props
 }: AnimatedNumberProps) {
+  const locale = useUILocale(localeProp)
   const [display, setDisplay] = React.useState(0)
   const fromRef = React.useRef(0)
 

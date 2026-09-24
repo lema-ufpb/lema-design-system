@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { CandlestickChart as CandlestickIcon } from "lucide-react"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import { measureAxisWidth } from "@/lib/chart-axis-width"
 
@@ -451,7 +452,7 @@ function CandleTooltip({
   positiveColor,
   negativeColor,
   valueFmt,
-  locale = "en-US",
+  locale: localeProp,
 }: {
   active?: boolean
   payload?: Array<{
@@ -466,6 +467,7 @@ function CandleTooltip({
   valueFmt: (v: number) => string
   locale?: UILocale
 }) {
+  const locale = useUILocale(localeProp)
   if (!active || !payload?.length) return null
 
   const candle = payload.find((p) => Array.isArray(p.value))?.payload as
@@ -604,7 +606,7 @@ function ChartLegend({
   positiveColor,
   negativeColor,
   vertical = false,
-  locale = "en-US",
+  locale: localeProp,
 }: {
   payload?: LegendPayloadEntry[]
   hiddenSeries?: Set<string>
@@ -614,6 +616,7 @@ function ChartLegend({
   vertical?: boolean
   locale?: UILocale
 }) {
+  const locale = useUILocale(localeProp)
   const maItems = payload ?? []
 
   return (
@@ -805,10 +808,11 @@ export function CandlestickChart({
   abbreviate,
   dateFormatter,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: CandlestickChartProps) {
+  const locale = useUILocale(localeProp)
   // Hooks must be called unconditionally before any early returns
   const valueFmt = React.useCallback(
     (v: number) =>

@@ -374,7 +374,7 @@ export const ProgrammaticControl: Story = {
           </Button>
         </div>
         <p className="text-sm text-muted-foreground">
-          State: <span className="font-mono">{open ? "open" : "closed"}</span>
+          State: <span className="font-sans">{open ? "open" : "closed"}</span>
         </p>
         <Drawer
           open={open}

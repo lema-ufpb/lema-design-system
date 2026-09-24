@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -61,11 +62,12 @@ export function AboutSplitStory({
   primaryAction,
   secondaryAction,
   reverse = false,
-  locale = "en-US",
+  locale: localeProp,
   variant,
   className,
   ...props
 }: AboutSplitStoryProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   return (

@@ -8,6 +8,7 @@ import { Switch as SwitchRoot } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -54,12 +55,13 @@ function Switch({
   labelPosition = "right",
   loading = false,
   error,
-  locale = "en-US",
+  locale: localeProp,
   disabled,
   className,
   id,
   ...props
 }: SwitchProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
   const generatedId = React.useId()
   const switchId = id ?? generatedId

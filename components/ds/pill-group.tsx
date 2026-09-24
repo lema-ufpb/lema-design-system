@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -201,7 +202,7 @@ export const PillGroup = React.forwardRef<HTMLDivElement, PillGroupProps>(
       showCount,
       loading = false,
       disabled = false,
-      locale = "en-US",
+      locale: localeProp,
       label,
       skeletonCount,
       className,
@@ -209,6 +210,7 @@ export const PillGroup = React.forwardRef<HTMLDivElement, PillGroupProps>(
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const t = UI_I18N[locale].pillGroup
     const scrollRef = React.useRef<HTMLDivElement>(null)
     const { canScrollLeft, canScrollRight } = useScrollFade(scrollRef)

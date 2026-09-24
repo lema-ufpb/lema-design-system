@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -63,11 +64,12 @@ export const ColorPicker = React.forwardRef<HTMLInputElement, ColorPickerProps>(
       value = "#000000",
       onChange,
       disabled,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value)
     }

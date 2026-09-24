@@ -6,6 +6,7 @@ import { CheckIcon, CopyIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import {
   Tooltip,
@@ -59,7 +60,7 @@ export const copyBlockVariants = cva(
   }
 )
 
-export const copyBlockTextVariants = cva("font-mono text-foreground", {
+export const copyBlockTextVariants = cva("text-foreground", {
   variants: {
     size: {
       sm: "text-xs",
@@ -85,12 +86,13 @@ export const CopyBlock = React.forwardRef<HTMLDivElement, CopyBlockProps>(
       value,
       size = "md",
       truncate = false,
-      locale = "en-US",
+      locale: localeProp,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [hasCopied, setHasCopied] = React.useState(false)
 
     const { copy: copyLabel, copied: copiedLabel } = UI_I18N[locale].copyBlock

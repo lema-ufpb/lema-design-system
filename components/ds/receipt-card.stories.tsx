@@ -34,7 +34,7 @@ export const Default: Story = {
           <br />
           João Pessoa - PB
         </div>
-        <div className="mt-4 font-mono text-sm text-muted-foreground">
+        <div className="mt-4 text-sm text-muted-foreground">
           23/10/2026 14:32:05
         </div>
       </ReceiptCardHeader>
@@ -42,7 +42,7 @@ export const Default: Story = {
       <ReceiptCardDivider />
 
       <ReceiptCardContent>
-        <div className="space-y-3 font-mono text-sm">
+        <div className="space-y-3 text-sm">
           <ReceiptCardItem>
             <span>1x Radial Menu</span>
             <span>$29.90</span>
@@ -102,7 +102,7 @@ export const BottomEdgeOnly: Story = {
   render: () => (
     <ReceiptCard edges="bottom">
       <ReceiptCardContent>
-        <div className="text-center font-mono">
+        <div className="text-center">
           <div className="text-4xl font-bold">TICKET</div>
           <div className="mt-4 text-6xl font-black text-primary">A042</div>
         </div>

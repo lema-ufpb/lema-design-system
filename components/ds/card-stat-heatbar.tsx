@@ -3,6 +3,7 @@ import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -90,9 +91,10 @@ export function CardStatHeatbar({
   className,
   loading,
   empty,
-  locale,
+  locale: localeProp,
   ...fmt
 }: CardStatHeatbarProps) {
+  const locale = useOptionalUILocale(localeProp)
   const zones =
     zonesProp ??
     (locale

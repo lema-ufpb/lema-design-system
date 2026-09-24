@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -73,11 +74,12 @@ export const TwoFactorAuth = React.forwardRef<
       method = "email",
       allowAlternative = true,
       onAlternativeMethod,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [code, setCode] = React.useState("")
     const [trustDevice, setTrustDevice] = React.useState(false)
     const [countdown, setCountdown] = React.useState(resendCooldown)

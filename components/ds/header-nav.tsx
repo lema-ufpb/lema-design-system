@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { DSLink } from "@/components/ds/link-provider"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -110,7 +110,7 @@ export function HeaderNav({
                       data-active={item.active || undefined}
                       className={cn(item.active && "bg-muted text-foreground")}
                     >
-                      <Link
+                      <DSLink
                         href={item.href}
                         aria-current={item.active ? "page" : undefined}
                         onClick={() => onNavigate?.(item)}
@@ -126,7 +126,7 @@ export function HeaderNav({
                             {item.badge}
                           </span>
                         )}
-                      </Link>
+                      </DSLink>
                     </NavigationMenuLink>
                   ) : (
                     <NavigationMenuLink
@@ -164,7 +164,7 @@ export function HeaderNav({
                       {item.children?.map((child) => (
                         <li key={child.label}>
                           <NavigationMenuLink asChild>
-                            <Link
+                            <DSLink
                               href={child.href ?? "#"}
                               onClick={() => onNavigate?.(child)}
                               className="flex flex-col gap-1 rounded-xl p-3 transition-colors hover:bg-muted focus:bg-muted"
@@ -187,7 +187,7 @@ export function HeaderNav({
                                   {child.description}
                                 </span>
                               )}
-                            </Link>
+                            </DSLink>
                           </NavigationMenuLink>
                         </li>
                       ))}

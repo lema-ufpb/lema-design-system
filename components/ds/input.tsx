@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Input as InputRoot } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -74,7 +75,7 @@ function Input({
   loading = false,
   error,
   label,
-  locale = "en-US",
+  locale: localeProp,
   className,
   id,
   maxLength,
@@ -82,6 +83,7 @@ function Input({
   defaultValue,
   ...props
 }: InputProps) {
+  const locale = useUILocale(localeProp)
   const i18n = UI_I18N[locale]
   const generatedId = React.useId()
   const inputId = id ?? generatedId

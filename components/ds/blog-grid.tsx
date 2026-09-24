@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Input } from "@/components/ui/input"
 import { Empty, EmptyTitle, EmptyDescription } from "@/components/ui/empty"
 import { BlogCard, type BlogPost } from "./blog-card"
@@ -31,10 +32,11 @@ export function BlogGrid({
   onCategoryChange,
   search,
   onSearchChange,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: BlogGridProps) {
+  const locale = useUILocale(localeProp)
   return (
     <div
       data-slot="blog-grid"

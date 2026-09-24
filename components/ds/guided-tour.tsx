@@ -5,6 +5,7 @@ import { XIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -36,11 +37,12 @@ export const GuidedTour = React.forwardRef<HTMLDivElement, GuidedTourProps>(
       onPrev,
       onSkip,
       onFinish,
-      locale = "en-US",
+      locale: localeProp,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const i18n = UI_I18N[locale].guidedTour
     const step = steps[currentStep]
     const isFirstStep = currentStep === 0

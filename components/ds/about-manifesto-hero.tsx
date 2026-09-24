@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ManifestoStatement } from "@/components/ds/manifesto-statement"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──
 
@@ -60,11 +61,12 @@ export function AboutManifestoHero({
   stats = [],
   primaryAction,
   secondaryAction,
-  locale = "en-US",
+  locale: localeProp,
   variant,
   className,
   ...props
 }: AboutManifestoHeroProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.about ?? UI_I18N["en-US"].about
 
   return (

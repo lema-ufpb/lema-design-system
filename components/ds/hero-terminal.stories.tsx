@@ -52,7 +52,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <HeroTerminal {...args}>
-      <div className="flex h-64 items-center justify-center p-6 font-mono text-sm text-zinc-400">
+      <div className="flex h-64 items-center justify-center p-6 text-sm text-zinc-400">
         $ npx shadcn add ds-hero-terminal
       </div>
     </HeroTerminal>

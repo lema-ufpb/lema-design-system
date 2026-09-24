@@ -6,6 +6,7 @@ import { SearchIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Input } from "@/components/ui/input"
 import { Empty, EmptyTitle, EmptyDescription } from "@/components/ui/empty"
 import { Accordion, type AccordionItem } from "./accordion"
@@ -63,10 +64,11 @@ export function Faqs({
   onSearchChange,
   iconVariant = "chevron",
   size = "md",
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: FaqsProps) {
+  const locale = useUILocale(localeProp)
   const [internalSearch, setInternalSearch] = React.useState("")
   const isControlled = controlledSearch !== undefined
   const search = isControlled ? controlledSearch : internalSearch

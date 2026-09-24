@@ -1,12 +1,13 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { DSLink } from "@/components/ds/link-provider"
 import { cva, type VariantProps } from "class-variance-authority"
 import { ArrowRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Header, HeaderContainer } from "./header"
 import { HeaderBrand, type HeaderBrandProps } from "./header-brand"
 import { HeaderNav, type HeaderNavItem } from "./header-nav"
@@ -76,7 +77,7 @@ function MegaContent({
         )}
       >
         {items.map((child) => (
-          <Link
+          <DSLink
             key={child.label}
             href={child.href ?? "#"}
             className="flex flex-col gap-1 rounded-xl p-3 transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
@@ -94,7 +95,7 @@ function MegaContent({
                 {child.description}
               </span>
             )}
-          </Link>
+          </DSLink>
         ))}
       </div>
       {feature && (
@@ -121,10 +122,10 @@ function MegaContent({
           </div>
           {feature.href && feature.ctaLabel && (
             <Button asChild size="sm" className="mt-1 w-fit">
-              <Link href={feature.href}>
+              <DSLink href={feature.href}>
                 {feature.ctaLabel}
                 <ArrowRightIcon className="ml-1 size-3.5" />
-              </Link>
+              </DSLink>
             </Button>
           )}
         </div>
@@ -141,7 +142,7 @@ export function HeaderMega({
   navItems,
   actions = [],
   feature,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   size = "md",
   variant = "default",
@@ -150,6 +151,7 @@ export function HeaderMega({
 }: HeaderMegaProps & {
   variant?: "default" | "blurred" | "transparent" | "solid"
 }) {
+  const locale = useUILocale(localeProp)
   const enrichedItems: HeaderNavItem[] = navItems.map((item) => {
     if (item.children && !item.content) {
       return {

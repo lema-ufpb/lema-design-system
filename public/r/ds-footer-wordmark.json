@@ -8,10 +8,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/footer-wordmark.tsx",
+      "path": "components/ds/ds-footer-wordmark.tsx",
       "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface FooterWordmarkProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof footerWordmarkVariants> {\n  text?: string\n  decorative?: boolean\n}\n\n// ── Variants ──\n\nexport const footerWordmarkVariants = cva(\n  \"pointer-events-none relative flex w-full overflow-hidden select-none\",\n  {\n    variants: {\n      align: {\n        center: \"justify-center text-center\",\n        left: \"justify-start text-left\",\n      },\n      variant: {\n        outline:\n          \"text-transparent [-webkit-text-stroke:1px_hsl(var(--foreground)/0.12)]\",\n        muted: \"text-foreground/[0.04]\",\n        gradient:\n          \"bg-linear-to-b from-foreground/15 via-foreground/5 to-transparent bg-clip-text text-transparent\",\n      },\n    },\n    defaultVariants: {\n      align: \"center\",\n      variant: \"outline\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport const FooterWordmark = React.forwardRef<\n  HTMLDivElement,\n  FooterWordmarkProps\n>(\n  (\n    {\n      text = \"LEMA\",\n      variant = \"outline\",\n      align = \"center\",\n      decorative = true,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    return (\n      <div\n        ref={ref}\n        aria-hidden={decorative ? \"true\" : undefined}\n        className={cn(\"w-full overflow-hidden py-4\", className)}\n        {...props}\n      >\n        <span\n          className={cn(\n            \"block w-full text-[clamp(3.5rem,16vw,14rem)] leading-none font-black tracking-tighter uppercase\",\n            footerWordmarkVariants({ variant, align })\n          )}\n        >\n          {text}\n        </span>\n      </div>\n    )\n  }\n)\nFooterWordmark.displayName = \"FooterWordmark\"\n",
-      "type": "registry:ui",
-      "target": "components/ui/ds-footer-wordmark.tsx"
+      "type": "registry:ui"
     }
   ],
   "type": "registry:ui"

@@ -10,10 +10,9 @@
   ],
   "files": [
     {
-      "path": "components/ds/contact-bento.tsx",
+      "path": "components/ds/ds-contact-bento.tsx",
       "content": "import * as React from \"react\"\n\nimport { BentoGrid, BentoGridItem } from \"./ds-bento-grid\"\nimport { ContactForm, type ContactFormProps } from \"./ds-contact-form\"\n\n// ── Types ──\n\nexport interface ContactBentoProps extends React.HTMLAttributes<HTMLDivElement> {\n  formProps?: ContactFormProps\n  /** Additional `BentoGridItem` tiles rendered beside the form (office locations, stats...). */\n  children?: React.ReactNode\n}\n\n// ── Component ──\n\n/**\n * A bento grid with a contact form as its hero tile, plus any number of\n * satellite tiles — composed from `BentoGrid` and `ContactForm`.\n */\nexport function ContactBento({\n  formProps,\n  children,\n  className,\n  ...props\n}: ContactBentoProps) {\n  return (\n    <BentoGrid className={className} data-slot=\"contact-bento\" {...props}>\n      <BentoGridItem\n        colSpan={2}\n        rowSpan={2}\n        className=\"items-stretch justify-center\"\n      >\n        <ContactForm {...formProps} />\n      </BentoGridItem>\n      {children}\n    </BentoGrid>\n  )\n}\n",
-      "type": "registry:block",
-      "target": "components/ui/ds-contact-bento.tsx"
+      "type": "registry:ui"
     }
   ],
   "categories": [

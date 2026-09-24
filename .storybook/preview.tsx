@@ -21,6 +21,17 @@ const inter = Inter({
 })
 const fontMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
+// Apply the font variables at load so docs pages (which render outside the story
+// decorator) also get Inter instead of the Storybook default.
+if (typeof document !== "undefined") {
+  document.documentElement.classList.add(
+    inter.variable,
+    fontMono.variable,
+    "font-sans",
+    "antialiased"
+  )
+}
+
 const ThemeDecorator = ({
   children,
   colorTheme,

@@ -11,19 +11,28 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 jobs:
   release-please:
     name: "📦 Run release-please"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
+      - name: "🔐 Gerar token do GitHub App"
+        id: app-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.CICD_APP_ID }}
+          private-key: ${{ secrets.CICD_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: "🚀 Release Please"
         id: release
-        uses: googleapis/release-please-action@v5
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5
         with:
-          token: ${{ secrets.CICD_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
@@ -31,7 +40,7 @@ jobs:
       # O auto-merge foi removido (ver PR que introduziu este comentário):
       # o release-please vem falhando em localizar a última release via
       # GraphQL ("Expected 1 releases, only found 0") mesmo com o
-      # CICD_TOKEN tendo escopo `repo` completo, e por isso recalcula a
+      # token com escopo `repo` completo, e por isso recalcula a
       # versão a partir de todo o histórico de commits, propondo um
       # downgrade (ex.: 1.7.1 quando main já está em 1.10.1). Mergear
       # essa PR automaticamente corrompeu `main` mais de uma vez. Até a
@@ -41,7 +50,7 @@ jobs:
       - name: "🛡️ Sinalizar versão proposta suspeita"
         if: steps.release.outputs.pr
         env:
-          GH_TOKEN: ${{ secrets.CICD_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           PR_NUMBER="${{ fromJSON(steps.release.outputs.pr).number }}"
           REPO="${{ github.repository }}"
@@ -70,10 +79,3 @@ jobs:
           if [ "$HIGHEST" != "$NEW_VERSION" ] || [ "$NEW_VERSION" = "$CURRENT_VERSION" ]; then
             echo "::warning::PR #$PR_NUMBER propõe versão '$NEW_VERSION', que não é maior que a versão atual do manifest ('$CURRENT_VERSION'). NÃO mergear sem investigar — provável falha do release-please em localizar a última release."
           fi
-
-      - name: "🧹 Limpar workspace do job (_work)"
-        if: always()
-        # NÃO remover o diretório github.workspace em si — o post-step do
-        # actions/checkout roda depois deste job e precisa que ele ainda
-        # exista (senão o runner falha ao iniciar o node com ENOENT).
-        run: find "${{ github.workspace }}" -mindepth 1 -delete

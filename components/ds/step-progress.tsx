@@ -7,6 +7,7 @@ import type { VariantProps } from "class-variance-authority"
 import type { HTMLAttributes, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -280,10 +281,11 @@ export const StepProgress = ({
   orientation = "horizontal",
   size,
   onStepClick,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: StepProgressProps) => {
+  const locale = useUILocale(localeProp)
   const currentStepIndex = React.useMemo(() => {
     const idx = steps.findIndex((s) => s.id === currentStepId)
     return idx === -1 ? 0 : idx

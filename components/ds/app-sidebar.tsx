@@ -12,6 +12,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Collapsible,
@@ -241,7 +242,7 @@ export function AppSidebar({
   searchPlaceholder,
   collapsible = "offcanvas",
   sidebarVariant = "sidebar",
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   onNavItemClick,
   onProjectClick,
@@ -249,6 +250,7 @@ export function AppSidebar({
   className,
   ...props
 }: AppSidebarProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.sidebar ?? UI_I18N["en-US"].sidebar
 
   if (loading) {

@@ -9,10 +9,9 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/ds/glow.tsx",
+      "path": "components/ds/ds-glow.tsx",
       "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\n// ── Types ──\n\nexport interface GlowProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof glowVariants> {\n  color?: string\n  size?: number\n}\n\n// ── Variants ──\n\nexport const glowVariants = cva(\n  \"pointer-events-none absolute rounded-full blur-[48px]\",\n  {\n    variants: {\n      position: {\n        top: \"-top-48 left-1/2 -translate-x-1/2\",\n        above: \"-top-24 left-1/2 -translate-x-1/2\",\n        \"above-inner\": \"top-0 left-1/2 -translate-x-1/2 -translate-y-1/2\",\n        center: \"top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2\",\n        \"bottom-inner\": \"bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2\",\n        below: \"-bottom-24 left-1/2 -translate-x-1/2\",\n        \"below-inner\": \"bottom-0 left-1/2 -translate-x-1/2\",\n      },\n      intensity: {\n        subtle: \"opacity-40\",\n        medium: \"opacity-60\",\n        strong: \"opacity-80\",\n      },\n    },\n    defaultVariants: {\n      position: \"top\",\n      intensity: \"medium\",\n    },\n  }\n)\n\n// ── Component ──\n\nexport function Glow({\n  className,\n  position = \"top\",\n  intensity = \"medium\",\n  color = \"hsl(var(--primary) / 0.22)\",\n  size = 560,\n  style,\n  ...props\n}: GlowProps) {\n  return (\n    <div\n      data-slot=\"glow\"\n      aria-hidden=\"true\"\n      className={cn(glowVariants({ position, intensity }), className)}\n      style={{\n        width: size,\n        height: size,\n        background: `radial-gradient(60% 60% at 50% 50%, ${color} 0%, transparent 70%)`,\n        ...style,\n      }}\n      {...props}\n    />\n  )\n}\n",
-      "type": "registry:ui",
-      "target": "components/ui/ds-glow.tsx"
+      "type": "registry:ui"
     }
   ],
   "type": "registry:ui"

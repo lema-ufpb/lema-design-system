@@ -5,6 +5,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 
@@ -42,8 +43,9 @@ export function Lightbox({
   onOpenChange,
   onIndexChange,
   showThumbnails = true,
-  locale = "en-US",
+  locale: localeProp,
 }: LightboxProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.lightbox ?? UI_I18N["en-US"].lightbox
   const image = images[index]
 

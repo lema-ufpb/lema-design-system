@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
@@ -60,12 +61,13 @@ export const dashboardVariants = cva("flex w-full flex-1 flex-col", {
 function SiteHeader({
   title,
   actions,
-  locale = "en-US",
+  locale: localeProp,
 }: {
   title?: string
   actions?: React.ReactNode
   locale?: UILocale
 }) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale]?.dashboard ?? UI_I18N["en-US"].dashboard
   return (
     <header className="flex h-12 shrink-0 items-center gap-2 border-b px-4 transition-[width,height] ease-linear">
@@ -88,13 +90,14 @@ export function Dashboard({
   stats,
   chart,
   table,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   variant = "default",
   className,
   children,
   ...props
 }: DashboardProps) {
+  const locale = useUILocale(localeProp)
   if (loading) {
     return (
       <div

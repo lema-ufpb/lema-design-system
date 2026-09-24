@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "client-only",
+  "title": "Client Only",
+  "description": "Renders children only after hydration. Framework-agnostic replacement for next/dynamic with ssr:false.",
+  "files": [
+    {
+      "path": "lib/client-only.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\n// ── Types ──\n\nexport interface ClientOnlyProps {\n  children: React.ReactNode\n  /** Renderizado no servidor e na hidratação, antes de o cliente assumir. */\n  fallback?: React.ReactNode\n}\n\n// ── Helpers ──\n\nconst subscribe = () => () => {}\nconst getClientSnapshot = () => true\nconst getServerSnapshot = () => false\n\n// ── Component ──\n\n/**\n * Renderiza `children` somente no cliente (após a hidratação).\n * Substitui `next/dynamic` com `ssr: false`: funciona em qualquer framework\n * React (Next, Vite, Remix, Astro) e não causa mismatch de hidratação.\n */\nexport function ClientOnly({ children, fallback = null }: ClientOnlyProps) {\n  const isClient = React.useSyncExternalStore(\n    subscribe,\n    getClientSnapshot,\n    getServerSnapshot\n  )\n  return <>{isClient ? children : fallback}</>\n}\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

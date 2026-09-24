@@ -16,6 +16,7 @@ import { Crosshair } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import { measureAxisWidth } from "@/lib/chart-axis-width"
 
@@ -493,8 +494,9 @@ function ContinuousBrush({
   onChange,
   formatter,
   fmt,
-  locale = "en-US",
+  locale: localeProp,
 }: ContinuousBrushProps) {
+  const locale = useUILocale(localeProp)
   const trackRef = React.useRef<HTMLDivElement>(null)
   const range = max - min || 1
   const lowPct = Math.max(0, Math.min(100, ((low - min) / range) * 100))
@@ -643,10 +645,11 @@ export function ScatterChart({
   bubbleRange = [40, 400],
   showBrush = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: ScatterChartProps) {
+  const locale = useUILocale(localeProp)
   // Hooks must be called unconditionally before any early returns
   const fmt = React.useCallback(
     (v: number) =>

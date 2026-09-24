@@ -6,6 +6,7 @@ import { StarIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -65,12 +66,13 @@ export function BannerApp({
   appStoreUrl,
   googlePlayUrl,
   onDismiss,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   size = "md",
   position = "inline",
   ...props
 }: BannerAppProps) {
+  const locale = useUILocale(localeProp)
   const [dismissed, setDismissed] = React.useState(false)
 
   const handleDismiss = () => {

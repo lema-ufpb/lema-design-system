@@ -95,7 +95,7 @@ export const GlassVariant: Story = {
 export const TerminalVariant: Story = {
   render: () => (
     <BrowserMockup variant="terminal" url="zsh — lema-ds-cli">
-      <div className="min-h-[160px] space-y-1.5 bg-zinc-950 p-4 font-mono text-xs text-zinc-300">
+      <div className="min-h-[160px] space-y-1.5 bg-zinc-950 p-4 text-xs text-zinc-300">
         <p className="text-zinc-500"># Installing the UFPB design system...</p>
         <p>
           <span className="text-emerald-400">➜</span>{" "}

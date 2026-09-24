@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { PricingCard, type PricingCardProps } from "./pricing-card"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -39,10 +40,11 @@ export function PricingGrid({
   plans,
   billing = "monthly",
   onBillingChange,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: PricingGridProps) {
+  const locale = useUILocale(localeProp)
   const [internalBilling, setInternalBilling] = React.useState(billing)
   const isControlled = onBillingChange !== undefined
   const resolvedBilling = isControlled ? billing : internalBilling

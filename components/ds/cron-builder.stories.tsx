@@ -63,7 +63,7 @@ export const Controlled: Story = {
     return (
       <div className="flex flex-col gap-4">
         <CronBuilder value={cron} onChange={setCron} />
-        <div className="rounded-lg border border-border bg-muted p-3 font-mono text-sm">
+        <div className="rounded-lg border border-border bg-muted p-3 text-sm">
           Current value: <strong>{cron}</strong>
         </div>
       </div>

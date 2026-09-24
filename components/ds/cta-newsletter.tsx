@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Cta, type CtaProps } from "./cta"
@@ -33,10 +34,11 @@ export function CtaNewsletter({
   onSubscribe,
   placeholder,
   disclaimer,
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   ...props
 }: CtaNewsletterProps) {
+  const locale = useUILocale(localeProp)
   const [email, setEmail] = React.useState("")
   const [status, setStatus] = React.useState<
     "idle" | "loading" | "success" | "error"

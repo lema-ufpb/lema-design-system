@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 
 import {
   type CardStatTrend,
@@ -44,9 +45,10 @@ export function CardStatComparison({
   className,
   loading,
   empty,
-  locale: fmtLocale,
+  locale: fmtLocaleProp,
   ...fmt
 }: CardStatComparisonProps) {
+  const fmtLocale = useOptionalUILocale(fmtLocaleProp)
   const uiLocale = (fmtLocale ?? "en-US") as UILocale
   currentLabel ??= UI_I18N[uiLocale].cardStats.thisPeriod
   previousLabel ??= UI_I18N[uiLocale].cardStats.lastPeriod

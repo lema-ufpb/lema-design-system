@@ -3,6 +3,7 @@ import { BarChart2Icon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useOptionalUILocale } from "@/components/ds/locale-provider"
 import { Card, CardAction, CardContent, CardHeader } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -55,7 +56,7 @@ export function CardStat({
   value,
   format,
   decimals,
-  locale,
+  locale: localeProp,
   currency,
   abbreviate,
   description,
@@ -69,6 +70,7 @@ export function CardStat({
   loading,
   empty,
 }: CardStatProps) {
+  const locale = useOptionalUILocale(localeProp)
   const variantClass = VARIANT_CLASSES[variant]
 
   if (loading) {

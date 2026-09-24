@@ -8,6 +8,7 @@ import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Tabs as TabsRoot, TabsContent } from "@/components/ui/tabs"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -249,9 +250,10 @@ export function Tabs({
   forceAccordion = false,
   loading = false,
   skeletonCount,
-  locale = "en-US",
+  locale: localeProp,
   className,
 }: TabsProps) {
+  const locale = useUILocale(localeProp)
   const t = UI_I18N[locale].tabs
   const isMobile = useIsMobile()
   const showAccordion = forceAccordion || (responsive && isMobile)

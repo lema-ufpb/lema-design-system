@@ -5,6 +5,7 @@ import { SearchIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Header, HeaderContainer } from "./header"
 import { HeaderBrand, type HeaderBrandProps } from "./header-brand"
 import { HeaderNav, type HeaderNavItem } from "./header-nav"
@@ -84,7 +85,7 @@ export function HeaderCommand({
   userGroups,
   notifications,
   actions = [],
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   size = "md",
   variant = "default",
@@ -93,6 +94,7 @@ export function HeaderCommand({
 }: HeaderCommandProps & {
   variant?: "default" | "blurred" | "transparent" | "solid"
 }) {
+  const locale = useUILocale(localeProp)
   const [commandOpen, setCommandOpen] = React.useState(false)
 
   React.useEffect(() => {

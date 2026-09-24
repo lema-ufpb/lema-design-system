@@ -5,6 +5,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { formatChartValue, type FormatPreset } from "@/lib/format-utils"
 import {
   Card,
@@ -252,10 +253,11 @@ export function SankeyChart({
   currency = "USD",
   abbreviate = false,
   loading = false,
-  locale = "en-US",
+  locale: localeProp,
   className,
   ...props
 }: SankeyChartProps) {
+  const locale = useUILocale(localeProp)
   const containerRef = React.useRef<HTMLDivElement>(null)
   const [svgWidth, setSvgWidth] = React.useState(600)
 

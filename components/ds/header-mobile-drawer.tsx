@@ -1,11 +1,12 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+import { DSLink } from "@/components/ds/link-provider"
 import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -46,11 +47,12 @@ export function HeaderMobileDrawer({
   brand,
   open,
   onOpenChange,
-  locale = "en-US",
+  locale: localeProp,
   side = "right",
   className,
   onNavigate,
 }: HeaderMobileDrawerProps) {
+  const locale = useUILocale(localeProp)
   const [internalOpen, setInternalOpen] = React.useState(false)
   const isControlled = open !== undefined
   const resolvedOpen = isControlled ? open : internalOpen
@@ -111,7 +113,7 @@ export function HeaderMobileDrawer({
             if (!hasChildren) {
               if (item.href) {
                 return (
-                  <Link
+                  <DSLink
                     key={item.label}
                     href={item.href}
                     aria-current={item.active ? "page" : undefined}
@@ -135,7 +137,7 @@ export function HeaderMobileDrawer({
                         {item.badge}
                       </span>
                     )}
-                  </Link>
+                  </DSLink>
                 )
               }
               return (
@@ -174,7 +176,7 @@ export function HeaderMobileDrawer({
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-1 flex flex-col gap-1 pl-4">
                   {item.children?.map((child) => (
-                    <Link
+                    <DSLink
                       key={child.label}
                       href={child.href ?? "#"}
                       onClick={() => {
@@ -196,7 +198,7 @@ export function HeaderMobileDrawer({
                           {child.description}
                         </span>
                       )}
-                    </Link>
+                    </DSLink>
                   ))}
                 </CollapsibleContent>
               </Collapsible>

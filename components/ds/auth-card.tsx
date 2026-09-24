@@ -6,6 +6,7 @@ import { GalleryVerticalEndIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -59,12 +60,13 @@ export function AuthCard({
   appName = "Acme Inc.",
   variant = "default",
   layout = "default",
-  locale = "en-US",
+  locale: localeProp,
   loading = false,
   className,
   children,
   ...props
 }: AuthCardProps) {
+  const locale = useUILocale(localeProp)
   const tAuth = UI_I18N[locale]?.auth ?? UI_I18N["en-US"].auth
   const tCard = UI_I18N[locale]?.authCard ?? UI_I18N["en-US"].authCard
   const isCover = layout === "cover" || layout === "split"

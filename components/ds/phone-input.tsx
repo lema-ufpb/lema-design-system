@@ -6,6 +6,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { UI_I18N, type UILocale } from "@/lib/ui-i18n"
+import { useUILocale } from "@/components/ds/locale-provider"
 import { Button } from "@/components/ui/button"
 import {
   Command,
@@ -122,13 +123,14 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       disabled = false,
       invalid = false,
       loading = false,
-      locale = "en-US",
+      locale: localeProp,
       placeholder,
       className,
       ...props
     },
     ref
   ) => {
+    const locale = useUILocale(localeProp)
     const [open, setOpen] = React.useState(false)
     const [selectedCountry, setSelectedCountry] = React.useState<CountryData>(
       countries.find((c) => c.iso === country) || countries[0]
