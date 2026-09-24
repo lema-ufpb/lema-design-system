@@ -7,7 +7,7 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "skeleton"
+    "@lema-ds/skeleton"
   ],
   "files": [
     {

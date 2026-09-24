@@ -4,7 +4,9 @@
   "title": "Image Zoom",
   "description": "Zoom hover lens — adaptado Kibo.",
   "dependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "@lema-ds/ui-i18n"
+  ],
   "files": [
     {
       "path": "components/ds/image-zoom.tsx",

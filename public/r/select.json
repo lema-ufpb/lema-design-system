@@ -4,9 +4,9 @@
   "title": "Select",
   "description": "A dropdown select component with groups, labels, scroll buttons, and item selection.",
   "dependencies": [
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

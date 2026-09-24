@@ -5,8 +5,8 @@
   "description": "Mural de logos centralizado dentro de um card com glow que reage ao ponteiro — composto de ds-press-wall e ds-cursor-spotlight.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-press-wall",
-    "ds-cursor-spotlight"
+    "@lema-ds/ds-press-wall",
+    "@lema-ds/ds-cursor-spotlight"
   ],
   "files": [
     {

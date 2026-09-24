@@ -8,8 +8,8 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "input-otp",
-    "skeleton"
+    "@lema-ds/input-otp",
+    "@lema-ds/skeleton"
   ],
   "files": [
     {

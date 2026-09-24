@@ -5,10 +5,10 @@
   "description": "Grid bento exibindo screenshot de produto, preview de terminal e snippet de instalação — composto de ds-bento-grid, ds-floating-card, ds-browser-mockup e ds-copy-block.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-bento-grid",
-    "ds-floating-card",
-    "ds-browser-mockup",
-    "ds-copy-block"
+    "@lema-ds/ds-bento-grid",
+    "@lema-ds/ds-floating-card",
+    "@lema-ds/ds-browser-mockup",
+    "@lema-ds/ds-copy-block"
   ],
   "files": [
     {

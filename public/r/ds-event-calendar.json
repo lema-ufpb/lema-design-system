@@ -3,10 +3,12 @@
   "name": "ds-event-calendar",
   "title": "Event Calendar",
   "description": "Calendário mensal com eventos — ReUI Event Calendar 6.",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "card",
-    "skeleton"
+    "@lema-ds/card",
+    "@lema-ds/skeleton"
   ],
   "files": [
     {

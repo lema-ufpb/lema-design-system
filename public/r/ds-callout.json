@@ -8,7 +8,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "alert"
+    "@lema-ds/alert"
   ],
   "files": [
     {

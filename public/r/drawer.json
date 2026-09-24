@@ -4,8 +4,8 @@
   "title": "Drawer",
   "description": "A slide-over panel built on vaul, supporting bottom, left, right, and top directions with drag-to-dismiss gestures.",
   "dependencies": [
-    "cn",
-    "vaul"
+    "vaul",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

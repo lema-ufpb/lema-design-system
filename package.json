@@ -16,6 +16,7 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "analyze": "ANALYZE=true storybook build",
+    "registry:sync": "node scripts/sync-registry-deps.mjs",
     "registry:check": "node scripts/validate-registry.mjs"
   },
   "dependencies": {

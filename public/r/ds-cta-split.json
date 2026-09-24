@@ -5,7 +5,7 @@
   "description": "CTA split imagem + conteúdo — blockus #09-16.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-cta"
+    "@lema-ds/ds-cta"
   ],
   "files": [
     {

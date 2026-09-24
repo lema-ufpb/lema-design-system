@@ -17,7 +17,13 @@
 // but that sibling installs for consumers as `components/ui/ds-pagination.tsx`
 // — so the published import must become `@/components/ui/ds-pagination`.
 //
-// This rewrites both relative and `@/components/...` alias imports in the
+// Only imports that really point at a sibling under components/ds/ are
+// rewritten: `@/components/ui/tabs` is the shadcn primitive (installed as
+// `ui/tabs.tsx`) and must NOT be turned into `ds-tabs` just because a ds-*
+// component with the same source basename exists. Relative imports are only
+// rewritten inside files whose source lives in components/ds/.
+//
+// This rewrites both relative and `@/components/ds/...` alias imports in the
 // *published* JSON only, to match each dependency's real installed basename
 // and directory. Source files under components/ds/ are untouched, so local
 // dev/Storybook/tsc keep working exactly as before.
@@ -40,8 +46,7 @@ for (const item of registry.items) {
 }
 
 const relativeImportRe = /from\s+(['"])\.\/([a-zA-Z0-9_-]+)\1/g
-const aliasImportRe =
-  /from\s+(['"])@\/components\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9_-]+)\1/g
+const aliasImportRe = /from\s+(['"])@\/components\/ds\/([a-zA-Z0-9_-]+)\1/g
 
 let filesChanged = 0
 let importsRewritten = 0
@@ -54,15 +59,16 @@ for (const file of readdirSync("public/r")) {
 
   for (const f of json.files || []) {
     if (typeof f.content !== "string") continue
-    let newContent = f.content.replace(
-      relativeImportRe,
-      (match, quote, name) => {
-        const renamed = renameMap.get(name)
-        if (!renamed || renamed === name) return match
-        importsRewritten++
-        return `from ${quote}./${renamed}${quote}`
-      }
-    )
+    const isDsSource =
+      typeof f.path === "string" && f.path.startsWith("components/ds/")
+    let newContent = isDsSource
+      ? f.content.replace(relativeImportRe, (match, quote, name) => {
+          const renamed = renameMap.get(name)
+          if (!renamed || renamed === name) return match
+          importsRewritten++
+          return `from ${quote}./${renamed}${quote}`
+        })
+      : f.content
     newContent = newContent.replace(aliasImportRe, (match, quote, name) => {
       const renamed = renameMap.get(name)
       if (!renamed || renamed === name) return match

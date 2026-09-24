@@ -5,9 +5,9 @@
   "description": "Grid bento misturando tiles de depoimento com um mural de logos — composto de ds-bento-grid, ds-pull-quote e ds-press-wall.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-bento-grid",
-    "ds-pull-quote",
-    "ds-press-wall"
+    "@lema-ds/ds-bento-grid",
+    "@lema-ds/ds-pull-quote",
+    "@lema-ds/ds-press-wall"
   ],
   "files": [
     {

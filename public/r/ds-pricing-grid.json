@@ -5,10 +5,10 @@
   "description": "Grid 3 cards + toggle mensal/anual — blockus #02 #04 #12.",
   "dependencies": [],
   "registryDependencies": [
-    "ds-pricing-card",
-    "toggle-group",
-    "skeleton",
-    "ui-i18n"
+    "@lema-ds/ds-pricing-card",
+    "@lema-ds/toggle-group",
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

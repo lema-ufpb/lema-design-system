@@ -3,11 +3,12 @@
   "name": "ds-virtual-list",
   "description": "Virtualized list for rendering large datasets without performance degradation.",
   "dependencies": [
-    "@tanstack/react-virtual"
+    "@tanstack/react-virtual",
+    "class-variance-authority"
   ],
   "registryDependencies": [
-    "skeleton",
-    "scroll-area"
+    "@lema-ds/skeleton",
+    "@lema-ds/scroll-area"
   ],
   "files": [
     {

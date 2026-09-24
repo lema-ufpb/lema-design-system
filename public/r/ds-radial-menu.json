@@ -2,8 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ds-radial-menu",
   "description": "Radial Menu using framer-motion.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "button"
+    "@lema-ds/button"
   ],
   "files": [
     {

@@ -3,16 +3,18 @@
   "name": "ds-settings",
   "title": "Settings",
   "description": "Tabs de configurações — ReUI Settings 16.",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
-    "tabs",
-    "card",
-    "skeleton"
+    "@lema-ds/tabs",
+    "@lema-ds/card",
+    "@lema-ds/skeleton"
   ],
   "files": [
     {
       "path": "components/ds/settings.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/components/ui/ds-tabs\"\nimport { Card } from \"@/components/ui/card\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface SettingsTab {\n  id: string\n  label: string\n  content: React.ReactNode\n}\n\nexport interface SettingsProps extends React.HTMLAttributes<HTMLDivElement> {\n  tabs: SettingsTab[]\n  defaultTab?: string\n  loading?: boolean\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const settingsVariants = cva(\"w-full rounded-2xl border bg-card p-4\")\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Settings({\n  className,\n  tabs,\n  defaultTab,\n  loading = false,\n  ...props\n}: SettingsProps) {\n  if (loading) {\n    return (\n      <div\n        data-slot=\"settings-skeleton\"\n        className={cn(settingsVariants(), className)}\n        {...props}\n      >\n        <Skeleton className=\"h-8 w-40\" />\n        <Skeleton className=\"h-32 w-full\" />\n      </div>\n    )\n  }\n\n  return (\n    <Card\n      data-slot=\"settings\"\n      className={cn(settingsVariants(), className)}\n      {...props}\n    >\n      <Tabs defaultValue={defaultTab ?? tabs[0]?.id}>\n        <TabsList>\n          {tabs.map((t) => (\n            <TabsTrigger key={t.id} value={t.id}>\n              {t.label}\n            </TabsTrigger>\n          ))}\n        </TabsList>\n        {tabs.map((t) => (\n          <TabsContent key={t.id} value={t.id} className=\"pt-4\">\n            {t.content}\n          </TabsContent>\n        ))}\n      </Tabs>\n    </Card>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/components/ui/tabs\"\nimport { Card } from \"@/components/ui/card\"\nimport { Skeleton } from \"@/components/ui/skeleton\"\n\n// ── Types ──────────────────────────────────────────────────────────────────\n\nexport interface SettingsTab {\n  id: string\n  label: string\n  content: React.ReactNode\n}\n\nexport interface SettingsProps extends React.HTMLAttributes<HTMLDivElement> {\n  tabs: SettingsTab[]\n  defaultTab?: string\n  loading?: boolean\n}\n\n// ── Variants ───────────────────────────────────────────────────────────────\n\nexport const settingsVariants = cva(\"w-full rounded-2xl border bg-card p-4\")\n\n// ── Component ──────────────────────────────────────────────────────────────\n\nexport function Settings({\n  className,\n  tabs,\n  defaultTab,\n  loading = false,\n  ...props\n}: SettingsProps) {\n  if (loading) {\n    return (\n      <div\n        data-slot=\"settings-skeleton\"\n        className={cn(settingsVariants(), className)}\n        {...props}\n      >\n        <Skeleton className=\"h-8 w-40\" />\n        <Skeleton className=\"h-32 w-full\" />\n      </div>\n    )\n  }\n\n  return (\n    <Card\n      data-slot=\"settings\"\n      className={cn(settingsVariants(), className)}\n      {...props}\n    >\n      <Tabs defaultValue={defaultTab ?? tabs[0]?.id}>\n        <TabsList>\n          {tabs.map((t) => (\n            <TabsTrigger key={t.id} value={t.id}>\n              {t.label}\n            </TabsTrigger>\n          ))}\n        </TabsList>\n        {tabs.map((t) => (\n          <TabsContent key={t.id} value={t.id} className=\"pt-4\">\n            {t.content}\n          </TabsContent>\n        ))}\n      </Tabs>\n    </Card>\n  )\n}\n",
       "type": "registry:block",
       "target": "components/ui/ds-settings.tsx"
     }

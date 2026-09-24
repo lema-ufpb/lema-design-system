@@ -7,12 +7,15 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "ds-app-sidebar",
-    "ds-section-cards",
-    "sidebar",
-    "separator",
-    "skeleton",
-    "ui-i18n"
+    "@lema-ds/ds-app-sidebar",
+    "@lema-ds/ds-section-cards",
+    "@lema-ds/sidebar",
+    "@lema-ds/separator",
+    "@lema-ds/skeleton",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/ds-nav-user",
+    "@lema-ds/ds-team-switcher",
+    "@lema-ds/tooltip"
   ],
   "files": [
     {

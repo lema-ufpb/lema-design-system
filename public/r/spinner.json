@@ -4,8 +4,8 @@
   "title": "Spinner",
   "description": "An animated loader icon used to represent background processing, async submission delays, or loading data sequences.",
   "dependencies": [
-    "cn",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "registryDependencies": [],
   "files": [

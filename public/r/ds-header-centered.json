@@ -7,11 +7,12 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "ds-header",
-    "ds-header-brand",
-    "ds-header-nav",
-    "ds-header-actions",
-    "ds-header-mobile-drawer"
+    "@lema-ds/ds-header",
+    "@lema-ds/ds-header-brand",
+    "@lema-ds/ds-header-nav",
+    "@lema-ds/ds-header-actions",
+    "@lema-ds/ds-header-mobile-drawer",
+    "@lema-ds/ui-i18n"
   ],
   "files": [
     {

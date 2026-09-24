@@ -4,9 +4,9 @@
   "title": "Context Menu",
   "description": "A right-click context menu with items, submenus, checkboxes, radio items, and separators.",
   "dependencies": [
-    "cn",
     "radix-ui",
-    "lucide-react"
+    "lucide-react",
+    "cn"
   ],
   "files": [
     {

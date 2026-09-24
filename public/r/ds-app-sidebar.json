@@ -8,13 +8,14 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "sidebar",
-    "collapsible",
-    "dropdown-menu",
-    "skeleton",
-    "ds-team-switcher",
-    "ds-sidebar-search",
-    "ui-i18n"
+    "@lema-ds/sidebar",
+    "@lema-ds/collapsible",
+    "@lema-ds/dropdown-menu",
+    "@lema-ds/skeleton",
+    "@lema-ds/ds-team-switcher",
+    "@lema-ds/ds-sidebar-search",
+    "@lema-ds/ui-i18n",
+    "@lema-ds/ds-nav-user"
   ],
   "files": [
     {
