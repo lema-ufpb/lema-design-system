@@ -626,6 +626,7 @@ interface PaginationBarProps {
   ofLabel: string
   prevLabel: string
   nextLabel: string
+  locale?: UILocale
   rounded?: "full" | "light" | "none"
 }
 
@@ -646,6 +647,7 @@ function PaginationBar({
   ofLabel,
   prevLabel,
   nextLabel,
+  locale,
   rounded = "full",
 }: PaginationBarProps) {
   const start = totalRows === 0 ? 0 : pageIndex * pageSize + 1
@@ -685,12 +687,13 @@ function PaginationBar({
         )}
       </div>
 
-      <Pagination className="m-0 w-auto justify-end">
+      <Pagination className="m-0 w-auto justify-end" locale={locale}>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
               href="#"
               text={prevLabel}
+              locale={locale}
               rounded={rounded}
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
@@ -707,7 +710,7 @@ function PaginationBar({
           {pageRange.map((p, i) =>
             p === "ellipsis" ? (
               <PaginationItem key={`ell-${i}`} className="hidden sm:flex">
-                <PaginationEllipsis />
+                <PaginationEllipsis locale={locale} />
               </PaginationItem>
             ) : (
               <PaginationItem key={p} className="hidden sm:flex">
@@ -736,6 +739,7 @@ function PaginationBar({
             <PaginationNext
               href="#"
               text={nextLabel}
+              locale={locale}
               rounded={rounded}
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
@@ -849,8 +853,14 @@ export function DataTable<TData extends RowData>({
         "Clear search",
     },
     selection: {
-      selectAll: labels?.selection?.selectAll ?? "Select all",
-      selectRow: labels?.selection?.selectRow ?? "Select row",
+      selectAll:
+        labels?.selection?.selectAll ??
+        i18n?.dataTable.selectAll ??
+        "Select all",
+      selectRow:
+        labels?.selection?.selectRow ??
+        i18n?.dataTable.selectRow ??
+        "Select row",
     },
   }
 
@@ -1397,6 +1407,7 @@ export function DataTable<TData extends RowData>({
             ofLabel={l.pagination.of}
             prevLabel={l.pagination.prev}
             nextLabel={l.pagination.next}
+            locale={locale}
             rounded={paginationRounded}
           />
         )}

@@ -138,17 +138,17 @@ Usa `SIZE_PRESETS`:
 
 ## Acessibilidade
 
-| Requisito        | Implementação                                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Role semântico   | `<div role="region">` no viewport scrollável; `<div data-slot="data-table">` no root                                                                   |
-| Rótulo           | `aria-label` no viewport (fallback: "Table with N rows" ou `UI_I18N[locale].dataTable.tableWithRows`)                                                  |
-| Busy             | `aria-busy={loading}` no viewport                                                                                                                      |
-| Tabela semântica | `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`                                                                                                |
-| Cabeçalho sticky | `TableHeader sticky` com `sticky top-0 z-10`                                                                                                           |
-| Checkbox         | `aria-label` em cada checkbox com `accent-primary`                                                                                                     |
-| Paginação        | `aria-disabled` em previous/next desabilitados                                                                                                         |
-| Teclado          | Navegação tab nativa                                                                                                                                   |
-| i18n             | `UI_I18N[locale].dataTable.*` para searchPlaceholder, noData, noDataDescription, pagination labels e `UI_I18N[locale].pagination.*` para previous/next |
+| Requisito        | Implementação                                                                                                                                                                                                                                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Role semântico   | `<div role="region">` no viewport scrollável; `<div data-slot="data-table">` no root                                                                                                                                                                                                                                 |
+| Rótulo           | `aria-label` no viewport (fallback: "Table with N rows" ou `UI_I18N[locale].dataTable.tableWithRows`)                                                                                                                                                                                                                |
+| Busy             | `aria-busy={loading}` no viewport                                                                                                                                                                                                                                                                                    |
+| Tabela semântica | `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`                                                                                                                                                                                                                                                              |
+| Cabeçalho sticky | `TableHeader sticky` com `sticky top-0 z-10`                                                                                                                                                                                                                                                                         |
+| Checkbox         | `aria-label` em cada checkbox com `accent-primary`                                                                                                                                                                                                                                                                   |
+| Paginação        | `aria-disabled` em previous/next desabilitados                                                                                                                                                                                                                                                                       |
+| Teclado          | Navegação tab nativa                                                                                                                                                                                                                                                                                                 |
+| i18n             | `UI_I18N[locale].dataTable.*` para searchPlaceholder, noData, noDataDescription, selectAll/selectRow (rótulos das checkboxes de seleção), pagination labels e `UI_I18N[locale].pagination.*` para previous/next; o `locale` efetivo também é repassado a `Pagination*` (aria-labels de anterior/próxima/reticências) |
 
 ---
 

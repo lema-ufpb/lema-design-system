@@ -102,6 +102,8 @@ export const UI_I18N: Record<
       rows: string
       rowsPerPage: string
       tableWithRows: string
+      selectAll: string
+      selectRow: string
     }
     pageLoader: { loading: string }
     pillGroup: { filterLabel: string }
@@ -782,6 +784,8 @@ export const UI_I18N: Record<
       rows: "rows",
       rowsPerPage: "Rows per page",
       tableWithRows: "Table with",
+      selectAll: "Select all",
+      selectRow: "Select row",
     },
     pageLoader: { loading: "Loading…" },
     pillGroup: { filterLabel: "Filter by" },
@@ -1473,6 +1477,8 @@ export const UI_I18N: Record<
       rows: "linhas",
       rowsPerPage: "Linhas por página",
       tableWithRows: "Tabela com",
+      selectAll: "Selecionar todas",
+      selectRow: "Selecionar linha",
     },
     pageLoader: { loading: "Carregando…" },
     pillGroup: { filterLabel: "Filtrar por" },
@@ -2163,6 +2169,8 @@ export const UI_I18N: Record<
       rows: "filas",
       rowsPerPage: "Filas por página",
       tableWithRows: "Tabla con",
+      selectAll: "Seleccionar todas",
+      selectRow: "Seleccionar fila",
     },
     pageLoader: { loading: "Cargando…" },
     pillGroup: { filterLabel: "Filtrar por" },
@@ -2861,6 +2869,8 @@ export const UI_I18N: Record<
       rows: "lignes",
       rowsPerPage: "Lignes par page",
       tableWithRows: "Tableau avec",
+      selectAll: "Tout sélectionner",
+      selectRow: "Sélectionner la ligne",
     },
     pageLoader: { loading: "Chargement…" },
     pillGroup: { filterLabel: "Filtrer par" },
