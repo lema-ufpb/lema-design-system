@@ -50,6 +50,35 @@ jobs:
           npm run lint
           echo "🌺 Linter aprovado! Seu código está lindo!"
 
+  # public/r é versionado (consumers instalam via ds.lema.ufpb.br/r e GitHub),
+  # mas é derivado de registry.json + components/. Este job garante que o PR
+  # commitou o resultado de `registry:build` — nem desatualizado, nem regenerado
+  # à toa — evitando churn e drift entre fonte e artefato publicado.
+  registry:
+    name: "🧩 Registry em dia"
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥 Checkout do código"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: "🧰 Setup Node + Deps"
+        uses: ./.github/actions/setup-node-deps
+
+      - name: "🔎 Validar registry"
+        run: npm run registry:check
+
+      - name: "🧩 Reconstruir public/r e comparar com o commitado"
+        run: |
+          npm run registry:build
+          if [ -n "$(git status --porcelain -- public/r)" ]; then
+            echo "::error::public/r está fora de sincronia com registry.json/components. Rode 'make registry' e commite o resultado."
+            git status --short -- public/r
+            git diff --stat -- public/r
+            exit 1
+          fi
+          echo "✅ public/r está em sincronia!"
+
   build:
     name: "📦 Build"
     needs: lint
