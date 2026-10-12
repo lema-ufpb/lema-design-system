@@ -79,7 +79,7 @@
     "eslint-config-next": "16.3.8",
     "eslint-plugin-storybook": "^10.6.0",
     "mockdate": "^3.0.5",
-    "msw": "^2.15.0",
+    "msw": "^3.0.2",
     "msw-storybook-addon": "^3.0.3",
     "playwright": "^1.63.0",
     "postcss": "^8",
