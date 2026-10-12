@@ -154,14 +154,19 @@ cat components.json
 ### 2. Add components
 
 ```bash
-# Namespaced (recommended, unambiguous)
+# One-time: register the @lema-ds registry in components.json
+npx shadcn@latest registry add @lema-ds
+
+# Always use the @lema-ds/ namespace (a bare `add ds-button` resolves against ui.shadcn.com and returns 404)
 npx shadcn@latest add @lema-ds/ds-button
 npx shadcn@latest add @lema-ds/ds-card-stat
 npx shadcn@latest add @lema-ds/ds-data-table
 
-# Shorthand when the name is unique across registries
-npx shadcn@latest add ds-button
-npx shadcn@latest add ds-hero-layers
+npx shadcn@latest add @lema-ds/ds-hero-layers
+
+# Discover and inspect without installing
+npx shadcn@latest search @lema-ds --query card-stat
+npx shadcn@latest view @lema-ds/ds-card-stat
 
 # Multiple at once
 npx shadcn@latest add @lema-ds/ds-card-stat @lema-ds/ds-bar-chart @lema-ds/ds-data-table
