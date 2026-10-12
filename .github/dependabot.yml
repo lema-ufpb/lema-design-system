@@ -12,6 +12,12 @@ updates:
     labels:
       - "dependencies"
     groups:
+      # Atualizações de segurança (alertas do Dependabot) em um único PR, para
+      # corrigir rápido; auto-merge só para patch/minor (dependabot-auto-merge.yml).
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
       # next e eslint-config-next ficam fixos na mesma versão exata (sem
       # caret) — precisam andar juntos em um único PR.
       next-ecosystem:

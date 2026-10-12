@@ -19,8 +19,31 @@ env:
   KUSTOMIZATION_PATH: k8s/overlays/prod/lema-ufpb/kustomization.yml
 
 jobs:
+  # Última barreira antes de produção: PRs develop→main e do release-please não rodam o CI,
+  # então o release só vira imagem se as dependências de runtime estiverem sem vulnerabilidade
+  # high/critical (mesmo critério do security.yml). Falhou? Rode `npm audit fix`, abra PR em develop.
+  audit:
+    name: "🔒 Audit das dependências (gate de produção)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥 Checkout repository (commit da tag)"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: "⚙️ Configurando Node.js"
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24"
+
+      - name: "🔒 npm audit (runtime >= high, árvore completa >= critical)"
+        run: |
+          npm run audit:prod
+          npm run audit:all
+
   build-and-push:
     name: "🐳 Build & Push Docker Image"
+    needs: audit
     # GitHub-hosted (efêmero): nenhum runner próprio em workflows de repo público.
     runs-on: ubuntu-latest
     environment: prod

@@ -1,0 +1,56 @@
+name: "🔒 Security - Dependency Audit"
+
+on:
+  # Mesmo gatilho do CI (PR contra develop = única entrada de código novo)...
+  pull_request:
+    branches: [develop]
+  # ...e semanal, para pegar advisories novos em código que não mudou.
+  schedule:
+    - cron: "0 11 * * 1" # segunda 11:00 UTC (08:00 America/Recife)
+  workflow_dispatch:
+
+concurrency:
+  group: security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# PR contém código não confiável: runner efêmero do GitHub e permissões mínimas.
+permissions:
+  contents: read
+
+jobs:
+  # Falha o PR/agendamento se o lockfile resolver dependência de RUNTIME com vulnerabilidade
+  # high/critical, ou QUALQUER dependência (inclui ferramentas de dev) com vulnerabilidade
+  # critical. Correção: `npm audit fix`, validar (`make lint && make test`), commitar o lockfile.
+  audit:
+    name: "🔒 npm audit"
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.head_ref, 'release-please--') }}
+    steps:
+      - name: "📥 Checkout do código"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: "⚙️ Configurando Node.js"
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24"
+
+      - name: "🔒 Dependências de runtime (>= high)"
+        run: npm run audit:prod
+
+      - name: "🔒 Árvore completa (>= critical)"
+        run: npm run audit:all
+
+  # Barra PRs que INTRODUZEM dependência vulnerável (compara com a base) usando o grafo de
+  # dependências do GitHub; complementa o npm audit, que só olha o estado final.
+  dependency-review:
+    name: "🔎 Dependency review"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: "📥 Checkout do código"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: "🔎 Revisar mudanças de dependências"
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: high

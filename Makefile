@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run merge-dependabot
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test audit test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run merge-dependabot
 
 # ANSI Colors
 CYAN=\033[0;36m
@@ -83,6 +83,11 @@ build-storybook:
 test:
 	@echo "🧪 $(CYAN)Vestindo o jaleco... Rodando os testes unitários e de acessibilidade!$(RESET)"
 	npm run test
+
+audit:
+	@echo "🔒 $(CYAN)Auditando dependências (produção >= high, árvore completa >= critical)...$(RESET)"
+	npm run audit:prod
+	npm run audit:all
 
 test-watch:
 	@echo "👀 $(YELLOW)Olhos de águia ativados! Rodando os testes no modo watch...$(RESET)"
