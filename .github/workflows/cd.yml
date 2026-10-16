@@ -24,7 +24,7 @@ jobs:
   # high/critical (mesmo critério do security.yml). Falhou? Rode `npm audit fix`, abra PR em develop.
   audit:
     name: "🔒 Audit das dependências (gate de produção)"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: "📥 Checkout repository (commit da tag)"
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -45,7 +45,7 @@ jobs:
     name: "🐳 Build & Push Docker Image"
     needs: audit
     # GitHub-hosted (efêmero): nenhum runner próprio em workflows de repo público.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: prod
     outputs:
       image_tag: ${{ steps.set-tag.outputs.image_tag }}
@@ -118,7 +118,7 @@ jobs:
     needs: build-and-push
     # GitHub-hosted: o job só faz git/kustomize contra o GitHub; o ArgoCD
     # busca o lema-deploy por pull, então nenhum runner interno é necessário.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: prod
     steps:
       - name: "🔐 Gerar token do GitHub App"
