@@ -17,7 +17,7 @@ permissions:
 jobs:
   release-please:
     name: "📦 Run release-please"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: "🔐 Gerar token do GitHub App"
         id: app-token

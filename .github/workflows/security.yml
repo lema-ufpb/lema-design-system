@@ -23,7 +23,7 @@ jobs:
   # critical. Correção: `npm audit fix`, validar (`make lint && make test`), commitar o lockfile.
   audit:
     name: "🔒 npm audit"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ !startsWith(github.head_ref, 'release-please--') }}
     steps:
       - name: "📥 Checkout do código"
@@ -44,7 +44,7 @@ jobs:
   # dependências do GitHub; complementa o npm audit, que só olha o estado final.
   dependency-review:
     name: "🔎 Dependency review"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: github.event_name == 'pull_request'
     steps:
       - name: "📥 Checkout do código"
