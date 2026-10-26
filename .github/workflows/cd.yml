@@ -61,7 +61,7 @@ jobs:
       # Sem isso o push falha com `denied: permission_denied: read_package`.
       # Tokens de GitHub App não autenticam no GHCR, por isso não usamos o app-token aqui.
       - name: "🔑 Log in to GitHub Container Registry"
-        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4
+        uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
