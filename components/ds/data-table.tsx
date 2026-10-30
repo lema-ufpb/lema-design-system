@@ -349,7 +349,7 @@ export const TableRow = React.forwardRef<
         : undefined
     }
     className={cn(
-      "border-b border-border/40 transition-colors duration-150 hover:bg-muted/40",
+      "border-b border-border/40 transition-colors duration-150 hover:bg-muted",
       clickable && "cursor-pointer",
       className
     )}
@@ -1206,13 +1206,21 @@ export function DataTable<TData extends RowData>({
                             "justify-center text-center",
                           meta?.align === "right" && "justify-end text-right",
                           canSort &&
+                            !isSticky &&
                             "cursor-pointer hover:bg-primary/10 hover:text-foreground",
+                          canSort &&
+                            isSticky &&
+                            "cursor-pointer hover:bg-[color-mix(in_oklab,var(--primary)_10%,var(--muted))] hover:text-foreground",
                           isSticky &&
                             !isSelect &&
                             "sticky z-20 bg-muted text-foreground",
                           isSelect && "sticky z-30 bg-muted",
                           isSorted &&
-                            "border-b-2 border-primary bg-primary/15 text-primary"
+                            !isSticky &&
+                            "border-b-2 border-primary bg-primary/15 text-primary",
+                          isSorted &&
+                            isSticky &&
+                            "border-b-2 border-primary bg-[color-mix(in_oklab,var(--primary)_15%,var(--muted))] text-primary"
                         )}
                         style={{
                           ...(isSelect
@@ -1342,9 +1350,9 @@ export function DataTable<TData extends RowData>({
                             isCellSorted && !isSticky && "bg-muted/30",
                             isSticky &&
                               !isSelect &&
-                              "sticky z-10 bg-card group-hover:bg-muted group-data-selected:bg-primary/5",
+                              "sticky z-10 bg-card group-hover:bg-muted group-data-selected:bg-[color-mix(in_oklab,var(--primary)_6%,var(--card))]",
                             isSelect &&
-                              "sticky z-20 bg-card group-hover:bg-muted group-data-selected:bg-primary/10",
+                              "sticky z-20 bg-card group-hover:bg-muted group-data-selected:bg-[color-mix(in_oklab,var(--primary)_10%,var(--card))]",
                             meta?.wrap &&
                               "h-auto items-start py-3 leading-relaxed wrap-break-word whitespace-normal"
                           )}
