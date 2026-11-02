@@ -21,6 +21,9 @@ RUN APP_VERSION=$APP_VERSION make build-storybook
 # Stage 2: Serve
 FROM nginx:alpine AS runner
 
+# Aplicar patches de segurança do Alpine (curl, expat, pcre2, tiff, bearer)
+RUN apk upgrade --no-cache
+
 # Remove default nginx static assets
 RUN rm -rf /usr/share/nginx/html/*
 
