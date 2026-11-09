@@ -30,7 +30,7 @@
     "@hookform/resolvers": "^7.0.3",
     "@shadcn/react": "^0.3.1",
     "@tanstack/react-table": "^9.3.1",
-    "@tanstack/react-virtual": "^3.14.13",
+    "@tanstack/react-virtual": "^3.14.26",
     "@types/canvas-confetti": "^1.9.0",
     "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
