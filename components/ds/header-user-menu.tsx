@@ -131,7 +131,7 @@ export function HeaderUserMenu({
             <Avatar
               className={cn(headerUserAvatarVariants({ size }), "shrink-0")}
             >
-              <AvatarImage src={user.avatarUrl ?? ""} alt={user.name} />
+              <AvatarImage src={user.avatarUrl ?? ""} alt="" />
               <AvatarFallback className="text-xs">{initials}</AvatarFallback>
             </Avatar>
             <span className="hidden truncate text-sm font-medium md:inline-flex">
@@ -156,7 +156,7 @@ export function HeaderUserMenu({
           <DropdownMenuLabel className="p-0 font-normal">
             <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
               <Avatar className="size-8 rounded-full">
-                <AvatarImage src={user.avatarUrl ?? ""} alt={user.name} />
+                <AvatarImage src={user.avatarUrl ?? ""} alt="" />
                 <AvatarFallback className="rounded-full">
                   {initials}
                 </AvatarFallback>

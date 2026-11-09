@@ -54,7 +54,7 @@ export const Default: Story = {
 
         <div className="hidden w-64 md:block">
           <div className="sticky top-16">
-            <h4 className="mb-4 text-sm font-semibold">On this page</h4>
+            <h3 className="mb-4 text-sm font-semibold">On this page</h3>
             <TableOfContents
               items={[
                 { id: "introducao", title: "1. Introduction", level: 2 },
