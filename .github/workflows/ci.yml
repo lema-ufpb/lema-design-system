@@ -1,10 +1,9 @@
 name: "🛠️ CI - Pull Request Checks"
 
 on:
-  # CI roda apenas em PR contra develop — única vez que código novo é introduzido.
-  # PRs develop→main e PRs do release-please não rodam CI (são promoção/version bump).
-  # Branch protection em develop garante que código quebrado nunca chega em main.
   pull_request:
+    branches: [develop]
+  push:
     branches: [develop]
 
 # Cancela runs antigos no mesmo PR/branch quando há novo push.
@@ -97,3 +96,35 @@ jobs:
           echo "🚀 Iniciando o processo de build..."
           make build-storybook
           echo "🎉 Build concluído sem erros!"
+
+  docker-scan:
+    name: "🐳 Build & escanear imagem Docker com Trivy"
+    needs: lint
+    runs-on: ubuntu-24.04
+    steps:
+      - name: "📥 Checkout do código"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: "🧹 Liberar espaço em disco"
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          docker image prune -af
+
+      - name: "🔨 Build da imagem Docker (local, sem push)"
+        run: docker build -t design-system:ci-scan .
+
+      - name: "🔧 Instalar Trivy"
+        uses: aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567 # v0.3.1
+        with:
+          version: v0.70.0
+          cache: true
+
+      - name: "🔍 Scan da imagem com Trivy"
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: design-system:ci-scan
+          format: table
+          ignore-unfixed: true
+          exit-code: 1
+          severity: HIGH,CRITICAL
+          skip-setup-trivy: true
