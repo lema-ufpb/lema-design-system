@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test test-watch coverage registry clean docker-build docker-run shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run merge-dependabot
+.PHONY: help install dev build start lint format format-check typecheck storybook build-storybook build-docs test audit test-watch coverage registry clean docker-build docker-run docker-scan shadcn-add-all shadcn-add-all-dry shadcn-update pre-commit-install pre-commit-run merge-dependabot
 
 # ANSI Colors
 CYAN=\033[0;36m
@@ -25,6 +25,7 @@ help:
 	@echo "  🧩 $(GREEN)make registry$(RESET)         - Faz o build do registry do shadcn"
 	@echo "  🗑️  $(GREEN)make clean$(RESET)            - Limpa a casa (artefatos de build)"
 	@echo "  🐳 $(GREEN)make docker-build$(RESET)     - Constrói a imagem Docker local"
+	@echo "  🔍 $(GREEN)make docker-scan$(RESET)      - Escaneia a imagem Docker com Trivy (HIGH/CRITICAL)"
 	@echo "  🚢 $(GREEN)make docker-run$(RESET)       - Roda o container Docker local (porta 8080)"
 	@echo "  📥 $(GREEN)make shadcn-add-all$(RESET)   - Adiciona todos os componentes do shadcn (sobrescreve)"
 	@echo "  🧪 $(GREEN)make shadcn-add-all-dry$(RESET) - Simula a adição de todos os componentes"
@@ -84,6 +85,11 @@ test:
 	@echo "🧪 $(CYAN)Vestindo o jaleco... Rodando os testes unitários e de acessibilidade!$(RESET)"
 	npm run test
 
+audit:
+	@echo "🔒 $(CYAN)Auditando dependências (produção >= high, árvore completa >= critical)...$(RESET)"
+	npm run audit:prod
+	npm run audit:all
+
 test-watch:
 	@echo "👀 $(YELLOW)Olhos de águia ativados! Rodando os testes no modo watch...$(RESET)"
 	npm run test:watch
@@ -108,6 +114,11 @@ docker-build:
 	@echo "🐳 $(CYAN)Chamando a baleia... Construindo a imagem Docker (design-system:local)!$(RESET)"
 	docker build -t design-system:local .
 	@echo "✅ $(GREEN)Imagem Docker construída com sucesso!$(RESET)"
+
+docker-scan: docker-build
+	@echo "🔍 $(CYAN)Escaneando imagem design-system:local com Trivy...$(RESET)"
+	@command -v trivy >/dev/null 2>&1 || { echo "❌ trivy não encontrado. Instale com: brew install trivy"; exit 1; }
+	trivy image --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 design-system:local
 
 docker-run:
 	@echo "🚢 $(MAGENTA)Soltando as amarras... Rodando o container na porta 8080!$(RESET)"

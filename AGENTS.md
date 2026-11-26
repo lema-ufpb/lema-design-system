@@ -205,3 +205,12 @@ Sempre `<Skeleton>` do shadcn com dimensões que correspondem ao conteúdo real.
 ## Templates
 
 - `docs/templates/component-spec.md` — template spec-first para novos componentes
+
+## Segurança de dependências
+
+- Gates: `.github/workflows/security.yml` (PR em develop + semanal) e o job `audit` do `cd.yml` (bloqueia a imagem de produção) rodam
+  `npm run audit:prod` (runtime ≥ high) e `npm run audit:all` (árvore completa ≥ critical); `dependency-review` barra PR que introduz dependência
+  vulnerável. Localmente: `make audit`.
+- Falhou? `npm audit fix` (nunca `--force`: as "correções" que o npm sugere para `shadcn`/`eslint-config-next` são downgrades), `make lint && make test`,
+  commite só o `package-lock.json`. Vulnerabilidade sem correção publicada: documente a exceção no PR antes de ignorar.
+- Dependabot agrupa os security updates num PR (`npm-security`). Mantenha os checks `npm audit` e `Dependency review` como obrigatórios na branch protection.

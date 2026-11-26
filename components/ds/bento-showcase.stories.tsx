@@ -42,7 +42,7 @@ const meta = {
     browserUrl: "https://lema.ufpb.br/app",
     browserContent: (
       <div className="flex h-full items-center justify-center p-6 text-sm text-zinc-400">
-        $ npx shadcn add ds-hero-bento
+        $ npx shadcn add @lema-ds/ds-hero-bento
       </div>
     ),
     codeSnippet: "npx shadcn@latest add ds-bento-showcase",

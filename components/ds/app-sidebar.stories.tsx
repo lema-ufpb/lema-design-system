@@ -206,6 +206,8 @@ export const A11y: Story = {
   parameters: { a11y: { disable: true } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByRole("button")).toBeInTheDocument()
+    await expect(
+      canvas.getByRole("button", { name: /switch team/i })
+    ).toBeInTheDocument()
   },
 }

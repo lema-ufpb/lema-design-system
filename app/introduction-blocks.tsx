@@ -353,10 +353,10 @@ export function Architecture() {
 // ── Install ──
 
 const MANAGERS = [
-  { id: "npm", cmd: "npx shadcn@latest add ds-card-stat" },
-  { id: "pnpm", cmd: "pnpm dlx shadcn@latest add ds-card-stat" },
-  { id: "yarn", cmd: "yarn dlx shadcn@latest add ds-card-stat" },
-  { id: "bun", cmd: "bunx --bun shadcn@latest add ds-card-stat" },
+  { id: "npm", cmd: "npx shadcn@latest add @lema-ds/ds-card-stat" },
+  { id: "pnpm", cmd: "pnpm dlx shadcn@latest add @lema-ds/ds-card-stat" },
+  { id: "yarn", cmd: "yarn dlx shadcn@latest add @lema-ds/ds-card-stat" },
+  { id: "bun", cmd: "bunx --bun shadcn@latest add @lema-ds/ds-card-stat" },
 ]
 
 function CopyButton({ text }: { text: string }) {
@@ -1156,7 +1156,7 @@ const STEPS = [
   },
   {
     title: "Install",
-    desc: "Run npx shadcn add ds-<name>. The file lands ready in components/ui/, with no extra setup.",
+    desc: "Run npx shadcn add @lema-ds/ds-<name>. The file lands ready in components/ui/, with no extra setup.",
   },
   {
     title: "Compose",

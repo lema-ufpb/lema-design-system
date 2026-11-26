@@ -10,7 +10,7 @@ const items = [
   {
     value: "2",
     trigger: "How to install?",
-    children: "Run npx shadcn add ds-button.",
+    children: "Run npx shadcn add @lema-ds/ds-button.",
   },
   { value: "3", trigger: "Is it free?", children: "Yes, MIT licensed." },
   { value: "4", trigger: "Support?", children: "Open an issue on GitHub." },

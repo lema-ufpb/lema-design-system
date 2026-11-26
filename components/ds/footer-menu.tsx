@@ -196,12 +196,12 @@ export const FooterMenu = React.forwardRef<HTMLElement, FooterMenuProps>(
               key={`desktop-${i}`}
               className="flex flex-1 flex-col"
             >
-              <h4
+              <h3
                 data-slot="footer-menu-group-header"
                 className={cn(footerTitleVariants({ size, upper }), "mb-4")}
               >
                 {group.title}
-              </h4>
+              </h3>
               <ul
                 className={cn(footerContentVariants(), "flex flex-col gap-2")}
               >

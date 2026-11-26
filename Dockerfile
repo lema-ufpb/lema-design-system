@@ -21,12 +21,25 @@ RUN APP_VERSION=$APP_VERSION make build-storybook
 # Stage 2: Serve
 FROM nginx:alpine AS runner
 
+# Aplicar patches de segurança do Alpine (curl, expat, pcre2, tiff, bearer) e permitir bind na porta 80 sem root
+RUN apk upgrade --no-cache && \
+    apk add --no-cache libcap && \
+    setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx && \
+    apk del libcap
+
 # Remove default nginx static assets
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy the static output from the builder stage to Nginx
 COPY --from=builder /app/storybook-static /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/templates/default.conf.template
+
+# Garantir permissões para execução como usuário não-privilegiado (nginx)
+RUN chown -R nginx:nginx /var/cache/nginx /var/log/nginx /etc/nginx/conf.d /etc/nginx/templates /usr/share/nginx/html && \
+    touch /var/run/nginx.pid && \
+    chown nginx:nginx /var/run/nginx.pid
+
+USER nginx
 
 # Expose port 80 (Standard for HTTP)
 EXPOSE 80

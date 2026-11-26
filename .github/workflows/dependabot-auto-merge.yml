@@ -7,8 +7,12 @@ permissions:
 
 jobs:
   dependabot:
-    runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-24.04
+    # Checa o autor do PR (não `github.actor`, que é quem disparou o evento e muda
+    # em pushes/rebases) e exige que a branch seja deste repositório, não de fork.
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Dependabot metadata
         id: metadata
@@ -20,7 +24,11 @@ jobs:
       # (branch protection), pois o GITHUB_TOKEN não aprova PRs.
       - name: Enable auto-merge for Dependabot PRs
         if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
-        run: gh pr merge --auto --merge "$PR_URL"
+        # Best-effort: com auto-merge desabilitado no repositório, só avisa.
+        run: |
+          if ! gh pr merge --auto --merge "$PR_URL"; then
+            echo "::warning::Auto-merge indisponível no repositório; $PR_URL precisa de merge manual."
+          fi
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}

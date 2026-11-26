@@ -534,8 +534,14 @@ Este site também expõe seu catálogo em formato estruturado e legível por má
 
 ## Instalação
 
+Use sempre o namespace \`@lema-ds/\`: o shadcn CLI resolve nomes sem namespace no registry padrão (ui.shadcn.com) e retorna 404 para itens \`ds-*\`.
+
+- shadcn CLI (diretório: https://ui.shadcn.com/docs/directory?q=lema):
+  1. \`npx shadcn@latest registry add @lema-ds\` (uma vez por projeto; grava \`"@lema-ds": "https://ds.lema.ufpb.br/r/{name}.json"\` no components.json)
+  2. \`npx shadcn@latest add @lema-ds/ds-<nome>\` instala o item e suas dependências (ex.: \`@lema-ds/ds-card-stat\`; primitivos: \`@lema-ds/button\`)
+  3. \`npx shadcn@latest search @lema-ds --query <termo>\` e \`npx shadcn@latest view @lema-ds/<nome>\` para descobrir e inspecionar sem instalar
+- Sem registry configurado: \`npx shadcn@latest add https://ds.lema.ufpb.br/r/ds-<nome>.json\`
 - ds-sync (\`npm install -D @lema-ufpb/ds-sync\`): \`npx ds add <nome>\` instala qualquer item do catálogo acima, incluindo primitivos shadcn.
-- shadcn CLI: \`npx shadcn@latest add ds-<nome>\` lendo diretamente de \`/r/{name}.json\` neste domínio.
 `
 
 writeFileSync(join(ROOT, "storybook-static", "llms.txt"), llmsTxt, "utf-8")
