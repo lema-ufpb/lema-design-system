@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.14.4](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.3...v1.14.4) (2026-11-26)
+
+
+### 🐛 Bug Fixes
+
+* **i18n:** "Próxima" como rótulo de próxima página em pt-BR ([8563700](https://github.com/lema-ufpb/lema-design-system/commit/85637004c8afb5037fae4861bbcbede204b5dfb1))
+* **i18n:** use "Próxima" as the pt-BR pagination next label ([7e2bbe3](https://github.com/lema-ufpb/lema-design-system/commit/7e2bbe34fe0a512541ae05d352d6c32c66abab47))
+
+## [1.14.3](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.2...v1.14.3) (2026-11-26)
+
+
+### 🐛 Bug Fixes
+
+* **a11y:** resolve heading-order and redundant alt violations ([ff47b1c](https://github.com/lema-ufpb/lema-design-system/commit/ff47b1c927776dda782e9dd362242a37de117a11))
+* **ci:** endurecer workflows de release (auto-merge, build do CD, GHCR) ([05111a7](https://github.com/lema-ufpb/lema-design-system/commit/05111a7480e9d1a159c469182251dcd5b00e5efd))
+* **ci:** gate dependabot auto-merge on PR author and same-repo head ([4a3f7b0](https://github.com/lema-ufpb/lema-design-system/commit/4a3f7b04a815f054716a4656a91d48eed9090d0b))
+* **ci:** harden release workflows against disabled auto-merge and CD build drift ([8a87972](https://github.com/lema-ufpb/lema-design-system/commit/8a879726b3093372673228d164687c4f92f69d3c))
+* **ci:** validar autor do PR no auto-merge do Dependabot ([725b8b5](https://github.com/lema-ufpb/lema-design-system/commit/725b8b5957fe9cbbea5da8c5af060b031d06e463))
+* **data-table:** localize selection labels and forward locale to pagination ([848fef1](https://github.com/lema-ufpb/lema-design-system/commit/848fef1941b0af19db84c64183d3bb73e97b6977))
+* **deps:** patch vulnerable packages ([1ae8141](https://github.com/lema-ufpb/lema-design-system/commit/1ae814173f3959f8d81b02f30846642f2706ca74))
+* **docker:** apply Alpine security patches in the storybook image ([fce5aeb](https://github.com/lema-ufpb/lema-design-system/commit/fce5aeb04c14c89cdc5422f70838853edc5a1194))
+* stack column ([ebf01e9](https://github.com/lema-ufpb/lema-design-system/commit/ebf01e94361837c286ba11de948ce55641a4e90b))
+
+
+### 📚 Documentation
+
+* **llms:** use the [@lema-ds](https://github.com/lema-ds) namespace in the shadcn install instructions ([ce4a0d5](https://github.com/lema-ufpb/lema-design-system/commit/ce4a0d5f9ff6d10964ae7398198ac8c2ad63d1d5))
+* **readme:** traduzir para inglês e atualizar informações ([fe28818](https://github.com/lema-ufpb/lema-design-system/commit/fe2881890f5de101d78648bbad3b5d0d10544055))
+* **readme:** translate remaining sections to English and refresh facts ([6658297](https://github.com/lema-ufpb/lema-design-system/commit/66582976b1288448ed08a993e9e50ca6be200e06))
+* **stories:** use the [@lema-ds](https://github.com/lema-ds) namespace in the demo install commands ([043849c](https://github.com/lema-ufpb/lema-design-system/commit/043849c2eeb3cbbbd71c46f91a833cdf1a3e3933))
+* use the [@lema-ds](https://github.com/lema-ds) namespace in shadcn install commands ([fed704f](https://github.com/lema-ufpb/lema-design-system/commit/fed704f57feda9565fb8ce30d274c083ae0302a1))
+
 ## [1.14.2](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.1...v1.14.2) (2026-09-24)
 
 
