@@ -1347,7 +1347,7 @@ export const UI_I18N: Record<
     pagination: {
       navLabel: "paginação",
       previous: "Anterior",
-      next: "Próximo",
+      next: "Próxima",
       goToPrevious: "Ir para página anterior",
       goToNext: "Ir para próxima página",
       morePages: "Mais páginas",
