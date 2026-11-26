@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.14.4](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.3...v1.14.4) (2026-11-26)
+
+
+### 🐛 Bug Fixes
+
+* **i18n:** "Próxima" como rótulo de próxima página em pt-BR ([8563700](https://github.com/lema-ufpb/lema-design-system/commit/85637004c8afb5037fae4861bbcbede204b5dfb1))
+* **i18n:** use "Próxima" as the pt-BR pagination next label ([7e2bbe3](https://github.com/lema-ufpb/lema-design-system/commit/7e2bbe34fe0a512541ae05d352d6c32c66abab47))
+
 ## [1.14.3](https://github.com/lema-ufpb/lema-design-system/compare/v1.14.2...v1.14.3) (2026-11-26)
 
 
